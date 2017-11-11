@@ -35,51 +35,51 @@ Some examples
 
 - a Docker image with a specific id as version. From gcr.io::
 
-    docker:gcr.io/customer/dockerimage@sha256:244fd47e07d1004f0aed9c 
+    docker://gcr.io/customer/dockerimage@sha256:244fd47e07d1004f0aed9c 
 
 - a Docker image with a specific tag as version. From the public Docker hub::
 
-    docker:cassandra@cassandra
+    docker://cassandra@cassandra
     
 - a Maven source JAR (here the qualifiers point to a source jar)::
 
-    maven:org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources
+    maven://org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources
 
 - a Go dependency with a path inside a Go package repo::
 
-    godep:google.golang.org/genproto#googleapis/api/annotations  
+    godep://google.golang.org/genproto#googleapis/api/annotations  
 
 - a source RPM::
 
-    rpm:fedora-25/curl@7.50.3-1.fc25?arch=src
+    rpm://fedora-25/curl@7.50.3-1.fc25?arch=src
 
 - The i386 build of an RPM::
 
-    rpm:fedora-25/curl@7.50.3-1.fc25?arch=i386
+    rpm://fedora-25/curl@7.50.3-1.fc25?arch=i386
 
 - The i386 build of a Dedian Jessie package::
 
-    deb:jessie/curl@7.50.3-1?arch=i386
+    deb://jessie/curl@7.50.3-1?arch=i386
 
 - Django on Pypi::
 
-    pypi:django@1.11.1
+    pypi://django@1.11.1
 
 - A Rubygem::
 
-    gem:ruby-advisory-db-check@0.12.4
+    gem://ruby-advisory-db-check@0.12.4
 
 - A Rubygem for the Java platform::
 
-    gem:jruby-launcher@1.1.2?platform=java 
+    gem://jruby-launcher@1.1.2?platform=java 
 
 - An NPM::
 
-    npm:foobar@12.3.1
+    npm://foobar@12.3.1
 
 - A scoped NPM package::
 
-    npm:%40angular/animation@12.3.1
+    npm://%40angular/animation@12.3.1
 
 
 Rules for each `puurl` part
@@ -152,7 +152,7 @@ works from left to right.
 
  - Start a `puurl` string with the `type` as a lowercase string
 
-   - Append '//:' to the `puurl`
+   - Append '://' to the `puurl`
 
  - If the `namespace` is not empty
 
