@@ -1,297 +1,716 @@
+Context
+=======
 
-We build and release software by consuming and producing software
-packages such as NPMs, RPMs, Rubygems, etc.
+We build and release software by massively consuming and producing
+software packages such as NPMs, RPMs, Rubygems, etc.
 
-A `puurl` is a URL string used to identify a package in a mostly
-universal and uniform way across programing languages, package
-managers and packaing conventions and different tools, APIs and databases.
-
-This identification is necessary and useful such that tools, databases
-and APIS can reference the same software package using a simple and
-expressive syntax and conventions based on familiar URLs.
+Each package manager, platform, type or ecosystem has its own
+conventions and protocols to identify, locate and provision software
+packages.
 
 
-puurl
+Problem
+=======
+
+When tools, APIs and databases process or store multiple package
+types, it is difficult to reference the same software package across
+tools in a uniform way.
+
+For example, these tools, specifications and API use relatively
+similar approaches to identify and locate software packages, each with
+subtle differences in syntax, naming and conventions:
+
+- Grafeas uses a scheme, namespace, name and version in a URL-like
+  string
+- Here.com OSRK uses a package manager, name and version field and
+  a colon-separated URL-like string
+- JFrog XRay uses a scheme, namespace, name and version in a URL-like
+  string
+- Libraries.io uses a platform, name and version
+- OpenShift fabric8 analytics uses ecosystem, name and version
+- ScanCode and AboutCode.org use a type, name and version
+- SPDX has an appendix for external repository references and uses a
+  type and a locator with a type-specific syntax for part separators
+  in a URL-like string
+- versioneye uses a type, name and version
+
+
+Solution
+========
+
+A `purl` or package URL is an attempt to standardize existing
+approaches to reliably identify and locate software packages.
+
+A `purl` is a URL string used to identify and locate a software
+package in a mostly universal and uniform way across programing
+languages, package managers, packaging conventions, tools, APIs and
+databases.
+
+Such a package URL is useful to reliably reference the same software
+package using a simple and expressive syntax and conventions based on
+familiar URLs.
+
+
+purl
 ~~~~~
 
-`puurl` stands for **package "mostly" universal URL**.
+`purl` stands for **package URL**.
 
-A `puurl` is a URL composed of six parts: `type://namespace/name@version?qualifiers#path`
+A `purl` is a URL composed of six parts::
 
-- **type**: such as maven, npm, gem, pypi, etc. This is a URL `scheme`.
-- **namespace**: such as a maven groupid, a Docker registry or owner, a GithUb user or organization.
+    type:namespace/name@version?qualifiers#subpath
+
+
+- **type**: the package "type" or package "protocol" such as maven,
+  npm, nuget, gem, pypi, etc.
+- **namespace**: such as a Maven groupid, a Docker image owner,
+  a GitHub user or organization.
 - **name**: the name of the package.
 - **version**: the version of the package.
-- **qualifiers**: extra qualifying data for a package such as an OS, architecture, a distro, etc.
-- **path**: a sub path within a package.
-
-At the minimum a `type` and a `name` may be needed to indentify a package.
-A `version` is often essential for precise identification.
-Other parts are optional and are often specific to a `type`.
+- **qualifiers**: extra qualifying data for a package such as an OS,
+  architecture, a distro, etc.
+- **subpath**: extra subpath within a package, relative to the package
+  root.
 
 
-Some examples 
-~~~~~~~~~~~~~
-
-- a Docker image with a specific id as version. From gcr.io::
-
-    docker://gcr.io/customer/dockerimage@sha256:244fd47e07d1004f0aed9c 
-
-- a Docker image with a specific tag as version. From the public Docker hub::
-
-    docker://cassandra@cassandra
-    
-- a Maven source JAR (here the qualifiers point to a source jar)::
-
-    maven://org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources
-
-- a Go dependency with a path inside a Go package repo::
-
-    godep://google.golang.org/genproto#googleapis/api/annotations  
-
-- a source RPM::
-
-    rpm://fedora-25/curl@7.50.3-1.fc25?arch=src
-
-- The i386 build of an RPM::
-
-    rpm://fedora-25/curl@7.50.3-1.fc25?arch=i386
-
-- The i386 build of a Dedian Jessie package::
-
-    deb://jessie/curl@7.50.3-1?arch=i386
-
-- Django on Pypi::
-
-    pypi://django@1.11.1
-
-- A Rubygem::
-
-    gem://ruby-advisory-db-check@0.12.4
-
-- A Rubygem for the Java platform::
-
-    gem://jruby-launcher@1.1.2?platform=java 
-
-- An NPM::
-
-    npm://foobar@12.3.1
-
-- A scoped NPM package::
-
-    npm://%40angular/animation@12.3.1
+Parts are designed such that a `purl` is forms a hierarchy of parts
+from the most significant on the left left to the least significant
+parts to the right.
 
 
-Rules for each `puurl` part
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A `purl` must NOT contain a URL Authority i.e. there is no support
+for `username`, `password`, `host` and `port` parts. A `namespace`
+segment may sometimes look like a `host` but its interpretation is
+specific to a `type`.
 
-A `puurl` string is an ASCII string. Some parts can encode other
-characters beyond ASCII: these parts must then be in UTF-8 and
-percent-encoded.
 
+Some `purl` examples
+~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    bitbucket:birkenfeld/pygments-main@244fd47e07d1014f0aed9c
+    deb:curl@7.50.3-1?arch=i386&distro=jessie
+    docker:cassandra@sha256:244fd47e07d1004f0aed9c
+    docker:customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io
+    gem:jruby-launcher@1.1.2?platform=java
+    gem:ruby-advisory-db-check@0.12.4
+    github:packageurl/purl-spec@244fd47e07d1004f0aed9c
+    go:google.golang.org/genproto#googleapis/api/annotations
+    maven:org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources
+    maven:org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=repo.spring.io/release
+    npm:%40angular/animation@12.3.1
+    npm:foobar@12.3.1
+    nuget:EnterpriseLibrary.Common@6.0.1304
+    pypi:django@1.11.1
+    rpm:curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
+    rpm:curl@7.50.3-1.fc25?arch=src
+
+(NB: some checksums are truncated for brevity)
+
+
+A `purl` is a URL
+~~~~~~~~~~~~~~~~~
+
+- A `purl` is a valid URL and URI that conforms to the URL definitions
+  or specifications at:
+
+  - https://tools.ietf.org/html/rfc3986
+  - https://en.wikipedia.org/wiki/URL#Syntax
+  - https://en.wikipedia.org/wiki/Uniform_Resource_Identifier#Syntax
+  - https://url.spec.whatwg.org/
+
+- The `purl` parts are mapped to these URL parts:
+
+  - `purl` `type`: this is a URL `scheme`
+  - `purl` `namespace`, `name` and `version` parts: these are
+    collectively mapped to a URL `path`
+  - `purl` `qualifiers`: this maps to a URL `query`
+  - `purl` `subpath`: this is a URL `fragment`
+  - In a `purl` there is no support for a URL Authority (e.g. NO
+    `username`, `password`, `host` and `port` parts).
+
+- Special URL schemes as defined in https://url.spec.whatwg.org/ such
+  as `file://`, `https://`, `http://` and `ftp://` are NOT
+  valid `purl` types. They may be used to reference URLs in separate
+  attributes outside of a `purl` or in a `purl` qualifier.
+
+- Version control system (VCS) URLs such `git://`, `svn://`, `hg://`
+  or as defined in Python pip or SPDX download locations are NOT valid
+  `purl` types. They are a closely related, compact and uniform way to
+  reference vcs URLs. They may be used as references in separate
+  attributes outside of a `purl` or in a `purl` qualifier.
+
+
+Rules for each `purl` part
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A `purl` string is an ASCII URL string composed of six parts.
+
+Some parts are allowed to use other characters beyond ASCII: these
+parts must then be in UTF-8 and percent-encoded as defined in the
+"Character encoding" section.
+
+The rules for each part are:
 
 - **type**:
 
-  - The `type` is composed only of ASCII letters and numbers,
-    '.', '+' and '-' and '_' (period, plus, dash and underscore). 
-  - It cannot start with a number.
-  - It must NOT be percent-encoded.
-  - It is case insensitive. The canonical form is lowercase. 
-  - It cannot contains spaces.
+  - The package `type` is composed only of ASCII letters and numbers,
+    '.', '+' and '-' and '_' (period, plus, dash and underscore)
+  - The `type` cannot start with a number
+  - The `type` cannot contains spaces
+  - The `type` must NOT be percent-encoded
+  - The `type` is case insensitive. The canonical form is lowercase
+  - Since a `purl` does not use a URL Authority, its `type` should not
+    be suffixed with double slash as in 'docker://' and should use
+    instead 'docker:'. While it is acceptable to use such '://'
+    suffix, its is not significant and not needed for unambiguous
+    parsing but it looks more as a familiar web URL. In its canonical
+    form, a `purl` must NOT use such '://' `type` suffix.
+  - The `type` is followed by a ':' separator
+  - For example these two purls are strictly equivalent and the first
+    is in canonical form::
+
+            gem:ruby-advisory-db-check@0.12.4
+            gem://ruby-advisory-db-check@0.12.4
+
 
 - **namespace**:
 
-  - The `namespace` contains zero or more segments, separated by slash '/'. 
+  - The optional `namespace` contains zero or more segments, separated
+    by slash '/'
   - Leading and trailing slashes '/' are not significant and should be
-    stripped in the canonical form.
-  - Each segment must be a percent-encoded string. 
-  - A segment must not contain '/' when percent-decoded. 
+    stripped in the canonical form. They are not part of the
+    `namespace`
+  - Each `namespace` segment must be a percent-encoded string
+  - When percent-decoded, a segment:
 
-- **name**: must be a percent-encoded string.
+    - must not contain a '/'
+    - must not be empty
 
-- **version**: must be a percent-encoded string.
+  - A URL host or Authority must NOT be used as a `namespace`. Use
+    instead a `repository_url` qualifier. Note however that for some
+    types, the `namespace` may look like a host.
 
-- **qualifiers**: 
 
+- **name**:
+
+  - The `name` is prefixed by a '/' separator when the `namespace`
+    is not empty
+  - This '/' is not part of the `name`
+  - A `name` must be a percent-encoded string
+
+
+- **version**:
+
+  - The `version` is prefixed by a '@' separator when not empty
+  - This '@' is not part of the `version`
+  - A `version` must be a percent-encoded string
+  - A `version` is a plain and opaque string. Some package `type` use
+    versioning conventions such as semver for NPMs or nevra
+    conventions for RPMS. A `type` may define a procedure to compare
+    and sort versions, but there is no reliable and uniform way to do
+    such comparison consistently.
+
+
+- **qualifiers**:
+
+  - The `qualifiers` string is prefixed by a '?' separator when not
+    empty
+  - This '?' is not part of the `qualifiers`
   - This is a query string composed of zero or more `key=value` pairs
     each separated by a '&' ampersand. A `key` and `value` are
     separated by the equal '=' character
-  - A `key` must be unique within the keys of the `qualifiers` string. 
-  - A `value` cannot be an empty string: a key/value pair with an empty
-    value is the same as no key/value at all  
+  - These '&' are not part of the `key=value` pairs.
+  - `key` must be unique within the keys of the `qualifiers` string
+  - `value` cannot be an empty string: a `key=value` pair with an
+    empty `value` is the same as no key/value at all for this key
   - For each pair of `key` = `value`:
-  
-    - The `key` must be composed only of ASCII letters and numbers, 
+
+    - The `key` must be composed only of ASCII letters and numbers,
       '.' and '-' and '_' (period, dash and underscore)
     - A `key` cannot start with a number
     - A `key` must NOT be percent-encoded
-    - It is case insensitive. The canonical form is lowercase 
-    - It cannot contains spaces
+    - A `key` is case insensitive. The canonical form is lowercase
+    - A `key` cannot contains spaces
     - A `value` must be must be a percent-encoded string
+    - The '=' separator is neither part of the `key` nor of the
+      `value`
 
-- **path**:
 
-  - The `path` contains zero or more segments, separated by slash '/' 
+- **subpath**:
+
+  - The `subpath` string is prefixed by a '#' separator when not empty
+  - This '#' is not part of the `subpath`
+  - The `subpath` contains zero or more segments, separated by slash
+    '/'
   - Leading and trailing slashes '/' are not significant and should be
     stripped in the canonical form
-  - Each segment must be a percent-encoded string 
+  - Each `subpath` segment must be a percent-encoded string
   - When percent-decoded, a segment:
 
     - must not contain a '/'
     - must not be any of '..' or '.'
-  
-  - The `path` must be interpreted as relative to the root of the package
+    - must not be empty
+
+  - The `subpath` must be interpreted as relative to the root of the
+    package
 
 
-How to build `puurl` string from its parts
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Character encoding
+~~~~~~~~~~~~~~~~~~
 
-Based on the conventions defined in this document, building a string
-works from left to right.
+For clarity and simplicity a `purl` is always an ASCII string.
+To ensure that there is no ambiguity when parsing a `purl`, separator
+characters and non-ASCII characters must be UTF-encoded and then
+percent-encoded as defined at::
+
+    https://en.wikipedia.org/wiki/Percent-encoding
+
+The percent-encoding rules of `purl` parts are defined by these rules:
+
+  - the `type` must NOT be encoded and must NOT contain separators
+
+  - the '#', '?', '@' and ':' characters must NOT be encoded when used
+    as separators. The may need to be encoded elsewhere
+
+  - the ':' `type` separator does not need to and must NOT be encoded
+    It is unambiguous unencoded everywhere
+
+  - the '/' used as `namespace`/`name` and `subpath` segments
+    separator does not need to and must NOT be percent-encoded. It is
+    unambiguous unencoded everywhere
+
+  - the '@' `version` separator must be encoded as `%40` elsewhere
+  - the '?' `qualifiers` separator must be encoded as `%3F` elsewhere
+  - the '=' `qualifiers` key/value separator must NOT be encoded
+  - the '#' `subpath` separator must be encoded as `%23` elsewhere
+
+  - All non-ASCII characters must be encoded as UTF-8 and then
+    percent-encoded.
+
+It is OK to percent-encode `purl` parts otherwise except for the
+`type`. Parsers must always percent-decode parts as explained in the
+"Parsing " section.
 
 
- - Start a `puurl` string with the `type` as a lowercase string
+How to build `purl` string from its parts
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   - Append '://' to the `puurl`
+Based on the conventions defined in this document, building a `purl`
+ASCII string works from left to right, from `type` to `subpath`.
 
- - If the `namespace` is not empty
 
-   - Split the `namespace` on '/'
+ - Start a `purl` string with the `type` as a lowercase ASCII string
+
+   - Append ':' to the `purl`
+
+ - If the `namespace` is not empty:
+
+   - Strip the `namespace` from leading and trailing '/'
+   - Split on '/' as segments
+   - UTF-8-encode each segment if needed in your programming language
    - Percent-encode each segment
    - Join the segments with '/'
-   - Append this to the `puurl`
-   - Append '/' to the `puurl`
-   - Append the percent-encoded name to the `puurl`
+   - Append this to the `purl`
+   - Append '/' to the `purl`
+   - Strip the `name` from leading and trailing '/'
+   - UTF-8-encode the `name` if needed in your programming language
+   - Append the percent-encoded `name` to the `purl`
 
  - If the `namespace` is empty:
 
-   - Append the percent-encoded name to the `puurl`
+   - UTF-8-encode the `name` if needed in your programming language
+   - Append the percent-encoded `name` to the `purl`
 
  - If the `version` is not empty:
 
-   - Append '@' to the `puurl`
-   - Append the percent-encoded version to the `puurl`
+   - Append '@' to the `purl`
+   - UTF-8-encode the `version` if needed in your programming language
+   - Append the percent-encoded version to the `purl`
 
- - If the `qualifiers` are not empty:
+ - If the `qualifiers` are not empty and not composed only of
+   key/value pairs where the `value` is empty:
 
-   - Append '?' to the `puurl`
-   - For each key/value pair:
-   
-     - create a string by joining the lowercase `key`, the equal '=' 
-       sign and the percent-encoded `value`
+   - Append '?' to the `purl`
+   - Build a list from all key/value pair:
 
-   - sort this list of strings lexicographically
-   - join this list of strings with a '&'
-   - Append this to the `puurl`
+     - discard any pair where the `value` is empty.
+     - UTF-8-encode each `value` if needed in your programming
+       language
+     - If the `key` is `checksums` and this is a list of `checksums`
+       join this list with a ',' to create this qualifier `value`
+     - create a string by joining the lowercased `key`, the equal '='
+       sign and the percent-encoded `value` to create a qualifier
 
- - If the `path` is not empty:
- 
-   - Append '#' to the `puurl`
-   - Split the `path` on '/'
+   - sort this list of qualifier strings lexicographically
+   - join this list of qualifier strings with a '&' ampersand
+   - Append this string to the `purl`
+
+ - If the `subpath` is not empty and not composed only of empty, '.'
+   and '..' segments:
+
+   - Append '#' to the `purl`
+   - Strip the `subpath` from leading and trailing '/'
+   - Split this on '/' as segments
    - Discard empty, '.' and '..' segments
    - Percent-encode each segment
+   - UTF-8-encode each segment if needed in your programming language
    - Join the segments with '/'
-   - Append this to the `puurl`
+   - Append this to the `purl`
 
 
-How to parse a `puurl` string in its parts
+How to parse a `purl` string in its parts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Based on the conventions defined in this document, parsing works from
-right to left.
+Based on the conventions defined in this document, parsing a `purl`
+ASCII string into its parts works from right to left, from `subpath`
+to `type`.
 
-- Split the `puurl` string once from right on '#'
- 
+- Split the `purl` string once from right on '#'
+
   - The left side is the `remainder`
   - Strip the right side from leading and trailing '/'
   - Split this on '/'
   - Discard any empty string segment from that split
   - Discard any '.' or  '..' segment from that split
-  - Percent-decode each segment and join them back in a '/'
-    slash-separated string. This is the `path`
+  - Percent-decode each segment
+  - UTF-8-decode each segment if needed in your programming language
+  - Join segments back with a '/'
+  - This is the `subpath`
 
 - Split the `remainder` once from right on '?'
- 
-  - The right side is the `qualifiers`
+
   - The left side is the `remainder`
+  - The right side is the `qualifiers` string
   - Split the `qualifiers` on '&'. Each part is a `key=value` pair
   - For each pair, split the `key=value` once from left on '=':
 
     - The `key` is the lowercase left side
     - The `value` is the percent-decoded right side
+    - UTF-8-decode the `value` if needed in your programming language
+    - Discard any key/value pairs where the value is empty
+    - If the `key` is `checksums`, split the `value` on ',' to create
+      a list of `checksums`
+
+  - This list of key/value is the `qualifiers` object
 
 - Split the `remainder` once from left on ':'
- 
+
   - The left side lowercased is the `type`
   - The right side is the `remainder`
 
 - Strip the `remainder` from leading and trailing '/'
- 
+
   - Split this once from right on '/'
-  - The right side is the `name` after percent-decoding
   - The left side is the `remainder`
+  - Percent-decode the right side
+  - UTF-8-decode the `name` if needed in your programming language
+  - This is the `name`
 
 - Split the `remainder` on '/'
- 
+
   - Discard any empty segment from that split
-  - Percent-decode each segment and join them back in a '/'
-    slash-separated string
+  - Percent-decode each segment
+  - UTF-8-decode the each segment if needed in your programming
+    language
+  - Join segments back with a '/'
   - This is the `namespace`
 
 
-Relations with the whatwg URLs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Known `purl` types
+~~~~~~~~~~~~~~~~~~~~
 
-These are the relationships between the parts of a `puurl` and a
-URL as defined at https://url.spec.whatwg.org/#url-representation :
+These are known `purl` package type definitions.
+More should be added. See candidate list further down.
 
-- `puurl` `type`: this is the URL `scheme`.
-- `puurl` `namespace`, `name` and `version` parts: these collectively map to the URL `path`. 
-- `puurl` `qualifiers`: this maps to the URL `query`
-- `puurl` `path`: this is the URL `fragment`
 
-Note: In a `puurl` there is no special mapping of parts to the URL `username`,
-`password`, `host` and `port` parts.
+- `bitbucket` for Bitbucket-based packages:
+  - the default repository is `bitbucket.org`
+  - the `namespace` is the user or organization
+  - the `name` is the repository name
+  - the `version` is a commit or tag
+  - examples::
+
+        bitbucket:birkenfeld/pygments-main@244fd47e07d1014f0aed9c
+
+
+- `deb` for Debian, Debian derivatives and Ubuntu packages:
+
+  - there is no default package repository: this should be implied
+    either from the `distro` `qualifiers` `key` or using a base url as
+    a `repository_url` `qualifiers` `key`
+  - `arch` is the `qualifiers` `key` for a package architecture
+  - examples::
+
+        deb:curl@7.50.3-1?arch=i386&distro=jessie
+
+
+- `docker` for Docker images
+
+  - the default repository is `hub.docker.com`
+  - the `namespace` is the user or organization if present
+  - A URL host or Authority should not be used as a `namespace`.
+    Use instead the `repository_url` qualifier `key` to point to an
+    alternative image registry.
+  - the version should be the image id sha256 or a tag. Since tags can
+    be moved, a sha256 image id is preferred.
+  - examples::
+
+        docker:cassandra@latest
+        docker:smartentry/debian@dc437cc87d10
+        docker:customer/dockerimage@sha256:244fd47e07d10?repository_url=gcr.io
+
+
+- `gem` for Rubygems:
+
+  - the default repository is `rubygems.org`
+  - the `platform` `qualifiers` `key` is used to specify an
+    alternative platform such as `java` for JRuby. The implied default
+    is `ruby` for Ruby MRI.
+  - examples::
+
+        gem:ruby-advisory-db-check@0.12.4
+        gem:jruby-launcher@1.1.2?platform=java
+
+
+- `generic` for plain, generic packages that do not fit anywhere else
+  such as for "upstream -from-distro" packages:
+
+  - their is no default repository. A `download_url` and `checksum`
+    may be provided in `qualifiers` or as separate attributes outside
+    of a `purl` for proper identification and location.
+  - examples (truncated for brevity)::
+
+       generic:openssl@1.1.10g
+       generic:openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da3931090
+
+
+- `github` for Github-based packages:
+
+  - the default repository is `github.com`
+  - the `namespace` is the user or organization
+  - the `name` is the repository name
+  - the `version` is a commit or tag
+  - examples::
+
+        github:packageurl/purl-spec@244fd47e07d1004f0aed9c
+
+
+- `go` for Go packages
+
+  - there is no default package repository: this is implied in the
+    namespace using the `go get` command conventions
+  - `subpath` is used to point to a subpath inside a package
+  - `version` is often empty but should be the commit string
+  - examples::
+
+        go:github.com/gorilla/context@234fd47e07d1004f0aed9c
+        go:google.golang.org/genproto#googleapis/api/annotations
+
+
+- `maven` for Maven JARs and related artifacts
+
+  - the default repository is `maven.org`
+  - the group id is the `namespace` and the artifact id is the `name`
+  - known `qualifiers` keys are: `classifier` and `packaging` as
+    defined in the POM documentation
+  - examples::
+
+        maven:org.apache.xmlgraphics/batik-anim@1.9.1
+        maven:org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources
+
+
+- `npm` for Node NPM packages:
+
+  - the default repository is `registry.npmjs.org`
+  - `namespace` is used for the scope of a scoped NPM package.
+  - examples::
+
+        npm:foobar@12.3.1
+        npm:%40angular/animation@12.3.1
+
+
+- `nuget` for NuGet .NET packages:
+
+  - the default repository is `nuget.org`
+  - there is no `namespace` per se: the common convention is to use
+    dot-separated package names where the first segment is
+    `namespace` like.
+  - examples::
+
+        nuget:EnterpriseLibrary.Common@6.0.1304
+
+
+- `pypi` for Python packages:
+
+  - the default repository is `pypi.python.org`
+  - TBD: we could specify a `format` `qualifiers` `key` to specify a
+    package format with values of `egg`, `wheel` , `sdist`, `exe` or
+    may be a file extension?
+  - TBD: we could specify a  `markers` `qualifiers` `key` to specify
+    PEP 508 environment markers but this is extra complexity. See
+    https://www.python.org/dev/peps/pep-0508/
+  - examples::
+
+        pypi:django@1.11.1
+
+
+- `rpm` for RPMs:
+
+  - there is no default package repository: this should be implied
+    either from the `distro` `qualifiers` `key` or using a repository
+    base url as a `repository_url` `qualifiers` `key`
+  - `arch` is the `qualifiers` `key` for a package architecture
+  - examples::
+
+        rpm:curl@7.50.3-1.fc25?arch=src
+        rpm:curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
+
+
+Other candidate types to define:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- `alpine` for Alpine Linux apk packages:
+- `apache` for Apache projects packages:
+- `android` for Android apk packages:
+- `arch` for Arch Linux packages:
+- `atom` for Atom packages:
+- `bower` for Bower JavaScript packages:
+- `brew` for Homebrew packages:
+- `buildroot` for Buildroot packages
+- `cargo` for Rust packages:
+- `carthage` for Cocoapods Cocoa packages:
+- `chef` for Chef packages:
+- `clojars` for Clojure packages:
+- `cocoapods` for Cocoapods iOS packages:
+- `composer` for Composer PHP packages:
+- `conan` for Conan C/C++ packages:
+- `coreos` for CoreOS packages:
+- `cpan` for CPAN Perl packages:
+- `cran` for CRAN R packages:
+- `ctan` for CTAN TeX packages:
+- `crystal` for Crystal Shards packages:
+- `drupal` for Drupal packages:
+- `dtype` for DefinitelyTyped TypeScript type defs:
+- `dub` for D packages:
+- `elm` for Elm packages:
+- `eclipse` for Eclipse projects packages:
+- `gitlab` for Gitlab-based packages:
+- `guix` for Guix packages:
+- `hackage` for Haskell packages:
+- `haxe` for Haxe packages:
+- `hex` for Erlang and Elixir packages
+- `julia` for Julia packages:
+- `lua` for LuaRocks packages:
+- `melpa` for Emacs packages
+- `meteor` for Meteor JavaScript packages:
+- `nim` for Nim packages:
+- `nix` for Nixos packages:
+- `opam` for OCaml packages:
+- `openwrt` for OpenWRT packages:
+- `osgi` for OSGi bundle packages:
+- `p2` for Eclipse p2 packages:
+- `pear` for Pear PHP packages:
+- `pecl` for PECL PHP packages:
+- `perl6` for Perl 6 module packages:
+- `platformio` for PlatformIO packages:
+- `ebuild` for Gentoo Linux portage packages:
+- `pub` for Dart packages:
+- `puppet` for Puppet Forge packages:
+- `sourceforge` for Sourceforge-based packages:
+- `sublime` for Sublime packages:
+- `swift` for Swift packages:
+- `vim` for Vim scripts packages:
+- `wordpress` for Wordpress packages:
+- `yocto` for Yocto recipe packages
+
+
+Known `qualifiers` key/value pairs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Note: it can be tempting to use many qualifier keys: their usage
+should be limited to the bare minimum for proper package
+identification. Additional, separate attributes not stored in a
+`purl`are the preferred mechanism to convey extra information such as
+a download URL, or checksums in an API, database or web form.
+This ensures that a `purl` stays compact and readable in most cases.
+
+The following known `key` and `value` defined here are valid for use
+in all package types:
+
+- `repository_url` is an extra URL for an alternative, non-default
+  package repository or registry.  When a package does not come from
+  the default public package repository for its `type` a `purl` may be
+  qualified with this extra URL.
+
+- `download_url` is an extra URL for a direct package web download URL
+  to optionally qualify a `purl`.
+
+- `vcs_url` is an extra URL for a package version control system URL
+  to optionally qualify a `purl`. The syntax for this URL should be
+  as defined in Python pip or the SPDX specification.
+  See https://github.com/spdx/spdx-spec/blob/cfa1b9d08903/chapters/3-package-information.md#37-package-download-location-
+  TODO: incorporate the details from SPDX here.
+
+- `file_name` is an extra file name of a package archive.
+
+- `checksum` is a qualifier for one or more checksums stored as a
+   comma-separated list. Each item in the `value` is in form of
+   `lowercase_algorithm:hex_encoded_lowercase_value`
+   such as `sha1:ad9503c3e994a4f611a4892f2e67ac82df727086`.
+   For example (with checksums truncated for brevity) ::
+
+       `checksum=sha1:ad9503c3e994a4f,sha256:41bf9088b3a1e6c1ef1d`
 
 
 Known implementations
 ~~~~~~~~~~~~~~~~~~~~~
 
+This list is TBD!
+
+- in JavaScript:
+- in Go:
+- for .NET:
+- for the JVM:
+- in Perl:
 - in Python:
 - in Ruby:
-- in Go:
-- in JavaScript:
-- in Perl:
-- for the JVM:
 
 
-Related work
-~~~~~~~~~~~~
+Users and adopters
+~~~~~~~~~~~~~~~~~~
 
-- JForg XRAY
-- Google Grafeas
-- Libraries.io
-- versioneye
-- OpenShift fabric8
-- Here.com OSRK
-- ScanCode
+This list is TBD!
 
 
-Other considerations
-~~~~~~~~~~~~~~~~~~~~
+Tests
+~~~~~
 
-- A `puurl` is a valid URL that conforms to the URL spec at https://url.spec.whatwg.org/
- 
-- `https://`, `http://` and `ftp://` URL schemes are not valid `puurl` `type`.
+TBD!
 
-- When a package is from an alternative package `repository` (e.g.
-  not from the default `repository` for its `type`) a `puurl` may be
-  supplemented by an other and separate attribute pointing to this
-  alternative  package `repository` URL.
+To support the language-neutral testing of `purl` implementations, a
+test suite is provided as JSON document. This document contains an
+array of objects. Each object represents a test with these key/value
+pairs:
 
-- When a package is from available through its `type` protocol, 
-  a `puurl` may be supplemented by an other and separate attribute
-  pointing to a direct and regular web download URL.
+- **purl**: a `purl` string
+- **type**: the `type` corresponding to this `purl`
+- **namespace**: the `namespace` corresponding to this `purl`
+- **name**: the `name` corresponding to this `purl`
+- **version**: the `version` corresponding to this `purl`
+- **qualifiers**: the `qualifiers` corresponding to this `purl` as an
+  object of {key: value} qualifier pairs
+- **subpath**: the `subpath` corresponding to this `purl`
 
-- other possible names: `puuid` or `puid` for Package "mostly"
-  Universal IDentifiers. `puuid` means trees in Estonian.
+To tests `purl` parsing and construction, a tool can use this test
+suite such that for every listed test object:
+
+- parsing each `purl` produces the correct parts
+- creating a `purl` from the parts produces the correct `purl` string
+
+
+License
+~~~~~~~
+
+This document is dedicated to the public domain
