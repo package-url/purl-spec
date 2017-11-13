@@ -299,7 +299,8 @@ How to build `purl` string from its parts
 
 Based on the conventions defined in this document, building a `purl`
 ASCII string works from left to right, from `type` to `subpath`.
-
+Note that there may be extra type-specific normalizations that may
+need to be applied.
 
 - Start a `purl` string with the `type` as a lowercase ASCII string
 
@@ -365,7 +366,8 @@ How to parse a `purl` string in its parts
 
 Based on the conventions defined in this document, parsing a `purl`
 ASCII string into its parts works from right to left, from `subpath`
-to `type`.
+to `type`. Note that there may be extra type-specific normalizations
+that may need to be applied.
 
 - Split the `purl` string once from right on '#'
 
@@ -427,8 +429,10 @@ More should be added. See candidate list further down.
 
 - `bitbucket` for Bitbucket-based packages:
   - the default repository is `bitbucket.org`
-  - the `namespace` is the user or organization
-  - the `name` is the repository name
+  - the `namespace` is the user or organization. It is not case
+    sensitive and must be lowercased.
+  - the `name` is the repository name. It is not case sensitive and
+    must be lowercased.
   - the `version` is a commit or tag
   - examples::
 
@@ -489,8 +493,10 @@ More should be added. See candidate list further down.
 - `github` for Github-based packages:
 
   - the default repository is `github.com`
-  - the `namespace` is the user or organization
-  - the `name` is the repository name
+  - the `namespace` is the user or organization. It is not case
+    sensitive and must be lowercased.
+  - the `name` is the repository name. It is not case sensitive and
+    must be lowercased.
   - the `version` is a commit or tag
   - examples::
 
