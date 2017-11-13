@@ -501,6 +501,7 @@ More should be added. See candidate list further down.
   - examples::
 
         github:package-url/purl-spec@244fd47e07d1004f0aed9c
+        github:package-url/purl-spec@244fd47e07d1004f0aed9c#everybody/loves/dogs
 
 
 - `go` for Go packages
