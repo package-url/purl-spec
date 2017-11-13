@@ -95,7 +95,7 @@ Some `purl` examples
     docker:customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io
     gem:jruby-launcher@1.1.2?platform=java
     gem:ruby-advisory-db-check@0.12.4
-    github:packageurl/purl-spec@244fd47e07d1004f0aed9c
+    github:package-url/purl-spec@244fd47e07d1004f0aed9c
     go:google.golang.org/genproto#googleapis/api/annotations
     maven:org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources
     maven:org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=repo.spring.io/release
@@ -494,7 +494,7 @@ More should be added. See candidate list further down.
   - the `version` is a commit or tag
   - examples::
 
-        github:packageurl/purl-spec@244fd47e07d1004f0aed9c
+        github:package-url/purl-spec@244fd47e07d1004f0aed9c
 
 
 - `go` for Go packages
