@@ -269,25 +269,25 @@ percent-encoded as defined at::
 
 The percent-encoding rules of `purl` parts are defined by these rules:
 
-  - the `type` must NOT be encoded and must NOT contain separators
+- the `type` must NOT be encoded and must NOT contain separators
 
-  - the '#', '?', '@' and ':' characters must NOT be encoded when used
-    as separators. The may need to be encoded elsewhere
+- the '#', '?', '@' and ':' characters must NOT be encoded when used
+  as separators. The may need to be encoded elsewhere
 
-  - the ':' `type` separator does not need to and must NOT be encoded
-    It is unambiguous unencoded everywhere
+- the ':' `type` separator does not need to and must NOT be encoded
+  It is unambiguous unencoded everywhere
 
-  - the '/' used as `namespace`/`name` and `subpath` segments
-    separator does not need to and must NOT be percent-encoded. It is
-    unambiguous unencoded everywhere
+- the '/' used as `namespace`/`name` and `subpath` segments
+  separator does not need to and must NOT be percent-encoded. It is
+  unambiguous unencoded everywhere
 
-  - the '@' `version` separator must be encoded as `%40` elsewhere
-  - the '?' `qualifiers` separator must be encoded as `%3F` elsewhere
-  - the '=' `qualifiers` key/value separator must NOT be encoded
-  - the '#' `subpath` separator must be encoded as `%23` elsewhere
+- the '@' `version` separator must be encoded as `%40` elsewhere
+- the '?' `qualifiers` separator must be encoded as `%3F` elsewhere
+- the '=' `qualifiers` key/value separator must NOT be encoded
+- the '#' `subpath` separator must be encoded as `%23` elsewhere
 
-  - All non-ASCII characters must be encoded as UTF-8 and then
-    percent-encoded.
+- All non-ASCII characters must be encoded as UTF-8 and then
+  percent-encoded.
 
 It is OK to percent-encode `purl` parts otherwise except for the
 `type`. Parsers must always percent-decode parts as explained in the
@@ -301,63 +301,63 @@ Based on the conventions defined in this document, building a `purl`
 ASCII string works from left to right, from `type` to `subpath`.
 
 
- - Start a `purl` string with the `type` as a lowercase ASCII string
+- Start a `purl` string with the `type` as a lowercase ASCII string
 
-   - Append ':' to the `purl`
+  - Append ':' to the `purl`
 
- - If the `namespace` is not empty:
+- If the `namespace` is not empty:
 
-   - Strip the `namespace` from leading and trailing '/'
-   - Split on '/' as segments
-   - UTF-8-encode each segment if needed in your programming language
-   - Percent-encode each segment
-   - Join the segments with '/'
-   - Append this to the `purl`
-   - Append '/' to the `purl`
-   - Strip the `name` from leading and trailing '/'
-   - UTF-8-encode the `name` if needed in your programming language
-   - Append the percent-encoded `name` to the `purl`
+  - Strip the `namespace` from leading and trailing '/'
+  - Split on '/' as segments
+  - UTF-8-encode each segment if needed in your programming language
+  - Percent-encode each segment
+  - Join the segments with '/'
+  - Append this to the `purl`
+  - Append '/' to the `purl`
+  - Strip the `name` from leading and trailing '/'
+  - UTF-8-encode the `name` if needed in your programming language
+  - Append the percent-encoded `name` to the `purl`
 
- - If the `namespace` is empty:
+- If the `namespace` is empty:
 
-   - UTF-8-encode the `name` if needed in your programming language
-   - Append the percent-encoded `name` to the `purl`
+  - UTF-8-encode the `name` if needed in your programming language
+  - Append the percent-encoded `name` to the `purl`
 
- - If the `version` is not empty:
+- If the `version` is not empty:
 
-   - Append '@' to the `purl`
-   - UTF-8-encode the `version` if needed in your programming language
-   - Append the percent-encoded version to the `purl`
+  - Append '@' to the `purl`
+  - UTF-8-encode the `version` if needed in your programming language
+  - Append the percent-encoded version to the `purl`
 
- - If the `qualifiers` are not empty and not composed only of
-   key/value pairs where the `value` is empty:
+- If the `qualifiers` are not empty and not composed only of
+  key/value pairs where the `value` is empty:
 
-   - Append '?' to the `purl`
-   - Build a list from all key/value pair:
+  - Append '?' to the `purl`
+  - Build a list from all key/value pair:
 
-     - discard any pair where the `value` is empty.
-     - UTF-8-encode each `value` if needed in your programming
-       language
-     - If the `key` is `checksums` and this is a list of `checksums`
-       join this list with a ',' to create this qualifier `value`
-     - create a string by joining the lowercased `key`, the equal '='
-       sign and the percent-encoded `value` to create a qualifier
+    - discard any pair where the `value` is empty.
+    - UTF-8-encode each `value` if needed in your programming
+      language
+    - If the `key` is `checksums` and this is a list of `checksums`
+      join this list with a ',' to create this qualifier `value`
+    - create a string by joining the lowercased `key`, the equal '='
+      sign and the percent-encoded `value` to create a qualifier
 
-   - sort this list of qualifier strings lexicographically
-   - join this list of qualifier strings with a '&' ampersand
-   - Append this string to the `purl`
+  - sort this list of qualifier strings lexicographically
+  - join this list of qualifier strings with a '&' ampersand
+  - Append this string to the `purl`
 
- - If the `subpath` is not empty and not composed only of empty, '.'
-   and '..' segments:
+- If the `subpath` is not empty and not composed only of empty, '.'
+  and '..' segments:
 
-   - Append '#' to the `purl`
-   - Strip the `subpath` from leading and trailing '/'
-   - Split this on '/' as segments
-   - Discard empty, '.' and '..' segments
-   - Percent-encode each segment
-   - UTF-8-encode each segment if needed in your programming language
-   - Join the segments with '/'
-   - Append this to the `purl`
+  - Append '#' to the `purl`
+  - Strip the `subpath` from leading and trailing '/'
+  - Split this on '/' as segments
+  - Discard empty, '.' and '..' segments
+  - Percent-encode each segment
+  - UTF-8-encode each segment if needed in your programming language
+  - Join the segments with '/'
+  - Append this to the `purl`
 
 
 How to parse a `purl` string in its parts
