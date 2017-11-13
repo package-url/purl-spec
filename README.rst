@@ -545,6 +545,9 @@ More should be added. See candidate list further down.
 - `pypi` for Python packages:
 
   - the default repository is `pypi.python.org`
+  - PyPi treats '-' and '_' as the same character and is not case
+    sensitive. Therefore a Pypi package `name` should be lowercased
+    and underscore '_' replaced with a dash '-'
   - TBD: we could specify a `format` `qualifiers` `key` to specify a
     package format with values of `egg`, `wheel` , `sdist`, `exe` or
     may be a file extension?
@@ -554,6 +557,7 @@ More should be added. See candidate list further down.
   - examples::
 
         pypi:django@1.11.1
+        pypi:django-allauth@12.23
 
 
 - `rpm` for RPMs:
