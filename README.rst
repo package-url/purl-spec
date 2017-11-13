@@ -1,54 +1,47 @@
 Context
 =======
 
-We build and release software by massively consuming and producing
-software packages such as NPMs, RPMs, Rubygems, etc.
+We build and release software by massively consuming and producing software
+packages such as NPMs, RPMs, Rubygems, etc.
 
-Each package manager, platform, type or ecosystem has its own
-conventions and protocols to identify, locate and provision software
-packages.
+Each package manager, platform, type or ecosystem has its own conventions and
+protocols to identify, locate and provision software packages.
 
 
 Problem
 =======
 
-When tools, APIs and databases process or store multiple package
-types, it is difficult to reference the same software package across
-tools in a uniform way.
+When tools, APIs and databases process or store multiple package types, it is
+difficult to reference the same software package across tools in a uniform way.
 
-For example, these tools, specifications and API use relatively
-similar approaches to identify and locate software packages, each with
-subtle differences in syntax, naming and conventions:
+For example, these tools, specifications and API use relatively similar
+approaches to identify and locate software packages, each with subtle
+differences in syntax, naming and conventions:
 
-- Grafeas uses a scheme, namespace, name and version in a URL-like
-  string
-- Here.com OSRK uses a package manager, name and version field and
-  a colon-separated URL-like string
-- JFrog XRay uses a scheme, namespace, name and version in a URL-like
-  string
+- Grafeas uses a scheme, namespace, name and version in a URL-like string
+- Here.com OSRK uses a package manager, name and version field and a colon-
+  separated URL-like string
+- JFrog XRay uses a scheme, namespace, name and version in a URL-like string
 - Libraries.io uses a platform, name and version
 - OpenShift fabric8 analytics uses ecosystem, name and version
 - ScanCode and AboutCode.org use a type, name and version
-- SPDX has an appendix for external repository references and uses a
-  type and a locator with a type-specific syntax for part separators
-  in a URL-like string
+- SPDX has an appendix for external repository references and uses a type and a
+  locator with a type-specific syntax for part separators in a URL-like string
 - versioneye uses a type, name and version
 
 
 Solution
 ========
 
-A `purl` or package URL is an attempt to standardize existing
-approaches to reliably identify and locate software packages.
+A `purl` or package URL is an attempt to standardize existing approaches to
+reliably identify and locate software packages.
 
-A `purl` is a URL string used to identify and locate a software
-package in a mostly universal and uniform way across programing
-languages, package managers, packaging conventions, tools, APIs and
-databases.
+A `purl` is a URL string used to identify and locate a software package in a
+mostly universal and uniform way across programing languages, package managers,
+packaging conventions, tools, APIs and databases.
 
-Such a package URL is useful to reliably reference the same software
-package using a simple and expressive syntax and conventions based on
-familiar URLs.
+Such a package URL is useful to reliably reference the same software package
+using a simple and expressive syntax and conventions based on familiar URLs.
 
 
 purl
@@ -61,27 +54,26 @@ A `purl` is a URL composed of six parts::
     type:namespace/name@version?qualifiers#subpath
 
 
-- **type**: the package "type" or package "protocol" such as maven,
-  npm, nuget, gem, pypi, etc.
-- **namespace**: such as a Maven groupid, a Docker image owner,
-  a GitHub user or organization.
+- **type**: the package "type" or package "protocol" such as maven, npm, nuget,
+  gem, pypi, etc.
+
+- **namespace**: such as a Maven groupid, a Docker image owner, a GitHub user or
+  organization.
+
 - **name**: the name of the package.
 - **version**: the version of the package.
 - **qualifiers**: extra qualifying data for a package such as an OS,
-  architecture, a distro, etc.
-- **subpath**: extra subpath within a package, relative to the package
-  root.
+architecture, a distro, etc.
+- **subpath**: extra subpath within a package, relative to the package root.
 
 
-Parts are designed such that a `purl` is forms a hierarchy of parts
-from the most significant on the left left to the least significant
-parts to the right.
+Parts are designed such that a `purl` is built of a hierarchy of parts from the
+most significant on the left left to the least significant parts to the right.
 
 
-A `purl` must NOT contain a URL Authority i.e. there is no support
-for `username`, `password`, `host` and `port` parts. A `namespace`
-segment may sometimes look like a `host` but its interpretation is
-specific to a `type`.
+A `purl` must NOT contain a URL Authority i.e. there is no support for
+`username`, `password`, `host` and `port` parts. A `namespace` segment may
+sometimes look like a `host` but its interpretation is specific to a `type`.
 
 
 Some `purl` examples
@@ -112,8 +104,8 @@ Some `purl` examples
 A `purl` is a URL
 ~~~~~~~~~~~~~~~~~
 
-- A `purl` is a valid URL and URI that conforms to the URL definitions
-  or specifications at:
+- A `purl` is a valid URL and URI that conforms to the URL definitions or
+  specifications at:
 
   - https://tools.ietf.org/html/rfc3986
   - https://en.wikipedia.org/wiki/URL#Syntax
@@ -130,16 +122,16 @@ A `purl` is a URL
   - In a `purl` there is no support for a URL Authority (e.g. NO
     `username`, `password`, `host` and `port` parts).
 
-- Special URL schemes as defined in https://url.spec.whatwg.org/ such
-  as `file://`, `https://`, `http://` and `ftp://` are NOT
-  valid `purl` types. They may be used to reference URLs in separate
-  attributes outside of a `purl` or in a `purl` qualifier.
+- Special URL schemes as defined in https://url.spec.whatwg.org/ such as
+  `file://`, `https://`, `http://` and `ftp://` are NOT valid `purl` types. They
+  may be used to reference URLs in separate attributes outside of a `purl` or in
+  a `purl` qualifier.
 
-- Version control system (VCS) URLs such `git://`, `svn://`, `hg://`
-  or as defined in Python pip or SPDX download locations are NOT valid
-  `purl` types. They are a closely related, compact and uniform way to
-  reference vcs URLs. They may be used as references in separate
-  attributes outside of a `purl` or in a `purl` qualifier.
+- Version control system (VCS) URLs such `git://`, `svn://`, `hg://` or as
+  defined in Python pip or SPDX download locations are NOT valid `purl` types.
+  They are a closely related, compact and uniform way to reference vcs URLs.
+  They may be used as references in separate attributes outside of a `purl` or
+  in a `purl` qualifier.
 
 
 Rules for each `purl` part
@@ -147,29 +139,29 @@ Rules for each `purl` part
 
 A `purl` string is an ASCII URL string composed of six parts.
 
-Some parts are allowed to use other characters beyond ASCII: these
-parts must then be in UTF-8 and percent-encoded as defined in the
-"Character encoding" section.
+Some parts are allowed to use other characters beyond ASCII: these parts must
+then be in UTF-8 and percent-encoded as defined in the "Character encoding"
+section.
 
 The rules for each part are:
 
 - **type**:
 
-  - The package `type` is composed only of ASCII letters and numbers,
-    '.', '+' and '-' and '_' (period, plus, dash and underscore)
+  - The package `type` is composed only of ASCII letters and numbers, '.', '+'
+    and '-' and '_' (period, plus, dash and underscore)
   - The `type` cannot start with a number
   - The `type` cannot contains spaces
   - The `type` must NOT be percent-encoded
   - The `type` is case insensitive. The canonical form is lowercase
   - Since a `purl` does not use a URL Authority, its `type` should not
-    be suffixed with double slash as in 'docker://' and should use
-    instead 'docker:'. While it is acceptable to use such '://'
-    suffix, its is not significant and not needed for unambiguous
-    parsing but it looks more as a familiar web URL. In its canonical
-    form, a `purl` must NOT use such '://' `type` suffix.
+    be suffixed with double slash as in 'docker://' and should use instead
+    'docker:'. While it is acceptable to use such '://' suffix, its is not
+    significant and not needed for unambiguous parsing but it looks more as a
+    familiar web URL. In its canonical form, a `purl` must NOT use such '://'
+    `type` suffix.
   - The `type` is followed by a ':' separator
-  - For example these two purls are strictly equivalent and the first
-    is in canonical form::
+  - For example these two purls are strictly equivalent and the first is in
+    canonical form::
 
             gem:ruby-advisory-db-check@0.12.4
             gem://ruby-advisory-db-check@0.12.4
@@ -177,26 +169,24 @@ The rules for each part are:
 
 - **namespace**:
 
-  - The optional `namespace` contains zero or more segments, separated
-    by slash '/'
-  - Leading and trailing slashes '/' are not significant and should be
-    stripped in the canonical form. They are not part of the
-    `namespace`
+  - The optional `namespace` contains zero or more segments, separated by slash
+    '/'
+  - Leading and trailing slashes '/' are not significant and should be stripped
+    in the canonical form. They are not part of the `namespace`
   - Each `namespace` segment must be a percent-encoded string
   - When percent-decoded, a segment:
 
     - must not contain a '/'
     - must not be empty
 
-  - A URL host or Authority must NOT be used as a `namespace`. Use
-    instead a `repository_url` qualifier. Note however that for some
-    types, the `namespace` may look like a host.
+  - A URL host or Authority must NOT be used as a `namespace`. Use instead a
+    `repository_url` qualifier. Note however that for some types, the
+    `namespace` may look like a host.
 
 
 - **name**:
 
-  - The `name` is prefixed by a '/' separator when the `namespace`
-    is not empty
+  - The `name` is prefixed by a '/' separator when the `namespace` is not empty
   - This '/' is not part of the `name`
   - A `name` must be a percent-encoded string
 
@@ -206,46 +196,43 @@ The rules for each part are:
   - The `version` is prefixed by a '@' separator when not empty
   - This '@' is not part of the `version`
   - A `version` must be a percent-encoded string
-  - A `version` is a plain and opaque string. Some package `type` use
-    versioning conventions such as semver for NPMs or nevra
-    conventions for RPMS. A `type` may define a procedure to compare
-    and sort versions, but there is no reliable and uniform way to do
-    such comparison consistently.
+
+  - A `version` is a plain and opaque string. Some package `type` use versioning
+    conventions such as semver for NPMs or nevra conventions for RPMS. A `type`
+    may define a procedure to compare and sort versions, but there is no
+    reliable and uniform way to do such comparison consistently.
 
 
 - **qualifiers**:
 
-  - The `qualifiers` string is prefixed by a '?' separator when not
-    empty
+  - The `qualifiers` string is prefixed by a '?' separator when not empty
   - This '?' is not part of the `qualifiers`
-  - This is a query string composed of zero or more `key=value` pairs
-    each separated by a '&' ampersand. A `key` and `value` are
-    separated by the equal '=' character
+  - This is a query string composed of zero or more `key=value` pairs each
+    separated by a '&' ampersand. A `key` and `value` are separated by the equal
+    '=' character
   - These '&' are not part of the `key=value` pairs.
   - `key` must be unique within the keys of the `qualifiers` string
-  - `value` cannot be an empty string: a `key=value` pair with an
-    empty `value` is the same as no key/value at all for this key
+  - `value` cannot be an empty string: a `key=value` pair with an empty `value`
+    is the same as no key/value at all for this key
   - For each pair of `key` = `value`:
 
-    - The `key` must be composed only of ASCII letters and numbers,
-      '.' and '-' and '_' (period, dash and underscore)
+    - The `key` must be composed only of ASCII letters and numbers, '.', '-' and
+      '_' (period, dash and underscore)
     - A `key` cannot start with a number
     - A `key` must NOT be percent-encoded
     - A `key` is case insensitive. The canonical form is lowercase
     - A `key` cannot contains spaces
     - A `value` must be must be a percent-encoded string
-    - The '=' separator is neither part of the `key` nor of the
-      `value`
+    - The '=' separator is neither part of the `key` nor of the `value`
 
 
 - **subpath**:
 
   - The `subpath` string is prefixed by a '#' separator when not empty
   - This '#' is not part of the `subpath`
-  - The `subpath` contains zero or more segments, separated by slash
-    '/'
-  - Leading and trailing slashes '/' are not significant and should be
-    stripped in the canonical form
+  - The `subpath` contains zero or more segments, separated by slash '/'
+  - Leading and trailing slashes '/' are not significant and should be stripped
+    in the canonical form
   - Each `subpath` segment must be a percent-encoded string
   - When percent-decoded, a segment:
 
@@ -253,17 +240,15 @@ The rules for each part are:
     - must not be any of '..' or '.'
     - must not be empty
 
-  - The `subpath` must be interpreted as relative to the root of the
-    package
+  - The `subpath` must be interpreted as relative to the root of the package
 
 
 Character encoding
 ~~~~~~~~~~~~~~~~~~
 
-For clarity and simplicity a `purl` is always an ASCII string.
-To ensure that there is no ambiguity when parsing a `purl`, separator
-characters and non-ASCII characters must be UTF-encoded and then
-percent-encoded as defined at::
+For clarity and simplicity a `purl` is always an ASCII string. To ensure that
+there is no ambiguity when parsing a `purl`, separator characters and non-ASCII
+characters must be UTF-encoded and then percent-encoded as defined at::
 
     https://en.wikipedia.org/wiki/Percent-encoding
 
@@ -271,36 +256,33 @@ The percent-encoding rules of `purl` parts are defined by these rules:
 
 - the `type` must NOT be encoded and must NOT contain separators
 
-- the '#', '?', '@' and ':' characters must NOT be encoded when used
-  as separators. The may need to be encoded elsewhere
+- the '#', '?', '@' and ':' characters must NOT be encoded when used as
+  separators. The may need to be encoded elsewhere
 
-- the ':' `type` separator does not need to and must NOT be encoded
-  It is unambiguous unencoded everywhere
-
-- the '/' used as `namespace`/`name` and `subpath` segments
-  separator does not need to and must NOT be percent-encoded. It is
+- the ':' `type` separator does not need to and must NOT be encoded. It is
   unambiguous unencoded everywhere
+
+- the '/' used as `namespace`/`name` and `subpath` segments separator does not
+  need to and must NOT be percent-encoded. It is unambiguous unencoded
+  everywhere
 
 - the '@' `version` separator must be encoded as `%40` elsewhere
 - the '?' `qualifiers` separator must be encoded as `%3F` elsewhere
 - the '=' `qualifiers` key/value separator must NOT be encoded
 - the '#' `subpath` separator must be encoded as `%23` elsewhere
 
-- All non-ASCII characters must be encoded as UTF-8 and then
-  percent-encoded.
+- All non-ASCII characters must be encoded as UTF-8 and then percent-encoded
 
-It is OK to percent-encode `purl` parts otherwise except for the
-`type`. Parsers must always percent-decode parts as explained in the
-"Parsing " section.
+It is OK to percent-encode `purl` parts otherwise except for the `type`. Parsers
+must always percent-decode parts as explained in the "Parsing " section.
 
 
 How to build `purl` string from its parts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Based on the conventions defined in this document, building a `purl`
-ASCII string works from left to right, from `type` to `subpath`.
-Note that there may be extra type-specific normalizations that may
-need to be applied.
+Based on the conventions defined in this document, building a `purl` ASCII
+string works from left to right, from `type` to `subpath`. Note that there may
+be extra type-specific normalizations that may need to be applied.
 
 - Start a `purl` string with the `type` as a lowercase ASCII string
 
@@ -330,26 +312,25 @@ need to be applied.
   - UTF-8-encode the `version` if needed in your programming language
   - Append the percent-encoded version to the `purl`
 
-- If the `qualifiers` are not empty and not composed only of
-  key/value pairs where the `value` is empty:
+- If the `qualifiers` are not empty and not composed only of key/value pairs
+  where the `value` is empty:
 
   - Append '?' to the `purl`
   - Build a list from all key/value pair:
 
     - discard any pair where the `value` is empty.
-    - UTF-8-encode each `value` if needed in your programming
-      language
-    - If the `key` is `checksums` and this is a list of `checksums`
-      join this list with a ',' to create this qualifier `value`
-    - create a string by joining the lowercased `key`, the equal '='
-      sign and the percent-encoded `value` to create a qualifier
+    - UTF-8-encode each `value` if needed in your programming language
+    - If the `key` is `checksums` and this is a list of `checksums` join this
+      list with a ',' to create this qualifier `value`
+    - create a string by joining the lowercased `key`, the equal '=' sign and
+      the percent-encoded `value` to create a qualifier
 
   - sort this list of qualifier strings lexicographically
   - join this list of qualifier strings with a '&' ampersand
   - Append this string to the `purl`
 
-- If the `subpath` is not empty and not composed only of empty, '.'
-  and '..' segments:
+- If the `subpath` is not empty and not composed only of empty, '.' and '..'
+  segments:
 
   - Append '#' to the `purl`
   - Strip the `subpath` from leading and trailing '/'
@@ -364,10 +345,9 @@ need to be applied.
 How to parse a `purl` string in its parts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Based on the conventions defined in this document, parsing a `purl`
-ASCII string into its parts works from right to left, from `subpath`
-to `type`. Note that there may be extra type-specific normalizations
-that may need to be applied.
+Based on the conventions defined in this document, parsing a `purl` ASCII string
+into its parts works from right to left, from `subpath` to `type`. Note that
+there may be extra type-specific normalizations that may need to be applied.
 
 - Split the `purl` string once from right on '#'
 
@@ -423,43 +403,43 @@ that may need to be applied.
 Known `purl` types
 ~~~~~~~~~~~~~~~~~~~~
 
-These are known `purl` package type definitions.
-More should be added. See candidate list further down.
+These are known `purl` package type definitions. More should be added. See
+candidate list further down.
 
 
 - `bitbucket` for Bitbucket-based packages:
-  - the default repository is `bitbucket.org`
-  - the `namespace` is the user or organization. It is not case
-    sensitive and must be lowercased.
-  - the `name` is the repository name. It is not case sensitive and
+
+  - The default repository is `bitbucket.org`
+  - The `namespace` is the user or organization. It is not case sensitive and
     must be lowercased.
-  - the `version` is a commit or tag
-  - examples::
+  - The `name` is the repository name. It is not case sensitive and must be
+    lowercased.
+  - The `version` is a commit or tag
+  - Examples::
 
         bitbucket:birkenfeld/pygments-main@244fd47e07d1014f0aed9c
 
 
 - `deb` for Debian, Debian derivatives and Ubuntu packages:
 
-  - there is no default package repository: this should be implied
-    either from the `distro` `qualifiers` `key` or using a base url as
-    a `repository_url` `qualifiers` `key`
+  - There is no default package repository: this should be implied either from
+    the `distro` `qualifiers` `key` or using a base url as a `repository_url`
+    `qualifiers` `key`
   - `arch` is the `qualifiers` `key` for a package architecture
-  - examples::
+  - Examples::
 
         deb:curl@7.50.3-1?arch=i386&distro=jessie
 
 
 - `docker` for Docker images
 
-  - the default repository is `hub.docker.com`
-  - the `namespace` is the user or organization if present
-  - A URL host or Authority should not be used as a `namespace`.
-    Use instead the `repository_url` qualifier `key` to point to an
-    alternative image registry.
-  - the version should be the image id sha256 or a tag. Since tags can
-    be moved, a sha256 image id is preferred.
-  - examples::
+  - The default repository is `hub.docker.com`
+  - The `namespace` is the user or organization if present
+  - A URL host or Authority should not be used as a `namespace`. Use instead the
+    `repository_url` qualifier `key` to point to an alternative image registry.
+  - The version should be the image id sha256 or a tag. Since tags can be moved,
+    a sha256 image id is preferred.
+  - Examples::
 
         docker:cassandra@latest
         docker:smartentry/debian@dc437cc87d10
@@ -468,23 +448,24 @@ More should be added. See candidate list further down.
 
 - `gem` for Rubygems:
 
-  - the default repository is `rubygems.org`
-  - the `platform` `qualifiers` `key` is used to specify an
-    alternative platform such as `java` for JRuby. The implied default
-    is `ruby` for Ruby MRI.
-  - examples::
+  - The default repository is `rubygems.org`
+  - The `platform` `qualifiers` `key` is used to specify an alternative platform
+    such as `java` for JRuby. The implied default is `ruby` for Ruby MRI.
+  - Examples::
 
         gem:ruby-advisory-db-check@0.12.4
         gem:jruby-launcher@1.1.2?platform=java
 
 
-- `generic` for plain, generic packages that do not fit anywhere else
-  such as for "upstream -from-distro" packages:
+- `generic` for plain, generic packages that do not fit anywhere else such as
+  for "upstream -from-distro" packages:
 
-  - their is no default repository. A `download_url` and `checksum`
-    may be provided in `qualifiers` or as separate attributes outside
-    of a `purl` for proper identification and location.
-  - examples (truncated for brevity)::
+  - Their is no default repository. A `download_url` and `checksum` may be
+    provided in `qualifiers` or as separate attributes outside of a `purl` for
+    proper identification and location.
+  - When possible another or a new purl `type` should be used instead of using
+    the `generic` type and eventually contributed back to this specification
+  - Examples (truncated for brevity)::
 
        generic:openssl@1.1.10g
        generic:openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da3931090
@@ -492,13 +473,13 @@ More should be added. See candidate list further down.
 
 - `github` for Github-based packages:
 
-  - the default repository is `github.com`
-  - the `namespace` is the user or organization. It is not case
-    sensitive and must be lowercased.
-  - the `name` is the repository name. It is not case sensitive and
+  - The default repository is `github.com`
+  - The `namespace` is the user or organization. It is not case sensitive and
     must be lowercased.
-  - the `version` is a commit or tag
-  - examples::
+  - The `name` is the repository name. It is not case sensitive and must be
+    lowercased.
+  - The `version` is a commit or tag
+  - Examples::
 
         github:package-url/purl-spec@244fd47e07d1004f0aed9c
         github:package-url/purl-spec@244fd47e07d1004f0aed9c#everybody/loves/dogs
@@ -506,23 +487,25 @@ More should be added. See candidate list further down.
 
 - `go` for Go packages
 
-  - there is no default package repository: this is implied in the
-    namespace using the `go get` command conventions
-  - `subpath` is used to point to a subpath inside a package
-  - `version` is often empty but should be the commit string
-  - examples::
+  - There is no default package repository: this is implied in the namespace
+    using the `go get` command conventions
+  - The `subpath` is used to point to a subpath inside a package
+  - The `version` is often empty when a commit is not specified and should be
+    the commit in most cases when available.
+  - Examples::
 
         go:github.com/gorilla/context@234fd47e07d1004f0aed9c
         go:google.golang.org/genproto#googleapis/api/annotations
+        go:github.com/gorilla/context@234fd47e07d1004f0aed9c#api
 
 
 - `maven` for Maven JARs and related artifacts
 
-  - the default repository is `maven.org`
-  - the group id is the `namespace` and the artifact id is the `name`
-  - known `qualifiers` keys are: `classifier` and `packaging` as
-    defined in the POM documentation
-  - examples::
+  - The default repository is `maven.org`
+  - The group id is the `namespace` and the artifact id is the `name`
+  - Known `qualifiers` keys are: `classifier` and `packaging` as defined in the
+    POM documentation
+  - Examples::
 
         maven:org.apache.xmlgraphics/batik-anim@1.9.1
         maven:org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources
@@ -530,9 +513,9 @@ More should be added. See candidate list further down.
 
 - `npm` for Node NPM packages:
 
-  - the default repository is `registry.npmjs.org`
+  - The default repository is `registry.npmjs.org`
   - `namespace` is used for the scope of a scoped NPM package.
-  - examples::
+  - Examples::
 
         npm:foobar@12.3.1
         npm:%40angular/animation@12.3.1
@@ -540,28 +523,28 @@ More should be added. See candidate list further down.
 
 - `nuget` for NuGet .NET packages:
 
-  - the default repository is `nuget.org`
-  - there is no `namespace` per se: the common convention is to use
-    dot-separated package names where the first segment is
-    `namespace` like.
-  - examples::
+  - The default repository is `nuget.org`
+  - There is no `namespace` per se even if the common convention is to use
+    dot-separated package names where the first segment is `namespace`-like.
+    TBD: should we split the first segment as a namespace?
+  - Examples::
 
         nuget:EnterpriseLibrary.Common@6.0.1304
 
 
 - `pypi` for Python packages:
 
-  - the default repository is `pypi.python.org`
-  - PyPi treats '-' and '_' as the same character and is not case
-    sensitive. Therefore a Pypi package `name` should be lowercased
-    and underscore '_' replaced with a dash '-'
-  - TBD: we could specify a `format` `qualifiers` `key` to specify a
-    package format with values of `egg`, `wheel` , `sdist`, `exe` or
-    may be a file extension?
-  - TBD: we could specify a  `markers` `qualifiers` `key` to specify
-    PEP 508 environment markers but this is extra complexity. See
+  - The default repository is `pypi.python.org`
+  - PyPi treats '-' and '_' as the same character and is not case sensitive.
+    Therefore a Pypi package `name` should be lowercased and underscore '_'
+    replaced with a dash '-'
+  - TBD: we could specify a `format` `qualifiers` `key` to specify a package
+    format with values of `egg`, `wheel` , `sdist`, `exe` or may be a file
+    extension?
+  - TBD: we could specify a  `markers` `qualifiers` `key` to specify PEP 508
+    environment markers but this is extra complexity. See
     https://www.python.org/dev/peps/pep-0508/
-  - examples::
+  - Examples::
 
         pypi:django@1.11.1
         pypi:django-allauth@12.23
@@ -569,11 +552,11 @@ More should be added. See candidate list further down.
 
 - `rpm` for RPMs:
 
-  - there is no default package repository: this should be implied
-    either from the `distro` `qualifiers` `key` or using a repository
-    base url as a `repository_url` `qualifiers` `key`
+  - There is no default package repository: this should be implied either from
+    the `distro` `qualifiers` `key` or using a repository base url as a
+    `repository_url` `qualifiers` `key`
   - `arch` is the `qualifiers` `key` for a package architecture
-  - examples::
+  - Examples::
 
         rpm:curl@7.50.3-1.fc25?arch=src
         rpm:curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
@@ -603,7 +586,7 @@ Other candidate types to define:
 - `ctan` for CTAN TeX packages:
 - `crystal` for Crystal Shards packages:
 - `drupal` for Drupal packages:
-- `dtype` for DefinitelyTyped TypeScript type defs:
+- `dtype` for DefinitelyTyped TypeScript type definitions:
 - `dub` for D packages:
 - `elm` for Elm packages:
 - `eclipse` for Eclipse projects packages:
@@ -640,37 +623,39 @@ Other candidate types to define:
 Known `qualifiers` key/value pairs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Note: it can be tempting to use many qualifier keys: their usage
-should be limited to the bare minimum for proper package
-identification. Additional, separate attributes not stored in a
-`purl`are the preferred mechanism to convey extra information such as
-a download URL, or checksums in an API, database or web form.
-This ensures that a `purl` stays compact and readable in most cases.
+Note: Do not abuse of `qualifiers`: it can be tempting to use many qualifier
+keys but their usage should be limited to the bare minimum for proper package
+identification to ensure that a `purl` stays compact and readable in most cases.
 
-The following known `key` and `value` defined here are valid for use
-in all package types:
+Additional, separate external attributes stored outside of a `purl`are the
+preferred mechanism to convey extra long and optional information such as a
+download URL, vcs URL or checksums in an API, database or web form.
 
-- `repository_url` is an extra URL for an alternative, non-default
-  package repository or registry.  When a package does not come from
-  the default public package repository for its `type` a `purl` may be
-  qualified with this extra URL.
 
-- `download_url` is an extra URL for a direct package web download URL
-  to optionally qualify a `purl`.
+With this warning, the known `key` and `value` defined here are valid for use in
+all package types:
 
-- `vcs_url` is an extra URL for a package version control system URL
-  to optionally qualify a `purl`. The syntax for this URL should be
-  as defined in Python pip or the SPDX specification.
-  See https://github.com/spdx/spdx-spec/blob/cfa1b9d08903/chapters/3-package-information.md#37-package-download-location-
-  TODO: incorporate the details from SPDX here.
+- `repository_url` is an extra URL for an alternative, non-default package
+  repository or registry.  When a package does not come from the default public
+  package repository for its `type` a `purl` may be qualified with this extra
+  URL.
+
+- `download_url` is an extra URL for a direct package web download URL to
+  optionally qualify a `purl`.
+
+- `vcs_url` is an extra URL for a package version control system URL to
+  optionally qualify a `purl`. The syntax for this URL should be as defined in
+  Python pip or the SPDX specification. See https://github.com/spdx/spdx-
+  spec/blob/cfa1b9d08903/chapters/3-package-information.md#37-package-download-
+  location- TODO: incorporate the details from SPDX here.
 
 - `file_name` is an extra file name of a package archive.
 
 - `checksum` is a qualifier for one or more checksums stored as a
-   comma-separated list. Each item in the `value` is in form of
-   `lowercase_algorithm:hex_encoded_lowercase_value`
-   such as `sha1:ad9503c3e994a4f611a4892f2e67ac82df727086`.
-   For example (with checksums truncated for brevity) ::
+  comma-separated list. Each item in the `value` is in form of
+  `lowercase_algorithm:hex_encoded_lowercase_value` such as
+  `sha1:ad9503c3e994a4f611a4892f2e67ac82df727086`.
+  For example (with checksums truncated for brevity) ::
 
        `checksum=sha1:ad9503c3e994a4f,sha256:41bf9088b3a1e6c1ef1d`
 
@@ -700,22 +685,21 @@ Tests
 
 TBD!
 
-To support the language-neutral testing of `purl` implementations, a
-test suite is provided as JSON document. This document contains an
-array of objects. Each object represents a test with these key/value
-pairs:
+To support the language-neutral testing of `purl` implementations, a test suite
+is provided as JSON document. This document contains an array of objects. Each
+object represents a test with these key/value pairs:
 
 - **purl**: a `purl` string
 - **type**: the `type` corresponding to this `purl`
 - **namespace**: the `namespace` corresponding to this `purl`
 - **name**: the `name` corresponding to this `purl`
 - **version**: the `version` corresponding to this `purl`
-- **qualifiers**: the `qualifiers` corresponding to this `purl` as an
-  object of {key: value} qualifier pairs
+- **qualifiers**: the `qualifiers` corresponding to this `purl` as an object of
+  {key: value} qualifier pairs
 - **subpath**: the `subpath` corresponding to this `purl`
 
-To tests `purl` parsing and construction, a tool can use this test
-suite such that for every listed test object:
+To tests `purl` parsing and construction, a tool can use this test suite such
+that for every listed test object:
 
 - parsing each `purl` produces the correct parts
 - creating a `purl` from the parts produces the correct `purl` string
