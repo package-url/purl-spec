@@ -58,18 +58,19 @@ Parts are separated by a specific character for unambiguous parsing.
 The defintion for each parts is:
 
 - **type**: the package "type" or package "protocol" such as maven, npm, nuget,
-  gem, pypi, etc.
+  gem, pypi, etc. Required.
 - **namespace**: some name prefix such as a Maven groupid, a Docker image owner,
-  a GitHub user or organization.
-- **name**: the name of the package.
-- **version**: the version of the package.
+  a GitHub user or organization. Optional and type-specific.
+- **name**: the name of the package. Required.
+- **version**: the version of the package. Optional.
 - **qualifiers**: extra qualifying data for a package such as an OS,
-  architecture, a distro, etc.
+  architecture, a distro, etc. Optional and type-specific.
 - **subpath**: extra subpath within a package, relative to the package root.
+  Optional.
 
 
-Parts are designed such that a `purl` is built of a hierarchy of parts from the
-most significant on the left left to the least significant parts to the right.
+Parts are designed such that they for a hierarchy from the most significant on
+the left left to the least significant parts to the right.
 
 
 A `purl` must NOT contain a URL Authority i.e. there is no support for
@@ -308,17 +309,20 @@ To build a `purl` string from its parts:
 
   - Strip the `namespace` from leading and trailing '/'
   - Split on '/' as segments
+  - Apply type-specific normalization to each segment if needed
   - UTF-8-encode each segment if needed in your programming language
   - Percent-encode each segment
   - Join the segments with '/'
   - Append this to the `purl`
   - Append '/' to the `purl`
   - Strip the `name` from leading and trailing '/'
+  - Apply type-specific normalization to the `name` if needed
   - UTF-8-encode the `name` if needed in your programming language
   - Append the percent-encoded `name` to the `purl`
 
 - If the `namespace` is empty:
 
+  - Apply type-specific normalization to the `name` if needed
   - UTF-8-encode the `name` if needed in your programming language
   - Append the percent-encoded `name` to the `purl`
 
@@ -408,6 +412,7 @@ To parse a `purl` string in its parts:
   - The left side is the `remainder`
   - Percent-decode the right side
   - UTF-8-decode the `name` if needed in your programming language
+  - Apply type-specific normalization to the `name` if needed
   - This is the `name`
 
 - Split the `remainder` on '/'
@@ -416,6 +421,7 @@ To parse a `purl` string in its parts:
   - Percent-decode each segment
   - UTF-8-decode the each segment if needed in your programming
     language
+  - Apply type-specific normalization to each segment if needed
   - Join segments back with a '/'
   - This is the `namespace`
 
@@ -647,7 +653,7 @@ Note: Do not abuse of `qualifiers`: it can be tempting to use many qualifier
 keys but their usage should be limited to the bare minimum for proper package
 identification to ensure that a `purl` stays compact and readable in most cases.
 
-Additional, separate external attributes stored outside of a `purl`are the
+Additional, separate external attributes stored outside of a `purl` are the
 preferred mechanism to convey extra long and optional information such as a
 download URL, vcs URL or checksums in an API, database or web form.
 
@@ -707,22 +713,100 @@ TBD!
 
 To support the language-neutral testing of `purl` implementations, a test suite
 is provided as JSON document. This document contains an array of objects. Each
-object represents a test with these key/value pairs:
+object represents a test with these key/value pairs some of which may not be
+normalized:
 
-- **purl**: a `purl` string
-- **type**: the `type` corresponding to this `purl`
-- **namespace**: the `namespace` corresponding to this `purl`
-- **name**: the `name` corresponding to this `purl`
-- **version**: the `version` corresponding to this `purl`
+- **purl**: a `purl` string. 
+- **canonical**: the same `purl` string in canonical, normalized form
+- **type**: the `type` corresponding to this `purl`.
+- **namespace**: the `namespace` corresponding to this `purl`.
+- **name**: the `name` corresponding to this `purl`.
+- **version**: the `version` corresponding to this `purl`.
 - **qualifiers**: the `qualifiers` corresponding to this `purl` as an object of
-  {key: value} qualifier pairs
-- **subpath**: the `subpath` corresponding to this `purl`
+  {key: value} qualifier pairs.
+- **subpath**: the `subpath` corresponding to this `purl`.
 
-To tests `purl` parsing and construction, a tool can use this test suite such
-that for every listed test object:
 
-- parsing each `purl` produces the correct parts
-- creating a `purl` from the parts produces the correct `purl` string
+To test `purl` parsing and building, a tool can use this test suite and for
+every listed test object, run these tests:
+
+- parsing the test canonical `purl` then re-building a `purl` from these parsed
+  parts should return the test canonical `purl`
+
+- parsing the test `purl` should return the parts parsed from the test canonical
+  `purl`
+
+- parsing the test `purl` then re-building a `purl` from these parsed parts
+  should return the test canonical `purl`
+
+- building a `purl` from the test parts should return the test canonical `purl`
+
+
+FAQ
+~~~
+
+- **Can I use a subpath with multiple subpaths, globs or regexes in a `purl`?**
+
+  - No. Use multiple `purl` or other attributes outside of a `purl`.
+
+- **Why is the `purl` version optional?**
+
+  - This is to support the pointer to any version of a package or when you do
+    not know the version (yet). This should not be abused but is useful and used
+    in practice: for instance a package version may depend on another package
+    with no version specified.
+
+
+- **Why not using the Authority of a URI/URI in a `purl`?**
+
+  - No. There are several reasons: The rules or parsing user/host/password
+    and ports are complex and more so when you add IDAN, ppunycode and IPv4/v6.
+    These would introduce subtle quirks if for instance the user/password was
+    used as a `purl` version. 
+
+    Also while host may be important to locate a package it is not required to
+    identify it: the exact same package may exist in multiple repositories,
+    local, remote or private mirrors. This is still the same package.
+
+    And the Autority comes before the Path in a URL: this would break the
+    hierachical nature of the `purl` parts and no longer make them nicely
+    sortable as plain strings: this a good property when dealing with many
+    `purl` in a database or even small lists in a UI.
+
+
+- **Why not using a CPE instead of a `purl`?**
+
+  - No. CPE https://en.wikipedia.org/wiki/Common_Platform_Enumeration are URIs
+    and fairly close to `purl` but they are rather complex:
+    `cpe:2.3:a:artifex:ghostscript:8_64:*:*:*:*:*:*:*` 
+
+    CPEs started from the world of proprietary software security and require a
+    'vendor' attribute before the 'name' attribute, somewhat similar to a purl
+    namespace but not exactly. These names are assigned centrally and
+    arbitrarily assigned by NIST and Mitre. For instance, the vendor for zlib is
+    GNU: this does not make any sense.
+
+    In contrast, `purl` names are not centrally or arbitrarily assigned or
+    created: they are naturally and directly derived from whatever names a
+    package author picked. Also CPEs specifies rather complex version semantics
+    and can be hard to parse and build. Overall, they often mesh poorly with the
+    world of software packages.
+
+    Yet they are a great additional reference when they exist to relate a
+    package to known NVD vulnerabilities. A valuable side project could create
+    mappings of `purl` to known CPEs.
+
+
+- **Why not using the ISO 19770-2 spec for SWID tags instead of a `purl`?**
+
+  - No. This is a proprietary and opaque specification with a centrally managed
+    pay-for-play registry (tagvault). Its purpose is primarily to help inventory
+    installed proprietary software when managing IT assets by assign arbitrary
+    tags to a software binary. 
+
+    In contrast a `purl` is an open way to identify and locate a software
+    package as used in modern software development with no arbitrary central
+    name assignments needed.
 
 
 License
