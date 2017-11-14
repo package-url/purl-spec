@@ -160,7 +160,7 @@ The rules for each part are:
 - **type**:
 
   - The package `type` is composed only of ASCII letters and numbers, '.', '+'
-    and '-' and '_' (period, plus, dash and underscore)
+    and '-' (period, plus, and dash)
   - The `type` cannot start with a number
   - The `type` cannot contains spaces
   - The `type` must NOT be percent-encoded
