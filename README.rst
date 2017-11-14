@@ -53,17 +53,18 @@ A `purl` is a URL composed of six parts::
 
     type:namespace/name@version?qualifiers#subpath
 
+Parts are separated by a specific character for unambiguous parsing.
+
+The defintion for each parts is:
 
 - **type**: the package "type" or package "protocol" such as maven, npm, nuget,
   gem, pypi, etc.
-
-- **namespace**: such as a Maven groupid, a Docker image owner, a GitHub user or
-  organization.
-
+- **namespace**: some name prefix such as a Maven groupid, a Docker image owner,
+  a GitHub user or organization.
 - **name**: the name of the package.
 - **version**: the version of the package.
 - **qualifiers**: extra qualifying data for a package such as an OS,
-architecture, a distro, etc.
+  architecture, a distro, etc.
 - **subpath**: extra subpath within a package, relative to the package root.
 
 
@@ -82,19 +83,29 @@ Some `purl` examples
 ::
 
     bitbucket:birkenfeld/pygments-main@244fd47e07d1014f0aed9c
+
     deb:curl@7.50.3-1?arch=i386&distro=jessie
+
     docker:cassandra@sha256:244fd47e07d1004f0aed9c
     docker:customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io
+
     gem:jruby-launcher@1.1.2?platform=java
     gem:ruby-advisory-db-check@0.12.4
+
     github:package-url/purl-spec@244fd47e07d1004f0aed9c
+
     go:google.golang.org/genproto#googleapis/api/annotations
+
     maven:org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources
     maven:org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=repo.spring.io/release
+
     npm:%40angular/animation@12.3.1
     npm:foobar@12.3.1
+
     nuget:EnterpriseLibrary.Common@6.0.1304
+
     pypi:django@1.11.1
+
     rpm:curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
     rpm:curl@7.50.3-1.fc25?arch=src
 
@@ -252,7 +263,7 @@ characters must be UTF-encoded and then percent-encoded as defined at::
 
     https://en.wikipedia.org/wiki/Percent-encoding
 
-The percent-encoding rules of `purl` parts are defined by these rules:
+Use these rules for percent-encoding and decoding `purl` parts:
 
 - the `type` must NOT be encoded and must NOT contain separators
 
@@ -274,15 +285,20 @@ The percent-encoding rules of `purl` parts are defined by these rules:
 - All non-ASCII characters must be encoded as UTF-8 and then percent-encoded
 
 It is OK to percent-encode `purl` parts otherwise except for the `type`. Parsers
-must always percent-decode parts as explained in the "Parsing " section.
+and builders must always percent-decode and percent-encode `purl` parts and
+part segments as explained in the "How to parse" and "How to build" sections.
 
 
 How to build `purl` string from its parts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Based on the conventions defined in this document, building a `purl` ASCII
-string works from left to right, from `type` to `subpath`. Note that there may
-be extra type-specific normalizations that may need to be applied.
+Building a `purl` ASCII string works from left to right, from `type` to
+`subpath`.
+
+Note: some extra type-specific normalizations are required.
+See the "Known types section" for details.
+
+To build a `purl` string from its parts:
 
 - Start a `purl` string with the `type` as a lowercase ASCII string
 
@@ -345,9 +361,13 @@ be extra type-specific normalizations that may need to be applied.
 How to parse a `purl` string in its parts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Based on the conventions defined in this document, parsing a `purl` ASCII string
-into its parts works from right to left, from `subpath` to `type`. Note that
-there may be extra type-specific normalizations that may need to be applied.
+Parsing a `purl` ASCII string into its parts works from right to left, from
+`subpath` to `type`. 
+
+Note: some extra type-specific normalizations are required.
+See the "Known types section" for details.
+
+To parse a `purl` string in its parts:
 
 - Split the `purl` string once from right on '#'
 
