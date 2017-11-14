@@ -165,15 +165,24 @@ The rules for each part are:
   - The `type` cannot contains spaces
   - The `type` must NOT be percent-encoded
   - The `type` is case insensitive. The canonical form is lowercase
-  - Since a `purl` does not use a URL Authority, its `type` should not
-    be suffixed with double slash as in 'docker://' and should use instead
-    'docker:'. While it is acceptable to use such '://' suffix, its is not
-    significant and not needed for unambiguous parsing but it looks more as a
+  - Since a `purl` never contains a URL Authority, its `type` must not be
+    suffixed with double slash as in 'docker://' and should use instead
+    'docker:'. Otherwise this would be an invalid URI per rfc3986 at
+    https://tools.ietf.org/html/rfc3986#section-3.3::
+
+        If a URI does not contain an authority component, then the path
+        cannot begin with two slash characters ("//").
+
+    While it is acceptable to use such '://' suffix, its is not significant and
+    not needed for unambiguous parsing even if it make a `purl` look likea a
     familiar web URL. In its canonical form, a `purl` must NOT use such '://'
-    `type` suffix.
+    `type` suffix. 
+  - `purl` parsers must accept URLs with such '://' and must ignore the '//'.
+  - `purl` builders must not create invalid URLs with such double slash '//'.
   - The `type` is followed by a ':' separator
   - For example these two purls are strictly equivalent and the first is in
-    canonical form::
+    canonical form. The second `purl` with a '//' is an acceptable `purl` but is
+    an invalid URI/URL per rfc3986::
 
             gem:ruby-advisory-db-check@0.12.4
             gem://ruby-advisory-db-check@0.12.4
