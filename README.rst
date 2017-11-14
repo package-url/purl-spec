@@ -736,7 +736,8 @@ normalized:
 - **qualifiers**: the `qualifiers` corresponding to this `purl` as an object of
   {key: value} qualifier pairs.
 - **subpath**: the `subpath` corresponding to this `purl`.
-
+- **is_invalid**: a boolean flag set to true if the test should report an
+  error
 
 To test `purl` parsing and building, a tool can use this test suite and for
 every listed test object, run these tests:
