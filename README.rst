@@ -26,7 +26,8 @@ differences in syntax, naming and conventions:
 - OpenShift fabric8 analytics uses ecosystem, name and version
 - ScanCode and AboutCode.org use a type, name and version
 - SPDX has an appendix for external repository references and uses a type and a
-  locator with a type-specific syntax for part separators in a URL-like string
+  locator with a type-specific syntax for component separators in a URL-like
+  string
 - versioneye uses a type, name and version
 
 
@@ -49,13 +50,13 @@ purl
 
 `purl` stands for **package URL**.
 
-A `purl` is a URL composed of six parts::
+A `purl` is a URL composed of six components::
 
     type:namespace/name@version?qualifiers#subpath
 
-Parts are separated by a specific character for unambiguous parsing.
+Components are separated by a specific character for unambiguous parsing.
 
-The defintion for each parts is:
+The defintion for each components is:
 
 - **type**: the package "type" or package "protocol" such as maven, npm, nuget,
   gem, pypi, etc. Required.
@@ -69,12 +70,12 @@ The defintion for each parts is:
   Optional.
 
 
-Parts are designed such that they for a hierarchy from the most significant on
-the left left to the least significant parts to the right.
+Components are designed such that they for a hierarchy from the most significant
+on the left left to the least significant components to the right.
 
 
 A `purl` must NOT contain a URL Authority i.e. there is no support for
-`username`, `password`, `host` and `port` parts. A `namespace` segment may
+`username`, `password`, `host` and `port` components. A `namespace` segment may
 sometimes look like a `host` but its interpretation is specific to a `type`.
 
 
@@ -124,15 +125,15 @@ A `purl` is a URL
   - https://en.wikipedia.org/wiki/Uniform_Resource_Identifier#Syntax
   - https://url.spec.whatwg.org/
 
-- The `purl` parts are mapped to these URL parts:
+- The `purl` components are mapped to these URL components:
 
   - `purl` `type`: this is a URL `scheme`
-  - `purl` `namespace`, `name` and `version` parts: these are
+  - `purl` `namespace`, `name` and `version` components: these are
     collectively mapped to a URL `path`
   - `purl` `qualifiers`: this maps to a URL `query`
   - `purl` `subpath`: this is a URL `fragment`
   - In a `purl` there is no support for a URL Authority (e.g. NO
-    `username`, `password`, `host` and `port` parts).
+    `username`, `password`, `host` and `port` components).
 
 - Special URL schemes as defined in https://url.spec.whatwg.org/ such as
   `file://`, `https://`, `http://` and `ftp://` are NOT valid `purl` types. They
@@ -146,16 +147,16 @@ A `purl` is a URL
   in a `purl` qualifier.
 
 
-Rules for each `purl` part
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Rules for each `purl` component
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A `purl` string is an ASCII URL string composed of six parts.
+A `purl` string is an ASCII URL string composed of six components.
 
-Some parts are allowed to use other characters beyond ASCII: these parts must
-then be in UTF-8 and percent-encoded as defined in the "Character encoding"
-section.
+Some components are allowed to use other characters beyond ASCII: these
+components must then be UTF-8-encoded strings and percent-encoded as defined in
+the "Character encoding" section.
 
-The rules for each part are:
+The rules for each component are:
 
 - **type**:
 
@@ -273,7 +274,7 @@ characters must be UTF-encoded and then percent-encoded as defined at::
 
     https://en.wikipedia.org/wiki/Percent-encoding
 
-Use these rules for percent-encoding and decoding `purl` parts:
+Use these rules for percent-encoding and decoding `purl` components:
 
 - the `type` must NOT be encoded and must NOT contain separators
 
@@ -294,13 +295,14 @@ Use these rules for percent-encoding and decoding `purl` parts:
 
 - All non-ASCII characters must be encoded as UTF-8 and then percent-encoded
 
-It is OK to percent-encode `purl` parts otherwise except for the `type`. Parsers
-and builders must always percent-decode and percent-encode `purl` parts and
-part segments as explained in the "How to parse" and "How to build" sections.
+It is OK to percent-encode `purl` components otherwise except for the `type`.
+Parsers and builders must always percent-decode and percent-encode `purl`
+components and component segments as explained in the "How to parse" and "How to
+build" sections.
 
 
-How to build `purl` string from its parts
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+How to build `purl` string from its components
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Building a `purl` ASCII string works from left to right, from `type` to
 `subpath`.
@@ -308,7 +310,7 @@ Building a `purl` ASCII string works from left to right, from `type` to
 Note: some extra type-specific normalizations are required.
 See the "Known types section" for details.
 
-To build a `purl` string from its parts:
+To build a `purl` string from its components:
 
 - Start a `purl` string with the `type` as a lowercase ASCII string
 
@@ -371,16 +373,16 @@ To build a `purl` string from its parts:
   - Append this to the `purl`
 
 
-How to parse a `purl` string in its parts
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+How to parse a `purl` string in its components
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Parsing a `purl` ASCII string into its parts works from right to left, from
-`subpath` to `type`. 
+Parsing a `purl` ASCII string into its components works from right to left,
+from `subpath` to `type`.
 
 Note: some extra type-specific normalizations are required.
 See the "Known types section" for details.
 
-To parse a `purl` string in its parts:
+To parse a `purl` string in its components:
 
 - Split the `purl` string once from right on '#'
 
@@ -740,15 +742,15 @@ To test `purl` parsing and building, a tool can use this test suite and for
 every listed test object, run these tests:
 
 - parsing the test canonical `purl` then re-building a `purl` from these parsed
-  parts should return the test canonical `purl`
+  components should return the test canonical `purl`
 
-- parsing the test `purl` should return the parts parsed from the test canonical
-  `purl`
+- parsing the test `purl` should return the components parsed from the test
+  canonical `purl`
 
-- parsing the test `purl` then re-building a `purl` from these parsed parts
+- parsing the test `purl` then re-building a `purl` from these parsed components
   should return the test canonical `purl`
 
-- building a `purl` from the test parts should return the test canonical `purl`
+- building a `purl` from the test components should return the test canonical `purl`
 
 
 FAQ
@@ -778,7 +780,7 @@ FAQ
     local, remote or private mirrors. This is still the same package.
 
     And the Autority comes before the Path in a URL: this would break the
-    hierachical nature of the `purl` parts and no longer make them nicely
+    hierachical nature of the `purl` components and no longer make them nicely
     sortable as plain strings: this a good property when dealing with many
     `purl` in a database or even small lists in a UI.
 
