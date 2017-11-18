@@ -96,7 +96,7 @@ Some `purl` examples
 
     github:package-url/purl-spec@244fd47e07d1004f0aed9c
 
-    go:google.golang.org/genproto#googleapis/api/annotations
+    golang:google.golang.org/genproto#googleapis/api/annotations
 
     maven:org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources
     maven:org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=repo.spring.io/release
@@ -457,11 +457,24 @@ candidate list further down.
         bitbucket:birkenfeld/pygments-main@244fd47e07d1014f0aed9c
 
 
+- `composer` for Composer PHP packages:
+
+  - The default repository is `packagist.org`
+  - The `namespace` is the vendor.
+  - Note: private, local packages may have no name. In this casse you cannot
+    create a `purl` for these.
+  - Examples::
+
+        composer:laravel/laravel@5.5.0
+
+
 - `deb` for Debian, Debian derivatives and Ubuntu packages:
 
   - There is no default package repository: this should be implied either from
     the `distro` `qualifiers` `key` or using a base url as a `repository_url`
     `qualifiers` `key`
+  - The `name` is not case sensitive and must be
+    lowercased.
   - `arch` is the `qualifiers` `key` for a package architecture
   - Examples::
 
@@ -522,18 +535,19 @@ candidate list further down.
         github:package-url/purl-spec@244fd47e07d1004f0aed9c#everybody/loves/dogs
 
 
-- `go` for Go packages
+- `golang` for Go packages
 
   - There is no default package repository: this is implied in the namespace
     using the `go get` command conventions
+  - The `namespace` and `name` must be lowercased.
   - The `subpath` is used to point to a subpath inside a package
   - The `version` is often empty when a commit is not specified and should be
     the commit in most cases when available.
   - Examples::
 
-        go:github.com/gorilla/context@234fd47e07d1004f0aed9c
-        go:google.golang.org/genproto#googleapis/api/annotations
-        go:github.com/gorilla/context@234fd47e07d1004f0aed9c#api
+        golang:github.com/gorilla/context@234fd47e07d1004f0aed9c
+        golang:google.golang.org/genproto#googleapis/api/annotations
+        golang:github.com/gorilla/context@234fd47e07d1004f0aed9c#api
 
 
 - `maven` for Maven JARs and related artifacts
@@ -551,7 +565,9 @@ candidate list further down.
 - `npm` for Node NPM packages:
 
   - The default repository is `registry.npmjs.org`
-  - `namespace` is used for the scope of a scoped NPM package.
+  - The `namespace` is used for the scope of a scoped NPM package.
+  - Per the package.json spec, new package "must not have uppercase letters in
+    the name", therefore the must be lowercased.
   - Examples::
 
         npm:foobar@12.3.1
@@ -573,7 +589,7 @@ candidate list further down.
 
   - The default repository is `pypi.python.org`
   - PyPi treats '-' and '_' as the same character and is not case sensitive.
-    Therefore a Pypi package `name` should be lowercased and underscore '_'
+    Therefore a Pypi package `name` must be lowercased and underscore '_'
     replaced with a dash '-'
   - TBD: we could specify a `format` `qualifiers` `key` to specify a package
     format with values of `egg`, `wheel` , `sdist`, `exe` or may be a file
@@ -615,7 +631,6 @@ Other candidate types to define:
 - `chef` for Chef packages:
 - `clojars` for Clojure packages:
 - `cocoapods` for Cocoapods iOS packages:
-- `composer` for Composer PHP packages:
 - `conan` for Conan C/C++ packages:
 - `coreos` for CoreOS packages:
 - `cpan` for CPAN Perl packages:
@@ -715,6 +730,10 @@ Users and adopters
 ~~~~~~~~~~~~~~~~~~
 
 This list is TBD!
+
+ - https://github.com/nexB/scancode-toolkit will report `purl` from parsed
+   package manifests using https://github.com/package-url/packageurl-python
+   The code lives in the 275 branch for now.
 
 
 Tests
