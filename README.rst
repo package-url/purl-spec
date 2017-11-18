@@ -703,11 +703,11 @@ Known implementations
 This list is TBD!
 
 - in JavaScript:
-- in Go:
+- in Golang: https://github.com/package-url/packageurl-go
 - for .NET:
 - for the JVM:
 - in Perl:
-- in Python:
+- in Python: https://github.com/package-url/packageurl-python
 - in Ruby:
 
 
