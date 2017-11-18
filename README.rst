@@ -473,13 +473,15 @@ candidate list further down.
   - There is no default package repository: this should be implied either from
     the `distro` `qualifiers` `key` or using a base url as a `repository_url`
     `qualifiers` `key`
-  - The `name` is not case sensitive and must be
-    lowercased.
+  - The `namespace` is the "vendor" name such as "debian" or "ubuntu".
+    It is not case sensitive and must be lowercased.
+  - The `name` is not case sensitive and must be lowercased.
   - `arch` is the `qualifiers` `key` for a package architecture
   - Examples::
 
-        deb:curl@7.50.3-1?arch=i386&distro=jessie
-
+        deb:debian/curl@7.50.3-1?arch=i386&distro=jessie
+        deb:debian/dpkg@1.19.0.4?arch=amd64&distro=stretch
+        deb:ubuntu/dpkg@1.19.0.4?arch=amd64
 
 - `docker` for Docker images
 
