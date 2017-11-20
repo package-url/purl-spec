@@ -86,7 +86,7 @@ Some `purl` examples
 
     bitbucket:birkenfeld/pygments-main@244fd47e07d1014f0aed9c
 
-    deb:curl@7.50.3-1?arch=i386&distro=jessie
+    deb:debian/curl@7.50.3-1?arch=i386&distro=jessie
 
     docker:cassandra@sha256:244fd47e07d1004f0aed9c
     docker:customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io
@@ -108,8 +108,8 @@ Some `purl` examples
 
     pypi:django@1.11.1
 
-    rpm:curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
-    rpm:curl@7.50.3-1.fc25?arch=src
+    rpm:fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
+    rpm:opensuse/curl@7.56.1-1.1.?arch=i386&distro=opensuse-tumbleweed
 
 (NB: some checksums are truncated for brevity)
 
@@ -476,6 +476,7 @@ candidate list further down.
   - The `namespace` is the "vendor" name such as "debian" or "ubuntu".
     It is not case sensitive and must be lowercased.
   - The `name` is not case sensitive and must be lowercased.
+  - The `version` is is the package version.
   - `arch` is the `qualifiers` `key` for a package architecture
   - Examples::
 
@@ -615,11 +616,16 @@ candidate list further down.
   - There is no default package repository: this should be implied either from
     the `distro` `qualifiers` `key` or using a repository base url as a
     `repository_url` `qualifiers` `key`
+  - the `namespace` is the vendor such as fedora or opensuse
+    It is not case sensitive and must be lowercased.
+  - the `name` is the RPM name.
+  - the `version` is the combined epoch (if not 0), version and release of an
+    RPM.
   - `arch` is the `qualifiers` `key` for a package architecture
   - Examples::
 
-        rpm:curl@7.50.3-1.fc25?arch=src
-        rpm:curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
+        rpm:fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
+        rpm:opensuse/curl@7.56.1-1.1.?arch=i386&distro=opensuse-tumbleweed
 
 
 Other candidate types to define:
