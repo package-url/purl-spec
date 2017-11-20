@@ -157,10 +157,10 @@
   },
   {
     "description": "rpm use qualifiers",
-    "purl": "Rpm:curl@7.50.3-1.fc25?Arch=i386&Distro=fedora-25",
-    "canonical_purl": "rpm:curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
+    "purl": "Rpm:fedora/curl@7.50.3-1.fc25?Arch=i386&Distro=fedora-25",
+    "canonical_purl": "rpm:fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
     "type": "rpm",
-    "namespace": null,
+    "namespace": "fedora",
     "name": "curl",
     "version": "7.50.3-1.fc25",
     "qualifiers": {"arch": "i386", "distro": "fedora-25"},
