@@ -510,17 +510,21 @@ candidate list further down.
 
 
 - `generic` for plain, generic packages that do not fit anywhere else such as
-  for "upstream -from-distro" packages:
+  for "upstream -from-distro" packages. In particular this is handy for a plain
+  version control repository such as a bare git repo.
 
   - Their is no default repository. A `download_url` and `checksum` may be
     provided in `qualifiers` or as separate attributes outside of a `purl` for
     proper identification and location.
   - When possible another or a new purl `type` should be used instead of using
     the `generic` type and eventually contributed back to this specification
+  - as for other `type`, the `name` component is mandatory. In the worst case
+    it can be a file or directory name.
   - Examples (truncated for brevity)::
 
        generic:openssl@1.1.10g
        generic:openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da3931090
+       generic:bitwarderl?vcs_url=https://git.fsfe.org/dxtr/bitwarderl@cc55108da32042a0e385bd8e
 
 
 - `github` for Github-based packages:
@@ -574,6 +578,7 @@ candidate list further down.
 
         npm:foobar@12.3.1
         npm:%40angular/animation@12.3.1
+        npm:mypackage@12.4.5?vcs_url=git://host.com/path/to/repo.git@4345abcd34343
 
 
 - `nuget` for NuGet .NET packages:
@@ -644,6 +649,7 @@ Other candidate types to define:
 - `dub` for D packages:
 - `elm` for Elm packages:
 - `eclipse` for Eclipse projects packages:
+- `gitea` for Gitea-based packages:
 - `gitlab` for Gitlab-based packages:
 - `guix` for Guix packages:
 - `hackage` for Haskell packages:
