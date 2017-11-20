@@ -618,7 +618,7 @@ candidate list further down.
     `repository_url` `qualifiers` `key`
   - the `namespace` is the vendor such as fedora or opensuse
     It is not case sensitive and must be lowercased.
-  - the `name` is the RPM name.
+  - the `name` is the RPM name and is case sensitive.
   - the `version` is the combined epoch (if not 0), version and release of an
     RPM.
   - `arch` is the `qualifiers` `key` for a package architecture
