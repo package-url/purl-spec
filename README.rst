@@ -189,7 +189,7 @@ The rules for each component are:
         cannot begin with two slash characters ("//").
 
     While it is acceptable to use such '://' suffix, its is not significant and
-    not needed for unambiguous parsing even if it make a `purl` look likea a
+    not needed for unambiguous parsing even if it makes a `purl` look like a
     familiar web URL. In its canonical form, a `purl` must NOT use such '://'
     `type` suffix. 
   - `purl` parsers must accept URLs with such '://' and must ignore the '//'.
@@ -701,7 +701,7 @@ Other candidate types to define:
 Known `qualifiers` key/value pairs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Note: Do not abuse of `qualifiers`: it can be tempting to use many qualifier
+Note: Do not abuse `qualifiers`: it can be tempting to use many qualifier
 keys but their usage should be limited to the bare minimum for proper package
 identification to ensure that a `purl` stays compact and readable in most cases.
 
