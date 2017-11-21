@@ -716,7 +716,8 @@ all package types:
 - `repository_url` is an extra URL for an alternative, non-default package
   repository or registry.  When a package does not come from the default public
   package repository for its `type` a `purl` may be qualified with this extra
-  URL.
+  URL. The default repository or registry of a `type` is documented in the
+  "Known `purl` types" section.
 
 - `download_url` is an extra URL for a direct package web download URL to
   optionally qualify a `purl`.
