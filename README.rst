@@ -103,7 +103,7 @@ Some `purl` examples
     deb:debian/curl@7.50.3-1?arch=i386&distro=jessie
 
     docker:cassandra@sha256:244fd47e07d1004f0aed9c
-    docker:customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io
+    docker:gcr.io/customer/dockerimage@sha256:244fd47e07d1004f0aed9c
 
     gem:jruby-launcher@1.1.2?platform=java
     gem:ruby-advisory-db-check@0.12.4
@@ -501,16 +501,14 @@ candidate list further down.
 - `docker` for Docker images
 
   - The default repository is `hub.docker.com`
-  - The `namespace` is the user or organization if present
-  - A URL host or Authority should not be used as a `namespace`. Use instead the
-    `repository_url` qualifier `key` to point to an alternative image registry.
+  - The `namespace` is the registry/user/organization if present
   - The version should be the image id sha256 or a tag. Since tags can be moved,
     a sha256 image id is preferred.
   - Examples::
 
         docker:cassandra@latest
         docker:smartentry/debian@dc437cc87d10
-        docker:customer/dockerimage@sha256:244fd47e07d10?repository_url=gcr.io
+        docker:gcr.io/customer/dockerimage@sha256:244fd47e07d10
 
 
 - `gem` for Rubygems:
