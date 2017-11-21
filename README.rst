@@ -18,18 +18,32 @@ For example, these tools, specifications and API use relatively similar
 approaches to identify and locate software packages, each with subtle
 differences in syntax, naming and conventions:
 
-- Grafeas uses a scheme, namespace, name and version in a URL-like string
+- Grafeas uses a scheme, namespace, name and version in a URL-like string.
+  https://github.com/Grafeas/Grafeas
+
 - Here.com OSRK uses a package manager, name and version field and a colon-
   separated URL-like string
+  https://github.com/heremaps/oss-review-toolkit
+
 - JFrog XRay uses a scheme, namespace, name and version in a URL-like string
+  https://www.jfrog.com/confluence/display/XRAY/Xray+REST+API#XrayRESTAPI-ComponentIdentifiers
+
 - Libraries.io uses a platform, name and version
+  https://libraries.io/
+
 - OpenShift fabric8 analytics uses ecosystem, name and version
+  https://github.com/fabric8-analytics/
+
 - ScanCode and AboutCode.org use a type, name and version
+  https://github.com/nexB/scancode-toolkit
+
 - SPDX has an appendix for external repository references and uses a type and a
   locator with a type-specific syntax for component separators in a URL-like
   string
-- versioneye uses a type, name and version
+  https://github.com/spdx/spdx-spec/blob/master/chapters/3-package-information.md
 
+- versioneye uses a type, name and version
+  https://github.com/versioneye/
 
 Solution
 ========
