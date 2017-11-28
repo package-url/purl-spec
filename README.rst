@@ -571,7 +571,7 @@ candidate list further down.
 
 - `maven` for Maven JARs and related artifacts
 
-  - The default repository is `maven.org`
+  - The default repository is `repo1.maven.org`
   - The group id is the `namespace` and the artifact id is the `name`
   - Known `qualifiers` keys are: `classifier` and `packaging` as defined in the
     POM documentation
