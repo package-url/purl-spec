@@ -578,7 +578,8 @@ candidate list further down.
   - Examples::
 
         maven:org.apache.xmlgraphics/batik-anim@1.9.1
-        maven:org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources
+        maven:org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources
+        maven:org.apache.xmlgraphics/batik-anim@1.9.1?package=zip&classifier=dist
 
 
 - `npm` for Node NPM packages:
