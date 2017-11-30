@@ -44,6 +44,8 @@ differences in syntax, naming and conventions:
 
 - versioneye uses a type, name and version
   https://github.com/versioneye/
+  
+- Sonatype Lifecycle uses a format id followed by format specific coordinates. https://help.sonatype.com/display/NXIQ/Component+Details+API+-+v2  
 
 Solution
 ========
@@ -573,12 +575,19 @@ candidate list further down.
 
   - The default repository is `repo1.maven.org`
   - The group id is the `namespace` and the artifact id is the `name`
-  - Known `qualifiers` keys are: `classifier` and `packaging` as defined in the
-    POM documentation
+  - Known `qualifiers` keys are: `classifier` and `type` as defined in the
+    POM documentation. Note that Maven uses a concept / coordinate called packaging
+    which does not map directly 1:1 to a file extension. In this use case, we need
+    to construct a link to one of many possible artifacts. Maven itself uses type 
+    in a dependency declaration when needed to disambiguate between them.
   - Examples::
 
         maven:org.apache.xmlgraphics/batik-anim@1.9.1
-        maven:org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources
+        maven:org.apache.xmlgraphics/batik-anim@1.9.1?type=pom
+        maven:org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources
+        maven:org.apache.xmlgraphics/batik-anim@1.9.1?type=zip&classifier=dist
+        maven:net.sf.jacob-projec/jacob@1.14.3?classifier=x86&type=dll
+        maven:net.sf.jacob-projec/jacob@1.14.3?classifier=x64&type=dll
 
 
 - `npm` for Node NPM packages:
