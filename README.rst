@@ -575,13 +575,18 @@ candidate list further down.
 
   - The default repository is `repo1.maven.org`
   - The group id is the `namespace` and the artifact id is the `name`
-  - Known `qualifiers` keys are: `classifier` and `packaging` as defined in the
-    POM documentation
+  - Known `qualifiers` keys are: `classifier` and `extension` as defined in the
+    POM documentation. Note that Maven uses a concept / coordinate called packaging
+    which does not map directly 1:1 to a file extension. In this use case, we need
+    to construct a specific file name so extension is a better qualifier for this case.
   - Examples::
 
         maven:org.apache.xmlgraphics/batik-anim@1.9.1
+        maven:org.apache.xmlgraphics/batik-anim@1.9.1?extension=pom
         maven:org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources
-        maven:org.apache.xmlgraphics/batik-anim@1.9.1?package=zip&classifier=dist
+        maven:org.apache.xmlgraphics/batik-anim@1.9.1?extension=zip&classifier=dist
+        maven:net.sf.jacob-projec/jacob@1.14.3?classifier=x86&extension=dll
+        maven:net.sf.jacob-projec/jacob@1.14.3?classifier=x64&extension=dll
 
 
 - `npm` for Node NPM packages:
