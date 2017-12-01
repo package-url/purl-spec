@@ -86,7 +86,7 @@ The defintion for each components is:
   Optional.
 
 
-Components are designed such that they for a hierarchy from the most significant
+Components are designed such that they form a hierarchy from the most significant
 on the left left to the least significant components to the right.
 
 
