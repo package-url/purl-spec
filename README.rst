@@ -295,7 +295,7 @@ Use these rules for percent-encoding and decoding `purl` components:
 - the `type` must NOT be encoded and must NOT contain separators
 
 - the '#', '?', '@' and ':' characters must NOT be encoded when used as
-  separators. The may need to be encoded elsewhere
+  separators. They may need to be encoded elsewhere
 
 - the ':' `type` separator does not need to and must NOT be encoded. It is
   unambiguous unencoded everywhere
