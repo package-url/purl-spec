@@ -87,7 +87,7 @@ The defintion for each components is:
 
 
 Components are designed such that they for a hierarchy from the most significant
-on the left to the least significant components to the right.
+on the left to the least significant components on the right.
 
 
 A `purl` must NOT contain a URL Authority i.e. there is no support for
