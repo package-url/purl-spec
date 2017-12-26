@@ -770,6 +770,8 @@ This list is TBD!
  - https://github.com/nexB/scancode-toolkit will report `purl` from parsed
    package manifests using https://github.com/package-url/packageurl-python
    The code lives in the 275 branch for now.
+ - [OWASP Dependency-Track](https://www.owasp.org/index.php/OWASP_Dependency_Track_Project): Software Composition Analysis (SCA) platform
+ - [CycloneDX](https://github.com/CycloneDX): A lightweight software bill-of-material (BOM) specification
 
 
 Tests
