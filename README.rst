@@ -44,8 +44,10 @@ differences in syntax, naming and conventions:
 
 - versioneye uses a type, name and version
   https://github.com/versioneye/
-  
-- Sonatype Lifecycle uses a format id followed by format specific coordinates. https://help.sonatype.com/display/NXIQ/Component+Details+API+-+v2  
+
+- Sonatype Lifecycle uses a format id followed by format specific coordinates. 
+  https://help.sonatype.com/display/NXIQ/Component+Details+API+-+v2  
+
 
 Solution
 ========
@@ -61,19 +63,26 @@ Such a package URL is useful to reliably reference the same software package
 using a simple and expressive syntax and conventions based on familiar URLs.
 
 
+Check also this short `purl` presentation (with video) at FOSDEM 2018
+https://fosdem.org/2018/schedule/event/purl/ for an overview.
+
+
 purl
 ~~~~~
 
 `purl` stands for **package URL**.
 
-A `purl` is a URL composed of six components::
+A `purl` is a URL composed of seven components::
 
-    type:namespace/name@version?qualifiers#subpath
+    scheme:type/namespace/name@version?qualifiers#subpath
 
 Components are separated by a specific character for unambiguous parsing.
 
 The defintion for each components is:
 
+- **scheme**: this is the URL scheme with the constant value of "pkg". One of
+  the primary reason for this single scheme is to facilitate the future official
+  registration of the "pkg" scheme for package URLs. Required.
 - **type**: the package "type" or package "protocol" such as maven, npm, nuget,
   gem, pypi, etc. Required.
 - **namespace**: some name prefix such as a Maven groupid, a Docker image owner,
@@ -100,32 +109,32 @@ Some `purl` examples
 
 ::
 
-    bitbucket:birkenfeld/pygments-main@244fd47e07d1014f0aed9c
+    pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c
 
-    deb:debian/curl@7.50.3-1?arch=i386&distro=jessie
+    pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie
 
-    docker:cassandra@sha256:244fd47e07d1004f0aed9c
-    docker:gcr.io/customer/dockerimage@sha256:244fd47e07d1004f0aed9c
+    pkg:docker/cassandra@sha256:244fd47e07d1004f0aed9c
+    pkg:docker/gcr.io/customer/dockerimage@sha256:244fd47e07d1004f0aed9c
 
-    gem:jruby-launcher@1.1.2?platform=java
-    gem:ruby-advisory-db-check@0.12.4
+    pkg:gem/jruby-launcher@1.1.2?platform=java
+    pkg:gem/ruby-advisory-db-check@0.12.4
 
-    github:package-url/purl-spec@244fd47e07d1004f0aed9c
+    pkg:github/package-url/purl-spec@244fd47e07d1004f0aed9c
 
-    golang:google.golang.org/genproto#googleapis/api/annotations
+    pkg:golang/google.golang.org/genproto#googleapis/api/annotations
 
-    maven:org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources
-    maven:org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=repo.spring.io/release
+    pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources
+    pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=repo.spring.io/release
 
-    npm:%40angular/animation@12.3.1
-    npm:foobar@12.3.1
+    pkg:npm/%40angular/animation@12.3.1
+    pkg:npm/foobar@12.3.1
 
-    nuget:EnterpriseLibrary.Common@6.0.1304
+    pkg:nuget/EnterpriseLibrary.Common@6.0.1304
 
-    pypi:django@1.11.1
+    pkg:pypi/django@1.11.1
 
-    rpm:fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
-    rpm:opensuse/curl@7.56.1-1.1.?arch=i386&distro=opensuse-tumbleweed
+    pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
+    pkg:rpm/opensuse/curl@7.56.1-1.1.?arch=i386&distro=opensuse-tumbleweed
 
 (NB: some checksums are truncated for brevity)
 
@@ -141,10 +150,13 @@ A `purl` is a URL
   - https://en.wikipedia.org/wiki/Uniform_Resource_Identifier#Syntax
   - https://url.spec.whatwg.org/
 
+- This is a valid URL because it is a locator even though it has no Authority
+  URL component: each `type` has a default repository location when defined.
+
 - The `purl` components are mapped to these URL components:
 
-  - `purl` `type`: this is a URL `scheme`
-  - `purl` `namespace`, `name` and `version` components: these are
+  - `purl` `scheme`: this is a URL `scheme` with a constant value: `pkg`
+  - `purl` `type`, `namespace`, `name` and `version` components: these are
     collectively mapped to a URL `path`
   - `purl` `qualifiers`: this maps to a URL `query`
   - `purl` `subpath`: this is a URL `fragment`
@@ -152,12 +164,14 @@ A `purl` is a URL
     `username`, `password`, `host` and `port` components).
 
 - Special URL schemes as defined in https://url.spec.whatwg.org/ such as
-  `file://`, `https://`, `http://` and `ftp://` are NOT valid `purl` types. They
-  may be used to reference URLs in separate attributes outside of a `purl` or in
-  a `purl` qualifier.
+  `file://`, `https://`, `http://` and `ftp://` are NOT valid `purl` types.
+  They are valid URL or URI schemes but they are not `purl`.
+  They may be used to reference URLs in separate attributes outside of a `purl`
+  or in a `purl` qualifier.
 
 - Version control system (VCS) URLs such `git://`, `svn://`, `hg://` or as
   defined in Python pip or SPDX download locations are NOT valid `purl` types.
+  They are valid URL or URI schemes but they are not `purl`.
   They are a closely related, compact and uniform way to reference vcs URLs.
   They may be used as references in separate attributes outside of a `purl` or
   in a `purl` qualifier.
@@ -166,13 +180,40 @@ A `purl` is a URL
 Rules for each `purl` component
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A `purl` string is an ASCII URL string composed of six components.
+A `purl` string is an ASCII URL string composed of seven components.
 
 Some components are allowed to use other characters beyond ASCII: these
 components must then be UTF-8-encoded strings and percent-encoded as defined in
 the "Character encoding" section.
 
 The rules for each component are:
+
+- **scheme**:
+
+  - The `scheme` is a constant with the value "pkg"
+  - Since a `purl` never contains a URL Authority, its `scheme` must not be
+    suffixed with double slash as in 'pkg://' and should use instead
+    'pkg:'. Otherwise this would be an invalid URI per rfc3986 at
+    https://tools.ietf.org/html/rfc3986#section-3.3::
+
+        If a URI does not contain an authority component, then the path
+        cannot begin with two slash characters ("//").
+
+    While it is acceptable to use such '://' scheme suffix, its is not
+    significant and not needed for unambiguous parsing even if it makes a
+    `purl` look like a familiar web URL. In its canonical form, a `purl` must
+    NOT use such '://' `scheme` suffix but only ':'.
+    `scheme` suffix. 
+  - `purl` parsers must accept URLs such as 'pkg://' and must ignore the '//'.
+  - `purl` builders must not create invalid URLs with such double slash '//'.
+  - The `scheme` is followed by a ':' separator
+  - For example these two purls are strictly equivalent and the first is in
+    canonical form. The second `purl` with a '//' is an acceptable `purl` but is
+    an invalid URI/URL per rfc3986::
+
+            pkg:gem/ruby-advisory-db-check@0.12.4
+            pkg://gem/ruby-advisory-db-check@0.12.4
+
 
 - **type**:
 
@@ -182,27 +223,6 @@ The rules for each component are:
   - The `type` cannot contains spaces
   - The `type` must NOT be percent-encoded
   - The `type` is case insensitive. The canonical form is lowercase
-  - Since a `purl` never contains a URL Authority, its `type` must not be
-    suffixed with double slash as in 'docker://' and should use instead
-    'docker:'. Otherwise this would be an invalid URI per rfc3986 at
-    https://tools.ietf.org/html/rfc3986#section-3.3::
-
-        If a URI does not contain an authority component, then the path
-        cannot begin with two slash characters ("//").
-
-    While it is acceptable to use such '://' suffix, its is not significant and
-    not needed for unambiguous parsing even if it makes a `purl` look like a
-    familiar web URL. In its canonical form, a `purl` must NOT use such '://'
-    `type` suffix. 
-  - `purl` parsers must accept URLs with such '://' and must ignore the '//'.
-  - `purl` builders must not create invalid URLs with such double slash '//'.
-  - The `type` is followed by a ':' separator
-  - For example these two purls are strictly equivalent and the first is in
-    canonical form. The second `purl` with a '//' is an acceptable `purl` but is
-    an invalid URI/URL per rfc3986::
-
-            gem:ruby-advisory-db-check@0.12.4
-            gem://ruby-advisory-db-check@0.12.4
 
 
 - **namespace**:
@@ -297,11 +317,11 @@ Use these rules for percent-encoding and decoding `purl` components:
 - the '#', '?', '@' and ':' characters must NOT be encoded when used as
   separators. They may need to be encoded elsewhere
 
-- the ':' `type` separator does not need to and must NOT be encoded. It is
-  unambiguous unencoded everywhere
+- the ':' `scheme` and `type` separator does not need to and must NOT be encoded.
+  It is unambiguous unencoded everywhere
 
-- the '/' used as `namespace`/`name` and `subpath` segments separator does not
-  need to and must NOT be percent-encoded. It is unambiguous unencoded
+- the '/' used as `type`/`namespace`/`name` and `subpath` segments separator
+  does not need to and must NOT be percent-encoded. It is unambiguous unencoded
   everywhere
 
 - the '@' `version` separator must be encoded as `%40` elsewhere
@@ -328,9 +348,12 @@ See the "Known types section" for details.
 
 To build a `purl` string from its components:
 
-- Start a `purl` string with the `type` as a lowercase ASCII string
 
-  - Append ':' to the `purl`
+- Start a `purl` string with the "pkg:" `scheme` as a lowercase ASCII string
+
+- Append the `type` string  to the `purl` as a lowercase ASCII string
+
+  - Append '/' to the `purl`
 
 - If the `namespace` is not empty:
 
@@ -430,12 +453,17 @@ To parse a `purl` string in its components:
 
 - Split the `remainder` once from left on ':'
 
-  - The left side lowercased is the `type`
+  - The left side lowercased is the `scheme`
   - The right side is the `remainder`
 
 - Strip the `remainder` from leading and trailing '/'
 
-  - Split this once from right on '/'
+  - Split this once from left on '/'
+  - The left side lowercased is the `type`
+  - The right side is the `remainder`
+
+- Split the `remainder` once from right on '/'
+
   - The left side is the `remainder`
   - Percent-decode the right side
   - UTF-8-decode the `name` if needed in your programming language
@@ -470,7 +498,7 @@ candidate list further down.
   - The `version` is a commit or tag
   - Examples::
 
-        bitbucket:birkenfeld/pygments-main@244fd47e07d1014f0aed9c
+        pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c
 
 
 - `composer` for Composer PHP packages:
@@ -481,7 +509,7 @@ candidate list further down.
     create a `purl` for these.
   - Examples::
 
-        composer:laravel/laravel@5.5.0
+        pkg:composer/laravel/laravel@5.5.0
 
 
 - `deb` for Debian, Debian derivatives and Ubuntu packages:
@@ -496,9 +524,9 @@ candidate list further down.
   - `arch` is the `qualifiers` `key` for a package architecture
   - Examples::
 
-        deb:debian/curl@7.50.3-1?arch=i386&distro=jessie
-        deb:debian/dpkg@1.19.0.4?arch=amd64&distro=stretch
-        deb:ubuntu/dpkg@1.19.0.4?arch=amd64
+        pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie
+        pkg:deb/debian/dpkg@1.19.0.4?arch=amd64&distro=stretch
+        pkg:deb/ubuntu/dpkg@1.19.0.4?arch=amd64
 
 - `docker` for Docker images
 
@@ -508,8 +536,8 @@ candidate list further down.
     a sha256 image id is preferred.
   - Examples::
 
-        docker:cassandra@latest
-        docker:smartentry/debian@dc437cc87d10
+        pkg:docker/cassandra@latest
+        pkg:docker/smartentry/debian@dc437cc87d10
         docker:gcr.io/customer/dockerimage@sha256:244fd47e07d10
 
 
@@ -520,8 +548,8 @@ candidate list further down.
     such as `java` for JRuby. The implied default is `ruby` for Ruby MRI.
   - Examples::
 
-        gem:ruby-advisory-db-check@0.12.4
-        gem:jruby-launcher@1.1.2?platform=java
+        pkg:gem/ruby-advisory-db-check@0.12.4
+        pkg:gem/jruby-launcher@1.1.2?platform=java
 
 
 - `generic` for plain, generic packages that do not fit anywhere else such as
@@ -537,9 +565,9 @@ candidate list further down.
     it can be a file or directory name.
   - Examples (truncated for brevity)::
 
-       generic:openssl@1.1.10g
-       generic:openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da3931090
-       generic:bitwarderl?vcs_url=https://git.fsfe.org/dxtr/bitwarderl@cc55108da32042a0e385bd8e
+       pkg:generic/openssl@1.1.10g
+       pkg:generic/openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da
+       pkg:generic/bitwarderl?vcs_url=https://git.fsfe.org/dxtr/bitwarderl@cc55108da32
 
 
 - `github` for Github-based packages:
@@ -552,8 +580,8 @@ candidate list further down.
   - The `version` is a commit or tag
   - Examples::
 
-        github:package-url/purl-spec@244fd47e07d1004f0aed9c
-        github:package-url/purl-spec@244fd47e07d1004f0aed9c#everybody/loves/dogs
+        pkg:github/package-url/purl-spec@244fd47e07d1004
+        pkg:github/package-url/purl-spec@244fd47e07d1004#everybody/loves/dogs
 
 
 - `golang` for Go packages
@@ -566,9 +594,9 @@ candidate list further down.
     the commit in most cases when available.
   - Examples::
 
-        golang:github.com/gorilla/context@234fd47e07d1004f0aed9c
-        golang:google.golang.org/genproto#googleapis/api/annotations
-        golang:github.com/gorilla/context@234fd47e07d1004f0aed9c#api
+        pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c
+        pkg:golang/google.golang.org/genproto#googleapis/api/annotations
+        pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c#api
 
 
 - `maven` for Maven JARs and related artifacts
@@ -582,12 +610,12 @@ candidate list further down.
     in a dependency declaration when needed to disambiguate between them.
   - Examples::
 
-        maven:org.apache.xmlgraphics/batik-anim@1.9.1
-        maven:org.apache.xmlgraphics/batik-anim@1.9.1?type=pom
-        maven:org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources
-        maven:org.apache.xmlgraphics/batik-anim@1.9.1?type=zip&classifier=dist
-        maven:net.sf.jacob-projec/jacob@1.14.3?classifier=x86&type=dll
-        maven:net.sf.jacob-projec/jacob@1.14.3?classifier=x64&type=dll
+        pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1
+        pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=pom
+        pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources
+        pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=zip&classifier=dist
+        pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x86&type=dll
+        pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x64&type=dll
 
 
 - `npm` for Node NPM packages:
@@ -598,9 +626,9 @@ candidate list further down.
     the name", therefore the must be lowercased.
   - Examples::
 
-        npm:foobar@12.3.1
-        npm:%40angular/animation@12.3.1
-        npm:mypackage@12.4.5?vcs_url=git://host.com/path/to/repo.git@4345abcd34343
+        pkg:npm/foobar@12.3.1
+        pkg:npm/%40angular/animation@12.3.1
+        pkg:npm/mypackage@12.4.5?vcs_url=git://host.com/path/to/repo.git@4345abcd34343
 
 
 - `nuget` for NuGet .NET packages:
@@ -611,7 +639,7 @@ candidate list further down.
     TBD: should we split the first segment as a namespace?
   - Examples::
 
-        nuget:EnterpriseLibrary.Common@6.0.1304
+        pkg:nuget/EnterpriseLibrary.Common@6.0.1304
 
 
 - `pypi` for Python packages:
@@ -620,16 +648,10 @@ candidate list further down.
   - PyPi treats '-' and '_' as the same character and is not case sensitive.
     Therefore a Pypi package `name` must be lowercased and underscore '_'
     replaced with a dash '-'
-  - TBD: we could specify a `format` `qualifiers` `key` to specify a package
-    format with values of `egg`, `wheel` , `sdist`, `exe` or may be a file
-    extension?
-  - TBD: we could specify a  `markers` `qualifiers` `key` to specify PEP 508
-    environment markers but this is extra complexity. See
-    https://www.python.org/dev/peps/pep-0508/
   - Examples::
 
-        pypi:django@1.11.1
-        pypi:django-allauth@12.23
+        pkg:pypi/django@1.11.1
+        pkg:pypi/django-allauth@12.23
 
 
 - `rpm` for RPMs:
@@ -645,8 +667,8 @@ candidate list further down.
   - `arch` is the `qualifiers` `key` for a package architecture
   - Examples::
 
-        rpm:fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
-        rpm:opensuse/curl@7.56.1-1.1.?arch=i386&distro=opensuse-tumbleweed
+        pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
+        pkg:rpm/opensuse/curl@7.56.1-1.1.?arch=i386&distro=opensuse-tumbleweed
 
 
 Other candidate types to define:
@@ -735,7 +757,9 @@ all package types:
   optionally qualify a `purl`. The syntax for this URL should be as defined in
   Python pip or the SPDX specification. See https://github.com/spdx/spdx-
   spec/blob/cfa1b9d08903/chapters/3-package-information.md#37-package-download-
-  location- TODO: incorporate the details from SPDX here.
+  location
+
+  - TODO: incorporate the details from SPDX here.
 
 - `file_name` is an extra file name of a package archive.
 
@@ -751,8 +775,6 @@ all package types:
 Known implementations
 ~~~~~~~~~~~~~~~~~~~~~
 
-This list is TBD!
-
 - in JavaScript:
 - in Golang: https://github.com/package-url/packageurl-go
 - for .NET:
@@ -762,10 +784,8 @@ This list is TBD!
 - in Ruby:
 
 
-Users and adopters
-~~~~~~~~~~~~~~~~~~
-
-This list is TBD!
+Users, adopters and links
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
  - https://github.com/nexB/scancode-toolkit will report `purl` from parsed
    package manifests using https://github.com/package-url/packageurl-python
@@ -812,4 +832,4 @@ every listed test object, run these tests:
 License
 ~~~~~~~
 
-This document is dedicated to the public domain
+This document is licensed under the MIT license
