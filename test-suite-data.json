@@ -110,7 +110,7 @@
   {
     "description": "maven often uses qualifiers",
     "purl": "pkg:Maven/org.apache.xmlgraphics/batik-anim@1.9.1?repositorY_url=repo.spring.io/release&classifier=sources",
-    "canonical_purl": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources&repository_url=repo.spring.io/release",
+    "canonical_purl": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repository_url=repo.spring.io/release",
     "type": "maven",
     "namespace": "org.apache.xmlgraphics",
     "name": "batik-anim",
@@ -121,20 +121,20 @@
   },
   {
     "description": "maven pom reference",
-    "purl": "pkg:Maven/org.apache.xmlgraphics/batik-anim@1.9.1?repositorY_url=repo.spring.io/release&type=pom",
-    "canonical_purl": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources&repository_url=repo.spring.io/release&extension=pom",
+    "purl": "pkg:Maven/org.apache.xmlgraphics/batik-anim@1.9.1?repositorY_url=repo.spring.io/release&extension=pom",
+    "canonical_purl": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?extension=pom&repository_url=repo.spring.io/release",
     "type": "maven",
     "namespace": "org.apache.xmlgraphics",
     "name": "batik-anim",
     "version": "1.9.1",
-    "qualifiers": {"type": "pom", "repository_url": "repo.spring.io/release"},
+    "qualifiers": {"extension": "pom", "repository_url": "repo.spring.io/release"},
     "subpath": null,
     "is_invalid": false
   },
   {
     "description": "maven can come with a type qualifier",
     "purl": "pkg:Maven/net.sf.jacob-project/jacob@1.14.3?type=dll&classifier=x86",
-    "canonical_purl": "pkg:maven/net.sf.jacob-project/jacob@1.14.3?type=dll&classifier=x86",
+    "canonical_purl": "pkg:maven/net.sf.jacob-project/jacob@1.14.3?classifier=x86&type=dll",
     "type": "maven",
     "namespace": "net.sf.jacob-project",
     "name": "jacob",
