@@ -199,11 +199,9 @@ The rules for each component are:
         If a URI does not contain an authority component, then the path
         cannot begin with two slash characters ("//").
 
-    While it is acceptable to use such '://' scheme suffix, its is not
-    significant and not needed for unambiguous parsing even if it makes a
-    `purl` look like a familiar web URL. In its canonical form, a `purl` must
-    NOT use such '://' `scheme` suffix but only ':'.
-    `scheme` suffix. 
+    It is therefore incorrect to use such '://' scheme suffix as the URL would
+    no longer be valid otherwise. In its canonical form, a `purl` must
+    NOT use such '://' `scheme` suffix but only ':' as a `scheme` suffix. 
   - `purl` parsers must accept URLs such as 'pkg://' and must ignore the '//'.
   - `purl` builders must not create invalid URLs with such double slash '//'.
   - The `scheme` is followed by a ':' separator
