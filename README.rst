@@ -460,11 +460,18 @@ To parse a `purl` string in its components:
   - The left side lowercased is the `type`
   - The right side is the `remainder`
 
+- Split the `remainder` once from right on '@'
+
+  - The left side is the `remainder`
+  - Percent-decode the right side. This is the `version`.
+  - UTF-8-decode the `version` if needed in your programming language
+  - This is the `version`
+
 - Split the `remainder` once from right on '/'
 
   - The left side is the `remainder`
-  - Percent-decode the right side
-  - UTF-8-decode the `name` if needed in your programming language
+  - Percent-decode the right side. This is the `name`
+  - UTF-8-decode this `name` if needed in your programming language
   - Apply type-specific normalization to the `name` if needed
   - This is the `name`
 
