@@ -110,7 +110,7 @@
   {
     "description": "maven uses qualifiers",
     "purl": "Maven:org.apache.xmlgraphics/batik-anim@1.9.1?repositorY_url=repo.spring.io/release&classifier=sources",
-    "canonical_purl": "maven:org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources&repository_url=repo.spring.io/release",
+    "canonical_purl": "maven:org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=repo.spring.io/release&classifier=sources",
     "type": "maven",
     "namespace": "org.apache.xmlgraphics",
     "name": "batik-anim",
@@ -122,7 +122,7 @@
   {
     "description": "maven pom reference",
     "purl": "Maven:org.apache.xmlgraphics/batik-anim@1.9.1?repositorY_url=repo.spring.io/release&type=pom",
-    "canonical_purl": "maven:org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources&repository_url=repo.spring.io/release&extension=pom",
+    "canonical_purl": "maven:org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=repo.spring.io/release&type=pom",
     "type": "maven",
     "namespace": "org.apache.xmlgraphics",
     "name": "batik-anim",
