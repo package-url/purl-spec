@@ -1,8 +1,8 @@
 [
   {
     "description": "valid maven purl",
-    "purl": "maven:org.apache.commons/io@1.3.4",
-    "canonical_purl": "maven:org.apache.commons/io@1.3.4",
+    "purl": "pkg:maven/org.apache.commons/io@1.3.4",
+    "canonical_purl": "pkg:maven/org.apache.commons/io@1.3.4",
     "type": "maven",
     "namespace": "org.apache.commons",
     "name": "io",
@@ -13,8 +13,8 @@
   },
   {
     "description": "basic valid maven purl without version",
-    "purl": "maven:org.apache.commons/io",
-    "canonical_purl": "maven:org.apache.commons/io",
+    "purl": "pkg:maven/org.apache.commons/io",
+    "canonical_purl": "pkg:maven/org.apache.commons/io",
     "type": "maven",
     "namespace": "org.apache.commons",
     "name": "io",
@@ -25,8 +25,8 @@
   },
   {
     "description": "valid go purl without version and with subpath",
-    "purl": "GOLANG:google.golang.org/genproto#/googleapis/api/annotations/",
-    "canonical_purl": "golang:google.golang.org/genproto#googleapis/api/annotations",
+    "purl": "pkg:GOLANG/google.golang.org/genproto#/googleapis/api/annotations/",
+    "canonical_purl": "pkg:golang/google.golang.org/genproto#googleapis/api/annotations",
     "type": "golang",
     "namespace": "google.golang.org",
     "name": "genproto",
@@ -37,8 +37,8 @@
   },
   {
     "description": "valid go purl with version and subpath",
-    "purl": "GOLANG:google.golang.org/genproto@abcdedf#/googleapis/api/annotations/",
-    "canonical_purl": "golang:google.golang.org/genproto@abcdedf#googleapis/api/annotations",
+    "purl": "pkg:GOLANG/google.golang.org/genproto@abcdedf#/googleapis/api/annotations/",
+    "canonical_purl": "pkg:golang/google.golang.org/genproto@abcdedf#googleapis/api/annotations",
     "type": "golang",
     "namespace": "google.golang.org",
     "name": "genproto",
@@ -49,8 +49,8 @@
   },
   {
     "description": "bitbucket namespace and name should be lowercased",
-    "purl": "bitbucket:birKenfeld/pyGments-main@244fd47e07d1014f0aed9c",
-    "canonical_purl": "bitbucket:birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
+    "purl": "pkg:bitbucket/birKenfeld/pyGments-main@244fd47e07d1014f0aed9c",
+    "canonical_purl": "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
     "type": "bitbucket",
     "namespace": "birkenfeld",
     "name": "pygments-main",
@@ -61,8 +61,8 @@
   },
   {
     "description": "github namespace and name should be lowercased",
-    "purl": "github:Package-url/purl-Spec@244fd47e07d1004f0aed9c",
-    "canonical_purl": "github:package-url/purl-spec@244fd47e07d1004f0aed9c",
+    "purl": "pkg:github/Package-url/purl-Spec@244fd47e07d1004f0aed9c",
+    "canonical_purl": "pkg:github/package-url/purl-spec@244fd47e07d1004f0aed9c",
     "type": "github",
     "namespace": "package-url",
     "name": "purl-spec",
@@ -73,8 +73,8 @@
   },
   {
     "description": "debian can use qualifiers",
-    "purl": "deb:debian/curl@7.50.3-1?arch=i386&distro=jessie",
-    "canonical_purl": "deb:debian/curl@7.50.3-1?arch=i386&distro=jessie",
+    "purl": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
+    "canonical_purl": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
     "type": "deb",
     "namespace": "debian",
     "name": "curl",
@@ -85,8 +85,8 @@
   },
   {
     "description": "docker uses qualifiers and hash image id as versions",
-    "purl": "docker:customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io",
-    "canonical_purl": "docker:customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io",
+    "purl": "pkg:docker/customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io",
+    "canonical_purl": "pkg:docker/customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io",
     "type": "docker",
     "namespace": "customer",
     "name": "dockerimage",
@@ -96,9 +96,9 @@
     "is_invalid": false
   },
   {
-    "description": "gem uses qualifiers",
-    "purl": "gem:jruby-launcher@1.1.2?Platform=java",
-    "canonical_purl": "gem:jruby-launcher@1.1.2?platform=java",
+    "description": "Java gem can use a qualifier",
+    "purl": "pkg:gem/jruby-launcher@1.1.2?Platform=java",
+    "canonical_purl": "pkg:gem/jruby-launcher@1.1.2?platform=java",
     "type": "gem",
     "namespace": null,
     "name": "jruby-launcher",
@@ -108,9 +108,9 @@
     "is_invalid": false
   },
   {
-    "description": "maven uses qualifiers",
-    "purl": "Maven:org.apache.xmlgraphics/batik-anim@1.9.1?repositorY_url=repo.spring.io/release&classifier=sources",
-    "canonical_purl": "maven:org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources&repository_url=repo.spring.io/release",
+    "description": "maven often uses qualifiers",
+    "purl": "pkg:Maven/org.apache.xmlgraphics/batik-anim@1.9.1?repositorY_url=repo.spring.io/release&classifier=sources",
+    "canonical_purl": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repository_url=repo.spring.io/release",
     "type": "maven",
     "namespace": "org.apache.xmlgraphics",
     "name": "batik-anim",
@@ -121,20 +121,20 @@
   },
   {
     "description": "maven pom reference",
-    "purl": "Maven:org.apache.xmlgraphics/batik-anim@1.9.1?repositorY_url=repo.spring.io/release&type=pom",
-    "canonical_purl": "maven:org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources&repository_url=repo.spring.io/release&extension=pom",
+    "purl": "pkg:Maven/org.apache.xmlgraphics/batik-anim@1.9.1?repositorY_url=repo.spring.io/release&extension=pom",
+    "canonical_purl": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?extension=pom&repository_url=repo.spring.io/release",
     "type": "maven",
     "namespace": "org.apache.xmlgraphics",
     "name": "batik-anim",
     "version": "1.9.1",
-    "qualifiers": {"type": "pom", "repository_url": "repo.spring.io/release"},
+    "qualifiers": {"extension": "pom", "repository_url": "repo.spring.io/release"},
     "subpath": null,
     "is_invalid": false
   },
   {
-    "description": "maven uses type",
-    "purl": "Maven:net.sf.jacob-project/jacob@1.14.3?type=dll&classifier=x86",
-    "canonical_purl": "maven:net.sf.jacob-project/jacob@1.14.3?type=dll&classifier=x86",
+    "description": "maven can come with a type qualifier",
+    "purl": "pkg:Maven/net.sf.jacob-project/jacob@1.14.3?type=dll&classifier=x86",
+    "canonical_purl": "pkg:maven/net.sf.jacob-project/jacob@1.14.3?classifier=x86&type=dll",
     "type": "maven",
     "namespace": "net.sf.jacob-project",
     "name": "jacob",
@@ -145,8 +145,8 @@
   },
   {
     "description": "npm can be scoped",
-    "purl": "npm:%40angular/animation@12.3.1",
-    "canonical_purl": "npm:%40angular/animation@12.3.1",
+    "purl": "pkg:npm/%40angular/animation@12.3.1",
+    "canonical_purl": "pkg:npm/%40angular/animation@12.3.1",
     "type": "npm",
     "namespace": "@angular",
     "name": "animation",
@@ -157,8 +157,8 @@
   },
   {
     "description": "nuget names are case sensitive",
-    "purl": "Nuget:EnterpriseLibrary.Common@6.0.1304",
-    "canonical_purl": "nuget:EnterpriseLibrary.Common@6.0.1304",
+    "purl": "pkg:Nuget/EnterpriseLibrary.Common@6.0.1304",
+    "canonical_purl": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
     "type": "nuget",
     "namespace": null,
     "name": "EnterpriseLibrary.Common",
@@ -169,8 +169,8 @@
   },
   {
     "description": "pypi names have special rules and not case sensitive",
-    "purl": "PYPI:Django_package@1.11.1.dev1",
-    "canonical_purl": "pypi:django-package@1.11.1.dev1",
+    "purl": "pkg:PYPI/Django_package@1.11.1.dev1",
+    "canonical_purl": "pkg:pypi/django-package@1.11.1.dev1",
     "type": "pypi",
     "namespace": null,
     "name": "django-package",
@@ -180,9 +180,9 @@
     "is_invalid": false
   },
   {
-    "description": "rpm use qualifiers",
-    "purl": "Rpm:fedora/curl@7.50.3-1.fc25?Arch=i386&Distro=fedora-25",
-    "canonical_purl": "rpm:fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
+    "description": "rpm often use qualifiers",
+    "purl": "pkg:Rpm/fedora/curl@7.50.3-1.fc25?Arch=i386&Distro=fedora-25",
+    "canonical_purl": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
     "type": "rpm",
     "namespace": "fedora",
     "name": "curl",
@@ -192,7 +192,7 @@
     "is_invalid": false
   },
   {
-    "description": "type is required",
+    "description": "a scheme is always required",
     "purl": "EnterpriseLibrary.Common@6.0.1304",
     "canonical_purl": "EnterpriseLibrary.Common@6.0.1304",
     "type": null,
@@ -204,9 +204,21 @@
     "is_invalid": true
   },
   {
-    "description": "name is required",
-    "purl": "maven:@1.3.4",
-    "canonical_purl": "maven:@1.3.4",
+    "description": "a type is always required",
+    "purl": "pkg:EnterpriseLibrary.Common@6.0.1304",
+    "canonical_purl": "pkg:EnterpriseLibrary.Common@6.0.1304",
+    "type": null,
+    "namespace": null,
+    "name": "EnterpriseLibrary.Common",
+    "version": null,
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "a name is required",
+    "purl": "pkg:maven/@1.3.4",
+    "canonical_purl": "pkg:maven/@1.3.4",
     "type": "maven",
     "namespace": null,
     "name": null,
@@ -216,9 +228,9 @@
     "is_invalid": true
   },
   {
-    "description": "slash / after type is not significant",
-    "purl": "maven:/org.apache.commons/io",
-    "canonical_purl": "maven:org.apache.commons/io",
+    "description": "slash / after scheme is not significant",
+    "purl": "pkg:/maven/org.apache.commons/io",
+    "canonical_purl": "pkg:maven/org.apache.commons/io",
     "type": "maven",
     "namespace": "org.apache.commons",
     "name": "io",
@@ -228,9 +240,9 @@
     "is_invalid": false
   },
   {
-    "description": "double slash // after type is not significant",
-    "purl": "maven://org.apache.commons/io",
-    "canonical_purl": "maven:org.apache.commons/io",
+    "description": "double slash // after scheme is not significant",
+    "purl": "pkg://maven/org.apache.commons/io",
+    "canonical_purl": "pkg:maven/org.apache.commons/io",
     "type": "maven",
     "namespace": "org.apache.commons",
     "name": "io",
@@ -241,8 +253,8 @@
   },
   {
     "description": "slash /// after type  is not significant",
-    "purl": "maven:///org.apache.commons/io",
-    "canonical_purl": "maven:org.apache.commons/io",
+    "purl": "pkg:///maven/org.apache.commons/io",
+    "canonical_purl": "pkg:maven/org.apache.commons/io",
     "type": "maven",
     "namespace": "org.apache.commons",
     "name": "io",
