@@ -262,5 +262,17 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": false
+  },
+  {
+    "description": "valid maven purl with case sensitive namespace and name",
+    "purl": "pkg:maven/HTTPClient/HTTPClient@0.3-3",
+    "canonical_purl": "pkg:maven/HTTPClient/HTTPClient@0.3-3",
+    "type": "maven",
+    "namespace": "HTTPClient",
+    "name": "HTTPClient",
+    "version": "0.3-3",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
   }
 ]
