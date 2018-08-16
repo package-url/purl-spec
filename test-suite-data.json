@@ -274,5 +274,17 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": false
+  },
+  {
+    "description": "valid maven purl containing a space in the version",
+    "purl": "pkg:maven/mygroup/myartifact@1.0.0%20Final",
+    "canonical_purl": "pkg:maven/mygroup/myartifact@1.0.0%20Final",
+    "type": "maven",
+    "namespace": "mygroup",
+    "name": "myartifact",
+    "version": "1.0.0 Final",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
   }
 ]
