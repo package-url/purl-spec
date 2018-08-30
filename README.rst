@@ -787,6 +787,7 @@ Known implementations
 - in Perl:
 - in Python: https://github.com/package-url/packageurl-python
 - in Ruby:
+- in Rust: https://github.com/althonos/packageurl-rs
 
 
 Users, adopters and links
