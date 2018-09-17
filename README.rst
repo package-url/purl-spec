@@ -495,7 +495,7 @@ candidate list further down.
 
 - `bitbucket` for Bitbucket-based packages:
 
-  - The default repository is `bitbucket.org`
+  - The default repository is `https://bitbucket.org`
   - The `namespace` is the user or organization. It is not case sensitive and
     must be lowercased.
   - The `name` is the repository name. It is not case sensitive and must be
@@ -508,7 +508,7 @@ candidate list further down.
 
 - `composer` for Composer PHP packages:
 
-  - The default repository is `packagist.org`
+  - The default repository is `https://packagist.org`
   - The `namespace` is the vendor.
   - Note: private, local packages may have no name. In this casse you cannot
     create a `purl` for these.
@@ -535,7 +535,7 @@ candidate list further down.
 
 - `docker` for Docker images
 
-  - The default repository is `hub.docker.com`
+  - The default repository is `https://hub.docker.com`
   - The `namespace` is the registry/user/organization if present
   - The version should be the image id sha256 or a tag. Since tags can be moved,
     a sha256 image id is preferred.
@@ -548,7 +548,7 @@ candidate list further down.
 
 - `gem` for Rubygems:
 
-  - The default repository is `rubygems.org`
+  - The default repository is `https://rubygems.org`
   - The `platform` `qualifiers` `key` is used to specify an alternative platform
     such as `java` for JRuby. The implied default is `ruby` for Ruby MRI.
   - Examples::
@@ -577,7 +577,7 @@ candidate list further down.
 
 - `github` for Github-based packages:
 
-  - The default repository is `github.com`
+  - The default repository is `https://github.com`
   - The `namespace` is the user or organization. It is not case sensitive and
     must be lowercased.
   - The `name` is the repository name. It is not case sensitive and must be
@@ -625,7 +625,7 @@ candidate list further down.
 
 - `npm` for Node NPM packages:
 
-  - The default repository is `registry.npmjs.org`
+  - The default repository is `https://registry.npmjs.org`
   - The `namespace` is used for the scope of a scoped NPM package.
   - Per the package.json spec, new package "must not have uppercase letters in
     the name", therefore the must be lowercased.
@@ -638,7 +638,7 @@ candidate list further down.
 
 - `nuget` for NuGet .NET packages:
 
-  - The default repository is `nuget.org`
+  - The default repository is `https://www.nuget.org`
   - There is no `namespace` per se even if the common convention is to use
     dot-separated package names where the first segment is `namespace`-like.
     TBD: should we split the first segment as a namespace?
@@ -649,7 +649,7 @@ candidate list further down.
 
 - `pypi` for Python packages:
 
-  - The default repository is `pypi.python.org`
+  - The default repository is `https://pypi.python.org`
   - PyPi treats '-' and '_' as the same character and is not case sensitive.
     Therefore a Pypi package `name` must be lowercased and underscore '_'
     replaced with a dash '-'
