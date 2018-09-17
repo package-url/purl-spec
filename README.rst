@@ -543,7 +543,7 @@ candidate list further down.
 
         pkg:docker/cassandra@latest
         pkg:docker/smartentry/debian@dc437cc87d10
-        docker:gcr.io/customer/dockerimage@sha256:244fd47e07d10
+        pkg:docker/gcr.io/customer/dockerimage@sha256%3A244fd47e07d10
 
 
 - `gem` for Rubygems:
