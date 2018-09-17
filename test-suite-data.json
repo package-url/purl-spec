@@ -264,6 +264,18 @@
     "is_invalid": false
   },
   {
+    "description": "valid maven purl with case sensitive namespace and name",
+    "purl": "pkg:maven/HTTPClient/HTTPClient@0.3-3",
+    "canonical_purl": "pkg:maven/HTTPClient/HTTPClient@0.3-3",
+    "type": "maven",
+    "namespace": "HTTPClient",
+    "name": "HTTPClient",
+    "version": "0.3-3",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
     "description": "valid maven purl containing a space in the version and qualifier",
     "purl": "pkg:maven/mygroup/myartifact@1.0.0%20Final?mykey=my%20value",
     "canonical_purl": "pkg:maven/mygroup/myartifact@1.0.0%20Final?mykey=my%20value",

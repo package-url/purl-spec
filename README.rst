@@ -760,9 +760,7 @@ all package types:
 
 - `vcs_url` is an extra URL for a package version control system URL to
   optionally qualify a `purl`. The syntax for this URL should be as defined in
-  Python pip or the SPDX specification. See https://github.com/spdx/spdx-
-  spec/blob/cfa1b9d08903/chapters/3-package-information.md#37-package-download-
-  location
+  Python pip or the SPDX specification. See https://github.com/spdx/spdx-spec/blob/cfa1b9d08903/chapters/3-package-information.md#37-package-download-location
 
   - TODO: incorporate the details from SPDX here.
 
@@ -787,6 +785,7 @@ Known implementations
 - in Perl:
 - in Python: https://github.com/package-url/packageurl-python
 - in Ruby:
+- in Rust: https://github.com/althonos/packageurl-rs
 
 
 Users, adopters and links
@@ -795,8 +794,8 @@ Users, adopters and links
  - https://github.com/nexB/scancode-toolkit will report `purl` from parsed
    package manifests using https://github.com/package-url/packageurl-python
    The code lives in the 275 branch for now.
- - [OWASP Dependency-Track](https://www.owasp.org/index.php/OWASP_Dependency_Track_Project): Software Composition Analysis (SCA) platform
- - [CycloneDX](https://github.com/CycloneDX): A lightweight software bill-of-material (BOM) specification
+ - `OWASP Dependency-Track <https://www.owasp.org/index.php/OWASP_Dependency_Track_Project>`_: Software Composition Analysis (SCA) platform
+ - `CycloneDX <https://github.com/CycloneDX>`_: A lightweight software bill-of-material (BOM) specification
 
 
 Tests
