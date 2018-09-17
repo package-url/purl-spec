@@ -561,7 +561,7 @@ candidate list further down.
   for "upstream -from-distro" packages. In particular this is handy for a plain
   version control repository such as a bare git repo.
 
-  - Their is no default repository. A `download_url` and `checksum` may be
+  - There is no default repository. A `download_url` and `checksum` may be
     provided in `qualifiers` or as separate attributes outside of a `purl` for
     proper identification and location.
   - When possible another or a new purl `type` should be used instead of using
