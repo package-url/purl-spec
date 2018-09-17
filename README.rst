@@ -778,14 +778,11 @@ all package types:
 Known implementations
 ~~~~~~~~~~~~~~~~~~~~~
 
-- in JavaScript:
 - in Golang: https://github.com/package-url/packageurl-go
-- for .NET:
-- for the JVM:
-- in Perl:
+- for .NET: https://github.com/package-url/packageurl-dotnet
+- for the JVM: https://github.com/package-url/packageurl-java
 - in Python: https://github.com/package-url/packageurl-python
-- in Ruby:
-- in Rust: https://github.com/althonos/packageurl-rs
+- in Rust: https://github.com/package-url/packageurl-rs
 
 
 Users, adopters and links
