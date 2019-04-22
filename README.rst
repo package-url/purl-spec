@@ -783,6 +783,7 @@ Known implementations
 - for the JVM: https://github.com/package-url/packageurl-java
 - in Python: https://github.com/package-url/packageurl-python
 - in Rust: https://github.com/package-url/packageurl-rs
+- in JS: https://github.com/package-url/packageurl-js
 
 
 Users, adopters and links
