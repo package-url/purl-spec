@@ -690,6 +690,7 @@ Other candidate types to define:
 - `cargo` for Rust packages:
 - `carthage` for Cocoapods Cocoa packages:
 - `chef` for Chef packages:
+- `chocolatey` for Chocolatey packages
 - `clojars` for Clojure packages:
 - `cocoapods` for Cocoapods iOS packages:
 - `conan` for Conan C/C++ packages:
@@ -705,9 +706,11 @@ Other candidate types to define:
 - `eclipse` for Eclipse projects packages:
 - `gitea` for Gitea-based packages:
 - `gitlab` for Gitlab-based packages:
+- `gradle` for Gradle plugins
 - `guix` for Guix packages:
 - `hackage` for Haskell packages:
 - `haxe` for Haxe packages:
+- `helm` for Kubernetes packages
 - `hex` for Erlang and Elixir packages
 - `julia` for Julia packages:
 - `lua` for LuaRocks packages:
@@ -729,6 +732,8 @@ Other candidate types to define:
 - `sourceforge` for Sourceforge-based packages:
 - `sublime` for Sublime packages:
 - `swift` for Swift packages:
+- `terraform` for Terraform modules
+- `vagrant` for Vagrant boxes
 - `vim` for Vim scripts packages:
 - `wordpress` for Wordpress packages:
 - `yocto` for Yocto recipe packages
