@@ -780,7 +780,7 @@ Known implementations
 
 - in Golang: https://github.com/package-url/packageurl-go
 - for .NET: https://github.com/package-url/packageurl-dotnet
-- for the JVM: https://github.com/package-url/packageurl-java
+- for the JVM: https://github.com/package-url/packageurl-java, https://github.com/sonatype/package-url-java
 - in Python: https://github.com/package-url/packageurl-python
 - in Rust: https://github.com/package-url/packageurl-rs
 - in JS: https://github.com/package-url/packageurl-js
