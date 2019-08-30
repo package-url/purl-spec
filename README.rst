@@ -278,7 +278,7 @@ The rules for each component are:
     - A `key` must NOT be percent-encoded
     - A `key` is case insensitive. The canonical form is lowercase
     - A `key` cannot contains spaces
-    - A `value` must be must be a percent-encoded string
+    - A `value` must be a percent-encoded string
     - The '=' separator is neither part of the `key` nor of the `value`
 
 
