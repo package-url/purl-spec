@@ -670,8 +670,8 @@ candidate list further down.
   - the `version` is the combined version and release of an
     RPM
   - `epoch` (an optional field) is a qualifier as it's not required for
-     unique identification, but when the epoch exists it's strongly
-     encouraged to use it
+    unique identification, but when the epoch exists it's strongly
+    encouraged to use it
   - `arch` is the `qualifiers` `key` for a package architecture
   - Example without epoch::
 
