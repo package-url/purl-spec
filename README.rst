@@ -604,7 +604,7 @@ candidate list further down.
         pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c#api
 
 
-- 'hex' for Hex packages
+- `hex` for Hex packages
 
   - The default repository is `https://repo.hex.pm`.
   - The `namespace` is optional; it may be used to specify the organization for
