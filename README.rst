@@ -604,6 +604,20 @@ candidate list further down.
         pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c#api
 
 
+- `hex` for Hex packages
+
+  - The default repository is `https://repo.hex.pm`.
+  - The `namespace` is optional; it may be used to specify the organization for
+    private packages on hex.pm. It is not case sensitive and must be lowercased.
+  - The `name` is not case sensitive and must be lowercased.
+  - Examples::
+
+        pkg:hex/jason@1.1.2
+        pkg:hex/acme/foo@2.3.4
+        pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js
+        pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com
+
+
 - `maven` for Maven JARs and related artifacts
 
   - The default repository is `https://repo.maven.apache.org/maven2`
@@ -714,7 +728,6 @@ Other candidate types to define:
 - `hackage` for Haskell packages:
 - `haxe` for Haxe packages:
 - `helm` for Kubernetes packages
-- `hex` for Erlang and Elixir packages
 - `julia` for Julia packages:
 - `lua` for LuaRocks packages:
 - `melpa` for Emacs packages
