@@ -506,6 +506,18 @@ candidate list further down.
         pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c
 
 
+- `cargo` for Rust:
+
+  - The default repository is `https://crates.io/`
+  - The `name` is the repository name.
+  - The `version` is the package version.
+  - Examples::
+
+        pkg:cargo/rand@0.7.2
+        pkg:cargo/clap@2.33.0
+        pkg:cargo/structopt@0.3.11
+
+
 - `composer` for Composer PHP packages:
 
   - The default repository is `https://packagist.org`
@@ -525,7 +537,7 @@ candidate list further down.
   - The `namespace` is the "vendor" name such as "debian" or "ubuntu".
     It is not case sensitive and must be lowercased.
   - The `name` is not case sensitive and must be lowercased.
-  - The `version` is is the package version.
+  - The `version` is the package version.
   - `arch` is the `qualifiers` `key` for a package architecture
   - Examples::
 
@@ -704,7 +716,6 @@ Other candidate types to define:
 - `bower` for Bower JavaScript packages:
 - `brew` for Homebrew packages:
 - `buildroot` for Buildroot packages
-- `cargo` for Rust packages:
 - `carthage` for Cocoapods Cocoa packages:
 - `chef` for Chef packages:
 - `chocolatey` for Chocolatey packages
