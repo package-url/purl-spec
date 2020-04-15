@@ -634,19 +634,20 @@ candidate list further down.
 
   - The default repository is `https://repo.maven.apache.org/maven2`
   - The group id is the `namespace` and the artifact id is the `name`
-  - Known `qualifiers` keys are: `classifier` and `type` as defined in the
-    POM documentation. Note that Maven uses a concept / coordinate called packaging
-    which does not map directly 1:1 to a file extension. In this use case, we need
-    to construct a link to one of many possible artifacts. Maven itself uses type 
-    in a dependency declaration when needed to disambiguate between them.
+  - Known `qualifiers` keys are: `classifier` and `extension` (defaults to `jar`).
+    Note that Maven uses a concept of dependency `type`, as defined in the
+    POM documentation, which does not map directly 1:1 to a file extension.
+    Maven itself uses type in a dependency declaration to define a default extension
+    and classifier and a few attributes to know how to manage the file (see default artifact
+    handlers).
   - Examples::
 
         pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1
-        pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=pom
+        pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?extension=pom
         pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources
-        pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=zip&classifier=dist
-        pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x86&type=dll
-        pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x64&type=dll
+        pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?extension=zip&classifier=dist
+        pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x86&extension=dll
+        pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x64&extension=dll
 
 
 - `npm` for Node NPM packages:
