@@ -88,7 +88,7 @@ The defintion for each components is:
 - **namespace**: some name prefix such as a Maven groupid, a Docker image owner,
   a GitHub user or organization. Optional and type-specific.
 - **name**: the name of the package. Required.
-- **version**: the version of the package. Optional.
+- **version**: the version or version specifier of the package. Optional.
 - **qualifiers**: extra qualifying data for a package such as an OS,
   architecture, a distro, etc. Optional and type-specific.
 - **subpath**: extra subpath within a package, relative to the package root.
@@ -257,6 +257,14 @@ The rules for each component are:
     conventions such as semver for NPMs or nevra conventions for RPMS. A `type`
     may define a procedure to compare and sort versions, but there is no
     reliable and uniform way to do such comparison consistently.
+  - Version ranges may also be provided for search capabilities.
+    For example, in a vulnerability report it
+    may be important to say "versions 1.1.3 through 4.2.6 are vulnerable".
+    Ranges may be specified following
+    [node-semver](https://github.com/npm/node-semver)i syntax; note that
+    spaces must be encoded as `%20%`.
+    Note that version ranges are only intended for use in searches, and
+    should NOT be used when specifying the content of an actual package.
 
 
 - **qualifiers**:
