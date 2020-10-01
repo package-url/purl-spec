@@ -91,6 +91,8 @@ The defintion for each components is:
 - **version**: the version of the package. Optional.
 - **qualifiers**: extra qualifying data for a package such as an OS,
   architecture, a distro, etc. Optional and type-specific.
+  Multiple qualifiers must be separated with "&" and the keys should be
+  sorted by key in the "C" locale.
 - **subpath**: extra subpath within a package, relative to the package root.
   Optional.
 
@@ -580,6 +582,11 @@ candidate list further down.
     the `generic` type and eventually contributed back to this specification
   - as for other `type`, the `name` component is mandatory. In the worst case
     it can be a file or directory name.
+  - A `homepage_url` may be provided in `qualifiers`; this identifies the
+    main "home page" for users to learn more about the software.
+    This is especially useful when no public `download_url` and `vcs_url`
+    are available.  It's also useful to help users find the correct
+    package home page.
   - Examples (truncated for brevity)::
 
        pkg:generic/openssl@1.1.10g
