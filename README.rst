@@ -95,7 +95,7 @@ The defintion for each components is:
   Optional.
 
 
-Components are designed such that they for a hierarchy from the most significant
+Components are designed such that they form a hierarchy from the most significant
 on the left to the least significant components on the right.
 
 
@@ -522,7 +522,7 @@ candidate list further down.
 
   - The default repository is `https://packagist.org`
   - The `namespace` is the vendor.
-  - Note: private, local packages may have no name. In this casse you cannot
+  - Note: private, local packages may have no name. In this case you cannot
     create a `purl` for these.
   - Examples::
 
@@ -549,7 +549,7 @@ candidate list further down.
 
   - The default repository is `https://hub.docker.com`
   - The `namespace` is the registry/user/organization if present
-  - The version should be the image id sha256 or a tag. Since tags can be moved,
+  - The version should be the image id sha256 or a tag. Since tags can be removed,
     a sha256 image id is preferred.
   - Examples::
 
@@ -653,8 +653,8 @@ candidate list further down.
 
   - The default repository is `https://registry.npmjs.org`
   - The `namespace` is used for the scope of a scoped NPM package.
-  - Per the package.json spec, new package "must not have uppercase letters in
-    the name", therefore the must be lowercased.
+  - Per the package.json spec, new packages "must not have uppercase letters in
+    the name", therefore they must be lowercased.
   - Examples::
 
         pkg:npm/foobar@12.3.1
@@ -799,7 +799,7 @@ all package types:
 - `file_name` is an extra file name of a package archive.
 
 - `checksum` is a qualifier for one or more checksums stored as a
-  comma-separated list. Each item in the `value` is in form of
+  comma-separated list. Each item in the `value` is in the form of
   `lowercase_algorithm:hex_encoded_lowercase_value` such as
   `sha1:ad9503c3e994a4f611a4892f2e67ac82df727086`.
   For example (with checksums truncated for brevity) ::
@@ -834,9 +834,9 @@ Tests
 ~~~~~
 
 To support the language-neutral testing of `purl` implementations, a test suite
-is provided as JSON document named `test-suite-data.json`. This JSON document
+is provided as a JSON document named `test-suite-data.json`. This JSON document
 contains an array of objects. Each object represents a test with these key/value
-pairs some of which may not be normalized:
+pairs, some of which may not be normalized:
 
 - **purl**: a `purl` string. 
 - **canonical**: the same `purl` string in canonical, normalized form
