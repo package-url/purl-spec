@@ -826,7 +826,7 @@ Users, adopters and links
    The code lives in the 275 branch for now.
  - `OWASP Dependency-Track <https://www.owasp.org/index.php/OWASP_Dependency_Track_Project>`_: Software Composition Analysis (SCA) platform
  - `CycloneDX <https://github.com/CycloneDX>`_: A lightweight software bill-of-material (BOM) specification
- - `OSS Index <https://ossindex.sonatype.com>`_: A free catalog of Open Source Components and scanning tools to help developers identify vulnerable components
+ - `OSS Index <https://ossindex.sonatype.org>`_: A free catalog of Open Source Components and scanning tools to help developers identify vulnerable components
  - `Sonatype Nexus Lifecycle <https://www.sonatype.com/product-nexus-lifecycle>`_: Enterprise grade Open Source component management
 
 
