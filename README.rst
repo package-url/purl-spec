@@ -83,8 +83,9 @@ The defintion for each components is:
 - **scheme**: this is the URL scheme with the constant value of "pkg". One of
   the primary reason for this single scheme is to facilitate the future official
   registration of the "pkg" scheme for package URLs. Required.
-- **type**: the package "type" or package "protocol" such as maven, npm, nuget,
-  gem, pypi, etc. Required.
+- **group**: defines the way which types are allowed and how they should be processed. Required.
+- **type**: the package "type" or package "protocol" such as git, svn, dotnet/nuget,
+  ruby/gem, py/pypi, etc. Required.
 - **namespace**: some name prefix such as a Maven groupid, a Docker image owner,
   a GitHub user or organization. Optional and type-specific.
 - **name**: the name of the package. Required.
@@ -109,32 +110,32 @@ Some `purl` examples
 
 ::
 
-    pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c
+    pkg:vcs/git/https://bitbucket.com/birkenfeld/pygments-main@244fd47e07d1014f0aed9c
 
-    pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie
+    pkg:distr/deb/debian/curl@7.50.3-1?arch=i386&distro=jessie
 
-    pkg:docker/cassandra@sha256:244fd47e07d1004f0aed9c
-    pkg:docker/customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io
+    pkg:ctr/docker/cassandra@sha256:244fd47e07d1004f0aed9c
+    pkg:ctr/docker/customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io
 
-    pkg:gem/jruby-launcher@1.1.2?platform=java
-    pkg:gem/ruby-advisory-db-check@0.12.4
+    pkg:pl/gem/jruby-launcher@1.1.2?platform=java
+    pkg:pl/gem/ruby-advisory-db-check@0.12.4
 
-    pkg:github/package-url/purl-spec@244fd47e07d1004f0aed9c
+    pkg:vcs/git/https://github.com/package-url/purl-spec@244fd47e07d1004f0aed9c
 
-    pkg:golang/google.golang.org/genproto#googleapis/api/annotations
+    pkg:pl/go/google.golang.org/genproto#googleapis/api/annotations
 
-    pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources
-    pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=repo.spring.io/release
+    pkg:pl/mvn/org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources
+    pkg:pl/mvn/org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=repo.spring.io/release
 
-    pkg:npm/%40angular/animation@12.3.1
-    pkg:npm/foobar@12.3.1
+    pkg:pl/npm/%40angular/animation@12.3.1
+    pkg:pl/npm/foobar@12.3.1
 
-    pkg:nuget/EnterpriseLibrary.Common@6.0.1304
+    pkg:pl/nuget/EnterpriseLibrary.Common@6.0.1304
 
-    pkg:pypi/django@1.11.1
+    pkg:pl/pypi/django@1.11.1
 
-    pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
-    pkg:rpm/opensuse/curl@7.56.1-1.1.?arch=i386&distro=opensuse-tumbleweed
+    pkg:distr/rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
+    pkg:distr/rpm/opensuse/curl@7.56.1-1.1.?arch=i386&distro=opensuse-tumbleweed
 
 (NB: some checksums are truncated for brevity)
 
@@ -209,19 +210,20 @@ The rules for each component are:
     canonical form. The second `purl` with a '//' is an acceptable `purl` but is
     an invalid URI/URL per rfc3986::
 
-            pkg:gem/ruby-advisory-db-check@0.12.4
-            pkg://gem/ruby-advisory-db-check@0.12.4
+            pkg:pl/ruby/gem/ruby-advisory-db-check@0.12.4
+            pkg://pl/ruby/gem/ruby-advisory-db-check@0.12.4
 
+
+- **group**
+  - The package `group` is composed only of ASCII letters and numbers, '.', '+'
+    and '-' (period, plus, and dash)
+  - The `group` cannot start with a number
+  - The `group` cannot contains spaces
+  - The `group` must NOT be percent-encoded
+  - The `group` is case insensitive. The canonical form is lowercase
 
 - **type**:
-
-  - The package `type` is composed only of ASCII letters and numbers, '.', '+'
-    and '-' (period, plus, and dash)
-  - The `type` cannot start with a number
-  - The `type` cannot contains spaces
-  - The `type` must NOT be percent-encoded
-  - The `type` is case insensitive. The canonical form is lowercase
-
+  - One or more components, each one is has the same requirements as to `group`. Unless stated otherwise, consists of 1 component.
 
 - **namespace**:
 
@@ -349,9 +351,11 @@ To build a `purl` string from its components:
 
 - Start a `purl` string with the "pkg:" `scheme` as a lowercase ASCII string
 
-- Append the `type` string  to the `purl` as a lowercase ASCII string
+- Append the `group` string  to the `purl` as a lowercase ASCII string
 
   - Append '/' to the `purl`
+
+- Append the `type` components as lowercase ASCII strings separated by '/' to the `purl`
 
 - If the `namespace` is not empty:
 
@@ -457,8 +461,18 @@ To parse a `purl` string in its components:
 - Strip the `remainder` from leading and trailing '/'
 
   - Split this once from left on '/'
-  - The left side lowercased is the `type`
+  - The left side lowercased is the `group`
   - The right side is the `remainder`
+
+- Determine the minimal count of `type` components for this group.
+
+- Do the following for each `type` component:
+
+  - Strip the `remainder` from leading and trailing '/'
+
+    - Split this once from left on '/'
+    - The left side lowercased is the `type[i]`
+    - The right side is the `remainder`
 
 - Split the `remainder` once from right on '@'
 
@@ -486,90 +500,260 @@ To parse a `purl` string in its components:
   - This is the `namespace`
 
 
-Known `purl` types
-~~~~~~~~~~~~~~~~~~~~
+Known `purl` groups and types
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 These are known `purl` package type definitions. More should be added. See
 candidate list further down.
 
+Sources:
+^^^^^^^^^
 
-- `bitbucket` for Bitbucket-based packages:
+This are special groups. They are special because:
 
-  - The default repository is `https://bitbucket.org`
-  - The `namespace` is the user or organization. It is not case sensitive and
-    must be lowercased.
-  - The `name` is the repository name. It is not case sensitive and must be
-    lowercased.
-  - The `version` is a commit or tag
-  - Examples::
+- many packages, especially the ones for interpretable languages, are often distributed in a form of source code that is just packed at client side into an installable package, often no real building is involved;
+- many distros have the workflow that first a source code package is created, and then from that source package a binary one is built.
 
-        pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c
+So these groups can be used within other types, including of the groups of `Sources` kind itself, wor which it makes sense. The high-level semantics is usually that other package manager should try to install a package of its own type, building it if needed, ignoring the packages of other types. The exact semantics is clarified for the types, if needed.
+
+- `releases` - for release storage platforms - the websites allowing people to upload an archive and other people to fetch them and get their history of releases. `type` identifies the platform. Followed by the full URI to the repo if it is a standalone installation or only a partial identifier, if it is on the service by the company that had created the system.
+
+  - `gh` - GitHub. Followed by the repo identifier.
+  - `gl` - GitLab and Hectapod.
+  - `lp` - Launchpad
+  - `srht` - SourceHut
+  - `bitbucket`
+  - `srfg` - SourceForge
+  - `FOSSHub`
+  - `MirrorBrainz`
+
+- `vcs` - defines source code in a repo of a Version Control System.
+  
+  - `git` - for Git
+  - `hg` - for Mercurial
+  - `pjl` - for Pijul
+  - `bzr` - for Bazaar
+  - `fsl` - for Fossil
+  - `svn` - for Subversion
+  - `cvs` - for CVS
+  - `pfc` - for Perforce
+  
+  They are very similar to each other
+  
+    - The `uri` is the repository URI.
+    - The `refspec` is any identifier that is used in the VCS to identify a version, i.e. a tag, a commit hash, a branch name, a revision.
+    - Examples::
+
+          pkg:vcs/git/https://github.com/pygments/pygments@master
+          pkg:vcs/git/https://git.fsfe.org/dxtr/bitwarderl@cc55108da32
+
+- `distr` - defines a package manger used in distros. Has type of 2 components. The first one is the type of package.
+
+  - `src` - source code package. The semantics when used as a virtual type is to fetch source code from there and build it.
+  - `bin` - prebuilt package that intended to be installed, not necessarily binary in contents. 
+  
+  The second one is the type of package manager.
+
+  - `deb` for Debian, Debian derivatives and Ubuntu packages:
+
+    - There is no default package repository: this should be implied either from
+      the `distro` `qualifiers` `key` or using a base url as a `repository_url`
+      `qualifiers` `key`
+    - The `namespace` is the "vendor" name such as "debian" or "ubuntu".
+      It is not case sensitive and must be lowercased.
+    - The `name` is not case sensitive and must be lowercased.
+    - The `version` is the package version.
+    - `arch` is the `qualifiers` `key` for a package architecture
+    - Examples::
+
+          pkg:distr/bin/deb/debian/curl@7.50.3-1?arch=i386&distro=jessie
+          pkg:distr/bin/deb/debian/dpkg@1.19.0.4?arch=amd64&distro=stretch
+          pkg:distr/bin/deb/ubuntu/dpkg@1.19.0.4?arch=amd64
+
+  - `rpm` for RPMs:
+
+    - There is no default package repository: this should be implied either from
+      the `distro` `qualifiers` `key` or using a repository base url as a
+      `repository_url` `qualifiers` `key`
+    - the `namespace` is the vendor such as fedora or opensuse
+      It is not case sensitive and must be lowercased.
+    - the `name` is the RPM name and is case sensitive.
+    - the `version` is the combined version and release of an
+      RPM
+    - `epoch` (optional for RPMs) is a qualifier as it's not required for
+      unique identification, but when the epoch exists we strongly
+      encourage using it
+    - `arch` is the `qualifiers` `key` for a package architecture
+    - Examples::
+
+          pkg:distr/bin/rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
+          pkg:distr/bin/rpm/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25
 
 
-- `cargo` for Rust:
+- `pl` - defines a package in a package manager for a programming language. Type is of 2 components, the first one identifies the programming language, the second one identifies the standard on repository and its packages.
 
-  - The default repository is `https://crates.io/`
-  - The `name` is the repository name.
-  - The `version` is the package version.
-  - Examples::
+  - `**/distr/bin`  - a distro package which when installed, automatically installs a package into the systemwide location.
+    - The impl of a package manager MUST install it using the package manager supportjng this format directly. For example, installing a package `pkg:lang/py/distr/bin/deb/debian/python3-pip` will de-facto install the same package as `pkg:lang/py/pip/pip`.
+    - Implementations of package managers CAN and should refuse to process the package if the package does any other effects considered by the implementation as unneeded for installation of package of this type, i.e. for the example above the implementation can refuse to install any files to the dirs other than `/usr/lib/python*`, `/usr/etc` and `/usr/bin` and verify that any files installed into `/usr/bin` match the template of a python script generated by `setuptools`.
 
-        pkg:cargo/rand@0.7.2
-        pkg:cargo/clap@2.33.0
-        pkg:cargo/structopt@0.3.11
+  - `**/distro/src`  - Source code for packages. Should be built and installed if the impl is a package manager.
 
+  - `rust/cargo` a Cargo package for Rust:
 
-- `composer` for Composer PHP packages:
+    - The default repository is `https://crates.io/`
+    - The `name` is the repository name.
+    - The `version` is the package version.
+    - Examples::
 
-  - The default repository is `https://packagist.org`
-  - The `namespace` is the vendor.
-  - Note: private, local packages may have no name. In this casse you cannot
-    create a `purl` for these.
-  - Examples::
-
-        pkg:composer/laravel/laravel@5.5.0
+          pkg:pl/rust/cargo/rand@0.7.2
+          pkg:pl/rust/cargo/clap@2.33.0
+          pkg:pl/rust/cargo/structopt@0.3.11
 
 
-- `deb` for Debian, Debian derivatives and Ubuntu packages:
+  - `php/composer` for Composer PHP packages:
 
-  - There is no default package repository: this should be implied either from
-    the `distro` `qualifiers` `key` or using a base url as a `repository_url`
-    `qualifiers` `key`
-  - The `namespace` is the "vendor" name such as "debian" or "ubuntu".
-    It is not case sensitive and must be lowercased.
-  - The `name` is not case sensitive and must be lowercased.
-  - The `version` is the package version.
-  - `arch` is the `qualifiers` `key` for a package architecture
-  - Examples::
+    - The default repository is `https://packagist.org`
+    - The `namespace` is the vendor.
+    - Note: private, local packages may have no name. In this casse you cannot
+      create a `purl` for these.
+    - Examples::
 
-        pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie
-        pkg:deb/debian/dpkg@1.19.0.4?arch=amd64&distro=stretch
-        pkg:deb/ubuntu/dpkg@1.19.0.4?arch=amd64
+          pkg:pl/php/composer/laravel/laravel@5.5.0
 
-- `docker` for Docker images
+  - `ruby/gems` for Rubygems:
 
-  - The default repository is `https://hub.docker.com`
-  - The `namespace` is the registry/user/organization if present
-  - The version should be the image id sha256 or a tag. Since tags can be moved,
-    a sha256 image id is preferred.
-  - Examples::
+    - The default repository is `https://rubygems.org`
+    - The `platform` `qualifiers` `key` is used to specify an alternative platform
+      such as `java` for JRuby. The implied default is `ruby` for Ruby MRI.
+    - Examples::
 
-        pkg:docker/cassandra@latest
-        pkg:docker/smartentry/debian@dc437cc87d10
-        pkg:docker/customer/dockerimage@sha256%3A244fd47e07d10?repository_url=gcr.io
+          pkg:pl/ruby/gems/ruby-advisory-db-check@0.12.4
+          pkg:pl/ruby/gems/jruby-launcher@1.1.2?platform=java
+
+  - `go/golang` for Go packages
+
+    - There is no default package repository: this is implied in the namespace
+      using the `go get` command conventions
+    - The `namespace` and `name` must be lowercased.
+    - The `subpath` is used to point to a subpath inside a package
+    - The `version` is often empty when a commit is not specified and should be
+      the commit in most cases when available.
+    - Examples::
+
+          pkg:pl/go/vcs/git/google.golang.org/genproto#googleapis/api/annotations
+          pkg:pl/go/vcs/git/github.com/gorilla/context@234fd47e07d1004f0aed9c
+          pkg:pl/go/vcs/git/github.com/gorilla/context@234fd47e07d1004f0aed9c#api
+
+  - `java/mvn` for Maven JARs and related artifacts
+
+    - The default repository is `https://repo.maven.apache.org/maven2`
+    - The group id is the `namespace` and the artifact id is the `name`
+    - Known `qualifiers` keys are: `classifier` and `type` as defined in the
+      POM documentation. Note that Maven uses a concept / coordinate called packaging
+      which does not map directly 1:1 to a file extension. In this use case, we need
+      to construct a link to one of many possible artifacts. Maven itself uses type 
+      in a dependency declaration when needed to disambiguate between them.
+    - Examples::
+
+          pkg:pl/java/mvn/org.apache.xmlgraphics/batik-anim@1.9.1
+          pkg:pl/java/mvn/org.apache.xmlgraphics/batik-anim@1.9.1?type=pom
+          pkg:pl/java/mvn/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources
+          pkg:pl/java/mvn/org.apache.xmlgraphics/batik-anim@1.9.1?type=zip&classifier=dist
+          pkg:pl/java/mvn/net.sf.jacob-projec/jacob@1.14.3?classifier=x86&type=dll
+          pkg:pl/java/mvn/net.sf.jacob-projec/jacob@1.14.3?classifier=x64&type=dll
+
+  - `js/npm` for Node NPM packages:
+
+    - The default repository is `https://registry.npmjs.org`
+    - The `namespace` is used for the scope of a scoped NPM package.
+    - Per the package.json spec, new package "must not have uppercase letters in
+      the name", therefore the must be lowercased.
+    - Examples::
+
+          pkg:pl/js/npm/foobar@12.3.1
+          pkg:pl/js/npm/%40angular/animation@12.3.1
+          pkg:pl/js/npm/mypackage@12.4.5?vcs_url=git://host.com/path/to/repo.git@4345abcd34343
+
+  - `dotnet/nuget` for NuGet .NET packages:
+
+    - The default repository is `https://www.nuget.org`
+    - There is no `namespace` per se even if the common convention is to use
+      dot-separated package names where the first segment is `namespace`-like.
+      TBD: should we split the first segment as a namespace?
+    - Examples::
+
+          pkg:pl/dotnet/EnterpriseLibrary.Common@6.0.1304
+
+  - `erlg/hex` for Hex packages for Erlang
+
+    - The default repository is `https://repo.hex.pm`.
+    - The `namespace` is optional; it may be used to specify the organization for
+      private packages on hex.pm. It is not case sensitive and must be lowercased.
+    - The `name` is not case sensitive and must be lowercased.
+    - Examples::
+
+          pkg:erlg/hex/jason@1.1.2
+          pkg:erlg/hex/acme/foo@2.3.4
+          pkg:erlg/hex/phoenix_html@2.13.3#priv/static/phoenix_html.js
+          pkg:erlg/hex/bar@1.2.3?repository_url=https://myrepo.example.com
+
+  - `py/pypi` for Python packages in PyPI-like registries:
+
+    - The default repository is `https://pypi.python.org`
+    - PyPi treats '-' and '_' as the same character and is not case sensitive.
+      Therefore a Pypi package `name` must be lowercased and underscore '_'
+      replaced with a dash '-'
+    - Examples::
+
+          pkg:pl/py/pypi/django@1.11.1
+          pkg:pl/py/pypi/django-allauth@12.23
 
 
-- `gem` for Rubygems:
+- `ctr` - for self-sufficient container registries and VMs
 
-  - The default repository is `https://rubygems.org`
-  - The `platform` `qualifiers` `key` is used to specify an alternative platform
-    such as `java` for JRuby. The implied default is `ruby` for Ruby MRI.
-  - Examples::
+  - `docker` for Docker images
 
-        pkg:gem/ruby-advisory-db-check@0.12.4
-        pkg:gem/jruby-launcher@1.1.2?platform=java
+    - The default repository is `https://hub.docker.com`
+    - The `namespace` is the registry/user/organization if present
+    - The version should be the image id sha256 or a tag. Since tags can be moved,
+      a sha256 image id is preferred.
+    - Examples::
 
+          pkg:ctr/docker/cassandra@latest
+          pkg:ctr/docker/smartentry/debian@dc437cc87d10
+          pkg:ctr/docker/customer/dockerimage@sha256%3A244fd47e07d10?repository_url=gcr.io
 
-- `generic` for plain, generic packages that do not fit anywhere else such as
+Build systems
+^^^^^^^^^^^^^^^
+
+Build systems modify the behavior of `Source` URIs.
+
+The type is a build system identifier.
+
+- `build` - for build systems that invoke compilers directly to build binaries. Is followed by URI part of a kind "Source". Meaning: this URI contains a build script for this build system, build scripts for other build systems must be ignored. Used to select a build system in the cases it cannot be automatically detected.
+
+  - `autotools`
+  - `meson`
+  - `cmake`
+  - `make`
+  - `premake`
+  - `fastbuild`
+  - `bazel`
+  - `ant`
+
+- `metabuild` - the URI contains a metabuild system recipy. Metabuild systems build and publish packages.
+
+  - `prebuilder`
+  - `debhelper`
+  - `portage`
+  - `aur`
+  - `nix` for Nixos packages:
+  - `guix` for Guix packages:
+
+Other groups
+^^^^^^^^^^^^^^
+
+- `generic` - for plain, generic packages that do not fit anywhere else such as
   for "upstream -from-distro" packages. In particular this is handy for a plain
   version control repository such as a bare git repo.
 
@@ -584,186 +768,87 @@ candidate list further down.
 
        pkg:generic/openssl@1.1.10g
        pkg:generic/openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da
-       pkg:generic/bitwarderl?vcs_url=https://git.fsfe.org/dxtr/bitwarderl@cc55108da32
-
-
-- `github` for Github-based packages:
-
-  - The default repository is `https://github.com`
-  - The `namespace` is the user or organization. It is not case sensitive and
-    must be lowercased.
-  - The `name` is the repository name. It is not case sensitive and must be
-    lowercased.
-  - The `version` is a commit or tag
-  - Examples::
-
-        pkg:github/package-url/purl-spec@244fd47e07d1004
-        pkg:github/package-url/purl-spec@244fd47e07d1004#everybody/loves/dogs
-
-
-- `golang` for Go packages
-
-  - There is no default package repository: this is implied in the namespace
-    using the `go get` command conventions
-  - The `namespace` and `name` must be lowercased.
-  - The `subpath` is used to point to a subpath inside a package
-  - The `version` is often empty when a commit is not specified and should be
-    the commit in most cases when available.
-  - Examples::
-
-        pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c
-        pkg:golang/google.golang.org/genproto#googleapis/api/annotations
-        pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c#api
-
-
-- `hex` for Hex packages
-
-  - The default repository is `https://repo.hex.pm`.
-  - The `namespace` is optional; it may be used to specify the organization for
-    private packages on hex.pm. It is not case sensitive and must be lowercased.
-  - The `name` is not case sensitive and must be lowercased.
-  - Examples::
-
-        pkg:hex/jason@1.1.2
-        pkg:hex/acme/foo@2.3.4
-        pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js
-        pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com
-
-
-- `maven` for Maven JARs and related artifacts
-
-  - The default repository is `https://repo.maven.apache.org/maven2`
-  - The group id is the `namespace` and the artifact id is the `name`
-  - Known `qualifiers` keys are: `classifier` and `type` as defined in the
-    POM documentation. Note that Maven uses a concept / coordinate called packaging
-    which does not map directly 1:1 to a file extension. In this use case, we need
-    to construct a link to one of many possible artifacts. Maven itself uses type 
-    in a dependency declaration when needed to disambiguate between them.
-  - Examples::
-
-        pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1
-        pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=pom
-        pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources
-        pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=zip&classifier=dist
-        pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x86&type=dll
-        pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x64&type=dll
-
-
-- `npm` for Node NPM packages:
-
-  - The default repository is `https://registry.npmjs.org`
-  - The `namespace` is used for the scope of a scoped NPM package.
-  - Per the package.json spec, new package "must not have uppercase letters in
-    the name", therefore the must be lowercased.
-  - Examples::
-
-        pkg:npm/foobar@12.3.1
-        pkg:npm/%40angular/animation@12.3.1
-        pkg:npm/mypackage@12.4.5?vcs_url=git://host.com/path/to/repo.git@4345abcd34343
-
-
-- `nuget` for NuGet .NET packages:
-
-  - The default repository is `https://www.nuget.org`
-  - There is no `namespace` per se even if the common convention is to use
-    dot-separated package names where the first segment is `namespace`-like.
-    TBD: should we split the first segment as a namespace?
-  - Examples::
-
-        pkg:nuget/EnterpriseLibrary.Common@6.0.1304
-
-
-- `pypi` for Python packages:
-
-  - The default repository is `https://pypi.python.org`
-  - PyPi treats '-' and '_' as the same character and is not case sensitive.
-    Therefore a Pypi package `name` must be lowercased and underscore '_'
-    replaced with a dash '-'
-  - Examples::
-
-        pkg:pypi/django@1.11.1
-        pkg:pypi/django-allauth@12.23
-
-
-- `rpm` for RPMs:
-
-  - There is no default package repository: this should be implied either from
-    the `distro` `qualifiers` `key` or using a repository base url as a
-    `repository_url` `qualifiers` `key`
-  - the `namespace` is the vendor such as fedora or opensuse
-    It is not case sensitive and must be lowercased.
-  - the `name` is the RPM name and is case sensitive.
-  - the `version` is the combined version and release of an
-    RPM
-  - `epoch` (optional for RPMs) is a qualifier as it's not required for
-    unique identification, but when the epoch exists we strongly
-    encourage using it
-  - `arch` is the `qualifiers` `key` for a package architecture
-  - Examples::
-
-        pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
-        pkg:rpm/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25
 
 
 Other candidate types to define:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- `alpine` for Alpine Linux apk packages:
-- `apache` for Apache projects packages:
-- `android` for Android apk packages:
-- `arch` for Arch Linux packages:
-- `atom` for Atom packages:
-- `bower` for Bower JavaScript packages:
-- `brew` for Homebrew packages:
-- `buildroot` for Buildroot packages
-- `carthage` for Cocoapods Cocoa packages:
-- `chef` for Chef packages:
-- `chocolatey` for Chocolatey packages
-- `clojars` for Clojure packages:
-- `cocoapods` for Cocoapods iOS packages:
-- `conan` for Conan C/C++ packages:
-- `coreos` for CoreOS packages:
-- `cpan` for CPAN Perl packages:
-- `cran` for CRAN R packages:
-- `ctan` for CTAN TeX packages:
-- `crystal` for Crystal Shards packages:
-- `drupal` for Drupal packages:
-- `dtype` for DefinitelyTyped TypeScript type definitions:
-- `dub` for D packages:
-- `elm` for Elm packages:
-- `eclipse` for Eclipse projects packages:
-- `gitea` for Gitea-based packages:
-- `gitlab` for Gitlab-based packages:
-- `gradle` for Gradle plugins
-- `guix` for Guix packages:
-- `hackage` for Haskell packages:
-- `haxe` for Haxe packages:
-- `helm` for Kubernetes packages
-- `julia` for Julia packages:
-- `lua` for LuaRocks packages:
-- `melpa` for Emacs packages
-- `meteor` for Meteor JavaScript packages:
-- `nim` for Nim packages:
-- `nix` for Nixos packages:
-- `opam` for OCaml packages:
-- `openwrt` for OpenWRT packages:
-- `osgi` for OSGi bundle packages:
-- `p2` for Eclipse p2 packages:
-- `pear` for Pear PHP packages:
-- `pecl` for PECL PHP packages:
-- `perl6` for Perl 6 module packages:
-- `platformio` for PlatformIO packages:
-- `ebuild` for Gentoo Linux portage packages:
-- `pub` for Dart packages:
-- `puppet` for Puppet Forge packages:
-- `sourceforge` for Sourceforge-based packages:
-- `sublime` for Sublime packages:
-- `swift` for Swift packages:
-- `terraform` for Terraform modules
-- `vagrant` for Vagrant boxes
-- `vim` for Vim scripts packages:
-- `wordpress` for Wordpress packages:
-- `yocto` for Yocto recipe packages
+- `distro`
+
+  - `alpine` for Alpine Linux apk packages:
+  - `android/(gplay|fdroid|amazon|yandex)` for Android apk packages:
+  - `arch` for Arch Linux packages:
+  - `brew` for Homebrew packages:
+  - `chocolatey` for Chocolatey packages
+  - `conan` for Conan C/C++ packages:
+  - `openwrt` for OpenWRT packages:
+  - `appstore` for Apple iOS apps:
+
+- `pl`
+
+  - `cloj/jars` for Clojure packages:
+  - `cpan/cpan` for CPAN Perl packages:
+  - `raku/vcs/...` for Raku module packages:
+  - `cran/cran` for CRAN R packages:
+  - `ctan` for CTAN TeX packages:
+  - `dub/dub` for D packages:
+  - `elm/elm` for Elm packages:
+  - `haskel/hackage` for Haskell packages:
+  - `haxe/haxe` for Haxe packages:
+  - `julia/julia` for Julia packages:
+  - `js/bower` for Bower JavaScript packages:
+  - `lua/rocks` for LuaRocks packages:
+  - `nim/nim` for Nim packages:
+  - `php` - for PHP packages:
+
+    - `pear` for Pear
+    - `pecl` for PECL
+
+  - `swift/swift` for Swift packages:
+  - `ocaml/opam` for OCaml packages:
+  - `crystal/shard` for Crystal Shards packages:
+  - `dart/pub` for Dart packages:
+
+- `plg`
+
+  - `gradle` for Gradle plugins
+  - `atom` for Atom packages:
+  - `drupal` for Drupal packages:
+  - `sublime` for Sublime packages:
+  - `vim` for Vim scripts packages:
+  - `melpa` for Emacs packages
+  - `wordpress` for Wordpress packages:
+  - `notepadpp` for Notepad++ plugins:
+  - `kde` for KDE apps plugins installeable via installers:
+  - `webext` - for browser extensions following a WebExtensions standard. Is followed by a browser identifier.
+  - `userscript` - for lightweight browser extension in form of userscripts. Is followed 
+    
+
+- `ctr`
+
+  - `snap`
+  - `flatpak`
+
+- To be assigned with groups (or maybe removed at all):
+
+  - `apache` for Apache projects packages:
+  - `buildroot` for Buildroot packages
+  - `carthage` for Cocoapods Cocoa packages:
+  - `chef` for Chef packages:
+  - `cocoapods` for Cocoapods iOS packages:
+  - `coreos` for CoreOS packages:
+  - `dtype` for DefinitelyTyped TypeScript type definitions:
+  - `eclipse` for Eclipse projects packages:
+  - `helm` for Kubernetes packages
+  - `meteor` for Meteor JavaScript packages:
+  - `osgi` for OSGi bundle packages:
+  - `p2` for Eclipse p2 packages:
+  - `platformio` for PlatformIO packages:
+  - `ebuild` for Gentoo Linux portage packages:
+  - `puppet` for Puppet Forge packages:
+  - `terraform` for Terraform modules
+  - `vagrant` for Vagrant boxes
+  - `yocto` for Yocto recipe packages
 
 
 Known `qualifiers` key/value pairs
