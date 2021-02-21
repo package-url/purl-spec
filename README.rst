@@ -113,8 +113,8 @@ Some `purl` examples
 
     pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie
 
-    pkg:docker/cassandra@sha256:244fd47e07d1004f0aed9c
-    pkg:docker/customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io
+    pkg:docker/cassandra@sha256%3A244fd47e07d1004f0aed9c
+    pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io
 
     pkg:gem/jruby-launcher@1.1.2?platform=java
     pkg:gem/ruby-advisory-db-check@0.12.4
