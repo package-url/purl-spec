@@ -1,56 +1,8 @@
-Context
-=======
+Package URL specification v1.0.X
+================================
 
-We build and release software by massively consuming and producing software
-packages such as NPMs, RPMs, Rubygems, etc.
-
-Each package manager, platform, type or ecosystem has its own conventions and
-protocols to identify, locate and provision software packages.
-
-
-Problem
-=======
-
-When tools, APIs and databases process or store multiple package types, it is
-difficult to reference the same software package across tools in a uniform way.
-
-For example, these tools, specifications and API use relatively similar
-approaches to identify and locate software packages, each with subtle
-differences in syntax, naming and conventions:
-
-- Grafeas uses a scheme, namespace, name and version in a URL-like string.
-  https://github.com/Grafeas/Grafeas
-
-- Here.com OSRK uses a package manager, name and version field and a colon-
-  separated URL-like string
-  https://github.com/heremaps/oss-review-toolkit
-
-- JFrog XRay uses a scheme, namespace, name and version in a URL-like string
-  https://www.jfrog.com/confluence/display/XRAY/Xray+REST+API#XrayRESTAPI-ComponentIdentifiers
-
-- Libraries.io uses a platform, name and version
-  https://libraries.io/
-
-- OpenShift fabric8 analytics uses ecosystem, name and version
-  https://github.com/fabric8-analytics/
-
-- ScanCode and AboutCode.org use a type, name and version
-  https://github.com/nexB/scancode-toolkit
-
-- SPDX has an appendix for external repository references and uses a type and a
-  locator with a type-specific syntax for component separators in a URL-like
-  string
-  https://github.com/spdx/spdx-spec/blob/master/chapters/3-package-information.md
-
-- versioneye uses a type, name and version
-  https://github.com/versioneye/
-
-- Sonatype Lifecycle uses a format id followed by format specific coordinates. 
-  https://help.sonatype.com/display/NXIQ/Component+Details+API+-+v2  
-
-
-Solution
-========
+The Package URL core specification defines a versioned and formalized format,
+syntax, and rules used to represent and validate `purl`.
 
 A `purl` or package URL is an attempt to standardize existing approaches to
 reliably identify and locate software packages.
@@ -62,13 +14,12 @@ packaging conventions, tools, APIs and databases.
 Such a package URL is useful to reliably reference the same software package
 using a simple and expressive syntax and conventions based on familiar URLs.
 
+See https://github.com/package-url/purl-spec for the Package URL specification
+and <PURL-SPECIFICATION.rst>`_ for known type definitions.
 
 Check also this short `purl` presentation (with video) at FOSDEM 2018
 https://fosdem.org/2018/schedule/event/purl/ for an overview.
 
-
-purl
-~~~~~
 
 `purl` stands for **package URL**.
 
@@ -110,33 +61,15 @@ Some `purl` examples
 ::
 
     pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c
-
     pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie
-
-    pkg:docker/cassandra@sha256:244fd47e07d1004f0aed9c
-    pkg:docker/customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io
-
-    pkg:gem/jruby-launcher@1.1.2?platform=java
     pkg:gem/ruby-advisory-db-check@0.12.4
-
     pkg:github/package-url/purl-spec@244fd47e07d1004f0aed9c
-
     pkg:golang/google.golang.org/genproto#googleapis/api/annotations
-
     pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources
-    pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=repo.spring.io/release
-
-    pkg:npm/%40angular/animation@12.3.1
     pkg:npm/foobar@12.3.1
-
     pkg:nuget/EnterpriseLibrary.Common@6.0.1304
-
     pkg:pypi/django@1.11.1
-
     pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
-    pkg:rpm/opensuse/curl@7.56.1-1.1.?arch=i386&distro=opensuse-tumbleweed
-
-(NB: some checksums are truncated for brevity)
 
 
 A `purl` is a URL
@@ -201,7 +134,7 @@ The rules for each component are:
 
     It is therefore incorrect to use such '://' scheme suffix as the URL would
     no longer be valid otherwise. In its canonical form, a `purl` must
-    NOT use such '://' `scheme` suffix but only ':' as a `scheme` suffix. 
+    NOT use such '://' `scheme` suffix but only ':' as a `scheme` suffix.
   - `purl` parsers must accept URLs such as 'pkg://' and must ignore the '//'.
   - `purl` builders must not create invalid URLs with such double slash '//'.
   - The `scheme` is followed by a ':' separator
@@ -489,281 +422,8 @@ To parse a `purl` string in its components:
 Known `purl` types
 ~~~~~~~~~~~~~~~~~~~~
 
-These are known `purl` package type definitions. More should be added. See
-candidate list further down.
-
-
-- `bitbucket` for Bitbucket-based packages:
-
-  - The default repository is `https://bitbucket.org`
-  - The `namespace` is the user or organization. It is not case sensitive and
-    must be lowercased.
-  - The `name` is the repository name. It is not case sensitive and must be
-    lowercased.
-  - The `version` is a commit or tag
-  - Examples::
-
-        pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c
-
-
-- `cargo` for Rust:
-
-  - The default repository is `https://crates.io/`
-  - The `name` is the repository name.
-  - The `version` is the package version.
-  - Examples::
-
-        pkg:cargo/rand@0.7.2
-        pkg:cargo/clap@2.33.0
-        pkg:cargo/structopt@0.3.11
-
-
-- `composer` for Composer PHP packages:
-
-  - The default repository is `https://packagist.org`
-  - The `namespace` is the vendor.
-  - Note: private, local packages may have no name. In this casse you cannot
-    create a `purl` for these.
-  - Examples::
-
-        pkg:composer/laravel/laravel@5.5.0
-
-
-- `deb` for Debian, Debian derivatives and Ubuntu packages:
-
-  - There is no default package repository: this should be implied either from
-    the `distro` `qualifiers` `key` or using a base url as a `repository_url`
-    `qualifiers` `key`
-  - The `namespace` is the "vendor" name such as "debian" or "ubuntu".
-    It is not case sensitive and must be lowercased.
-  - The `name` is not case sensitive and must be lowercased.
-  - The `version` is the package version.
-  - `arch` is the `qualifiers` `key` for a package architecture
-  - Examples::
-
-        pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie
-        pkg:deb/debian/dpkg@1.19.0.4?arch=amd64&distro=stretch
-        pkg:deb/ubuntu/dpkg@1.19.0.4?arch=amd64
-
-- `docker` for Docker images
-
-  - The default repository is `https://hub.docker.com`
-  - The `namespace` is the registry/user/organization if present
-  - The version should be the image id sha256 or a tag. Since tags can be moved,
-    a sha256 image id is preferred.
-  - Examples::
-
-        pkg:docker/cassandra@latest
-        pkg:docker/smartentry/debian@dc437cc87d10
-        pkg:docker/customer/dockerimage@sha256%3A244fd47e07d10?repository_url=gcr.io
-
-
-- `gem` for Rubygems:
-
-  - The default repository is `https://rubygems.org`
-  - The `platform` `qualifiers` `key` is used to specify an alternative platform
-    such as `java` for JRuby. The implied default is `ruby` for Ruby MRI.
-  - Examples::
-
-        pkg:gem/ruby-advisory-db-check@0.12.4
-        pkg:gem/jruby-launcher@1.1.2?platform=java
-
-
-- `generic` for plain, generic packages that do not fit anywhere else such as
-  for "upstream -from-distro" packages. In particular this is handy for a plain
-  version control repository such as a bare git repo.
-
-  - There is no default repository. A `download_url` and `checksum` may be
-    provided in `qualifiers` or as separate attributes outside of a `purl` for
-    proper identification and location.
-  - When possible another or a new purl `type` should be used instead of using
-    the `generic` type and eventually contributed back to this specification
-  - as for other `type`, the `name` component is mandatory. In the worst case
-    it can be a file or directory name.
-  - Examples (truncated for brevity)::
-
-       pkg:generic/openssl@1.1.10g
-       pkg:generic/openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da
-       pkg:generic/bitwarderl?vcs_url=https://git.fsfe.org/dxtr/bitwarderl@cc55108da32
-
-
-- `github` for Github-based packages:
-
-  - The default repository is `https://github.com`
-  - The `namespace` is the user or organization. It is not case sensitive and
-    must be lowercased.
-  - The `name` is the repository name. It is not case sensitive and must be
-    lowercased.
-  - The `version` is a commit or tag
-  - Examples::
-
-        pkg:github/package-url/purl-spec@244fd47e07d1004
-        pkg:github/package-url/purl-spec@244fd47e07d1004#everybody/loves/dogs
-
-
-- `golang` for Go packages
-
-  - There is no default package repository: this is implied in the namespace
-    using the `go get` command conventions
-  - The `namespace` and `name` must be lowercased.
-  - The `subpath` is used to point to a subpath inside a package
-  - The `version` is often empty when a commit is not specified and should be
-    the commit in most cases when available.
-  - Examples::
-
-        pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c
-        pkg:golang/google.golang.org/genproto#googleapis/api/annotations
-        pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c#api
-
-
-- `hex` for Hex packages
-
-  - The default repository is `https://repo.hex.pm`.
-  - The `namespace` is optional; it may be used to specify the organization for
-    private packages on hex.pm. It is not case sensitive and must be lowercased.
-  - The `name` is not case sensitive and must be lowercased.
-  - Examples::
-
-        pkg:hex/jason@1.1.2
-        pkg:hex/acme/foo@2.3.4
-        pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js
-        pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com
-
-
-- `maven` for Maven JARs and related artifacts
-
-  - The default repository is `https://repo.maven.apache.org/maven2`
-  - The group id is the `namespace` and the artifact id is the `name`
-  - Known `qualifiers` keys are: `classifier` and `type` as defined in the
-    POM documentation. Note that Maven uses a concept / coordinate called packaging
-    which does not map directly 1:1 to a file extension. In this use case, we need
-    to construct a link to one of many possible artifacts. Maven itself uses type 
-    in a dependency declaration when needed to disambiguate between them.
-  - Examples::
-
-        pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1
-        pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=pom
-        pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources
-        pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=zip&classifier=dist
-        pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x86&type=dll
-        pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x64&type=dll
-
-
-- `npm` for Node NPM packages:
-
-  - The default repository is `https://registry.npmjs.org`
-  - The `namespace` is used for the scope of a scoped NPM package.
-  - Per the package.json spec, new package "must not have uppercase letters in
-    the name", therefore the must be lowercased.
-  - Examples::
-
-        pkg:npm/foobar@12.3.1
-        pkg:npm/%40angular/animation@12.3.1
-        pkg:npm/mypackage@12.4.5?vcs_url=git://host.com/path/to/repo.git@4345abcd34343
-
-
-- `nuget` for NuGet .NET packages:
-
-  - The default repository is `https://www.nuget.org`
-  - There is no `namespace` per se even if the common convention is to use
-    dot-separated package names where the first segment is `namespace`-like.
-    TBD: should we split the first segment as a namespace?
-  - Examples::
-
-        pkg:nuget/EnterpriseLibrary.Common@6.0.1304
-
-
-- `pypi` for Python packages:
-
-  - The default repository is `https://pypi.python.org`
-  - PyPi treats '-' and '_' as the same character and is not case sensitive.
-    Therefore a Pypi package `name` must be lowercased and underscore '_'
-    replaced with a dash '-'
-  - Examples::
-
-        pkg:pypi/django@1.11.1
-        pkg:pypi/django-allauth@12.23
-
-
-- `rpm` for RPMs:
-
-  - There is no default package repository: this should be implied either from
-    the `distro` `qualifiers` `key` or using a repository base url as a
-    `repository_url` `qualifiers` `key`
-  - the `namespace` is the vendor such as fedora or opensuse
-    It is not case sensitive and must be lowercased.
-  - the `name` is the RPM name and is case sensitive.
-  - the `version` is the combined version and release of an
-    RPM
-  - `epoch` (optional for RPMs) is a qualifier as it's not required for
-    unique identification, but when the epoch exists we strongly
-    encourage using it
-  - `arch` is the `qualifiers` `key` for a package architecture
-  - Examples::
-
-        pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
-        pkg:rpm/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25
-
-
-Other candidate types to define:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-- `alpine` for Alpine Linux apk packages:
-- `apache` for Apache projects packages:
-- `android` for Android apk packages:
-- `arch` for Arch Linux packages:
-- `atom` for Atom packages:
-- `bower` for Bower JavaScript packages:
-- `brew` for Homebrew packages:
-- `buildroot` for Buildroot packages
-- `carthage` for Cocoapods Cocoa packages:
-- `chef` for Chef packages:
-- `chocolatey` for Chocolatey packages
-- `clojars` for Clojure packages:
-- `cocoapods` for Cocoapods iOS packages:
-- `conan` for Conan C/C++ packages:
-- `coreos` for CoreOS packages:
-- `cpan` for CPAN Perl packages:
-- `cran` for CRAN R packages:
-- `ctan` for CTAN TeX packages:
-- `crystal` for Crystal Shards packages:
-- `drupal` for Drupal packages:
-- `dtype` for DefinitelyTyped TypeScript type definitions:
-- `dub` for D packages:
-- `elm` for Elm packages:
-- `eclipse` for Eclipse projects packages:
-- `gitea` for Gitea-based packages:
-- `gitlab` for Gitlab-based packages:
-- `gradle` for Gradle plugins
-- `guix` for Guix packages:
-- `hackage` for Haskell packages:
-- `haxe` for Haxe packages:
-- `helm` for Kubernetes packages
-- `julia` for Julia packages:
-- `lua` for LuaRocks packages:
-- `melpa` for Emacs packages
-- `meteor` for Meteor JavaScript packages:
-- `nim` for Nim packages:
-- `nix` for Nixos packages:
-- `opam` for OCaml packages:
-- `openwrt` for OpenWRT packages:
-- `osgi` for OSGi bundle packages:
-- `p2` for Eclipse p2 packages:
-- `pear` for Pear PHP packages:
-- `pecl` for PECL PHP packages:
-- `perl6` for Perl 6 module packages:
-- `platformio` for PlatformIO packages:
-- `ebuild` for Gentoo Linux portage packages:
-- `pub` for Dart packages:
-- `puppet` for Puppet Forge packages:
-- `sourceforge` for Sourceforge-based packages:
-- `sublime` for Sublime packages:
-- `swift` for Swift packages:
-- `terraform` for Terraform modules
-- `vagrant` for Vagrant boxes
-- `vim` for Vim scripts packages:
-- `wordpress` for Wordpress packages:
-- `yocto` for Yocto recipe packages
+There are several known `purl` package type definitions tracked in the
+separate <PURL-TYPES.rst>`_ document.
 
 
 Known `qualifiers` key/value pairs
@@ -792,7 +452,8 @@ all package types:
 
 - `vcs_url` is an extra URL for a package version control system URL to
   optionally qualify a `purl`. The syntax for this URL should be as defined in
-  Python pip or the SPDX specification. See https://github.com/spdx/spdx-spec/blob/cfa1b9d08903/chapters/3-package-information.md#37-package-download-location
+  Python pip or the SPDX specification. See
+  https://github.com/spdx/spdx-spec/blob/cfa1b9d08903/chapters/3-package-information.md#37-package-download-location
 
   - TODO: incorporate the details from SPDX here.
 
@@ -807,29 +468,6 @@ all package types:
        `checksum=sha1:ad9503c3e994a4f,sha256:41bf9088b3a1e6c1ef1d`
 
 
-Known implementations
-~~~~~~~~~~~~~~~~~~~~~
-
-- in Golang: https://github.com/package-url/packageurl-go
-- for .NET: https://github.com/package-url/packageurl-dotnet
-- for the JVM: https://github.com/package-url/packageurl-java, https://github.com/sonatype/package-url-java
-- in Python: https://github.com/package-url/packageurl-python
-- in Rust: https://github.com/package-url/packageurl-rs
-- in JS: https://github.com/package-url/packageurl-js
-
-
-Users, adopters and links
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
- - https://github.com/nexB/scancode-toolkit will report `purl` from parsed
-   package manifests using https://github.com/package-url/packageurl-python
-   The code lives in the 275 branch for now.
- - `OWASP Dependency-Track <https://www.owasp.org/index.php/OWASP_Dependency_Track_Project>`_: Software Composition Analysis (SCA) platform
- - `CycloneDX <https://github.com/CycloneDX>`_: A lightweight software bill-of-material (BOM) specification
- - `OSS Index <https://ossindex.sonatype.org>`_: A free catalog of Open Source Components and scanning tools to help developers identify vulnerable components
- - `Sonatype Nexus Lifecycle <https://www.sonatype.com/product-nexus-lifecycle>`_: Enterprise grade Open Source component management
-
-
 Tests
 ~~~~~
 
@@ -838,7 +476,7 @@ is provided as JSON document named `test-suite-data.json`. This JSON document
 contains an array of objects. Each object represents a test with these key/value
 pairs some of which may not be normalized:
 
-- **purl**: a `purl` string. 
+- **purl**: a `purl` string.
 - **canonical**: the same `purl` string in canonical, normalized form
 - **type**: the `type` corresponding to this `purl`.
 - **namespace**: the `namespace` corresponding to this `purl`.
