@@ -255,6 +255,37 @@ rpm
       pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
       pkg:rpm/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25
 
+swift
+----
+``swift`` for Swift packages:
+
+- There is currently no default repository for Swift packages.
+- The ``namespace`` is used for the scope of a Swift package.
+  It is not case sensitive and must be lowercased.
+
+  - A package scope consists of alphanumeric characters and hyphens.
+    Hyphens may not occur at the beginning or end,
+    nor consecutively within a scope.
+  - The maximum length of a package scope is 39 characters.
+  - A valid package scope matches the following regular expression pattern
+    ``\A[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}\z``
+
+- The ``name`` is the name declared in the Swift package manifest.
+  It is case and normalization insensitive,
+  and must be normalized using Unicode Normalization Form KC (NFKC)
+  and then transformed with locale-independent case folding.
+
+  - The maximum length of a package name is 128 characters.
+  - A valid package name matches the following regular expression pattern
+    ``\A\p{XID_Start}\p{XID_Continue}{0,127}\z``
+
+- The ``version`` is the version of the package release,
+  and must be a valid SemVer version number.
+- Examples::
+
+      pkg:swift/alamofire/Alamofire@5.4.3
+      pkg:swift/flight-school/Money@1.3.0
+      pkg:swift/realm/SwiftLint@0.43.1
 
 Other candidate types to define:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -309,7 +340,6 @@ Other candidate types to define:
 - ``puppet`` for Puppet Forge packages:
 - ``sourceforge`` for Sourceforge-based packages:
 - ``sublime`` for Sublime packages:
-- ``swift`` for Swift packages:
 - ``terraform`` for Terraform modules
 - ``vagrant`` for Vagrant boxes
 - ``vim`` for Vim scripts packages:
