@@ -298,5 +298,65 @@
     "qualifiers": {"in production": "true"},
     "subpath": null,
     "is_invalid": true
+  },
+  {
+    "description": "valid Swift purl",
+    "purl": "pkg:swift/mona/LinkedList@1.0.0",
+    "canonical_purl": "pkg:swift/mona/LinkedList@1.0.0",
+    "type": "swift",
+    "namespace": "mona",
+    "name": "LinkedList",
+    "version": "1.0.0",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "valid Swift purl with canonicalization",
+    "purl": "pkg:swift/MONA/𝒜①@1.0.0",
+    "canonical_purl": "pkg:swift/mona/a1@1.0.0",
+    "type": "swift",
+    "namespace": "mona",
+    "name": "a1",
+    "version": "1.0.0",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "Swift purl with invalid namespace",
+    "purl": "pkg:swift/--mona--/LinkedList@1.0.0",
+    "canonical_purl": null,
+    "type": "swift",
+    "namespace": "--mona--",
+    "name": "LinkedList",
+    "version": "1.0.0",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "Swift purl with invalid name",
+    "purl": "pkg:swift/mona/❌@1.0.0",
+    "canonical_purl": null,
+    "type": "swift",
+    "namespace": "mona",
+    "name": "❌",
+    "version": "1.0.0",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "Swift purl with invalid version",
+    "purl": "pkg:swift/mona/LinkedList@latest",
+    "canonical_purl": null,
+    "type": "swift",
+    "namespace": "mona",
+    "name": "LinkedList",
+    "version": "latest",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
   }
 ]
