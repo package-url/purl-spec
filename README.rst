@@ -46,7 +46,7 @@ differences in syntax, naming and conventions:
   https://github.com/versioneye/
 
 - Sonatype Lifecycle uses a format id followed by format specific coordinates.
-  https://help.sonatype.com/iqserver/automating/rest-apis/component-details-rest-api---v2
+  https://links.sonatype.com/products/nxiq/doc/component-identifier
 
 
 Solution
