@@ -126,7 +126,7 @@ Some `purl` examples
     pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources
     pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=repo.spring.io/release
 
-    pkg:npm/%40angular/animation@12.3.1
+    pkg:npm/@angular/animation@12.3.1
     pkg:npm/foobar@12.3.1
 
     pkg:nuget/EnterpriseLibrary.Common@6.0.1304
