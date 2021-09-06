@@ -67,13 +67,14 @@ conan
 ``conan`` for Conan C/C++ packages:
 
 - The default repository is ``https://conan.io/center``
+- The ``namespace`` is the user if present
 - The ``name`` is the package name.
 - The ``version`` is the package version.
-- The qualifiers ``user`` and ``channel`` must be not empty for both if present
+- The qualifier ``channel`` must be not empty if namespace is present
 - Examples::
 
       pkg:conan/cctz@2.3
-      pkg:conan/cctz@2.3?user=bincrafters&channel=stable
+      pkg:conan/bincrafters/cctz@2.3?channel=stable
 
 deb
 ---
