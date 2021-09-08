@@ -162,7 +162,15 @@ The rules for each component are:
     '/'
   - Leading and trailing slashes '/' are not significant and should be stripped
     in the canonical form. They are not part of the `namespace`
-  - Each `namespace` segment must be a percent-encoded string
+  - Each `namespace` segment is a non-zero length string defined as a
+    restriction on rfc3986 segments.  `namespce` segments allow sequences of 
+    unreserved characters or a percent-encoded string
+
+    - `segment       = pchar pchar*`
+    - `pchar         = unreserved / pct-encoded`
+    - `pct-encoded   = "%" HEXDIG HEXDIG`
+    - `unreserved    = ALPHA / DIGIT / "-" / "." / "_" / "~"`
+
   - When percent-decoded, a segment:
 
     - must not contain a '/'
