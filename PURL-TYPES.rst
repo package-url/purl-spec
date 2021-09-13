@@ -277,6 +277,36 @@ nuget
 
       pkg:nuget/EnterpriseLibrary.Common@6.0.1304
 
+oci
+------------
+``oci`` for all artifacts stored in registries that conform to the
+`OCI Distribution Specification <https://github.com/opencontainers/distribution-spec>`_,
+including container images built by Docker and others:
+
+- There is no canonical package repository for OCI artifacts. Therefore
+  ``oci`` purls must be registry agnostic by default. To specify the repository,
+  provide a ``repository_url`` value.
+- OCI purls do not contain a ``namespace``, although, ``repository_url`` may
+  contain a namespace as part of the physical location of the package.
+- The ``name`` is not case sensitive and must be lowercased. The name is the
+  last fragment of the repository name. For example if the repository
+  name is ``library/debian`` then the ``name`` is ``debian``.
+- The ``version`` is the ``sha256:hex_encoded_lowercase_digest`` of the
+  artifact and is required to uniquely identify the artifact.
+- Optional qualifiers may include:
+
+  - ``arch``: key for a package architecture, when relevant
+  - ``repository_url``: A repository URL where the artifact may be found, but not
+    intended as the only location. This value is encouraged to identify a
+    location the content may be fetched
+  - ``tag``: artifact tag that may have been associated with the digest at the time
+- Examples::
+
+      pkg:oci/debian@sha256:<digest>?repository_url=docker.io/library/debian&arch=amd64&tag=latest
+      pkg:oci/debian@sha256:<digest>?repository_url=ghcr.io/debian&tag=bullseye
+      pkg:oci/static@sha256:<digest>?repository_url=gcr.io/distroless/static&tag=latest
+      pkg:oci/hello-wasm@sha256:<digest>?tag=v1
+
 pypi
 ----
 ``pypi`` for Python packages:
