@@ -298,5 +298,53 @@
     "qualifiers": {"in production": "true"},
     "subpath": null,
     "is_invalid": true
+  },
+  {
+    "description": "valid conan purl",
+    "purl": "pkg:conan/cctz@2.3",
+    "canonical_purl": "pkg:conan/cctz@2.3",
+    "type": "conan",
+    "namespace": null,
+    "name": "cctz",
+    "version": "2.3",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "valid conan purl with namespace and qualifier channel",
+    "purl": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
+    "canonical_purl": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
+    "type": "conan",
+    "namespace": "bincrafters",
+    "name": "cctz",
+    "version": "2.3",
+    "qualifiers": {"channel": "stable"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "invalid conan purl only namespace",
+    "purl": "pkg:conan/bincrafters/cctz@2.3",
+    "canonical_purl": "pkg:conan/bincrafters/cctz@2.3",
+    "type": "conan",
+    "namespace": "bincrafters",
+    "name": "cctz",
+    "version": "2.3",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "invalid conan purl only channel qualifier",
+    "purl": "pkg:conan/cctz@2.3?channel=stable",
+    "canonical_purl": "pkg:conan/cctz@2.3?channel=stable",
+    "type": "conan",
+    "namespace": null,
+    "name": "cctz",
+    "version": "2.3",
+    "qualifiers": {"channel": "stable"},
+    "subpath": null,
+    "is_invalid": true
   }
 ]

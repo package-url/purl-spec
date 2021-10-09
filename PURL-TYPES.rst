@@ -77,6 +77,20 @@ composer
 
       pkg:composer/laravel/laravel@5.5.0
 
+conan
+-----
+``conan`` for Conan C/C++ packages:
+
+- The default repository is ``https://conan.io/center``
+- The ``namespace`` is the user if present
+- The ``name`` is the package name.
+- The ``version`` is the package version.
+- The qualifier ``channel`` must be not empty if namespace is present
+- Examples::
+
+      pkg:conan/cctz@2.3
+      pkg:conan/bincrafters/cctz@2.3?channel=stable
+
 deb
 ---
 ``deb`` for Debian, Debian derivatives, and Ubuntu packages:
@@ -287,7 +301,6 @@ Other candidate types to define:
 - ``chocolatey`` for Chocolatey packages
 - ``clojars`` for Clojure packages:
 - ``cocoapods`` for Cocoapods iOS packages:
-- ``conan`` for Conan C/C++ packages:
 - ``coreos`` for CoreOS packages:
 - ``cpan`` for CPAN Perl packages:
 - ``cran`` for CRAN R packages:
