@@ -245,7 +245,6 @@ nuget
 - The default repository is ``https://www.nuget.org``
 - There is no ``namespace`` per se even if the common convention is to use
   dot-separated package names where the first segment is ``namespace``-like.
-  TBD: should we split the first segment as a namespace?
 - Examples::
 
       pkg:nuget/EnterpriseLibrary.Common@6.0.1304
