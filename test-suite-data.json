@@ -85,8 +85,8 @@
   },
   {
     "description": "docker uses qualifiers and hash image id as versions",
-    "purl": "pkg:docker/customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io",
-    "canonical_purl": "pkg:docker/customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io",
+    "purl": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
+    "canonical_purl": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
     "type": "docker",
     "namespace": "customer",
     "name": "dockerimage",
@@ -252,13 +252,37 @@
     "is_invalid": false
   },
   {
-    "description": "slash /// after type  is not significant",
+    "description": "slash /// after scheme is not significant",
     "purl": "pkg:///maven/org.apache.commons/io",
     "canonical_purl": "pkg:maven/org.apache.commons/io",
     "type": "maven",
     "namespace": "org.apache.commons",
     "name": "io",
     "version": null,
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "slash / between version and qualifiers separator is not significant",
+    "purl": "pkg:maven/org.apache.commons/io@2.6/?scope=test",
+    "canonical_purl": "pkg:maven/org.apache.commons/io@2.6?scope=test",
+    "type": "maven",
+    "namespace": "org.apache.commons",
+    "name": "io",
+    "version": "2.6",
+    "qualifiers": {"scope": "test"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "ensure namespace allows multiple segments",
+    "purl": "pkg:bintray/apache/couchdb/couchdb-mac@2.3.0",
+    "canonical_purl": "pkg:bintray/apache/couchdb/couchdb-mac@2.3.0",
+    "type": "bintray",
+    "namespace": "apache/couchdb",
+    "name": "couchdb-mac",
+    "version": "2.3.0",
     "qualifiers": null,
     "subpath": null,
     "is_invalid": false
@@ -297,6 +321,30 @@
     "version": "1.0.0",
     "qualifiers": {"in production": "true"},
     "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "invalid subpath - unencoded subpath cannot contain ..",
+    "purl": "pkg:GOLANG/google.golang.org/genproto@abcdedf#/googleapis/%2E%2E/api/annotations/",
+    "canonical_purl": "pkg:golang/google.golang.org/genproto@abcdedf#googleapis/api/annotations",
+    "type": "golang",
+    "namespace": "google.golang.org",
+    "name": "genproto",
+    "version": "abcdedf",
+    "qualifiers": null,
+    "subpath": "googleapis/../api/annotations",
+    "is_invalid": true
+  },
+  {
+    "description": "invalid subpath - unencoded subpath cannot contain .",
+    "purl": "pkg:GOLANG/google.golang.org/genproto@abcdedf#/googleapis/%2E/api/annotations/",
+    "canonical_purl": "pkg:golang/google.golang.org/genproto@abcdedf#googleapis/api/annotations",
+    "type": "golang",
+    "namespace": "google.golang.org",
+    "name": "genproto",
+    "version": "abcdedf",
+    "qualifiers": null,
+    "subpath": "googleapis/./api/annotations",
     "is_invalid": true
   }
 ]
