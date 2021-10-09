@@ -37,6 +37,21 @@ bitbucket
 
       pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c
 
+cocoapods
+-----
+``cocoapods`` for Cocoapods:
+
+- The default repository is ``https://cdn.cocoapods.org/``
+- The ``name`` is the pod name and is case sensitive, cannot contain whitespace, a plus (+) character, or begin with a period (.).
+- The ``version`` is the package version.
+- The purl subpath is used to represent a pods subspec (if present)
+- Examples::
+
+      pkg:cocoapods/AFNetworking@4.0.1
+      pkg:cocoapods/MapsIndoors@3.24.0
+      pkg:cocoapods/ShareKit@2.0#Twitter
+      pkg:cocoapods/GoogleUtilities@7.5.2#NSData+zlib
+
 cargo
 -----
 ``cargo`` for Rust:
