@@ -91,6 +91,21 @@ conan
       pkg:conan/cctz@2.3
       pkg:conan/bincrafters/cctz@2.3?channel=stable
 
+conda
+-----
+``conda`` for Conda packages:
+
+- The default repository is ``https://repo.anaconda.com``
+- The ``name`` is the package name
+- The ``version`` is the package version
+- The qualifiers: ``build`` is the build string.
+  ``channel`` is the package stored location.
+  ``subdir`` is the associated platform.
+  ``type`` is the package type.
+- Examples::
+
+      pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2
+
 deb
 ---
 ``deb`` for Debian, Debian derivatives, and Ubuntu packages:
