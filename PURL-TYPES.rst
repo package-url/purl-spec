@@ -106,6 +106,19 @@ conda
 
       pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2
 
+cran
+-----
+``cran`` for CRAN R packages:
+
+- The default repository is ``https://cran.r-project.org``
+- The ``name`` is the package identifier.
+- The ``version`` is the package version.
+- Examples::
+
+      pkg:cran/A3@1.0.0
+      pkg:cran/rJava@1.0-4
+      pkg:cran/caret@6.0-88
+
 deb
 ---
 ``deb`` for Debian, Debian derivatives, and Ubuntu packages:
@@ -318,7 +331,6 @@ Other candidate types to define:
 - ``cocoapods`` for Cocoapods iOS packages:
 - ``coreos`` for CoreOS packages:
 - ``cpan`` for CPAN Perl packages:
-- ``cran`` for CRAN R packages:
 - ``ctan`` for CTAN TeX packages:
 - ``crystal`` for Crystal Shards packages:
 - ``drupal`` for Drupal packages:
