@@ -358,5 +358,41 @@
     "qualifiers": {"build": "py36h06a4308_0", "channel": "main", "subdir": "linux-64", "type": "tar.bz2"},
     "subpath": null,
     "is_invalid": false
+  },
+  {
+    "description": "valid cran purl",
+    "purl": "pkg:cran/A3@0.9.1",
+    "canonical_purl": "pkg:cran/A3@0.9.1",
+    "type": "cran",
+    "namespace": null,
+    "name": "A3",
+    "version": "0.9.1",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "invalid cran purl without name",
+    "purl": "pkg:cran/@0.9.1",
+    "canonical_purl": "pkg:cran/@0.9.1",
+    "type": "cran",
+    "namespace": null,
+    "name": null,
+    "version": "0.9.1",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "invalid cran purl without version",
+    "purl": "pkg:cran/A3",
+    "canonical_purl": "pkg:cran/A3",
+    "type": "cran",
+    "namespace": null,
+    "name": "A3",
+    "version": null,
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
   }
 ]
