@@ -46,7 +46,7 @@ differences in syntax, naming and conventions:
   https://github.com/versioneye/
 
 - Sonatype Lifecycle uses a format id followed by format specific coordinates.
-  https://help.sonatype.com/display/NXIQ/Component+Details+API+-+v2
+  https://links.sonatype.com/products/nxiq/doc/component-identifier
 
 
 Solution
@@ -95,8 +95,8 @@ The defintion for each components is:
   Optional.
 
 
-Components are designed such that they for a hierarchy from the most significant
-on the left to the least significant components on the right.
+Components are designed such that they form a hierarchy from the most significant component
+on the left to the least significant component on the right.
 
 
 A `purl` must NOT contain a URL Authority i.e. there is no support for
