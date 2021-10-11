@@ -285,7 +285,7 @@ rpm
 - There is no default package repository: this should be implied either from
   the ``distro`` qualifiers key  or using a repository base url as 
   ``repository_url`` qualifiers key
-- the ``namespace`` is the vendor such as fedora or opensus
+- the ``namespace`` is the vendor such as fedora or opensuse
   It is not case sensitive and must be lowercased.
 - the ``name`` is the RPM name and is case sensitive.
 - the ``version`` is the combined version and release of an
