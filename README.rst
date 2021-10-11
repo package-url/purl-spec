@@ -167,17 +167,18 @@ Known implementations
 
 Users, adopters and links
 ~~~~~~~~~~~~~~~~~~~~~~~~~
-
- - `Scancode Toolkit <https://github.com/nexB/scancode-toolkit>`_: Reports
-   `purl` from parsed package manifests using https://github.com/package-url/packageurl-python
- - `OWASP Dependency-Track <https://www.owasp.org/index.php/OWASP_Dependency_Track_Project>`_: 
-   Open source component analysis platform
- - `CycloneDX <https://github.com/CycloneDX>`_: A lightweight software
-   bill-of-material (SBOM) specification
- - `OSS Index <https://ossindex.sonatype.org>`_: A free catalog of Open Source
-   Components and scanning tools to help developers identify vulnerable components
- - `Sonatype Nexus Lifecycle <https://www.sonatype.com/product-nexus-lifecycle>`_:
-   Enterprise grade Open Source component management
+- `Scancode Toolkit <https://github.com/nexB/scancode-toolkit>`_: Reports
+  `purl` from parsed package manifests using https://github.com/package-url/packageurl-python
+- `OWASP Dependency-Track <https://www.owasp.org/index.php/OWASP_Dependency_Track_Project>`_: 
+  Open source component analysis platform
+- `CycloneDX <https://github.com/CycloneDX>`_: A lightweight software
+  bill-of-material (SBOM) specification
+- `SPDX <https://spdx.dev>`_: A data exchange standard for human-readable and 
+  machine-processable software bill-of-materials (SBOM)
+- `OSS Index <https://ossindex.sonatype.com>`_: A free catalog of Open Source
+  Components and scanning tools to help developers identify vulnerable components
+- `Sonatype Nexus Lifecycle <https://www.sonatype.com/product-nexus-lifecycle>`_:
+  Enterprise grade Open Source component management
 
 
 License
