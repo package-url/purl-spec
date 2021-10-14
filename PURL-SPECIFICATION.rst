@@ -163,7 +163,7 @@ The rules for each component are:
   - Leading and trailing slashes '/' are not significant and should be stripped
     in the canonical form. They are not part of the `namespace`
   - Each `namespace` segment is a non-zero length string defined as a
-    restriction on rfc3986 segments.  `namespce` segments allow sequences of 
+    restriction on rfc3986 segments.  `namespace` segments allow sequences of 
     unreserved characters or a percent-encoded string
 
     - `segment       = pchar pchar*`
