@@ -394,5 +394,53 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": true
+  },
+  {
+    "description": "valid swift purl",
+    "purl": "pkg:swift/github.com/Alamofire/Alamofire@5.4.3",
+    "canonical_purl": "pkg:swift/github.com/Alamofire/Alamofire@5.4.3",
+    "type": "swift",
+    "namespace": "github.com/Alamofire",
+    "name": "Alamofire",
+    "version": "5.4.3",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "invalid swift purl without namespace",
+    "purl": "pkg:swift/Alamofire@5.4.3",
+    "canonical_purl": "pkg:swift/Alamofire@5.4.3",
+    "type": "swift",
+    "namespace": null,
+    "name": "Alamofire",
+    "version": "5.4.3",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "invalid swift purl without name",
+    "purl": "pkg:swift/github.com/Alamofire/@5.4.3",
+    "canonical_purl": "pkg:swift/github.com/Alamofire/@5.4.3",
+    "type": "swift",
+    "namespace": "pkg:swift/github.com/Alamofire",
+    "name": null,
+    "version": "5.4.3",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "invalid swift purl without version",
+    "purl": "pkg:swift/github.com/Alamofire/Alamofire",
+    "canonical_purl": "pkg:swift/github.com/Alamofire/Alamofire",
+    "type": "swift",
+    "namespace": "pkg:swift/github.com/Alamofire",
+    "name": "Alamofire",
+    "version": null,
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
   }
 ]

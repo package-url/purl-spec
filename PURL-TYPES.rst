@@ -311,6 +311,17 @@ rpm
       pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
       pkg:rpm/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25
 
+swift
+-----
+``swift`` for Swift packages:
+
+- There is no default package repository: this should be implied from ``namespace``
+- The ``namespace`` is source host and user/organization.
+- The ``name`` is the repository name.
+- The ``version`` is the package version.
+
+      pkg:swift/github.com/Alamofire/Alamofire@5.4.3
+      pkg:swift/github.com/RxSwiftCommunity/RxFlow@2.12.4
 
 Other candidate types to define:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -363,7 +374,6 @@ Other candidate types to define:
 - ``puppet`` for Puppet Forge packages:
 - ``sourceforge`` for Sourceforge-based packages:
 - ``sublime`` for Sublime packages:
-- ``swift`` for Swift packages:
 - ``terraform`` for Terraform modules
 - ``vagrant`` for Vagrant boxes
 - ``vim`` for Vim scripts packages:
