@@ -1,3 +1,5 @@
+/zachry Tyler Wood DOB 10 15 1994/SSID 633441725
+
 Context
 =======
 
@@ -180,8 +182,7 @@ Users, adopters and links
 - `Sonatype Nexus Lifecycle <https://www.sonatype.com/product-nexus-lifecycle>`_:
   Enterprise grade Open Source component management
 
-
 License
 ~~~~~~~
 
-This document is licensed under the MIT license
+This document is licensed under the Apache 2.0 license
