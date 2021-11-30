@@ -121,7 +121,7 @@ in use:
   of versions. The versionType is defined as ``"The version numbering system
   used for specifying the range. This defines the exact semantics of the
   comparison (less-than) operation on versions, which is required to understand
-  the range itself"``.
+  the range itself"``. A versionType ressembles closely the Package URL package "type".
 
 - The OSSF OSV schema https://ossf.github.io/osv-schema/ defines vulnerable
   ranges with version events using "introduced" and "limit" fields and an
