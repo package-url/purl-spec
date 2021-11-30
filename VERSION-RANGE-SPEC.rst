@@ -338,7 +338,7 @@ Some important usages derived from this primary usage include:
 
 - **Selecting one of several versions that are within a range.**
   In this case, given several versions that are within a range and several
-  packages that each expression inter dependencies together with version ranges,
+  packages that express dependencies to other other packages qualified by a version ranges,
   package management tools need to determine and select a set of package versions
   that satify all the version ranges of all dependencies. This usually requires
   deploying heuristics and algorithms (possibly complex such as sat solvers)
