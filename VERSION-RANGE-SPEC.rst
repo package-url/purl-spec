@@ -296,8 +296,8 @@ Normalized or canonical representation
   punctuation.
 
 - Spaces are not significant and are removed in the canonical form. For example
-  "!=1.2.3" and " ! = 1.2. 3" are equivalent. And so are "1.2.3 & < = 2.0.0" and
-  "1.2.3&<=2.0.0"
+  "!=1.2.3" and " ! = 1.2. 3" are equivalent. And so are "1.2.3 , < = 2.0.0" and
+  "1.2.3,<=2.0.0"
 
 - A version range specifier is case-insensitive and lowercase in canonical form.
 
