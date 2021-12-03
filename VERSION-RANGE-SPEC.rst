@@ -250,10 +250,9 @@ The ``<comparator>`` is one of these comparison operators:
 - "=": Version equality comparator. It is the default and implied if not
   present and means that a version must be equal to the provided version.
   For example: "=1.2.3". It must be omitted in the canonical representation.
-  Equality is based on the equality of two lower-cased and normalized version
-  strings and is typically not versioning scheme-specific, though some
-  scheme such as pypi PEP440 may apply some version string normalization
-  before testing for equality.
+  Equality is based on the equality of two version strings and is typically
+  not versioning scheme-specific, though some schemes such as pypi PEP440
+  may require a version string normalization before testing for equality.
 
 - "!=": Version exclusion or inequality comparator. This means a version must
   not be equal to the provided version and this version must be excluded from
@@ -299,7 +298,10 @@ Normalized or canonical representation
   "!=1.2.3" and " ! = 1.2. 3" are equivalent. And so are "1.2.3 , < = 2.0.0" and
   "1.2.3,<=2.0.0"
 
-- A version range specifier is case-insensitive and lowercase in canonical form.
+- The case sensitivity of a version in a version range specifier is defined by
+  its versioning scheme. In canonical form, a version is case-sensitive.
+  
+- The URI scheme and versioning scheme are always lowercase as in ``vers:npm``. 
 
 - The ordering of multiple ``<version-constraint>`` in a range specifier is not
   significant. The canonical ordering is by sorting these by lexicographical
@@ -354,12 +356,12 @@ To parse a version range specifier string:
 
 - Remove all spaces and tabs.
 - Start from left, and split once on colon ":".
-- The left hand side is the URI-scheme that must be lowercase.
+- The left hand side is the URI-scheme that must be lowercased.
   - Verify that the URI-scheme value is ``vers``.
 - The right hand side is the specifier.
 
 - Split the specifier from left once on a slash "/".
-- The left hand side is the <versioning-scheme> that must be lowercase.
+- The left hand side is the <versioning-scheme> that must be lowercased.
 - The right hand side is a list of one or more constraints.
 
 - If the constraints string is equal to "*", the <version-constraint> is "*".
