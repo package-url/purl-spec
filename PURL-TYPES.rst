@@ -38,7 +38,7 @@ bitbucket
       pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c
 
 cocoapods
------
+---------
 ``cocoapods`` for Cocoapods:
 
 - The default repository is ``https://cdn.cocoapods.org/``
