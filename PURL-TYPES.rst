@@ -130,12 +130,14 @@ deb
   It is not case sensitive and must be lowercased.
 - The ``name`` is not case sensitive and must be lowercased.
 - The ``version`` is the version of the binary (or source) package.
-- ``arch`` is the qualifiers key for a package architecture. The special
-  value ``arch=source`` shall identify a Debian source package (which
-  usually consists of a Debian Source control file (.dsc) and corresponding
-  upstream and Debian sources). In this case, ``name`` and ``version`` of the
-  source package shall be given (both may differ from binary package!), as
-  printed by ``dpkg-query -f '${source:Package} ${source:Version} -W <pkg>``.
+- ``arch`` is the qualifiers key for a package architecture. The special value
+  ``arch=source`` identifies a Debian source package that usually consists of a
+  Debian Source control file (.dsc) and corresponding upstream and Debian
+  sources. The ``dpkg-query`` command can print the ``name`` and ``version`` of
+  the corresponding source package of a binary package::
+
+    dpkg-query -f '${source:Package} ${source:Version}' -W <binary package name>
+
 - Examples::
 
       pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie
