@@ -174,13 +174,12 @@ URI-scheme with this syntax::
 
    vers:<versioning-scheme>/<version-constraint>|<version-constraint>|...
 
-For example ,to define a set of versions that contains either version ``1.2.3``,
+For example, to define a set of versions that contains either version ``1.2.3``,
 or any versions greater than or equal to ``2.0.0`` but less than ``5.0.0`` using
 the ``node-semver`` versioning scheme used with the ``npm`` Package URL type,
 the version range specifier will be::
 
     vers:npm/1.2.3|>=2.0.0|<5.0.0
-
 
 ``vers`` is the URI-scheme and is an acronym for "VErsion Range Specifier". It
 has been selected because it is short, obviously about version and available
@@ -318,7 +317,7 @@ Using version range specifiers
 An version is within a version range if falls in any of the intervals defined
 by a range. Otherwise, the version is outside of the version range.
 
-Some important usages derived from thisinclude:
+Some important usages derived from this include:
 
 - **Resolving a version range specifier to a list of concrete versions.**
   In this case, the input is one or more known versions of a package. Each
@@ -358,7 +357,7 @@ To parse a version range specifier string:
   may be strict and report an error if there are extra characters beyond "*" or
   be lenient.
 
-- Strip leading adn trailing pipes "|" from the constraints string.
+- Strip leading and trailing pipes "|" from the constraints string.
 - Split the constraints on pipe "|". The result is a list of  <version-constraint>.
   Consecutive pipes should be must as one and leading and trailing pipes ignored.
 
