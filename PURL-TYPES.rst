@@ -38,7 +38,7 @@ bitbucket
       pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c
 
 cocoapods
------
+---------
 ``cocoapods`` for Cocoapods:
 
 - The default repository is ``https://cdn.cocoapods.org/``
@@ -129,13 +129,22 @@ deb
 - The ``namespace`` is the "vendor" name such as "debian" or "ubuntu".
   It is not case sensitive and must be lowercased.
 - The ``name`` is not case sensitive and must be lowercased.
-- The ``version`` is the package version.
-- ``arch`` is the qualifiers key for a package architecture
+- The ``version`` is the version of the binary (or source) package.
+- ``arch`` is the qualifiers key for a package architecture. The special value
+  ``arch=source`` identifies a Debian source package that usually consists of a
+  Debian Source control file (.dsc) and corresponding upstream and Debian
+  sources. The ``dpkg-query`` command can print the ``name`` and ``version`` of
+  the corresponding source package of a binary package::
+
+    dpkg-query -f '${source:Package} ${source:Version}' -W <binary package name>
+
 - Examples::
 
       pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie
       pkg:deb/debian/dpkg@1.19.0.4?arch=amd64&distro=stretch
       pkg:deb/ubuntu/dpkg@1.19.0.4?arch=amd64
+      pkg:deb/debian/attr@1:2.4.47-2?arch=source
+      pkg:deb/debian/attr@1:2.4.47-2%2Bb1?arch=amd64
 
 docker
 ------
