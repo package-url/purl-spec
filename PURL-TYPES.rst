@@ -223,6 +223,18 @@ golang
       pkg:golang/google.golang.org/genproto#googleapis/api/annotations
       pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c#api
 
+hackage
+-------
+``hackage`` for Haskell packages
+
+- The default repository is `https://hackage.haskell.org`.
+- The `version` is package version.
+- The `name` is case sensitive and use kebab-case
+- Examples::
+
+        pkg:hackage/a50@0.5
+        pkg:hackage/AC-HalfInteger@1.2.1
+        pkg:hackage/3d-graphics-examples@0.0.0.2
 
 hex
 ---
@@ -391,7 +403,6 @@ Other candidate types to define:
 - ``gitlab`` for Gitlab-based packages:
 - ``gradle`` for Gradle plugins
 - ``guix`` for Guix packages:
-- ``hackage`` for Haskell packages:
 - ``haxe`` for Haxe packages:
 - ``helm`` for Kubernetes packages
 - ``julia`` for Julia packages:

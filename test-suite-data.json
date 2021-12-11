@@ -442,5 +442,29 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": true
+  },
+  {
+    "description": "valid hackage purl",
+    "purl": "pkg:hackage/AC-HalfInteger@1.2.1",
+    "canonical_purl": "pkg:hackage/AC-HalfInteger@1.2.1",
+    "type": "hackage",
+    "namespace": null,
+    "name": "AC-HalfInteger",
+    "version": "1.2.1",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "name and version are always required",
+    "purl": "pkg:hackage",
+    "canonical_purl": "pkg:hackage",
+    "type": "hackage",
+    "namespace": null,
+    "name": null,
+    "version": null,
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
   }
 ]
