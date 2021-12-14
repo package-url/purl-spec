@@ -81,7 +81,7 @@ conan
 -----
 ``conan`` for Conan C/C++ packages:
 
-- The default repository is ``https://conan.io/center``
+- The default repository is ``https://center.conan.io``
 - The ``namespace`` is the user if present
 - The ``name`` is the package name.
 - The ``version`` is the package version.
