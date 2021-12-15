@@ -168,7 +168,7 @@ in this document.
 
 
 Version range specifier
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 
 A version range specifier (aka. "vers") is a URI string using the ``vers``
 URI-scheme with this syntax::
@@ -199,8 +199,76 @@ A ``<version>`` satisfies a version range specifier if it is contained within
 any of the intervals defined by these ``<version-constraint>``.
 
 
+Using version range specifiers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``vers`` primary usage is to test if a version is within a range.
+
+An version is within a version range if falls in any of the intervals defined
+by a range. Otherwise, the version is outside of the version range.
+
+Some important usages derived from this include:
+
+- **Resolving a version range specifier to a list of concrete versions.**
+  In this case, the input is one or more known versions of a package. Each
+  version is then tested to check if it lies within or outside the range. For
+  example, given a vulnerability and the ``vers`` describing the vulnerable
+  versions of a package, this process is used to determine if an existing
+  package version is vulnerable.
+
+- **Selecting one of several versions that are within a range.**
+  In this case, given several versions that are within a range and several
+  packages that express package dependencies qualified by a version range,
+  a package management tools will determine and select the set of package
+  versions that satisfy all the version ranges constraints of all dependencies.
+  This usually requires deploying heuristics and algorithms (possibly complex
+  such as sat solvers) that are ecosystem- and tool-specific and outside of the
+  scope for this specification; yet ``vers`` could be used in tandem with
+  ``purl`` to provide an input to this dependencies resolution process.
+
+
+Examples
+~~~~~~~~~
+
+A single version in an npm package dependency:
+
+- originally seen as a dependency on version "1.2.3" in a package.json manifest
+- the version range spec is: ``vers:npm/1.2.3``
+
+
+A list of versions, enumerated:
+
+- ``vers:pypi/0.0.0|0.0.1|0.0.2|0.0.3|1.0|2.0pre1``
+
+
+A complex statement about a vulnerability in a "maven" package that affects
+multiple branches each with their own fixed versions at 
+https://repo1.maven.org/maven2/org/apache/tomee/apache-tomee/ 
+Note how the constraints are sorted:
+
+
+- "affects Apache TomEE 8.0.0-M1 - 8.0.1, Apache TomEE 7.1.0 - 7.1.2,
+  Apache TomEE 7.0.0-M1 - 7.0.7, Apache TomEE 1.0.0 - 1.7.5."
+
+- a normalized version range spec is:
+  ``vers:tomee/>=1.0.0-beta1|<=1.7.5|>=7.0.0-M1|<=7.0.7|>=7.1.0|<=7.1.2|>=8.0.0-M1|<=8.0.1``
+
+- alternatively, four ``vers`` express the same range, using one ``vers`` for
+  each vulnerable "branches": 
+  - ``vers:tomee/>=1.0.0-beta1|<=1.7.5``
+  - ``vers:tomee/>=7.0.0-M1|<=7.0.7``
+  - ``vers:tomee/>=7.1.0|<=7.1.2``
+  - ``vers:tomee/>=8.0.0-M1|<=8.0.1``
+
+Conversing Rubygems custom syntax for dependency on gem. Note how the
+pessimistic version constraint is expanded:
+
+- ``'library', '~> 2.2.0', '!= 2.2.1'``
+- the version range spec is: ``vers:gem/>=2.2.0|!= 2.2.1!<2.3.0``
+
+
 URI scheme
--------------
+~~~~~~~~~~
 
 The ``vers`` URI scheme is  an acronym for "VErsion Range Specifier".
 It has been selected because it is short, obviously about version and available
@@ -210,7 +278,7 @@ The URI scheme is followed by a colon ":".
 
 
 ``<versioning-scheme>``
-------------------------
+~~~~~~~~~~~~~~~~~~~~~~~
 
 The ``<versioning-scheme>`` (such as ``npm``, ``deb``, etc.) determines:
 
@@ -232,7 +300,7 @@ The ``<versioning-scheme>`` is followed by a slash "/".
 
 
 ``<version-constraint>``
-----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 After the ``<versioning-scheme>`` and "/" there are one or more
 ``<version-constraint>`` separated by a pipe "|". The pipe "|" has no special
@@ -281,50 +349,11 @@ The ``<versioning-scheme>`` defines:
   primarily of three dot-separated numeric segments named major, minor and patch.
 
 
-Examples
--------------
-
-Single version in an npm package dependency:
-
-- originally seen as a dependency on version "1.2.3" in a package.json manifest
-- the version range spec is: ``vers:npm/1.2.3``
-
-
-Versions enumeration:
-
-- ``vers:pypi/0.0.0|0.0.1|0.0.2|0.0.3|1.0|2.0pre1``
-
-
-Complex statement about a vulnerability in a "maven" package that affects
-multiple branches each with their own fixed versions at 
-https://repo1.maven.org/maven2/org/apache/tomee/apache-tomee/ 
-Note how the constraints are sorted:
-
-
-- "affects Apache TomEE 8.0.0-M1 - 8.0.1, Apache TomEE 7.1.0 - 7.1.2,
-  Apache TomEE 7.0.0-M1 - 7.0.7, Apache TomEE 1.0.0 - 1.7.5."
-
-- a normalized version range spec is:
-  ``vers:tomee/>=1.0.0-beta1|<=1.7.5|>=7.0.0-M1|<=7.0.7|>=7.1.0|<=7.1.2|>=8.0.0-M1|<=8.0.1``
-
-- alternatively, four ``vers`` express the same range, using one ``vers`` for
-  each vulnerable "branches": 
-  - ``vers:tomee/>=1.0.0-beta1|<=1.7.5``
-  - ``vers:tomee/>=7.0.0-M1|<=7.0.7``
-  - ``vers:tomee/>=7.1.0|<=7.1.2``
-  - ``vers:tomee/>=8.0.0-M1|<=8.0.1``
-
-Rubygems custom syntax for dependency on gem. Note how the pessimistic version
-constraint is expanded:
-
-- ``'library', '~> 2.2.0', '!= 2.2.1'``
-- the version range spec is: ``vers:gem/>=2.2.0|!= 2.2.1!<2.3.0``
-
 
 Normalized, canonical representation and validation
 -----------------------------------------------------
 
-These construction and validation rules are designed such that a ``vers`` is
+The construction and validation rules are designed such that a ``vers`` is
 easier to read and understand by human and straight forward to process by tools,
 attempting to avoid the creation of empty or impossible version ranges.
 
@@ -377,34 +406,6 @@ constraint comparators must be an alternation of greater and lesser comparators:
 - ">" and ">=" must be followed by one of "<", "<=" (or no constraint).
 
 Tools must report an error for such invalid ranges.
-
-
-Using version range specifiers
-------------------------------
-
-``vers`` primary usage is to test if a version is within a range.
-
-An version is within a version range if falls in any of the intervals defined
-by a range. Otherwise, the version is outside of the version range.
-
-Some important usages derived from this include:
-
-- **Resolving a version range specifier to a list of concrete versions.**
-  In this case, the input is one or more known versions of a package. Each
-  version is then tested to check if it lies within or outside the range. For
-  example, given a vulnerability and the ``vers`` describing the vulnerable
-  versions of a package, this process is used to determine if an existing
-  package version is vulnerable.
-
-- **Selecting one of several versions that are within a range.**
-  In this case, given several versions that are within a range and several
-  packages that express package dependencies qualified by a version range,
-  a package management tools will determine and select the set of package
-  versions that satisfy all the version ranges constraints of all dependencies.
-  This usually requires deploying heuristics and algorithms (possibly complex
-  such as sat solvers) that are ecosystem- and tool-specific and outside of the
-  scope for this specification; yet ``vers`` could be used in tandem with
-  ``purl`` to provide an input to this dependencies resolution process.
 
 
 Parsing and validating version range specifiers
@@ -682,6 +683,7 @@ Related efforts and alternative
 - dephell specifier is a library to parse and evaluate version ranges and
   "work with version specifiers (can parse PEP-440, SemVer, Ruby, NPM, Maven)"
   https://github.com/dephell/dephell_specifier
+
 
 Why not reuse existing version range notations?
 -----------------------------------------------------
