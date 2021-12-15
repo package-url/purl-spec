@@ -492,7 +492,7 @@ A procedure to remove redundant constraints can be:
 - Start from a list of constraints of comparator and version, sorted by version
   and where each version occurs only once in any constraint.
 
-- If the constraints list contains only one item and the comparator is "*",
+- If the constraints list contains only one item,
   return this list and simplification is finished.
 
 - Split the constraints list in two sub lists:
