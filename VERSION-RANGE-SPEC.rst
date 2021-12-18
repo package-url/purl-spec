@@ -469,8 +469,8 @@ constraints once parsing is complete:
 - De-duplicate the list of constraints.
 
 
-Version constraints de-duplication
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Version constraints simplification
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Tools can simplify a list of ``<version-constraint>`` using this approach:
 
@@ -492,7 +492,7 @@ A procedure to remove redundant constraints can be:
 - Start from a list of constraints of comparator and version, sorted by version
   and where each version occurs only once in any constraint.
 
-- If the constraints list contains only one item,
+- If the constraints list contains a single constraint (star, equal or anything)
   return this list and simplification is finished.
 
 - Split the constraints list in two sub lists:
@@ -503,22 +503,22 @@ A procedure to remove redundant constraints can be:
 - If the remainder list of "constraints" is empty, return the "unequal constraints"
   list and simplification is finished.
 
-- Loop while the "constraints" list length diminishes with each iteration:
+- Iterate over the constraints list, considering the current and next contiguous
+  constraints, and the previous constraint (e.g., before current) if it exists:
 
-    - Save the starting length of "constraints" list
+    - If current comparator is ">" or ">=" and next comparator is "=", ">" or ">=",
+      discard next constraint
 
-    - For each contiguous current constraint and next constraint of this list:
+    - If current comparator is "=", "<" or "<="  and next comparator is <" or <=",
+      discard current constraint. Previous constraint becomes current if it exists.
 
-        - If current comparator is "=", "<" or "<="  and next comparator is <" or <=",
-          discard current constraint, keep next constraint
+    - If there is a previous constraint:
 
-        - Else if current comparator is ">" or ">=" and next comparator is "=", ">" or ">=",
-          keep current constraint, discard next constraint
+        - If previous comparator is ">" or ">=" and current comparator is "=", ">" or ">=",
+          discard current constraint
 
-        - Else keep current constraint and next constraint
-
-    - If the starting length of "constraints" list is the same as the current
-      length of the "constraints" list, stop iterating.
+        - If previous comparator is "=", "<" or "<=" and current comparator is <" or <=",
+          discard previous constraint
 
 - Concatenate the "unequal constraints" list and the filtered "constraints" list
 - Sort by version and return.
@@ -584,8 +584,9 @@ Notes and caveats
 
 - Comparing versions from two different versioning schemes is an error. Even
   though there may be some similarities between the ``semver`` version of an npm
-  and the ``deb`` version of its Debian packaging, these similarities are
-  specific to each versioning scheme. Tools should report an error in this case.
+  and the ``deb`` version of its Debian packaging, the way versions are compared
+  specific to each versioning scheme and may be different. Tools should report
+  an error in this case.
 
 - All references to sorting or ordering of version constraints means sorting
   by version. And sorting by versions always implies using the versioning
