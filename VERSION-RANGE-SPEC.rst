@@ -786,6 +786,35 @@ NVD versionType and the ``vers`` versioning schemes values. Furthermore, this
 spec and the Package URL "types" should be updated accordingly to provide
 a mapping with the upcoming NVD collectionURL that will be effectively used.
 
+There is one issue with NVD v5: it introduces a new trailing "*" notation that
+does not exists in most version ranges notations and may not be computable
+easily in many cases. The description of the "lessThan" property is:
+
+    The non-inclusive upper limit of the range. This is the least version NOT
+    in the range. The usual version syntax is expanded to allow a pattern to end
+    in an asterisk `(*)`, indicating an arbitrarily large number in the version
+    ordering. For example, `{version: 1.0 lessThan: 1.*}` would describe the
+    entire 1.X branch for most range kinds, and `{version: 2.0, lessThan: *}`
+    describes all versions starting at 2.0, including 3.0, 5.1, and so on.
+
+The conversion to ``vers`` range should be:
+
+- with a version 1.0 and `"lessThan": "*"`, the ``vers`` equivalent is: ``>=1.0``.
+
+- with a version 1.0 and `"lessThan": "2.*"`, the ``vers`` equivalent can be
+  computed for ``semver`` versions as ``>=1.0|<2`` but is not accurate unless
+  as versioning schemes have different rules. For instance, pre-release may be
+  treated in some case as part of the v1. branch and in some other cases as part
+  of the v2. branch. It is not clear if with "2.*"  the NVD spec means:
+
+    - ``<2``
+    - or something that excludes any version string that starts with ``2.``
+
+And in this case, with the expression `"lessThan": "2.*"` using  a ``semver``
+version, it is not clear if ``2.0.0-alpha`` is "lessThan"; semver sorts it
+before ``2.0`` and after ``1.0``, e.g., in ``semver`` ``2.0.0-alpha`` is
+"less than" ``2``.
+
 
 Why not use the NVD CPE Ranges?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
