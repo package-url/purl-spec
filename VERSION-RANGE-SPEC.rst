@@ -357,11 +357,11 @@ The construction and validation rules are designed such that a ``vers`` is
 easier to read and understand by human and straight forward to process by tools,
 attempting to avoid the creation of empty or impossible version ranges.
 
-- A version range specifier contains only printable ASCII letters, digits and
-  punctuation.
-
 - Spaces are not significant and removed in a canonical form. For example
   "<1.2.3|>=2.0" and " <  1.2. 3 | > = 2  . 0" are equivalent.
+
+- A version range specifier contains only printable ASCII letters, digits and
+  punctuation.
 
 - The URI scheme and versioning scheme are always lowercase as in ``vers:npm``. 
 
@@ -462,11 +462,11 @@ Finally:
 - The results are the <versioning-scheme> and the list of <version, comparator>
   constraints.
 
-Tools should optionally validate and normalize the list of <version, comparator>
+Tools should optionally validate and simplify the list of <version, comparator>
 constraints once parsing is complete:
 
 - Sort and validate the list of constraints.
-- De-duplicate the list of constraints.
+- Simplify the list of constraints.
 
 
 Version constraints simplification
