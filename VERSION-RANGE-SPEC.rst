@@ -427,16 +427,16 @@ To parse a version range specifier string:
 - The right hand side is a list of one or more constraints.
   Tools must validate that this constraints string is not empty ignoring spaces.
 
-- If the constraints string is equal to "*", the <version-constraint>is "*".
+- If the constraints string is equal to "*", the ``<version-constraint>`` is "*".
   Parsing is done and no further processing is needed for this ``vers``. A tool
   should report an error if there are extra characters beyond "*". 
 
 - Strip leading and trailing pipes "|" from the constraints string.
-- Split the constraints on pipe "|". The result is a list of  <version-constraint>.
+- Split the constraints on pipe "|". The result is a list of ``<version-constraint>``.
   Consecutive pipes must be treated as one and leading and trailing pipes ignored.
 
-- For each <version-constraint>:
-  - Determine if the <version-constraint> starts with one of the two comparators:
+- For each ``<version-constraint>``:
+  - Determine if the ``<version-constraint>`` starts with one of the two comparators:
 
     - If it starts with ">=", then the comparator is ">=".
     - If it starts with "<=", then the comparator is "<=".
@@ -444,10 +444,10 @@ To parse a version range specifier string:
     - If it starts with "<",  then the comparator is "<".
     - If it starts with ">",  then the comparator is ">".
 
-    - Remove the comparator from <version-constraint> string start. The
+    - Remove the comparator from ``<version-constraint>`` string start. The
       remaining string is the version.
 
-  - Otherwise the version is the full <version-constraint> string (which implies
+  - Otherwise the version is the full ``<version-constraint>`` string (which implies
     an equality comparator of "=")
 
   - Tools should validate and report an error if the version is empty.
@@ -459,10 +459,10 @@ To parse a version range specifier string:
 
 Finally:
 
-- The results are the <versioning-scheme> and the list of <version, comparator>
+- The results are the ``<versioning-scheme>`` and the list of ``<comparator, version>``
   constraints.
 
-Tools should optionally validate and simplify the list of <version, comparator>
+Tools should optionally validate and simplify the list of ``<comparator, version>``
 constraints once parsing is complete:
 
 - Sort and validate the list of constraints.
