@@ -307,7 +307,7 @@ After the ``<versioning-scheme>`` and "/" there are one or more
 meaning beside being a separator.
 
 Each  ``<version-constraint>`` of this list is either a single ``<version>`` as
-in ``1.2.3`` or the combination of a ``<comparator>`` and a ``<version>`` as in
+in ``1.2.3`` for example or the combination of a ``<comparator>`` and a ``<version>`` as in
 ``>=2.0.0`` using this syntax::
 
     <comparator><version>
