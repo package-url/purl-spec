@@ -264,7 +264,7 @@ Conversing Rubygems custom syntax for dependency on gem. Note how the
 pessimistic version constraint is expanded:
 
 - ``'library', '~> 2.2.0', '!= 2.2.1'``
-- the version range spec is: ``vers:gem/>=2.2.0|!= 2.2.1!<2.3.0``
+- the version range spec is: ``vers:gem/>=2.2.0|!= 2.2.1|<2.3.0``
 
 
 URI scheme
