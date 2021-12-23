@@ -73,7 +73,7 @@ conventions in use:
   the topic of versioning. Version resolution uses its own algorithm.
 
 - Python uses its own version and version ranges notation with notable
-  peculiarities on how how pre-release and post-release suffixes are used
+  peculiarities on how pre-release and post-release suffixes are used
   https://www.python.org/dev/peps/pep-0440/
 
 - Debian and Ubuntu use their own notation and are remarkable for their use of
