@@ -175,7 +175,7 @@ Users, adopters and links
   bill-of-material (SBOM) specification
 - `SPDX <https://spdx.dev>`_: A data exchange standard for human-readable and 
   machine-processable software bill-of-materials (SBOM)
-- `OSS Index <https://ossindex.sonatype.com>`_: A free catalog of Open Source
+- `OSS Index <https://ossindex.sonatype.org>`_: A free catalog of Open Source
   Components and scanning tools to help developers identify vulnerable components
 - `Sonatype Nexus Lifecycle <https://www.sonatype.com/product-nexus-lifecycle>`_:
   Enterprise grade Open Source component management
