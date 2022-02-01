@@ -370,6 +370,7 @@ swift
 - The ``namespace`` is source host and user/organization.
 - The ``name`` is the repository name.
 - The ``version`` is the package version.
+- Examples::
 
       pkg:swift/github.com/Alamofire/Alamofire@5.4.3
       pkg:swift/github.com/RxSwiftCommunity/RxFlow@2.12.4
