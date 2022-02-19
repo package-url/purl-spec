@@ -351,16 +351,13 @@ rpm
 - the ``namespace`` is the vendor such as fedora or opensuse
   It is not case sensitive and must be lowercased.
 - the ``name`` is the RPM name and is case sensitive.
-- the ``version`` is the combined version and release of an
+- the ``version`` is the combined version, release and epoch of an
   RPM
-- ``epoch`` (optional for RPMs) is a qualifier as it's not required for
-  unique identification, but when the epoch exists we strongly
-  encourage using it
 - ``arch`` is the qualifiers key for a package architecture
 - Examples::
 
       pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
-      pkg:rpm/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25
+      pkg:rpm/centerim@1:4.22.10-1.el6?arch=i686&distro=fedora-25
 
 swift
 -----
