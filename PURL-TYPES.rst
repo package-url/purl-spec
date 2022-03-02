@@ -65,6 +65,18 @@ cargo
       pkg:cargo/clap@2.33.0
       pkg:cargo/structopt@0.3.11
 
+cocoapods
+---------
+
+``cocoapods`` for Cocoapods iOS packages:
+
+- The default repository is ``https://github.com/CocoaPods/Specs/tree/master``
+- The ``name`` is the package name (case-sensitive).
+- The ``version`` is the package version.
+- Examples::
+
+    pkg:cocoapods/RandomKit@5.2.3
+
 composer
 --------
 ``composer`` for Composer PHP packages:
@@ -106,6 +118,19 @@ conda
 
       pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2
 
+cpan
+---
+``cpan`` for CPAN Perl packages:
+
+- The default respository is ``https://www.cpan.org/``.
+- To search CPAN it is recommended to use ``https://metacpan.org``.
+- The ``name`` is the package name and is case sensitive.
+- The ``version`` is the package version.
+
+- Examples:
+    pkg:cpan/Perl-Version@1.013
+    pkg:cpan/DateTime@1.55
+
 cran
 -----
 ``cran`` for CRAN R packages:
@@ -113,6 +138,7 @@ cran
 - The default repository is ``https://cran.r-project.org``
 - The ``name`` is the package name and is case sensitive, but there cannot be two packages on CRAN with the same name ignoring case.
 - The ``version`` is the package version.
+- The ``namespace`` is case sensitive.
 - Examples::
 
       pkg:cran/A3@1.0.0
@@ -375,6 +401,18 @@ swift
       pkg:swift/github.com/Alamofire/Alamofire@5.4.3
       pkg:swift/github.com/RxSwiftCommunity/RxFlow@2.12.4
 
+vsm
+---
+``vsm`` for Visual Studio Marketplace packages:
+
+- The default repository is: https://marketplace.visualstudio.com
+- The ``namespace`` is the organization and is case-sensitive.
+- The ``name`` is the package name and is case-sensitive.
+- The ``version`` is the package version.
+- Examples::
+
+    pkg:vsm/ms-vscode/cpptools@1.9.2
+
 Other candidate types to define:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -390,9 +428,7 @@ Other candidate types to define:
 - ``chef`` for Chef packages:
 - ``chocolatey`` for Chocolatey packages
 - ``clojars`` for Clojure packages:
-- ``cocoapods`` for Cocoapods iOS packages:
 - ``coreos`` for CoreOS packages:
-- ``cpan`` for CPAN Perl packages:
 - ``ctan`` for CTAN TeX packages:
 - ``crystal`` for Crystal Shards packages:
 - ``drupal`` for Drupal packages:
