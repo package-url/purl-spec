@@ -119,7 +119,7 @@ conda
       pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2
 
 cpan
----
+----
 ``cpan`` for CPAN Perl packages:
 
 - The default respository is ``https://www.cpan.org/``.
@@ -127,12 +127,12 @@ cpan
 - The ``name`` is the package name and is case sensitive.
 - The ``version`` is the package version.
 
-- Examples:
+- Examples::
     pkg:cpan/Perl-Version@1.013
     pkg:cpan/DateTime@1.55
 
 cran
------
+----
 ``cran`` for CRAN R packages:
 
 - The default repository is ``https://cran.r-project.org``
