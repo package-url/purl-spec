@@ -126,7 +126,6 @@ cran
 - The default repository is ``https://cran.r-project.org``
 - The ``name`` is the package name and is case sensitive, but there cannot be two packages on CRAN with the same name ignoring case.
 - The ``version`` is the package version.
-- The ``namespace`` is case sensitive.
 - Examples::
 
       pkg:cran/A3@1.0.0
