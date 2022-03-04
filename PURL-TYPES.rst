@@ -329,16 +329,20 @@ including container images built by Docker and others:
       pkg:oci/hello-wasm@sha256:<digest>?tag=v1
 
 pub
-----
-``pub`` for Dart and Flutter packages:
+---
+``pub`` for Dartlang packages:
 
-- The default repository is ``https://pub.dartlang.org``
-- Pub normalizes all package names to be lowercase and using underscores. The only allowed characters are `[a-z0-9_]`. 
+- Pub normalizes all package names to be lowercase and using underscores. The only allowed characters are `[a-z0-9_]`.
+- Optional qualifiers may include:
+  - ``hosted_url``: A URL representing the registry where the package is stored.
+  - ``vcs_url``: A URL representing the git repository information where the package is stored.
+  - Only one of ``hosted_url`` and ``vcs_url`` should be provided.
 - More information on pub naming and versioning is available in the [pubspec documentation](https://dart.dev/tools/pub/pubspec)
 - Examples::
 
-      pkg:pub/characters@1.2.0
-      pkg:pub/flutter@0.0.0
+      pkg:pub/foobar@1.2.34
+      pkg:pub/foobar-hosted@1.2.34?hosted_url=https://pub.hosted.org
+      pkg:pub/fooboar-git@1.2.34?vcs_url=git://github.com/path/to/repo.git%404345abcd34343#path/to/package
 
 pypi
 ----

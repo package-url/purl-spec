@@ -78,7 +78,7 @@ A `purl` is a URL composed of seven components::
 
 Components are separated by a specific character for unambiguous parsing.
 
-The defintion for each components is:
+The definition for each components is:
 
 - **scheme**: this is the URL scheme with the constant value of "pkg". One of
   the primary reason for this single scheme is to facilitate the future official
@@ -135,6 +135,9 @@ Some `purl` examples
 
     pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
     pkg:rpm/opensuse/curl@7.56.1-1.1.?arch=i386&distro=opensuse-tumbleweed
+
+    pkg:pub/foobar@1.2.34
+    pkg:pub/foobar@1.2.34?hosted_url=https://pub.hosted.org
 
 (NB: some checksums are truncated for brevity)
 
