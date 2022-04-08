@@ -413,6 +413,7 @@ Other candidate types to define:
 - ``nim`` for Nim packages:
 - ``nix`` for Nixos packages:
 - ``opam`` for OCaml packages:
+- ``os`` for operating system distributions:
 - ``openwrt`` for OpenWRT packages:
 - ``osgi`` for OSGi bundle packages:
 - ``p2`` for Eclipse p2 packages:
