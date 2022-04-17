@@ -328,6 +328,18 @@ including container images built by Docker and others:
       pkg:oci/static@sha256:<digest>?repository_url=gcr.io/distroless/static&tag=latest
       pkg:oci/hello-wasm@sha256:<digest>?tag=v1
 
+pub
+----
+``pub`` for Dart and Flutter packages:
+
+- The default repository is ``https://pub.dartlang.org``
+- Pub normalizes all package names to be lowercase and using underscores. The only allowed characters are `[a-z0-9_]`. 
+- More information on pub naming and versioning is available in the [pubspec documentation](https://dart.dev/tools/pub/pubspec)
+- Examples::
+
+      pkg:pub/characters@1.2.0
+      pkg:pub/flutter@0.0.0
+
 pypi
 ----
 ``pypi`` for Python packages:
@@ -421,7 +433,6 @@ Other candidate types to define:
 - ``perl6`` for Perl 6 module packages:
 - ``platformio`` for PlatformIO packages:
 - ``ebuild`` for Gentoo Linux portage packages:
-- ``pub`` for Dart packages:
 - ``puppet`` for Puppet Forge packages:
 - ``sourceforge`` for Sourceforge-based packages:
 - ``sublime`` for Sublime packages:
