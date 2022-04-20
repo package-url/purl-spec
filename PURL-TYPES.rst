@@ -178,7 +178,7 @@ generic
 for "upstream-from-distro" packages. In particular this is handy for a plain
 version control repository such as a bare git repo.
 
-- There is no default repository. A ``download_url`` and ``checksum`` may be
+- There is no default repository. A ``download_url``, ``signature_url` or ``checksum`` may be
   provided in `qualifiers` or as separate attributes outside of a ``purl`` for
   proper identification and location.
 - When possible another or a new purl ``type`` should be used instead of using
@@ -190,6 +190,8 @@ version control repository such as a bare git repo.
      pkg:generic/openssl@1.1.10g
      pkg:generic/openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da
      pkg:generic/bitwarderl?vcs_url=git%2Bhttps://git.fsfe.org/dxtr/bitwarderl%40cc55108da32
+     pkg:generic/openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&signature_url=https://openssl.org/source/openssl-1.1.0g.tar.gz.asc&checksum=sha256:de4d501267da
+
 
 
 github
