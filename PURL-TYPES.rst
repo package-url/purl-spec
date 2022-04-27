@@ -345,13 +345,13 @@ pypi
 ``pypi`` for Python packages:
 
 - The default repository is ``https://pypi.python.org``
-- PyPi treats ``-`` and ``_`` as the same character and is not case sensitive.
-  Therefore a Pypi package ``name`` must be lowercased and underscore ``_``
-  replaced with a dash ``-``
+- Per `PEP 503 <https://peps.python.org/pep-0503/#normalized-names>`_, normalized PyPI package names should be 
+  lowercased with all runs of the characters ``.``, ``-``, or ``_`` replaced with a single ``-`` character.
 - Examples::
 
       pkg:pypi/django@1.11.1
       pkg:pypi/django-allauth@12.23
+      pkg:pypi/oslo-concurrency@4.5.0
 
 rpm
 ---
