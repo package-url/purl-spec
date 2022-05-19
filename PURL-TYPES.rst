@@ -79,17 +79,26 @@ composer
 
 conan
 -----
-``conan`` for Conan C/C++ packages:
+``conan`` for Conan C/C++ packages. The purl is designed to closely resemble the Conan-native `<package-name>/<package-version>@<user>/<channel>` `syntax for package references <https://docs.conan.io/en/1.46/cheatsheet.html#package-terminology>`_.
 
-- The default repository is ``https://center.conan.io``
-- The ``namespace`` is the user if present
-- The ``name`` is the package name.
-- The ``version`` is the package version.
-- The qualifier ``channel`` must be not empty if namespace is present
-- Examples::
+- ``name``: The Conan ``<package-name>``.
+- ``version``: The Conan ``<package-version>``.
+- ``namespace``: The vendor of the package.
+- Qualifier ``user``: The Conan ``<user>``. Only required if the Conan package was published with ``<user>``.
+- Qualifier ``channel``: The Conan ``<channel>``. Only required if the Conan package was published with Conan ``<channel>``.
+- Qualifier ``rrev``: The Conan recipe revision (optional). If omitted, the purl refers to the latest recipe revision available for the given version.
+- Qualifier ``prev``: The Conan package revision (optional). If omitted, the purl refers to the latest package revision available for the given version and recipe revision.
+- Qualifier ``repository_url``: The Conan repository where the package is available (optional). If ommitted, ``https://center.conan.io`` as default repository is assumed.
 
-      pkg:conan/cctz@2.3
-      pkg:conan/bincrafters/cctz@2.3?channel=stable
+Additional qualifiers can be used to distinguish Conan packages with different settings or options, e.g. ``os=Linux``, ``build_type=Debug`` or ``shared=True``.
+
+If no additional qualifiers are used to distinguish Conan packages build with different settings or options, then the purl is ambiguous and it is up to the user to work out which package is being referred to (e.g. with context information).
+
+Examples::
+
+      pkg:conan/openssl@3.0.3
+      pkg:conan/openssl.org/openssl@3.0.3?user=bincrafters&channel=stable
+      pkg:conan/openssl.org/openssl@3.0.3?arch=x86_64&build_type=Debug&compiler=Visual%20Studio&compiler.runtime=MDd&compiler.version=16&os=Windows&shared=True&rrev=93a82349c31917d2d674d22065c7a9ef9f380c8e&prev=b429db8a0e324114c25ec387bfd8281f330d7c5c
 
 conda
 -----
