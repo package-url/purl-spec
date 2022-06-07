@@ -163,6 +163,8 @@ Known implementations
 - in Python: https://github.com/package-url/packageurl-python
 - in Rust: https://github.com/package-url/packageurl-rs
 - in JS: https://github.com/package-url/packageurl-js
+- in Ruby: https://github.com/package-url/packageurl-ruby
+- in Swift: https://github.com/package-url/packageurl-swift
 
 
 Users, adopters and links
