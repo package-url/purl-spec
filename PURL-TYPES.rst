@@ -374,6 +374,25 @@ rpm
       pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
       pkg:rpm/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25
 
+swid
+-----
+``swid`` for ISO-IEC 19770-2 Software Identification (SWID) tags:
+
+- There is no default package repository.
+- The ``namespace`` is the optional name of the creator or manufacturer of the software
+- The ``name`` is the name as defined in the SWID SoftwareIdentity element
+- The ``version`` is the version as defined in the SWID SoftwareIdentity element
+- The qualifier ``tagId`` must not be empty and is the tagId as defined in the SWID SoftwareIdentity element
+- The qualifier ``tagVersion`` is optional and is the tagVersion as defined in the SWID SoftwareIdentity element. If not specified, defaults to 0
+- The qualifier ``patch`` is optional and is the patch as defined in the SWID SoftwareIdentity element. If not specified, defaults to false
+
+Use of known `qualifiers` key/value pairs such as ``download_url`` can be used to specify where the package was retrieved from.
+
+- Examples::
+
+      pkg:swid/Fedora@29?tagId=org.fedoraproject.Fedora-29
+      pkg:swid/Adobe+Systems+Incorporated/Adobe+InDesign@CC?tagId=CreativeCloud-CS6-Win-GM-MUL
+
 swift
 -----
 ``swift`` for Swift packages:
