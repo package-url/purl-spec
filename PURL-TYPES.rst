@@ -379,7 +379,7 @@ swid
 ``swid`` for ISO-IEC 19770-2 Software Identification (SWID) tags:
 
 - There is no default package repository.
-- The ``namespace`` is the optional name of the creator or manufacturer of the software
+- The ``namespace`` is the optional name and regid of the tagCreator. If specified, name is required and is the first segment in the namespace. If regid is known, it must be specified as the second segment in the namespace. A maximum of two segments are supported.
 - The ``name`` is the name as defined in the SWID SoftwareIdentity element
 - The ``version`` is the version as defined in the SWID SoftwareIdentity element
 - The qualifier ``tagId`` must not be empty and corresponds to the tagId as defined in the SWID SoftwareIdentity element. Per the SWID specification, GUIDs are recommended. If a GUID is used, it must be lowercase. If a GUID is not used, the tagId is case aware but not case sensitive
@@ -390,6 +390,7 @@ Use of known `qualifiers` key/value pairs such as ``download_url`` can be used t
 
 - Examples::
 
+      pkg:swid/Acme/example.com@Enterprise+Server@1.0.0?tagId=75b8c285-fa7b-485b-b199-4745e3004d0d
       pkg:swid/Fedora@29?tagId=org.fedoraproject.Fedora-29
       pkg:swid/Adobe+Systems+Incorporated/Adobe+InDesign@CC?tagId=CreativeCloud-CS6-Win-GM-MUL
 
