@@ -390,7 +390,7 @@ Use of known `qualifiers` key/value pairs such as ``download_url`` can be used t
 
 - Examples::
 
-      pkg:swid/Acme/example.com@Enterprise+Server@1.0.0?tagId=75b8c285-fa7b-485b-b199-4745e3004d0d
+      pkg:swid/Acme/example.com/Enterprise+Server@1.0.0?tagId=75b8c285-fa7b-485b-b199-4745e3004d0d
       pkg:swid/Fedora@29?tagId=org.fedoraproject.Fedora-29
       pkg:swid/Adobe+Systems+Incorporated/Adobe+InDesign@CC?tagId=CreativeCloud-CS6-Win-GM-MUL
 
