@@ -382,9 +382,9 @@ swid
 - The ``namespace`` is the optional name of the creator or manufacturer of the software
 - The ``name`` is the name as defined in the SWID SoftwareIdentity element
 - The ``version`` is the version as defined in the SWID SoftwareIdentity element
-- The qualifier ``tagId`` must not be empty and is the tagId as defined in the SWID SoftwareIdentity element
-- The qualifier ``tagVersion`` is optional and is the tagVersion as defined in the SWID SoftwareIdentity element. If not specified, defaults to 0
-- The qualifier ``patch`` is optional and is the patch as defined in the SWID SoftwareIdentity element. If not specified, defaults to false
+- The qualifier ``tagId`` must not be empty and corresponds to the tagId as defined in the SWID SoftwareIdentity element. Per the SWID specification, GUIDs are recommended. If a GUID is used, it must be lowercase. If a GUID is not used, the tagId is case aware but not case sensitive
+- The qualifier ``tagVersion`` is an optional integer and corresponds to the tagVersion as defined in the SWID SoftwareIdentity element. If not specified, defaults to 0
+- The qualifier ``patch`` is optional and corresponds to the patch as defined in the SWID SoftwareIdentity element. If not specified, defaults to false
 
 Use of known `qualifiers` key/value pairs such as ``download_url`` can be used to specify where the package was retrieved from.
 
