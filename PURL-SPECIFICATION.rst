@@ -69,6 +69,7 @@ Some ``purl`` examples
     pkg:nuget/EnterpriseLibrary.Common@6.0.1304
     pkg:pypi/django@1.11.1
     pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
+    pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c
 
 
 A ``purl`` is a URL
