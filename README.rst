@@ -136,6 +136,8 @@ Some `purl` examples
     pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
     pkg:rpm/opensuse/curl@7.56.1-1.1.?arch=i386&distro=opensuse-tumbleweed
 
+    pkg:swift/github.com/Alamofire/Alamofire@5.4.3
+
 (NB: some checksums are truncated for brevity)
 
 
