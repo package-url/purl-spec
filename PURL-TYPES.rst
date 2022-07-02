@@ -44,6 +44,7 @@ cocoapods
 - The default repository is ``https://cdn.cocoapods.org/``
 - The ``name`` is the pod name and is case sensitive, cannot contain whitespace, a plus (+) character, or begin with a period (.).
 - The ``version`` is the package version.
+- The qualifier ``language`` is the source language of the package: ``swift`` or ``objectiveC``
 - The purl subpath is used to represent a pods subspec (if present)
 - Examples::
 
@@ -51,6 +52,7 @@ cocoapods
       pkg:cocoapods/MapsIndoors@3.24.0
       pkg:cocoapods/ShareKit@2.0#Twitter
       pkg:cocoapods/GoogleUtilities@7.5.2#NSData+zlib
+      pkg:cocoapods/MapsIndoors@3.24.0?language=swift
 
 cargo
 -----
@@ -86,10 +88,11 @@ conan
 - The ``name`` is the package name.
 - The ``version`` is the package version.
 - The qualifier ``channel`` must be not empty if namespace is present
+- The qualifier ``language`` is the source language of the package: ``c`` or ``cpp``
 - Examples::
 
       pkg:conan/cctz@2.3
-      pkg:conan/bincrafters/cctz@2.3?channel=stable
+      pkg:conan/bincrafters/cctz@2.3?channel=stable&language=cpp
 
 conda
 -----
@@ -244,12 +247,13 @@ hex
 - The ``namespace`` is optional; it may be used to specify the organization for
   private packages on hex.pm. It is not case sensitive and must be lowercased.
 - The ``name`` is not case sensitive and must be lowercased.
+- The qualifier ``language`` is the source language of the package: ``erlang`` or ``elixir``
 - Examples::
 
       pkg:hex/jason@1.1.2
       pkg:hex/acme/foo@2.3.
       pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js
-      pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com
+      pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com&language=erlang
 
 
 maven
