@@ -415,6 +415,7 @@ including container images built by Docker and others:
 - Optional qualifiers may include:
 
   - ``arch``: key for a package architecture, when relevant.
+  - ``os``: key for package operating system (os) with value such as linux, darwin, windows, etc.
   - ``repository_url``: A repository URL where the artifact may be found, but not
     intended as the only location. This value is encouraged to identify a
     location the content may be fetched.
@@ -424,6 +425,7 @@ including container images built by Docker and others:
       pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=docker.io/library/debian&arch=amd64&tag=latest
       pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=ghcr.io/debian&tag=bullseye
       pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest
+      pkg:oci/image@sha256%3A244fd47e07d10?arch=arm64&os=darwin
       pkg:oci/hello-wasm@sha256%3A244fd47e07d10?tag=v1
 
 pub
