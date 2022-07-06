@@ -124,7 +124,7 @@ Some `purl` examples
     pkg:golang/google.golang.org/genproto#googleapis/api/annotations
 
     pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources
-    pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=repo.spring.io/release
+    pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=repo.spring.io%2Frelease
 
     pkg:npm/%40angular/animation@12.3.1
     pkg:npm/foobar@12.3.1
