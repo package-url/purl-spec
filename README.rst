@@ -1,3 +1,7 @@
+.. SPDX-FileCopyrightText: the purl authors
+..
+.. SPDX-License-Identifier: MIT
+
 Context
 =======
 
