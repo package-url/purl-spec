@@ -188,8 +188,8 @@ version control repository such as a bare git repo.
 - Examples (truncated for brevity)::
 
      pkg:generic/openssl@1.1.10g
-     pkg:generic/openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da
-     pkg:generic/bitwarderl?vcs_url=git%2Bhttps://git.fsfe.org/dxtr/bitwarderl%40cc55108da32
+     pkg:generic/openssl@1.1.10g?download_url=https:%2F%2Fopenssl.org%2Fsource%2Fopenssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da
+     pkg:generic/bitwarderl?vcs_url=git%2Bhttps:%2F%2Fgit.fsfe.org%2Fdxtr%2Fbitwarderl%40cc55108da32
 
 
 github
@@ -248,8 +248,8 @@ hex
 
       pkg:hex/jason@1.1.2
       pkg:hex/acme/foo@2.3.
-      pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js
-      pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com
+      pkg:hex/phoenix_html@2.13.3#priv%2Fstatic%2Fphoenix_html.js
+      pkg:hex/bar@1.2.3?repository_url=https:%2F%2Fmyrepo.example.com
 
 
 maven
@@ -285,7 +285,7 @@ npm
 
       pkg:npm/foobar@12.3.1
       pkg:npm/%40angular/animation@12.3.1
-      pkg:npm/mypackage@12.4.5?vcs_url=git://host.com/path/to/repo.git%404345abcd34343
+      pkg:npm/mypackage@12.4.5?vcs_url=git:%2F%2Fhost.com%2Fpath%2Fto%2Frepo.git%404345abcd34343
 
 nuget
 -----
@@ -323,9 +323,9 @@ including container images built by Docker and others:
   - ``tag``: artifact tag that may have been associated with the digest at the time
 - Examples::
 
-      pkg:oci/debian@sha256:<digest>?repository_url=docker.io/library/debian&arch=amd64&tag=latest
-      pkg:oci/debian@sha256:<digest>?repository_url=ghcr.io/debian&tag=bullseye
-      pkg:oci/static@sha256:<digest>?repository_url=gcr.io/distroless/static&tag=latest
+      pkg:oci/debian@sha256:<digest>?repository_url=docker.io%2Flibrary%2Fdebian&arch=amd64&tag=latest
+      pkg:oci/debian@sha256:<digest>?repository_url=ghcr.io%2Fdebian&tag=bullseye
+      pkg:oci/static@sha256:<digest>?repository_url=gcr.io%2Fdistroless%2Fstatic&tag=latest
       pkg:oci/hello-wasm@sha256:<digest>?tag=v1
 
 pub
