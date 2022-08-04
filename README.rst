@@ -161,7 +161,7 @@ Known implementations
 - for the JVM: https://github.com/package-url/packageurl-java,
   https://github.com/sonatype/package-url-java
 - in Python: https://github.com/package-url/packageurl-python
-- in Rust: https://github.com/package-url/packageurl-rs
+- in Rust: https://github.com/package-url/packageurl.rs
 - in JS: https://github.com/package-url/packageurl-js
 
 
