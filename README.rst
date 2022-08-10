@@ -179,6 +179,8 @@ Users, adopters and links
   Components and scanning tools to help developers identify vulnerable components
 - `Sonatype Nexus Lifecycle <https://www.sonatype.com/product-nexus-lifecycle>`_:
   Enterprise grade Open Source component management
+- `Kubernetes bom tool <https://github.com/kubernetes-sigs/bom>`_:
+  A utility to generate SPDX-compliant Bill of Materials manifests.
 
 
 License
