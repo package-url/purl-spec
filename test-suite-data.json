@@ -466,5 +466,65 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": true
+  },
+  {
+    "description": "a name and version are always required",
+    "purl": "pkg:pub",
+    "canonical_purl": "pkg:pub",
+    "type": "pub",
+    "namespace": null,
+    "name": null,
+    "version": null,
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "valid base pub purl",
+    "purl": "pkg:pub",
+    "canonical_purl": "pkg:pub/utils@0.1.0",
+    "type": "pub",
+    "namespace": null,
+    "name": "utils",
+    "version": "0.1.0",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "valid hosted pub purl",
+    "purl": "pkg:pub",
+    "canonical_purl": "pkg:pub/utils@0.1.0?hosted_url=https://pub.hosted.org",
+    "type": "pub",
+    "namespace": null,
+    "name": "utils",
+    "version": "0.1.0",
+    "qualifiers": {"hosted_url": "https://pub.hosted.org"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "valid vcs pub purl",
+    "purl": "pkg:pub",
+    "canonical_purl": "pkg:pub/fooboar-git@1.2.34?vcs_url=git://github.com/path/to/repo.git%404345abcd34343#path/to/package",
+    "type": "pub",
+    "namespace": null,
+    "name": "utils",
+    "version": "0.1.0",
+    "qualifiers": {"vcs_url": "git://github.com/path/to/repo.git%404345abcd34343#path/to/package"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "both vsc_url and hosted_url should not be provided",
+    "purl": "pkg:pub",
+    "canonical_purl": "pkg:pub/fooboar-git@1.2.34?vcs_url=git://github.com/path/to/repo.git%404345abcd34343#path/to/package&hosted_url=https://pub.hosted.org",
+    "type": "pub",
+    "namespace": null,
+    "name": "utils",
+    "version": "0.1.0",
+    "qualifiers": {"vcs_url": "git://github.com/path/to/repo.git%404345abcd34343#path/to/package", "hosted_url": "https://pub.hosted.org"},
+    "subpath": null,
+    "is_invalid": true
   }
 ]
