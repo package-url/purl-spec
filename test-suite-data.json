@@ -466,5 +466,33 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": true
+  },
+  {
+    "description": "with `qualifiers.vcs_url` as SHA512 in hex representation",
+    "purl": "pkg:npm/packageurl-js@0.0.7?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fpackage-url%2Fpackageurl-js.git",
+    "canonical_purl": "pkg:npm/packageurl-js@0.0.7?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fpackage-url%2Fpackageurl-js.git",
+    "type": "npm",
+    "namespace": null,
+    "name": "packageurl-js",
+    "version": "0.0.7",
+    "qualifiers": {
+      "vcs_url": "git+https://github.com/package-url/packageurl-js.git"
+    },
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "with `qualifiers.download_url`",
+    "purl": "pkg:npm/packageurl-js@0.0.7?download_url=https%3A%2F%2Fregistry.npmjs.org%2Fpackageurl-js%2F-%2Fpackageurl-js-0.0.7.tgz",
+    "canonical_purl": "pkg:npm/packageurl-js@0.0.7?download_url=https%3A%2F%2Fregistry.npmjs.org%2Fpackageurl-js%2F-%2Fpackageurl-js-0.0.7.tgz",
+    "type": "npm",
+    "namespace": null,
+    "name": "packageurl-js",
+    "version": "0.0.7",
+    "qualifiers": {
+      "download_url": "https://registry.npmjs.org/packageurl-js/-/packageurl-js-0.0.7.tgz"
+    },
+    "subpath": null,
+    "is_invalid": false
   }
 ]
