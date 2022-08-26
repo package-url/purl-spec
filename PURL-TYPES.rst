@@ -215,9 +215,9 @@ version control repository such as a bare git repo.
   it can be a file or directory name.
 - Examples (truncated for brevity)::
 
-     pkg:generic/openssl@1.1.10g
-     pkg:generic/openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da
-     pkg:generic/bitwarderl?vcs_url=git%2Bhttps://git.fsfe.org/dxtr/bitwarderl%40cc55108da32
+      pkg:generic/openssl@1.1.10g
+      pkg:generic/openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da
+      pkg:generic/bitwarderl?vcs_url=git%2Bhttps://git.fsfe.org/dxtr/bitwarderl%40cc55108da32
 
 
 github
@@ -260,9 +260,9 @@ hackage
 - The `name` is case sensitive and use kebab-case
 - Examples::
 
-        pkg:hackage/a50@0.5
-        pkg:hackage/AC-HalfInteger@1.2.1
-        pkg:hackage/3d-graphics-examples@0.0.0.2
+      pkg:hackage/a50@0.5
+      pkg:hackage/AC-HalfInteger@1.2.1
+      pkg:hackage/3d-graphics-examples@0.0.0.2
 
 hex
 ---
@@ -351,10 +351,10 @@ including container images built by Docker and others:
   - ``tag``: artifact tag that may have been associated with the digest at the time
 - Examples::
 
-      pkg:oci/debian@sha256:<digest>?repository_url=docker.io/library/debian&arch=amd64&tag=latest
-      pkg:oci/debian@sha256:<digest>?repository_url=ghcr.io/debian&tag=bullseye
-      pkg:oci/static@sha256:<digest>?repository_url=gcr.io/distroless/static&tag=latest
-      pkg:oci/hello-wasm@sha256:<digest>?tag=v1
+      pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=docker.io/library/debian&arch=amd64&tag=latest
+      pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=ghcr.io/debian&tag=bullseye
+      pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest
+      pkg:oci/hello-wasm@sha256%3A244fd47e07d10?tag=v1
 
 pub
 ----
@@ -429,9 +429,9 @@ swift
 ``swift`` for Swift packages:
 
 - There is no default package repository: this should be implied from ``namespace``
-- The ``namespace`` is source host and user/organization.
+- The ``namespace`` is source host and user/organization and is required.
 - The ``name`` is the repository name.
-- The ``version`` is the package version.
+- The ``version`` is the package version and is required.
 - Examples::
 
       pkg:swift/github.com/Alamofire/Alamofire@5.4.3
