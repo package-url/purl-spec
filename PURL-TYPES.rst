@@ -326,6 +326,20 @@ nuget
 
       pkg:nuget/EnterpriseLibrary.Common@6.0.1304
 
+qpkg
+----
+``qpkg`` for QNX packages:
+
+- There is no default package repository: this should be implied either from
+  the ``namespace`` or using a repository base URL as ``repository_url`` 
+  qualifiers key.
+- The ``namespace`` is the vendor. It is not case sensitive and must be
+  lowercased. The default ``namespace`` is ``blackberry``.
+- Examples::
+
+      pkg:qpkg/blackberry/com.qnx.sdp@7.0.0.SGA201702151847
+      pkg:qpkg/com.qnx.qnx710.foo.bar.qux@0.0.4.01449T202205040833L
+
 oci
 ------------
 ``oci`` for all artifacts stored in registries that conform to the
