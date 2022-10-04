@@ -466,5 +466,19 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": true
+  },
+  {
+    "description": "with `qualifiers.checksums` as SHA512 in hex representation",
+    "purl": "pkg:npm/packageurl-js@0.0.7?checksums=sha512:b9c27369720d948829a98118e9a35fd09d9018711e30dc2df5f8ae85bb19b2ade4679351c4d96768451ee9e841e5f5a36114a9ef98f4fe5256a5f4ca981736a0",
+    "canonical_purl": "pkg:npm/packageurl-js@0.0.7?checksums=sha512:b9c27369720d948829a98118e9a35fd09d9018711e30dc2df5f8ae85bb19b2ade4679351c4d96768451ee9e841e5f5a36114a9ef98f4fe5256a5f4ca981736a0",
+    "type": "npm",
+    "namespace": null,
+    "name": "packageurl-js",
+    "version": "0.0.7",
+    "qualifiers": {
+      "checksums": "sha512:b9c27369720d948829a98118e9a35fd09d9018711e30dc2df5f8ae85bb19b2ade4679351c4d96768451ee9e841e5f5a36114a9ef98f4fe5256a5f4ca981736a0"
+    },
+    "subpath": null,
+    "is_invalid": false
   }
 ]
