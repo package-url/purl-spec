@@ -167,6 +167,8 @@ Known implementations
 
 Users, adopters and links
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+- `GitHub Dependency Submission API <https://docs.github.com/en/rest/dependency-graph/dependency-submission>`_: allows third-party tools
+  to submit dependency data to GitHub for inclusion in a repository's dependency graph.
 - `Scancode Toolkit <https://github.com/nexB/scancode-toolkit>`_: Reports
   `purl` from parsed package manifests using https://github.com/package-url/packageurl-python
 - `OWASP Dependency-Track <https://www.owasp.org/index.php/OWASP_Dependency_Track_Project>`_: 
