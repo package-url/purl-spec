@@ -179,7 +179,8 @@ Users, adopters and links
   Components and scanning tools to help developers identify vulnerable components
 - `Sonatype Nexus Lifecycle <https://www.sonatype.com/product-nexus-lifecycle>`_:
   Enterprise grade Open Source component management
-
+- `OSV Schema <https://ossf.github.io/osv-schema/>`_ and `OSV.dev <https://osv.dev>`_:
+  Open Source Vulnerability Schema and distributed vulnerability database
 
 License
 ~~~~~~~
