@@ -328,6 +328,24 @@ including container images built by Docker and others:
       pkg:oci/static@sha256:<digest>?repository_url=gcr.io/distroless/static&tag=latest
       pkg:oci/hello-wasm@sha256:<digest>?tag=v1
 
+os
+--
+
+``os`` for Operating Systems.
+
+- There is no standard naming convention for operating system identifiers. It's suggested to use the ``vendor:product`` from the CPE defined in ``/etc/os-release`` as the ``namespace/name`` in the PURL.
+- In case no CPE is available, the ``ID`` field from ``/etc/os-release`` can be used as both the namespace and name.
+- The ``version`` field should be latest version (including patch) that the operating system has been updated to. This should closely match the ``VERSION_ID`` field in the ``/etc/os-release`` data.
+- Both ``name`` and ``namespace`` are not case-sensitive and must be lowercased.
+- Optional qualifiers may include:
+
+  - ``arch``: key for a package architecture
+- Examples::
+    pkg:os/debian/debian@11.5
+    pkg:os/ubuntu/ubuntu@22.04.1
+    pkg:os/alpine/alpine@3.7
+    pkg:os/fedoraproject/fedora@42?arch=x86_64
+
 pypi
 ----
 ``pypi`` for Python packages:
