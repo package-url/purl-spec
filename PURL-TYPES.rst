@@ -337,11 +337,14 @@ os
 - In case no CPE is available, the ``ID`` field from ``/etc/os-release`` can be used as both the namespace and name.
 - The ``version`` field should be latest version (including patch) that the operating system has been updated to. This should closely match the ``VERSION_ID`` field in the ``/etc/os-release`` data.
 - Both ``name`` and ``namespace`` are not case-sensitive and must be lowercased.
-- For rolling or testing distributions, the ``version`` should be set to the rolling channel identifier or branch name. Such as ``edge`` for alpine, or ``sid`` for debian. In case no such identifier is available, it should not be set.
+- For rolling or testing distributions, the ``version`` should be set to the rolling channel identifier or branch name. Such as ``edge`` for alpine, or ``sid`` for debian. In case no such identifier is available, no version should be set.
+- For MacOS, the namespace should be set to ``apple`` and the name as ``macos``. The version string should match the ``ProductVersion`` returned by the ``sw_vers`` command.
+- For Windows, the namespace should be set to ``microsoft`` and the name as ``windows``. For special editions, the name should be hyphenated with the ``windows`` prefix, for eg: ``windows-server``, ``windows-embedded``, ``windows-mobile`` etc. Version should match the  ``Version`` as returned by the ``winver`` command.
 - Optional qualifiers may include:
 
   - ``arch``: key for a package architecture
 - Examples::
+
     pkg:os/debian/debian@11.5
     pkg:os/ubuntu/ubuntu@22.04.1
     pkg:os/alpine/alpine@3.7
@@ -350,6 +353,8 @@ os
     pkg:os/alpine/alpine@edge
     pkg:os/oracle/linux@8.4
     pkg:os/redhat/enterprise_linux@7.9
+    pkg:os/microsoft/windows-server@10.0.19042
+    pkg:os/microsoft/windows@10.0.19042
 
 pypi
 ----
