@@ -337,6 +337,7 @@ os
 - In case no CPE is available, the ``ID`` field from ``/etc/os-release`` can be used as both the namespace and name.
 - The ``version`` field should be latest version (including patch) that the operating system has been updated to. This should closely match the ``VERSION_ID`` field in the ``/etc/os-release`` data.
 - Both ``name`` and ``namespace`` are not case-sensitive and must be lowercased.
+- For rolling or testing distributions, the ``version`` should be set to the rolling channel identifier or branch name. Such as ``edge`` for alpine, or ``sid`` for debian. In case no such identifier is available, it should not be set.
 - Optional qualifiers may include:
 
   - ``arch``: key for a package architecture
@@ -345,6 +346,10 @@ os
     pkg:os/ubuntu/ubuntu@22.04.1
     pkg:os/alpine/alpine@3.7
     pkg:os/fedoraproject/fedora@42?arch=x86_64
+    pkg:os/arch/arch
+    pkg:os/alpine/alpine@edge
+    pkg:os/oracle/linux@8.4
+    pkg:os/redhat/enterprise_linux@7.9
 
 pypi
 ----
