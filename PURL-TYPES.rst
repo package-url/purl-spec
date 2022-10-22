@@ -340,6 +340,7 @@ os
 - For rolling or testing distributions, the ``version`` should be set to the rolling channel identifier or branch name. Such as ``edge`` for alpine, or ``sid`` for debian. In case no such identifier is available, no version should be set.
 - For MacOS, the namespace should be set to ``apple`` and the name as ``macos``. The version string should match the ``ProductVersion`` returned by the ``sw_vers`` command.
 - For Windows, the namespace should be set to ``microsoft`` and the name as ``windows``. For special editions, the name should be hyphenated with the ``windows`` prefix, for eg: ``windows-server``, ``windows-embedded``, ``windows-mobile`` etc. Version should match the  ``Version`` as returned by the ``ver`` command.
+- In case ``/etc/os-release`` is not available, an equivalent file (such as ``/etc/lsb-release``, ``/etc/release``) can be used instead.
 - Optional qualifiers may include:
 
   - ``arch``: key for a package architecture
