@@ -547,6 +547,27 @@ rpm
       pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
       pkg:rpm/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25
 
+rpmmod
+------
+``rpmmod`` for RPM modules.
+A `module <https://docs.fedoraproject.org/en-US/modularity/using-modules/>`
+is a set of RPM packages that represent a component and are usually installed together:
+
+- There is no default package repository: this should be implied either from
+  the ``distro`` qualifiers key or using a repository base URL as
+  ``repository_url`` qualifiers key.
+- The ``namespace`` is the vendor such as ``fedora``, ``centos``, or ``redhat``.
+  It is not case sensitive and must be lowercased.
+- The ``name`` is the RPM module name and is case sensitive.
+- The ``version`` is the combined stream, version, and context of an RPM module,
+  separated by a colon (``:``, encoded as ``%3A``).
+- ``arch`` is the qualifiers key for the architecture of the module's packages.
+- Examples::
+
+      pkg:rpmmod/fedora/nodejs@14%3A3620220301144317%3A5e5ad4a0?arch=aarch64&distro=fedora-36
+      pkg:rpmmod/centos/postgresql@12%3A8010120191120141335%3Ae4e244f9?arch=x86_64&distro=centos-8
+      pkg:rpmmod/redhat/squid@4%3A8040020210420090912%3A522a0ee4?arch=ppc64le&distro=rhel-8
+
 swid
 -----
 ``swid`` for ISO-IEC 19770-2 Software Identification (SWID) tags:
