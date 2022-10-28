@@ -46,12 +46,12 @@ bitbucket
 ---------
 ``bitbucket`` for Bitbucket-based packages:
 
-- The default repository is ``https://bitbucket.org``
+- The default repository is ``https://bitbucket.org``.
 - The ``namespace`` is the user or organization. It is not case sensitive and
   must be lowercased.
 - The ``name`` is the repository name. It is not case sensitive and must be
   lowercased.
-- The ``version`` is a commit or tag
+- The ``version`` is a commit or tag.
 - Examples::
 
       pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c
@@ -60,10 +60,10 @@ cocoapods
 ---------
 ``cocoapods`` for Cocoapods:
 
-- The default repository is ``https://cdn.cocoapods.org/``
-- The ``name`` is the pod name and is case sensitive, cannot contain whitespace, a plus (+) character, or begin with a period (.).
+- The default repository is ``https://cdn.cocoapods.org/``.
+- The ``name`` is the pod name and is case sensitive, cannot contain whitespace, a plus (`+`) character, or begin with a period (`.`).
 - The ``version`` is the package version.
-- The purl subpath is used to represent a pods subspec (if present)
+- The purl subpath is used to represent a pods subspec (if present).
 - Examples::
 
       pkg:cocoapods/AFNetworking@4.0.1
@@ -75,7 +75,7 @@ cargo
 -----
 ``cargo`` for Rust:
 
-- The default repository is ``https://crates.io/``
+- The default repository is ``https://crates.io/``.
 - The ``name`` is the repository name.
 - The ``version`` is the package version.
 - Examples::
@@ -88,7 +88,7 @@ composer
 --------
 ``composer`` for Composer PHP packages:
 
-- The default repository is ``https://packagist.org``
+- The default repository is ``https://packagist.org``.
 - The ``namespace`` is the vendor.
 - Note: private, local packages may have no name. In this case you cannot
   create a ``purl`` for these.
@@ -123,9 +123,9 @@ conda
 -----
 ``conda`` for Conda packages:
 
-- The default repository is ``https://repo.anaconda.com``
-- The ``name`` is the package name
-- The ``version`` is the package version
+- The default repository is ``https://repo.anaconda.com``.
+- The ``name`` is the package name.
+- The ``version`` is the package version.
 - The qualifiers: ``build`` is the build string.
   ``channel`` is the package stored location.
   ``subdir`` is the associated platform.
@@ -138,7 +138,7 @@ cran
 -----
 ``cran`` for CRAN R packages:
 
-- The default repository is ``https://cran.r-project.org``
+- The default repository is ``https://cran.r-project.org``.
 - The ``name`` is the package name and is case sensitive, but there cannot be two packages on CRAN with the same name ignoring case.
 - The ``version`` is the package version.
 - Examples::
@@ -153,7 +153,7 @@ deb
 
 - There is no default package repository: this should be implied either from
   the ``distro`` qualifiers key or using a base url as a ``repository_url``
-  qualifiers key
+  qualifiers key.
 - The ``namespace`` is the "vendor" name such as "debian" or "ubuntu".
   It is not case sensitive and must be lowercased.
 - The ``name`` is not case sensitive and must be lowercased.
@@ -176,10 +176,10 @@ deb
 
 docker
 ------
-``docker`` for Docker images
+``docker`` for Docker images:
 
-- The default repository is ``https://hub.docker.com``
-- The ``namespace`` is the registry/user/organization if present
+- The default repository is ``https://hub.docker.com``.
+- The ``namespace`` is the registry/user/organization if present.
 - The version should be the image id sha256 or a tag. Since tags can be moved,
   a sha256 image id is preferred.
 - Examples::
@@ -192,8 +192,8 @@ gem
 ---
 ``gem`` for Rubygems:
 
-- The default repository is ``https://rubygems.org``
-- The ``platform`` qualifiers key is used to specify an alternative platform
+- The default repository is ``https://rubygems.org``.
+- The ``platform`` qualifiers key is used to specify an alternative platform.
   such as ``java`` for JRuby. The implied default is ``ruby`` for Ruby MRI.
 - Examples::
 
@@ -210,7 +210,7 @@ version control repository such as a bare git repo.
   provided in `qualifiers` or as separate attributes outside of a ``purl`` for
   proper identification and location.
 - When possible another or a new purl ``type`` should be used instead of using
-  the ``generic`` type and eventually contributed back to this specification
+  the ``generic`` type and eventually contributed back to this specification.
 - as for other ``type``, the ``name`` component is mandatory. In the worst case
   it can be a file or directory name.
 - Examples (truncated for brevity)::
@@ -224,12 +224,12 @@ github
 ------
 ``github`` for Github-based packages:
 
-- The default repository is ``https://github.com``
+- The default repository is ``https://github.com``.
 - The ``namespace`` is the user or organization. It is not case sensitive and
   must be lowercased.
 - The ``name`` is the repository name. It is not case sensitive and must be
   lowercased.
-- The ``version`` is a commit or tag
+- The ``version`` is a commit or tag.
 - Examples::
 
       pkg:github/package-url/purl-spec@244fd47e07d1004
@@ -237,12 +237,12 @@ github
 
 golang
 ------
-``golang`` for Go packages
+``golang`` for Go packages:
 
 - There is no default package repository: this is implied in the namespace
-  using the ``go get`` command conventions
+  using the ``go get`` command conventions.
 - The ``namespace`` and `name` must be lowercased.
-- The ``subpath`` is used to point to a subpath inside a package
+- The ``subpath`` is used to point to a subpath inside a package.
 - The ``version`` is often empty when a commit is not specified and should be
   the commit in most cases when available.
 - Examples::
@@ -253,11 +253,11 @@ golang
 
 hackage
 -------
-``hackage`` for Haskell packages
+``hackage`` for Haskell packages:
 
 - The default repository is `https://hackage.haskell.org`.
 - The `version` is package version.
-- The `name` is case sensitive and use kebab-case
+- The `name` is case sensitive and use kebab-case.
 - Examples::
 
       pkg:hackage/a50@0.5
@@ -266,7 +266,7 @@ hackage
 
 hex
 ---
-``hex`` for Hex packages
+``hex`` for Hex packages:
 
 - The default repository is ``https://repo.hex.pm``.
 - The ``namespace`` is optional; it may be used to specify the organization for
@@ -282,10 +282,10 @@ hex
 
 maven
 -----
-``maven`` for Maven JARs and related artifacts
+``maven`` for Maven JARs and related artifacts:
 
-- The default repository is ``https://repo.maven.apache.org/maven2``
-- The group id is the ``namespace`` and the artifact id is the ``name``
+- The default repository is ``https://repo.maven.apache.org/maven2``.
+- The group id is the ``namespace`` and the artifact id is the ``name``.
 - Known qualifiers keys are: ``classifier`` and ``type`` as defined in the
   POM documentation. Note that Maven uses a concept / coordinate called packaging
   which does not map directly 1:1 to a file extension. In this use case, we need
@@ -305,7 +305,7 @@ npm
 ---
 ``npm`` for Node NPM packages:
 
-- The default repository is ``https://registry.npmjs.org``
+- The default repository is ``https://registry.npmjs.org``.
 - The ``namespace`` is used for the scope of a scoped NPM package.
 - Per the package.json spec, new package "must not have uppercase letters in
   the name", therefore the must be lowercased.
@@ -319,7 +319,7 @@ nuget
 -----
 ``nuget`` for NuGet .NET packages:
 
-- The default repository is ``https://www.nuget.org``
+- The default repository is ``https://www.nuget.org``.
 - There is no ``namespace`` per se even if the common convention is to use
   dot-separated package names where the first segment is ``namespace``-like.
 - Examples::
@@ -344,11 +344,11 @@ including container images built by Docker and others:
   artifact and is required to uniquely identify the artifact.
 - Optional qualifiers may include:
 
-  - ``arch``: key for a package architecture, when relevant
+  - ``arch``: key for a package architecture, when relevant.
   - ``repository_url``: A repository URL where the artifact may be found, but not
     intended as the only location. This value is encouraged to identify a
-    location the content may be fetched
-  - ``tag``: artifact tag that may have been associated with the digest at the time
+    location the content may be fetched.
+  - ``tag``: artifact tag that may have been associated with the digest at the time.
 - Examples::
 
       pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=docker.io/library/debian&arch=amd64&tag=latest
@@ -360,8 +360,8 @@ pub
 ----
 ``pub`` for Dart and Flutter packages:
 
-- The default repository is ``https://pub.dartlang.org``
-- Pub normalizes all package names to be lowercase and using underscores. The only allowed characters are `[a-z0-9_]`. 
+- The default repository is ``https://pub.dartlang.org``.
+- Pub normalizes all package names to be lowercase and using underscores. The only allowed characters are `[a-z0-9_]`.
 - More information on pub naming and versioning is available in the [pubspec documentation](https://dart.dev/tools/pub/pubspec)
 - Examples::
 
@@ -372,10 +372,10 @@ pypi
 ----
 ``pypi`` for Python packages:
 
-- The default repository is ``https://pypi.python.org``
-- PyPi treats ``-`` and ``_`` as the same character and is not case sensitive.
-  Therefore a Pypi package ``name`` must be lowercased and underscore ``_``
-  replaced with a dash ``-``
+- The default repository is ``https://pypi.python.org``.
+- PyPI treats ``-`` and ``_`` as the same character and is not case sensitive.
+  Therefore a PyPI package ``name`` must be lowercased and underscore ``_``
+  replaced with a dash ``-``.
 - Examples::
 
       pkg:pypi/django@1.11.1
@@ -386,17 +386,16 @@ rpm
 ``rpm`` for RPMs:
 
 - There is no default package repository: this should be implied either from
-  the ``distro`` qualifiers key  or using a repository base url as 
-  ``repository_url`` qualifiers key
-- the ``namespace`` is the vendor such as fedora or opensuse
+  the ``distro`` qualifiers key or using a repository base URL as
+  ``repository_url`` qualifiers key.
+- The ``namespace`` is the vendor such as Fedora or OpenSUSE.
   It is not case sensitive and must be lowercased.
-- the ``name`` is the RPM name and is case sensitive.
-- the ``version`` is the combined version and release of an
-  RPM
+- The ``name`` is the RPM name and is case sensitive.
+- The ``version`` is the combined version and release of an RPM.
 - ``epoch`` (optional for RPMs) is a qualifier as it's not required for
   unique identification, but when the epoch exists we strongly
-  encourage using it
-- ``arch`` is the qualifiers key for a package architecture
+  encourage using it.
+- ``arch`` is the qualifiers key for a package architecture.
 - Examples::
 
       pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
@@ -408,15 +407,15 @@ swid
 
 - There is no default package repository.
 - The ``namespace`` is the optional name and regid of the entity with a role of softwareCreator. If specified, name is required and is the first segment in the namespace. If regid is known, it must be specified as the second segment in the namespace. A maximum of two segments are supported.
-- The ``name`` is the name as defined in the SWID SoftwareIdentity element
-- The ``version`` is the version as defined in the SWID SoftwareIdentity element
-- The qualifier ``tag_id`` must not be empty and corresponds to the tagId as defined in the SWID SoftwareIdentity element. Per the SWID specification, GUIDs are recommended. If a GUID is used, it must be lowercase. If a GUID is not used, the tag_id qualifier is case aware but not case sensitive
-- The qualifier ``tag_version`` is an optional integer and corresponds to the tagVersion as defined in the SWID SoftwareIdentity element. If not specified, defaults to 0
-- The qualifier ``patch`` is optional and corresponds to the patch as defined in the SWID SoftwareIdentity element. If not specified, defaults to false
-- The qualifier ``tag_creator_name`` is optional. If the tag creator is different from the software creator, the tag_creator_name qualifier should be specified
-- The qualifier ``tag_creator_regid`` is optional. If the tag creator is different from the software creator, the tag_creator_regid qualifier should be specified
+- The ``name`` is the name as defined in the SWID SoftwareIdentity element.
+- The ``version`` is the version as defined in the SWID SoftwareIdentity element.
+- The qualifier ``tag_id`` must not be empty and corresponds to the tagId as defined in the SWID SoftwareIdentity element. Per the SWID specification, GUIDs are recommended. If a GUID is used, it must be lowercase. If a GUID is not used, the tag_id qualifier is case aware but not case sensitive.
+- The qualifier ``tag_version`` is an optional integer and corresponds to the tagVersion as defined in the SWID SoftwareIdentity element. If not specified, defaults to 0.
+- The qualifier ``patch`` is optional and corresponds to the patch as defined in the SWID SoftwareIdentity element. If not specified, defaults to false.
+- The qualifier ``tag_creator_name`` is optional. If the tag creator is different from the software creator, the tag_creator_name qualifier should be specified.
+- The qualifier ``tag_creator_regid`` is optional. If the tag creator is different from the software creator, the tag_creator_regid qualifier should be specified.
 
-Use of known `qualifiers` key/value pairs such as ``download_url`` can be used to specify where the package was retrieved from.
+Use of known qualifiers key/value pairs such as ``download_url`` can be used to specify where the package was retrieved from.
 
 - Examples::
 
@@ -428,7 +427,7 @@ swift
 -----
 ``swift`` for Swift packages:
 
-- There is no default package repository: this should be implied from ``namespace``
+- There is no default package repository: this should be implied from ``namespace``.
 - The ``namespace`` is source host and user/organization and is required.
 - The ``name`` is the repository name.
 - The ``version`` is the package version and is required.
@@ -495,4 +494,4 @@ Other candidate types to define:
 License
 ~~~~~~~
 
-This document is licensed under the MIT license
+This document is licensed under the MIT license.
