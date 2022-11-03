@@ -280,6 +280,20 @@ hex
       pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com
 
 
+huggingface
+------
+``huggingface`` for Hugging Face models
+
+- The default repository is ``https://huggingface.co``.
+- The ``namespace`` is the model repository username or organization, if present. It is case insensitive and must be lowercased.
+- The ``name`` is the model repository name. It is case insensitive and must be lowercased.
+- The ``version`` is the model revision Git commit hash. It is case insensitive and must be lowercased.
+- Examples::
+
+      pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027
+      pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co
+
+
 maven
 -----
 ``maven`` for Maven JARs and related artifacts
@@ -299,6 +313,26 @@ maven
       pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=zip&classifier=dist
       pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x86&type=dll
       pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x64&type=dll
+
+
+mlflow
+------
+``mlflow`` for MLflow models (Azure ML, Databricks, etc.)
+
+- The repository is the MLflow tracking URI. There is no default. Examples:
+  - Azure ML: ``https://<region>.api.azureml.ms/mlflow/v1.0/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>``
+  - Azure Databricks: ``https://adb-<numbers>.<number>.azuredatabricks.net/api/2.0/mlflow``
+  - AWS Databricks: ``https://dbc-<alphanumeric>-<alphanumeric>.cloud.databricks.com/api/2.0/mlflow``
+  - GCP Databricks: ``https://<numbers>.<number>.gcp.databricks.com/api/2.0/mlflow``
+- The ``namespace`` is empty.
+- The ``name`` is the model name. It is case insensitive and must be lowercased.
+- The ``version`` is the model version.
+- Known qualifiers keys are: ``model_uuid`` and ``run_id`` as defined in the MLflow documentation. Both are case insensitive and must be lowercased.
+- Examples::
+
+      pkg:mlflow/moviereviews@6
+      pkg:mlflow/creditfraud@3?repository_url=https://adb-5245952564735461.0.azuredatabricks.net/api/2.0/mlflow
+      pkg:mlflow/trafficsigns@10?model_uuid=36233173b22f4c89b451f1228d700d49&run_id=410a3121-2709-4f88-98dd-dba0ef056b0a
 
 
 npm
