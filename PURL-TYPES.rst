@@ -282,7 +282,7 @@ hex
 
 huggingface
 ------
-``huggingface`` for Hugging Face models
+``huggingface`` for Hugging Face ML models
 
 - The default repository is ``https://huggingface.co``.
 - The ``namespace`` is the model repository username or organization, if present. It is case insensitive and must be lowercased.
@@ -317,13 +317,15 @@ maven
 
 mlflow
 ------
-``mlflow`` for MLflow models (Azure ML, Databricks, etc.)
+``mlflow`` for MLflow ML models (Azure ML, Databricks, etc.)
 
 - The repository is the MLflow tracking URI. There is no default. Examples:
+
   - Azure ML: ``https://<region>.api.azureml.ms/mlflow/v1.0/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>``
   - Azure Databricks: ``https://adb-<numbers>.<number>.azuredatabricks.net/api/2.0/mlflow``
   - AWS Databricks: ``https://dbc-<alphanumeric>-<alphanumeric>.cloud.databricks.com/api/2.0/mlflow``
   - GCP Databricks: ``https://<numbers>.<number>.gcp.databricks.com/api/2.0/mlflow``
+  
 - The ``namespace`` is empty.
 - The ``name`` is the model name. It is case insensitive and must be lowercased.
 - The ``version`` is the model version.
