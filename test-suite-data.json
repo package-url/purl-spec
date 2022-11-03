@@ -492,6 +492,18 @@
     "is_invalid": false
   },
   {
+    "description": "Hugging Face model with various cases",
+    "purl": "pkg:huggingface/EleutherAI/gpt-neo-1.3B@797174552AE47F449AB70B684CABCB6603E5E85E",
+    "canonical_purl": "pkg:huggingface/EleutherAI/gpt-neo-1.3B@797174552ae47f449ab70b684cabcb6603e5e85e",
+    "type": "huggingface",
+    "namespace": "EleutherAI",
+    "name": "gpt-neo-1.3B",
+    "version": "797174552ae47f449ab70b684cabcb6603e5e85e",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
     "description": "minimal MLflow model",
     "purl": "pkg:mlflow/moviereviews@6",
     "canonical_purl": "pkg:mlflow/moviereviews@6",
@@ -504,14 +516,26 @@
     "is_invalid": false
   },
   {
-    "description": "MLflow model tracked in Azure Databricks",
-    "purl": "pkg:mlflow/creditfraud@3?repository_url=https://adb-5245952564735461.0.azuredatabricks.net/api/2.0/mlflow",
+    "description": "MLflow model tracked in Azure Databricks (case insensitive)",
+    "purl": "pkg:mlflow/CreditFraud@3?repository_url=https://adb-5245952564735461.0.azuredatabricks.net/api/2.0/mlflow",
     "canonical_purl": "pkg:mlflow/creditfraud@3?repository_url=https://adb-5245952564735461.0.azuredatabricks.net/api/2.0/mlflow",
     "type": "mlflow",
     "namespace": null,
     "name": "creditfraud",
     "version": "3",
     "qualifiers": {"repository_url": "https://adb-5245952564735461.0.azuredatabricks.net/api/2.0/mlflow"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "MLflow model tracked in Azure ML (case sensitive)",
+    "purl": "pkg:mlflow/CreditFraud@3?repository_url=https://westus2.api.azureml.ms/mlflow/v1.0/subscriptions/a50f2011-fab8-4164-af23-c62881ef8c95/resourceGroups/TestResourceGroup/providers/Microsoft.MachineLearningServices/workspaces/TestWorkspace",
+    "canonical_purl": "pkg:mlflow/CreditFraud@3?repository_url=https://westus2.api.azureml.ms/mlflow/v1.0/subscriptions/a50f2011-fab8-4164-af23-c62881ef8c95/resourceGroups/TestResourceGroup/providers/Microsoft.MachineLearningServices/workspaces/TestWorkspace",
+    "type": "mlflow",
+    "namespace": null,
+    "name": "CreditFraud",
+    "version": "3",
+    "qualifiers": {"repository_url": "https://westus2.api.azureml.ms/mlflow/v1.0/subscriptions/a50f2011-fab8-4164-af23-c62881ef8c95/resourceGroups/TestResourceGroup/providers/Microsoft.MachineLearningServices/workspaces/TestWorkspace"},
     "subpath": null,
     "is_invalid": false
   },
