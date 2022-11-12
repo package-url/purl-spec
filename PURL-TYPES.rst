@@ -73,6 +73,19 @@ bitbucket
 
       pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c
 
+cargo
+-----
+``cargo`` for Rust:
+
+- The default repository is ``https://crates.io/``
+- The ``name`` is the repository name.
+- The ``version`` is the package version.
+- Examples::
+
+      pkg:cargo/rand@0.7.2
+      pkg:cargo/clap@2.33.0
+      pkg:cargo/structopt@0.3.11
+
 cocoapods
 ---------
 ``cocoapods`` for Cocoapods:
@@ -87,20 +100,7 @@ cocoapods
       pkg:cocoapods/MapsIndoors@3.24.0
       pkg:cocoapods/ShareKit@2.0#Twitter
       pkg:cocoapods/GoogleUtilities@7.5.2#NSData+zlib
-
-cargo
------
-``cargo`` for Rust:
-
-- The default repository is ``https://crates.io/``
-- The ``name`` is the repository name.
-- The ``version`` is the package version.
-- Examples::
-
-      pkg:cargo/rand@0.7.2
-      pkg:cargo/clap@2.33.0
-      pkg:cargo/structopt@0.3.11
-
+      
 composer
 --------
 ``composer`` for Composer PHP packages:
@@ -151,8 +151,21 @@ conda
 
       pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2
 
+cpan
+----
+``cpan`` for CPAN Perl packages:
+
+- The default respository is ``https://www.cpan.org/``.
+- To search CPAN it is recommended to use ``https://metacpan.org``.
+- The ``name`` is the package name and is case sensitive.
+- The ``version`` is the package version.
+
+- Examples::
+    pkg:cpan/Perl-Version@1.013
+    pkg:cpan/DateTime@1.55
+
 cran
------
+----
 ``cran`` for CRAN R packages:
 
 - The default repository is ``https://cran.r-project.org``
@@ -468,6 +481,18 @@ swift
       pkg:swift/github.com/Alamofire/Alamofire@5.4.3
       pkg:swift/github.com/RxSwiftCommunity/RxFlow@2.12.4
 
+vsm
+---
+``vsm`` for Visual Studio Marketplace packages:
+
+- The default repository is: https://marketplace.visualstudio.com
+- The ``namespace`` is the organization and is case-sensitive.
+- The ``name`` is the package name and is case-sensitive.
+- The ``version`` is the package version.
+- Examples::
+
+    pkg:vsm/ms-vscode/cpptools@1.9.2
+
 Other candidate types to define:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -481,9 +506,7 @@ Other candidate types to define:
 - ``chef`` for Chef packages:
 - ``chocolatey`` for Chocolatey packages
 - ``clojars`` for Clojure packages:
-- ``cocoapods`` for Cocoapods iOS packages:
 - ``coreos`` for CoreOS packages:
-- ``cpan`` for CPAN Perl packages:
 - ``ctan`` for CTAN TeX packages:
 - ``crystal`` for Crystal Shards packages:
 - ``drupal`` for Drupal packages:
