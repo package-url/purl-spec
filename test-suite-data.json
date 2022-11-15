@@ -504,18 +504,6 @@
     "is_invalid": false
   },
   {
-    "description": "minimal MLflow model",
-    "purl": "pkg:mlflow/moviereviews@6",
-    "canonical_purl": "pkg:mlflow/moviereviews@6",
-    "type": "mlflow",
-    "namespace": null,
-    "name": "moviereviews",
-    "version": "6",
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": false
-  },
-  {
     "description": "MLflow model tracked in Azure Databricks (case insensitive)",
     "purl": "pkg:mlflow/CreditFraud@3?repository_url=https://adb-5245952564735461.0.azuredatabricks.net/api/2.0/mlflow",
     "canonical_purl": "pkg:mlflow/creditfraud@3?repository_url=https://adb-5245952564735461.0.azuredatabricks.net/api/2.0/mlflow",
@@ -541,13 +529,13 @@
   },
   {
     "description": "MLflow model with unique identifiers",
-    "purl": "pkg:mlflow/trafficsigns@10?model_uuid=36233173b22f4c89b451f1228d700d49&run_id=410a3121-2709-4f88-98dd-dba0ef056b0a",
-    "canonical_purl": "pkg:mlflow/trafficsigns@10?model_uuid=36233173b22f4c89b451f1228d700d49&run_id=410a3121-2709-4f88-98dd-dba0ef056b0a",
+    "purl": "pkg:mlflow/trafficsigns@10?model_uuid=36233173b22f4c89b451f1228d700d49&run_id=410a3121-2709-4f88-98dd-dba0ef056b0a&repository_url=https://adb-5245952564735461.0.azuredatabricks.net/api/2.0/mlflow",
+    "canonical_purl": "pkg:mlflow/trafficsigns@10?model_uuid=36233173b22f4c89b451f1228d700d49&run_id=410a3121-2709-4f88-98dd-dba0ef056b0a&repository_url=https://adb-5245952564735461.0.azuredatabricks.net/api/2.0/mlflow",
     "type": "mlflow",
     "namespace": null,
     "name": "trafficsigns",
     "version": "10",
-    "qualifiers": {"model_uuid": "36233173b22f4c89b451f1228d700d49", "run_id": "410a3121-2709-4f88-98dd-dba0ef056b0a"},
+    "qualifiers": {"model_uuid": "36233173b22f4c89b451f1228d700d49", "run_id": "410a3121-2709-4f88-98dd-dba0ef056b0a", "repository_url": "https://adb-5245952564735461.0.azuredatabricks.net/api/2.0/mlflow"},
     "subpath": null,
     "is_invalid": false
   }
