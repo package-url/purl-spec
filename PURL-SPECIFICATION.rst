@@ -321,7 +321,7 @@ To build a `purl` string from its components:
 
     - discard any pair where the `value` is empty.
     - UTF-8-encode each `value` if needed in your programming language
-    - If the `key` is `checksums` and this is a list of `checksums` join this
+    - If the `key` is `checksum` and this is a list of checksums, join this
       list with a ',' to create this qualifier `value`
     - create a string by joining the lowercased `key`, the equal '=' sign and
       the percent-encoded `value` to create a qualifier
@@ -377,7 +377,7 @@ To parse a `purl` string in its components:
     - The `value` is the percent-decoded right side
     - UTF-8-decode the `value` if needed in your programming language
     - Discard any key/value pairs where the value is empty
-    - If the `key` is `checksums`, split the `value` on ',' to create
+    - If the `key` is `checksum`, split the `value` on ',' to create
       a list of `checksums`
 
   - This list of key/value is the `qualifiers` object
