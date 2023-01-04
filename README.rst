@@ -40,7 +40,7 @@ differences in syntax, naming and conventions:
 - SPDX has an appendix for external repository references and uses a type and a
   locator with a type-specific syntax for component separators in a URL-like
   string
-  https://github.com/spdx/spdx-spec/blob/v2.3/chapters/package-information.md
+  https://spdx.github.io/spdx-spec/latest/package-information/
 
 - versioneye uses a type, name and version
   https://github.com/versioneye/
