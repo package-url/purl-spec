@@ -40,7 +40,7 @@ differences in syntax, naming and conventions:
 - SPDX has an appendix for external repository references and uses a type and a
   locator with a type-specific syntax for component separators in a URL-like
   string
-  https://github.com/spdx/spdx-spec/blob/master/chapters/3-package-information.md
+  https://spdx.github.io/spdx-spec/latest/package-information/
 
 - versioneye uses a type, name and version
   https://github.com/versioneye/
@@ -161,7 +161,7 @@ Known implementations
 - for the JVM: https://github.com/package-url/packageurl-java,
   https://github.com/sonatype/package-url-java
 - in Python: https://github.com/package-url/packageurl-python
-- in Rust: https://github.com/package-url/packageurl-rs
+- in Rust: https://github.com/package-url/packageurl.rs
 - in JS: https://github.com/package-url/packageurl-js
 
 

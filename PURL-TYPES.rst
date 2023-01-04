@@ -17,7 +17,7 @@ Package URL specification. See also a candidate list further down.
 Definitions can also include types reserved for future use.
 
 See also https://github.com/package-url/purl-spec and
-<PURL-SPECIFICATION.rst>`_ for the Package URL specification.
+`<PURL-SPECIFICATION.rst>`_ for the Package URL specification.
 
 
 Known ``purl`` types
