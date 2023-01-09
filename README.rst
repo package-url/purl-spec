@@ -40,7 +40,7 @@ differences in syntax, naming and conventions:
 - SPDX has an appendix for external repository references and uses a type and a
   locator with a type-specific syntax for component separators in a URL-like
   string
-  https://github.com/spdx/spdx-spec/blob/master/chapters/3-package-information.md
+  https://spdx.github.io/spdx-spec/latest/package-information/
 
 - versioneye uses a type, name and version
   https://github.com/versioneye/
@@ -78,7 +78,7 @@ A `purl` is a URL composed of seven components::
 
 Components are separated by a specific character for unambiguous parsing.
 
-The defintion for each components is:
+The definition for each components is:
 
 - **scheme**: this is the URL scheme with the constant value of "pkg". One of
   the primary reason for this single scheme is to facilitate the future official
@@ -161,7 +161,7 @@ Known implementations
 - for the JVM: https://github.com/package-url/packageurl-java,
   https://github.com/sonatype/package-url-java
 - in Python: https://github.com/package-url/packageurl-python
-- in Rust: https://github.com/package-url/packageurl-rs
+- in Rust: https://github.com/package-url/packageurl.rs
 - in JS: https://github.com/package-url/packageurl-js
 
 

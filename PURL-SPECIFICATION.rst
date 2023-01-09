@@ -8,14 +8,14 @@ A `purl` or package URL is an attempt to standardize existing approaches to
 reliably identify and locate software packages.
 
 A `purl` is a URL string used to identify and locate a software package in a
-mostly universal and uniform way across programing languages, package managers,
+mostly universal and uniform way across programming languages, package managers,
 packaging conventions, tools, APIs and databases.
 
 Such a package URL is useful to reliably reference the same software package
 using a simple and expressive syntax and conventions based on familiar URLs.
 
 See https://github.com/package-url/purl-spec for the Package URL specification
-and <PURL-SPECIFICATION.rst>`_ for known type definitions.
+and `<PURL-SPECIFICATION.rst>`_ for known type definitions.
 
 Check also this short `purl` presentation (with video) at FOSDEM 2018
 https://fosdem.org/2018/schedule/event/purl/ for an overview.
@@ -29,7 +29,7 @@ A `purl` is a URL composed of seven components::
 
 Components are separated by a specific character for unambiguous parsing.
 
-The defintion for each components is:
+The definition for each components is:
 
 - **scheme**: this is the URL scheme with the constant value of "pkg". One of
   the primary reason for this single scheme is to facilitate the future official
@@ -46,7 +46,7 @@ The defintion for each components is:
   Optional.
 
 
-Components are designed such that they for a hierarchy from the most significant
+Components are designed such that they form a hierarchy from the most significant
 on the left to the least significant components on the right.
 
 
