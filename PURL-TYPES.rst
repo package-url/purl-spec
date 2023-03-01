@@ -107,7 +107,7 @@ composer
 
 - The default repository is ``https://packagist.org``.
 - The ``namespace`` is the vendor.
-- The ``name`` is not case sensitive and must be lowercased.
+- The ``namespace`` and ``name`` are not case sensitive and must be lowercased.
 - Note: private, local packages may have no name. In this case you cannot
   create a ``purl`` for these.
 - Examples::
