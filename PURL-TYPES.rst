@@ -75,7 +75,7 @@ bitbucket
 
 cocoapods
 ---------
-``cocoapods`` for Cocoapods:
+``cocoapods`` for CocoaPods:
 
 - The default repository is ``https://cdn.cocoapods.org/``.
 - The ``name`` is the pod name and is case sensitive, cannot contain whitespace, a plus (`+`) character, or begin with a period (`.`).
