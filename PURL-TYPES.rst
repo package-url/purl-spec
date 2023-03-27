@@ -46,7 +46,7 @@ apk
 ``apk`` for APK-based packages:
 
 - There is no default package repository: this should be implied either from
-  the ``distro`` qualifiers key  or using a repository base url as 
+  the ``distro`` qualifiers key  or using a repository base url as
   ``repository_url`` qualifiers key.
 - The ``namespace`` is the vendor such as ``alpine`` or ``openwrt``. It is not
   case sensitive and must be lowercased.
@@ -107,6 +107,7 @@ composer
 
 - The default repository is ``https://packagist.org``.
 - The ``namespace`` is the vendor.
+- The ``namespace`` and ``name`` are not case sensitive and must be lowercased.
 - Note: private, local packages may have no name. In this case you cannot
   create a ``purl`` for these.
 - Examples::
@@ -342,7 +343,7 @@ mlflow
   - Azure Databricks: ``https://adb-<numbers>.<number>.azuredatabricks.net/api/2.0/mlflow``
   - AWS Databricks: ``https://dbc-<alphanumeric>-<alphanumeric>.cloud.databricks.com/api/2.0/mlflow``
   - GCP Databricks: ``https://<numbers>.<number>.gcp.databricks.com/api/2.0/mlflow``
-  
+
 - The ``namespace`` is empty.
 - The ``name`` is the model name. Case sensitivity depends on the server implementation:
 
@@ -387,7 +388,7 @@ qpkg
 ``qpkg`` for QNX packages:
 
 - There is no default package repository: this should be implied either from
-  the ``namespace`` or using a repository base URL as ``repository_url`` 
+  the ``namespace`` or using a repository base URL as ``repository_url``
   qualifiers key.
 - The ``namespace`` is the vendor of the package. It is not case sensitive and must be
   lowercased.
