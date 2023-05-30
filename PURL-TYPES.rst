@@ -520,7 +520,6 @@ Other candidate types to define:
 - ``chef`` for Chef packages:
 - ``chocolatey`` for Chocolatey packages
 - ``clojars`` for Clojure packages:
-- ``cocoapods`` for Cocoapods iOS packages:
 - ``coreos`` for CoreOS packages:
 - ``cpan`` for CPAN Perl packages:
 - ``ctan`` for CTAN TeX packages:
