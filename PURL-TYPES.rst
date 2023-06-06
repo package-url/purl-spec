@@ -240,7 +240,7 @@ version control repository such as a bare git repo.
 
 github
 ------
-``github`` for Github-based packages:
+``github`` for GitHub-based packages:
 
 - The default repository is ``https://github.com``.
 - The ``namespace`` is the user or organization. It is not case sensitive and
