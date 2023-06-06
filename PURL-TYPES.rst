@@ -531,7 +531,7 @@ Other candidate types to define:
 - ``elm`` for Elm packages:
 - ``eclipse`` for Eclipse projects packages:
 - ``gitea`` for Gitea-based packages:
-- ``gitlab`` for Gitlab-based packages:
+- ``gitlab`` for GitLab-based packages:
 - ``gradle`` for Gradle plugins
 - ``guix`` for Guix packages:
 - ``haxe`` for Haxe packages:
