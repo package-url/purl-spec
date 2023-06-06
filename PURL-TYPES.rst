@@ -125,7 +125,7 @@ conan
 - Qualifier ``channel``: The Conan ``<channel>``. Only required if the Conan package was published with Conan ``<channel>``.
 - Qualifier ``rrev``: The Conan recipe revision (optional). If omitted, the purl refers to the latest recipe revision available for the given version.
 - Qualifier ``prev``: The Conan package revision (optional). If omitted, the purl refers to the latest package revision available for the given version and recipe revision.
-- Qualifier ``repository_url``: The Conan repository where the package is available (optional). If ommitted, ``https://center.conan.io`` as default repository is assumed.
+- Qualifier ``repository_url``: The Conan repository where the package is available (optional). If omitted, ``https://center.conan.io`` as default repository is assumed.
 
 Additional qualifiers can be used to distinguish Conan packages with different settings or options, e.g. ``os=Linux``, ``build_type=Debug`` or ``shared=True``.
 
