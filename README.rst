@@ -163,6 +163,7 @@ Known implementations
 - in Python: https://github.com/package-url/packageurl-python
 - in Rust: https://github.com/package-url/packageurl.rs
 - in JS: https://github.com/package-url/packageurl-js
+- in Elixir: https://github.com/jshmrtn/purl
 - in Perl: https://github.com/giterlizzi/perl-URI-PackageURL
 
 
