@@ -312,6 +312,19 @@ huggingface
       pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co
 
 
+macos
+-----
+``macos`` for native macOS packages and applications which are either pre-installed by Apple or installed via non-standard method (i.e. installed from .dmg file, downloaded from external sources)
+
+- There is no default repository.
+- The ``name`` is the Application name which is often retrieved from ``CFBundleName``
+- The ``version`` is the Application version which is often retrieved from either ``CFBundleShortVersionString`` or ``CFBundleVersion``
+- Examples::
+
+      pkg:macos/iTerm2@3.4.19
+      pkg:macos/Music@1.3.5
+
+
 maven
 -----
 ``maven`` for Maven JARs and related artifacts:
