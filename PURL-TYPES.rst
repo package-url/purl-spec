@@ -326,6 +326,24 @@ huggingface
       pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co
 
 
+julia
+------
+``julia`` for Julia packages:
+
+- The default registry is ``https://github.com/JuliaRegistries/General``.
+- The ``namespace`` is the registry or the package repository username or organization, if present. It is case sensitive.
+- The ``name`` is the package name. It is case sensitive.
+- The ``version`` is the package version, or the Julia version for bundled standard library packages, if present in the manifest.
+- The qualifier ``uuid`` corresponds to the Julia package UUID.
+- Examples::
+
+      pkg:julia/Dates@1.9.0?uuid=ade2ca70-3891-5945-98fb-dc099432e06a
+      pkg:julia/Dates?uuid=ade2ca70-3891-5945-98fb-dc099432e06a
+      pkg:julia/JuliaCloud/AWS@1.88.0?uuid=fbe9abb3-538b-5e4e-ba9e-bc94f4f92ebc
+      pkg:julia/RegisterQD@0.3.1?uuid=ac24ea0c-1830-11e9-18d4-81f172323054
+      pkg:julia/HolyLabRegistry/RegisterQD@0.3.1?uuid=ac24ea0c-1830-11e9-18d4-81f172323054&repository_url=https://github.com/HolyLab/HolyLabRegistry
+
+
 maven
 -----
 ``maven`` for Maven JARs and related artifacts:
@@ -549,7 +567,6 @@ Other candidate types to define:
 - ``guix`` for Guix packages:
 - ``haxe`` for Haxe packages:
 - ``helm`` for Kubernetes packages
-- ``julia`` for Julia packages:
 - ``lua`` for LuaRocks packages:
 - ``melpa`` for Emacs packages
 - ``meteor`` for Meteor JavaScript packages:
