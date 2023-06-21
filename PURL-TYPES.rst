@@ -282,6 +282,25 @@ hackage
       pkg:hackage/AC-HalfInteger@1.2.1
       pkg:hackage/3d-graphics-examples@0.0.0.2
 
+helm
+----
+``helm`` for Helm packages:
+
+- There is no default repository for Helm packages.
+- The ``namespace`` is optional; it may be used to specify the helm repo address
+  It is not case sensitive and must be lowercased.
+- The ``name`` holds the helm chart name.
+  It is not case sensitive and must be lowercased.
+- The version is the Helm, chart version.
+- Known qualifiers are the type of resources that a chart contains such as `crd`,`config_map`,`deployment`,`service` etc.
+- Examples::
+
+      pkg:helm/helm-charts.newrelic.com/nri-bundle/nri-@5.0.4
+      pkg:helm/projectcalico.docs.tigera.io/charts/tigera-operator@3.24.1
+      pkg:helm/projectcalico.docs.tigera.io/charts/tigera-operator@3.24.1?crd=crd.projectcalico.org/bgpconfigurations.crd.projectcalico.org
+      pkg:helm/projectcalico.docs.tigera.io/charts/tigera-operator@3.24.1?deployment=calico-kube-controller
+      pkg:helm/nginx-stable/nginx-ingress/virtualservers.k8s.nginx.org@0.17.1
+
 hex
 ---
 ``hex`` for Hex packages:
@@ -534,7 +553,6 @@ Other candidate types to define:
 - ``gradle`` for Gradle plugins
 - ``guix`` for Guix packages:
 - ``haxe`` for Haxe packages:
-- ``helm`` for Kubernetes packages
 - ``julia`` for Julia packages:
 - ``lua`` for LuaRocks packages:
 - ``melpa`` for Emacs packages
