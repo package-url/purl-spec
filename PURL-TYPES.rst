@@ -507,6 +507,20 @@ swift
       pkg:swift/github.com/Alamofire/Alamofire@5.4.3
       pkg:swift/github.com/RxSwiftCommunity/RxFlow@2.12.4
 
+Zip
+----
+``Zip`` for Zip packages:
+
+- There is no default repository for zip packages.
+- The ``namespace`` is optional; it may be used to specify a zip file server address
+  It is not case sensitive and must be lowercased.
+- The ``name`` holds the helm chart name.
+  It is not case sensitive and must be camelcased.
+- The version is the package version.
+- Qualifiers are arbitrary.
+
+
+
 Other candidate types to define:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
