@@ -253,6 +253,23 @@ github
       pkg:github/package-url/purl-spec@244fd47e07d1004
       pkg:github/package-url/purl-spec@244fd47e07d1004#everybody/loves/dogs
 
+githubactions
+------
+``githubactions`` for GitHub Actions:
+
+- The ``namespace`` is the user or organization. It is not case sensitive and
+  must be lowercased.
+- The ``name`` is the repository name. It is not case sensitive and must be
+  lowercased.
+- The ``subpath`` is used to point to a secondary action within a repository. It is not case sensitive and must be lowercased.
+- The ``version`` is a commit or release tag. 
+- Examples::
+
+      pkg:githubactions/package-url/purl-spec@244fd47e07d1004
+      pkg:githubactions/package-url/purl-spec@v1.2
+      pkg:githubactions/github/codeql-action/analyze@v2
+
+
 golang
 ------
 ``golang`` for Go packages:
