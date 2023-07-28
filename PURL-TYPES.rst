@@ -73,6 +73,20 @@ bitbucket
 
       pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c
 
+bitnami
+-------
+``bitnami`` for Bitnami-based packages:
+
+- The default repository is ``https://downloads.bitnami.com/files/stacksmith``.
+- The ``name`` is the component name. It must be lowercased.
+- The ``version`` is the full Bitnami package version, including version, revision and architecture.
+- The ``arch`` is the qualifiers key for a package architecture. Available values: ``amd64`` (default) and ``arm64``.
+- Examples::
+
+      pkg:bitnami/wordpress
+      pkg:bitnami/wordpress@6.2.0
+      pkg:bitnami/wordpress@6.2.0?arch=arm64
+
 cocoapods
 ---------
 ``cocoapods`` for CocoaPods:
