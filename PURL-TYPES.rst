@@ -537,10 +537,10 @@ vcpkg
 - ``name``: The case-sensitive name of the port.
 - ``version``: The port version and is required.
 - ``qualifiers``: The qualifiers below are used to provide more specific information on a port's origin registry and to distinguish between multiple instances of the same port dependency within the same project (for example, when the project targets multiple platforms).
-  - ``registry-version``:
-  - ``abi``:
-  - ``triplet``:
-  - ``features``:
+  - ``registry-version``: TBD
+  - ``abi``: TBD
+  - ``triplet``: TBD
+  - ``features``: TBD
 - ``subpath``: Currently reserved for future use and should be empty.
 
 
