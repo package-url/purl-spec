@@ -523,7 +523,7 @@ swift
 
 vcpkg
 -----
-``vcpkg`` for `vcpkg <https://vcpkg.io>`_ C and C++ packages.
+``vcpkg`` for `vcpkg <https://vcpkg.io>`_ C and C++ packages:
 
 - By default, vcpkg will build C and C++ dependencies from source, using configurations compatible with the user's project. For this and other reasons, it use's different terminology, documented here.
 
@@ -536,7 +536,11 @@ vcpkg
   - The URL encoded URI may be a `relative-path reference <https://www.rfc-editor.org/rfc/rfc3986#section-4.2>`_ or an `absolute URI <https://www.rfc-editor.org/rfc/rfc3986#section-4.3>`_.
   - If empty, the port comes from the default registry.
 
-    - Example: a ``namespace`` value of ``github.com%2Fmicrosoft%2Fvcpkg`` is the same as ``https%3A%2F%2Fgithub.com%2Fmicrosoft%2Fvcpkg`` or an empty value.
+    - Equivalent example namespaces::
+
+        github.com%2Fmicrosoft%2Fvcpkg
+        https%3A%2F%2Fgithub.com%2Fmicrosoft%2Fvcpkg
+        an empty value
 
 - ``name``: The case-sensitive name of the port.
 - ``version``: The port version and is required.
