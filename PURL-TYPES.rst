@@ -525,16 +525,15 @@ vcpkg
 -----
 ``vcpkg`` for `vcpkg <https://vcpkg.io>`_ C and C++ packages:
 
-- By default, vcpkg will build C and C++ dependencies from source, using configurations compatible with the user's project. For this and other reasons, it use's different terminology, documented here.
+- By default, vcpkg will build C and C++ dependencies from source, using configurations compatible with the user's project. For this and other reasons, it uses different terminology, documented here.
 
   - **port** - A package, along with it's build scripts and possibly minor modifications.
   - **registry** - A collection of ports, possibly private to the user. Analogous to **repository**.
 
-- The default registry (i.e., repository) is ``https://github.com/microsoft/vcpkg``.
-- ``namespace``: A `percent-encoded <https://www.rfc-editor.org/rfc/rfc3986#section-2.1>`_ URI (specifically for `reserved characters <https://www.rfc-editor.org/rfc/rfc3986#section-2.2>`_) for the registry the port came from.
+- ``namespace``: A `percent-encoded <https://www.rfc-editor.org/rfc/rfc3986#section-2.1>`_ URI (specifically for `reserved characters <https://www.rfc-editor.org/rfc/rfc3986#section-2.2>`_) for the registry the port came from. **Required**
 
   - The URL encoded URI may be a `relative-path reference <https://www.rfc-editor.org/rfc/rfc3986#section-4.2>`_ or an `absolute URI <https://www.rfc-editor.org/rfc/rfc3986#section-4.3>`_.
-  - If empty, the port comes from the default registry.
+  - If empty, the port comes from the default registry, ``https://github.com/microsoft/vcpkg``.
 
     - Equivalent example namespaces::
 
@@ -542,11 +541,12 @@ vcpkg
         https%3A%2F%2Fgithub.com%2Fmicrosoft%2Fvcpkg
         an empty value
 
-- ``name``: The case-sensitive name of the port.
-- ``version``: The port version and is required.
+- ``name``: The case-sensitive name of the port. **Required**
+- ``version``: The port version. **Required**
 - ``qualifiers``: The qualifiers below are used to provide more specific information on a port's origin registry and to distinguish between multiple instances of the same port dependency within the same project (for example, when the project targets multiple platforms).
 
-  - ``registry-version``: TBD
+  - ``registry-version``: TBD. **Required**
+  - The following group of qualifiers are optional, but if any appear, they must all appear. If none appear, the dependency is a "source-only" dependency.
   - ``abi``: TBD
   - ``triplet``: TBD
   - ``features``: TBD
