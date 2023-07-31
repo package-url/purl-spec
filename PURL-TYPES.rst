@@ -526,6 +526,7 @@ vcpkg
 ``vcpkg`` for `vcpkg <https://vcpkg.io>`_ C and C++ packages.
 
 - By default, vcpkg will build C and C++ dependencies from source, using configurations compatible with the user's project. For this and other reasons, it use's different terminology, documented here.
+
   - __port__ - A package, along with it's build scripts and possibly minor modifications.
   - __registry__ - A collection of ports, possibly private to the user. Analogous to __repository__.
 
@@ -545,7 +546,7 @@ vcpkg
   - ``abi``: TBD
   - ``triplet``: TBD
   - ``features``: TBD
-  
+
 - ``subpath``: Currently reserved for future use and should be empty.
 
 
