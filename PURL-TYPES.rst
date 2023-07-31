@@ -527,8 +527,8 @@ vcpkg
 
 - By default, vcpkg will build C and C++ dependencies from source, using configurations compatible with the user's project. For this and other reasons, it use's different terminology, documented here.
 
-  - __port__ - A package, along with it's build scripts and possibly minor modifications.
-  - __registry__ - A collection of ports, possibly private to the user. Analogous to __repository__.
+  - **port** - A package, along with it's build scripts and possibly minor modifications.
+  - **registry** - A collection of ports, possibly private to the user. Analogous to **repository**.
 
 - The default registry (i.e., repository) is ``https://github.com/microsoft/vcpkg``.
 - ``namespace``: A `percent-encoded <https://www.rfc-editor.org/rfc/rfc3986#section-2.1>`_ URI (specifically for `reserved characters <https://www.rfc-editor.org/rfc/rfc3986#section-2.2>`_) for the registry the port came from.
