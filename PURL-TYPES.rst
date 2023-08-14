@@ -530,28 +530,29 @@ vcpkg
   - **port** - A package, along with it's build scripts and possibly minor modifications.
   - **registry** - A collection of ports, possibly private to the user. Analogous to **repository**.
 
-- ``namespace``: A `percent-encoded <https://www.rfc-editor.org/rfc/rfc3986#section-2.1>`_ URI (specifically for `reserved characters <https://www.rfc-editor.org/rfc/rfc3986#section-2.2>`_) for the registry the port came from. **Required**
-
-  - The URL encoded URI may be a `relative-path reference <https://www.rfc-editor.org/rfc/rfc3986#section-4.2>`_ or an `absolute URI <https://www.rfc-editor.org/rfc/rfc3986#section-4.3>`_.
-  - If empty, the port comes from the default registry, ``https://github.com/microsoft/vcpkg``.
-
-    - Equivalent example namespaces::
-
-        github.com%2Fmicrosoft%2Fvcpkg
-        https%3A%2F%2Fgithub.com%2Fmicrosoft%2Fvcpkg
-        an empty value
+- ``namespace``: Currently reserved for future use and should be empty
 
 - ``name``: The case-sensitive name of the port. **Required**
 - ``version``: The port version. **Required**
 - ``qualifiers``: The qualifiers below are used to provide more specific information on a port's origin registry and to distinguish between multiple instances of the same port dependency within the same project (for example, when the project targets multiple platforms).
 
-  - ``registry-version``: TBD. **Required**
+  - ``registry_version``: TBD. **Required**
+  - ``repository_url``: A `percent-encoded <https://www.rfc-editor.org/rfc/rfc3986#section-2.1>`_ absolute URI for the registry the port came from. **Optional**
+
+    - If empty, the port comes from the default registry, ``https://github.com/microsoft/vcpkg``.
+
   - The following group of qualifiers are optional, but if any appear, they must all appear. If none appear, the dependency is a "source-only" dependency.
   - ``abi``: TBD
   - ``triplet``: TBD
-  - ``features``: TBD
+  - ``features``: A comma-delimited list of enabled features for the port.
 
 - ``subpath``: Currently reserved for future use and should be empty.
+- Examples::
+
+    pkg:vcpkg/ms-gsl@4.0.0?registry_version=4e2b371
+    pkg:vcpkg/llvm@15.0.7?registry_version=4e2b371&abi=???&triplet=????&features=clang
+    pkg:vcpkg/ffmpeg@5.1.2?registry_url=https%3A%2F%2Fgithub.com%2Fazure-sdk%2Fvcpkg&registry_version=e6c17cc
+
 
 
 Other candidate types to define:
