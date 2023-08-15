@@ -541,17 +541,15 @@ vcpkg
 
     - If empty, the port comes from the default registry, ``https://github.com/microsoft/vcpkg``.
 
-  - The following group of qualifiers are optional, but if any appear, they must all appear. If none appear, the dependency is a "source-only" dependency.
-  - ``abi``: TBD
-  - ``triplet``: TBD
-  - ``features``: A comma-delimited list of enabled features for the port.
+  - Additional qualifiers may be present on the purl that provide additional information about the context in which the package is being used, such as build configuration or platform information. These additional qualifiers must be tolerated during parsing and can be ignored if the parser does not expect them.
 
 - ``subpath``: Currently reserved for future use and should be empty.
 - Examples::
 
-    pkg:vcpkg/ms-gsl@4.0.0?registry_version=4e2b371
-    pkg:vcpkg/llvm@15.0.7?registry_version=4e2b371&abi=???&triplet=????&features=clang
-    pkg:vcpkg/ffmpeg@5.1.2?registry_url=https%3A%2F%2Fgithub.com%2Fazure-sdk%2Fvcpkg&registry_version=e6c17cc
+    Microsoft GSL version 4.0.0 from the default registry at commit 4e2b371
+        pkg:vcpkg/ms-gsl@4.0.0?registry_version=4e2b371 
+    ffmpeg version 5.1.2 from the azure-sdk registry at commit e6c17cc
+        pkg:vcpkg/ffmpeg@5.1.2?registry_url=https%3A%2F%2Fgithub.com%2Fazure-sdk%2Fvcpkg&registry_version=e6c17cc
 
 
 
