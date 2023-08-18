@@ -543,7 +543,7 @@ vcpkg
   - ``registry_version``: A string specifying the version of the registry specified by `repository_url`. 
   
     - For git registries, the commit hash (potentially abbreviated). This must __NOT__ be any other kind of git reference, such as `HEAD` or tags. **Required**
-    - For filesystem registries, an string that can be used to identify specific versions, such as a Coordinated Universal Time (UTC) as described in `RFC 3339 <https://datatracker.ietf.org/doc/html/rfc3339>`_. **Optional
+    - For filesystem registries, an string that can be used to identify specific versions, such as Coordinated Universal Time (UTC) as described in `RFC 3339 <https://datatracker.ietf.org/doc/html/rfc3339>`_. If using a UTC time, be sure to percent-encode it correctly. **Optional**
 
   - Additional qualifiers may be present on the purl that provide additional information about the context in which the package is being used, such as build configuration or platform information. These additional qualifiers must be tolerated during parsing and can be ignored if the parser does not expect them.
 
@@ -555,7 +555,7 @@ vcpkg
     ffmpeg version 5.1.2 from the azure-sdk registry at commit e6c17cc
         pkg:vcpkg/ffmpeg@5.1.2?registry_url=https%3A%2F%2Fgithub.com%2Fazure-sdk%2Fvcpkg&registry_version=e6c17cc
     LLVM from a filesystem registry
-        pkg:vcpkg/llvm@15.0.7?registry_url=file%3A%2F%2F%2FC%3A%2Flocal-registry%2Fvcpkg&registry_version=2023-08-18T22:28:52Z
+        pkg:vcpkg/llvm@15.0.7?registry_url=file%3A%2F%2F%2FC%3A%2Flocal-registry%2Fvcpkg&registry_version=2023-08-18T22%3A28%3A52Z
 
 
 
