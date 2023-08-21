@@ -261,7 +261,7 @@ githubactions
   must be lowercased.
 - The ``name`` is the repository name. It is not case sensitive and must be
   lowercased.
-- The ``subpath`` is used to point to a secondary action within a repository. It is not case sensitive and must be lowercased.
+- The ``subpath`` is used to point to the location of an action within a repository in the event there are multiple defined. It is not case sensitive and must be lowercased. If omitted, the package-url refers to the default action for the repository only.
 - The ``version`` is a commit SHA or release tag. 
 - The ``repository_url`` refers to the GitHub instance that hosts the action you are using. If omitted, the default is assumed to be `https://github.com/`.
 - Examples::
