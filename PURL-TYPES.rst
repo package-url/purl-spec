@@ -263,7 +263,7 @@ githubactions
   lowercased.
 - The ``subpath`` is used to point to a secondary action within a repository. It is not case sensitive and must be lowercased.
 - The ``version`` is a commit SHA or release tag. 
-- The ``repositoryUrl`` refers to the GitHub instance you are using. If omitted, the default is assumed to be `https://github.com/`.
+- The ``repository_url`` refers to the GitHub instance that hosts the action you are using. If omitted, the default is assumed to be `https://github.com/`.
 - Examples::
 
       pkg:githubactions/package-url/purl-spec@244fd47e07d1004
