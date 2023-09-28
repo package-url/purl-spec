@@ -600,9 +600,9 @@
     "is_invalid": true
   },
   {
-    "description": "subpath with percent encoded % are invalid",
-    "purl": "pkg:npm/test#invalid/%25/path",
-    "canonical_purl": "pkg:npm/test#invalid/%25/path",
+    "description": "subpath with percent encoded / are invalid",
+    "purl": "pkg:npm/test#invalid/%2F/path",
+    "canonical_purl": "pkg:npm/test#invalid/%2F/path",
     "type": null,
     "namespace": null,
     "name": null,
@@ -708,7 +708,7 @@
     "is_invalid": true
   },
   {
-    "description": "Non unicode characters must be percent encoded",
+    "description": "Non-unicode characters must be percent encoded",
     "purl": "pkg:npm/раƈκąġе",
     "canonical_purl": "pkg:npm/раƈκąġе",
     "type": null,
