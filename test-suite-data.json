@@ -588,7 +588,7 @@
     "is_invalid": true
   },
   {
-    "description": "subpath containing '.' are invalid",
+    "description": "subpath containing '..' are invalid",
     "purl": "pkg:npm/test#invalid/../path",
     "canonical_purl": "pkg:npm/test#invalid/../path",
     "type": null,
