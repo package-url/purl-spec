@@ -461,9 +461,11 @@ pypi
 - PyPI treats ``-`` and ``_`` as the same character and is not case sensitive.
   Therefore a PyPI package ``name`` must be lowercased and underscore ``_``
   replaced with a dash ``-``.
+- The ``filename`` qualifier selects a particular distribution file (case-sensitive).
 - Examples::
 
       pkg:pypi/django@1.11.1
+      pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl
       pkg:pypi/django-allauth@12.23
 
 rpm
