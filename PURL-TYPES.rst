@@ -457,7 +457,7 @@ pypi
 ----
 ``pypi`` for Python packages:
 
-- The default repository is ``https://pypi.python.org``.
+- The default repository is ``https://pypi.org``. (Previously  ``https://pypi.python.org``.)
 - PyPI treats ``-`` and ``_`` as the same character and is not case sensitive.
   Therefore a PyPI package ``name`` must be lowercased and underscore ``_``
   replaced with a dash ``-``.
