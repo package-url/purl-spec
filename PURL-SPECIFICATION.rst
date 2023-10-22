@@ -1,3 +1,7 @@
+.. SPDX-FileCopyrightText: the purl authors
+..
+.. SPDX-License-Identifier: MIT
+
 Package URL specification v1.0.X
 ================================
 
