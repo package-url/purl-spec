@@ -534,6 +534,7 @@ Other candidate types to define:
 - ``chef`` for Chef packages:
 - ``chocolatey`` for Chocolatey packages
 - ``clojars`` for Clojure packages:
+- ``codeproject`` for Code Project scripts:
 - ``coreos`` for CoreOS packages:
 - ``cpan`` for CPAN Perl packages:
 - ``ctan`` for CTAN TeX packages:
