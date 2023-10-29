@@ -115,6 +115,21 @@ cargo
       pkg:cargo/clap@2.33.0
       pkg:cargo/structopt@0.3.11
 
+codeproject
+-----------
+
+``codeproject`` for CodeProject scripts:
+
+- The default repository is ``https://www.codeproject.com``.
+- Direct download URL for articles: ``https://www.codeproject.com/script/Articles/ViewDownloads.aspx?aid=<article-number>``
+- The ``name`` is the CodeProject ``<article-number>``.
+- The ``version`` is the CodeProject ``<revision-number>``.
+
+- Examples::
+
+      pkg:codeproject/5371@436
+      pkg:codeproject/168662@39
+
 composer
 --------
 ``composer`` for Composer PHP packages:
