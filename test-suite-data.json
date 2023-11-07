@@ -567,14 +567,14 @@
   },
   {
     "description": "spaces are spaces",
-    "purl": "pkg:golang/example.com/our examples/example widgets@first draft?x-space= #sub path",
-    "canonical_purl": "pkg:golang/example.com/our%20examples/example%20widgets@first%20draft?x-space=%20#sub%20path",
+    "purl": "pkg:golang/example.com/our examples/example widgets@first draft?x-space=a b#sub path",
+    "canonical_purl": "pkg:golang/example.com/our%20examples/example%20widgets@first%20draft?x-space=a%20b#sub%20path",
     "type": "golang",
     "namespace": "example.com/our examples",
     "name": "example widgets",
     "version": "first draft",
     "qualifiers": {
-      "x-space": " "
+      "x-space": "a b"
     },
     "subpath": "sub path",
     "is_invalid": false
