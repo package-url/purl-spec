@@ -214,6 +214,10 @@ The rules for each component are:
     - A `value` must be a percent-encoded string
     - The '=' separator is neither part of the `key` nor of the `value`
 
+  - Although this format may seem like `x-www-form-urlencoded`_, it is not.
+    This means that spaces are always encoded as %20, not '+', and '+' is decoded as '+'.
+
+.. _x-www-form-urlencoded: https://url.spec.whatwg.org/#application/x-www-form-urlencoded
 
 - **subpath**:
 
@@ -259,6 +263,9 @@ Use these rules for percent-encoding and decoding `purl` components:
 - the '?' `qualifiers` separator must be encoded as `%3F` elsewhere
 - the '=' `qualifiers` key/value separator must NOT be encoded
 - the '#' `subpath` separator must be encoded as `%23` elsewhere
+
+- the ' ' character must be encoded as `%20` everywhere, never '+'
+- the '+' character should be encoded as `%2B` in qualifiers to avoid problems with certain parsers
 
 - All non-ASCII characters must be encoded as UTF-8 and then percent-encoded
 

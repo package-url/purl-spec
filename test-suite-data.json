@@ -550,5 +550,33 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": false
+  },
+  {
+    "description": "plus signs are plus signs",
+    "purl": "pkg:golang/example+.com/widgets+@v1.0.0+5?x-plus=+#a+",
+    "canonical_purl": "pkg:golang/example+.com/widgets+@v1.0.0+5?x-plus=%2B#a+",
+    "type": "golang",
+    "namespace": "example+.com",
+    "name": "widgets+",
+    "version": "v1.0.0+5",
+    "qualifiers": {
+      "x-plus": "+"
+    },
+    "subpath": "a+",
+    "is_invalid": false
+  },
+  {
+    "description": "spaces are spaces",
+    "purl": "pkg:golang/example.com/our examples/example widgets@first draft?x-space= #sub path",
+    "canonical_purl": "pkg:golang/example.com/our%20examples/example%20widgets@first%20draft?x-space=%20#sub%20path",
+    "type": "golang",
+    "namespace": "example.com/our examples",
+    "name": "example widgets",
+    "version": "first draft",
+    "qualifiers": {
+      "x-space": " "
+    },
+    "subpath": "sub path",
+    "is_invalid": false
   }
 ]

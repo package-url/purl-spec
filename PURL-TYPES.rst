@@ -100,7 +100,7 @@ cocoapods
       pkg:cocoapods/AFNetworking@4.0.1
       pkg:cocoapods/MapsIndoors@3.24.0
       pkg:cocoapods/ShareKit@2.0#Twitter
-      pkg:cocoapods/GoogleUtilities@7.5.2#NSData+zlib
+      pkg:cocoapods/GoogleUtilities@7.5.2#NSData%2Bzlib
 
 cargo
 -----
@@ -504,9 +504,9 @@ Use of known qualifiers key/value pairs such as ``download_url`` can be used to 
 
 - Examples::
 
-      pkg:swid/Acme/example.com/Enterprise+Server@1.0.0?tag_id=75b8c285-fa7b-485b-b199-4745e3004d0d
+      pkg:swid/Acme/example.com/Enterprise%20Server@1.0.0?tag_id=75b8c285-fa7b-485b-b199-4745e3004d0d
       pkg:swid/Fedora@29?tag_id=org.fedoraproject.Fedora-29
-      pkg:swid/Adobe+Systems+Incorporated/Adobe+InDesign@CC?tag_id=CreativeCloud-CS6-Win-GM-MUL
+      pkg:swid/Adobe%20Systems%20Incorporated/Adobe%20InDesign@CC?tag_id=CreativeCloud-CS6-Win-GM-MUL
 
 swift
 -----
