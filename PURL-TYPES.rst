@@ -87,6 +87,17 @@ bitnami
       pkg:bitnami/wordpress@6.2.0
       pkg:bitnami/wordpress@6.2.0?arch=arm64
 
+brew
+-------
+``brew`` for applications which are installed via Homebrew package manager using ``brew install`` command. 
+
+- There is no default repository.
+- The ``name`` is the ``Application name`` which is often retrieved from dedicated Homebrew location (Reference: https://docs.brew.sh/Installation)
+- The ``version`` is the ``Application version`` which is often retrieved from ``INSTALL_RECEIPT.json`` 
+- Examples::
+
+      pkg:brew/wget@1.21.3
+
 cocoapods
 ---------
 ``cocoapods`` for CocoaPods:
