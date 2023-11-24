@@ -79,13 +79,13 @@ bitnami
 
 - The default repository is ``https://downloads.bitnami.com/files/stacksmith``.
 - The ``name`` is the component name. It must be lowercased.
-- The ``version`` is the full Bitnami package version, including version, revision and architecture.
+- The ``version`` is the full Bitnami package version, including version and revision.
 - The ``arch`` is the qualifiers key for a package architecture. Available values: ``amd64`` (default) and ``arm64``.
+- The ``distro`` is the qualifiers key for the distro with which it was generated. Examples: ``debian-11``, ``ubuntu-22``, ...
 - Examples::
 
-      pkg:bitnami/wordpress
-      pkg:bitnami/wordpress@6.2.0
-      pkg:bitnami/wordpress@6.2.0?arch=arm64
+      pkg:bitnami/wordpress@6.2.0-6?arch=amd64&distro=photon-4
+      pkg:bitnami/wordpress@6.2.0-1?arch=ard64&distro=debian-11
 
 cocoapods
 ---------
