@@ -397,6 +397,28 @@ nuget
 
       pkg:nuget/EnterpriseLibrary.Common@6.0.1304
 
+``checksum`` qualifier
+^^^^^^^^^^^^^^^^^^^^^^
+
+``.nupkg`` files have attached signatures:
+inside the package file, there is a signature file which signs the package content.
+Not only can NuGet authors sign packages,
+but NuGet repositories often sign every package within the repository.
+NuGet.org applies repository signatures,
+so it is very common for a ``.nupkg`` file to contain a repository signature.
+
+The NuGet tooling does not consider this signature file to be part of the package.
+When the NuGet tooling generates an SHA-512 hash of a package,
+e.g. in a ``project.assets.json`` file or ``packages.lock.json`` file,
+that SHA-512 package hash is the hash of the ``.nupkg`` file with the ``signature.p7s`` removed.
+This allows additional signatures to be added to the package after it has been published,
+without creating a distinct package that would be rejected by an existing ``packages.lock.json`` file.
+
+When generating a ``checksum`` qualifier for a NuGet dependency,
+NuGet's package SHA-512 should not be used.
+Instead, use the SHA-512 hash of the package file.
+This maintains a consistent meaning of the ``checksum`` qualifier across different package types.
+
 qpkg
 ----
 ``qpkg`` for QNX packages:
