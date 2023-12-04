@@ -87,6 +87,25 @@ bitnami
       pkg:bitnami/wordpress@6.2.0
       pkg:bitnami/wordpress@6.2.0?arch=arm64
 
+brew
+----
+``brew`` for Homebrew-based packages:
+
+- The default repository (tap) is ``homebrew/core``.
+
+  - The tap syntax is ``https://github.com/{org}/Homebrew-{tap}``, so
+    ``homebrew/core`` corresponds to the URL ``https://github.com/homebrew/homebrew-core``.
+- The ``name`` is the formula name.
+- The ``version`` is the formula version.
+- Qualifier ``tap_url``: for taps that are not on GitHub or otherwise require an explicit URL,
+  this is the full URL to the tap.
+- Examples::
+
+      pkg:brew/sqlite@3.43.2
+      pkg:brew/homebrew/core/sqlite@3.43.2
+      pkg:brew/some-org/some-tap/some-app@1.2.3
+      pkg:brew/some-org/some-tap/some-app@1.2.3&tap_url=https://git.example.com/some-org/some-tap.git
+
 cocoapods
 ---------
 ``cocoapods`` for CocoaPods:
