@@ -91,17 +91,20 @@ brew
 ----
 ``brew`` for Homebrew-based packages:
 
-- The default repository, which is called a "Tap" in Homebrew terminology, is ``homebrew/core``.
+- There is no default package repository; this should be implied either from
+  the ``namespace`` or using a tap URL via the ``tap_url`` qualifier.
+- The ``namespace``, which is called a "Tap" in Homebrew terminology, defaults to ``homebrew/core``.
 
-  - The typical tap identifier expands to the URL ``https://github.com/{org}/Homebrew-{tap}``, so
-    the tap identifier ``homebrew/core`` corresponds to the tap URL
-    ``https://github.com/homebrew/homebrew-core``.
-  - Any git URL is a valid tap URL (see ``tap_url``)
+  - When the ``tap_url`` qualifier is not specified, the Tap identifier corresponds to the URL
+    ``https://github.com/{org}/homebrew-{tap}``, such as
+    ``https://github.com/homebrew/homebrew-core`` for ``homebrew/core``.
+  - When the ``tap_url`` qualifier is specified, the Tap identifier is the local name of the Tap.
 
-- The ``name`` is the formula name.
+- The ``name`` is the formula name. Formula names that contain ``@`` must be percent-encoded,
+  such as ``postgresql%4012`` for ``postgres@12``.
 - The ``version`` is the formula version.
 - Qualifier ``tap_url``: for taps that are not on GitHub or otherwise require an explicit URL,
-  this is the full URL to the tap.
+  this is the full ``git`` URL to the tap.
 - Examples::
 
       pkg:brew/sqlite@3.43.2
