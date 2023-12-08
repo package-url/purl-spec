@@ -105,6 +105,7 @@ brew
 - Examples::
 
       pkg:brew/sqlite@3.43.2
+      pkg:brew/postgresql%4012@12.17
       pkg:brew/homebrew/core/sqlite@3.43.2
       pkg:brew/some-org/some-tap/some-app@1.2.3
       pkg:brew/some-org/some-tap/some-app@1.2.3?tap_url=https://git.example.com/some-org/some-tap.git
