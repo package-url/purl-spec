@@ -91,10 +91,10 @@ brew
 ----
 ``brew`` for Homebrew-based packages:
 
-- The default repository (tap) is ``homebrew/core``.
+- The default repository, which is called a "Tap" in Homebrew terminology, is ``homebrew/core``.
 
-  - The tap syntax is ``https://github.com/{org}/Homebrew-{tap}``, so
-    ``homebrew/core`` corresponds to the URL ``https://github.com/homebrew/homebrew-core``.
+  - The typical tap identifier expands to the URL ``https://github.com/{org}/Homebrew-{tap}``, so the tap identifier
+    ``homebrew/core`` corresponds to the tap URL ``https://github.com/homebrew/homebrew-core``.
 - The ``name`` is the formula name.
 - The ``version`` is the formula version.
 - Qualifier ``tap_url``: for taps that are not on GitHub or otherwise require an explicit URL,
@@ -104,7 +104,7 @@ brew
       pkg:brew/sqlite@3.43.2
       pkg:brew/homebrew/core/sqlite@3.43.2
       pkg:brew/some-org/some-tap/some-app@1.2.3
-      pkg:brew/some-org/some-tap/some-app@1.2.3&tap_url=https://git.example.com/some-org/some-tap.git
+      pkg:brew/some-org/some-tap/some-app@1.2.3?tap_url=https://git.example.com/some-org/some-tap.git
 
 cocoapods
 ---------
