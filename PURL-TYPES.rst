@@ -168,6 +168,34 @@ conda
 
       pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2
 
+cpan
+----
+``cpan`` for CPAN Perl packages:
+
+- The default respository is ``https://www.cpan.org/``.
+- The ``namespace``:
+  - To refer to a CPAN distribution name, the ``namespace`` MUST be present. In this case, the namespace is the CPAN id of the author/publisher. It MUST be written uppercase, followed by the distribution name in the ``name`` component. A distribution name may NEVER contain the string ``::``.
+  - To refer to a CPAN module, the ``namespace`` MUST be absent. The module name MAY contain zero or more ``::`` strings, and the module name MUST NOT contain a ``-``
+
+- The ``name`` is the module or distribution name and is case sensitive.
+- The ``version`` is the module or distribution version.
+- Optional qualifiers may include:
+
+  - ``repository_url``: CPAN/MetaCPAN/BackPAN/DarkPAN repository base URL (default is ``https://www.cpan.org``)
+  - ``download_url``: URL of package or distibution
+  - ``vcs_url``: extra URL for a package version control system
+  - ``ext``: file extension (default is ``tar.gz``)
+
+- Examples::
+
+      pkg:cpan/Perl::Version@1.013
+      pkg:cpan/DROLSKY/DateTime@1.55
+      pkg:cpan/DateTime@1.55
+      pkg:cpan/GDT/URI-PackageURL
+      pkg:cpan/LWP::UserAgent
+      pkg:cpan/OALDERS/libwww-perl@6.76
+      pkg:cpan/URI
+
 cran
 -----
 ``cran`` for CRAN R packages:
@@ -537,7 +565,6 @@ Other candidate types to define:
 - ``chocolatey`` for Chocolatey packages
 - ``clojars`` for Clojure packages:
 - ``coreos`` for CoreOS packages:
-- ``cpan`` for CPAN Perl packages:
 - ``ctan`` for CTAN TeX packages:
 - ``crystal`` for Crystal Shards packages:
 - ``drupal`` for Drupal packages:
