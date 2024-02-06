@@ -348,6 +348,42 @@
     "is_invalid": true
   },
   {
+    "description": "simple vcpkg purl",
+    "purl": "pkg:vcpkg/ms-gsl@4.0.0?registry_version=4e2b371",
+    "canonical_purl": "pkg:vcpkg/ms-gsl@4.0.0?registry_version=4e2b371",
+    "type": "vcpkg",
+    "namespace": null,
+    "name": "ms-gsl",
+    "version": "4.0.0",
+    "qualifiers": {"registry_version": "4e2b371"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "vcpkg non-default git registry",
+    "purl": "pkg:vcpkg/ffmpeg@5.1.2?registry_url=https%3A%2F%2Fgithub.com%2Fazure-sdk%2Fvcpkg&registry_version=e6c17cc",
+    "canonical_purl": "pkg:vcpkg/ffmpeg@5.1.2?registry_url=https%3A%2F%2Fgithub.com%2Fazure-sdk%2Fvcpkg&registry_version=e6c17cc",
+    "type": "vcpkg",
+    "namespace": null,
+    "name": "ffmpeg",
+    "version": "5.1.2",
+    "qualifiers": {"registry_url": "https://github.com/azure-sdk/vcpkg", "registry_version": "e6c17cc"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "vcpkg filesystem registry",
+    "purl": "pkg:vcpkg/llvm@15.0.7?registry_url=file%3A%2F%2F%2FC%3A%2Flocal-registry%2Fvcpkg&registry_version=2023-08-18T22%3A28%3A52Z",
+    "canonical_purl": "pkg:vcpkg/llvm@15.0.7?registry_url=file%3A%2F%2F%2FC%3A%2Flocal-registry%2Fvcpkg&registry_version=2023-08-18T22%3A28%3A52Z",
+    "type": "vcpkg",
+    "namespace": null,
+    "name": "llvm",
+    "version": "15.0.7",
+    "qualifiers": {"registry_url": "file:///C:/local-registry/vcpkg", "registry_version": "2023-08-18T22:28:52Z"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
     "description": "valid conda purl with qualifiers",
     "purl": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
     "canonical_purl": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
