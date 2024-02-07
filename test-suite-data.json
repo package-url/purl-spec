@@ -550,5 +550,41 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": false
+  },
+  {
+    "description": "valid julia purl for stdlib package",
+    "purl": "pkg:julia/Dates@1.9.0?uuid=ade2ca70-3891-5945-98fb-dc099432e06a",
+    "canonical_purl": "pkg:julia/Dates@1.9.0?uuid=ade2ca70-3891-5945-98fb-dc099432e06a",
+    "type": "julia",
+    "namespace": "",
+    "name": "Dates",
+    "version": "1.9.0",
+    "qualifiers": {"uuid": "ade2ca70-3891-5945-98fb-dc099432e06a"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "valid julia purl for stdlib package without version",
+    "purl": "pkg:julia/Dates",
+    "canonical_purl": "pkg:julia/Dates",
+    "type": "julia",
+    "namespace": "",
+    "name": "Dates",
+    "version": null,
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "valid julia purl for package with registry and repository_url",
+    "purl": "pkg:julia/HolyLabRegistry/RegisterQD@0.3.1?repository_url=https://github.com/HolyLab/HolyLabRegistry",
+    "canonical_purl": "pkg:julia/HolyLabRegistry/RegisterQD@0.3.1?uuid=ac24ea0c-1830-11e9-18d4-81f172323054&repository_url=https://github.com/HolyLab/HolyLabRegistry",
+    "type": "julia",
+    "namespace": "HolyLabRegistry",
+    "name": "RegisterQD",
+    "version": "0.3.1",
+    "qualifiers": {"uuid": "ac24ea0c-1830-11e9-18d4-81f172323054", "repository_url": "https://github.com/HolyLab/HolyLabRegistry"},
+    "subpath": null,
+    "is_invalid": false
   }
 ]
