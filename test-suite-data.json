@@ -550,5 +550,77 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": false
+  },
+  {
+    "description": "valid alpm purl",
+    "purl": "pkg:alpm/arch/pacman@6.0.1-1?arch=x86_64",
+    "canonical_purl": "pkg:alpm/arch/pacman@6.0.1-1?arch=x86_64",
+    "type": "alpm",
+    "namespace": "arch",
+    "name": "pacman",
+    "version": "6.0.1-1",
+    "qualifiers": {"arch": "x86_64"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "alpm namespace and name should be lowercased",
+    "purl": "pkg:alpm/Arch/PacMan@6.0.1-1?arch=x86_64",
+    "canonical_purl": "pkg:alpm/arch/pacman@6.0.1-1?arch=x86_64",
+    "type": "alpm",
+    "namespace": "arch",
+    "name": "pacman",
+    "version": "6.0.1-1",
+    "qualifiers": {"arch": "x86_64"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "valid apk purl",
+    "purl": "pkg:apk/alpine/curl@7.83.0-r0?arch=x86_64",
+    "canonical_purl": "pkg:apk/alpine/curl@7.83.0-r0?arch=x86_64",
+    "type": "apk",
+    "namespace": "alpine",
+    "name": "curl",
+    "version": "7.83.0-r0",
+    "qualifiers": {"arch": "x86_64"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "apk namespace and name should be lowercased",
+    "purl": "pkg:apk/Alpine/Curl@7.83.0-r0?arch=x86_64",
+    "canonical_purl": "pkg:apk/alpine/curl@7.83.0-r0?arch=x86_64",
+    "type": "apk",
+    "namespace": "alpine",
+    "name": "curl",
+    "version": "7.83.0-r0",
+    "qualifiers": {"arch": "x86_64"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "valid qpkg purl",
+    "purl": "pkg:qpkg/blackberry/com.qnx.sdp@7.0.0.SGA201702151847",
+    "canonical_purl": "pkg:qpkg/blackberry/com.qnx.sdp@7.0.0.SGA201702151847",
+    "type": "qpkg",
+    "namespace": "blackberry",
+    "name": "com.qnx.sdp",
+    "version": "7.0.0.SGA201702151847",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "qpkg namespace should be lowercased",
+    "purl": "pkg:qpkg/BlackBerry/com.qnx.sdp@7.0.0.SGA201702151847",
+    "canonical_purl": "pkg:qpkg/blackberry/com.qnx.sdp@7.0.0.SGA201702151847",
+    "type": "qpkg",
+    "namespace": "blackberry",
+    "name": "com.qnx.sdp",
+    "version": "7.0.0.SGA201702151847",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
   }
 ]
