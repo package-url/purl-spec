@@ -657,6 +657,7 @@ Implementations
 -----------------------
 
 - Python: https://github.com/nexB/univers
+- Java: https://github.com/nscuro/versatile
 - Yours!
 
 
