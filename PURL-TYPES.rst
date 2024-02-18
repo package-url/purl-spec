@@ -427,6 +427,33 @@ nuget
 
       pkg:nuget/EnterpriseLibrary.Common@6.0.1304
 
+p2
+----
+``p2`` for Eclipse p2 artifact:
+
+- A p2 artifact represents a piece of software that can be consumed using the
+  Eclipse Provisioning Platform. An artifact can represent various types of
+  components, such as Eclipse features, plug-ins or other bundles.
+  
+- Each artifact is uniquely described by its artifact key consisting of an id,
+  version and classifier. The artifact id represents the ``name`` and the
+  version as ``version`` of the PURL. The classifier may be empty and is
+  therefore used as an (optional) `qualifier``. A ``namespace`` is not
+  necessary.
+
+- Examples:
+    org.eclipse.platform, 4.30.0.v20231201-0110, osgi.bundle
+    org.eclipse.sdk, 4.30.0.v20231201-0512, org.eclipse.update.feature
+    org.eclipse.rcp.sdk.id.executable.win32.win32.x86_64, , binary
+
+- Because there is no default p2 repository, a ``location`` qualifier is
+  required, describing the percent-encoded base URI of the artifact repository. 
+  This means that the same artifact can have multiple PURLs, in case it is
+  accessible from multiple update sites.
+
+- Examples::
+    pkg:p2/org.eclipse.swt@3.124.200.v20231113-1355?classifier=osgi.bundle&amp;location=https%3A%2F%2Fdownload.eclipse.org%2Freleases%2F2023-12
+
 qpkg
 ----
 ``qpkg`` for QNX packages:
@@ -587,7 +614,6 @@ Other candidate types to define:
 - ``opam`` for OCaml packages:
 - ``openwrt`` for OpenWRT packages:
 - ``osgi`` for OSGi bundle packages:
-- ``p2`` for Eclipse p2 packages:
 - ``pear`` for Pear PHP packages:
 - ``pecl`` for PECL PHP packages:
 - ``perl6`` for Perl 6 module packages:
