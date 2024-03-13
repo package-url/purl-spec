@@ -356,6 +356,16 @@ huggingface
       pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co
 
 
+luarock
+--------
+``luarock`` for Lua language packages
+
+- The default repository is ``https://luarocks.org/``.
+- Examples::
+
+  pkg:luarock/lua-resty-http@0.17.1-0
+  pkg:luarock/luasql-mysql@2.6.0-3
+
 maven
 -----
 ``maven`` for Maven JARs and related artifacts:
@@ -579,7 +589,6 @@ Other candidate types to define:
 - ``haxe`` for Haxe packages:
 - ``helm`` for Kubernetes packages
 - ``julia`` for Julia packages:
-- ``lua`` for LuaRocks packages:
 - ``melpa`` for Emacs packages
 - ``meteor`` for Meteor JavaScript packages:
 - ``nim`` for Nim packages:
