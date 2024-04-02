@@ -471,6 +471,17 @@ including container images built by Docker and others:
       pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest
       pkg:oci/hello-wasm@sha256%3A244fd47e07d10?tag=v1
 
+pecl
+----
+``pecl`` for PECL PHP packages:
+
+- The default repository is ``https://pecl.php.net/``.
+- The ``namespace`` is empty.
+- The ``name`` is not case sensitive
+- Examples:
+
+      pkg:pecl/APCu@5.1.23
+
 pub
 ----
 ``pub`` for Dart and Flutter packages:
@@ -589,7 +600,6 @@ Other candidate types to define:
 - ``osgi`` for OSGi bundle packages:
 - ``p2`` for Eclipse p2 packages:
 - ``pear`` for Pear PHP packages:
-- ``pecl`` for PECL PHP packages:
 - ``perl6`` for Perl 6 module packages:
 - ``platformio`` for PlatformIO packages:
 - ``ebuild`` for Gentoo Linux portage packages:

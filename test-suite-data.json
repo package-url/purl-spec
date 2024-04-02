@@ -550,5 +550,29 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": false
+  },
+  {
+    "description": "valid pecl purl",
+    "purl": "pkg:pecl/APCu@5.1.23",
+    "canonical_purl": "pkg:pecl/APCu@5.1.23",
+    "type": "pecl",
+    "namespace": null,
+    "name": "APCu",
+    "version": "5.1.23",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "valid pecl purl without version",
+    "purl": "pkg:pecl/APCu",
+    "canonical_purl": "pkg:pecl/APCu",
+    "type": "pecl",
+    "namespace": null,
+    "name": "APCu",
+    "version": null,
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
   }
 ]
