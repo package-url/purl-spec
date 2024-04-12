@@ -423,9 +423,13 @@ nuget
 - The default repository is ``https://www.nuget.org``.
 - There is no ``namespace`` per se even if the common convention is to use
   dot-separated package names where the first segment is ``namespace``-like.
+- The ``name`` is the package ID. It is not case sensitive and must be
+  lowercased.
 - Examples::
 
-      pkg:nuget/EnterpriseLibrary.Common@6.0.1304
+      pkg:nuget/enterpriselibrary.common@6.0.1304
+      pkg:nuget/polly@8.0.0-beta.2
+      pkg:nuget/awssdk.core@3.7.303.14
 
 qpkg
 ----

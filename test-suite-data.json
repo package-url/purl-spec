@@ -156,13 +156,37 @@
     "is_invalid": false
   },
   {
-    "description": "nuget names are case sensitive",
+    "description": "nuget names are not case sensitive",
     "purl": "pkg:Nuget/EnterpriseLibrary.Common@6.0.1304",
-    "canonical_purl": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
+    "canonical_purl": "pkg:nuget/enterpriselibrary.common@6.0.1304",
     "type": "nuget",
     "namespace": null,
-    "name": "EnterpriseLibrary.Common",
+    "name": "enterpriselibrary.common",
     "version": "6.0.1304",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "nuget names do not always contain separators",
+    "purl": "pkg:nuget/polly@8.0.0-beta.2",
+    "canonical_purl": "pkg:nuget/polly@8.0.0-beta.2",
+    "type": "nuget",
+    "namespace": null,
+    "name": "polly",
+    "version": "8.0.0-beta.2",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "nuget versions are extended semver",
+    "purl": "pkg:Nuget/awssdk.core@3.7.303.14",
+    "canonical_purl": "pkg:nuget/awssdk.core@3.7.303.14",
+    "type": "nuget",
+    "namespace": null,
+    "name": "awssdk.core",
+    "version": "3.7.303.14",
     "qualifiers": null,
     "subpath": null,
     "is_invalid": false
