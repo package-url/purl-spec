@@ -356,6 +356,33 @@ huggingface
       pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co
 
 
+luarocks
+--------
+``luarocks`` for Lua packages installed with LuaRocks:
+
+- ``namespace``: The user manifest under which the package is registered.
+  If not given, the root manifest is assumed.
+  It is case insensitive, but lowercase is encouraged since namespaces
+  are normalized to ASCII lowercase.
+- ``name``: The LuaRocks package name.
+  It is case insensitive, but lowercase is encouraged since package names
+  are normalized to ASCII lowercase.
+- ``version``: The full LuaRocks package version, including module version
+  and rockspec revision.
+  It is case sensitive, and lowercase must be used to avoid
+  compatibility issues with older LuaRocks versions.
+  The full version number is required to uniquely identify a version.
+- Qualifier ``repository_url``: The LuaRocks rocks server to be used;
+  useful in case a private server is used (optional).
+  If ommitted, ``https://luarocks.org`` as default server is assumed.
+
+Examples::
+
+      pkg:luarocks/luasocket@3.1.0-1
+      pkg:luarocks/hisham/luafilesystem@1.8.0-1
+      pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/
+
+
 maven
 -----
 ``maven`` for Maven JARs and related artifacts:
@@ -579,7 +606,6 @@ Other candidate types to define:
 - ``haxe`` for Haxe packages:
 - ``helm`` for Kubernetes packages
 - ``julia`` for Julia packages:
-- ``lua`` for LuaRocks packages:
 - ``melpa`` for Emacs packages
 - ``meteor`` for Meteor JavaScript packages:
 - ``nim`` for Nim packages:
