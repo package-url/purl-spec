@@ -542,6 +542,7 @@ rpm
 
       pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
       pkg:rpm/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25
+      pkg:rpm/vmware/systemd?distro=photon-1
 
 swid
 -----
