@@ -550,5 +550,29 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": false
+  },
+  {
+    "description": "brew names may contain at signs",
+    "purl": "pkg:brew/postgres%4016",
+    "canonical_purl": "pkg:brew/postgres%4016",
+    "type": "brew",
+    "namespace": null,
+    "name": "postgres@16",
+    "version": null,
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "brew may contain multiple at signs",
+    "purl": "pkg:brew/postgres@16@16.1",
+    "canonical_purl": "pkg:brew/postgres%4016@16.1",
+    "type": "brew",
+    "namespace": null,
+    "name": "postgres@16",
+    "version": "16.1",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
   }
 ]
