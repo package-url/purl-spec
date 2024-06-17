@@ -550,5 +550,113 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": false
+  },
+  {
+    "description": "brew names may contain at signs",
+    "purl": "pkg:brew/postgres%4016",
+    "canonical_purl": "pkg:brew/postgres%4016",
+    "type": "brew",
+    "namespace": null,
+    "name": "postgres@16",
+    "version": null,
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "brew may contain multiple at signs",
+    "purl": "pkg:brew/postgres@16@16.1",
+    "canonical_purl": "pkg:brew/postgres%4016@16.1",
+    "type": "brew",
+    "namespace": null,
+    "name": "postgres@16",
+    "version": "16.1",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "brew may specify a namespace that uses the Homebrew default tap lookup mechanism",
+    "purl": "pkg:brew/some-org/some-tap/sqlite@3.43.2?tap_url=https://git.example.com/some-org/some-tap.git",
+    "canonical_purl": "pkg:brew/some-org/some-tap/sqlite@3.43.2?tap_url=https://git.example.com/some-org/some-tap.git",
+    "type": "brew",
+    "namespace": "https://git.example.com/some-org/some-tap.git",
+    "name": "sqlite",
+    "version": "3.43.2",
+    "qualifiers": { "tap_url": "https://git.example.com/some-org/some-tap.git"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "brew may specify a namespace that uses the Homebrew default tap lookup mechanism",
+    "purl": "pkg:brew/some-org/some-tap/sqlite@3.43.2",
+    "canonical_purl": "pkg:brew/some-org/some-tap/sqlite@3.43.2",
+    "type": "brew",
+    "namespace": "some-org/some-tap",
+    "name": "sqlite",
+    "version": "3.43.2",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "brew may specify a namespace that is its default repository",
+    "purl": "pkg:brew/homebrew/core/sqlite@3.43.2",
+    "canonical_purl": "pkg:brew/homebrew/core/sqlite@3.43.2",
+    "type": "brew",
+    "namespace": "homebrew/core",
+    "name": "sqlite",
+    "version": "3.43.2",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "brew typical formula",
+    "purl": "pkg:brew/sqlite@3.43.2",
+    "canonical_purl": "pkg:brew/sqlite@3.43.2",
+    "type": "brew",
+    "namespace": null,
+    "name": "sqlite",
+    "version": "3.43.2",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "invalid brew purl without name",
+    "purl": "pkg:brew/@0.9.1",
+    "canonical_purl": "pkg:brew/@0.9.1",
+    "type": "brew",
+    "namespace": null,
+    "name": null,
+    "version": "0.9.1",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "invalid brew purl without version",
+    "purl": "pkg:brew/A3",
+    "canonical_purl": "pkg:brew/A3",
+    "type": "brew",
+    "namespace": null,
+    "name": "A3",
+    "version": null,
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "brew requires name and version at minimum",
+    "purl": "pkg:brew",
+    "canonical_purl": "pkg:brew",
+    "type": "brew",
+    "namespace": null,
+    "name": null,
+    "version": null,
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
   }
 ]
