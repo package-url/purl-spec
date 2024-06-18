@@ -580,7 +580,7 @@
     "purl": "pkg:brew/some-org/some-tap/sqlite@3.43.2?tap_url=https://git.example.com/some-org/some-tap.git",
     "canonical_purl": "pkg:brew/some-org/some-tap/sqlite@3.43.2?tap_url=https://git.example.com/some-org/some-tap.git",
     "type": "brew",
-    "namespace": "https://git.example.com/some-org/some-tap.git",
+    "namespace": "some-org/some-tap",
     "name": "sqlite",
     "version": "3.43.2",
     "qualifiers": { "tap_url": "https://git.example.com/some-org/some-tap.git"},
