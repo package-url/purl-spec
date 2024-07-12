@@ -53,7 +53,8 @@ apk
 - The ``name`` is the package name. It is not case sensitive and must be
   lowercased.
 - The ``version`` is a package version as expected by apk.
-- The ``arch`` is the qualifiers key for a package architecture.
+- The ``arch`` is the qualifiers key for a package architecture. The special value
+  ``arch=source`` identifies an Alpine source package as built by ``abuild srcpkg``.
 - Examples::
 
       pkg:apk/alpine/curl@7.83.0-r0?arch=x86
