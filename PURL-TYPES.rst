@@ -578,6 +578,18 @@ swift
       pkg:swift/github.com/Alamofire/Alamofire@5.4.3
       pkg:swift/github.com/RxSwiftCommunity/RxFlow@2.12.4
 
+swiplpack
+-----
+``swiplpack`` for SWI Prolog pack packages
+
+- The default repository is ``https://www.swi-prolog.org/pack/list``
+- The ``name`` is the package name. It must be lowercased.
+- The ``version`` is the package version.
+- Examples::
+
+      pkg:swiplpack/condition@0.1.1
+      pkg:swiplpack/lsp_server@2.2.11
+
 Other candidate types to define:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
