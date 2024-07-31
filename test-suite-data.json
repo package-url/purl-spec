@@ -622,5 +622,89 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": false
+  },
+  {
+    "description": "bazel module with default registry",
+    "purl": "pkg:bazel/rules_java@7.8.0?registry_url=https://bcr.bazel.build/",
+    "canonical_purl": "pkg:bazel/rules_java@7.8.0",
+    "type": "bazel",
+    "namespace": null,
+    "name": "rules_java",
+    "version": "7.8.0",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "bazel module with custom registry",
+    "purl": "pkg:bazel/rules_java@7.8.0?registry_url=https://example.org/bazel-registry/",
+    "canonical_purl": "pkg:bazel/rules_java@7.8.0?registry_url=https://example.org/bazel-registry",
+    "type": "bazel",
+    "namespace": null,
+    "name": "rules_java",
+    "version": "7.8.0",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "bazel module with relaxed semver version",
+    "purl": "pkg:bazel/curl@8.8.0.bcr.1",
+    "canonical_purl": "pkg:bazel/curl@8.8.0.bcr.1",
+    "type": "bazel",
+    "namespace": null,
+    "name": "curl",
+    "version": "8.8.0.bcr.1",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "bazel module names are lowercased",
+    "purl": "pkg:bazel/Curl@8.8.0.bcr.1",
+    "canonical_purl": "pkg:bazel/Curl@8.8.0.bcr.1",
+    "type": "bazel",
+    "namespace": null,
+    "name": "curl",
+    "version": "8.8.0.bcr.1",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "bazel module with target",
+    "purl": "pkg:bazel/rules_java@7.8.0#//toolchains:singlejar",
+    "canonical_purl": "pkg:bazel/rules_java@7.8.0#toolchains:singlejar",
+    "type": "bazel",
+    "namespace": null,
+    "name": "rules_java",
+    "version": "7.8.0",
+    "qualifiers": null,
+    "subpath": "toolchains:singlejar",
+    "is_invalid": false
+  },
+  {
+    "description": "bazel module with target in short-hand form",
+    "purl": "pkg:bazel/rules_go@0.48.0#//go:go",
+    "canonical_purl": "pkg:bazel/rules_go@0.48.0#go",
+    "type": "bazel",
+    "namespace": null,
+    "name": "rules_go",
+    "version": "0.48.0",
+    "qualifiers": null,
+    "subpath": "go",
+    "is_invalid": false
+  },
+  {
+    "description": "bazel module with top-level target",
+    "purl": "pkg:bazel/rules_go@0.48.0#//:stdlib",
+    "canonical_purl": "pkg:bazel/rules_go@0.48.0#:stdlib",
+    "type": "bazel",
+    "namespace": null,
+    "name": "rules_go",
+    "version": "0.48.0",
+    "qualifiers": null,
+    "subpath": ":stdlib",
+    "is_invalid": false
   }
 ]
