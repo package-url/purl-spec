@@ -82,6 +82,7 @@ bazel
       pkg:bazel/curl@8.8.0?repository_url=https://example.org/bazel-registry
       pkg:bazel/rules_java@7.8.0
       pkg:bazel/rules_java@7.8.0#toolchains:singlejar
+      pkg:bazel/rules_go@0.48.0#go
 
 bitbucket
 ---------
