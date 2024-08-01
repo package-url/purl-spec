@@ -65,16 +65,14 @@ bazel
 
 - The default repository ("registry") is ``https://bcr.bazel.build``, the
   Bazel Central Registry (BCR).
-- The ``name`` is the module name. It is case sensitive, but a single registry
-  will never contain two different module names that compare equal
-  case-insensitively.
+- The ``name`` is the module name. It must be lowercased.
 - The ``version`` is the module version in `Bazel's relaxed semver format
   <https://bazel.build/external/module#version_format>`_.
 - The optional ``repository_url`` can be used to specify the URL of an
-  alternative registry.
+  alternative registry, with any trailing forward slashes removed.
 - The optional ``subpath`` can name a particular Bazel target in the module via
   a label with the leading double slash (``//``) removed and canonicalized by
-  omitting the target name if it is equal to the name of the containing package. 
+  omitting the target name if it is equal to the name of the containing package.
 - Examples::
 
       pkg:bazel/rules_java@7.8.0
