@@ -498,6 +498,18 @@ including container images built by Docker and others:
       pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest
       pkg:oci/hello-wasm@sha256%3A244fd47e07d10?tag=v1
 
+opam
+----
+``opam`` for OCaml packages
+- The default repository is ``https://opam.ocaml.org/``.
+- The ``name`` is the package name and is case sensitive.
+- The ``version`` is the package version.
+
+- Examples::
+
+    pkg:opam/ocaml-base-compiler@5.2.0
+    pkg:opam/git@3.16.1
+
 pub
 ----
 ``pub`` for Dart and Flutter packages:
@@ -610,7 +622,6 @@ Other candidate types to define:
 - ``meteor`` for Meteor JavaScript packages:
 - ``nim`` for Nim packages:
 - ``nix`` for Nixos packages:
-- ``opam`` for OCaml packages:
 - ``openwrt`` for OpenWRT packages:
 - ``osgi`` for OSGi bundle packages:
 - ``p2`` for Eclipse p2 packages:
