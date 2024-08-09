@@ -607,6 +607,7 @@ Other candidate types to define:
 - ``helm`` for Kubernetes packages
 - ``julia`` for Julia packages:
 - ``melpa`` for Emacs packages
+- ``mendix`` for Mendix packages
 - ``meteor`` for Meteor JavaScript packages:
 - ``nim`` for Nim packages:
 - ``nix`` for Nixos packages:
