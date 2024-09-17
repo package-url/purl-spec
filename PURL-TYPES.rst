@@ -530,32 +530,21 @@ vcpkg
   - **port** - A package, along with it's build scripts and possibly minor modifications.
   - **registry** - A collection of ports, possibly private to the user. Analogous to **repository**.
 
-- ``namespace``: Currently reserved for future use and should be empty
-
+- ``namespace``: Currently reserved for future use and should be empty.
 - ``name``: The case-sensitive name of the port. **Required**
-- ``version``: The port version. **Required**
-- ``qualifiers``: The qualifiers below are used to provide more specific information on a port's origin registry and to distinguish between multiple instances of the same port dependency within the same project (for example, when the project targets multiple platforms).
-
-  - ``repository_url``: A `percent-encoded <https://www.rfc-editor.org/rfc/rfc3986#section-2.1>`_ absolute URI for the registry the port came from. For filesystem registries, the URI will have a `file` URI scheme. **Optional**
-
-    - If empty, the port comes from the default registry, ``https://github.com/microsoft/vcpkg``.
-
-  - ``registry_version``: A string specifying the version of the registry specified by `repository_url`. 
-  
-    - For git registries, the commit hash (potentially abbreviated). This must __NOT__ be any other kind of git reference, such as `HEAD` or tags. **Required**
-    - For filesystem registries, an string that can be used to identify specific versions, such as Coordinated Universal Time (UTC) as described in `RFC 3339 <https://datatracker.ietf.org/doc/html/rfc3339>`_. If using a UTC time, be sure to percent-encode it correctly. **Optional**
-
-  - Additional qualifiers may be present on the purl that provide additional information about the context in which the package is being used, such as build configuration or platform information. These additional qualifiers must be tolerated during parsing and can be ignored if the parser does not expect them.
-
+- ``version``: The upstream version of the port (excluding the port file revision). **Required**
 - ``subpath``: Currently reserved for future use and should be empty.
+- Qualifier ``repository_url``: The vcpkg registry where the package is available (optional). If omitted, ``https://github.com/microsoft/vcpkg`` as default registry is assumed.
+- Qualifier ``port_revision``: A string specifying the [port file revision](https://learn.microsoft.com/en-us/vcpkg/reference/vcpkg-json#port-version) (optional).
+- Additional qualifiers may be present on the purl that provide additional information about the context in which the package is being used, such as build configuration or platform information. These additional qualifiers must be tolerated during parsing and can be ignored if the parser does not expect them.
 - Examples::
 
-    Microsoft GSL version 4.0.0 from the default registry at commit 4e2b371
-        pkg:vcpkg/ms-gsl@4.0.0?registry_version=4e2b371 
-    ffmpeg version 5.1.2 from the azure-sdk registry at commit e6c17cc
-        pkg:vcpkg/ffmpeg@5.1.2?registry_url=https%3A%2F%2Fgithub.com%2Fazure-sdk%2Fvcpkg&registry_version=e6c17cc
+    Microsoft GSL version 4.0.0 from the default registry with port file revision 4
+        pkg:vcpkg/ms-gsl@4.0.0?port_revision=4
+    ffmpeg version 5.1.2 from the azure-sdk registry
+        pkg:vcpkg/ffmpeg@5.1.2?repository_url=https://github.com/azure-sdk/vcpkg
     LLVM from a filesystem registry
-        pkg:vcpkg/llvm@15.0.7?registry_url=file%3A%2F%2F%2FC%3A%2Flocal-registry%2Fvcpkg&registry_version=2023-08-18T22%3A28%3A52Z
+        pkg:vcpkg/llvm@15.0.7?repository_url=file:///C:/local-registry/vcpkg
 
 
 
