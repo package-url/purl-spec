@@ -600,7 +600,7 @@ These are a few known versioning schemes for some common Package URL
 `types` (aka. ``ecosystem``).
 
 - **deb**: Debian and Ubuntu https://www.debian.org/doc/debian-policy/ch-relationships.html
-  The comparators are <<, <=, =, >= and >>.
+  Debian uses these comparators: <<, <=, =, >= and >>.
 
 - **rpm**: RPM distros https://rpm-software-management.github.io/rpm/manual/dependencies.html
   The a simplified rmpvercmp version comparison routine is used by archlinux Pacman.
