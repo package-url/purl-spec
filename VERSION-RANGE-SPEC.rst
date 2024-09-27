@@ -251,7 +251,7 @@ Note how the constraints are sorted:
   Apache TomEE 7.0.0-M1 - 7.0.7, Apache TomEE 1.0.0-beta1 - 1.7.5."
 
 - a normalized version range spec is:
-  ``vers:tomee/>=1.0.0-beta1|<=1.7.5|>=7.0.0-M1|<=7.0.7|>=7.1.0|<=7.1.2|>=8.0.0-M1|<=8.0.1``
+  ``vers:maven/>=1.0.0-beta1|<=1.7.5|>=7.0.0-M1|<=7.0.7|>=7.1.0|<=7.1.2|>=8.0.0-M1|<=8.0.1``
 
 - alternatively, four ``vers`` express the same range, using one ``vers`` for
   each vulnerable "branches": 
