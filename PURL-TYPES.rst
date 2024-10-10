@@ -534,8 +534,9 @@ vcpkg
 - ``name``: The case-sensitive name of the port. **Required**
 - ``version``: The upstream version of the port (excluding the port file revision). **Required**
 - ``subpath``: Currently reserved for future use and should be empty.
-- Qualifier ``repository_url``: The vcpkg registry where the package is available (optional). If omitted, ``https://github.com/microsoft/vcpkg`` as default registry is assumed.
+- Qualifier ``repository_url``: The absolute URL of the vcpkg registry where the package is available (optional). If omitted, ``https://github.com/microsoft/vcpkg`` as default registry is assumed. For filesystem registries or [overlay ports](https://learn.microsoft.com/vcpkg/concepts/overlay-ports), the URI will have a `file` URI scheme.
 - Qualifier ``port_revision``: A string specifying the [port file revision](https://learn.microsoft.com/vcpkg/reference/vcpkg-json#port-version) (optional).
+- Qualifier ``repository_revision``: The commit hash of the vcpkg registry, potentially abbreviated (optional).
 - Additional qualifiers may be present on the purl that provide additional information about the context in which the package is being used, such as build configuration or platform information. These additional qualifiers must be tolerated during parsing and can be ignored if the parser does not expect them.
 - Examples::
 
