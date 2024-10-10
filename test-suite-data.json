@@ -384,14 +384,26 @@
     "is_invalid": false
   },
   {
-    "description": "vcpkg filesystem registry",
-    "purl": "pkg:vcpkg/llvm@15.0.7?repository_url=file:///C:/local-registry/vcpkg",
-    "canonical_purl": "pkg:vcpkg/llvm@15.0.7?repository_url=file:///C:/local-registry/vcpkg",
+    "description": "vcpkg filesystem registry or overlay port",
+    "purl": "pkg:vcpkg/llvm@15.0.7?repository_url=file:///C:/local-registry/vcpkg&port_revision=3",
+    "canonical_purl": "pkg:vcpkg/llvm@15.0.7?repository_url=file:///C:/local-registry/vcpkg&port_revision=3",
     "type": "vcpkg",
     "namespace": null,
     "name": "llvm",
     "version": "15.0.7",
-    "qualifiers": {"repository_url": "file:///C:/local-registry/vcpkg"},
+    "qualifiers": {"repository_url": "file:///C:/local-registry/vcpkg", "port_revision": "3"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "vcpkg with additional qualifiers",
+    "purl": "pkg:vcpkg/ms-gsl@4.0.0?port_revision=4&repository_revision=42301df395&os=Linux&os_arch=x64&build_type=Debug&linkage=dynamic",
+    "canonical_purl": "pkg:vcpkg/ms-gsl@4.0.0?port_revision=4&repository_revision=42301df395&os=Linux&os_arch=x64&build_type=Debug&linkage=dynamic",
+    "type": "vcpkg",
+    "namespace": null,
+    "name": "ms-gsl",
+    "version": "4.0.0",
+    "qualifiers": {"port_revision": "4", "repository_revision": "42301df395", "os": "Linux", "os_arch": "x64", "build_type": "Debug", "linkage": "dynamic"},
     "subpath": null,
     "is_invalid": false
   },
