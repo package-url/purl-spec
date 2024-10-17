@@ -187,7 +187,7 @@ The rules for each component are:
   - A ``version`` must be a percent-encoded string
 
   - A ``version`` is a plain and opaque string. Some package ``types`` use versioning
-    conventions such as semver for NPMs or nevra conventions for RPMS. A ``type``
+    conventions such as SemVer for NPMs or NEVRA conventions for RPMS. A ``type``
     may define a procedure to compare and sort versions, but there is no
     reliable and uniform way to do such comparison consistently.
 
