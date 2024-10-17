@@ -554,7 +554,6 @@ Other candidate types to define:
 - ``android`` for Android apk packages:
 - ``atom`` for Atom packages:
 - ``bower`` for Bower JavaScript packages:
-- ``brew`` for Homebrew packages:
 - ``buildroot`` for Buildroot packages
 - ``carthage`` for Cocoapods Cocoa packages:
 - ``chef`` for Chef packages:
