@@ -196,7 +196,7 @@ cpan
       pkg:cpan/URI
 
 cran
-----
+-----
 ``cran`` for CRAN R packages:
 
 - The default repository is ``https://cran.r-project.org``.
