@@ -112,12 +112,13 @@ cpan
 
 - The default respository is ``https://www.cpan.org/``.
 - To search CPAN it is recommended to use ``https://metacpan.org``.
+- The ``namespace`` is the CPAN username of the mantainer.
 - The ``name`` is the package name and is case sensitive.
 - The ``version`` is the package version.
 
 - Examples::
-    pkg:cpan/Perl-Version@1.013
-    pkg:cpan/DateTime@1.55
+    pkg:cpan/BDFOY/Perl-Version@1.013
+    pkg:cpan/DROLSKY/DateTime@1.55
 
 cran
 ----
