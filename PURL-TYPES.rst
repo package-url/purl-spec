@@ -59,6 +59,29 @@ apk
       pkg:apk/alpine/curl@7.83.0-r0?arch=x86
       pkg:apk/alpine/apk@2.12.9-r3?arch=x86
 
+bazel
+-----
+``bazel`` for Bazel modules:
+
+- The default repository ("registry") is ``https://bcr.bazel.build``, the
+  Bazel Central Registry (BCR).
+- The ``name`` is the module name. It must be lowercased.
+- The ``version`` is the module version in `Bazel's relaxed semver format
+  <https://bazel.build/external/module#version_format>`_.
+- The optional ``repository_url`` can be used to specify the URL of an
+  alternative registry, with any trailing forward slashes removed.
+- The optional ``subpath`` can name a particular Bazel target in the module via
+  a label with the leading double slash (``//``) removed and canonicalized by
+  omitting the target name if it is equal to the name of the containing package.
+- Examples::
+
+      pkg:bazel/rules_java@7.8.0
+      pkg:bazel/curl@8.8.0.bcr.1
+      pkg:bazel/curl@8.8.0?repository_url=https://example.org/bazel-registry
+      pkg:bazel/rules_java@7.8.0
+      pkg:bazel/rules_java@7.8.0#toolchains:singlejar
+      pkg:bazel/rules_go@0.48.0#go
+
 bitbucket
 ---------
 ``bitbucket`` for Bitbucket-based packages:
