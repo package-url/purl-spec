@@ -89,6 +89,19 @@ bitnami
       pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12
       pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4
 
+cargo
+-----
+``cargo`` for Rust:
+
+- The default repository is ``https://crates.io/``.
+- The ``name`` is the repository name.
+- The ``version`` is the package version.
+- Examples::
+
+      pkg:cargo/rand@0.7.2
+      pkg:cargo/clap@2.33.0
+      pkg:cargo/structopt@0.3.11
+
 cocoapods
 ---------
 ``cocoapods`` for CocoaPods:
@@ -103,19 +116,6 @@ cocoapods
       pkg:cocoapods/MapsIndoors@3.24.0
       pkg:cocoapods/ShareKit@2.0#Twitter
       pkg:cocoapods/GoogleUtilities@7.5.2#NSData+zlib
-
-cargo
------
-``cargo`` for Rust:
-
-- The default repository is ``https://crates.io/``.
-- The ``name`` is the repository name.
-- The ``version`` is the package version.
-- Examples::
-
-      pkg:cargo/rand@0.7.2
-      pkg:cargo/clap@2.33.0
-      pkg:cargo/structopt@0.3.11
 
 composer
 --------
@@ -176,7 +176,6 @@ cpan
 - The ``namespace``:
   - To refer to a CPAN distribution name, the ``namespace`` MUST be present. In this case, the namespace is the CPAN id of the author/publisher. It MUST be written uppercase, followed by the distribution name in the ``name`` component. A distribution name may NEVER contain the string ``::``.
   - To refer to a CPAN module, the ``namespace`` MUST be absent. The module name MAY contain zero or more ``::`` strings, and the module name MUST NOT contain a ``-``
-
 - The ``name`` is the module or distribution name and is case sensitive.
 - The ``version`` is the module or distribution version.
 - Optional qualifiers may include:
@@ -578,6 +577,18 @@ swift
 
       pkg:swift/github.com/Alamofire/Alamofire@5.4.3
       pkg:swift/github.com/RxSwiftCommunity/RxFlow@2.12.4
+
+vsm
+---
+``vsm`` for Visual Studio Marketplace packages:
+
+- The default repository is: https://marketplace.visualstudio.com
+- The ``namespace`` is the organization and is case-sensitive.
+- The ``name`` is the package name and is case-sensitive.
+- The ``version`` is the package version.
+- Examples::
+
+    pkg:vsm/ms-vscode/cpptools@1.9.2
 
 Other candidate types to define:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
