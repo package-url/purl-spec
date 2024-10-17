@@ -73,7 +73,6 @@ bitbucket
 
       pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c
 
-=======
 bitnami
 -------
 ``bitnami`` for Bitnami-based packages:
