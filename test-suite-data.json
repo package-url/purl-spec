@@ -550,5 +550,77 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": false
+  },
+  {
+    "description": "cpan distribution name are case sensitive",
+    "purl": "pkg:cpan/DROLSKY/DateTime@1.55",
+    "canonical_purl": "pkg:cpan/DROLSKY/DateTime@1.55",
+    "type": "cpan",
+    "namespace": "DROLSKY",
+    "name": "DateTime",
+    "version": "1.55",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "cpan module name are case sensitive",
+    "purl": "pkg:cpan/URI::PackageURL@2.11",
+    "canonical_purl": "pkg:cpan/URI::PackageURL@2.11",
+    "type": "cpan",
+    "namespace": null,
+    "name": "URI::PackageURL",
+    "version": "2.11",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "cpan module name like distribution name",
+    "purl": "pkg:cpan/Perl-Version@1.013",
+    "canonical_purl": "pkg:cpan/Perl-Version@1.013",
+    "type": "cpan",
+    "namespace": null,
+    "name": "Perl-Version",
+    "version": "1.013",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "cpan distribution name like module name",
+    "purl": "pkg:cpan/GDT/URI::PackageURL@2.11",
+    "canonical_purl": "pkg:cpan/GDT/URI::PackageURL",
+    "type": "cpan",
+    "namespace": "GDT",
+    "name": "URI::PackageURL",
+    "version": null,
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "cpan valid module name",
+    "purl": "pkg:cpan/DateTime@1.55",
+    "canonical_purl": "pkg:cpan/DateTime@1.55",
+    "type": "cpan",
+    "namespace": null,
+    "name": "DateTime",
+    "version": "1.55",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "cpan valid module name without version",
+    "purl": "pkg:cpan/URI",
+    "canonical_purl": "pkg:cpan/URI",
+    "type": "cpan",
+    "namespace": null,
+    "name": "URI",
+    "version": null,
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
   }
 ]
