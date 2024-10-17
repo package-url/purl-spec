@@ -79,13 +79,15 @@ bitnami
 
 - The default repository is ``https://downloads.bitnami.com/files/stacksmith``.
 - The ``name`` is the component name. It must be lowercased.
-- The ``version`` is the full Bitnami package version, including version, revision and architecture.
+- The ``version`` is the full Bitnami package version, including version and revision.
 - The ``arch`` is the qualifiers key for a package architecture. Available values: ``amd64`` (default) and ``arm64``.
+- The ``distro`` is the qualifiers key for the distribution associated to the package.
 - Examples::
 
-      pkg:bitnami/wordpress
-      pkg:bitnami/wordpress@6.2.0
-      pkg:bitnami/wordpress@6.2.0?arch=arm64
+      pkg:bitnami/wordpress?distro=debian-12
+      pkg:bitnami/wordpress@6.2.0?distro=debian-12
+      pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12
+      pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4
 
 brew
 ----
@@ -191,6 +193,34 @@ conda
 - Examples::
 
       pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2
+
+cpan
+----
+``cpan`` for CPAN Perl packages:
+
+- The default respository is ``https://www.cpan.org/``.
+- The ``namespace``:
+  - To refer to a CPAN distribution name, the ``namespace`` MUST be present. In this case, the namespace is the CPAN id of the author/publisher. It MUST be written uppercase, followed by the distribution name in the ``name`` component. A distribution name may NEVER contain the string ``::``.
+  - To refer to a CPAN module, the ``namespace`` MUST be absent. The module name MAY contain zero or more ``::`` strings, and the module name MUST NOT contain a ``-``
+
+- The ``name`` is the module or distribution name and is case sensitive.
+- The ``version`` is the module or distribution version.
+- Optional qualifiers may include:
+
+  - ``repository_url``: CPAN/MetaCPAN/BackPAN/DarkPAN repository base URL (default is ``https://www.cpan.org``)
+  - ``download_url``: URL of package or distibution
+  - ``vcs_url``: extra URL for a package version control system
+  - ``ext``: file extension (default is ``tar.gz``)
+
+- Examples::
+
+      pkg:cpan/Perl::Version@1.013
+      pkg:cpan/DROLSKY/DateTime@1.55
+      pkg:cpan/DateTime@1.55
+      pkg:cpan/GDT/URI-PackageURL
+      pkg:cpan/LWP::UserAgent
+      pkg:cpan/OALDERS/libwww-perl@6.76
+      pkg:cpan/URI
 
 cran
 -----
@@ -352,11 +382,38 @@ huggingface
       pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co
 
 
+luarocks
+--------
+``luarocks`` for Lua packages installed with LuaRocks:
+
+- ``namespace``: The user manifest under which the package is registered.
+  If not given, the root manifest is assumed.
+  It is case insensitive, but lowercase is encouraged since namespaces
+  are normalized to ASCII lowercase.
+- ``name``: The LuaRocks package name.
+  It is case insensitive, but lowercase is encouraged since package names
+  are normalized to ASCII lowercase.
+- ``version``: The full LuaRocks package version, including module version
+  and rockspec revision.
+  It is case sensitive, and lowercase must be used to avoid
+  compatibility issues with older LuaRocks versions.
+  The full version number is required to uniquely identify a version.
+- Qualifier ``repository_url``: The LuaRocks rocks server to be used;
+  useful in case a private server is used (optional).
+  If ommitted, ``https://luarocks.org`` as default server is assumed.
+
+Examples::
+
+      pkg:luarocks/luasocket@3.1.0-1
+      pkg:luarocks/hisham/luafilesystem@1.8.0-1
+      pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/
+
+
 maven
 -----
 ``maven`` for Maven JARs and related artifacts:
 
-- The default repository is ``https://repo.maven.apache.org/maven2``.
+- The default ``repository_url`` is ``https://repo.maven.apache.org/maven2``.
 - The group id is the ``namespace`` and the artifact id is the ``name``.
 - Known qualifiers keys are: ``classifier`` and ``type`` as defined in the
   POM documentation. Note that Maven uses a concept / coordinate called packaging
@@ -371,6 +428,7 @@ maven
       pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=zip&classifier=dist
       pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x86&type=dll
       pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x64&type=dll
+      pkg:maven/groovy/groovy@1.0?repository_url=https://maven.google.com
 
 
 mlflow
@@ -560,7 +618,6 @@ Other candidate types to define:
 - ``chocolatey`` for Chocolatey packages
 - ``clojars`` for Clojure packages:
 - ``coreos`` for CoreOS packages:
-- ``cpan`` for CPAN Perl packages:
 - ``ctan`` for CTAN TeX packages:
 - ``crystal`` for Crystal Shards packages:
 - ``drupal`` for Drupal packages:
@@ -575,7 +632,6 @@ Other candidate types to define:
 - ``haxe`` for Haxe packages:
 - ``helm`` for Kubernetes packages
 - ``julia`` for Julia packages:
-- ``lua`` for LuaRocks packages:
 - ``melpa`` for Emacs packages
 - ``meteor`` for Meteor JavaScript packages:
 - ``nim`` for Nim packages:
