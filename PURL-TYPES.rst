@@ -387,7 +387,7 @@ maven
 -----
 ``maven`` for Maven JARs and related artifacts:
 
-- The default repository is ``https://repo.maven.apache.org/maven2``.
+- The default ``repository_url`` is ``https://repo.maven.apache.org/maven2``.
 - The group id is the ``namespace`` and the artifact id is the ``name``.
 - Known qualifiers keys are: ``classifier`` and ``type`` as defined in the
   POM documentation. Note that Maven uses a concept / coordinate called packaging
@@ -402,6 +402,7 @@ maven
       pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=zip&classifier=dist
       pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x86&type=dll
       pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x64&type=dll
+      pkg:maven/groovy/groovy@1.0?repository_url=https://maven.google.com
 
 
 mlflow
