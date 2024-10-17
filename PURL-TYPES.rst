@@ -258,6 +258,7 @@ golang
 
 - There is no default package repository: this is implied in the namespace
   using the ``go get`` command conventions.
+- The ``namespace`` and `name` must be lowercased.
 - The ``subpath`` is used to point to a package inside a module.
 - The ``version`` for modules should be semver with a v prefix, or a pseudo-version that points to an untagged commit.
 - Examples::
