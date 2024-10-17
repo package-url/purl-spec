@@ -115,7 +115,7 @@ conventions in use:
   version. And also provides a concrete enumeration of the available ranges as
   a daily feed.
 
-- The version 5 of the NVD CVE JSON data format at
+- The version 5 of the CVE JSON data format at
   https://github.com/CVEProject/cve-schema/blob/master/schema/v5.0/CVE_JSON_5.0.schema#L303
   defines version ranges with a starting version, a versionType, and an upper
   limit for the version range as lessThan or lessThanOrEqual; or an enumeration
@@ -752,7 +752,7 @@ most vulnerable ranges yet:
   and vulnerable ranges when a version must be excluded and the set of existing
   versions is not yet known,
 
-- this make some ranges more verbose such as with the NVD CVE v5 API ranges
+- this make some ranges more verbose such as with the CVE v5 API ranges
   notation that can include their upper limit and would need two constraints.
 
 Another high level difference between the two specifications are the
@@ -761,7 +761,7 @@ the Package URL package "type" used in ``vers``. This spec will provide a strict
 mapping between the OSV ecosystem and the ``vers`` versioning schemes values.
 
 
-Why not use the NVD CVE v5 API Ranges?
+Why not use the CVE v5 API Ranges?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 See:
@@ -769,7 +769,7 @@ See:
 - https://github.com/CVEProject/cve-schema/blob/master/schema/v5.0/CVE_JSON_5.0_schema.json#L303
 - https://github.com/CVEProject/cve-schema/blob/master/schema/v5.0/CVE_JSON_5.0_schema.json#L123
 
-The version 5 of the NVD CVE JSON data format defines version ranges with a
+The version 5 of the CVE JSON data format defines version ranges with a
 starting version, a versionType, and an upper limit for the version range as
 lessThan or lessThanOrEqual or as an enumeration of versions. The versionType
 and the package collectionURL possible values are only indicative and left out
@@ -778,16 +778,16 @@ of this specification and both seem strictly equivalent to the Package URL
 
 The semantics and expressiveness of each range are similar and ``vers`` provides
 a compact notation rather than a more verbose JSON notation. ``vers`` supports
-strictly the conversion of any NVD v5 range to its notation and further
+strictly the conversion of any CVE v5 range to its notation and further
 provides a concrete list of well known versioning schemes. ``vers`` design was
-informed by the NVD CVE v5 API schema spec and its authors.
+informed by the CVE v5 API schema spec and its authors.
 
-When NVD v5 becomes active, this spec will provide a strict mapping between the
-NVD versionType and the ``vers`` versioning schemes values. Furthermore, this
+When CVE v5 becomes active, this spec will provide a strict mapping between the
+CVE ``versionType`` and the ``vers`` versioning schemes values. Furthermore, this
 spec and the Package URL "types" should be updated accordingly to provide
-a mapping with the upcoming NVD collectionURL that will be effectively used.
+a mapping with the upcoming CVE ``collectionURL`` that will be effectively used.
 
-There is one issue with NVD v5: it introduces a new trailing "*" notation that
+There is one issue with CVE v5: it introduces a new trailing "*" notation that
 does not exists in most version ranges notations and may not be computable
 easily in many cases. The description of the "lessThan" property is:
 
@@ -806,7 +806,7 @@ The conversion to ``vers`` range should be:
   computed for ``semver`` versions as ``>=1.0|<2`` but is not accurate unless
   as versioning schemes have different rules. For instance, pre-release may be
   treated in some case as part of the v1. branch and in some other cases as part
-  of the v2. branch. It is not clear if with "2.*"  the NVD spec means:
+  of the v2. branch. It is not clear if with "2.*"  the CVE v5 spec means:
 
     - ``<2``
     - or something that excludes any version string that starts with ``2.``
