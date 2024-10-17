@@ -550,5 +550,41 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": false
+  },
+  {
+    "description": "valid php pecl purl",
+    "purl": "pkg:pear/pecl.php.net/APCu@5.1.23",
+    "canonical_purl": "pkg:pear/pecl.php.net/APCu@5.1.23",
+    "type": "pear",
+    "namespace": "pecl.php.net",
+    "name": "APCu",
+    "version": "5.1.23",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "valid php pecl purl without version",
+    "purl": "pkg:pear/pecl.php.net/APCu",
+    "canonical_purl": "pkg:pear/pecl.php.net/APCu",
+    "type": "pear",
+    "namespace": "pecl.php.net",
+    "name": "APCu",
+    "version": null,
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "valid php pear purl",
+    "purl": "pkg:pear/pear.php.net/Text_Password@1.2.1",
+    "canonical_purl": "pkg:pear/pear.php.net/Text_Password@1.2.1",
+    "type": "pear",
+    "namespace": "pear.php.net",
+    "name": "Text_Password",
+    "version": "1.2.1",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
   }
 ]
