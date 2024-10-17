@@ -40,7 +40,7 @@ differences in syntax, naming and conventions:
 - SPDX has an appendix for external repository references and uses a type and a
   locator with a type-specific syntax for component separators in a URL-like
   string
-  https://github.com/spdx/spdx-spec/blob/master/chapters/3-package-information.md
+  https://spdx.github.io/spdx-spec/latest/package-information/
 
 - versioneye uses a type, name and version
   https://github.com/versioneye/
@@ -78,7 +78,7 @@ A `purl` is a URL composed of seven components::
 
 Components are separated by a specific character for unambiguous parsing.
 
-The defintion for each components is:
+The definition for each components is:
 
 - **scheme**: this is the URL scheme with the constant value of "pkg". One of
   the primary reason for this single scheme is to facilitate the future official
@@ -124,7 +124,7 @@ Some `purl` examples
     pkg:golang/google.golang.org/genproto#googleapis/api/annotations
 
     pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources
-    pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=repo.spring.io/release
+    pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=repo.spring.io%2Frelease
 
     pkg:npm/%40angular/animation@12.3.1
     pkg:npm/foobar@12.3.1
@@ -161,12 +161,16 @@ Known implementations
 - for the JVM: https://github.com/package-url/packageurl-java,
   https://github.com/sonatype/package-url-java
 - in Python: https://github.com/package-url/packageurl-python
-- in Rust: https://github.com/package-url/packageurl-rs
+- in Rust: https://github.com/package-url/packageurl.rs
 - in JS: https://github.com/package-url/packageurl-js
+- in Elixir: https://github.com/jshmrtn/purl
+- in Perl: https://github.com/giterlizzi/perl-URI-PackageURL
 
 
 Users, adopters and links
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+- `GitHub Dependency Submission API <https://docs.github.com/en/rest/dependency-graph/dependency-submission>`_: allows third-party tools
+  to submit dependency data to GitHub for inclusion in a repository's dependency graph.
 - `Scancode Toolkit <https://github.com/nexB/scancode-toolkit>`_: Reports
   `purl` from parsed package manifests using https://github.com/package-url/packageurl-python
 - `OWASP Dependency-Track <https://www.owasp.org/index.php/OWASP_Dependency_Track_Project>`_: 
@@ -179,7 +183,8 @@ Users, adopters and links
   Components and scanning tools to help developers identify vulnerable components
 - `Sonatype Nexus Lifecycle <https://www.sonatype.com/product-nexus-lifecycle>`_:
   Enterprise grade Open Source component management
-
+- `OSV Schema <https://ossf.github.io/osv-schema/>`_ and `OSV.dev <https://osv.dev>`_:
+  Open Source Vulnerability Schema and distributed vulnerability database
 
 License
 ~~~~~~~
