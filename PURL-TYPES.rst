@@ -260,7 +260,7 @@ golang
   using the ``go get`` command conventions.
 - The ``namespace`` and `name` must be lowercased.
 - The ``subpath`` is used to point to a package inside a module.
-- The ``version`` for modules should be semver with a v prefix, or a pseudo-version that points to an untagged commit.
+- The ``version`` may start with a lowercased "v" followed by: a semantic version, or a Go "pseudo-version", which consists of a semantic version followed by a timestamp and revision identifier.
 - Examples::
 
       pkg:golang/github.com/gorilla/context@v1.1.1
