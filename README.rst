@@ -156,15 +156,18 @@ type definitions:
 Known implementations
 ~~~~~~~~~~~~~~~~~~~~~
 
-- in Golang: https://github.com/package-url/packageurl-go
 - for .NET: https://github.com/package-url/packageurl-dotnet
-- for the JVM: https://github.com/package-url/packageurl-java,
+- in Elixir: https://github.com/maennchen/purl
+- in Go: https://github.com/package-url/packageurl-go
+- in Java: https://github.com/package-url/packageurl-java,
   https://github.com/sonatype/package-url-java
-- in Python: https://github.com/package-url/packageurl-python
-- in Rust: https://github.com/package-url/packageurl.rs
-- in JS: https://github.com/package-url/packageurl-js
-- in Elixir: https://github.com/jshmrtn/purl
+- in JavaScript: https://github.com/package-url/packageurl-js
 - in Perl: https://github.com/giterlizzi/perl-URI-PackageURL
+- in PHP: https://github.com/package-url/packageurl-php
+- in Python: https://github.com/package-url/packageurl-python
+- in Ruby: https://github.com/package-url/packageurl-ruby
+- in Rust: https://github.com/package-url/packageurl.rs
+- in Swift: https://github.com/package-url/packageurl-swift
 
 
 Users, adopters and links
