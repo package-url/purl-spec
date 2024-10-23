@@ -89,19 +89,6 @@ bitnami
       pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12
       pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4
 
-cargo
------
-``cargo`` for Rust:
-
-- The default repository is ``https://crates.io/``.
-- The ``name`` is the repository name.
-- The ``version`` is the package version.
-- Examples::
-
-      pkg:cargo/rand@0.7.2
-      pkg:cargo/clap@2.33.0
-      pkg:cargo/structopt@0.3.11
-
 cocoapods
 ---------
 ``cocoapods`` for CocoaPods:
@@ -116,6 +103,19 @@ cocoapods
       pkg:cocoapods/MapsIndoors@3.24.0
       pkg:cocoapods/ShareKit@2.0#Twitter
       pkg:cocoapods/GoogleUtilities@7.5.2#NSData+zlib
+
+cargo
+-----
+``cargo`` for Rust:
+
+- The default repository is ``https://crates.io/``.
+- The ``name`` is the repository name.
+- The ``version`` is the package version.
+- Examples::
+
+      pkg:cargo/rand@0.7.2
+      pkg:cargo/clap@2.33.0
+      pkg:cargo/structopt@0.3.11
 
 composer
 --------
