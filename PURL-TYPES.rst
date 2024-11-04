@@ -301,17 +301,22 @@ go
 ------
 ``go`` for Go modules:
 
-- The ``namespace`` field is empty and implies the go mod proxy.
-- The ``name`` will be the full module path.
-- The ``subpath`` will represent the package path within a module.
-- The ``version`` will be a valid go version or pseudoversion, or empty.
-- Additional Build information for binaries can be included as ``qualifiers`` (i.e VCS info, go version info, GoArch/GoOS info etc)
+- The ``namespace`` is empty.
+- The ``name`` is the unmodified full case-sensitive [Go module path](https://go.dev/ref/mod#module-path).
+  For artifacts in the Go standard library or the Go command, the ``name`` is `stdlib`.
+- The ``subpath`` is the unmodified Go package path within a module.
+- The ``version`` may be a valid [Go version](https://go.dev/doc/toolchain#version) for `stdlib`,
+  [Go module version](https://go.dev/doc/modules/version-numbers), [`(devel)`](https://go.dev/ref/mod#go-version-m),
+  or omitted when empty.
+- The ``qualifiers`` are URL encoded key-value pairs as defined by
+  Go's [`debug.BuildSetting`](https://pkg.go.dev/runtime/debug#BuildSetting).
+  This list can be extended in the future.
 - Examples::
 
       pkg:go/google.golang.org%2Fgenproto#googleapis/api/annotations
       pkg:go/github.com%2Fjmorion%2Fsqlx@v1.1.2#api
-      pkg:go/golang.org%2Fx%2Fvuln?goversion=1.23.2&vcs=git&vcs_modified=true#cmd/govulncheck
-      pkg:go/golang.org%2Fx%2Fvuln@v1.1.3?goversion=1.23.2#cmd/govulncheck
+      pkg:go/golang.org%2Fx%2Fvuln?vcs=git&vcs.modified=true#cmd/govulncheck
+      pkg:go/golang.org%2Fx%2Fvuln@v1.1.3?goos=linux#cmd/govulncheck
 
 golang
 ------
