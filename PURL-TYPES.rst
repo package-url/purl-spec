@@ -172,7 +172,7 @@ cpan
 ----
 ``cpan`` for CPAN Perl packages:
 
-- The default respository is ``https://www.cpan.org/``.
+- The default repository is ``https://www.cpan.org/``.
 - The ``namespace``:
   - To refer to a CPAN distribution name, the ``namespace`` MUST be present. In this case, the namespace is the CPAN id of the author/publisher. It MUST be written uppercase, followed by the distribution name in the ``name`` component. A distribution name may NEVER contain the string ``::``.
   - To refer to a CPAN module, the ``namespace`` MUST be absent. The module name MAY contain zero or more ``::`` strings, and the module name MUST NOT contain a ``-``
@@ -182,7 +182,7 @@ cpan
 - Optional qualifiers may include:
 
   - ``repository_url``: CPAN/MetaCPAN/BackPAN/DarkPAN repository base URL (default is ``https://www.cpan.org``)
-  - ``download_url``: URL of package or distibution
+  - ``download_url``: URL of package or distribution
   - ``vcs_url``: extra URL for a package version control system
   - ``ext``: file extension (default is ``tar.gz``)
 
@@ -252,7 +252,7 @@ docker
 
 gem
 ---
-``gem`` for Rubygems:
+``gem`` for RubyGems:
 
 - The default repository is ``https://rubygems.org``.
 - The ``platform`` qualifiers key is used to specify an alternative platform.
@@ -374,7 +374,7 @@ luarocks
   The full version number is required to uniquely identify a version.
 - Qualifier ``repository_url``: The LuaRocks rocks server to be used;
   useful in case a private server is used (optional).
-  If ommitted, ``https://luarocks.org`` as default server is assumed.
+  If omitted, ``https://luarocks.org`` as default server is assumed.
 
 Examples::
 

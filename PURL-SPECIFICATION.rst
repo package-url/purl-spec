@@ -104,7 +104,7 @@ A ``purl`` is a URL
 - Version control system (VCS) URLs such ``git://``, ``svn://``, ``hg://`` or as
   defined in Python pip or SPDX download locations are NOT valid ``purl`` types.
   They are valid URL or URI schemes but they are not ``purl``.
-  They are a closely related, compact and uniform way to reference vcs URLs.
+  They are a closely related, compact and uniform way to reference VCS URLs.
   They may be used as references in separate attributes outside of a ``purl`` or
   in a ``purl`` qualifier.
 
@@ -150,7 +150,7 @@ The rules for each component are:
   - The package ``type`` is composed only of ASCII letters and numbers, '.', '+'
     and '-' (period, plus, and dash)
   - The ``type`` cannot start with a number
-  - The ``type`` cannot contains spaces
+  - The ``type`` cannot contain spaces
   - The ``type`` must NOT be percent-encoded
   - The ``type`` is case insensitive. The canonical form is lowercase
 
@@ -209,7 +209,7 @@ The rules for each component are:
     - A ``key`` cannot start with a number
     - A ``key`` must NOT be percent-encoded
     - A ``key`` is case insensitive. The canonical form is lowercase
-    - A ``key`` cannot contains spaces
+    - A ``key`` cannot contain spaces
     - A ``value`` must be a percent-encoded string
     - The '=' separator is neither part of the ``key`` nor of the ``value``
 
@@ -281,7 +281,7 @@ To build a ``purl`` string from its components:
 
 - Start a ``purl`` string with the "pkg:" ``scheme`` as a lowercase ASCII string
 
-- Append the ``type`` string  to the ``purl`` as a lowercase ASCII string
+- Append the ``type`` string to the ``purl`` as a lowercase ASCII string
 
   - Append '/' to the ``purl``
 
@@ -318,15 +318,15 @@ To build a ``purl`` string from its components:
   - Append '?' to the ``purl``
   - Build a list from all key/value pair:
 
-    - discard any pair where the ``value`` is empty.
+    - Discard any pair where the ``value`` is empty.
     - UTF-8-encode each ``value`` if needed in your programming language
     - If the ``key`` is ``checksums`` and this is a list of ``checksums`` join this
       list with a ',' to create this qualifier ``value``
-    - create a string by joining the lowercased ``key``, the equal '=' sign and
+    - Create a string by joining the lowercased ``key``, the equal '=' sign and
       the percent-encoded ``value`` to create a qualifier
 
-  - sort this list of qualifier strings lexicographically
-  - join this list of qualifier strings with a '&' ampersand
+  - Sort this list of qualifier strings lexicographically
+  - Join this list of qualifier strings with a '&' ampersand
   - Append this string to the ``purl``
 
 - If the ``subpath`` is not empty and not composed only of empty, '.' and '..'
@@ -359,7 +359,7 @@ To parse a ``purl`` string in its components:
   - Strip the right side from leading and trailing '/'
   - Split this on '/'
   - Discard any empty string segment from that split
-  - Discard any '.' or  '..' segment from that split
+  - Discard any '.' or '..' segment from that split
   - Percent-decode each segment
   - UTF-8-decode each segment if needed in your programming language
   - Join segments back with a '/'
@@ -411,8 +411,7 @@ To parse a ``purl`` string in its components:
 
   - Discard any empty segment from that split
   - Percent-decode each segment
-  - UTF-8-decode the each segment if needed in your programming
-    language
+  - UTF-8-decode each segment if needed in your programming language
   - Apply type-specific normalization to each segment if needed
   - Join segments back with a '/'
   - This is the ``namespace``
@@ -433,14 +432,14 @@ identification to ensure that a ``purl`` stays compact and readable in most case
 
 Additional, separate external attributes stored outside of a ``purl`` are the
 preferred mechanism to convey extra long and optional information such as a
-download URL, vcs URL or checksums in an API, database or web form.
+download URL, VCS URL or checksums in an API, database or web form.
 
 
 With this warning, the known ``key`` and ``value`` defined here are valid for use in
 all package types:
 
 - ``repository_url`` is an extra URL for an alternative, non-default package
-  repository or registry.  When a package does not come from the default public
+  repository or registry. When a package does not come from the default public
   package repository for its ``type`` a ``purl`` may be qualified with this extra
   URL. The default repository or registry of a ``type`` is documented in the
   "Known ``purl`` types" section.
