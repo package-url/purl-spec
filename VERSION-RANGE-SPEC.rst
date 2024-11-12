@@ -204,7 +204,7 @@ Using version range specifiers
 
 ``vers`` primary usage is to test if a version is within a range.
 
-An version is within a version range if falls in any of the intervals defined
+A version is within a version range if falls in any of the intervals defined
 by a range. Otherwise, the version is outside of the version range.
 
 Some important usages derived from this include:
@@ -240,6 +240,10 @@ A list of versions, enumerated:
 
 - ``vers:pypi/0.0.0|0.0.1|0.0.2|0.0.3|1.0|2.0pre1``
 
+Additionally, all versions (or none) can be specified:
+
+- ``vers:all/*``
+- ``vers:none/*``
 
 A complex statement about a vulnerability in a "maven" package that affects
 multiple branches each with their own fixed versions at 
@@ -270,7 +274,7 @@ pessimistic version constraint is expanded:
 URI scheme
 ~~~~~~~~~~
 
-The ``vers`` URI scheme is  an acronym for "VErsion Range Specifier".
+The ``vers`` URI scheme is an acronym for "VErsion Range Specifier".
 It has been selected because it is short, obviously about version and available
 for a future formal registration for this URI-scheme at the IANA registry.
 
@@ -354,7 +358,7 @@ Normalized, canonical representation and validation
 -----------------------------------------------------
 
 The construction and validation rules are designed such that a ``vers`` is
-easier to read and understand by human and straight forward to process by tools,
+easier to read and understand by humans and straightforward to process by tools,
 attempting to avoid the creation of empty or impossible version ranges.
 
 - Spaces are not significant and removed in a canonical form. For example
@@ -529,7 +533,7 @@ Checking if a version is contained within a range
 
 To check if a "tested version" is contained within a version range:
 
-- Start from a parsed a version range specifier with:
+- Start from a parsed version range specifier with:
 
   - a versioning scheme
   - a list of constraints of comparator and version, sorted by version
@@ -636,6 +640,8 @@ These are a few known versioning schemes for some common Package URL
 
 - **alpine**: Alpine linux https://gitlab.alpinelinux.org/alpine/apk-tools/-/blob/master/src/version.c
   which is using Gentoo-like conventions.
+
+- **ecosystem-independent versioning schemes**: Several versioning schemes that are independent from any specific ecosystem are being developed. A very simple one is the generic *all* and *none* scheme which allows to specify that all (or none) of the versions are affected.
 
 - **generic**: a generic version comparison algorithm (which will be specified
   later, likely based on a split on any wholly alpha or wholly numeric segments
