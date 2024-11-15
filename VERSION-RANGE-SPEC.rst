@@ -654,6 +654,8 @@ Moreover, there are several versioning schemes that are independent from any spe
 
 - **none**: a generic versioning scheme where no version is inside the range, i.e. no versions match. This is equivalent to ``false``.
 
+- **semver**: the semantic versioning scheme 2.0.0, defined in https://semver.org/
+
 
 A separate document will provide details for each versioning scheme and:
 
