@@ -639,7 +639,7 @@ These are a few known versioning schemes for some common Package URL
 - **pypi**: Python https://www.python.org/dev/peps/pep-0440/
 
 - **rpm**: RPM distros https://rpm-software-management.github.io/rpm/manual/dependencies.html
-  The simplified rmpvercmp version comparison routine is used by archlinux Pacman.
+  The a simplified rmpvercmp version comparison routine is used by archlinux Pacman.
 
 TODO: add Rust, composer and archlinux, nginx, tomcat, apache.
 
