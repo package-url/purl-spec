@@ -40,7 +40,7 @@ differences in syntax, naming and conventions:
 - SPDX has an appendix for external repository references and uses a type and a
   locator with a type-specific syntax for component separators in a URL-like
   string
-  https://github.com/spdx/spdx-spec/blob/master/chapters/3-package-information.md
+  https://spdx.github.io/spdx-spec/latest/package-information/
 
 - versioneye uses a type, name and version
   https://github.com/versioneye/
@@ -56,7 +56,7 @@ A `purl` or package URL is an attempt to standardize existing approaches to
 reliably identify and locate software packages.
 
 A `purl` is a URL string used to identify and locate a software package in a
-mostly universal and uniform way across programing languages, package managers,
+mostly universal and uniform way across programming languages, package managers,
 packaging conventions, tools, APIs and databases.
 
 Such a package URL is useful to reliably reference the same software package
@@ -156,13 +156,18 @@ type definitions:
 Known implementations
 ~~~~~~~~~~~~~~~~~~~~~
 
-- in Golang: https://github.com/package-url/packageurl-go
 - for .NET: https://github.com/package-url/packageurl-dotnet
-- for the JVM: https://github.com/package-url/packageurl-java,
+- in Elixir: https://github.com/maennchen/purl
+- in Go: https://github.com/package-url/packageurl-go
+- in Java: https://github.com/package-url/packageurl-java,
   https://github.com/sonatype/package-url-java
+- in JavaScript: https://github.com/package-url/packageurl-js
+- in Perl: https://github.com/giterlizzi/perl-URI-PackageURL
+- in PHP: https://github.com/package-url/packageurl-php
 - in Python: https://github.com/package-url/packageurl-python
-- in Rust: https://github.com/package-url/packageurl-rs
-- in JS: https://github.com/package-url/packageurl-js
+- in Ruby: https://github.com/package-url/packageurl-ruby
+- in Rust: https://github.com/package-url/packageurl.rs
+- in Swift: https://github.com/package-url/packageurl-swift
 
 
 Users, adopters and links
