@@ -174,7 +174,7 @@ cpan
 
 - The default repository is ``https://www.cpan.org/``.
 - The ``namespace``:
-  - To refer to a CPAN distribution name, the ``namespace`` MUST be present. In this case, the namespace is the CPAN id of the author/publisher. It MUST be written uppercase, followed by the distribution name in the ``name`` component. A distribution name may NEVER contain the string ``::``.
+  - To refer to a CPAN distribution name, the ``namespace`` MUST be present. In this case, the namespace is the CPAN id of the author/publisher. It MUST be written uppercase, followed by the distribution name in the ``name`` component. A distribution name MUST NOT contain the string ``::``.
   - To refer to a CPAN module, the ``namespace`` MUST be absent. The module name MAY contain zero or more ``::`` strings, and the module name MUST NOT contain a ``-``
 
 - The ``name`` is the module or distribution name and is case sensitive.
