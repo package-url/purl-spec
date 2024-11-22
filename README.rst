@@ -156,18 +156,18 @@ type definitions:
 Known implementations
 ~~~~~~~~~~~~~~~~~~~~~
 
-- for .NET: https://github.com/package-url/packageurl-dotnet
-- in Elixir: https://github.com/maennchen/purl
-- in Go: https://github.com/package-url/packageurl-go
-- in Java: https://github.com/package-url/packageurl-java,
+- .NET: https://github.com/package-url/packageurl-dotnet
+- Elixir: https://github.com/maennchen/purl
+- Go: https://github.com/package-url/packageurl-go
+- Java: https://github.com/package-url/packageurl-java,
   https://github.com/sonatype/package-url-java
-- in JavaScript: https://github.com/package-url/packageurl-js
-- in Perl: https://github.com/giterlizzi/perl-URI-PackageURL
-- in PHP: https://github.com/package-url/packageurl-php
-- in Python: https://github.com/package-url/packageurl-python
-- in Ruby: https://github.com/package-url/packageurl-ruby
-- in Rust: https://github.com/package-url/packageurl.rs
-- in Swift: https://github.com/package-url/packageurl-swift
+- JavaScript: https://github.com/package-url/packageurl-js
+- Perl: https://github.com/giterlizzi/perl-URI-PackageURL
+- PHP: https://github.com/package-url/packageurl-php
+- Python: https://github.com/package-url/packageurl-python
+- Ruby: https://github.com/package-url/packageurl-ruby
+- Rust: https://github.com/package-url/packageurl.rs
+- Swift: https://github.com/package-url/packageurl-swift
 
 
 Users, adopters and links
