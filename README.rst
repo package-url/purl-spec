@@ -181,6 +181,8 @@ Users, adopters and links (alphabetical order)
   Open source component analysis platform
 - `OSS Index <https://ossindex.sonatype.org>`_: A free catalog of Open Source
   Components and scanning tools to help developers identify vulnerable components
+- `OSS Review Toolkit <https://oss-review-toolkit.org/>`_: A suite of tools to
+  assist with automating Open Source compliance checks.
 - `OSV Schema <https://ossf.github.io/osv-schema/>`_ and `OSV.dev <https://osv.dev>`_:
   Open Source Vulnerability Schema and distributed vulnerability database
 - `Scancode Toolkit <https://github.com/nexB/scancode-toolkit>`_: Reports
