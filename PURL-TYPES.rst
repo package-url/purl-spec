@@ -69,7 +69,7 @@ bazel
 - The ``version`` is the module version in `Bazel's relaxed semver format
   <https://bazel.build/external/module#version_format>`_.
 - The optional ``repository_url`` can be used to specify the URL of an
-  alternative registry, with any trailing forward slashes removed.
+  alternative registry.
 - The optional ``subpath`` can name a particular Bazel target in the module via
   a label with the leading double slash (``//``) removed and canonicalized by
   omitting the target name if it is equal to the name of the containing package.
