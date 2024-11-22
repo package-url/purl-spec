@@ -672,20 +672,20 @@
     "is_invalid": true
   },
   {
-    "description": "bazel module with target",
-    "purl": "pkg:bazel/rules_java@7.8.0#//toolchains:singlejar",
-    "canonical_purl": "pkg:bazel/rules_java@7.8.0#toolchains:singlejar",
+    "description": "bazel module with multi-segment package",
+    "purl": "pkg:bazel/rules_java@8.5.0#java/runfiles",
+    "canonical_purl": "pkg:bazel/rules_java@8.5.0#java/runfiles",
     "type": "bazel",
     "namespace": null,
     "name": "rules_java",
-    "version": "7.8.0",
+    "version": "8.5.0",
     "qualifiers": null,
-    "subpath": "toolchains:singlejar",
+    "subpath": "java/runfiles",
     "is_invalid": false
   },
   {
-    "description": "bazel module with target in short-hand form",
-    "purl": "pkg:bazel/rules_go@0.48.0#//go:go",
+    "description": "bazel module with single-segment package",
+    "purl": "pkg:bazel/rules_go@0.48.0#go",
     "canonical_purl": "pkg:bazel/rules_go@0.48.0#go",
     "type": "bazel",
     "namespace": null,
@@ -693,18 +693,6 @@
     "version": "0.48.0",
     "qualifiers": null,
     "subpath": "go",
-    "is_invalid": false
-  },
-  {
-    "description": "bazel module with top-level target",
-    "purl": "pkg:bazel/rules_go@0.48.0#//:stdlib",
-    "canonical_purl": "pkg:bazel/rules_go@0.48.0#:stdlib",
-    "type": "bazel",
-    "namespace": null,
-    "name": "rules_go",
-    "version": "0.48.0",
-    "qualifiers": null,
-    "subpath": ":stdlib",
     "is_invalid": false
   }
 ]
