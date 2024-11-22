@@ -70,16 +70,15 @@ bazel
   <https://bazel.build/external/module#version_format>`_.
 - The optional ``repository_url`` can be used to specify the URL of an
   alternative registry.
-- The optional ``subpath`` can name a particular Bazel target in the module via
-  a label with the leading double slash (``//``) removed and canonicalized by
-  omitting the target name if it is equal to the name of the containing package.
+- The optional ``subpath`` can refer to a particular Bazel package in the
+  module.
 - Examples::
 
       pkg:bazel/rules_java@7.8.0
       pkg:bazel/curl@8.8.0.bcr.1
       pkg:bazel/curl@8.8.0?repository_url=https://example.org/bazel-registry
       pkg:bazel/rules_java@7.8.0
-      pkg:bazel/rules_java@7.8.0#toolchains:singlejar
+      pkg:bazel/rules_java@8.5.0#java/runfiles
       pkg:bazel/rules_go@0.48.0#go
 
 bitbucket
