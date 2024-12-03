@@ -297,6 +297,27 @@ github
       pkg:github/package-url/purl-spec@244fd47e07d1004
       pkg:github/package-url/purl-spec@244fd47e07d1004#everybody/loves/dogs
 
+go
+------
+``go`` for Go modules:
+
+- The ``namespace`` is empty.
+- The ``name`` is the unmodified full case-sensitive [Go module path](https://go.dev/ref/mod#module-path).
+  For artifacts in the Go standard library or the Go command, the ``name`` is `stdlib`.
+- The ``subpath`` is the unmodified Go package path within a module.
+- The ``version`` may be a valid [Go version](https://go.dev/doc/toolchain#version) for `stdlib`,
+  [Go module version](https://go.dev/doc/modules/version-numbers), [`(devel)`](https://go.dev/ref/mod#go-version-m),
+  or omitted when empty.
+- The ``qualifiers`` are URL encoded key-value pairs as defined by
+  Go's [`debug.BuildSetting`](https://pkg.go.dev/runtime/debug#BuildSetting).
+  This list can be extended in the future.
+- Examples::
+
+      pkg:go/google.golang.org%2Fgenproto#googleapis/api/annotations
+      pkg:go/github.com%2Fjmorion%2Fsqlx@v1.1.2#api
+      pkg:go/golang.org%2Fx%2Fvuln?goversion=1.23.2&vcs=git&vcs.modified=true#cmd/govulncheck
+      pkg:go/golang.org%2Fx%2Fvuln@v1.1.3?goos=linux#cmd/govulncheck
+
 golang
 ------
 ``golang`` for Go packages:
