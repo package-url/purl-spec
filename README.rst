@@ -40,7 +40,7 @@ differences in syntax, naming and conventions:
 - SPDX has an appendix for external repository references and uses a type and a
   locator with a type-specific syntax for component separators in a URL-like
   string
-  https://github.com/spdx/spdx-spec/blob/master/chapters/3-package-information.md
+  https://spdx.github.io/spdx-spec/latest/package-information/
 
 - versioneye uses a type, name and version
   https://github.com/versioneye/
@@ -56,7 +56,7 @@ A `purl` or package URL is an attempt to standardize existing approaches to
 reliably identify and locate software packages.
 
 A `purl` is a URL string used to identify and locate a software package in a
-mostly universal and uniform way across programing languages, package managers,
+mostly universal and uniform way across programming languages, package managers,
 packaging conventions, tools, APIs and databases.
 
 Such a package URL is useful to reliably reference the same software package
@@ -78,7 +78,7 @@ A `purl` is a URL composed of seven components::
 
 Components are separated by a specific character for unambiguous parsing.
 
-The defintion for each components is:
+The definition for each components is:
 
 - **scheme**: this is the URL scheme with the constant value of "pkg". One of
   the primary reason for this single scheme is to facilitate the future official
@@ -156,30 +156,39 @@ type definitions:
 Known implementations
 ~~~~~~~~~~~~~~~~~~~~~
 
-- in Golang: https://github.com/package-url/packageurl-go
-- for .NET: https://github.com/package-url/packageurl-dotnet
-- for the JVM: https://github.com/package-url/packageurl-java,
+- .NET: https://github.com/package-url/packageurl-dotnet
+- Elixir: https://github.com/maennchen/purl
+- Go: https://github.com/package-url/packageurl-go
+- Java: https://github.com/package-url/packageurl-java,
   https://github.com/sonatype/package-url-java
-- in Python: https://github.com/package-url/packageurl-python
-- in Rust: https://github.com/package-url/packageurl-rs
-- in JS: https://github.com/package-url/packageurl-js
+- JavaScript: https://github.com/package-url/packageurl-js
+- Perl: https://github.com/giterlizzi/perl-URI-PackageURL
+- PHP: https://github.com/package-url/packageurl-php
+- Python: https://github.com/package-url/packageurl-python
+- Ruby: https://github.com/package-url/packageurl-ruby
+- Rust: https://github.com/package-url/packageurl.rs
+- Swift: https://github.com/package-url/packageurl-swift
 
 
-Users, adopters and links
-~~~~~~~~~~~~~~~~~~~~~~~~~
-- `Scancode Toolkit <https://github.com/nexB/scancode-toolkit>`_: Reports
-  `purl` from parsed package manifests using https://github.com/package-url/packageurl-python
-- `OWASP Dependency-Track <https://www.owasp.org/index.php/OWASP_Dependency_Track_Project>`_: 
-  Open source component analysis platform
+Users, adopters and links (alphabetical order)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 - `CycloneDX <https://github.com/CycloneDX>`_: A lightweight software
   bill-of-material (SBOM) specification
-- `SPDX <https://spdx.dev>`_: A data exchange standard for human-readable and 
-  machine-processable software bill-of-materials (SBOM)
-- `OSS Index <https://ossindex.sonatype.com>`_: A free catalog of Open Source
+- `GitHub Dependency Submission API <https://docs.github.com/en/rest/dependency-graph/dependency-submission>`_: allows third-party tools
+  to submit dependency data to GitHub for inclusion in a repository's dependency graph.
+- `OWASP Dependency-Track <https://www.owasp.org/index.php/OWASP_Dependency_Track_Project>`_:
+  Open source component analysis platform
+- `OSS Index <https://ossindex.sonatype.org>`_: A free catalog of Open Source
   Components and scanning tools to help developers identify vulnerable components
+- `OSV Schema <https://ossf.github.io/osv-schema/>`_ and `OSV.dev <https://osv.dev>`_:
+  Open Source Vulnerability Schema and distributed vulnerability database
+- `Scancode Toolkit <https://github.com/nexB/scancode-toolkit>`_: Reports
+  `purl` from parsed package manifests using https://github.com/package-url/packageurl-python
 - `Sonatype Nexus Lifecycle <https://www.sonatype.com/product-nexus-lifecycle>`_:
   Enterprise grade Open Source component management
-
+- `SPDX <https://spdx.dev>`_: A data exchange standard for human-readable and
+  machine-processable software bill-of-materials (SBOM)
 
 License
 ~~~~~~~
