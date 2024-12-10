@@ -622,5 +622,17 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": false
+  },
+  {
+    "description": "ensure namespace allows multiple segments",
+    "purl": "pkg:bintray/apache/couchdb/couchdb-mac@2.3.0",
+    "canonical_purl": "pkg:bintray/apache/couchdb/couchdb-mac@2.3.0",
+    "type": "bintray",
+    "namespace": "apache/couchdb",
+    "name": "couchdb-mac",
+    "version": "2.3.0",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
   }
 ]
