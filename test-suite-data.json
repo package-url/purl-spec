@@ -288,6 +288,18 @@
     "is_invalid": false
   },
   {
+    "description": "slash / between version and qualifiers separator is not significant",
+    "purl": "pkg:maven/org.apache.commons/io@2.6/?scope=test",
+    "canonical_purl": "pkg:maven/org.apache.commons/io@2.6?scope=test",
+    "type": "maven",
+    "namespace": "org.apache.commons",
+    "name": "io",
+    "version": "2.6",
+    "qualifiers": {"scope": "test"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
     "description": "checks for invalid qualifier keys",
     "purl": "pkg:npm/myartifact@1.0.0?in%20production=true",
     "canonical_purl": null,
