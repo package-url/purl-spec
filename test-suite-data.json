@@ -252,7 +252,7 @@
     "is_invalid": false
   },
   {
-    "description": "slash /// after type  is not significant",
+    "description": "leading slash /// in front of type  is not significant",
     "purl": "pkg:///maven/org.apache.commons/io",
     "canonical_purl": "pkg:maven/org.apache.commons/io",
     "type": "maven",
