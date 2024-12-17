@@ -59,9 +59,9 @@ conventions in use:
 - ``semver`` https://semver.org/ is a popular specification to structure version
   strings, but does not provide a way to express version ranges.
 
-- Rubygems strongly suggest using ``semver`` for version but does not enforce it.
+- RubyGems strongly suggest using ``semver`` for version but does not enforce it.
   As a result some gem use semver while several popular package do not use
-  strict semver. Rubygems use their own notation for version ranges which
+  strict semver. RubyGems use their own notation for version ranges which
   looks like the ``node-semver`` notation with some subtle differences.
   See https://guides.rubygems.org/patterns/#semantic-versioning
 
@@ -115,7 +115,7 @@ conventions in use:
   version. And also provides a concrete enumeration of the available ranges as
   a daily feed.
 
-- The version 5 of the NVD CVE JSON data format at
+- The version 5 of the CVE JSON data format at
   https://github.com/CVEProject/cve-schema/blob/master/schema/v5.0/CVE_JSON_5.0.schema#L303
   defines version ranges with a starting version, a versionType, and an upper
   limit for the version range as lessThan or lessThanOrEqual; or an enumeration
@@ -142,7 +142,7 @@ related topic:
 - For instance, ``semver`` is a prominent specification in this domain but this
   is just one of the many ways to structure a version string.
 
-- Debian, RPM, PyPI, Rubygems, and Composer have their own subtly different
+- Debian, RPM, PyPI, RubyGems, and Composer have their own subtly different
   approach on how to determine how two versions are compared as equal, greater
   or lesser.
 
@@ -260,7 +260,7 @@ Note how the constraints are sorted:
   - ``vers:tomee/>=7.1.0|<=7.1.2``
   - ``vers:tomee/>=8.0.0-M1|<=8.0.1``
 
-Conversing Rubygems custom syntax for dependency on gem. Note how the
+Conversing RubyGems custom syntax for dependency on gem. Note how the
 pessimistic version constraint is expanded:
 
 - ``'library', '~> 2.2.0', '!= 2.2.1'``
@@ -603,9 +603,9 @@ These are a few known versioning schemes for some common Package URL
   Debian uses these comparators: <<, <=, =, >= and >>.
 
 - **rpm**: RPM distros https://rpm-software-management.github.io/rpm/manual/dependencies.html
-  The a simplified rmpvercmp version comparison routine is used by archlinux Pacman.
+  The a simplified rmpvercmp version comparison routine is used by Arch Linux Pacman.
 
-- **gem**: Rubygems https://guides.rubygems.org/patterns/#semantic-versioning
+- **gem**: RubyGems https://guides.rubygems.org/patterns/#semantic-versioning
   which is similar to ``node-semver`` for its syntax, but does not use semver
   versions.
 
@@ -692,7 +692,7 @@ Why not reuse existing version range notations?
 
 Most existing version range notations are tied to a specific version string
 syntax and are therefore not readily applicable to other contexts. For example,
-the use of elements such as tilde and caret ranges in Rubygems, npm or Dart
+the use of elements such as tilde and caret ranges in RubyGems, npm or Dart
 notations implies that a certain structure exists in the version string (semver
 or semver- like). The inclusion of these additional comparators is a result of
 the history and evolution in a given package ecosystem to address specific needs.
@@ -752,7 +752,7 @@ most vulnerable ranges yet:
   and vulnerable ranges when a version must be excluded and the set of existing
   versions is not yet known,
 
-- this make some ranges more verbose such as with the NVD CVE v5 API ranges
+- this make some ranges more verbose such as with the CVE v5 API ranges
   notation that can include their upper limit and would need two constraints.
 
 Another high level difference between the two specifications are the
@@ -761,7 +761,7 @@ the Package URL package "type" used in ``vers``. This spec will provide a strict
 mapping between the OSV ecosystem and the ``vers`` versioning schemes values.
 
 
-Why not use the NVD CVE v5 API Ranges?
+Why not use the CVE v5 API Ranges?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 See:
@@ -769,7 +769,7 @@ See:
 - https://github.com/CVEProject/cve-schema/blob/master/schema/v5.0/CVE_JSON_5.0_schema.json#L303
 - https://github.com/CVEProject/cve-schema/blob/master/schema/v5.0/CVE_JSON_5.0_schema.json#L123
 
-The version 5 of the NVD CVE JSON data format defines version ranges with a
+The version 5 of the CVE JSON data format defines version ranges with a
 starting version, a versionType, and an upper limit for the version range as
 lessThan or lessThanOrEqual or as an enumeration of versions. The versionType
 and the package collectionURL possible values are only indicative and left out
@@ -778,16 +778,16 @@ of this specification and both seem strictly equivalent to the Package URL
 
 The semantics and expressiveness of each range are similar and ``vers`` provides
 a compact notation rather than a more verbose JSON notation. ``vers`` supports
-strictly the conversion of any NVD v5 range to its notation and further
+strictly the conversion of any CVE v5 range to its notation and further
 provides a concrete list of well known versioning schemes. ``vers`` design was
-informed by the NVD CVE v5 API schema spec and its authors.
+informed by the CVE v5 API schema spec and its authors.
 
-When NVD v5 becomes active, this spec will provide a strict mapping between the
-NVD versionType and the ``vers`` versioning schemes values. Furthermore, this
+When CVE v5 becomes active, this spec will provide a strict mapping between the
+CVE ``versionType`` and the ``vers`` versioning schemes values. Furthermore, this
 spec and the Package URL "types" should be updated accordingly to provide
-a mapping with the upcoming NVD collectionURL that will be effectively used.
+a mapping with the upcoming CVE ``collectionURL`` that will be effectively used.
 
-There is one issue with NVD v5: it introduces a new trailing "*" notation that
+There is one issue with CVE v5: it introduces a new trailing "*" notation that
 does not exists in most version ranges notations and may not be computable
 easily in many cases. The description of the "lessThan" property is:
 
@@ -806,7 +806,7 @@ The conversion to ``vers`` range should be:
   computed for ``semver`` versions as ``>=1.0|<2`` but is not accurate unless
   as versioning schemes have different rules. For instance, pre-release may be
   treated in some case as part of the v1. branch and in some other cases as part
-  of the v2. branch. It is not clear if with "2.*"  the NVD spec means:
+  of the v2. branch. It is not clear if with "2.*"  the CVE v5 spec means:
 
     - ``<2``
     - or something that excludes any version string that starts with ``2.``
@@ -900,14 +900,14 @@ aspects specific to the versions used only in the Python ecosystem.
   difficult to express without an "OR" logic.
 
 
-Why not use Rubygems requirements notation?
+Why not use RubyGems requirements notation?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 See:
 
 - https://guides.rubygems.org/patterns/#declaring-dependencies
 
-The Rubygems specification suggests but does not enforce using semver. It uses
+The RubyGems specification suggests but does not enforce using semver. It uses
 operators similar to the ``node-semver`` spec with the different of the "~>"
 aka. pessimistic operator vs. a plain "~" tilde used in node-semver.  This
 operator implies some semver-like versioning, yet gem version are not strictly
