@@ -247,8 +247,9 @@ Use these rules for percent-encoding and decoding ``purl`` components:
 - the '#', '?', '@' and ':' characters must NOT be encoded when used as
   separators. They may need to be encoded elsewhere
 
-- the ':' ``scheme`` and ``type`` separator does not need to and must NOT be encoded.
-  It is unambiguous unencoded everywhere
+- The colon ':' separator between ``scheme`` and ``type`` MUST NOT be encoded.
+  For example, in the PURL snippet ``pkg:npm`` the colon ':' MUST NOT be encoded,
+  and the PURL snippet ``pkg%3Anpm`` is invalid.
 
 - the '/' used as ``type``/``namespace``/``name`` and ``subpath`` segments separator
   does not need to and must NOT be percent-encoded. It is unambiguous unencoded
