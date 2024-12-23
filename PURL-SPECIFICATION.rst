@@ -55,7 +55,7 @@ sometimes look like a ``host`` but its interpretation is specific to a ``type``.
 
 
 Some ``purl`` examples
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -72,7 +72,7 @@ Some ``purl`` examples
 
 
 A ``purl`` is a URL
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 - A ``purl`` is a valid URL and URI that conforms to the URL definitions or
   specifications at:
@@ -110,7 +110,7 @@ A ``purl`` is a URL
 
 
 Rules for each ``purl`` component
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A ``purl`` string is an ASCII URL string composed of seven components.
 
@@ -122,27 +122,11 @@ The rules for each component are:
 
 - **scheme**:
 
-  - The ``scheme`` is a constant with the value "pkg"
-  - Since a ``purl`` never contains a URL Authority, its ``scheme`` must not be
-    suffixed with double slash as in 'pkg://' and should use instead
-    'pkg:'. Otherwise this would be an invalid URI per rfc3986 at
-    https://tools.ietf.org/html/rfc3986#section-3.3::
-
-        If a URI does not contain an authority component, then the path
-        cannot begin with two slash characters ("//").
-
-    It is therefore incorrect to use such '://' scheme suffix as the URL would
-    no longer be valid otherwise. In its canonical form, a ``purl`` must
-    NOT use such '://' ``scheme`` suffix but only ':' as a ``scheme`` suffix.
-  - ``purl`` parsers must accept URLs such as 'pkg://' and must ignore the '//'.
-  - ``purl`` builders must not create invalid URLs with such double slash '//'.
-  - The ``scheme`` is followed by a ':' separator
-  - For example these two purls are strictly equivalent and the first is in
-    canonical form. The second ``purl`` with a '//' is an acceptable ``purl`` but is
-    an invalid URI/URL per rfc3986::
-
-            pkg:gem/ruby-advisory-db-check@0.12.4
-            pkg://gem/ruby-advisory-db-check@0.12.4
+  - The ``scheme`` is a constant with the value "pkg".
+  - The scheme and type MUST be separated by a colon ':'.
+  - ``purl`` parsers MUST accept URLs in which the scheme and colon ':' are
+    followed by one or more slash '/' characters, such as 'pkg://', and MUST
+    ignore -- i.e., normalize by removing -- all such '/' characters.
 
 
 - **type**:
@@ -234,9 +218,10 @@ The rules for each component are:
 Character encoding
 ~~~~~~~~~~~~~~~~~~
 
-For clarity and simplicity a ``purl`` is always an ASCII string. To ensure that
-there is no ambiguity when parsing a ``purl``, separator characters and non-ASCII
-characters must be UTF-encoded and then percent-encoded as defined at::
+For clarity and simplicity, a ``purl`` is always an ASCII string. To ensure that
+there is no ambiguity when parsing a ``purl``, unless otherwise provided in
+this specification, separator characters and non-ASCII characters MUST be
+UTF-encoded and then percent-encoded as defined at::
 
     https://en.wikipedia.org/wiki/Percent-encoding
 
@@ -244,12 +229,13 @@ Use these rules for percent-encoding and decoding ``purl`` components:
 
 - the ``type`` must NOT be encoded and must NOT contain separators
 
-- the '#', '?', '@' and ':' characters must NOT be encoded when used as
-  separators. They may need to be encoded elsewhere
+- the '#', '?', '@' and ':' characters MUST remain unencoded and displayed
+  as-is when used as separators. They may need to be encoded elsewhere.
 
-- The colon ':' separator between ``scheme`` and ``type`` MUST NOT be encoded.
-  For example, in the PURL snippet ``pkg:npm`` the colon ':' MUST NOT be encoded,
-  and the PURL snippet ``pkg%3Anpm`` is invalid.
+- the colon ':' separator between ``scheme`` and ``type`` MUST remain unencoded.
+  For example, in the PURL snippet ``pkg:npm`` the colon ':' MUST remain
+  unencoded and displayed as-is, i.e., ``pkg:npm``, and the PURL snippet
+  ``pkg%3Anpm`` is invalid.
 
 - the '/' used as ``type``/``namespace``/``name`` and ``subpath`` segments separator
   does not need to and must NOT be percent-encoded. It is unambiguous unencoded
@@ -260,7 +246,7 @@ Use these rules for percent-encoding and decoding ``purl`` components:
 - the '=' ``qualifiers`` key/value separator must NOT be encoded
 - the '#' ``subpath`` separator must be encoded as ``%23`` elsewhere
 
-- All non-ASCII characters must be encoded as UTF-8 and then percent-encoded
+- All non-ASCII characters MUST be encoded as UTF-8 and then percent-encoded.
 
 It is OK to percent-encode ``purl`` components otherwise except for the ``type``.
 Parsers and builders must always percent-decode and percent-encode ``purl``
@@ -269,7 +255,7 @@ build" sections.
 
 
 How to build ``purl`` string from its components
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Building a ``purl`` ASCII string works from left to right, from ``type`` to
 ``subpath``.
@@ -344,7 +330,7 @@ To build a ``purl`` string from its components:
 
 
 How to parse a ``purl`` string in its components
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Parsing a ``purl`` ASCII string into its components works from right to left,
 from ``subpath`` to ``type``.
@@ -387,7 +373,8 @@ To parse a ``purl`` string in its components:
   - The left side lowercased is the ``scheme``
   - The right side is the ``remainder``
 
-- Strip the ``remainder`` from leading and trailing '/'
+- Strip all leading and trailing '/' characters (e.g., '/', '//', '///' and
+  so on) from the ``remainder``
 
   - Split this once from left on '/'
   - The left side lowercased is the ``type``
@@ -425,7 +412,7 @@ There are several known ``purl`` package type definitions tracked in the
 separate `<PURL-TYPES.rst>`_ document.
 
 Known ``qualifiers`` key/value pairs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Note: Do not abuse ``qualifiers``: it can be tempting to use many qualifier
 keys but their usage should be limited to the bare minimum for proper package
