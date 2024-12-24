@@ -4,6 +4,12 @@ Package URL specification v1.0.X
 The Package URL core specification defines a versioned and formalized format,
 syntax, and rules used to represent and validate ``purl``.
 
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and
+"OPTIONAL" in this document are to be interpreted as described in
+`RFC 2119 <https://datatracker.ietf.org/doc/html/rfc2119>`_ and
+clarified in `RFC 8174 <https://datatracker.ietf.org/doc/html/rfc8174>`_.
+
 A ``purl`` or package URL is an attempt to standardize existing approaches to
 reliably identify and locate software packages.
 
@@ -32,24 +38,24 @@ The definition for each components is:
 
 - **scheme**: this is the URL scheme with the constant value of "pkg". One of
   the primary reason for this single scheme is to facilitate the future official
-  registration of the "pkg" scheme for package URLs. Required.
+  registration of the "pkg" scheme for package URLs. REQUIRED.
 - **type**: the package "type" or package "protocol" such as maven, npm, nuget,
-  gem, pypi, etc. Required.
+  gem, pypi, etc. REQUIRED.
 - **namespace**: some name prefix such as a Maven groupid, a Docker image owner,
-  a GitHub user or organization. Optional and type-specific.
-- **name**: the name of the package. Required.
-- **version**: the version of the package. Optional.
+  a GitHub user or organization. OPTIONAL and type-specific.
+- **name**: the name of the package. REQUIRED.
+- **version**: the version of the package. OPTIONAL.
 - **qualifiers**: extra qualifying data for a package such as an OS,
-  architecture, a distro, etc. Optional and type-specific.
+  architecture, a distro, etc. OPTIONAL and type-specific.
 - **subpath**: extra subpath within a package, relative to the package root.
-  Optional.
+  OPTIONAL.
 
 
 Components are designed such that they form a hierarchy from the most significant
 on the left to the least significant components on the right.
 
 
-A ``purl`` must NOT contain a URL Authority i.e. there is no support for
+A ``purl`` MUST NOT contain a URL Authority i.e. there is no support for
 ``username``, ``password``, ``host`` and ``port`` components. A ``namespace`` segment may
 sometimes look like a ``host`` but its interpretation is specific to a ``type``.
 
@@ -98,14 +104,14 @@ A ``purl`` is a URL
 - Special URL schemes as defined in https://url.spec.whatwg.org/ such as
   ``file://``, ``https://``, ``http://`` and ``ftp://`` are NOT valid ``purl`` types.
   They are valid URL or URI schemes but they are not ``purl``.
-  They may be used to reference URLs in separate attributes outside of a ``purl``
+  They MAY be used to reference URLs in separate attributes outside of a ``purl``
   or in a ``purl`` qualifier.
 
 - Version control system (VCS) URLs such ``git://``, ``svn://``, ``hg://`` or as
   defined in Python pip or SPDX download locations are NOT valid ``purl`` types.
   They are valid URL or URI schemes but they are not ``purl``.
   They are a closely related, compact and uniform way to reference VCS URLs.
-  They may be used as references in separate attributes outside of a ``purl`` or
+  They MAY be used as references in separate attributes outside of a ``purl`` or
   in a ``purl`` qualifier.
 
 
@@ -115,7 +121,7 @@ Rules for each ``purl`` component
 A ``purl`` string is an ASCII URL string composed of seven components.
 
 Some components are allowed to use other characters beyond ASCII: these
-components must then be UTF-8-encoded strings and percent-encoded as defined in
+components MUST then be UTF-8-encoded strings and percent-encoded as defined in
 the "Character encoding" section.
 
 The rules for each component are:
@@ -123,8 +129,8 @@ The rules for each component are:
 - **scheme**:
 
   - The ``scheme`` is a constant with the value "pkg"
-  - Since a ``purl`` never contains a URL Authority, its ``scheme`` must not be
-    suffixed with double slash as in 'pkg://' and should use instead
+  - Since a ``purl`` never contains a URL Authority, its ``scheme`` MUST NOT be
+    suffixed with double slash as in 'pkg://' and SHOULD use instead
     'pkg:'. Otherwise this would be an invalid URI per rfc3986 at
     https://tools.ietf.org/html/rfc3986#section-3.3::
 
@@ -132,10 +138,10 @@ The rules for each component are:
         cannot begin with two slash characters ("//").
 
     It is therefore incorrect to use such '://' scheme suffix as the URL would
-    no longer be valid otherwise. In its canonical form, a ``purl`` must
+    no longer be valid otherwise. In its canonical form, a ``purl`` MUST
     NOT use such '://' ``scheme`` suffix but only ':' as a ``scheme`` suffix.
-  - ``purl`` parsers must accept URLs such as 'pkg://' and must ignore the '//'.
-  - ``purl`` builders must not create invalid URLs with such double slash '//'.
+  - ``purl`` parsers MUST accept URLs such as 'pkg://' and MUST ignore the '//'.
+  - ``purl`` builders MUST NOT create invalid URLs with such double slash '//'.
   - The ``scheme`` is followed by a ':' separator
   - For example these two purls are strictly equivalent and the first is in
     canonical form. The second ``purl`` with a '//' is an acceptable ``purl`` but is
@@ -151,23 +157,23 @@ The rules for each component are:
     and '-' (period, plus, and dash)
   - The ``type`` cannot start with a number
   - The ``type`` cannot contain spaces
-  - The ``type`` must NOT be percent-encoded
+  - The ``type`` MUST NOT be percent-encoded
   - The ``type`` is case insensitive. The canonical form is lowercase
 
 
 - **namespace**:
 
-  - The optional ``namespace`` contains zero or more segments, separated by slash
+  - The OPTIONAL ``namespace`` contains zero or more segments, separated by slash
     '/'
-  - Leading and trailing slashes '/' are not significant and should be stripped
+  - Leading and trailing slashes '/' are not significant and SHOULD be stripped
     in the canonical form. They are not part of the ``namespace``
-  - Each ``namespace`` segment must be a percent-encoded string
+  - Each ``namespace`` segment MUST be a percent-encoded string
   - When percent-decoded, a segment:
 
-    - must not contain a '/'
-    - must not be empty
+    - MUST NOT contain a '/'
+    - MUST NOT be empty
 
-  - A URL host or Authority must NOT be used as a ``namespace``. Use instead a
+  - A URL host or Authority MUST NOT be used as a ``namespace``. Use instead a
     ``repository_url`` qualifier. Note however that for some types, the
     ``namespace`` may look like a host.
 
@@ -176,18 +182,18 @@ The rules for each component are:
 
   - The ``name`` is prefixed by a '/' separator when the ``namespace`` is not empty
   - This '/' is not part of the ``name``
-  - A ``name`` must be a percent-encoded string
+  - A ``name`` MUST be a percent-encoded string
 
 
 - **version**:
 
   - The ``version`` is prefixed by a '@' separator when not empty
   - This '@' is not part of the ``version``
-  - A ``version`` must be a percent-encoded string
+  - A ``version`` MUST be a percent-encoded string
 
   - A ``version`` is a plain and opaque string. Some package ``types`` use versioning
     conventions such as SemVer for NPMs or NEVRA conventions for RPMS. A ``type``
-    may define a procedure to compare and sort versions, but there is no
+    MAY define a procedure to compare and sort versions, but there is no
     reliable and uniform way to do such comparison consistently.
 
 
@@ -199,18 +205,18 @@ The rules for each component are:
     separated by a '&' ampersand. A ``key`` and ``value`` are separated by the equal
     '=' character
   - These '&' are not part of the ``key=value`` pairs.
-  - ``key`` must be unique within the keys of the ``qualifiers`` string
+  - ``key`` MUST be unique within the keys of the ``qualifiers`` string
   - ``value`` cannot be an empty string: a ``key=value`` pair with an empty ``value``
     is the same as no key/value at all for this key
   - For each pair of ``key`` = ``value``:
 
-    - The ``key`` must be composed only of ASCII letters and numbers, '.', '-' and
+    - The ``key`` MUST be composed only of ASCII letters and numbers, '.', '-' and
       '_' (period, dash and underscore)
     - A ``key`` cannot start with a number
-    - A ``key`` must NOT be percent-encoded
+    - A ``key`` MUST NOT be percent-encoded
     - A ``key`` is case insensitive. The canonical form is lowercase
     - A ``key`` cannot contain spaces
-    - A ``value`` must be a percent-encoded string
+    - A ``value`` MUST be a percent-encoded string
     - The '=' separator is neither part of the ``key`` nor of the ``value``
 
 
@@ -219,16 +225,16 @@ The rules for each component are:
   - The ``subpath`` string is prefixed by a '#' separator when not empty
   - This '#' is not part of the ``subpath``
   - The ``subpath`` contains zero or more segments, separated by slash '/'
-  - Leading and trailing slashes '/' are not significant and should be stripped
+  - Leading and trailing slashes '/' are not significant and SHOULD be stripped
     in the canonical form
-  - Each ``subpath`` segment must be a percent-encoded string
+  - Each ``subpath`` segment MUST be a percent-encoded string
   - When percent-decoded, a segment:
 
-    - must not contain a '/'
-    - must not be any of '..' or '.'
-    - must not be empty
+    - MUST NOT contain a '/'
+    - MUST NOT be any of '..' or '.'
+    - MUST NOT be empty
 
-  - The ``subpath`` must be interpreted as relative to the root of the package
+  - The ``subpath`` MUST be interpreted as relative to the root of the package
 
 
 Character encoding
@@ -236,33 +242,33 @@ Character encoding
 
 For clarity and simplicity a ``purl`` is always an ASCII string. To ensure that
 there is no ambiguity when parsing a ``purl``, separator characters and non-ASCII
-characters must be UTF-encoded and then percent-encoded as defined at::
+characters MUST be UTF-encoded and then percent-encoded as defined at::
 
     https://en.wikipedia.org/wiki/Percent-encoding
 
 Use these rules for percent-encoding and decoding ``purl`` components:
 
-- the ``type`` must NOT be encoded and must NOT contain separators
+- the ``type`` MUST NOT be encoded and MUST NOT contain separators
 
-- the '#', '?', '@' and ':' characters must NOT be encoded when used as
-  separators. They may need to be encoded elsewhere
+- the '#', '?', '@' and ':' characters MUST NOT be encoded when used as
+  separators. They MAY need to be encoded elsewhere
 
-- the ':' ``scheme`` and ``type`` separator does not need to and must NOT be encoded.
+- the ':' ``scheme`` and ``type`` separator does not need to and MUST NOT be encoded.
   It is unambiguous unencoded everywhere
 
 - the '/' used as ``type``/``namespace``/``name`` and ``subpath`` segments separator
-  does not need to and must NOT be percent-encoded. It is unambiguous unencoded
+  does not need to and MUST NOT be percent-encoded. It is unambiguous unencoded
   everywhere
 
-- the '@' ``version`` separator must be encoded as ``%40`` elsewhere
-- the '?' ``qualifiers`` separator must be encoded as ``%3F`` elsewhere
-- the '=' ``qualifiers`` key/value separator must NOT be encoded
-- the '#' ``subpath`` separator must be encoded as ``%23`` elsewhere
+- the '@' ``version`` separator MUST be encoded as ``%40`` elsewhere
+- the '?' ``qualifiers`` separator MUST be encoded as ``%3F`` elsewhere
+- the '=' ``qualifiers`` key/value separator MUST NOT be encoded
+- the '#' ``subpath`` separator MUST be encoded as ``%23`` elsewhere
 
-- All non-ASCII characters must be encoded as UTF-8 and then percent-encoded
+- All non-ASCII characters MUST be encoded as UTF-8 and then percent-encoded
 
 It is OK to percent-encode ``purl`` components otherwise except for the ``type``.
-Parsers and builders must always percent-decode and percent-encode ``purl``
+Parsers and builders MUST always percent-decode and percent-encode ``purl``
 components and component segments as explained in the "How to parse" and "How to
 build" sections.
 
@@ -273,7 +279,7 @@ How to build ``purl`` string from its components
 Building a ``purl`` ASCII string works from left to right, from ``type`` to
 ``subpath``.
 
-Note: some extra type-specific normalizations are required.
+Note: some extra type-specific normalizations are REQUIRED.
 See the "Known types section" for details.
 
 To build a ``purl`` string from its components:
@@ -348,7 +354,7 @@ How to parse a ``purl`` string in its components
 Parsing a ``purl`` ASCII string into its components works from right to left,
 from ``subpath`` to ``type``.
 
-Note: some extra type-specific normalizations are required.
+Note: some extra type-specific normalizations are REQUIRED.
 See the "Known types section" for details.
 
 To parse a ``purl`` string in its components:
@@ -427,11 +433,11 @@ Known ``qualifiers`` key/value pairs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Note: Do not abuse ``qualifiers``: it can be tempting to use many qualifier
-keys but their usage should be limited to the bare minimum for proper package
+keys but their usage SHOULD be limited to the bare minimum for proper package
 identification to ensure that a ``purl`` stays compact and readable in most cases.
 
 Additional, separate external attributes stored outside of a ``purl`` are the
-preferred mechanism to convey extra long and optional information such as a
+preferred mechanism to convey extra long and OPTIONAL information such as a
 download URL, VCS URL or checksums in an API, database or web form.
 
 
@@ -440,7 +446,7 @@ all package types:
 
 - ``repository_url`` is an extra URL for an alternative, non-default package
   repository or registry. When a package does not come from the default public
-  package repository for its ``type`` a ``purl`` may be qualified with this extra
+  package repository for its ``type`` a ``purl`` MAY be qualified with this extra
   URL. The default repository or registry of a ``type`` is documented in the
   "Known ``purl`` types" section.
 
@@ -448,7 +454,7 @@ all package types:
   optionally qualify a ``purl``.
 
 - ``vcs_url`` is an extra URL for a package version control system URL to
-  optionally qualify a ``purl``. The syntax for this URL should be as defined in
+  optionally qualify a ``purl``. The syntax for this URL SHOULD be as defined in
   Python pip or the SPDX specification. See
   https://github.com/spdx/spdx-spec/blob/cfa1b9d08903/chapters/3-package-information.md#37-package-download-location
 
@@ -482,22 +488,22 @@ pairs some of which may not be normalized:
 - **qualifiers**: the ``qualifiers`` corresponding to this ``purl`` as an object of
   {key: value} qualifier pairs.
 - **subpath**: the ``subpath`` corresponding to this ``purl``.
-- **is_invalid**: a boolean flag set to true if the test should report an
+- **is_invalid**: a boolean flag set to true if the test SHOULD report an
   error
 
 To test ``purl`` parsing and building, a tool can use this test suite and for
 every listed test object, run these tests:
 
 - parsing the test canonical ``purl`` then re-building a ``purl`` from these parsed
-  components should return the test canonical ``purl``
+  components SHOULD return the test canonical ``purl``
 
-- parsing the test ``purl`` should return the components parsed from the test
+- parsing the test ``purl`` SHOULD return the components parsed from the test
   canonical ``purl``
 
 - parsing the test ``purl`` then re-building a ``purl`` from these parsed components
-  should return the test canonical ``purl``
+  SHOULD return the test canonical ``purl``
 
-- building a ``purl`` from the test components should return the test canonical ``purl``
+- building a ``purl`` from the test components SHOULD return the test canonical ``purl``
 
 
 License
