@@ -123,8 +123,8 @@ The rules for each component are:
 - **scheme**:
 
   - The ``scheme`` is a constant with the value "pkg".
-  - The scheme and type MUST be separated by a colon ':'.
-  - ``purl`` parsers MUST accept URLs in which the scheme and colon ':' are
+  - The ``scheme`` and ``type`` MUST be separated by a colon ':'.
+  - ``purl`` parsers MUST accept URLs in which the ``scheme`` and colon ':' are
     followed by one or more slash '/' characters, such as 'pkg://', and MUST
     ignore -- i.e., normalize by removing -- all such '/' characters.
 
