@@ -1,11 +1,3 @@
-.. |ss| raw:: html
-
-   <span style="color: #990000;">
-
-.. |se| raw:: html
-
-   </span>
-
 Frequently Asked Questions
 ==========================
 
@@ -34,24 +26,24 @@ Scheme
 Type
 ----
 
-|ss| **Question**: |se| Can the ``type`` component start with a number?
+**Question**: Can the ``type`` component start with a number?
 
 No.  As the "Rules for each purl component" section provides, "The ``type``
 MUST start with an ASCII letter."
 
-|ss| **Question**: |se| Can the ``type`` component contain spaces?
+**Question**: Can the ``type`` component contain spaces?
 
 No.  See the "Rules for each purl component" section:
 
     The package ``type`` MUST be composed only of ASCII letters and numbers,
     '.', '+' and '-' (period, plus, and dash).
 
-|ss| **Question**: |se| Does the ``type`` need to be percent-encoded?
+**Question**: Does the ``type`` need to be percent-encoded?
 
 No.  This is addressed in the "Rules for each purl component" section:
 "The ``type`` MUST be unencoded."
 
-|ss| **Question**: |se| What behavior is expected from a PURL spec implementation if a
+**Question**: What behavior is expected from a PURL spec implementation if a
 ``type`` contains a character like a slash '/' or a colon ':'?
 
 The "Rules for each purl component" section provides that
