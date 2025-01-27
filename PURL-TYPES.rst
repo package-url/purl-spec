@@ -61,10 +61,9 @@ apk
 
 bazel
 -----
-``bazel`` for Bazel modules:
+``bazel`` for Bazel modules as specified at ``https://bazel.build/external/module``:
 
-- The default repository ("registry") is ``https://bcr.bazel.build``, the
-  Bazel Central Registry (BCR).
+- The default repository is the Bazel Central Registry (BCR) ``https://bcr.bazel.build``.
 - The ``name`` is the module name. It must be lowercased.
 - The ``version`` is the module version in `Bazel's relaxed semver format
   <https://bazel.build/external/module#version_format>`_.
