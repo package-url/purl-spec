@@ -746,7 +746,7 @@
   {
     "description": "bazel module names are lowercased",
     "purl": "pkg:bazel/Curl@8.8.0.bcr.1",
-    "canonical_purl": "pkg:bazel/Curl@8.8.0.bcr.1",
+    "canonical_purl": "pkg:bazel/curl@8.8.0.bcr.1",
     "type": "bazel",
     "namespace": null,
     "name": "curl",
