@@ -744,7 +744,7 @@
     "is_invalid": false
   },
   {
-    "description": "bazel module names are currently all lowercased, but this is not enforced by the PURL type spec",
+    "description": "bazel module names are actually all lowercased, but this is not enforced by the PURL type spec for reasons",
     "purl": "pkg:bazel/Curl@8.8.0.bcr.1",
     "canonical_purl": "pkg:bazel/Curl@8.8.0.bcr.1",
     "type": "bazel",
