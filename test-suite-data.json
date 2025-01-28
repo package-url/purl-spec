@@ -684,18 +684,6 @@
     "is_invalid": false
   },
   {
-    "description": "bazel module names are lowercased",
-    "purl": "pkg:bazel/Curl@8.8.0.bcr.1",
-    "canonical_purl": "pkg:bazel/curl@8.8.0.bcr.1",
-    "type": "bazel",
-    "namespace": null,
-    "name": "curl",
-    "version": "8.8.0.bcr.1",
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": true
-  },
-  {
     "description": "bazel module with multi-segment package",
     "purl": "pkg:bazel/rules_java@8.5.0#java/runfiles",
     "canonical_purl": "pkg:bazel/rules_java@8.5.0#java/runfiles",
