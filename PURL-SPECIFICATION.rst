@@ -147,12 +147,11 @@ The rules for each component are:
 
 - **type**:
 
-  - The package ``type`` is composed only of ASCII letters and numbers, '.', '+'
-    and '-' (period, plus, and dash)
-  - The ``type`` cannot start with a number
-  - The ``type`` cannot contain spaces
-  - The ``type`` must NOT be percent-encoded
-  - The ``type`` is case insensitive. The canonical form is lowercase
+  - The package ``type`` MUST be composed only of ASCII letters and numbers,
+    '.', '+' and '-' (period, plus, and dash).
+  - The ``type`` MUST start with an ASCII letter.
+  - The ``type`` MUST be unencoded.
+  - The ``type`` is case insensitive. The canonical form is lowercase.
 
 
 - **namespace**:
@@ -281,7 +280,7 @@ To build a ``purl`` string from its components:
 
 - Start a ``purl`` string with the "pkg:" ``scheme`` as a lowercase ASCII string
 
-- Append the ``type`` string to the ``purl`` as a lowercase ASCII string
+- Append the ``type`` string to the ``purl`` as an unencoded lowercase ASCII string
 
   - Append '/' to the ``purl``
 
@@ -386,7 +385,7 @@ To parse a ``purl`` string in its components:
   - The left side lowercased is the ``scheme``
   - The right side is the ``remainder``
 
-- Strip the ``remainder`` from leading and trailing '/'
+- Strip all leading and trailing '/' characters from the ``remainder``.
 
   - Split this once from left on '/'
   - The left side lowercased is the ``type``
