@@ -1,13 +1,25 @@
 Frequently Asked Questions
 ==========================
 
+The following FAQs are organized into
+
+- a "Components" section that includes each of the seven PURL components
+  (``scheme``, ``type``, ``namespace``, ``name``, ``version``, ``qualifiers``
+  and ``subpath``), and
+
+- a "General" section containing a mix of questions and answers that don't fit
+  neatly into a component-focused category.
+
+If you have a question about the PURL specification and don't find an answer
+below, you can open an issue `here <https://github.com/package-url/purl-spec/issues/new?template=Blank+issue>`_.
+
 Components
 ~~~~~~~~~~
 
 Scheme
 ------
 
-**QUESTION:** Can the ``scheme`` component be followed by a colon and two slashes, like a URI?
+**QUESTION**: Can the ``scheme`` component be followed by a colon and two slashes, like a URI?
 
 No.  Since a Package-URL, or PURL, never contains a URL Authority, its ``scheme`` should not be suffixed with double slash as in 'pkg://' and should use 'pkg:' instead. Otherwise this would be an invalid URI per RFC 3986 at https://tools.ietf.org/html/rfc3986#section-3.3::
 
@@ -27,9 +39,7 @@ For example, although these two PURLs are strictly equivalent, the first is in c
 
     pkg://gem/ruby-advisory-db-check@0.12.4
 
-----
-
-**QUESTION:** Is the colon between ``scheme`` and ``type`` encoded? Can it be encoded? If yes, how?
+**QUESTION**: Is the colon between ``scheme`` and ``type`` encoded? Can it be encoded? If yes, how?
 
 There are two sections of the core specification that address this question:
 
@@ -40,36 +50,42 @@ There are two sections of the core specification that address this question:
 
 In this case, the colon ':' between ``scheme`` and ``type`` is being used as a separator, and consequently should be used as-is, never encoded and never requiring any decoding. Moreover, it should be a parsing error if the colon ':' does not come directly after 'pkg'.  Tools are welcome to recover from this error to help with damaged PURLs, but that's not a requirement.
 
+----
 
 Type
 ----
 
 [to come]
 
+----
 
 Namespace
 ---------
 
 [to come]
 
+----
 
 Name
 ----
 
 [to come]
 
+----
 
 Version
 -------
 
 [to come]
 
+----
 
 Qualifiers
 ----------
 
 [to come]
 
+----
 
 Subpath
 -------
