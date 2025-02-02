@@ -622,5 +622,17 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": false
+  },
+  {
+    "description": "yocto valid recipe",
+    "purl": "pkg:yocto/poky/python-3dbus@f1ad013?PV=1.2.18#meta/recipes-devtools/python",
+    "canonical_purl": "pkg:yocto/poky/python-3dbus@f1ad013?PV=1.2.18#meta/recipes-devtools/python",
+    "type": "yocto",
+    "namespace": "poky",
+    "name": "python-3dbu",
+    "version": "f1ad013",
+    "qualifiers": {"PV": "1.2.8"},
+    "subpath": "meta/recipes-devtools/python",
+    "is_invalid": false
   }
 ]
