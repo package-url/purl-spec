@@ -85,8 +85,8 @@
   },
   {
     "description": "docker uses qualifiers and hash image id as versions",
-    "purl": "pkg:docker/customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io",
-    "canonical_purl": "pkg:docker/customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io",
+    "purl": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
+    "canonical_purl": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
     "type": "docker",
     "namespace": "customer",
     "name": "dockerimage",
