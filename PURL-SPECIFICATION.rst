@@ -123,10 +123,10 @@ The rules for each component are:
 - **scheme**:
 
   - The ``scheme`` is a constant with the value "pkg".
-  - The ``scheme`` and ``type`` MUST be separated by a colon ':'.
-  - ``purl`` parsers MUST accept URLs in which the ``scheme`` and colon ':' are
+  - The ``scheme`` MUST be followed by an unencoded colon ':'.
+  - ``purl`` parsers MUST accept URLs where the ``scheme`` and colon ':' are
     followed by one or more slash '/' characters, such as 'pkg://', and MUST
-    ignore -- i.e., normalize by removing -- all such '/' characters.
+    ignore and remove all such '/' characters.
 
 
 - **type**:
@@ -218,10 +218,9 @@ The rules for each component are:
 Character encoding
 ~~~~~~~~~~~~~~~~~~
 
-For clarity and simplicity, a ``purl`` is always an ASCII string. To ensure that
-there is no ambiguity when parsing a ``purl``, unless otherwise provided in
-this specification, separator characters and non-ASCII characters MUST be
-UTF-encoded and then percent-encoded as defined at::
+For clarity and simplicity a ``purl`` is always an ASCII string. To ensure that
+there is no ambiguity when parsing a ``purl``, separator characters and non-ASCII
+characters MUST be UTF-encoded and then percent-encoded as defined at::
 
     https://en.wikipedia.org/wiki/Percent-encoding
 
@@ -229,13 +228,11 @@ Use these rules for percent-encoding and decoding ``purl`` components:
 
 - the ``type`` must NOT be encoded and must NOT contain separators
 
-- the '#', '?', '@' and ':' characters MUST remain unencoded and displayed
-  as-is when used as separators. They may need to be encoded elsewhere.
+- the '#', '?', '@' and ':' characters must NOT be encoded when used as
+  separators. They may need to be encoded elsewhere
 
-- the colon ':' separator between ``scheme`` and ``type`` MUST remain unencoded.
-  For example, in the PURL snippet ``pkg:npm`` the colon ':' MUST remain
-  unencoded and displayed as-is, i.e., ``pkg:npm``, and the PURL snippet
-  ``pkg%3Anpm`` is invalid.
+- the ':' ``scheme`` and ``type`` separator does not need to and must NOT be encoded.
+  It is unambiguous unencoded everywhere
 
 - the '/' used as ``type``/``namespace``/``name`` and ``subpath`` segments separator
   does not need to and must NOT be percent-encoded. It is unambiguous unencoded
@@ -246,7 +243,7 @@ Use these rules for percent-encoding and decoding ``purl`` components:
 - the '=' ``qualifiers`` key/value separator must NOT be encoded
 - the '#' ``subpath`` separator must be encoded as ``%23`` elsewhere
 
-- All non-ASCII characters MUST be encoded as UTF-8 and then percent-encoded.
+- All non-ASCII characters must be encoded as UTF-8 and then percent-encoded
 
 It is OK to percent-encode ``purl`` components otherwise except for the ``type``.
 Parsers and builders must always percent-decode and percent-encode ``purl``
