@@ -1,11 +1,8 @@
 Frequently Asked Questions
 ==========================
 
-Components
-~~~~~~~~~~
-
 Scheme
-------
+~~~~~~
 
 **QUESTION**: Can the ``scheme`` component be followed by a colon and two slashes, like a URI?
 
