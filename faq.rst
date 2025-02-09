@@ -10,9 +10,6 @@ The following FAQs are organized into
 - a "General" section containing a mix of questions and answers that don't fit
   neatly into a component-focused category.
 
-If you have a question about the PURL specification and don't find an answer
-below, you can open an issue `here <https://github.com/package-url/purl-spec/issues/new?template=Blank+issue>`_.
-
 Components
 ~~~~~~~~~~
 
@@ -21,19 +18,19 @@ Scheme
 
 **QUESTION**: Can the ``scheme`` component be followed by a colon and two slashes, like a URI?
 
-No.  Since a Package-URL, or PURL, never contains a URL Authority, its ``scheme`` should not be suffixed with double slash as in 'pkg://' and should use 'pkg:' instead. Otherwise this would be an invalid URI per RFC 3986 at https://tools.ietf.org/html/rfc3986#section-3.3::
+No.  Since a ``purl`` never contains a URL Authority, its ``scheme`` should not be suffixed with double slash as in 'pkg://' and should use 'pkg:' instead. Otherwise this would be an invalid URI per RFC 3986 at https://tools.ietf.org/html/rfc3986#section-3.3::
 
     If a URI does not contain an authority component, then the path
     cannot begin with two slash characters ("//").
 
 This rule applies to all slash '/' characters between the ``scheme``'s colon separator and the ``type`` component, e.g., ':/', '://', ':///' et al.
 
-In its canonical form, a PURL must not use any such ':/' ``scheme`` suffix and may only use ':' as a ``scheme`` suffix.  This means that:
+In its canonical form, a ``purl`` must not use any such ':/' ``scheme`` suffix and may only use ':' as a ``scheme`` suffix.  This means that:
 
-- PURL parsers must accept URLs such as 'pkg://' and must ignore and remove all such '/' characters.
-- PURL builders should not create invalid URLs with one or more slash '/' characters between 'pkg:' and the ``type`` component.
+- ``purl`` parsers must accept URLs such as 'pkg://' and must ignore and remove all such '/' characters.
+- ``purl`` builders should not create invalid URLs with one or more slash '/' characters between 'pkg:' and the ``type`` component.
 
-For example, although these two PURLs are strictly equivalent, the first is in canonical form, while the second -- with a '//' between 'pkg:' and the ``type`` 'gem' -- is an acceptable PURL but is an invalid URI/URL per RFC 3986::
+For example, although these two purls are strictly equivalent, the first is in canonical form, while the second -- with a '//' between 'pkg:' and the ``type`` 'gem' -- is an acceptable purl but is an invalid URI/URL per RFC 3986::
 
     pkg:gem/ruby-advisory-db-check@0.12.4
 
@@ -43,4 +40,4 @@ For example, although these two PURLs are strictly equivalent, the first is in c
 
 The "Rules for each ``purl`` component" section provides that "[t]he ``scheme`` MUST be followed by an unencoded colon ':'.
 
-In this case, the colon ':' between ``scheme`` and ``type`` is being used as a separator, and consequently should be used as-is, never encoded and never requiring any decoding. Moreover, it should be a parsing error if the colon ':' does not come directly after 'pkg'.  Tools are welcome to recover from this error to help with damaged PURLs, but that's not a requirement.
+In this case, the colon ':' between ``scheme`` and ``type`` is being used as a separator, and consequently should be used as-is, never encoded and never requiring any decoding. Moreover, it should be a parsing error if the colon ':' does not come directly after 'pkg'.  Tools are welcome to recover from this error to help with malformed purls, but that's not a requirement.
