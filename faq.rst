@@ -1,15 +1,6 @@
 Frequently Asked Questions
 ==========================
 
-The following FAQs are organized into
-
-- a "Components" section that includes each of the seven PURL components
-  (``scheme``, ``type``, ``namespace``, ``name``, ``version``, ``qualifiers``
-  and ``subpath``), and
-
-- a "General" section containing a mix of questions and answers that don't fit
-  neatly into a component-focused category.
-
 Components
 ~~~~~~~~~~
 
