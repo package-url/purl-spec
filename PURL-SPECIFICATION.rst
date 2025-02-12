@@ -220,7 +220,7 @@ Character encoding
 
 For clarity and simplicity a ``purl`` is always an ASCII string. To ensure that
 there is no ambiguity when parsing a ``purl``, separator characters and non-ASCII
-characters MUST be UTF-encoded and then percent-encoded as defined at::
+characters must be UTF-encoded and then percent-encoded as defined at::
 
     https://en.wikipedia.org/wiki/Percent-encoding
 
