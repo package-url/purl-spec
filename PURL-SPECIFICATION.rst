@@ -150,7 +150,7 @@ The rules for each component are:
   - The package ``type`` MUST be composed only of ASCII letters and numbers,
     '.', '+' and '-' (period, plus, and dash).
   - The ``type`` MUST start with an ASCII letter.
-  - The ``type`` MUST be unencoded.
+  - The ``type`` MUST NOT be percent-encoded.
   - The ``type`` is case insensitive. The canonical form is lowercase.
 
 
