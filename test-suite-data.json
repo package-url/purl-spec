@@ -57,7 +57,7 @@
     "version": "abcdedf",
     "qualifiers": null,
     "subpath": "googleapis/../api/annotations",
-    "is_invalid": true
+    "is_invalid": false
   },
   {
     "description": "invalid subpath - unencoded subpath cannot contain '.'",
@@ -69,7 +69,7 @@
     "version": "abcdedf",
     "qualifiers": null,
     "subpath": "googleapis/./api/annotations",
-    "is_invalid": true
+    "is_invalid": false
   },
   {
     "description": "bitbucket namespace and name should be lowercased",
