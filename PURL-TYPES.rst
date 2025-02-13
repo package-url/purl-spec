@@ -602,15 +602,14 @@ vip
 ---
 ``vip`` for VI Package Manager (VIPM) format packages (LabVIEW):
 
-- The ``namespace`` is the company name from the package attributes (optional).
 - The ``name`` is the package name from from the package attributes with the -version removed.
 - The ``version`` is the version string from the package attributes.
 - The qualifier ``repository_name`` is the repository name from the package attributes (optional).
 - Examples::
 
-      pkg:vip/MGI/mgi_lib_1d_array@1.0.2.3
-      pkg:vip/OpenG.org/oglib_numeric@4.1.0.8
-	  pkg:vip/JDP%20Science/jdp_science_jsontext@1.4.5.91?repository_name=NI%20LabVIEW%20Tools%20Network
+      pkg:vip/mgi_lib_1d_array@1.0.2.3
+      pkg:vip/oglib_numeric@4.1.0.8
+	  pkg:vip/jdp_science_jsontext@1.4.5.91?repository_name=NI%20LabVIEW%20Tools%20Network
 
 Other candidate types to define:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
