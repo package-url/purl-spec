@@ -48,7 +48,7 @@
     "is_invalid": false
   },
   {
-    "description": "invalid subpath - unencoded subpath cannot contain ..",
+    "description": "invalid subpath - unencoded subpath cannot contain '..'",
     "purl": "pkg:GOLANG/google.golang.org/genproto@abcdedf#/googleapis/%2E%2E/api/annotations/",
     "canonical_purl": "pkg:golang/google.golang.org/genproto@abcdedf#googleapis/api/annotations",
     "type": "golang",
