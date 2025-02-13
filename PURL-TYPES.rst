@@ -172,9 +172,9 @@ cpan
 ----
 ``cpan`` for CPAN Perl packages:
 
-- The default respository is ``https://www.cpan.org/``.
+- The default repository is ``https://www.cpan.org/``.
 - The ``namespace``:
-  - To refer to a CPAN distribution name, the ``namespace`` MUST be present. In this case, the namespace is the CPAN id of the author/publisher. It MUST be written uppercase, followed by the distribution name in the ``name`` component. A distribution name may NEVER contain the string ``::``.
+  - To refer to a CPAN distribution name, the ``namespace`` MUST be present. In this case, the namespace is the CPAN id of the author/publisher. It MUST be written uppercase, followed by the distribution name in the ``name`` component. A distribution name MUST NOT contain the string ``::``.
   - To refer to a CPAN module, the ``namespace`` MUST be absent. The module name MAY contain zero or more ``::`` strings, and the module name MUST NOT contain a ``-``
 
 - The ``name`` is the module or distribution name and is case sensitive.
@@ -182,7 +182,7 @@ cpan
 - Optional qualifiers may include:
 
   - ``repository_url``: CPAN/MetaCPAN/BackPAN/DarkPAN repository base URL (default is ``https://www.cpan.org``)
-  - ``download_url``: URL of package or distibution
+  - ``download_url``: URL of package or distribution
   - ``vcs_url``: extra URL for a package version control system
   - ``ext``: file extension (default is ``tar.gz``)
 
@@ -252,7 +252,7 @@ docker
 
 gem
 ---
-``gem`` for Rubygems:
+``gem`` for RubyGems:
 
 - The default repository is ``https://rubygems.org``.
 - The ``platform`` qualifiers key is used to specify an alternative platform.
@@ -374,7 +374,7 @@ luarocks
   The full version number is required to uniquely identify a version.
 - Qualifier ``repository_url``: The LuaRocks rocks server to be used;
   useful in case a private server is used (optional).
-  If ommitted, ``https://luarocks.org`` as default server is assumed.
+  If omitted, ``https://luarocks.org`` as default server is assumed.
 
 Examples::
 
@@ -387,7 +387,7 @@ maven
 -----
 ``maven`` for Maven JARs and related artifacts:
 
-- The default repository is ``https://repo.maven.apache.org/maven2``.
+- The default ``repository_url`` is ``https://repo.maven.apache.org/maven2``.
 - The group id is the ``namespace`` and the artifact id is the ``name``.
 - Known qualifiers keys are: ``classifier`` and ``type`` as defined in the
   POM documentation. Note that Maven uses a concept / coordinate called packaging
@@ -402,6 +402,7 @@ maven
       pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=zip&classifier=dist
       pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x86&type=dll
       pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x64&type=dll
+      pkg:maven/groovy/groovy@1.0?repository_url=https://maven.google.com
 
 
 mlflow
@@ -530,9 +531,16 @@ pypi
 - PyPI treats ``-`` and ``_`` as the same character and is not case sensitive.
   Therefore a PyPI package ``name`` must be lowercased and underscore ``_``
   replaced with a dash ``-``.
+- The ``file_name`` qualifier selects a particular distribution file
+  (case-sensitive). For naming convention, see the Python Packaging User Guide on
+  `source distributions <https://packaging.python.org/en/latest/specifications/source-distribution-format/#source-distribution-file-name>`_,
+  `binary distributions <https://packaging.python.org/en/latest/specifications/binary-distribution-format/#file-name-convention>`_,
+  and `platform compatibility tags <https://packaging.python.org/en/latest/specifications/platform-compatibility-tags/>`_.
 - Examples::
 
       pkg:pypi/django@1.11.1
+      pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz
+      pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl
       pkg:pypi/django-allauth@12.23
 
 rpm

@@ -85,8 +85,8 @@
   },
   {
     "description": "docker uses qualifiers and hash image id as versions",
-    "purl": "pkg:docker/customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io",
-    "canonical_purl": "pkg:docker/customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io",
+    "purl": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
+    "canonical_purl": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
     "type": "docker",
     "namespace": "customer",
     "name": "dockerimage",
@@ -550,5 +550,101 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": false
+  },
+  {
+    "description": "cpan distribution name are case sensitive",
+    "purl": "pkg:cpan/DROLSKY/DateTime@1.55",
+    "canonical_purl": "pkg:cpan/DROLSKY/DateTime@1.55",
+    "type": "cpan",
+    "namespace": "DROLSKY",
+    "name": "DateTime",
+    "version": "1.55",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "cpan module name are case sensitive",
+    "purl": "pkg:cpan/URI::PackageURL@2.11",
+    "canonical_purl": "pkg:cpan/URI::PackageURL@2.11",
+    "type": "cpan",
+    "namespace": null,
+    "name": "URI::PackageURL",
+    "version": "2.11",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "cpan module name like distribution name",
+    "purl": "pkg:cpan/Perl-Version@1.013",
+    "canonical_purl": "pkg:cpan/Perl-Version@1.013",
+    "type": "cpan",
+    "namespace": null,
+    "name": "Perl-Version",
+    "version": "1.013",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "cpan distribution name like module name",
+    "purl": "pkg:cpan/GDT/URI::PackageURL@2.11",
+    "canonical_purl": "pkg:cpan/GDT/URI::PackageURL",
+    "type": "cpan",
+    "namespace": "GDT",
+    "name": "URI::PackageURL",
+    "version": null,
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "cpan valid module name",
+    "purl": "pkg:cpan/DateTime@1.55",
+    "canonical_purl": "pkg:cpan/DateTime@1.55",
+    "type": "cpan",
+    "namespace": null,
+    "name": "DateTime",
+    "version": "1.55",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "cpan valid module name without version",
+    "purl": "pkg:cpan/URI",
+    "canonical_purl": "pkg:cpan/URI",
+    "type": "cpan",
+    "namespace": null,
+    "name": "URI",
+    "version": null,
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "ensure namespace allows multiple segments",
+    "purl": "pkg:bintray/apache/couchdb/couchdb-mac@2.3.0",
+    "canonical_purl": "pkg:bintray/apache/couchdb/couchdb-mac@2.3.0",
+    "type": "bintray",
+    "namespace": "apache/couchdb",
+    "name": "couchdb-mac",
+    "version": "2.3.0",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "invalid encoded colon : between scheme and type",
+    "purl": "pkg%3Amaven/org.apache.commons/io",
+    "canonical_purl": "pkg:maven/org.apache.commons/io",
+    "type": "maven",
+    "namespace": "org.apache.commons",
+    "name": "io",
+    "version": null,
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
   }
 ]
