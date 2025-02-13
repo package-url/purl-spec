@@ -203,16 +203,14 @@ The rules for each component are:
   - The ``subpath`` string is prefixed by a '#' separator when not empty
   - This '#' is not part of the ``subpath``
   - The ``subpath`` contains zero or more segments, separated by slash '/'
-  - Leading and trailing slashes '/' are not significant and should be stripped
+  - Leading and trailing slashes '/' are not significant and SHOULD be stripped
     in the canonical form
-  - Each ``subpath`` segment must be a percent-encoded string
+  - Each ``subpath`` segment MUST be a percent-encoded string
   - When percent-decoded, a segment:
-
-    - must not contain a '/'
-    - must not be any of '..' or '.'
-    - must not be empty
-
-  - The ``subpath`` must be interpreted as relative to the root of the package
+    - MUST NOT contain a '/'
+    - MUST NOT be any of '..' or '.'
+    - MUST NOT be empty
+  - The ``subpath`` MUST be interpreted as relative to the root of the package
 
 
 Character encoding
@@ -343,8 +341,8 @@ To parse a ``purl`` string in its components:
   - Strip the right side from leading and trailing '/'
   - Split this on '/'
   - Discard any empty string segment from that split
-  - Discard any '.' or '..' segment from that split
   - Percent-decode each segment
+  - Discard any '.' or '..' segment from that split
   - UTF-8-decode each segment if needed in your programming language
   - Join segments back with a '/'
   - This is the ``subpath``
