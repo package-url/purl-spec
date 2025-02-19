@@ -204,7 +204,7 @@ Using version range specifiers
 
 ``vers`` primary usage is to test if a version is within a range.
 
-A version is within a version range if falls in any of the intervals defined
+An version is within a version range if falls in any of the intervals defined
 by a range. Otherwise, the version is outside of the version range.
 
 Some important usages derived from this include:
@@ -274,7 +274,7 @@ pessimistic version constraint is expanded:
 URI scheme
 ~~~~~~~~~~
 
-The ``vers`` URI scheme is an acronym for "VErsion Range Specifier".
+The ``vers`` URI scheme is  an acronym for "VErsion Range Specifier".
 It has been selected because it is short, obviously about version and available
 for a future formal registration for this URI-scheme at the IANA registry.
 
@@ -358,7 +358,7 @@ Normalized, canonical representation and validation
 -----------------------------------------------------
 
 The construction and validation rules are designed such that a ``vers`` is
-easier to read and understand by humans and straightforward to process by tools,
+easier to read and understand by human and straight forward to process by tools,
 attempting to avoid the creation of empty or impossible version ranges.
 
 - Spaces are not significant and removed in a canonical form. For example
@@ -533,7 +533,7 @@ Checking if a version is contained within a range
 
 To check if a "tested version" is contained within a version range:
 
-- Start from a parsed version range specifier with:
+- Start from a parsed a version range specifier with:
 
   - a versioning scheme
   - a list of constraints of comparator and version, sorted by version
