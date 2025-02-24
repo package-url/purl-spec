@@ -416,7 +416,7 @@ mlflow
   - AWS Databricks: ``https://dbc-<alphanumeric>-<alphanumeric>.cloud.databricks.com/api/2.0/mlflow``
   - GCP Databricks: ``https://<numbers>.<number>.gcp.databricks.com/api/2.0/mlflow``
 
-- The ``namespace`` is empty.
+- There is no ``namespace``.
 - The ``name`` is the model name. Case sensitivity depends on the server implementation:
 
   - Azure ML: it is case sensitive and must be kept as-is in the package URL.
