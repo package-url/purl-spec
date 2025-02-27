@@ -210,7 +210,7 @@
     "type": null,
     "namespace": null,
     "name": "EnterpriseLibrary.Common",
-    "version": null,
+    "version": "6.0.1304",
     "qualifiers": null,
     "subpath": null,
     "is_invalid": true
@@ -252,7 +252,7 @@
     "is_invalid": false
   },
   {
-    "description": "slash /// after type  is not significant",
+    "description": "slash /// after scheme is not significant",
     "purl": "pkg:///maven/org.apache.commons/io",
     "canonical_purl": "pkg:maven/org.apache.commons/io",
     "type": "maven",
@@ -638,11 +638,47 @@
   {
     "description": "invalid encoded colon : between scheme and type",
     "purl": "pkg%3Amaven/org.apache.commons/io",
-    "canonical_purl": "pkg:maven/org.apache.commons/io",
+    "canonical_purl": null,
     "type": "maven",
     "namespace": "org.apache.commons",
     "name": "io",
     "version": null,
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "check for invalid character in type",
+    "purl": "pkg:n&g?inx/nginx@0.8.9",
+    "canonical_purl": null,
+    "type": null,
+    "namespace": null,
+    "name": "nginx",
+    "version": "0.8.9",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "check for type that starts with number",
+    "purl": "pkg:3nginx/nginx@0.8.9",
+    "canonical_purl": null,
+    "type": null,
+    "namespace": null,
+    "name": "nginx",
+    "version": "0.8.9",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "check for colon in type",
+    "purl": "pkg:nginx:a/nginx@0.8.9",
+    "canonical_purl": null,
+    "type": null,
+    "namespace": null,
+    "name": "nginx",
+    "version": "0.8.9",
     "qualifiers": null,
     "subpath": null,
     "is_invalid": true

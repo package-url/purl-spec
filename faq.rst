@@ -29,3 +29,18 @@ For example, although these two purls are strictly equivalent, the first is in c
 The "Rules for each ``purl`` component" section provides that "[t]he ``scheme`` MUST be followed by an unencoded colon ':'.
 
 In this case, the colon ':' between ``scheme`` and ``type`` is being used as a separator, and consequently should be used as-is, never encoded and never requiring any decoding. Moreover, it should be a parsing error if the colon ':' does not come directly after 'pkg'.  Tools are welcome to recover from this error to help with malformed purls, but that's not a requirement.
+
+
+Type
+~~~~
+
+**QUESTION**: What behavior is expected from a purl spec implementation if a
+``type`` contains a character like a slash '/' or a colon ':'?
+
+The "Rules for each purl component" section provides that
+
+    [t]he package ``type`` MUST be composed only of ASCII letters and numbers,
+    '.', '+' and '-' (period, plus, and dash)
+
+As a result, a purl spec implementation must return an error when encountering
+a ``type`` that contains a prohibited character.
