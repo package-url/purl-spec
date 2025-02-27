@@ -648,13 +648,13 @@ TODO: add Rust, composer and archlinux, nginx, tomcat, apache.
 
 Moreover, there are several versioning schemes that are independent from any specific ecosystem.
 
-- **all**: a generic versioning scheme where every version is inside the range, i.e., all versions match. This is equivalent to ``true``.
+- **all**: a generic versioning scheme where every version is inside the range, i.e., all versions match. This is equivalent to ``true``. Note that ``vers:all/*`` is the only valid vers form for this scheme.
 
 - **generic**: a generic version comparison algorithm (which will be specified
   later, likely based on a split on any wholly alpha or wholly numeric segments
   and dealing with digit and string comparisons, like is done in libversion)
 
-- **none**: a generic versioning scheme where no version is inside the range, i.e. no versions match. This is equivalent to ``false``.
+- **none**: a generic versioning scheme where no version is inside the range, i.e. no versions match. This is equivalent to ``false``. Note that ``vers:none/*`` is the only valid vers form for this scheme.
 
 
 A separate document will provide details for each versioning scheme and:
