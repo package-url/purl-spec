@@ -1,0 +1,51 @@
+{
+  "$schema": "https://purl-spec.org/schemas/purl-type.schema-1.0.json",
+  "$id": "https://purl-spec.org/types/npm.json",
+  "type": "npm",
+  "name": "Node Package Manager (NPM)",
+  "description": "PURL type for Node.js packages managed by NPM.",
+  "definition": {
+    "namespace": {
+      "requirement": "optional",
+      "allowed_characters": "^[a-z0-9-]+$",
+      "case_rules": {
+        "sensitivity": "case-sensitive",
+        "normalization": "lowercase"
+      },
+      "native_label": "scope"
+    },
+    "name": {
+      "requirement": "required",
+      "allowed_characters": "^[a-z0-9-]+$",
+      "case_rules": {
+        "sensitivity": "case-sensitive",
+        "normalization": "lowercase"
+      },
+      "native_label": "name"
+    },
+    "version": {
+      "requirement": "optional",
+      "allowed_characters": "^[0-9a-zA-Z.-]+$",
+      "native_label": "version"
+    },
+    "subpath": {
+      "requirement": "optional",
+      "allowed": true,
+      "description": "A file or directory path within the package."
+    },
+    "qualifiers": [],
+    "repository": {
+      "uses_repository": true,
+      "default": {
+        "name": "NPM Registry",
+        "url": "https://registry.npmjs.org/",
+        "description": "The official NPM package repository."
+      }
+    }
+  },
+  "examples": [
+    "pkg:npm/foobar@12.3.1",
+    "pkg:npm/%40angular/animation@12.3.1",
+    "pkg:npm/mypackage@12.4.5?vcs_url=git://host.com/path/to/repo.git%404345abcd34343"
+  ]
+}
