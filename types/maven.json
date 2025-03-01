@@ -1,0 +1,61 @@
+{
+  "$schema": "../schemas/purl-type.schema.json",
+  "$id": "https://purl-spec.org/types/maven.json",
+  "type": "maven",
+  "name": "Maven",
+  "description": "PURL type for Maven packages.",
+  "definition": {
+    "namespace": {
+      "requirement": "required",
+      "allowed_characters": "^[a-zA-Z0-9_.-]+$",
+      "case_rules": {
+        "sensitivity": "case-sensitive",
+        "normalization": "lowercase-required"
+      },
+      "native_label": "groupId"
+    },
+    "name": {
+      "requirement": "required",
+      "allowed_characters": "^[a-zA-Z0-9_.-]+$",
+      "native_label": "artifactId"
+    },
+    "version": {
+      "requirement": "required",
+      "allowed_characters": "^[a-zA-Z0-9_.-]+$",
+      "native_label": "version"
+    },
+    "qualifiers": [
+      {
+        "name": "classifier",
+        "requirement": "optional",
+        "description": "The maven `classifier` as defined in the POM documentation."
+      },
+      {
+        "name": "type",
+        "requirement": "optional",
+        "description": "The maven `type` as defined in the POM documentation. Maven uses a concept / coordinate called packaging which does not map directly 1:1 to a file extension. In this use case, we need to construct a link to one of many possible artifacts. Maven itself uses type in a dependency declaration when needed to disambiguate between them."
+      }
+    ],
+    "subpath": {
+      "requirement": "optional",
+      "description": "If specified, the subpath represents the individual files within the archive, such as resources, compiled classes, and source files."
+    },
+    "repository": {
+      "uses_repository": true,
+      "default": {
+        "name": "Maven Central",
+        "url": "https://repo.maven.apache.org/maven2/",
+        "description": "The central repository for Maven packages."
+      }
+    }
+  },
+  "examples": [
+    "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1",
+    "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=pom",
+    "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources",
+    "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=zip&classifier=dist",
+    "pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x86&type=dll",
+    "pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x64&type=dll",
+    "pkg:maven/groovy/groovy@1.0?repository_url=https://maven.google.com"
+  ]
+}

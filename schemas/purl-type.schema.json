@@ -1,0 +1,215 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://purl-spec.org/schemas/purl-type.schema-1.0.json",
+  "title": "Package-URL Type Definition",
+  "description": "Schema defining the structure and constraints of a specific PURL type.",
+  "type": "object",
+  "definitions": {
+    "requirement": {
+      "type": "string",
+      "enum": ["required", "optional", "prohibited"],
+      "description": "Specifies whether this component is required, optional, or prohibited."
+    },
+    "character_constraints": {
+      "type": "string",
+      "description": "Regex defining valid characters."
+    },
+    "case_rules": {
+      "type": "object",
+      "description": "Defines case sensitivity and normalization rules.",
+      "additionalProperties": false,
+      "properties": {
+        "sensitivity": {
+          "type": "string",
+          "enum": [
+            "case-sensitive",
+            "case-insensitive"
+          ],
+          "description": "Determines if case must be preserved or ignored."
+        },
+        "normalization": {
+          "type": "string",
+          "enum": [
+            "lowercase-required",
+            "uppercase-required",
+            "none"
+          ],
+          "description": "Defines if values must be normalized to lowercase, uppercase, or kept as provided."
+        }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "$id": {
+      "type": "string",
+      "description": "The unique identifier for this PURL type definition.",
+      "pattern": "^https://purl-spec\\.org/types/[a-z0-9-]+\\.json$"
+    },
+    "type": {
+      "type": "string",
+      "description": "The registered name for this PURL type.",
+      "pattern": "^[a-z0-9-]+$",
+      "examples": [
+        "maven",
+        "npm",
+        "pypi"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "The human-readable name for this PURL type.",
+      "examples": [
+        "Maven",
+        "Node Package Manager",
+        "Python Package Index"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of this PURL type."
+    },
+    "definition": {
+      "type": "object",
+      "description": "The structure and constraints which define this PURL type.",
+      "additionalProperties": false,
+      "properties": {
+        "namespace": {
+          "type": "object",
+          "description": "The namespace component of the PURL.",
+          "required": ["requirement"],
+          "additionalProperties": false,
+          "properties": {
+            "requirement": { "$ref": "#/definitions/requirement" },
+            "allowed_characters": { "$ref": "#/definitions/character_constraints" },
+            "case_rules": { "$ref": "#/definitions/case_rules" },
+            "native_label": {
+              "type": "string",
+              "description": "The equivalent term in the package ecosystem (e.g., 'groupId' for Maven, 'scope' for npm)."
+            }
+          }
+        },
+        "name": {
+          "type": "object",
+          "description": "The name component of the PURL.",
+          "required": ["requirement"],
+          "additionalProperties": false,
+          "properties": {
+            "requirement": { "const": "required" },
+            "allowed_characters": { "$ref": "#/definitions/character_constraints" },
+            "case_rules": { "$ref": "#/definitions/case_rules" },
+            "native_label": {
+              "type": "string",
+              "description": "The equivalent term in the package ecosystem (e.g., 'artifactId' for Maven, 'name' for npm)."
+            }
+          }
+        },
+        "version": {
+          "type": "object",
+          "description": "The version of the package.",
+          "required": ["requirement"],
+          "additionalProperties": false,
+          "properties": {
+            "requirement": { "$ref": "#/definitions/requirement" },
+            "allowed_characters": { "$ref": "#/definitions/character_constraints" },
+            "case_rules": { "$ref": "#/definitions/case_rules" },
+            "native_label": {
+              "type": "string",
+              "description": "The equivalent term in the package ecosystem (e.g., 'version' for most ecosystems)."
+            }
+          }
+        },
+        "qualifiers": {
+          "type": "array",
+          "description": "Optional key-value pairs providing additional metadata.",
+          "additionalItems": false,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "The key name of the qualifier."
+              },
+              "requirement": { "$ref": "#/definitions/requirement" },
+              "description": {
+                "type": "string",
+                "description": "A human-readable explanation of what this qualifier represents."
+              }
+            },
+            "required": ["name", "requirement", "description"]
+          }
+        },
+        "subpath": {
+          "type": "object",
+          "description": "Optional subpath within the PURL.",
+          "required": ["requirement"],
+          "additionalProperties": false,
+          "properties": {
+            "requirement": { "$ref": "#/definitions/requirement" },
+            "native_label": {
+              "type": "string",
+              "description": "The equivalent term in the package ecosystem if applicable."
+            },
+            "description": {
+              "type": "string",
+              "description": "A description of how this PURL type uses the subpath."
+            }
+          }
+        },
+        "repository": {
+          "type": "object",
+          "description": "Repository-related information for this PURL type.",
+          "additionalProperties": false,
+          "properties": {
+            "uses_repository": {
+              "type": "boolean",
+              "description": "Indicates if this PURL type uses a repository."
+            },
+            "default": {
+              "type": ["object", "null"],
+              "description": "Information about the default repository, if applicable.",
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "The name of the default repository."
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URL of the default repository."
+                },
+                "description": {
+                  "type": "string",
+                  "description": "A short description of the default repository."
+                }
+              },
+              "required": ["name", "url"]
+            },
+            "description": {
+              "type": "string",
+              "description": "A description of how this PURL type uses repositories."
+            }
+          },
+          "required": ["uses_repository", "default"]
+        }
+      },
+      "required": ["namespace", "name", "version", "subpath", "repository"]
+    },
+    "examples": {
+      "type": "array",
+      "description": "Example PURLs for this package type.",
+      "additionalItems": false,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": ["$id", "type", "name", "definition"]
+}
