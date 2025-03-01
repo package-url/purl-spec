@@ -30,8 +30,8 @@
         "normalization": {
           "type": "string",
           "enum": [
-            "lowercase-required",
-            "uppercase-required",
+            "lowercase",
+            "uppercase",
             "none"
           ],
           "description": "Defines if values must be normalized to lowercase, uppercase, or kept as provided."
