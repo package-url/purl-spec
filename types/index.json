@@ -1,0 +1,21 @@
+{
+  "$schema": "https://purl-spec.org/schemas/purl-type-index.schema-1.0.json",
+  "$id": "https://purl-spec.org/types/index.json",
+  "title": "Package-URL Type Index",
+  "description": "The canonical index of all known PURL types and their definitions. This index is auto-generated and should not be manually edited.",
+  "last_updated": "2025-03-01T16:35:54Z",
+  "types": [
+    {
+      "type": "maven",
+      "definition_url": "https://raw.githubusercontent.com/package-url/purl-spec/refs/heads/main/types/maven.json"
+    },
+    {
+      "type": "npm",
+      "definition_url": "https://raw.githubusercontent.com/package-url/purl-spec/refs/heads/main/types/npm.json"
+    },
+    {
+      "type": "swid",
+      "definition_url": "https://raw.githubusercontent.com/package-url/purl-spec/refs/heads/main/types/swid.json"
+    }
+  ]
+}
