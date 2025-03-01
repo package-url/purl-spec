@@ -70,6 +70,9 @@ def generate_documentation(data):
     doc_filename = os.path.join(DOCS_DIR, f"{data['type']}.md")
 
     with open(doc_filename, "w", encoding="utf-8") as doc:
+        # Auto-generation note
+        doc.write(f"> NOTE: This file was auto-generated from the canonical JSON definition. Do not manually edit this file. Changes should be made in the corresponding JSON definition.\n\n")
+
         # Header
         doc.write(f"# PURL Type Definition: {data.get('type', 'Unknown')}\n\n")
         doc.write(f"**Name:** {data.get('name', 'Unknown')}\n\n")
@@ -179,7 +182,6 @@ if __name__ == "__main__":
             # Add data to types list for index
             types.append({
                 "type": data["type"],
-                "description": data.get("description", ""),
                 "definition_url": f"https://raw.githubusercontent.com/package-url/purl-spec/refs/heads/main/{filepath}"
             })
 
