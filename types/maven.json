@@ -1,5 +1,5 @@
 {
-  "$schema": "../schemas/purl-type.schema.json",
+  "$schema": "https://purl-spec.org/schemas/purl-type.schema-1.0.json",
   "$id": "https://purl-spec.org/types/maven.json",
   "type": "maven",
   "name": "Maven",
@@ -10,14 +10,18 @@
       "allowed_characters": "^[a-zA-Z0-9_.-]+$",
       "case_rules": {
         "sensitivity": "case-sensitive",
-        "normalization": "lowercase-required"
+        "normalization": "none"
       },
       "native_label": "groupId"
     },
     "name": {
       "requirement": "required",
       "allowed_characters": "^[a-zA-Z0-9_.-]+$",
-      "native_label": "artifactId"
+      "native_label": "artifactId",
+      "case_rules": {
+        "sensitivity": "case-sensitive",
+        "normalization": "none"
+      }
     },
     "version": {
       "requirement": "required",
