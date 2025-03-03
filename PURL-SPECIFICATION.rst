@@ -1,5 +1,5 @@
-Package URL specification v1.0.X (from qualifiers PR)
-=====================================================
+Package URL specification v1.0.X
+================================
 
 The Package URL core specification defines a versioned and formalized format,
 syntax, and rules used to represent and validate ``purl``.
@@ -136,8 +136,6 @@ The rules for each component are:
   - The ``type`` MUST start with an ASCII letter.
   - The ``type`` MUST NOT be percent-encoded.
   - The ``type`` is case insensitive. The canonical form is lowercase.
-  - ``purl`` parsers MUST return an error when the ``type`` contains a prohibited
-    character.
 
 
 - **namespace**:
@@ -181,100 +179,26 @@ The rules for each component are:
   - The ``qualifiers`` component MUST be prefixed by a '?' separator when not empty.
   - The '?' separator is not part of the ``qualifiers`` component.
   - The ``qualifiers`` component is a query string composed of one or more ``key=value``
-    pairs, each of which is separated by an ampersand '&'. A ``key`` and ``value``
-    are separated by the equal '=' character.
-  - The '&' separator is not part of the ``key`` or the ``value``.
-  - The '=' separator is not part of the ``key`` or the ``value``.
-  - The ``key`` MUST be unique among the keys of the ``qualifiers`` string.
-  - The ``value`` MUST NOT be an empty string: a ``key=value`` pair with an empty ``value``
+    pairs.   Multiple ``key=value`` pairs MUST be separated by an ampersand '&'.
+    A ``key`` and ``value`` MUST be separated by the equal '=' character.
+  - Neither the '&' nor the '=' separator is part of the ``key`` or the ``value``.
+  - Each ``key`` MUST be unique among the keys of the ``qualifiers`` string.
+  - A ``value`` MUST NOT be an empty string: a ``key=value`` pair with an empty ``value``
     is the same as no ``key=value`` pair at all for this ``key``.
 
   - For each ``key=value`` pair:
 
-    - ``key``
+    - The ``key`` MUST be composed only of ASCII letters and numbers, '.', '-' and
+      '_' (period, dash and underscore).
+    - A ``key`` MUST start with an ASCII letter.
+    - A ``key`` MUST NOT be percent-encoded.
+    - A ``key`` is case insensitive. The canonical form is lowercase.
+    - A ``value`` MAY be composed of any ASCII or non-ASCII character, and
+      MUST be percent-encoded as described in the "Character encoding"
+      section below[.] [, except that:
 
-      - The ``key`` MUST be composed only of ASCII letters and numbers, '.', '-' and
-        '_' (period, dash and underscore).
-      - A ``key`` MUST start with an ASCII letter.
-      - A ``key`` MUST NOT be percent-encoded.
-      - A ``key`` is case insensitive. The canonical form is lowercase.
-
-    - ``value``
-
-      - The ``value`` MUST be composed only of the following characters, encoded
-        as described below and in keeping with RFC 3986 Section 2.2:
-
-          "If data for a URI component would conflict with a reserved character's
-          purpose as a delimiter, then the conflicting data must be percent-encoded
-          before the URI is formed."
-          https://datatracker.ietf.org/doc/html/rfc3986#section-2.2
-
-        1. **All US-ASCII characters defined as "unreserved"** in RFC 3986 Section 2.3
-           (https://datatracker.ietf.org/doc/html/rfc3986#section-2.3):
-
-           .. code-block:: none
-
-               'A'-'Z', 'a'-'z', '0'-'9', '-', '.', '_', '~'
-
-           - These 66 characters do not need to be percent-encoded.
-
-        2. **All US-ASCII characters defined as "sub-delims"**, a subset of
-           the "reserved" characters, in RFC 3986 Section 2.2
-           (https://datatracker.ietf.org/doc/html/rfc3986#section-2.2):
-
-           .. code-block:: none
-
-               '!', '$', '&', ''', '(', ')', '*', '+', ',', ';', '='
-
-           - The '&' MUST be percent-encoded to avoid being incorrectly parsed
-             as a separator between multiple key-value pairs. See "How to parse
-             a purl string in its components" ("Split the qualifiers on '&'.
-             Each part is a key=value pair").
-
-           - The other 10 characters do not need to be percent-encoded, including
-             the '=' -- the parser will not mistakenly treat a '=' in the value
-             as a separator because it splits each key-value pair just once,
-             from left-to-right, on the first '=' it encounters, and thus there
-             is no conflict:
-
-             .. code-block:: none
-
-                 - For each pair, split the key=value once from left on '=':
-                   - The key is the lowercase left side
-                   - The value is the percent-decoded right side
-
-        3. **Four additional US-ASCII characters** identified in the "query"
-           definition in RFC 3986 Section 3.4 (https://datatracker.ietf.org/doc/html/rfc3986#section-3.4)
-           and the "pchar" definition in RFC 3986 Appendix A (https://datatracker.ietf.org/doc/html/rfc3986#appendix-A):
-
-           .. code-block:: none
-
-               ':', '@', '/', '?'
-
-           - The '?' MUST be percent-encoded to avoid being incorrectly parsed
-             as a ``qualifiers`` separator -- in the right-to-left parsing
-             (see "How to parse a purl string in its components"), an unencoded
-             '?' in the ``value`` would be the first '?' encountered by the
-             parser and incorrectly treated as a ``qualifiers`` separator.
-
-           - The other three characters do not need to be percent-encoded.
-
-        4. **All other US-ASCII characters**.
-
-           .. code-block:: none
-
-               - 33 control characters (ASCII codes 0-31 and 127)
-
-               - the 14 US-ASCII characters not covered in the preceding groups of US-ASCII characters:
-
-                 ' ' [space], '"', '#', '%', '<', '>', '[', '\', ']', '^', '`', '{', '|', '}'
-
-           - Each of these 47 US-ASCII characters MUST be percent-encoded.
-
-        5. **Any character that is not a US-ASCII character**
-           (i.e., characters with ASCII code > 127 and non-ASCII characters).
-
-           - All such characters MUST be UTF-8 encoded and then percent-encoded.
+      - *list exceptions to the updated "Character encoding" rules, e.g., if a
+        colon ':' does not need to, or SHOULD NOT, or MUST NOT, be percent-encoded.*]
 
   - ``purl`` parsers MUST return an error when the ``key`` or ``value`` contains
     a prohibited character.
@@ -300,35 +224,50 @@ The rules for each component are:
 Character encoding
 ~~~~~~~~~~~~~~~~~~
 
-For clarity and simplicity a ``purl`` is always an ASCII string. To ensure that
+For clarity and simplicity, a ``purl`` is always an ASCII string. To ensure that
 there is no ambiguity when parsing a ``purl``, separator characters and non-ASCII
-characters must be UTF-encoded and then percent-encoded as defined at::
+characters MUST be UTF-encoded and then percent-encoded as defined at
+https://en.wikipedia.org/wiki/Percent-encoding and as further defined below.
 
-    https://en.wikipedia.org/wiki/Percent-encoding
+Use these rules for percent-encoding and decoding ``purl`` components.  Except
+as otherwise provided in the "Rules for each ``purl`` component" section above:
 
-Use these rules for percent-encoding and decoding ``purl`` components:
+- A character used in a ``purl`` component MUST be percent-encoded unless it is:
 
-- the ``type`` must NOT be encoded and must NOT contain separators
+  (1) an unreserved character as defined in RFC 3986 section 2.3 (https://datatracker.ietf.org/doc/html/rfc3986#section-2.3),
 
-- the '#', '?', '@' and ':' characters must NOT be encoded when used as
-  separators. They may need to be encoded elsewhere
+  (2) expressly defined in this PURL-SPECIFICATION.rst as a ``purl`` separator (and only when used as such a separator), or
 
-- the ':' ``scheme`` and ``type`` separator does not need to and must NOT be encoded.
-  It is unambiguous unencoded everywhere
+  (3) expressly permitted in that ``purl`` component.
 
-- the '/' used as ``type``/``namespace``/``name`` and ``subpath`` segments separator
-  does not need to and must NOT be percent-encoded. It is unambiguous unencoded
-  everywhere
+- All non-ASCII characters MUST be encoded as UTF-8 and then percent-encoded.
 
-- the '@' ``version`` separator must be encoded as ``%40`` elsewhere
-- the '?' ``qualifiers`` separator must be encoded as ``%3F`` elsewhere
-- the '=' ``qualifiers`` key/value separator must NOT be encoded
-- the '#' ``subpath`` separator must be encoded as ``%23`` elsewhere
+- The characters used as ``purl`` separators are listed below.  These characters:
 
-- All non-ASCII characters must be encoded as UTF-8 and then percent-encoded
+  - MUST NOT be percent-encoded when used as separators.
+  - MUST be percent-encoded when not used as separators unless expressly permitted
+    by a ``purl`` component.
 
-It is OK to percent-encode ``purl`` components otherwise except for the ``type``.
-Parsers and builders must always percent-decode and percent-encode ``purl``
+.. list-table::
+   :widths: 1 4
+   :header-rows: 1
+
+   * - Character
+     - Use as separator
+   * - ':'
+     - between ``scheme`` and ``type``
+   * - '@'
+     - ``version`` prefix
+   * - '?'
+     - ``qualifiers`` prefix
+   * - '#'
+     - ``subpath`` prefix
+   * - '/'
+     - ``type``/``namespace``/``name`` and ``subpath`` segments separator
+   * - '='
+     - ``qualifiers`` ``key``/``value`` separator
+
+Parsers and builders MUST always percent-decode and percent-encode ``purl``
 components and component segments as explained in the "How to parse" and "How to
 build" sections.
 
