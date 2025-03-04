@@ -64,10 +64,8 @@ bazel
 ``bazel`` for Bazel modules as specified at ``https://bazel.build/external/module``:
 
 - The default repository is the Bazel Central Registry (BCR) ``https://bcr.bazel.build``.
-- The ``name`` is the module name.
+- The ``name`` is not case sensitive and must be lowercased.
 - The ``version`` is the module version.
-- The optional ``repository_url`` can be used to specify the URL of an
-  alternative registry.
 - The optional ``subpath`` can refer to a particular Bazel package in the
   module.
 - Examples::
