@@ -56,7 +56,7 @@
     "name": "genproto",
     "version": "abcdedf",
     "qualifiers": null,
-    "subpath": "googleapis/../api/annotations",
+    "subpath": "googleapis/api/annotations",
     "is_invalid": false
   },
   {
@@ -68,7 +68,7 @@
     "name": "genproto",
     "version": "abcdedf",
     "qualifiers": null,
-    "subpath": "googleapis/./api/annotations",
+    "subpath": "googleapis/api/annotations",
     "is_invalid": false
   },
   {
