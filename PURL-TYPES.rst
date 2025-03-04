@@ -516,8 +516,8 @@ pypi
 ``pypi`` for Python packages:
 
 - The default repository is ``https://pypi.org``. (Previously  ``https://pypi.python.org``.)
-- Per `PEP 503 <https://peps.python.org/pep-0503/#normalized-names>`_, normalized PyPI package names should be 
-  lowercased with all runs of the characters ``.``, ``-``, or ``_`` replaced with a single ``-`` character.
+- The package name must be normalized as described in `PEP 503 <https://peps.python.org/pep-0503/#normalized-names>`_:
+  The name is to be lowercased with all runs of the characters ``.``, ``-``, or ``_`` replaced with a single ``-`` character.
 - The ``file_name`` qualifier selects a particular distribution file
   (case-sensitive). For naming convention, see the Python Packaging User Guide on
   `source distributions <https://packaging.python.org/en/latest/specifications/source-distribution-format/#source-distribution-file-name>`_,
