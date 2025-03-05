@@ -240,10 +240,11 @@ A list of versions, enumerated:
 
 - ``vers:pypi/0.0.0|0.0.1|0.0.2|0.0.3|1.0|2.0pre1``
 
-Additionally, all versions (or none) SHOULD be specified:
+Also, it is possible to specify a range that contains all versions or none:
 
 - ``vers:all/*``
 - ``vers:none/*``
+
 
 A complex statement about a vulnerability in a "maven" package that affects
 multiple branches each with their own fixed versions at 
@@ -603,29 +604,15 @@ Some of the known versioning schemes
 These are a few known versioning schemes for some common Package URL
 `types` (aka. ``ecosystem``).
 
-- **alpine**: Alpine linux https://gitlab.alpinelinux.org/alpine/apk-tools/-/blob/master/src/version.c
-  which is using Gentoo-like conventions.
-
-- **cpan**: Perl https://perlmaven.com/how-to-compare-version-numbers-in-perl-and-for-cpan-modules
-
 - **deb**: Debian and Ubuntu https://www.debian.org/doc/debian-policy/ch-relationships.html
   Debian uses these comparators: <<, <=, =, >= and >>.
 
-- **gem**: Rubygems https://guides.rubygems.org/patterns/#semantic-versioning
+- **rpm**: RPM distros https://rpm-software-management.github.io/rpm/manual/dependencies.html
+  The a simplified rmpvercmp version comparison routine is used by Arch Linux Pacman.
+
+- **gem**: RubyGems https://guides.rubygems.org/patterns/#semantic-versioning
   which is similar to ``node-semver`` for its syntax, but does not use semver
   versions.
-
-- **gentoo**: Gentoo https://wiki.gentoo.org/wiki/Version_specifier
-
-- **golang**: Go modules https://golang.org/ref/mod#versions use ``semver`` versions
-  with a specific minimum version resolution algorithm.
-
-- **maven**: Apache Maven supports a math interval notation which is rarely seen
-  in practice http://maven.apache.org/enforcer/enforcer-rules/versionRanges.html
-
-- **nuget**: NuGet https://docs.microsoft.com/en-us/nuget/concepts/package-versioning#version-ranges
-  Note that Apache Maven and NuGet are following a similar approach with a
-  math-derived intervals syntax as in https://en.wikipedia.org/wiki/Interval_(mathematics)
 
 - **npm**: npm uses node-semver which is based on semver with its own range
   notation https://github.com/npm/node-semver#ranges
@@ -640,22 +627,33 @@ These are a few known versioning schemes for some common Package URL
 
 - **pypi**: Python https://www.python.org/dev/peps/pep-0440/
 
-- **rpm**: RPM distros https://rpm-software-management.github.io/rpm/manual/dependencies.html
-  The a simplified rmpvercmp version comparison routine is used by archlinux Pacman.
+- **cpan**: Perl https://perlmaven.com/how-to-compare-version-numbers-in-perl-and-for-cpan-modules
 
-TODO: add Rust, composer and archlinux, nginx, tomcat, apache.
+- **golang**: Go modules https://golang.org/ref/mod#versions use ``semver`` versions
+  with a specific minimum version resolution algorithm.
 
+- **maven**: Apache Maven supports a math interval notation which is rarely seen
+  in practice http://maven.apache.org/enforcer/enforcer-rules/versionRanges.html
 
-Moreover, there are several versioning schemes that are independent from any specific ecosystem.
+- **nuget**: NuGet https://docs.microsoft.com/en-us/nuget/concepts/package-versioning#version-ranges
+  Note that Apache Maven and NuGet are following a similar approach with a
+  math-derived intervals syntax as in https://en.wikipedia.org/wiki/Interval_(mathematics)
 
-- **all**: a generic versioning scheme where every version is inside the range, i.e., all versions match. This is equivalent to ``true``. Note that ``vers:all/*`` is the only valid vers form for this scheme.
+- **gentoo**: Gentoo https://wiki.gentoo.org/wiki/Version_specifier
+
+- **alpine**: Alpine linux https://gitlab.alpinelinux.org/alpine/apk-tools/-/blob/master/src/version.c
+  which is using Gentoo-like conventions.
 
 - **generic**: a generic version comparison algorithm (which will be specified
   later, likely based on a split on any wholly alpha or wholly numeric segments
   and dealing with digit and string comparisons, like is done in libversion)
 
-- **none**: a generic versioning scheme where no version is inside the range, i.e. no versions match. This is equivalent to ``false``. Note that ``vers:none/*`` is the only valid vers form for this scheme.
+Moreover, there are several versioning schemes that are independent from any specific ecosystem.
 
+- **none**: a generic versioning scheme where no version is inside the range. This is equivalent to ``false``, i.e. no versions match. Note that ``vers:none/*`` is the only valid vers form for this scheme.
+- **all**: a generic versioning scheme where every version is inside the range. This is equivalent to ``true``, i.e. all versions match. Note that ``vers:all/*`` is the only valid vers form for this scheme.
+
+TODO: add Rust, composer and archlinux, nginx, tomcat, apache.
 
 A separate document will provide details for each versioning scheme and:
 
