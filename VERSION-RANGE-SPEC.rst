@@ -240,6 +240,11 @@ A list of versions, enumerated:
 
 - ``vers:pypi/0.0.0|0.0.1|0.0.2|0.0.3|1.0|2.0pre1``
 
+Also, it is possible to specify a range that contains all versions or none:
+
+- ``vers:all/*``
+- ``vers:none/*``
+
 
 A complex statement about a vulnerability in a "maven" package that affects
 multiple branches each with their own fixed versions at 
@@ -643,6 +648,10 @@ These are a few known versioning schemes for some common Package URL
   later, likely based on a split on any wholly alpha or wholly numeric segments
   and dealing with digit and string comparisons, like is done in libversion)
 
+Moreover, there are several versioning schemes that are independent from any specific ecosystem.
+
+- **none**: a generic versioning scheme where no version is inside the range. This is equivalent to ``false``, i.e. no versions match. Note that ``vers:none/*`` is the only valid vers form for this scheme.
+- **all**: a generic versioning scheme where every version is inside the range. This is equivalent to ``true``, i.e. all versions match. Note that ``vers:all/*`` is the only valid vers form for this scheme.
 
 TODO: add Rust, composer and archlinux, nginx, tomcat, apache.
 
