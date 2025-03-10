@@ -527,8 +527,8 @@ pypi
 - Examples::
 
       pkg:pypi/django@1.11.1
-      pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz
-      pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl
+      pkg:pypi/django@1.11.1?file_name=Django-1.11.1.tar.gz
+      pkg:pypi/django@1.11.1?file_name=Django-1.11.1-py2.py3-none-any.whl
       pkg:pypi/django-allauth@12.23
 
 rpm
