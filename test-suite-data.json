@@ -48,6 +48,30 @@
     "is_invalid": false
   },
   {
+    "description": "invalid subpath - unencoded subpath cannot contain '..'",
+    "purl": "pkg:GOLANG/google.golang.org/genproto@abcdedf#/googleapis/%2E%2E/api/annotations/",
+    "canonical_purl": "pkg:golang/google.golang.org/genproto@abcdedf#googleapis/api/annotations",
+    "type": "golang",
+    "namespace": "google.golang.org",
+    "name": "genproto",
+    "version": "abcdedf",
+    "qualifiers": null,
+    "subpath": "googleapis/../api/annotations",
+    "is_invalid": false
+  },
+  {
+    "description": "invalid subpath - unencoded subpath cannot contain '.'",
+    "purl": "pkg:GOLANG/google.golang.org/genproto@abcdedf#/googleapis/%2E/api/annotations/",
+    "canonical_purl": "pkg:golang/google.golang.org/genproto@abcdedf#googleapis/api/annotations",
+    "type": "golang",
+    "namespace": "google.golang.org",
+    "name": "genproto",
+    "version": "abcdedf",
+    "qualifiers": null,
+    "subpath": "googleapis/./api/annotations",
+    "is_invalid": false
+  },
+  {
     "description": "bitbucket namespace and name should be lowercased",
     "purl": "pkg:bitbucket/birKenfeld/pyGments-main@244fd47e07d1014f0aed9c",
     "canonical_purl": "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
