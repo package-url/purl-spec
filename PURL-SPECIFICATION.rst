@@ -193,15 +193,8 @@ The rules for each component are:
     - A ``key`` MUST start with an ASCII letter.
     - A ``key`` MUST NOT be percent-encoded.
     - A ``key`` is case insensitive. The canonical form is lowercase.
-    - A ``value`` MAY be composed of any ASCII or non-ASCII character, and
-      MUST be percent-encoded as described in the "Character encoding"
-      section below[.] [, except that:
-
-      - *list exceptions to the updated "Character encoding" rules, e.g., if a
-        colon ':' does not need to, or SHOULD NOT, or MUST NOT, be percent-encoded.*]
-
-  - ``purl`` parsers MUST return an error when the ``key`` or ``value`` contains
-    a prohibited character.
+    - A ``value`` MAY be composed of any character.  A ``value`` MUST be
+      percent-encoded as described in the "Character encoding" section.
 
 
 - **subpath**:
@@ -266,6 +259,8 @@ as otherwise provided in the "Rules for each ``purl`` component" section above:
      - ``type``/``namespace``/``name`` and ``subpath`` segments separator
    * - '='
      - ``qualifiers`` ``key``/``value`` separator
+   * - '&'
+     - ``qualifiers`` ``key=value`` separator
 
 Parsers and builders MUST always percent-decode and percent-encode ``purl``
 components and component segments as explained in the "How to parse" and "How to
