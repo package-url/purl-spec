@@ -516,9 +516,8 @@ pypi
 ``pypi`` for Python packages:
 
 - The default repository is ``https://pypi.org``. (Previously  ``https://pypi.python.org``.)
-- PyPI treats ``-`` and ``_`` as the same character and is not case sensitive.
-  Therefore a PyPI package ``name`` must be lowercased and underscore ``_``
-  replaced with a dash ``-``.
+- The package name must be normalized as described in the `PyPA specifications <https://packaging.python.org/en/latest/specifications/name-normalization/>`_:
+  The name is to be lowercased with all runs of the characters ``.``, ``-``, or ``_`` replaced with a single ``-`` character.
 - The ``file_name`` qualifier selects a particular distribution file
   (case-sensitive). For naming convention, see the Python Packaging User Guide on
   `source distributions <https://packaging.python.org/en/latest/specifications/source-distribution-format/#source-distribution-file-name>`_,
@@ -530,6 +529,7 @@ pypi
       pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz
       pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl
       pkg:pypi/django-allauth@12.23
+      pkg:pypi/oslo-concurrency@4.5.0
 
 rpm
 ---
