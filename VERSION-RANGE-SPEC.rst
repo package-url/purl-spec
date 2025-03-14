@@ -639,12 +639,18 @@ These are a few known versioning schemes for some common Package URL
 - **alpine**: Alpine linux https://gitlab.alpinelinux.org/alpine/apk-tools/-/blob/master/src/version.c
   which is using Gentoo-like conventions.
 
+
+These are generic schemes, to use sparingly for special cases:
+
 - **generic**: a generic version comparison algorithm (which will be specified
   later, likely based on a split on any wholly alpha or wholly numeric segments
   and dealing with digit and string comparisons, like is done in libversion)
 
+- **none**: a generic versioning scheme for a range containing no version.
+  ``vers:none/*`` is the only valid vers form for this scheme.
 
-TODO: add Rust, composer and archlinux, nginx, tomcat, apache.
+- **all**: a generic versioning scheme for a range containing all versions.
+  ``vers:all/*`` is the only valid vers form for this scheme.
 
 A separate document will provide details for each versioning scheme and:
 
@@ -653,6 +659,9 @@ A separate document will provide details for each versioning scheme and:
 
 This versioning schemes document will also explain how to convert CVE and OSV
 ranges to ``vers``.
+
+
+TODO: add Rust, composer and archlinux, nginx, tomcat, apache.
 
 
 Implementations
