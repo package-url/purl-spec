@@ -168,6 +168,7 @@ Known implementations
 - Ruby: https://github.com/package-url/packageurl-ruby
 - Rust: https://github.com/package-url/packageurl.rs
 - Swift: https://github.com/package-url/packageurl-swift
+- Kotlin: https://github.com/iseki0/PUrlKt
 
 
 Users, adopters and links (alphabetical order)
