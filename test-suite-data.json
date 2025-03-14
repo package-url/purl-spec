@@ -576,31 +576,31 @@
     "is_invalid": false
   },
   {
-    "description": "cpan distribution name are case sensitive",
-    "purl": "pkg:cpan/DROLSKY/DateTime@1.55",
-    "canonical_purl": "pkg:cpan/DROLSKY/DateTime@1.55",
+    "description": "valid CPAN purl",
+    "purl": "pkg:cpan/OALDERS/libwww-perl@6.76",
+    "canonical_purl": "pkg:cpan/OALDERS/libwww-perl@6.76",
     "type": "cpan",
-    "namespace": "DROLSKY",
-    "name": "DateTime",
-    "version": "1.55",
+    "namespace": "OALDERS",
+    "name": "libwww-perl",
+    "version": "6.76",
     "qualifiers": null,
     "subpath": null,
     "is_invalid": false
   },
   {
-    "description": "cpan module name are case sensitive",
-    "purl": "pkg:cpan/URI::PackageURL@2.11",
-    "canonical_purl": "pkg:cpan/URI::PackageURL@2.11",
+    "description": "CPAN distributions name are case sensitive",
+    "purl": "pkg:cpan/GDT/URI-PackageURL",
+    "canonical_purl": "pkg:cpan/GDT/URI-PackageURL",
     "type": "cpan",
-    "namespace": null,
-    "name": "URI::PackageURL",
-    "version": "2.11",
+    "namespace": "GDT",
+    "name": "URI-PackageURL",
+    "version": null,
     "qualifiers": null,
     "subpath": null,
     "is_invalid": false
   },
   {
-    "description": "cpan module name like distribution name",
+    "description": "invalid CPAN distribution without author",
     "purl": "pkg:cpan/Perl-Version@1.013",
     "canonical_purl": "pkg:cpan/Perl-Version@1.013",
     "type": "cpan",
@@ -612,8 +612,20 @@
     "is_invalid": true
   },
   {
-    "description": "cpan distribution name like module name",
-    "purl": "pkg:cpan/GDT/URI::PackageURL@2.11",
+    "description": "CPAN distribution in BackPAN repository",
+    "purl": "pkg:cpan/DROLSKY/DateTime@1.55?repository_url=backpan.perl.org",
+    "canonical_purl": "pkg:cpan/DROLSKY/DateTime@1.55?repository_url=backpan.perl.org",
+    "type": "cpan",
+    "namespace": "DROLSKY",
+    "name": "DateTime",
+    "version": "1.55",
+    "qualifiers": {"repository_url":"backpan.perl.org"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "invalid CPAN distribution name as module name",
+    "purl": "pkg:cpan/GDT/URI::PackageURL",
     "canonical_purl": "pkg:cpan/GDT/URI::PackageURL",
     "type": "cpan",
     "namespace": "GDT",
@@ -624,28 +636,28 @@
     "is_invalid": true
   },
   {
-    "description": "cpan valid module name",
-    "purl": "pkg:cpan/DateTime@1.55",
-    "canonical_purl": "pkg:cpan/DateTime@1.55",
+    "description": "invalid CPAN with just the module name and version",
+    "purl": "pkg:cpan/LWP::UserAgent",
+    "canonical_purl": "pkg:cpan/LWP::UserAgent@6.7.6",
     "type": "cpan",
     "namespace": null,
-    "name": "DateTime",
-    "version": "1.55",
+    "name": "LWP::UserAgent",
+    "version": "6.7.6",
     "qualifiers": null,
     "subpath": null,
-    "is_invalid": false
+    "is_invalid": true
   },
   {
-    "description": "cpan valid module name without version",
-    "purl": "pkg:cpan/URI",
-    "canonical_purl": "pkg:cpan/URI",
+    "description": "invalid CPAN with just the module name",
+    "purl": "pkg:cpan/DBD::SQLite",
+    "canonical_purl": "pkg:cpan/DBD::SQLite",
     "type": "cpan",
     "namespace": null,
-    "name": "URI",
+    "name": "DBD::SQLite",
     "version": null,
     "qualifiers": null,
     "subpath": null,
-    "is_invalid": false
+    "is_invalid": true
   },
   {
     "description": "ensure namespace allows multiple segments",
