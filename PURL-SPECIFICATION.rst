@@ -184,7 +184,7 @@ The rules for each component are:
   - Neither the '&' nor the '=' separator is part of the ``key`` or the ``value``.
   - Each ``key`` MUST be unique among the keys of the ``qualifiers`` string.
   - A ``value`` MUST NOT be an empty string: a ``key=value`` pair with an empty ``value``
-    is the same as no ``key=value`` pair at all for this ``key``.
+    is the same as if no ``key=value`` pair exists for this ``key``.
 
   - For each ``key=value`` pair:
 
@@ -217,50 +217,65 @@ The rules for each component are:
 Character encoding
 ~~~~~~~~~~~~~~~~~~
 
-For clarity and simplicity, a ``purl`` is always an ASCII string. To ensure that
-there is no ambiguity when parsing a ``purl``, separator characters and non-ASCII
-characters MUST be UTF-encoded and then percent-encoded as defined at
+A canonical ``purl`` is always an ASCII string composed only of these characters:
+
+- ``A to Z``,
+- ``a to z``,
+- ``0 to 9`` and
+- the punctuation marks ``:/@?#%.-_~`` .
+
+To ensure that there is no ambiguity when parsing a ``purl``, separator characters
+and non-ASCII characters MUST be UTF-encoded and then percent-encoded as defined at
 https://en.wikipedia.org/wiki/Percent-encoding and as further defined below.
 
-Use these rules for percent-encoding and decoding ``purl`` components.  Except
-as otherwise provided in the "Rules for each ``purl`` component" section above:
+----
+
+Use these rules for percent-encoding and decoding the characters that comprise
+a ``purl`` string.  Except as otherwise provided in the "Rules for each
+``purl`` component" section above:
 
 - A character used in a ``purl`` component MUST be percent-encoded unless it is:
 
-  (1) an unreserved character as defined in RFC 3986 section 2.3 (https://datatracker.ietf.org/doc/html/rfc3986#section-2.3),
+  - an unreserved character as defined in RFC 3986 section 2.3 (https://datatracker.ietf.org/doc/html/rfc3986#section-2.3),
 
-  (2) expressly defined in this PURL-SPECIFICATION.rst as a ``purl`` separator (and only when used as such a separator), or
+  - expressly defined in this PURL-SPECIFICATION.rst as a ``purl`` separator (and only when used as such a separator), or
 
-  (3) expressly permitted in that ``purl`` component.
+  - expressly permitted in that ``purl`` component.
 
 - All non-ASCII characters MUST be encoded as UTF-8 and then percent-encoded.
 
 - The characters used as ``purl`` separators are listed below.  These characters:
 
   - MUST NOT be percent-encoded when used as separators.
+
   - MUST be percent-encoded when not used as separators unless expressly permitted
     by a ``purl`` component.
 
-.. list-table::
-   :widths: 1 4
-   :header-rows: 1
+  - ``purl`` separators:
 
-   * - Character
-     - Use as separator
-   * - ':'
-     - between ``scheme`` and ``type``
-   * - '@'
-     - ``version`` prefix
-   * - '?'
-     - ``qualifiers`` prefix
-   * - '#'
-     - ``subpath`` prefix
-   * - '/'
-     - ``type``/``namespace``/``name`` and ``subpath`` segments separator
-   * - '='
-     - ``qualifiers`` ``key``/``value`` separator
-   * - '&'
-     - ``qualifiers`` ``key=value`` separator
+    ':' (colon)
+      - between ``scheme`` and ``type``
+
+    '@' (at sign)
+      - ``version`` prefix
+
+    '?' (question mark)
+      - ``qualifiers`` prefix
+
+    '#' (number sign)
+      - ``subpath`` prefix
+
+    '/' (slash)
+      - ``type``/``namespace``/``name`` separator
+      - ``subpath`` segments separator
+
+    '=' (equals)
+      - ``qualifiers`` ``key``/``value`` separator
+
+    '&' (ampersand)
+      - ``qualifiers`` ``key=value`` separator
+
+----
 
 Parsers and builders MUST always percent-decode and percent-encode ``purl``
 components and component segments as explained in the "How to parse" and "How to
@@ -505,3 +520,12 @@ License
 ~~~~~~~
 
 This document is licensed under the MIT license
+
+Definitions
+~~~~~~~~~~~
+
+[ASCII]  See, e.g.,
+
+  - American National Standards Institute, "Coded Character Set -- 7-bit
+    American Standard Code for Information Interchange", ANSI X3.4, 1986.
+  - https://en.wikipedia.org/wiki/ASCII.
