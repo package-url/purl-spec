@@ -1,0 +1,62 @@
+[
+  {
+    "description": "a scheme is always required",
+    "purl": "EnterpriseLibrary.Common@6.0.1304",
+    "canonical_purl": "EnterpriseLibrary.Common@6.0.1304",
+    "type": null,
+    "namespace": null,
+    "name": "EnterpriseLibrary.Common",
+    "version": null,
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "a type is always required",
+    "purl": "pkg:EnterpriseLibrary.Common@6.0.1304",
+    "canonical_purl": "pkg:EnterpriseLibrary.Common@6.0.1304",
+    "type": null,
+    "namespace": null,
+    "name": "EnterpriseLibrary.Common",
+    "version": "6.0.1304",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "check for invalid character in type",
+    "purl": "pkg:n&g?inx/nginx@0.8.9",
+    "canonical_purl": null,
+    "type": null,
+    "namespace": null,
+    "name": "nginx",
+    "version": "0.8.9",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "check for type that starts with number",
+    "purl": "pkg:3nginx/nginx@0.8.9",
+    "canonical_purl": null,
+    "type": null,
+    "namespace": null,
+    "name": "nginx",
+    "version": "0.8.9",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "check for colon in type",
+    "purl": "pkg:nginx:a/nginx@0.8.9",
+    "canonical_purl": null,
+    "type": null,
+    "namespace": null,
+    "name": "nginx",
+    "version": "0.8.9",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  }
+]

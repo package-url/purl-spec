@@ -1,0 +1,28 @@
+[
+  {
+    "description": "npm can be scoped",
+    "purl": "pkg:npm/%40angular/animation@12.3.1",
+    "canonical_purl": "pkg:npm/%40angular/animation@12.3.1",
+    "type": "npm",
+    "namespace": "@angular",
+    "name": "animation",
+    "version": "12.3.1",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "checks for invalid qualifier keys",
+    "purl": "pkg:npm/myartifact@1.0.0?in%20production=true",
+    "canonical_purl": null,
+    "type": "npm",
+    "namespace": null,
+    "name": "myartifact",
+    "version": "1.0.0",
+    "qualifiers": {
+      "in production": "true"
+    },
+    "subpath": null,
+    "is_invalid": true
+  }
+]
