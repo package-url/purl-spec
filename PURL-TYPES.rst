@@ -309,11 +309,14 @@ github-release
 - Qualifier ``repository_url``: GitHub server hosting the release (optional).
   Useful in case a private server is used. If omitted, ``https://github.com``
   is assumed as the default.
+- Qualifier ``file_name``: Selects a named (case sensitive) asset contained 
+  within the release (optional).
 
 - Examples::
 
       pkg:github-release/cli/cli@v2.67.0
       pkg:github-release/foo/bar@v1.0.0?repository_url=https://foobar.ghe.com
+      pkg:github-release/foo/bar@v1.0.0?file_name=bin-linux.tgz
 
 golang
 ------
