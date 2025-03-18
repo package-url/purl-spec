@@ -162,13 +162,13 @@ Known implementations
 - Java: https://github.com/package-url/packageurl-java,
   https://github.com/sonatype/package-url-java
 - JavaScript: https://github.com/package-url/packageurl-js
+- Kotlin: https://github.com/iseki0/PUrlKt
 - Perl: https://github.com/giterlizzi/perl-URI-PackageURL
 - PHP: https://github.com/package-url/packageurl-php
 - Python: https://github.com/package-url/packageurl-python
 - Ruby: https://github.com/package-url/packageurl-ruby
 - Rust: https://github.com/package-url/packageurl.rs
 - Swift: https://github.com/package-url/packageurl-swift
-- Kotlin: https://github.com/iseki0/PUrlKt
 
 
 Users, adopters and links (alphabetical order)
