@@ -1,0 +1,14 @@
+[
+  {
+    "description": "composer names are not case sensitive",
+    "purl": "pkg:composer/Laravel/Laravel@5.5.0",
+    "canonical_purl": "pkg:composer/laravel/laravel@5.5.0",
+    "type": "composer",
+    "namespace": "laravel",
+    "name": "laravel",
+    "version": "5.5.0",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  }
+]
