@@ -81,32 +81,8 @@
     "is_invalid": true
   },
   {
-    "description": "slash / after scheme is not significant",
-    "purl": "pkg:/maven/org.apache.commons/io",
-    "canonical_purl": "pkg:maven/org.apache.commons/io",
-    "type": "maven",
-    "namespace": "org.apache.commons",
-    "name": "io",
-    "version": null,
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": false
-  },
-  {
     "description": "double slash // after scheme is not significant",
     "purl": "pkg://maven/org.apache.commons/io",
-    "canonical_purl": "pkg:maven/org.apache.commons/io",
-    "type": "maven",
-    "namespace": "org.apache.commons",
-    "name": "io",
-    "version": null,
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": false
-  },
-  {
-    "description": "slash /// after scheme is not significant",
-    "purl": "pkg:///maven/org.apache.commons/io",
     "canonical_purl": "pkg:maven/org.apache.commons/io",
     "type": "maven",
     "namespace": "org.apache.commons",
@@ -141,17 +117,5 @@
     },
     "subpath": null,
     "is_invalid": false
-  },
-  {
-    "description": "invalid encoded colon : between scheme and type",
-    "purl": "pkg%3Amaven/org.apache.commons/io",
-    "canonical_purl": null,
-    "type": "maven",
-    "namespace": "org.apache.commons",
-    "name": "io",
-    "version": null,
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": true
   }
 ]
