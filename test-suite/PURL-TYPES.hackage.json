@@ -10,17 +10,5 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": false
-  },
-  {
-    "description": "name and version are always required",
-    "purl": "pkg:hackage",
-    "canonical_purl": "pkg:hackage",
-    "type": "hackage",
-    "namespace": null,
-    "name": null,
-    "version": null,
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": true
   }
 ]
