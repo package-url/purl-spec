@@ -67,7 +67,7 @@ bazel
 - The ``name`` is case sensitive and must not be modified.
 - The ``version`` is the module version.
 - The optional ``subpath`` can refer to a particular Bazel package in the
-  module.
+  module (``https://bazel.build/concepts/labels#package-names``).
 - Examples::
 
       pkg:bazel/rules_java@7.8.0
