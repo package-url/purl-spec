@@ -420,6 +420,10 @@ download URL, VCS URL or checksums in an API, database or web form.
 With this warning, the known ``key`` and ``value`` defined here are valid for use in
 all package types:
 
+- ``vers`` is a replacement for the component ``version``.
+  This allows to define a version range, instead of a single version.
+  The value of this qualifier MUST comply to `version range spec <VERSION-RANGE-SPEC.rst>`_.
+
 - ``repository_url`` is an extra URL for an alternative, non-default package
   repository or registry. When a package does not come from the default public
   package repository for its ``type`` a ``purl`` may be qualified with this extra
