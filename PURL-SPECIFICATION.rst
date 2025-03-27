@@ -55,7 +55,7 @@ sometimes look like a ``host`` but its interpretation is specific to a ``type``.
 
 
 Some ``purl`` examples
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -72,7 +72,7 @@ Some ``purl`` examples
 
 
 A ``purl`` is a URL
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 - A ``purl`` is a valid URL and URI that conforms to the URL definitions or
   specifications at:
@@ -110,7 +110,7 @@ A ``purl`` is a URL
 
 
 Rules for each ``purl`` component
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A ``purl`` string is an ASCII URL string composed of seven components.
 
@@ -122,37 +122,20 @@ The rules for each component are:
 
 - **scheme**:
 
-  - The ``scheme`` is a constant with the value "pkg"
-  - Since a ``purl`` never contains a URL Authority, its ``scheme`` must not be
-    suffixed with double slash as in 'pkg://' and should use instead
-    'pkg:'. Otherwise this would be an invalid URI per rfc3986 at
-    https://tools.ietf.org/html/rfc3986#section-3.3::
-
-        If a URI does not contain an authority component, then the path
-        cannot begin with two slash characters ("//").
-
-    It is therefore incorrect to use such '://' scheme suffix as the URL would
-    no longer be valid otherwise. In its canonical form, a ``purl`` must
-    NOT use such '://' ``scheme`` suffix but only ':' as a ``scheme`` suffix.
-  - ``purl`` parsers must accept URLs such as 'pkg://' and must ignore the '//'.
-  - ``purl`` builders must not create invalid URLs with such double slash '//'.
-  - The ``scheme`` is followed by a ':' separator
-  - For example these two purls are strictly equivalent and the first is in
-    canonical form. The second ``purl`` with a '//' is an acceptable ``purl`` but is
-    an invalid URI/URL per rfc3986::
-
-            pkg:gem/ruby-advisory-db-check@0.12.4
-            pkg://gem/ruby-advisory-db-check@0.12.4
+  - The ``scheme`` is a constant with the value "pkg".
+  - The ``scheme`` MUST be followed by an unencoded colon ':'.
+  - ``purl`` parsers MUST accept URLs where the ``scheme`` and colon ':' are
+    followed by one or more slash '/' characters, such as 'pkg://', and MUST
+    ignore and remove all such '/' characters.
 
 
 - **type**:
 
-  - The package ``type`` is composed only of ASCII letters and numbers, '.', '+'
-    and '-' (period, plus, and dash)
-  - The ``type`` cannot start with a number
-  - The ``type`` cannot contain spaces
-  - The ``type`` must NOT be percent-encoded
-  - The ``type`` is case insensitive. The canonical form is lowercase
+  - The package ``type`` MUST be composed only of ASCII letters and numbers,
+    '.', '+' and '-' (period, plus, and dash).
+  - The ``type`` MUST start with an ASCII letter.
+  - The ``type`` MUST NOT be percent-encoded.
+  - The ``type`` is case insensitive. The canonical form is lowercase.
 
 
 - **namespace**:
@@ -219,16 +202,14 @@ The rules for each component are:
   - The ``subpath`` string is prefixed by a '#' separator when not empty
   - This '#' is not part of the ``subpath``
   - The ``subpath`` contains zero or more segments, separated by slash '/'
-  - Leading and trailing slashes '/' are not significant and should be stripped
+  - Leading and trailing slashes '/' are not significant and SHOULD be stripped
     in the canonical form
-  - Each ``subpath`` segment must be a percent-encoded string
+  - Each ``subpath`` segment MUST be a percent-encoded string
   - When percent-decoded, a segment:
-
-    - must not contain a '/'
-    - must not be any of '..' or '.'
-    - must not be empty
-
-  - The ``subpath`` must be interpreted as relative to the root of the package
+    - MUST NOT contain a '/'
+    - MUST NOT be any of '..' or '.'
+    - MUST NOT be empty
+  - The ``subpath`` MUST be interpreted as relative to the root of the package
 
 
 Character encoding
@@ -268,7 +249,7 @@ build" sections.
 
 
 How to build ``purl`` string from its components
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Building a ``purl`` ASCII string works from left to right, from ``type`` to
 ``subpath``.
@@ -281,7 +262,7 @@ To build a ``purl`` string from its components:
 
 - Start a ``purl`` string with the "pkg:" ``scheme`` as a lowercase ASCII string
 
-- Append the ``type`` string to the ``purl`` as a lowercase ASCII string
+- Append the ``type`` string to the ``purl`` as an unencoded lowercase ASCII string
 
   - Append '/' to the ``purl``
 
@@ -343,7 +324,7 @@ To build a ``purl`` string from its components:
 
 
 How to parse a ``purl`` string in its components
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Parsing a ``purl`` ASCII string into its components works from right to left,
 from ``subpath`` to ``type``.
@@ -359,8 +340,8 @@ To parse a ``purl`` string in its components:
   - Strip the right side from leading and trailing '/'
   - Split this on '/'
   - Discard any empty string segment from that split
-  - Discard any '.' or '..' segment from that split
   - Percent-decode each segment
+  - Discard any '.' or '..' segment from that split
   - UTF-8-decode each segment if needed in your programming language
   - Join segments back with a '/'
   - This is the ``subpath``
@@ -386,7 +367,8 @@ To parse a ``purl`` string in its components:
   - The left side lowercased is the ``scheme``
   - The right side is the ``remainder``
 
-- Strip the ``remainder`` from leading and trailing '/'
+- Strip all leading and trailing '/' characters (e.g., '/', '//', '///' and
+  so on) from the ``remainder``
 
   - Split this once from left on '/'
   - The left side lowercased is the ``type``
@@ -424,7 +406,7 @@ There are several known ``purl`` package type definitions tracked in the
 separate `<PURL-TYPES.rst>`_ document.
 
 Known ``qualifiers`` key/value pairs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Note: Do not abuse ``qualifiers``: it can be tempting to use many qualifier
 keys but their usage should be limited to the bare minimum for proper package

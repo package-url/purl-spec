@@ -618,6 +618,8 @@ These are a few known versioning schemes for some common Package URL
   ``node-semver``. For instance PHP ``composer`` may need its own scheme as this
   is not strictly ``node-semver``.
 
+- **composer**: PHP https://getcomposer.org/doc/articles/versions.md
+
 - **pypi**: Python https://www.python.org/dev/peps/pep-0440/
 
 - **cpan**: Perl https://perlmaven.com/how-to-compare-version-numbers-in-perl-and-for-cpan-modules
