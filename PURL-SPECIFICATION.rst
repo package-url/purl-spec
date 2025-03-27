@@ -420,9 +420,9 @@ download URL, VCS URL or checksums in an API, database or web form.
 With this warning, the known ``key`` and ``value`` defined here are valid for use in
 all package types:
 
-- ``vers`` allows to define a version range, instead of a single version.
-  The value MUST comply to `version range spec <VERSION-RANGE-SPEC.rst>`_.
-  This qualifier is mutual exclusive to the component ``version``!
+- ``vers`` allows the specification of a version range.
+  The value MUST adhere to the `Version Range Specification <VERSION-RANGE-SPEC.rst>`_.
+  This qualifier is mutually exclusive with the ``version`` component.
 
 - ``repository_url`` is an extra URL for an alternative, non-default package
   repository or registry. When a package does not come from the default public
