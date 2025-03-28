@@ -1,27 +1,57 @@
-Package URL Type definitions
+Package-URL Type definitions
 ============================
 
 Each package manager, platform, type, or ecosystem has its own conventions and
 protocols to identify, locate, and provision software packages.
 
-The package **type** is the component of a package URL that is used to capture
+The package **type** is the component of a Package-URL that is used to capture
 this information with a short string such as ``maven``, ``npm``, ``nuget``, ``gem``,
 ``pypi``, etc.
 
-
-These are known ``purl`` package type definitions.
-
-Known ``purl`` type definitions are formalized here independent of the core
-Package URL specification. See also a candidate list further down.
+These are known ``PURL`` package type definitions.
 
 Definitions can also include types reserved for future use.
 
 See also https://github.com/package-url/purl-spec and
 `<PURL-SPECIFICATION.rst>`_ for the Package URL specification.
 
+This document no longer contains a manually maintained list of PURL types.
+Instead, all PURL type definitions are now centrally maintained in a **canonical machine-readable index** with automatically generated human-readable documentation.
 
-Known ``purl`` types
-~~~~~~~~~~~~~~~~~~~~
+Where to Find PURL Type Information
+-----------------------------------
+- **Canonical Machine-Readable Index**
+  The authoritative list of all PURL types can be found at:
+  `/types/index.json <https://github.com/package-url/purl-spec/tree/main/types/index.json>`_
+
+- **Canonical Machine-Readable Definitions**
+  Each PURL type is defined using a structured JSON format and can be found in:
+  `/types <https://github.com/package-url/purl-spec/tree/main/types>`_
+
+- **Human-Readable Documentation**
+  Auto-generated documentation for each PURL type is available at:
+  `/types/docs <https://github.com/package-url/purl-spec/tree/main/types/docs>`_
+
+How PURL Types Are Maintained
+-----------------------------
+All PURL type definitions are maintained as **canonical JSON files** in the `types/` directory of the PURL specification repository.
+These JSON definitions serve as the **source of truth** and define the structure of each PURL type, including:
+- Namespace and name formatting rules
+- Supported qualifiers
+- Repository requirements
+
+A **GitHub Action** automatically generates:
+- The **index.json** file containing a structured list of all known PURL types.
+- Human-readable documentation for each type.
+
+How to Propose a New PURL Type
+------------------------------
+To propose a new PURL type, create an **issue** and a corresponding **pull request** to the repository with a new JSON definition file under `types/`.
+Ensure that your proposal follows the **PURL Type Definition Schema** and includes all required fields.
+
+
+TODO: DELETE BELOW (excluding candidates)
+------------------
 
 alpm
 ----
