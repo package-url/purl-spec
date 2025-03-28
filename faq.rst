@@ -41,8 +41,8 @@ Type
 **ANSWER**: The "Rules for each purl component" section provides that the
 package ``type``
 
-    MUST be composed only of ASCII letters and numbers, '.', '+' and '-'
-    (period, plus, and dash).
+    MUST be composed only of ASCII letters and numbers, period '.', plus '+',
+    and dash '-'.
 
 As a result, a purl spec implementation must return an error when encountering
 a ``type`` that contains a prohibited character.
