@@ -169,11 +169,11 @@
   },
   {
     "description": "pypi names have special rules and not case sensitive",
-    "purl": "pkg:PYPI/My.PyPI_.--._Package@1.11.1.dev1",
+    "purl": "pkg:pypi/My.PyPI_.--._Package@1.11.1.dev1",
     "canonical_purl": "pkg:pypi/my-pypi-package@1.11.1.dev1",
     "type": "pypi",
     "namespace": null,
-    "name": "my-pypi-package",
+    "name": "My.PyPI_.--._Package",
     "version": "1.11.1.dev1",
     "qualifiers": null,
     "subpath": null,
