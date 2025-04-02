@@ -484,7 +484,7 @@ including container images built by Docker and others:
   last fragment of the repository name. For example if the repository
   name is ``library/debian`` then the ``name`` is ``debian``.
 - The ``version`` is the ``sha256:hex_encoded_lowercase_digest`` of the
-  artifact and is required to uniquely identify the artifact.
+  artifact and is used to uniquely identify the artifact.
 - Optional qualifiers may include:
 
   - ``arch``: key for a package architecture, when relevant.
@@ -527,8 +527,8 @@ pypi
 - Examples::
 
       pkg:pypi/django@1.11.1
-      pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz
-      pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl
+      pkg:pypi/django@1.11.1?file_name=Django-1.11.1.tar.gz
+      pkg:pypi/django@1.11.1?file_name=Django-1.11.1-py2.py3-none-any.whl
       pkg:pypi/django-allauth@12.23
 
 rpm
