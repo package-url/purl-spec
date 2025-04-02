@@ -222,37 +222,51 @@ The rules for each component are:
 Character encoding
 ~~~~~~~~~~~~~~~~~~
 
-For clarity and simplicity a ``purl`` is always an ASCII string. To ensure that
-there is no ambiguity when parsing a ``purl``, separator characters and non-ASCII
-characters must be UTF-encoded and then percent-encoded as defined at::
+Permitted characters
+--------------------
 
-    https://en.wikipedia.org/wiki/Percent-encoding
+A canonical ``purl`` is an ASCII string composed of these characters:
 
-Use these rules for percent-encoding and decoding ``purl`` components:
+- alphanumeric characters ``A to Z``, ``a to z``, ``0 to 9``,
+- the ``purl`` separators ``:/@?=&#`` (colon ':', slash '/', at sign '@',
+  question mark '?', equal sign '=', ampersand '&' and pound sign '#'), and
+- these punctuation marks ``%.-_~`` (percent sign '%', period '.', dash '-',
+  underscore '_' and tilde '~').
 
-- the ``type`` must NOT be encoded and must NOT contain separators
+All other characters MUST be encoded as UTF-8 and then percent-encoded.
+In addition, each component specifies its permitted characters and
+its percent-encoding rules.
 
-- the '#', '?', '@' and ':' characters must NOT be encoded when used as
-  separators. They may need to be encoded elsewhere
 
-- the ':' ``scheme`` and ``type`` separator does not need to and must NOT be encoded.
-  It is unambiguous unencoded everywhere
+``purl`` separators
+-------------------
 
-- the '/' used as ``type``/``namespace``/``name`` and ``subpath`` segments separator
-  does not need to and must NOT be percent-encoded. It is unambiguous unencoded
-  everywhere
+These ``purl`` separator characters MUST NOT be percent-encoded when used as
+``purl`` separators:
 
-- the '@' ``version`` separator must be encoded as ``%40`` elsewhere
-- the '?' ``qualifiers`` separator must be encoded as ``%3F`` elsewhere
-- the '=' ``qualifiers`` key/value separator must NOT be encoded
-- the '#' ``subpath`` separator must be encoded as ``%23`` elsewhere
+- ':' (colon) is the separator between ``scheme`` and ``type``
+- '/' (slash) is the separator between ``type``, ``namespace`` and ``name``
+- '/' (slash) is the separator between ``subpath`` segments
+- '@' (at sign) is the separator between ``name`` and  ``version``
+- '?' (question mark) is the separator before ``qualifiers``
+- '=' (equals) is the separator between a ``key`` and a ``value`` of a
+  ``qualifier``
+- '&' (ampersand) is the separator between ``qualifiers`` (each being a
+  ``key=value`` pair)
+- '#' (number sign) is the separator before ``subpath``
 
-- All non-ASCII characters must be encoded as UTF-8 and then percent-encoded
 
-It is OK to percent-encode ``purl`` components otherwise except for the ``type``.
-Parsers and builders must always percent-decode and percent-encode ``purl``
-components and component segments as explained in the "How to parse" and "How to
-build" sections.
+Percent-encoding rules
+----------------------
+
+When applying percent-encoding or decoding to a string, use the rules of RFC
+3986 section 2 (https://datatracker.ietf.org/doc/html/rfc3986#section-2).
+
+Each component defines when and how to apply percent-encoding and decoding to
+its content.
+
+When percent-encoding is required, all characters MUST be encoded except for
+the colon ':'.
 
 
 How to build ``purl`` string from its components
