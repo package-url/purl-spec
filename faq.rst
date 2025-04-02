@@ -6,7 +6,7 @@ Scheme
 
 **QUESTION**: Can the ``scheme`` component be followed by a colon and two slashes, like a URI?
 
-No.  Since a ``purl`` never contains a URL Authority, its ``scheme`` should not be suffixed with double slash as in 'pkg://' and should use 'pkg:' instead. Otherwise this would be an invalid URI per RFC 3986 at https://tools.ietf.org/html/rfc3986#section-3.3::
+**ANSWER**: No.  Since a ``purl`` never contains a URL Authority, its ``scheme`` should not be suffixed with double slash as in 'pkg://' and should use 'pkg:' instead. Otherwise this would be an invalid URI per RFC 3986 at https://tools.ietf.org/html/rfc3986#section-3.3::
 
     If a URI does not contain an authority component, then the path
     cannot begin with two slash characters ("//").
@@ -24,9 +24,10 @@ For example, although these two purls are strictly equivalent, the first is in c
 
     pkg://gem/ruby-advisory-db-check@0.12.4
 
+
 **QUESTION**: Is the colon between ``scheme`` and ``type`` encoded? Can it be encoded? If yes, how?
 
-The "Rules for each ``purl`` component" section provides that "[t]he ``scheme`` MUST be followed by an unencoded colon ':'.
+**ANSWER**: The "Rules for each ``purl`` component" section provides that the ``scheme`` MUST be followed by an unencoded colon ':'.
 
 In this case, the colon ':' between ``scheme`` and ``type`` is being used as a separator, and consequently should be used as-is, never encoded and never requiring any decoding. Moreover, it should be a parsing error if the colon ':' does not come directly after 'pkg'.  Tools are welcome to recover from this error to help with malformed purls, but that's not a requirement.
 
@@ -37,10 +38,11 @@ Type
 **QUESTION**: What behavior is expected from a purl spec implementation if a
 ``type`` contains a character like a slash '/' or a colon ':'?
 
-The "Rules for each purl component" section provides that
+**ANSWER**: The "Rules for each purl component" section provides that the
+package ``type``
 
-    [t]he package ``type`` MUST be composed only of ASCII letters and numbers,
-    '.', '+' and '-' (period, plus, and dash)
+    MUST be composed only of ASCII letters and numbers, period '.', plus '+',
+    and dash '-'.
 
 As a result, a purl spec implementation must return an error when encountering
 a ``type`` that contains a prohibited character.
