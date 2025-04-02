@@ -471,10 +471,10 @@ all package types:
 Tests
 ~~~~~
 
-To support the language-neutral testing of ``purl`` implementations, a test suite
-is provided as JSON document named ``test-suite-data.json``. This JSON document
-contains an array of objects. Each object represents a test with these key/value
-pairs some of which may not be normalized:
+To support the language-neutral testing of ``purl`` implementations, a test suite is provided as JSON documents:
+``test-suite-data/PURL-SPECIFICATION.json`` for the general specification, and
+``test-suite-data/PURL-TYPES.*.json`` for type-specific details.
+These JSON documents each contain an array of objects. Each object represents a test with these key/value pairs some of which may not be normalized:
 
 - **purl**: a ``purl`` string.
 - **canonical**: the same ``purl`` string in canonical, normalized form
