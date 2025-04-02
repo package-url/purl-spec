@@ -652,6 +652,12 @@ These are generic schemes, to use sparingly for special cases:
 - **all**: a generic versioning scheme for a range containing all versions.
   ``vers:all/*`` is the only valid vers form for this scheme.
 
+- **intdot**: a generic versioning scheme that allows version components to be
+  specified as integers separated by dots, e.g. ``10.234.5.12``. Versions
+  specified in this scheme consist of ASCII digits only, formatted with only
+  non-negative integers, and ignoring leading zeros. Interpretation of the
+  version should stop at the first character that is not a digit or a dot.
+
 A separate document will provide details for each versioning scheme and:
 
 - how to convert its native range notation to the ``vers`` notation and back.
