@@ -132,7 +132,7 @@ The rules for each component are:
 - **type**:
 
   - The package ``type`` MUST be composed only of ASCII letters and numbers,
-    '.', '+' and '-' (period, plus, and dash).
+    period '.', plus '+', and dash '-'.
   - The ``type`` MUST start with an ASCII letter.
   - The ``type`` MUST NOT be percent-encoded.
   - The ``type`` is case insensitive. The canonical form is lowercase.
@@ -176,25 +176,30 @@ The rules for each component are:
 
 - **qualifiers**:
 
-  - The ``qualifiers`` string is prefixed by a '?' separator when not empty
-  - This '?' is not part of the ``qualifiers``
-  - This is a query string composed of zero or more ``key=value`` pairs each
-    separated by a '&' ampersand. A ``key`` and ``value`` are separated by the equal
-    '=' character
-  - These '&' are not part of the ``key=value`` pairs.
-  - ``key`` must be unique within the keys of the ``qualifiers`` string
-  - ``value`` cannot be an empty string: a ``key=value`` pair with an empty ``value``
-    is the same as no key/value at all for this key
-  - For each pair of ``key`` = ``value``:
+  - The ``qualifiers`` component MUST be prefixed by an unencoded question
+    mark '?' separator when not empty.  This '?' separator is not part of the
+    ``qualifiers`` component.
+  - The ``qualifiers`` component is composed of one or more ``key=value``
+    pairs.  Multiple ``key=value`` pairs MUST be separated by an
+    unencoded ampersand '&'.  This '&' separator is not part of an
+    individual ``qualifier``.
 
-    - The ``key`` must be composed only of ASCII letters and numbers, '.', '-' and
-      '_' (period, dash and underscore)
-    - A ``key`` cannot start with a number
-    - A ``key`` must NOT be percent-encoded
-    - A ``key`` is case insensitive. The canonical form is lowercase
-    - A ``key`` cannot contain spaces
-    - A ``value`` must be a percent-encoded string
-    - The '=' separator is neither part of the ``key`` nor of the ``value``
+  - A ``key`` and ``value`` MUST be separated by the unencoded equal sign '='
+    character.  This '=' separator is not part of the ``key`` or ``value``.
+  - A ``value`` MUST NOT be an empty string: a ``key=value`` pair with an
+    empty ``value`` is the same as if no ``key=value`` pair exists for this
+    ``key``.
+
+  - For each ``key=value`` pair:
+
+    - The ``key`` MUST be composed only of lowercase ASCII letters and numbers,
+      period '.', dash '-' and underscore '_'.
+    - A ``key`` MUST start with an ASCII letter.
+    - A ``key`` MUST NOT be percent-encoded.
+    - Each ``key`` MUST be unique among all the keys of the ``qualifiers``
+      component.
+    - A ``value`` MAY be composed of any character and all characters MUST be
+      encoded as described in the "Character encoding" section.
 
 
 - **subpath**:
@@ -206,9 +211,11 @@ The rules for each component are:
     in the canonical form
   - Each ``subpath`` segment MUST be a percent-encoded string
   - When percent-decoded, a segment:
+
     - MUST NOT contain a '/'
     - MUST NOT be any of '..' or '.'
     - MUST NOT be empty
+
   - The ``subpath`` MUST be interpreted as relative to the root of the package
 
 
@@ -486,3 +493,12 @@ License
 ~~~~~~~
 
 This document is licensed under the MIT license
+
+Definitions
+~~~~~~~~~~~
+
+[ASCII]  See, e.g.,
+
+  - American National Standards Institute, "Coded Character Set -- 7-bit
+    American Standard Code for Information Interchange", ANSI X3.4, 1986.
+  - https://en.wikipedia.org/wiki/ASCII.
