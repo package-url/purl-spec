@@ -311,12 +311,14 @@ github-release
   is assumed as the default.
 - Qualifier ``file_name``: Selects a named (case sensitive) asset contained 
   within the release (optional).
+- Qualifier ``checksum``: Checksum for the release asset (optional). Must be
+  in the form of `lowercase_algorithm:hex_encoded_lowercase_value`.
 
 - Examples::
 
       pkg:github-release/cli/cli@v2.67.0
       pkg:github-release/foo/bar@v1.0.0?repository_url=https://foobar.ghe.com
-      pkg:github-release/foo/bar@v1.0.0?file_name=bin-linux.tgz
+      pkg:github-release/foo/bar@v1.0.0?file_name=bin-linux.tgz&checksum:sha256:deadbeef
 
 golang
 ------
