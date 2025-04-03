@@ -72,6 +72,8 @@ purl
 
 `purl` stands for **package URL**.
 
+Note, this current usage of `purl` is separate from the historical usage of PURL (Persistent Uniform Resource Locator) introduced in the very early days of the Internet by OCLC. For this usage see [PURL](https://www.oclc.org/research/areas/data-science/purl.html).
+
 A `purl` is a URL composed of seven components::
 
     scheme:type/namespace/name@version?qualifiers#subpath
