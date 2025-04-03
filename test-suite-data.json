@@ -706,5 +706,17 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": true
+  },
+  {
+    "description": "github-release valid name",
+    "purl": "pkg:GitHub-Release/foo/Bar@v1.0.1?repository_url=https://acme.ghe.com&file_name=bin-linux.tgz&checksum=sha256:ff537afd5996cb67a319d6b0d3e65a330480068398a90bd81ea823a0566512c8",
+    "canonical_purl": "pkg:github-release/foo/bar@v1.0.1?repository_url=https://acme.ghe.com&file_name=bin-linux.tgz&checksum=sha256:ff537afd5996cb67a319d6b0d3e65a330480068398a90bd81ea823a0566512c8",
+    "type": "github-release",
+    "namespace": "foo",
+    "name": "bar",
+    "version": "v1.0.1",
+    "qualifiers": {"repository_url": "https://acme.ghe.com", "file_name": "bin-linux.tgz", "checksum": "sha256:ff537afd5996cb67a319d6b0d3e65a330480068398a90bd81ea823a0566512c8" },
+    "subpath": null,
+    "is_invalid": false
   }
 ]
