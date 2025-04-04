@@ -89,6 +89,32 @@ bitnami
       pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12
       pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4
 
+brew
+----
+``brew`` for Homebrew-based packages:
+
+- There is no default package repository; this should be implied either from
+  the ``namespace`` or using a tap URL via the ``tap_url`` qualifier.
+- The ``namespace``, which is called a "Tap" in Homebrew terminology, defaults to ``homebrew/core``.
+
+  - When the ``tap_url`` qualifier is not specified, the Tap identifier corresponds to the URL
+    ``https://github.com/{org}/homebrew-{tap}``, such as
+    ``https://github.com/homebrew/homebrew-core`` for ``homebrew/core``.
+  - When the ``tap_url`` qualifier is specified, the Tap identifier is the local name of the Tap.
+
+- The ``name`` is the formula name. Formula names that contain ``@`` must be percent-encoded,
+  such as ``postgresql%4012`` for ``postgres@12``.
+- The ``version`` is the formula version.
+- Qualifier ``tap_url``: for taps that are not on GitHub or otherwise require an explicit URL,
+  this is the full ``git`` URL to the tap.
+- Examples::
+
+      pkg:brew/sqlite@3.43.2
+      pkg:brew/postgresql%4012@12.17
+      pkg:brew/homebrew/core/sqlite@3.43.2
+      pkg:brew/some-org/some-tap/some-app@1.2.3
+      pkg:brew/some-org/some-tap/some-app@1.2.3?tap_url=https://git.example.com/some-org/some-tap.git
+
 cocoapods
 ---------
 ``cocoapods`` for CocoaPods:
@@ -593,7 +619,6 @@ Other candidate types to define:
 - ``android`` for Android apk packages:
 - ``atom`` for Atom packages:
 - ``bower`` for Bower JavaScript packages:
-- ``brew`` for Homebrew packages:
 - ``buildroot`` for Buildroot packages
 - ``carthage`` for Cocoapods Cocoa packages:
 - ``chef`` for Chef packages:
