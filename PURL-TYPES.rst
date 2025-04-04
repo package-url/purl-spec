@@ -317,7 +317,7 @@ github-release
 - Examples::
 
       pkg:github-release/cli/cli@v2.67.0
-      pkg:github-release/foo/bar@v1.0.0?repository_url=https://foobar.ghe.com
+      pkg:github-release/foo/bar@v1.0.0?repository_url=https:%2F%2Ffoobar.ghe.com
       pkg:github-release/foo/bar@v1.0.0?file_name=bin-linux.tgz&checksum=sha256:deadbeef
 
 golang
