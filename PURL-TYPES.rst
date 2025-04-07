@@ -432,8 +432,8 @@ npm
 
 - The default repository is ``https://registry.npmjs.org``.
 - The ``namespace`` is used for the scope of a scoped NPM package.
-- Per the package.json spec, new package "must not have uppercase letters in
-  the name", therefore the must be lowercased.
+- Per the package.json specification, new package "must not have uppercase letters in
+  the name", therefore they must be lowercased.
 - Examples::
 
       pkg:npm/foobar@12.3.1
