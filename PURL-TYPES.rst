@@ -44,7 +44,7 @@ For example, ``pkg:generic/gcc`` implements ``pkg:abstract/compiler/c``.
 - ``compiler``: for toolchains that implement a language standard.
 
     - The ``name`` must correspond to the identifier of the language. Common examples
-      include C (``c``), C++ (``cxx``), Fortran (``fortran``) or Rust (``rust``).such as C, C++,
+      include C (``c``), C++ (``cxx``), Fortran (``fortran``) or Rust (``rust``).
 
     - The ``version`` must correspond to the revision identifier of a published standard.
       For languages that have year-based standards or revisions, it must be expressed using
