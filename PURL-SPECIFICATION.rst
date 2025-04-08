@@ -358,12 +358,11 @@ To parse a ``purl`` string in its components:
 - Split the ``purl`` string once from right on '#'
 
   - The left side is the ``remainder``
-  - Strip the right side from leading and trailing '/'
-  - Split this on '/'
-  - Discard any empty string segment from that split
+  - Split the right side on '/'
   - Percent-decode each segment
-  - Discard any '.' or '..' segment from that split
   - UTF-8-decode each segment if needed in your programming language
+  - Discard any segment that is empty, equal to `.` or `..`
+  - Signal an error if any segment contains a solidus `/`
   - Join segments back with a '/'
   - This is the ``subpath``
 
@@ -412,9 +411,10 @@ To parse a ``purl`` string in its components:
 
 - Split the ``remainder`` on '/'
 
-  - Discard any empty segment from that split
   - Percent-decode each segment
   - UTF-8-decode each segment if needed in your programming language
+  - Discard any segment that is empty, equal to `.` or `..`
+  - Signal an error if any segment contains a solidus `/`
   - Apply type-specific normalization to each segment if needed
   - Join segments back with a '/'
   - This is the ``namespace``
