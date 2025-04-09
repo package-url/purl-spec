@@ -361,7 +361,7 @@ To parse a ``purl`` string in its components:
   - Split the right side on '/'
   - Percent-decode each segment
   - UTF-8-decode each segment if needed in your programming language
-  - Discard any segment that is empty, equal to `.` or `..`
+  - Discard any segment that is empty, or equal to `.` or `..`
   - Signal an error if any segment contains a solidus `/`
   - Join segments back with a '/'
   - This is the ``subpath``
@@ -413,7 +413,7 @@ To parse a ``purl`` string in its components:
 
   - Percent-decode each segment
   - UTF-8-decode each segment if needed in your programming language
-  - Discard any segment that is empty, equal to `.` or `..`
+  - Discard any segment that is empty, or equal to `.` or `..`
   - Signal an error if any segment contains a solidus `/`
   - Apply type-specific normalization to each segment if needed
   - Join segments back with a '/'
