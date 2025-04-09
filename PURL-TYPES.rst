@@ -23,42 +23,6 @@ See also https://github.com/package-url/purl-spec and
 Known ``purl`` types
 ~~~~~~~~~~~~~~~~~~~~
 
-abstract
---------
-
-``abstract`` for the specification of well-defined library interfaces or
-language standards. Abstract dependencies do not correspond directly to a concrete
-package. Instead, they express a requirement that must be satisfied by other packages.
-For example, ``pkg:generic/gcc`` implements ``pkg:abstract/compiler/c``.
-
-- Two namespaces are allowed: ``interface`` and ``compiler``. 
-
-- ``interface``: for libraries that implement a well-defined API.
-  
-    - The ``name`` must correspond to the identifier of the library interface.
-      Common examples include BLAS, LAPACK, or OpenMP.
-
-    - The ``version`` field must correspond to the versioning scheme followed by
-      the library interface.
-
-- ``compiler``: for toolchains that implement a language standard.
-
-    - The ``name`` must correspond to the identifier of the language. Common examples
-      include C (``c``), C++ (``cxx``), Fortran (``fortran``) or Rust (``rust``).such as C, C++,
-
-    - The ``version`` must correspond to the revision identifier of a published standard.
-      For languages that have year-based standards or revisions, it must be expressed using
-      the full calendar year (four digits) so it can be compared numerically.
-      For example, C99 would be ``pkg:abstract/compiler/c@1999``. Other languages may
-      use different versioning schemes.
-
-- Examples::
-
-      pkg:abstract/interface/blas
-      pkg:abstract/interface/openmp@4.5 ## OpenMPI 4.5
-      pkg:abstract/compiler/c
-      pkg:abstract/compiler/cxx@2014 # C++ 14
-
 alpm
 ----
 ``alpm`` for Arch Linux and other users of the libalpm/pacman package manager.
@@ -617,6 +581,42 @@ swift
 
       pkg:swift/github.com/Alamofire/Alamofire@5.4.3
       pkg:swift/github.com/RxSwiftCommunity/RxFlow@2.12.4
+
+virtual
+--------
+
+``virtual`` for the specification of well-defined library interfaces or
+language standards. Virtual dependencies do not correspond directly to a concrete
+package. Instead, they express a requirement that must be satisfied by other packages.
+For example, ``pkg:generic/gcc`` implements ``pkg:virtual/compiler/c``.
+
+- Two namespaces are allowed: ``interface`` and ``compiler``. 
+
+- ``interface``: for libraries that implement a well-defined API.
+  
+    - The ``name`` must correspond to the identifier of the library interface.
+      Common examples include BLAS, LAPACK, or OpenMP.
+
+    - The ``version`` field must correspond to the versioning scheme followed by
+      the library interface.
+
+- ``compiler``: for toolchains that implement a language standard.
+
+    - The ``name`` must correspond to the identifier of the language. Common examples
+      include C (``c``), C++ (``cxx``), Fortran (``fortran``) or Rust (``rust``).such as C, C++,
+
+    - The ``version`` must correspond to the revision identifier of a published standard.
+      For languages that have year-based standards or revisions, it must be expressed using
+      the full calendar year (four digits) so it can be compared numerically.
+      For example, C99 would be ``pkg:virtual/compiler/c@1999``. Other languages may
+      use different versioning schemes.
+
+- Examples::
+
+      pkg:virtual/interface/blas
+      pkg:virtual/interface/openmp@4.5 ## OpenMPI 4.5
+      pkg:virtual/compiler/c
+      pkg:virtual/compiler/cxx@2014 # C++ 14
 
 Other candidate types to define:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
