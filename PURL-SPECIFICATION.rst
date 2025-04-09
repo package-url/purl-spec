@@ -142,24 +142,24 @@ The rules for each component are:
 
   - The optional ``namespace`` contains zero or more segments, separated by slash
     '/'
-  - Leading and trailing slashes '/' are not significant and should be stripped
+  - Leading and trailing slashes '/' are not significant and SHOULD be stripped
     in the canonical form. They are not part of the ``namespace``
-  - Each ``namespace`` segment must be a percent-encoded string
+  - Each ``namespace`` segment MUST be a percent-encoded string
   - When percent-decoded, a segment:
 
-    - must not contain a '/'
-    - must not be empty
+    - MUST NOT contain a '/'
+    - MUST NOT be empty
 
-  - A URL host or Authority must NOT be used as a ``namespace``. Use instead a
+  - A URL host or Authority MUST NOT be used as a ``namespace``. Use instead a
     ``repository_url`` qualifier. Note however that for some types, the
     ``namespace`` may look like a host.
 
 
 - **name**:
 
-  - The ``name`` is prefixed by a '/' separator when the ``namespace`` is not empty
+  - The ``name`` is prefixed by a slash '/' separator when the ``namespace`` is not empty
   - This '/' is not part of the ``name``
-  - A ``name`` must be a percent-encoded string
+  - A ``name`` MUST be a percent-encoded string
 
 
 - **version**:
