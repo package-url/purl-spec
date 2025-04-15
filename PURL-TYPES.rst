@@ -176,7 +176,6 @@ cpan
 - The ``namespace``:
   - To refer to a CPAN distribution name, the ``namespace`` MUST be present. In this case, the namespace is the CPAN id of the author/publisher. It MUST be written uppercase, followed by the distribution name in the ``name`` component. A distribution name MUST NOT contain the string ``::``.
   - To refer to a CPAN module, the ``namespace`` MUST be absent. The module name MAY contain zero or more ``::`` strings, and the module name MUST NOT contain a ``-``
-
 - The ``name`` is the module or distribution name and is case sensitive.
 - The ``version`` is the module or distribution version.
 - Optional qualifiers may include:
@@ -581,6 +580,18 @@ swift
 
       pkg:swift/github.com/Alamofire/Alamofire@5.4.3
       pkg:swift/github.com/RxSwiftCommunity/RxFlow@2.12.4
+
+vsm
+---
+``vsm`` for Visual Studio Marketplace packages:
+
+- The default repository is: https://marketplace.visualstudio.com
+- The ``namespace`` is the organization and is case-sensitive.
+- The ``name`` is the package name and is case-sensitive.
+- The ``version`` is the package version.
+- Examples::
+
+    pkg:vsm/ms-vscode/cpptools@1.9.2
 
 Other candidate types to define:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
