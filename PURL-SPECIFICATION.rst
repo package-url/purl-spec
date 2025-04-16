@@ -114,9 +114,8 @@ Rules for each ``purl`` component
 
 A ``purl`` string is an ASCII URL string composed of seven components.
 
-Some components are allowed to use other characters beyond ASCII: these
-components must then be UTF-8-encoded strings and percent-encoded as defined in
-the "Character encoding" section.
+Except as expressly stated otherwise in this section, all components MUST be
+encoded as defined in the "Character encoding" section.
 
 The rules for each component are:
 
@@ -140,15 +139,18 @@ The rules for each component are:
 
 - **namespace**:
 
-  - The optional ``namespace`` contains zero or more segments, separated by slash
-    '/'
-  - Leading and trailing slashes '/' are not significant and SHOULD be stripped
-    in the canonical form. They are not part of the ``namespace``
-  - Each ``namespace`` segment MUST be a percent-encoded string
+  - The optional ``namespace`` contains zero or more segments, separated by a
+    single slash '/' character.
+  - All leading and trailing slashes '/' are not significant and SHOULD be
+    stripped in the canonical form. They are not part of the ``namespace``.
+  - Each ``namespace`` segment MUST be a percent-encoded string.
   - When percent-decoded, a segment:
 
-    - MUST NOT contain a '/'
+    - MUST NOT contain one or more slash '/' characters
     - MUST NOT be empty
+    - MAY contain any ASCII character other than '/'
+
+        - Is an unencoded colon ':' permitted?
 
   - A URL host or Authority MUST NOT be used as a ``namespace``. Use instead a
     ``repository_url`` qualifier. Note however that for some types, the
@@ -157,9 +159,36 @@ The rules for each component are:
 
 - **name**:
 
-  - The ``name`` is prefixed by a slash '/' separator when the ``namespace`` is not empty
-  - This '/' is not part of the ``name``
-  - A ``name`` MUST be a percent-encoded string
+  - The ``name`` is prefixed by a single slash '/' separator when the
+    ``namespace`` is not empty.
+  - This '/' is not part of the ``name``.
+  - A ``name`` MUST be a percent-encoded string.
+  - A ``name`` MAY contain any ASCII character.
+
+        - Is an unencoded colon ':' permitted?  See, e.g.,
+
+            - feat: fix parsing of names and namespaces with colons
+              https://github.com/package-url/packageurl-python/pull/178
+
+        - Is a percent-encoded slash '/' permitted?  See, e.g.,
+
+            - fix: escape / in names and versions
+              https://github.com/package-url/packageurl-python/pull/123
+
+            - Incorrect parsing for PURLs without names
+              https://github.com/package-url/packageurl-python/issues/131
+
+                - The example is pkg:swift/github.com/Alamofire/@5.4.3
+
+                - Matt says this should fail, Tom says no, to me it looks like the '/'between the name and the '@' version separator is simply stripped/normalized.
+
+                - Following the "How to parse..." steps, at the 6th top-level bullet, we have an error:
+
+                    The remainder we start with is
+
+                        remainder = github.com/Alamofire/
+
+                    The top bullet step is "Split the remainder once from right on '/'", and we expect a left side (the new remainder) and a right side (the name) but there is no right side -- it is empty
 
 
 - **version**:
@@ -233,6 +262,14 @@ A canonical ``purl`` is an ASCII string composed of these characters:
 - these punctuation marks ``%.-_~`` (percent sign '%', period '.', dash '-',
   underscore '_' and tilde '~').
 
+The alphanumeric characters do not need to be percent-encoded.
+
+The ``purl`` separators MUST be encoded as provided in the "``purl`` separators" subsection below.
+
+The punctuation marks ``.-_~`` (period '.', dash '-', underscore '_' and tilde '~') do not need to be percent-encoded.
+
+The percent sign '%' MUST NOT be percent-encoded when used to represent a percent-encoded character but MUST be percent-encoded when used for any other purpose.
+
 All other characters MUST be encoded as UTF-8 and then percent-encoded.
 In addition, each component specifies its permitted characters and
 its percent-encoding rules.
@@ -265,8 +302,16 @@ When applying percent-encoding or decoding to a string, use the rules of RFC
 Each component defines when and how to apply percent-encoding and decoding to
 its content.
 
-When percent-encoding is required, all characters MUST be encoded except for
-the colon ':'.
+Unless otherwise provided in the "Rules for each ``purl`` component" section
+above, when percent-encoding is required, all characters MUST be encoded except
+for the following:
+
+- a ``purl`` separator when being used as a ``purl`` separator
+- the colon ':', whether used as a ``purl`` separator or otherwise
+- ['+' in name???  '+' in version???  See https://github.com/package-url/packageurl-java/pull/161/files#diff-7b5521d0eae4902cc692bf74406e30e197f70f8e1978a59d35346675d1ef5a07R316-R317]
+
+In addition, where the space ' ' is permitted, it MUST be percent-encoded as
+'%20'.
 
 
 How to build ``purl`` string from its components
@@ -405,6 +450,8 @@ To parse a ``purl`` string in its components:
 - Split the ``remainder`` once from right on '/'
 
   - The left side is the ``remainder``
+  - Strip all leading [and trailing '/'] characters (e.g., '/', '//' and so on)
+    from the right side
   - Percent-decode the right side. This is the ``name``
   - UTF-8-decode this ``name`` if needed in your programming language
   - Apply type-specific normalization to the ``name`` if needed
@@ -412,6 +459,8 @@ To parse a ``purl`` string in its components:
 
 - Split the ``remainder`` on '/'
 
+  - Strip all leading [and trailing] '/' characters (e.g., '/', '//' and so on)
+    from that split
   - Discard any empty segment from that split
   - Percent-decode each segment
   - UTF-8-decode each segment if needed in your programming language
