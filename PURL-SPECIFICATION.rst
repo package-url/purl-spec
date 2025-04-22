@@ -114,9 +114,11 @@ Rules for each ``purl`` component
 
 A ``purl`` string is an ASCII URL string composed of seven components.
 
-Some components are allowed to use other characters beyond ASCII: these
-components must then be UTF-8-encoded strings and percent-encoded as defined in
-the "Character encoding" section.
+Except as expressly stated otherwise in this section, each component:
+
+- MAY be composed of any of the characters defined as "Permitted Characters" in
+  the "Character encoding" section
+- MUST be encoded as defined in the "Character encoding" section
 
 The rules for each component are:
 
@@ -225,17 +227,13 @@ Character encoding
 Permitted characters
 --------------------
 
-A canonical ``purl`` is an ASCII string composed of these characters:
+A canonical ``purl`` is composed of these characters ("Permitted Characters"):
 
 - alphanumeric characters ``A to Z``, ``a to z``, ``0 to 9``,
 - the ``purl`` separators ``:/@?=&#`` (colon ':', slash '/', at sign '@',
   question mark '?', equal sign '=', ampersand '&' and pound sign '#'), and
-- these punctuation marks ``%.-_~`` (percent sign '%', period '.', dash '-',
-  underscore '_' and tilde '~').
-
-All other characters MUST be encoded as UTF-8 and then percent-encoded.
-In addition, each component specifies its permitted characters and
-its percent-encoding rules.
+- the ASCII characters ``+%.-_~`` (plus '+', percent sign '%', period '.',
+  dash '-', underscore '_' and tilde '~').
 
 
 ``purl`` separators
@@ -259,14 +257,31 @@ These ``purl`` separator characters MUST NOT be percent-encoded when used as
 Percent-encoding rules
 ----------------------
 
-When applying percent-encoding or decoding to a string, use the rules of RFC
-3986 section 2 (https://datatracker.ietf.org/doc/html/rfc3986#section-2).
+Unless otherwise provided in this specification, when applying percent-encoding
+or decoding to a string, use the rules of RFC 3986 section 2
+(https://datatracker.ietf.org/doc/html/rfc3986#section-2).  In the event of any
+conflict between this specification and RFC 3986 section 2, this specification
+governs.
 
-Each component defines when and how to apply percent-encoding and decoding to
-its content.
+In the "Rules for each ``purl`` component" section above, each component
+defines when and how to apply percent-encoding and decoding to its content.
 
-When percent-encoding is required, all characters MUST be encoded except for
-the colon ':'.
+When percent-encoding is required, all Permitted Characters MUST be encoded as
+UTF-8 and then percent-encoded except for the following:
+
+- the alphanumeric characters,
+
+- the ASCII characters ``.-_~`` (period '.', dash '-', underscore
+  '_' and tilde '~'),
+
+- the percent sign '%' when used to represent a percent-encoded character,
+
+- a ``purl`` separator when being used as a ``purl`` separator, and
+
+- the colon ':', whether used as a ``purl`` separator or otherwise.
+
+In addition, where the space ' ' is permitted, it MUST be percent-encoded as
+'%20'.
 
 
 How to build ``purl`` string from its components
