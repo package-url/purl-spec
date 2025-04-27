@@ -227,7 +227,7 @@ Character encoding
 Permitted characters
 --------------------
 
-A canonical ``purl`` is composed of these characters ("Permitted Characters"):
+A canonical ``purl`` is composed of these Permitted Characters:
 
 - alphanumeric characters ``A to Z``, ``a to z``, ``0 to 9``,
 - the ``purl`` separators ``:/@?=&#`` (colon ':', slash '/', at sign '@',
@@ -257,31 +257,26 @@ These ``purl`` separator characters MUST NOT be percent-encoded when used as
 Percent-encoding rules
 ----------------------
 
-Unless otherwise provided in this specification, when applying percent-encoding
-or decoding to a string, use the rules of RFC 3986 section 2
-(https://datatracker.ietf.org/doc/html/rfc3986#section-2).  In the event of any
-conflict between this specification and RFC 3986 section 2, this specification
-governs.
+- In the "Rules for each ``purl`` component" section above, each component
+  defines when and how to apply percent-encoding and decoding to its content,
+  including which characters to percent-encode and when percent-encoding is
+  required.
+- When percent-encoding is required by a component definition, each
+  codepoint MUST be replaced by the percent-encoded bytes of the codepoint's
+  UTF-8 encoding using the percent-encoding mechanism defined in RFC 3986
+  section 2.1 (https://datatracker.ietf.org/doc/html/rfc3986#section-2.1).
+- With the exception of the percent-encoding mechanism, the rules regarding
+  percent-encoding are defined by this specification alone.
+- Where the space ' ' is permitted, it MUST be percent-encoded as
+  '%20'.
+- The following characters do not need to be percent-encoded:
 
-In the "Rules for each ``purl`` component" section above, each component
-defines when and how to apply percent-encoding and decoding to its content.
-
-When percent-encoding is required, all Permitted Characters MUST be encoded as
-UTF-8 and then percent-encoded except for the following:
-
-- the alphanumeric characters,
-
-- the ASCII characters ``.-_~`` (period '.', dash '-', underscore
-  '_' and tilde '~'),
-
-- the percent sign '%' when used to represent a percent-encoded character,
-
-- a ``purl`` separator when being used as a ``purl`` separator, and
-
-- the colon ':', whether used as a ``purl`` separator or otherwise.
-
-In addition, where the space ' ' is permitted, it MUST be percent-encoded as
-'%20'.
+  - the alphanumeric characters ``A to Z``, ``a to z``, ``0 to 9``,
+  - the ASCII characters ``.-_~`` (period '.', dash '-', underscore
+    '_' and tilde '~'),
+  - the percent sign '%' when used to represent a percent-encoded character,
+  - a ``purl`` separator when being used as a ``purl`` separator, and
+  - the colon ':', whether used as a ``purl`` separator or otherwise.
 
 
 How to build ``purl`` string from its components
