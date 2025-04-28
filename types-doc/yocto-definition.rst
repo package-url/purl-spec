@@ -37,7 +37,7 @@ Examples
 
 ::
 
-  pkg:yocto/poky/python-3dbus@f1ad013?pv=1.2.18#meta/recipes-devtools/python
+  pkg:yocto/poky/python3-dbus@f1ad013?pv=1.2.18#meta/recipes-devtools/python
   pkg:yocto/openembedded-core/glibc@9400e1e9208b0f9075dfdfce0a3d1318a7fe6bf4?pv=2.35&repository_url=https%3A%2F%2Fgit.openembedded.org#meta/recipes-core/
   pkg:yocto/meta-xilinx-core/u-boot-zynq-uenv@06e35a4#recipes-bsp/u-boot/
   pkg:yocto/meta-odroid/emmc@4e07fab?pv=1.0.0&repository_url=https%3A%2F%2Fgithub.com%2Fakuster#recipes-bsp/
