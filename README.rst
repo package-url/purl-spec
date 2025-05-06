@@ -157,7 +157,7 @@ Known implementations
 ~~~~~~~~~~~~~~~~~~~~~
 
 - .NET: https://github.com/package-url/packageurl-dotnet
-- Elixir: https://github.com/maennchen/purl
+- Erlang / Elixir: https://github.com/erlef/purl
 - Go: https://github.com/package-url/packageurl-go
 - Java: https://github.com/package-url/packageurl-java,
   https://github.com/sonatype/package-url-java
