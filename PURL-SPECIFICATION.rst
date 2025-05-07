@@ -147,14 +147,9 @@ The rules for each component are:
   - Each ``namespace`` segment MUST be a percent-encoded string.
   - When percent-decoded, a segment:
 
-    - MUST NOT contain one or more slash '/' characters
+    - MUST NOT contain any slash '/' characters
     - MUST NOT be empty
     - MAY contain any ASCII character other than '/'
-
-      - [QUESTION] Is an unencoded colon ':' permitted?
-
-      - feat: fix parsing of names and namespaces with colons
-        https://github.com/package-url/packageurl-python/pull/178
 
   - A URL host or Authority MUST NOT be used as a ``namespace``. Use instead a
     ``repository_url`` qualifier. Note however that for some types, the
@@ -165,19 +160,14 @@ The rules for each component are:
 
   - The ``name`` is prefixed by a single slash '/' separator when the
     ``namespace`` is not empty.
-  - This '/' is not part of the ``name``.
+  - All leading and trailing slashes '/' are not significant and SHOULD be
+    stripped in the canonical form. They are not part of the ``name``.
   - A ``name`` MUST be a percent-encoded string.
-  - A ``name`` MAY contain any ASCII character.
+  - When percent-decoded, a ``name`` MAY contain any ASCII character.
 
-    - [QUESTION] Is an unencoded colon ':' permitted?  See, e.g.,
+----
 
-      feat: fix parsing of names and namespaces with colons
-      https://github.com/package-url/packageurl-python/pull/178
-
-    - [QUESTION] Is a percent-encoded slash '/' permitted?  See, e.g.,
-
-      fix: escape / in names and versions
-      https://github.com/package-url/packageurl-python/pull/123
+    - [QUESTION] What about parsing PURLs without names?  Is that relevant here or in a separate issue and PR?
 
       Incorrect parsing for PURLs without names
       https://github.com/package-url/packageurl-python/issues/131
@@ -192,7 +182,7 @@ The rules for each component are:
 
         The top bullet step is "Split the remainder once from right on '/'", and we expect a left side (the new remainder) and a right side (the name) but there is no right side -- it is empty
 
-    - [QUESTION] '+' in name???  See https://github.com/package-url/packageurl-java/pull/161/files#diff-7b5521d0eae4902cc692bf74406e30e197f70f8e1978a59d35346675d1ef5a07R316-R317
+----
 
 
 - **version**:
