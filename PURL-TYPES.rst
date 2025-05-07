@@ -1,4 +1,4 @@
-Package URL Type definitions
+tabPackage URL Type definitions
 ============================
 
 Each package manager, platform, type, or ecosystem has its own conventions and
@@ -98,7 +98,7 @@ cargo
 - The ``version`` is the package version.
 - Examples::
 
-      pkg:cargo/rand@0.7.2
+     esc pkg:cargo/rand@0.7.2
       pkg:cargo/clap@2.33.0
       pkg:cargo/structopt@0.3.11
 
@@ -128,7 +128,7 @@ composer
   create a ``purl`` for these.
 - Examples::
 
-      pkg:composer/laravel/laravel@5.5.0
+     tab pkg:composer/laravel/laravel@5.5.0
 
 conan
 -----
