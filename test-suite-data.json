@@ -672,6 +672,7 @@
     "is_invalid": true
   },
   {
+<<<<<<< HEAD
     "description": "check for invalid character in type",
     "purl": "pkg:n&g?inx/nginx@0.8.9",
     "canonical_purl": null,
@@ -706,5 +707,17 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": true
+  },
+  {
+    "description": "yocto valid recipe",
+    "purl": "pkg:yocto/poky/python3-dbus@f1ad013?pv=1.2.18#meta/recipes-devtools/python/",
+    "canonical_purl": "pkg:yocto/poky/python3-dbus@f1ad013?pv=1.2.18#meta/recipes-devtools/python",
+    "type": "yocto",
+    "namespace": "poky",
+    "name": "python3-dbus",
+    "version": "f1ad013",
+    "qualifiers": {"pv": "1.2.8"},
+    "subpath": "meta/recipes-devtools/python",
+    "is_invalid": false
   }
 ]
