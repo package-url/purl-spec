@@ -708,15 +708,18 @@
     "is_invalid": true
   },
   {
+    "purl": "pkg:yocto/openembedded-core/glibc@2.35&repository_url=https%3A%2F%2Fgit.openembedded.org%2Fopenembedded-core&layer_version=kirkstone",
     "description": "yocto valid recipe",
-    "purl": "pkg:yocto/poky/python3-dbus@f1ad013?pv=1.2.18#meta/recipes-devtools/python/",
-    "canonical_purl": "pkg:yocto/poky/python3-dbus@f1ad013?pv=1.2.18#meta/recipes-devtools/python",
+    "canonical_purl": "pkg:yocto/openembedded-core/glibc@2.35&repository_url=https%3A%2F%2Fgit.openembedded.org%2Fopenembedded-core&layer_version=kirkstone",
     "type": "yocto",
-    "namespace": "poky",
-    "name": "python3-dbus",
-    "version": "f1ad013",
-    "qualifiers": {"pv": "1.2.8"},
-    "subpath": "meta/recipes-devtools/python",
+    "namespace": "openembedded-core",
+    "name": "glibc",
+    "version": "2.35",
+    "qualifiers": {
+      "layer_version": "kirkstone",
+      "repository_url": "https://git.openembedded.org/openembedded-core"
+    },
+    "subpath": "",
     "is_invalid": false
   }
 ]
