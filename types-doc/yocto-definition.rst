@@ -2,43 +2,41 @@ YOCTO Linux
 -----------
 ``yocto`` for Yocto Linux recipes:
 
-The default repository is: ``https://git.yoctoproject.org/``
+There is no default package repository. The classifier `repository_url` is optional.
 
-:namespace: The namespace is the name of the layer which provides the recipe.
-:name: The name is the name of the recipe.
-:version: The version is a commit or tag
+:namespace: The namespace is the name of the layer which provides the recipe. The layer name needs
+to match with the name used in the `meta-<namespace>/conf/layer.conf`.
+:name: The name of the package also known as [PN](https://docs.yoctoproject.org/ref-manual/variables.html#term-PN) in a yocto recipe.
+:version: The version of the package also known as [PV](https://docs.yoctoproject.org/ref-manual/variables.html#term-PV) in a yocto recipe. 
 
 Qualifiers
 ^^^^^^^^^^
 All qualifiers should be percent-encoded.
 
 ``repository_url``
-  The base repository. 
+  The GIT URL of the layer.
   In example:
-  
-  * ``https%3A%2F%2Fgithub.com%2FXilinx``
-  * ``https%3A%2F%2Fgithub.com%2Fopenembedded%60``
-  
-  The protocol can be ``https``, ``ssh``  or ``git`` and is mandatory.
-  **Default:** ``https%3A%2F%2Fgit.yoctoproject.org%2F``
 
-``pv``
-  pv is the version of the package itself.
+  * ``https%3A%2F%2Fgit.openembedded.org%2Fopenembedded-core``
+  * ``https%3A%2F%2Fgithub.com%2Fakuster%2Fmeta-odroid``
+
+  The protocol can be ``https``, ``ssh``  or ``git`` and is mandatory.
+
+``layer_version``
+  layer_version is the version of the yocto layer which is a SHA1 commit, tag or branch
+  of the yocto layer GIT repository. It should support also [short commits](https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection#_short_sha_1). (optional)
 ``arch``
   Optional for the architecture like ``mips64`` or ``arm64``
-
-Subpath
-^^^^^^^
-The subpath is mandatory if the recipe is not in the root direcotry of the
-repository.
 
 Examples
 ^^^^^^^^
 
 ::
 
-  pkg:yocto/poky/python3-dbus@f1ad013?pv=1.2.18#meta/recipes-devtools/python
-  pkg:yocto/openembedded-core/glibc@9400e1e9208b0f9075dfdfce0a3d1318a7fe6bf4?pv=2.35&repository_url=https%3A%2F%2Fgit.openembedded.org#meta/recipes-core/
-  pkg:yocto/meta-xilinx-core/u-boot-zynq-uenv@06e35a4#recipes-bsp/u-boot/
-  pkg:yocto/meta-odroid/emmc@4e07fab?pv=1.0.0&repository_url=https%3A%2F%2Fgithub.com%2Fakuster#recipes-bsp/
+  pkg:yocto/openembedded-core/glibc@2.35
+  pkg:yocto/openembedded-core/glibc@2.35&repository_url=https%3A%2F%2Fgit.openembedded.org%2Fopenembedded-core&layer_version=kirkstone
+  pkg:yocto/openembedded-core/glibc@2.35&repository_url=https%3A%2F%2Fgit.openembedded.org%2Fopenembedded-core&layer_version=25ba9895b9
+  pkg:yocto/openembedded-core/glibc@2.35&repository_url=https%3A%2F%2Fgit.openembedded.org%2Fopenembedded-core&layer_version=25ba9895b98715adb66a06e50f644aea2e2c9eb6
+  pkg:yocto/meta-xilinx-core/u-boot-xlnx-uenv@1.0.0
+  pkg:yocto/meta-odroid/emmc@1.0.0?layer_version=4e07fab&repository_url=https%3A%2F%2Fgithub.com%2Fakuster%2Fmeta-odroid
 
