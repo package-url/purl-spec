@@ -25,8 +25,6 @@ All qualifiers should be percent-encoded.
 ``layer_version``
   layer_version is the version of the yocto layer which is a SHA1 commit, tag or branch
   of the yocto layer GIT repository. It should support also [short commits](https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection#_short_sha_1). (optional)
-``arch``
-  Optional for the architecture like ``mips64`` or ``arm64``
 
 Examples
 ^^^^^^^^
