@@ -658,7 +658,7 @@ These are generic schemes, to use sparingly for special cases:
   non-negative integers, and ignoring leading zeros. Interpretation of the
   version should stop at the first character that is not a digit or a dot.
 
-- **semver**: a generic scheme that uses the same syntax as ``semver``. It follows the MAJOR.MINOR.PATCH format and is defined the Semantic Versioning Specification 2.0.0. 
+- **semver**: a generic scheme that uses the same syntax as ``semver``. It follows the MAJOR.MINOR.PATCH format and is defined in the Semantic Versioning Specification 2.0.0, see https://semver.org/spec/v2.0.0.html. 
 
 A separate document will provide details for each versioning scheme and:
 
