@@ -708,11 +708,11 @@
     "is_invalid": true
   },
   {
-    "purl": "pkg:yocto/openembedded-core/glibc@2.35&repository_url=https%3A%2F%2Fgit.openembedded.org%2Fopenembedded-core&layer_version=kirkstone",
+    "purl": "pkg:yocto/core/glibc@2.35&repository_url=https%3A%2F%2Fgit.openembedded.org%2Fopenembedded-core&layer_version=kirkstone",
     "description": "yocto valid recipe",
-    "canonical_purl": "pkg:yocto/openembedded-core/glibc@2.35&repository_url=https%3A%2F%2Fgit.openembedded.org%2Fopenembedded-core&layer_version=kirkstone",
+    "canonical_purl": "pkg:yocto/core/glibc@2.35&repository_url=https%3A%2F%2Fgit.openembedded.org%2Fopenembedded-core&layer_version=kirkstone",
     "type": "yocto",
-    "namespace": "openembedded-core",
+    "namespace": "core",
     "name": "glibc",
     "version": "2.35",
     "qualifiers": {
