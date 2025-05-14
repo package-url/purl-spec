@@ -6,7 +6,7 @@ There is no default package repository. The classifier `repository_url` is optio
 
 :namespace: The namespace is the name of the layer which provides the recipe. The layer name as
 specified in the `BBFILE_COLLECTIONS` variable in `conf/layer.conf` of the layer.
-:name: The name of the package also known as [PN](https://docs.yoctoproject.org/ref-manual/variables.html#term-PN) in a yocto recipe.
+:name: The name of the package with common prefixes and suffixes removed, also known as [BPN](https://docs.yoctoproject.org/ref-manual/variables.html#term-BPN) in a yocto recipe.
 :version: The version of the package also known as [PV](https://docs.yoctoproject.org/ref-manual/variables.html#term-PV) in a yocto recipe.
 
 Qualifiers
