@@ -31,9 +31,9 @@ Examples
 
 ::
 
-  pkg:yocto/openembedded-core/glibc@2.35
-  pkg:yocto/openembedded-core/glibc@2.35&repository_url=https%3A%2F%2Fgit.openembedded.org%2Fopenembedded-core&layer_version=kirkstone
-  pkg:yocto/openembedded-core/glibc@2.35&repository_url=https%3A%2F%2Fgit.openembedded.org%2Fopenembedded-core&layer_version=25ba9895b9
-  pkg:yocto/openembedded-core/glibc@2.35&repository_url=https%3A%2F%2Fgit.openembedded.org%2Fopenembedded-core&layer_version=25ba9895b98715adb66a06e50f644aea2e2c9eb6
-  pkg:yocto/meta-xilinx-core/u-boot-xlnx-uenv@1.0.0
-  pkg:yocto/meta-odroid/emmc@1.0.0?layer_version=4e07fab&repository_url=https%3A%2F%2Fgithub.com%2Fakuster%2Fmeta-odroid
+  pkg:yocto/core/glibc@2.35
+  pkg:yocto/core/glibc@2.35&repository_url=https%3A%2F%2Fgit.openembedded.org%2Fopenembedded-core&layer_version=kirkstone
+  pkg:yocto/core/glibc@2.35&repository_url=https%3A%2F%2Fgit.openembedded.org%2Fopenembedded-core&layer_version=25ba9895b9
+  pkg:yocto/core/glibc@2.35&repository_url=https%3A%2F%2Fgit.openembedded.org%2Fopenembedded-core&layer_version=25ba9895b98715adb66a06e50f644aea2e2c9eb6
+  pkg:yocto/xilinx/u-boot-xlnx-uenv@1.0.0
+  pkg:yocto/odroid-layer/emmc@1.0.0?layer_version=4e07fab&repository_url=https%3A%2F%2Fgithub.com%2Fakuster%2Fmeta-odroid
