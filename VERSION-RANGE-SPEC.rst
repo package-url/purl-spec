@@ -658,6 +658,8 @@ These are generic schemes, to use sparingly for special cases:
   non-negative integers, and ignoring leading zeros. Interpretation of the
   version should stop at the first character that is not a digit or a dot.
 
+- **lexicographic**: a generic versioning scheme that compares versions based on lexicographic order, interpreted as UTF-8.
+
 A separate document will provide details for each versioning scheme and:
 
 - how to convert its native range notation to the ``vers`` notation and back.
