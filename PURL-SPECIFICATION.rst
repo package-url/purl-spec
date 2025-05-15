@@ -140,8 +140,10 @@ The rules for each component are:
 
 - **namespace**:
 
-  - The optional ``namespace`` contains zero or more segments, separated by a
-    single slash '/' character.
+  - Unless required by the package's ``type`` definition in `<PURL-TYPES.rst>`_,
+    the ``namespace`` is optional.
+  - If present, the ``namespace`` MAY contain one or more segments, separated
+    by a single slash '/' character.
   - All leading and trailing slashes '/' are not significant and SHOULD be
     stripped in the canonical form. They are not part of the ``namespace``.
   - Each ``namespace`` segment MUST be a percent-encoded string.
@@ -149,7 +151,8 @@ The rules for each component are:
 
     - MUST NOT contain any slash '/' characters
     - MUST NOT be empty
-    - MAY contain any ASCII character other than '/'
+    - MAY contain any ASCII character other than '/' unless the package's
+      ``type`` definition provides otherwise.
 
   - A URL host or Authority MUST NOT be used as a ``namespace``. Use instead a
     ``repository_url`` qualifier. Note however that for some types, the
@@ -163,26 +166,8 @@ The rules for each component are:
   - All leading and trailing slashes '/' are not significant and SHOULD be
     stripped in the canonical form. They are not part of the ``name``.
   - A ``name`` MUST be a percent-encoded string.
-  - When percent-decoded, a ``name`` MAY contain any ASCII character.
-
-----
-
-    - [QUESTION] What about parsing PURLs without names?  Is that relevant here or in a separate issue and PR?
-
-      Incorrect parsing for PURLs without names
-      https://github.com/package-url/packageurl-python/issues/131
-
-      - The example is pkg:swift/github.com/Alamofire/@5.4.3
-
-      - Matt says this should fail, Tom says no, to me it looks like the '/'between the name and the '@' version separator is simply stripped/normalized.
-
-      - Following the "How to parse..." steps, at the 6th top-level bullet, we have an error:
-
-        The remainder we start with is `remainder = github.com/Alamofire/`
-
-        The top bullet step is "Split the remainder once from right on '/'", and we expect a left side (the new remainder) and a right side (the name) but there is no right side -- it is empty
-
-----
+  - When percent-decoded, a ``name`` MAY contain any ASCII character unless
+    prohibited by the package's ``type`` definition in `<PURL-TYPES.rst>`_.
 
 
 - **version**:
