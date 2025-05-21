@@ -143,7 +143,7 @@ The rules for each component are:
   - Unless required by the package's ``type`` definition in `<PURL-TYPES.rst>`_,
     the ``namespace`` is optional.
   - If present, the ``namespace`` MAY contain one or more segments, separated
-    by a single slash '/' character.
+    by a single unencoded slash '/' character.
   - All leading and trailing slashes '/' are not significant and SHOULD be
     stripped in the canonical form. They are not part of the ``namespace``.
   - Each ``namespace`` segment MUST be a percent-encoded string.
