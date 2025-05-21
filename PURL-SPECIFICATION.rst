@@ -273,8 +273,8 @@ When applying percent-encoding or decoding to a string, use the rules of RFC
 Each component defines when and how to apply percent-encoding and decoding to
 its content.
 
-When percent-encoding is required, all characters MUST be encoded except
-for the colon ':'.
+When percent-encoding is required, all characters MUST be encoded except for
+the colon ':'.
 
 
 How to build ``purl`` string from its components
@@ -413,7 +413,7 @@ To parse a ``purl`` string in its components:
 - Split the ``remainder`` once from right on '/'
 
   - The left side is the ``remainder``
-  - Strip all leading [and trailing '/'] characters (e.g., '/', '//' and so on)
+  - Strip all leading characters (e.g., '/', '//' and so on)
     from the right side
   - Percent-decode the right side. This is the ``name``
   - UTF-8-decode this ``name`` if needed in your programming language
@@ -422,7 +422,7 @@ To parse a ``purl`` string in its components:
 
 - Split the ``remainder`` on '/'
 
-  - Strip all leading [and trailing] '/' characters (e.g., '/', '//' and so on)
+  - Strip all leading '/' characters (e.g., '/', '//' and so on)
     from that split
   - Discard any empty segment from that split
   - Percent-decode each segment
