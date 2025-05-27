@@ -14,7 +14,7 @@ packaging conventions, tools, APIs and databases.
 Such a package URL is useful to reliably reference the same software package
 using a simple and expressive syntax and conventions based on familiar URLs.
 
-See <PURL-TYPES.rst>_ for known type definitions.
+See `<PURL-TYPES.rst>`_ for known type definitions.
 
 Check also this short ``purl`` presentation (with video) at FOSDEM 2018
 https://fosdem.org/2018/schedule/event/purl/ for an overview.
@@ -55,7 +55,7 @@ sometimes look like a ``host`` but its interpretation is specific to a ``type``.
 
 
 Some ``purl`` examples
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -72,7 +72,7 @@ Some ``purl`` examples
 
 
 A ``purl`` is a URL
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 - A ``purl`` is a valid URL and URI that conforms to the URL definitions or
   specifications at:
@@ -110,7 +110,7 @@ A ``purl`` is a URL
 
 
 Rules for each ``purl`` component
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A ``purl`` string is an ASCII URL string composed of seven components.
 
@@ -122,37 +122,20 @@ The rules for each component are:
 
 - **scheme**:
 
-  - The ``scheme`` is a constant with the value "pkg"
-  - Since a ``purl`` never contains a URL Authority, its ``scheme`` must not be
-    suffixed with double slash as in 'pkg://' and should use instead
-    'pkg:'. Otherwise this would be an invalid URI per rfc3986 at
-    https://tools.ietf.org/html/rfc3986#section-3.3::
-
-        If a URI does not contain an authority component, then the path
-        cannot begin with two slash characters ("//").
-
-    It is therefore incorrect to use such '://' scheme suffix as the URL would
-    no longer be valid otherwise. In its canonical form, a ``purl`` must
-    NOT use such '://' ``scheme`` suffix but only ':' as a ``scheme`` suffix.
-  - ``purl`` parsers must accept URLs such as 'pkg://' and must ignore the '//'.
-  - ``purl`` builders must not create invalid URLs with such double slash '//'.
-  - The ``scheme`` is followed by a ':' separator
-  - For example these two purls are strictly equivalent and the first is in
-    canonical form. The second ``purl`` with a '//' is an acceptable ``purl`` but is
-    an invalid URI/URL per rfc3986::
-
-            pkg:gem/ruby-advisory-db-check@0.12.4
-            pkg://gem/ruby-advisory-db-check@0.12.4
+  - The ``scheme`` is a constant with the value "pkg".
+  - The ``scheme`` MUST be followed by an unencoded colon ':'.
+  - ``purl`` parsers MUST accept URLs where the ``scheme`` and colon ':' are
+    followed by one or more slash '/' characters, such as 'pkg://', and MUST
+    ignore and remove all such '/' characters.
 
 
 - **type**:
 
-  - The package ``type`` is composed only of ASCII letters and numbers, '.', '+'
-    and '-' (period, plus, and dash)
-  - The ``type`` cannot start with a number
-  - The ``type`` cannot contain spaces
-  - The ``type`` must NOT be percent-encoded
-  - The ``type`` is case insensitive. The canonical form is lowercase
+  - The package ``type`` MUST be composed only of ASCII letters and numbers,
+    period '.', plus '+', and dash '-'.
+  - The ``type`` MUST start with an ASCII letter.
+  - The ``type`` MUST NOT be percent-encoded.
+  - The ``type`` is case insensitive. The canonical form is lowercase.
 
 
 - **namespace**:
@@ -193,25 +176,30 @@ The rules for each component are:
 
 - **qualifiers**:
 
-  - The ``qualifiers`` string is prefixed by a '?' separator when not empty
-  - This '?' is not part of the ``qualifiers``
-  - This is a query string composed of zero or more ``key=value`` pairs each
-    separated by a '&' ampersand. A ``key`` and ``value`` are separated by the equal
-    '=' character
-  - These '&' are not part of the ``key=value`` pairs.
-  - ``key`` must be unique within the keys of the ``qualifiers`` string
-  - ``value`` cannot be an empty string: a ``key=value`` pair with an empty ``value``
-    is the same as no key/value at all for this key
-  - For each pair of ``key`` = ``value``:
+  - The ``qualifiers`` component MUST be prefixed by an unencoded question
+    mark '?' separator when not empty.  This '?' separator is not part of the
+    ``qualifiers`` component.
+  - The ``qualifiers`` component is composed of one or more ``key=value``
+    pairs.  Multiple ``key=value`` pairs MUST be separated by an
+    unencoded ampersand '&'.  This '&' separator is not part of an
+    individual ``qualifier``.
 
-    - The ``key`` must be composed only of ASCII letters and numbers, '.', '-' and
-      '_' (period, dash and underscore)
-    - A ``key`` cannot start with a number
-    - A ``key`` must NOT be percent-encoded
-    - A ``key`` is case insensitive. The canonical form is lowercase
-    - A ``key`` cannot contain spaces
-    - A ``value`` must be a percent-encoded string
-    - The '=' separator is neither part of the ``key`` nor of the ``value``
+  - A ``key`` and ``value`` MUST be separated by the unencoded equal sign '='
+    character.  This '=' separator is not part of the ``key`` or ``value``.
+  - A ``value`` MUST NOT be an empty string: a ``key=value`` pair with an
+    empty ``value`` is the same as if no ``key=value`` pair exists for this
+    ``key``.
+
+  - For each ``key=value`` pair:
+
+    - The ``key`` MUST be composed only of lowercase ASCII letters and numbers,
+      period '.', dash '-' and underscore '_'.
+    - A ``key`` MUST start with an ASCII letter.
+    - A ``key`` MUST NOT be percent-encoded.
+    - Each ``key`` MUST be unique among all the keys of the ``qualifiers``
+      component.
+    - A ``value`` MAY be composed of any character and all characters MUST be
+      encoded as described in the "Character encoding" section.
 
 
 - **subpath**:
@@ -219,56 +207,70 @@ The rules for each component are:
   - The ``subpath`` string is prefixed by a '#' separator when not empty
   - This '#' is not part of the ``subpath``
   - The ``subpath`` contains zero or more segments, separated by slash '/'
-  - Leading and trailing slashes '/' are not significant and should be stripped
+  - Leading and trailing slashes '/' are not significant and SHOULD be stripped
     in the canonical form
-  - Each ``subpath`` segment must be a percent-encoded string
+  - Each ``subpath`` segment MUST be a percent-encoded string
   - When percent-decoded, a segment:
 
-    - must not contain a '/'
-    - must not be any of '..' or '.'
-    - must not be empty
+    - MUST NOT contain a '/'
+    - MUST NOT be any of '..' or '.'
+    - MUST NOT be empty
 
-  - The ``subpath`` must be interpreted as relative to the root of the package
+  - The ``subpath`` MUST be interpreted as relative to the root of the package
 
 
 Character encoding
 ~~~~~~~~~~~~~~~~~~
 
-For clarity and simplicity a ``purl`` is always an ASCII string. To ensure that
-there is no ambiguity when parsing a ``purl``, separator characters and non-ASCII
-characters must be UTF-encoded and then percent-encoded as defined at::
+Permitted characters
+--------------------
 
-    https://en.wikipedia.org/wiki/Percent-encoding
+A canonical ``purl`` is an ASCII string composed of these characters:
 
-Use these rules for percent-encoding and decoding ``purl`` components:
+- alphanumeric characters ``A to Z``, ``a to z``, ``0 to 9``,
+- the ``purl`` separators ``:/@?=&#`` (colon ':', slash '/', at sign '@',
+  question mark '?', equal sign '=', ampersand '&' and pound sign '#'), and
+- these punctuation marks ``%.-_~`` (percent sign '%', period '.', dash '-',
+  underscore '_' and tilde '~').
 
-- the ``type`` must NOT be encoded and must NOT contain separators
+All other characters MUST be encoded as UTF-8 and then percent-encoded.
+In addition, each component specifies its permitted characters and
+its percent-encoding rules.
 
-- the '#', '?', '@' and ':' characters must NOT be encoded when used as
-  separators. They may need to be encoded elsewhere
 
-- the ':' ``scheme`` and ``type`` separator does not need to and must NOT be encoded.
-  It is unambiguous unencoded everywhere
+``purl`` separators
+-------------------
 
-- the '/' used as ``type``/``namespace``/``name`` and ``subpath`` segments separator
-  does not need to and must NOT be percent-encoded. It is unambiguous unencoded
-  everywhere
+These ``purl`` separator characters MUST NOT be percent-encoded when used as
+``purl`` separators:
 
-- the '@' ``version`` separator must be encoded as ``%40`` elsewhere
-- the '?' ``qualifiers`` separator must be encoded as ``%3F`` elsewhere
-- the '=' ``qualifiers`` key/value separator must NOT be encoded
-- the '#' ``subpath`` separator must be encoded as ``%23`` elsewhere
+- ':' (colon) is the separator between ``scheme`` and ``type``
+- '/' (slash) is the separator between ``type``, ``namespace`` and ``name``
+- '/' (slash) is the separator between ``subpath`` segments
+- '@' (at sign) is the separator between ``name`` and  ``version``
+- '?' (question mark) is the separator before ``qualifiers``
+- '=' (equals) is the separator between a ``key`` and a ``value`` of a
+  ``qualifier``
+- '&' (ampersand) is the separator between ``qualifiers`` (each being a
+  ``key=value`` pair)
+- '#' (number sign) is the separator before ``subpath``
 
-- All non-ASCII characters must be encoded as UTF-8 and then percent-encoded
 
-It is OK to percent-encode ``purl`` components otherwise except for the ``type``.
-Parsers and builders must always percent-decode and percent-encode ``purl``
-components and component segments as explained in the "How to parse" and "How to
-build" sections.
+Percent-encoding rules
+----------------------
+
+When applying percent-encoding or decoding to a string, use the rules of RFC
+3986 section 2 (https://datatracker.ietf.org/doc/html/rfc3986#section-2).
+
+Each component defines when and how to apply percent-encoding and decoding to
+its content.
+
+When percent-encoding is required, all characters MUST be encoded except for
+the colon ':'.
 
 
 How to build ``purl`` string from its components
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Building a ``purl`` ASCII string works from left to right, from ``type`` to
 ``subpath``.
@@ -281,7 +283,7 @@ To build a ``purl`` string from its components:
 
 - Start a ``purl`` string with the "pkg:" ``scheme`` as a lowercase ASCII string
 
-- Append the ``type`` string to the ``purl`` as a lowercase ASCII string
+- Append the ``type`` string to the ``purl`` as an unencoded lowercase ASCII string
 
   - Append '/' to the ``purl``
 
@@ -343,7 +345,7 @@ To build a ``purl`` string from its components:
 
 
 How to parse a ``purl`` string in its components
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Parsing a ``purl`` ASCII string into its components works from right to left,
 from ``subpath`` to ``type``.
@@ -359,8 +361,8 @@ To parse a ``purl`` string in its components:
   - Strip the right side from leading and trailing '/'
   - Split this on '/'
   - Discard any empty string segment from that split
-  - Discard any '.' or '..' segment from that split
   - Percent-decode each segment
+  - Discard any '.' or '..' segment from that split
   - UTF-8-decode each segment if needed in your programming language
   - Join segments back with a '/'
   - This is the ``subpath``
@@ -386,7 +388,8 @@ To parse a ``purl`` string in its components:
   - The left side lowercased is the ``scheme``
   - The right side is the ``remainder``
 
-- Strip the ``remainder`` from leading and trailing '/'
+- Strip all leading and trailing '/' characters (e.g., '/', '//', '///' and
+  so on) from the ``remainder``
 
   - Split this once from left on '/'
   - The left side lowercased is the ``type``
@@ -424,7 +427,7 @@ There are several known ``purl`` package type definitions tracked in the
 separate `<PURL-TYPES.rst>`_ document.
 
 Known ``qualifiers`` key/value pairs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Note: Do not abuse ``qualifiers``: it can be tempting to use many qualifier
 keys but their usage should be limited to the bare minimum for proper package
@@ -504,3 +507,12 @@ License
 ~~~~~~~
 
 This document is licensed under the MIT license
+
+Definitions
+~~~~~~~~~~~
+
+[ASCII]  See, e.g.,
+
+  - American National Standards Institute, "Coded Character Set -- 7-bit
+    American Standard Code for Information Interchange", ANSI X3.4, 1986.
+  - https://en.wikipedia.org/wiki/ASCII.
