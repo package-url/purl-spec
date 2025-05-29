@@ -89,6 +89,19 @@ bitnami
       pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12
       pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4
 
+cargo
+-----
+``cargo`` for Rust:
+
+- The default repository is ``https://crates.io/``.
+- The ``name`` is the repository name.
+- The ``version`` is the package version.
+- Examples::
+
+      pkg:cargo/rand@0.7.2
+      pkg:cargo/clap@2.33.0
+      pkg:cargo/structopt@0.3.11
+
 cocoapods
 ---------
 ``cocoapods`` for CocoaPods:
@@ -103,19 +116,6 @@ cocoapods
       pkg:cocoapods/MapsIndoors@3.24.0
       pkg:cocoapods/ShareKit@2.0#Twitter
       pkg:cocoapods/GoogleUtilities@7.5.2#NSData+zlib
-
-cargo
------
-``cargo`` for Rust:
-
-- The default repository is ``https://crates.io/``.
-- The ``name`` is the repository name.
-- The ``version`` is the package version.
-- Examples::
-
-      pkg:cargo/rand@0.7.2
-      pkg:cargo/clap@2.33.0
-      pkg:cargo/structopt@0.3.11
 
 composer
 --------
@@ -281,7 +281,6 @@ version control repository such as a bare git repo.
       pkg:generic/openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da
       pkg:generic/bitwarderl?vcs_url=git%2Bhttps://git.fsfe.org/dxtr/bitwarderl%40cc55108da32
 
-
 github
 ------
 ``github`` for GitHub-based packages:
@@ -382,7 +381,6 @@ Examples::
       pkg:luarocks/hisham/luafilesystem@1.8.0-1
       pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/
 
-
 maven
 -----
 ``maven`` for Maven JARs and related artifacts:
@@ -403,7 +401,6 @@ maven
       pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x86&type=dll
       pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x64&type=dll
       pkg:maven/groovy/groovy@1.0?repository_url=https://maven.google.com
-
 
 mlflow
 ------
@@ -448,8 +445,8 @@ npm
 
 - The default repository is ``https://registry.npmjs.org``.
 - The ``namespace`` is used for the scope of a scoped NPM package.
-- Per the package.json spec, new package "must not have uppercase letters in
-  the name", therefore the must be lowercased.
+- Per the package.json specification, new package "must not have uppercase letters in
+  the name", therefore they must be lowercased.
 - Examples::
 
       pkg:npm/foobar@12.3.1
@@ -467,20 +464,6 @@ nuget
 
       pkg:nuget/EnterpriseLibrary.Common@6.0.1304
 
-qpkg
-----
-``qpkg`` for QNX packages:
-
-- There is no default package repository: this should be implied either from
-  the ``namespace`` or using a repository base URL as ``repository_url``
-  qualifiers key.
-- The ``namespace`` is the vendor of the package. It is not case sensitive and must be
-  lowercased.
-- Examples::
-
-      pkg:qpkg/blackberry/com.qnx.sdp@7.0.0.SGA201702151847
-      pkg:qpkg/blackberry/com.qnx.qnx710.foo.bar.qux@0.0.4.01449T202205040833L
-
 oci
 ------------
 ``oci`` for all artifacts stored in registries that conform to the
@@ -496,7 +479,7 @@ including container images built by Docker and others:
   last fragment of the repository name. For example if the repository
   name is ``library/debian`` then the ``name`` is ``debian``.
 - The ``version`` is the ``sha256:hex_encoded_lowercase_digest`` of the
-  artifact and is required to uniquely identify the artifact.
+  artifact and is used to uniquely identify the artifact.
 - Optional qualifiers may include:
 
   - ``arch``: key for a package architecture, when relevant.
@@ -539,9 +522,23 @@ pypi
 - Examples::
 
       pkg:pypi/django@1.11.1
-      pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz
-      pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl
+      pkg:pypi/django@1.11.1?file_name=Django-1.11.1.tar.gz
+      pkg:pypi/django@1.11.1?file_name=Django-1.11.1-py2.py3-none-any.whl
       pkg:pypi/django-allauth@12.23
+
+qpkg
+----
+``qpkg`` for QNX packages:
+
+- There is no default package repository: this should be implied either from
+  the ``namespace`` or using a repository base URL as ``repository_url``
+  qualifiers key.
+- The ``namespace`` is the vendor of the package. It is not case sensitive and must be
+  lowercased.
+- Examples::
+
+      pkg:qpkg/blackberry/com.qnx.sdp@7.0.0.SGA201702151847
+      pkg:qpkg/blackberry/com.qnx.qnx710.foo.bar.qux@0.0.4.01449T202205040833L
 
 rpm
 ---
@@ -614,8 +611,8 @@ vip
 Other candidate types to define:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- ``apache`` for Apache projects packages:
 - ``android`` for Android apk packages:
+- ``apache`` for Apache projects packages:
 - ``atom`` for Atom packages:
 - ``bower`` for Bower JavaScript packages:
 - ``brew`` for Homebrew packages:
@@ -625,13 +622,14 @@ Other candidate types to define:
 - ``chocolatey`` for Chocolatey packages
 - ``clojars`` for Clojure packages:
 - ``coreos`` for CoreOS packages:
-- ``ctan`` for CTAN TeX packages:
 - ``crystal`` for Crystal Shards packages:
+- ``ctan`` for CTAN TeX packages:
 - ``drupal`` for Drupal packages:
 - ``dtype`` for DefinitelyTyped TypeScript type definitions:
 - ``dub`` for D packages:
-- ``elm`` for Elm packages:
+- ``ebuild`` for Gentoo Linux portage packages:
 - ``eclipse`` for Eclipse projects packages:
+- ``elm`` for Elm packages:
 - ``gitea`` for Gitea-based packages:
 - ``gitlab`` for GitLab-based packages:
 - ``gradle`` for Gradle plugins
@@ -651,7 +649,6 @@ Other candidate types to define:
 - ``pecl`` for PECL PHP packages:
 - ``perl6`` for Perl 6 module packages:
 - ``platformio`` for PlatformIO packages:
-- ``ebuild`` for Gentoo Linux portage packages:
 - ``puppet`` for Puppet Forge packages:
 - ``sourceforge`` for Sourceforge-based packages:
 - ``sublime`` for Sublime packages:
