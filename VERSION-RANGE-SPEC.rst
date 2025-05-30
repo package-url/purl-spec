@@ -660,6 +660,8 @@ These are generic schemes, to use sparingly for special cases:
 
 - **semver**: a generic scheme that uses the same syntax as ``semver``. It follows the MAJOR.MINOR.PATCH format and is defined in the Semantic Versioning Specification 2.0.0, see https://semver.org/spec/v2.0.0.html. 
 
+- **libversion**: a generic versioning scheme that is designed to compare versions of different notations. It splits all numeric and alphabetic components and then performs the comparison per component. The algorithm is described in https://github.com/repology/libversion/blob/3.0.3/doc/ALGORITHM.md.
+
 A separate document will provide details for each versioning scheme and:
 
 - how to convert its native range notation to the ``vers`` notation and back.
