@@ -481,6 +481,19 @@ including container images built by Docker and others:
       pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest
       pkg:oci/hello-wasm@sha256%3A244fd47e07d10?tag=v1
 
+powershell
+----------
+``psgallery`` for PowerShell modules:
+
+- The default repository is ``https://www.powershellgallery.com``.
+- PowerShell modules are distributed through the PowerShell Gallery and can be installed via `Install-Module`.
+- There is no namespace.
+- Examples::
+
+      pkg:psgallery/PSWindowsUpdate@2.2.1.5
+      pkg:psgallery/PowerShellGet@2.2.5
+      pkg:psgallery/AWS.Tools.CloudWatch@4.1.820
+
 pub
 ----
 ``pub`` for Dart and Flutter packages:
