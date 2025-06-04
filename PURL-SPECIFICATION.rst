@@ -142,8 +142,7 @@ The rules for each component are:
 
 - **namespace**:
 
-  - Unless required by the package's ``type`` definition in `<PURL-TYPES.rst>`_,
-    the ``namespace`` is optional.
+  - The ``namespace`` is optional, unless required by the package's ``type`` definition.
   - If present, the ``namespace`` MAY contain one or more segments, separated
     by a single unencoded slash '/' character.
   - All leading and trailing slashes '/' are not significant and SHOULD be
