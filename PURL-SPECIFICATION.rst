@@ -152,7 +152,7 @@ The rules for each component are:
 
     - MUST NOT contain any slash '/' characters
     - MUST NOT be empty
-    - MAY contain any ASCII character other than '/' unless the package's
+    - MAY contain any Unicode character other than '/' unless the package's
       ``type`` definition provides otherwise.
 
   - A URL host or Authority MUST NOT be used as a ``namespace``. Use instead a
