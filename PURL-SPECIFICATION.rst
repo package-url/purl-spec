@@ -167,7 +167,7 @@ The rules for each component are:
   - All leading and trailing slashes '/' are not significant and SHOULD be
     stripped in the canonical form. They are not part of the ``name``.
   - A ``name`` MUST be a percent-encoded string.
-  - When percent-decoded, a ``name`` MAY contain any ASCII character unless
+  - When percent-decoded, a ``name`` MAY contain any Unicode character unless
     prohibited by the package's ``type`` definition in `<PURL-TYPES.rst>`_.
 
 
