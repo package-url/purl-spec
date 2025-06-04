@@ -281,6 +281,20 @@ version control repository such as a bare git repo.
       pkg:generic/openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da
       pkg:generic/bitwarderl?vcs_url=git%2Bhttps://git.fsfe.org/dxtr/bitwarderl%40cc55108da32
 
+gitee
+------
+``gitee`` for Gitee-based packages:
+
+- The default repository is ``https://gitee.com``.
+- The ``namespace`` is the user or organization. It is case sensitive.
+- The ``name`` is the repository name. It is case sensitive.
+- The ``version`` is a commit or tag.
+- Examples::
+
+      pkg:gitee/smallc/SpringBlade@v4.5.0
+      pkg:gitee/mindspore/mindformers@v1.6.0-beta1
+      pkg:gitee/mindspore/mindformers@58410b6
+
 github
 ------
 ``github`` for GitHub-based packages:
