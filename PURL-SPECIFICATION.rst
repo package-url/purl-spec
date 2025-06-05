@@ -166,14 +166,12 @@ The rules for each component are:
 
 - **version**:
 
-  - The ``version`` is prefixed by a '@' separator when not empty
-  - This '@' is not part of the ``version``
-  - A ``version`` must be a percent-encoded string
-
-  - A ``version`` is a plain and opaque string. Some package ``types`` use versioning
-    conventions such as SemVer for NPMs or NEVRA conventions for RPMS. A ``type``
-    may define a procedure to compare and sort versions, but there is no
-    reliable and uniform way to do such comparison consistently.
+  - The ``version`` is prefixed by a '@' separator when not empty.
+  - This '@' is not part of the ``version``.
+  - A ``version`` MUST be a percent-encoded string.
+  - When percent-decoded, a ``version`` MAY contain any Unicode character unless
+    the package's ``type`` definition provides otherwise.
+  - A ``version`` is a plain and opaque string.
 
 
 - **qualifiers**:
