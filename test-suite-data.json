@@ -180,6 +180,18 @@
     "is_invalid": false
   },
   {
+    "description": "gitee names are case sensitive",
+    "purl": "pkg:gitee/smallc/SpringBlade@v4.5.0",
+    "canonical_purl": "pkg:gitee/smallc/SpringBlade@v4.5.0",
+    "type": "gitee",
+    "namespace": "smallc",
+    "name": "SpringBlade",
+    "version": "v4.5.0",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
     "description": "nuget names are case sensitive",
     "purl": "pkg:Nuget/EnterpriseLibrary.Common@6.0.1304",
     "canonical_purl": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
