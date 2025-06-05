@@ -46,3 +46,15 @@ package ``type``
 
 As a result, a purl spec implementation must return an error when encountering
 a ``type`` that contains a prohibited character.
+
+
+Version
+~~~~~~~
+
+**QUESTION**: How do package ``types`` handle the comparison and sorting of
+versions?
+
+**ANSWER**: Some package ``types`` use versioning conventions such as SemVer
+for NPMs or NEVRA conventions for RPMS. A ``type`` may define a procedure to
+compare and sort versions, but there is no reliable and uniform way to do such
+comparison consistently.
