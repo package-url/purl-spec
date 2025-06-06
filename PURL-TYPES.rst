@@ -170,15 +170,12 @@ conda
 
 cpan
 ----
-``cpan`` for CPAN Perl packages:
+``cpan`` for Perl package distributions published on CPAN:
 
 - The default repository is ``https://www.cpan.org/``.
-- The ``namespace``:
-  - To refer to a CPAN distribution name, the ``namespace`` MUST be present. In this case, the namespace is the CPAN id of the author/publisher. It MUST be written uppercase, followed by the distribution name in the ``name`` component. A distribution name MUST NOT contain the string ``::``.
-  - To refer to a CPAN module, the ``namespace`` MUST be absent. The module name MAY contain zero or more ``::`` strings, and the module name MUST NOT contain a ``-``
-
-- The ``name`` is the module or distribution name and is case sensitive.
-- The ``version`` is the module or distribution version.
+- The ``namespace`` is the CPAN id of the author/publisher. It MUST be written uppercase and is required.
+- The ``name`` is the distribution name and is case sensitive.
+- The ``version`` is the distribution version.
 - Optional qualifiers may include:
 
   - ``repository_url``: CPAN/MetaCPAN/BackPAN/DarkPAN repository base URL (default is ``https://www.cpan.org``)
@@ -188,13 +185,9 @@ cpan
 
 - Examples::
 
-      pkg:cpan/Perl::Version@1.013
       pkg:cpan/DROLSKY/DateTime@1.55
-      pkg:cpan/DateTime@1.55
       pkg:cpan/GDT/URI-PackageURL
-      pkg:cpan/LWP::UserAgent
       pkg:cpan/OALDERS/libwww-perl@6.76
-      pkg:cpan/URI
 
 cran
 -----
