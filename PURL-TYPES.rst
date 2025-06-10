@@ -481,6 +481,39 @@ including container images built by Docker and others:
       pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest
       pkg:oci/hello-wasm@sha256%3A244fd47e07d10?tag=v1
 
+otp
+---
+``otp`` for BEAM/OTP applications written in **Elixir, Erlang, Gleam** and
+other BEAM languages:
+
+- If the component was fetched from a **Hex** repository, prefer a ``hex`` purl
+  because Hex provides a global, collision-free namespace that uniquely ties
+  the version to the published source.
+- There is **no default package repository**. When the application can be
+  fetched from a known location, add a general qualifier such as
+  ``repository_url``, ``download_url`` or ``vcs_url``.
+- The ``namespace`` component is **unused** and **MUST** be empty.
+- The ``name`` is the OTP *application name* from the ``.app`` file; it is
+  case-insensitive and **MUST** be lower-cased.
+- The ``version`` is the OTP *application version* (the ``vsn`` attribute).
+- **Optional qualifiers**  
+  ``platform`` - target operating system for native code (e.g. ``linux``,
+  ``darwin``, ``freebsd``, ``sunos``, ``win32``; case-insensitive).  
+  ``arch`` - target CPU architecture (e.g. ``amd64``, ``x86_64``, ``arm64``,
+  ``armv7``; case-insensitive).
+- A purl *subpath* (``#…``) may be added to reference a specific file or
+  directory inside the OTP application.
+- Examples::
+
+      pkg:otp/erts@10.6.3?platform=linux&arch=amd64&repository_url=https://github.com/erlang/otp&vcs_url=git%20https://github.com/erlang/otp.git
+      pkg:otp/stdlib@3.11.2?repository_url=https://github.com/erlang/otp&vcs_url=git%20https://github.com/erlang/otp.git
+      pkg:otp/crypto@4.6.4?platform=darwin&arch=x86_64&repository_url=https://github.com/erlang/otp&vcs_url=git%20https://github.com/erlang/otp.git
+      pkg:otp/elixir@1.10.0?repository_url=https://github.com/elixir-lang/elixir&vcs_url=git%20https://github.com/elixir-lang/elixir.git
+      pkg:otp/eex@1.10.0?repository_url=https://github.com/elixir-lang/elixir&vcs_url=git%20https://github.com/elixir-lang/elixir.git
+      pkg:otp/logger@1.10.0?repository_url=https://github.com/elixir-lang/elixir&vcs_url=git%20https://github.com/elixir-lang/elixir.git
+      pkg:otp/rebar@3.13.0?repository_url=https://github.com/erlang/rebar3&vcs_url=git%20https://github.com/erlang/rebar3.git
+      pkg:otp/hex@2.1.1?repository_url=https://github.com/hexpm/hex&vcs_url=git%20https://github.com/hexpm/hex.git
+
 pub
 ----
 ``pub`` for Dart and Flutter packages:
