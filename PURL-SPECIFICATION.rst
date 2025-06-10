@@ -142,38 +142,43 @@ The rules for each component are:
 
 - **namespace**:
 
-  - The optional ``namespace`` contains zero or more segments, separated by slash
-    '/'
-  - Leading and trailing slashes '/' are not significant and should be stripped
-    in the canonical form. They are not part of the ``namespace``
-  - Each ``namespace`` segment must be a percent-encoded string
+  - The ``namespace`` is optional, unless required by the package's ``type`` definition.
+  - If present, the ``namespace`` MAY contain one or more segments, separated
+    by a single unencoded slash '/' character.
+  - All leading and trailing slashes '/' are not significant and SHOULD be
+    stripped in the canonical form. They are not part of the ``namespace``.
+  - Each ``namespace`` segment MUST be a percent-encoded string.
   - When percent-decoded, a segment:
 
-    - must not contain a '/'
-    - must not be empty
+    - MUST NOT contain any slash '/' characters
+    - MUST NOT be empty
+    - MAY contain any Unicode character other than '/' unless the package's
+      ``type`` definition provides otherwise.
 
-  - A URL host or Authority must NOT be used as a ``namespace``. Use instead a
+  - A URL host or Authority MUST NOT be used as a ``namespace``. Use instead a
     ``repository_url`` qualifier. Note however that for some types, the
     ``namespace`` may look like a host.
 
 
 - **name**:
 
-  - The ``name`` is prefixed by a '/' separator when the ``namespace`` is not empty
-  - This '/' is not part of the ``name``
-  - A ``name`` must be a percent-encoded string
+  - The ``name`` is prefixed by a single slash '/' separator when the
+    ``namespace`` is not empty.
+  - All leading and trailing slashes '/' are not significant and SHOULD be
+    stripped in the canonical form. They are not part of the ``name``.
+  - A ``name`` MUST be a percent-encoded string.
+  - When percent-decoded, a ``name`` MAY contain any Unicode character unless
+    prohibited by the package's ``type`` definition in `<PURL-TYPES.rst>`_.
 
 
 - **version**:
 
-  - The ``version`` is prefixed by a '@' separator when not empty
-  - This '@' is not part of the ``version``
-  - A ``version`` must be a percent-encoded string
-
-  - A ``version`` is a plain and opaque string. Some package ``types`` use versioning
-    conventions such as SemVer for NPMs or NEVRA conventions for RPMS. A ``type``
-    may define a procedure to compare and sort versions, but there is no
-    reliable and uniform way to do such comparison consistently.
+  - The ``version`` is prefixed by a '@' separator when not empty.
+  - This '@' is not part of the ``version``.
+  - A ``version`` MUST be a percent-encoded string.
+  - When percent-decoded, a ``version`` MAY contain any Unicode character unless
+    the package's ``type`` definition provides otherwise.
+  - A ``version`` is a plain and opaque string.
 
 
 - **qualifiers**:
@@ -418,6 +423,8 @@ To parse a ``purl`` string in its components:
 - Split the ``remainder`` once from right on '/'
 
   - The left side is the ``remainder``
+  - Strip all leading characters (e.g., '/', '//' and so on)
+    from the right side
   - Percent-decode the right side. This is the ``name``
   - UTF-8-decode this ``name`` if needed in your programming language
   - Apply type-specific normalization to the ``name`` if needed
@@ -425,6 +432,8 @@ To parse a ``purl`` string in its components:
 
 - Split the ``remainder`` on '/'
 
+  - Strip all leading '/' characters (e.g., '/', '//' and so on)
+    from that split
   - Discard any empty segment from that split
   - Percent-decode each segment
   - UTF-8-decode each segment if needed in your programming language
