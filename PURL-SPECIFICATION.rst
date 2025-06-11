@@ -222,6 +222,8 @@ The rules for each component are:
     - MUST NOT contain a '/'
     - MUST NOT be any of '..' or '.'
     - MUST NOT be empty
+    - MAY contain any Unicode character unless this ``subpath`` definition or
+      the package's ``type`` definition provides otherwise.
 
   - The ``subpath`` MUST be interpreted as relative to the root of the package
 
