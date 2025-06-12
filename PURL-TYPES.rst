@@ -488,11 +488,12 @@ powershell
 - The default repository is ``https://www.powershellgallery.com``.
 - PowerShell modules are distributed through the PowerShell Gallery and can be installed via `Install-Module`.
 - There is no namespace.
+- The ``name`` and ``version`` are not case sensitive and must be lowercased.
 - Examples::
 
-      pkg:psgallery/PSWindowsUpdate@2.2.1.5
-      pkg:psgallery/PowerShellGet@2.2.5
-      pkg:psgallery/AWS.Tools.CloudWatch@4.1.820
+      pkg:psgallery/pswindowsupdate@2.2.1.5
+      pkg:psgallery/powershellget@3.0.22-beta22
+      pkg:psgallery/aws.tools.cloudwatch@4.1.820
 
 pub
 ----
