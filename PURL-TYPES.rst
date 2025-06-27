@@ -582,6 +582,28 @@ swift
       pkg:swift/github.com/Alamofire/Alamofire@5.4.3
       pkg:swift/github.com/RxSwiftCommunity/RxFlow@2.12.4
 
+terraform
+----
+``terraform`` for Terraform modules and providers:
+
+- The default registry is ``https://registry.terraform.io``.
+- The ``namespace`` is the provider or module namespace, which is usually the
+  organization or vendor name.
+- The ``name`` is the name of the provider or module.
+- The ``version`` is the package version and is required.
+- Optional qualifiers may include:
+
+  - ``registry_url``: A registry URL where the provider/module may be found, but
+    not intended as the only location. This value is encouraged to identify a
+    location the content may be fetched in case the default registry is not used.
+- The ``subpath`` is used to distinguish between a provider and a module.
+  For providers, it is always ``provider``. For modules, it is always ``module``.
+- Examples::
+
+      pkg:terraform/hashicorp/aws@6.0.0#provider
+      pkg:terraform/terraform-aws-modules/vpc@6.0.1#module
+      pkg:terraform/terraform-aws-modules/vpc@6.0.1?registry_url=https://registry.example.com#module
+
 Other candidate types to define:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -626,7 +648,6 @@ Other candidate types to define:
 - ``puppet`` for Puppet Forge packages:
 - ``sourceforge`` for Sourceforge-based packages:
 - ``sublime`` for Sublime packages:
-- ``terraform`` for Terraform modules
 - ``vagrant`` for Vagrant boxes
 - ``vim`` for Vim scripts packages:
 - ``wordpress`` for Wordpress packages:
