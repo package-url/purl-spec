@@ -55,7 +55,7 @@ sometimes look like a ``host`` but its interpretation is specific to a ``type``.
 
 
 Some ``purl`` examples
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 
 ::
 
@@ -72,7 +72,7 @@ Some ``purl`` examples
 
 
 A ``purl`` is a URL
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 - A ``purl`` is a valid URL and URI that conforms to the URL definitions or
   specifications at:
@@ -110,15 +110,16 @@ A ``purl`` is a URL
 
 
 Rules for each ``purl`` component
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------
 
 A ``purl`` string is an ASCII URL string composed of seven components.
 
 Except as expressly stated otherwise in this section, each component:
 
-- MAY be composed of any of the characters defined in the "Permitted
-  characters" section
-- MUST be encoded as defined in the "Character encoding" section
+- MAY be composed of any of the characters defined in the "`Permitted characters`_" section
+- MUST be encoded as defined in the "`Character encoding`_" section
+
+The "lowercase" rules are defined in the "`Case folding`_" section.
 
 The rules for each component are:
 
@@ -225,6 +226,8 @@ The rules for each component are:
 
   - The ``subpath`` MUST be interpreted as relative to the root of the package
 
+Characters and transformations
+------------------------------
 
 Permitted characters
 ~~~~~~~~~~~~~~~~~~~~
@@ -286,9 +289,19 @@ Character encoding
 - With the exception of the percent-encoding mechanism, the rules regarding
   percent-encoding are defined by this specification alone.
 
+Case folding
+~~~~~~~~~~~~
+
+References to "lowercase" in this specification refer to the **culture-invariant**
+full case mapping defined in
+`Section 3.13.2 of the Unicode Standard <https://www.unicode.org/versions/Unicode16.0.0/core-spec/chapter-3/#G34078>`_.
+
+When applied to the ASCII character set, this operation converts uppercase
+Latin letters (``A``–``Z``) to their corresponding lowercase forms (``a``–``z``).
+All other ASCII characters remain unchanged.
 
 How to build ``purl`` string from its components
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------------------
 
 Building a ``purl`` ASCII string works from left to right, from ``type`` to
 ``subpath``.
@@ -363,7 +376,7 @@ To build a ``purl`` string from its components:
 
 
 How to parse a ``purl`` string in its components
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------------------
 
 Parsing a ``purl`` ASCII string into its components works from right to left,
 from ``subpath`` to ``type``.
@@ -443,13 +456,13 @@ To parse a ``purl`` string in its components:
 
 
 Known ``purl`` types
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 There are several known ``purl`` package type definitions tracked in the
 separate `<PURL-TYPES.rst>`_ document.
 
 Known ``qualifiers`` key/value pairs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 
 Note: Do not abuse ``qualifiers``: it can be tempting to use many qualifier
 keys but their usage should be limited to the bare minimum for proper package
@@ -491,7 +504,7 @@ all package types:
 
 
 Tests
-~~~~~
+-----
 
 To support the language-neutral testing of ``purl`` implementations, a test suite
 is provided as JSON document named ``test-suite-data.json``. This JSON document
@@ -526,12 +539,12 @@ every listed test object, run these tests:
 
 
 License
-~~~~~~~
+-------
 
 This document is licensed under the MIT license
 
 Definitions
-~~~~~~~~~~~
+-----------
 
 [ASCII]  See, e.g.,
 
