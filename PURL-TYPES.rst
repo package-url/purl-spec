@@ -89,6 +89,28 @@ bitnami
       pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12
       pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4
 
+bsd
+---
+``bsd`` for BSD Operating System variant packages:
+
+- The default repositories for major BSD Operating System variants are as follows:
+  - FreeBSD: ``http://pkg.freebsd.org``
+  - OpenBSD: ``https://cdn.openbsd.org/pub/OpenBSD``
+  - NetBSD: ``https://cdn.netbsd.org/pub/NetBSD/``
+- The ``namespace`` is the BSD variant such as ``freebsd``, ``openbsd``, or ``netbsd``.
+  It is not case sensitive and must be lowercased.
+- The ``name`` is the package name.
+- The ``version`` is the package version.
+- Optional qualifiers may include:
+  - ``distro``: The BSD release version or distribution variant.
+  - ``epoch``: The package epoch number used for version comparison when normal version ordering is insufficient.
+  - ``arch``: The target architecture for the package.
+
+- Examples::
+      pkg:bsd/freebsd/emacs@30.1_2?distro=14.3&epoch=3
+      pkg:bsd/openbsd/php-apache@8.4.8?distro=7.7&arch=amd64
+      pkg:bsd/netbsd/mysql-server@5.0.24?distro=10.1&arch=arm64
+
 cargo
 -----
 ``cargo`` for Rust:
