@@ -113,7 +113,6 @@ Other candidate types to define
 - ``puppet`` for Puppet Forge packages:
 - ``sourceforge`` for Sourceforge-based packages:
 - ``sublime`` for Sublime packages:
-- ``terraform`` for Terraform modules
 - ``vagrant`` for Vagrant boxes
 - ``vim`` for Vim scripts packages:
 - ``wordpress`` for Wordpress packages:
