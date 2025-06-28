@@ -541,13 +541,17 @@ rpm
   ``repository_url`` qualifiers key.
 - The ``namespace`` is the vendor, it is not case sensitive and must be lowercased. 
 
+  - AmazonLinux uses ``amazonlinux``
+  - AzureLinux uses ``azurelinux``
+  - CBL-Mariner uses ``cbl-mariner``
   - Fedora uses ``fedora``
   - CentOS uses ``centos``
-  - Rocky Linux uses ``rocky``
+  - Rocky Linux uses ``rockylinux``
   - Red Hat Enterprise Linux uses ``redhat``
   - AlmaLinux uses ``almalinux``
   - OpenSUSE uses ``opensuse``
   - SUSE Linux Enterprise products use ``suse`` 
+  - OracleLinux uses ``oraclelinux``
   
 
 - The ``name`` is the RPM name and is case sensitive.
