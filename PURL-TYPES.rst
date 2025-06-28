@@ -551,6 +551,7 @@ rpm
   - Red Hat Enterprise Linux uses ``redhat``
   - AlmaLinux uses ``almalinux``
   - OpenSUSE uses ``opensuse``
+  - SUSE Linux Enterprise products use ``suse`` 
   
 
 - The ``name`` is the RPM name and is case sensitive.
