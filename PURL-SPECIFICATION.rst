@@ -465,6 +465,13 @@ download URL, VCS URL or checksums in an API, database or web form.
 With this warning, the known ``key`` and ``value`` defined here are valid for use in
 all package types:
 
+- ``vers`` allows the specification of a version range.
+  The value MUST adhere to the `Version Range Specification <VERSION-RANGE-SPEC.rst>`_.
+  This qualifier is mutually exclusive with the ``version`` component.
+  For example::
+
+       pkg:pypi/django?vers=vers%3Apypi%2F%3E%3D1.11.0%7C%21%3D1.11.1%7C%3C2.0.0
+
 - ``repository_url`` is an extra URL for an alternative, non-default package
   repository or registry. When a package does not come from the default public
   package repository for its ``type`` a ``purl`` may be qualified with this extra
