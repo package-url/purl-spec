@@ -168,7 +168,7 @@ The rules for each component are:
     stripped in the canonical form. They are not part of the ``name``.
   - A ``name`` MUST be a percent-encoded string.
   - When percent-decoded, a ``name`` MAY contain any Unicode character unless
-    prohibited by the package's ``type`` definition in `<PURL-TYPES.rst>`_.
+    the package's ``type`` definition provides otherwise.
 
 
 - **version**:
@@ -205,7 +205,7 @@ The rules for each component are:
     - A ``key`` MUST NOT be percent-encoded.
     - Each ``key`` MUST be unique among all the keys of the ``qualifiers``
       component.
-    - A ``value`` MAY be composed of any character and all characters MUST be
+    - A ``value`` MAY contain any Unicode character and all characters MUST be
       encoded as described in the "Character encoding" section.
 
 
@@ -219,11 +219,11 @@ The rules for each component are:
   - Each ``subpath`` segment MUST be a percent-encoded string
   - When percent-decoded, a segment:
 
-    - MUST NOT contain a '/'
-    - MUST NOT be any of '..' or '.'
+    - MUST NOT contain any slash '/' characters
     - MUST NOT be empty
-    - MAY contain any Unicode character unless this ``subpath`` definition or
-      the package's ``type`` definition provides otherwise.
+    - MUST NOT be any of '..' or '.'
+    - MAY contain any Unicode character other than '/' unless the package's
+      ``type`` definition provides otherwise.
 
   - The ``subpath`` MUST be interpreted as relative to the root of the package
 
