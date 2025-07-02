@@ -660,6 +660,8 @@ These are generic schemes, to use sparingly for special cases:
 
 - **semver**: a generic scheme that uses the same syntax as ``semver``. It follows the MAJOR.MINOR.PATCH format and is defined in the Semantic Versioning Specification 2.0.0, see https://semver.org/spec/v2.0.0.html. 
 
+- **datetime**: a generic scheme that uses a timestamp for comparison. The timestamp must adhere to RFC3339, section 5.6, see https://www.rfc-editor.org/rfc/rfc3339#section-5.6. 
+
 A separate document will provide details for each versioning scheme and:
 
 - how to convert its native range notation to the ``vers`` notation and back.
