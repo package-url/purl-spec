@@ -469,7 +469,7 @@ all package types:
   This qualifier is mutually exclusive with the ``version`` component.
   For example::
 
-       pkg:pypi/django?vers=vers%3Apypi%2F%3E%3D1.11.0%7C%21%3D1.11.1%7C%3C2.0.0
+       pkg:pypi/django?vers=vers:pypi%2F%3E%3D1.11.0%7C%21%3D1.11.1%7C%3C2.0.0
 
 - ``repository_url`` is an extra URL for an alternative, non-default package
   repository or registry. When a package does not come from the default public
