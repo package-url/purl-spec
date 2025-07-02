@@ -55,7 +55,7 @@ sometimes look like a ``host`` but its interpretation is specific to a ``type``.
 
 
 Some ``purl`` examples
-----------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -72,7 +72,7 @@ Some ``purl`` examples
 
 
 A ``purl`` is a URL
--------------------
+~~~~~~~~~~~~~~~~~~~
 
 - A ``purl`` is a valid URL and URI that conforms to the URL definitions or
   specifications at:
@@ -110,7 +110,7 @@ A ``purl`` is a URL
 
 
 Rules for each ``purl`` component
----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A ``purl`` string is an ASCII URL string composed of seven components.
 
@@ -226,8 +226,6 @@ The rules for each component are:
 
   - The ``subpath`` MUST be interpreted as relative to the root of the package
 
-Characters and transformations
-------------------------------
 
 Permitted characters
 ~~~~~~~~~~~~~~~~~~~~
@@ -301,7 +299,7 @@ Latin letters (``A``–``Z``) to their corresponding lowercase forms (``a``–``
 All other ASCII characters remain unchanged.
 
 How to build ``purl`` string from its components
-------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Building a ``purl`` ASCII string works from left to right, from ``type`` to
 ``subpath``.
@@ -376,7 +374,7 @@ To build a ``purl`` string from its components:
 
 
 How to parse a ``purl`` string in its components
-------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Parsing a ``purl`` ASCII string into its components works from right to left,
 from ``subpath`` to ``type``.
@@ -456,13 +454,13 @@ To parse a ``purl`` string in its components:
 
 
 Known ``purl`` types
---------------------
+~~~~~~~~~~~~~~~~~~~~
 
 There are several known ``purl`` package type definitions tracked in the
 separate `<PURL-TYPES.rst>`_ document.
 
 Known ``qualifiers`` key/value pairs
-------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Note: Do not abuse ``qualifiers``: it can be tempting to use many qualifier
 keys but their usage should be limited to the bare minimum for proper package
@@ -504,7 +502,7 @@ all package types:
 
 
 Tests
------
+~~~~~
 
 To support the language-neutral testing of ``purl`` implementations, a test suite
 is provided as JSON document named ``test-suite-data.json``. This JSON document
@@ -539,12 +537,12 @@ every listed test object, run these tests:
 
 
 License
--------
+~~~~~~~
 
 This document is licensed under the MIT license
 
 Definitions
------------
+~~~~~~~~~~~
 
 [ASCII]  See, e.g.,
 
