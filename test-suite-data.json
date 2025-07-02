@@ -648,6 +648,18 @@
     "is_invalid": false
   },
   {
+    "description": "valid bsd purl with qualifiers",
+    "purl": "pkg:bsd/freebsd/emacs@30.1_2?distro=14.3&epoch=3",
+    "canonical_purl": "pkg:bsd/freebsd/emacs@30.1_2?distro=14.3&epoch=3",
+    "type": "bsd",
+    "namespace": "freebsd",
+    "name": "emacs",
+    "version": "30.1_2",
+    "qualifiers": {"distro": "14.3", "epoch": "3"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
     "description": "ensure namespace allows multiple segments",
     "purl": "pkg:bintray/apache/couchdb/couchdb-mac@2.3.0",
     "canonical_purl": "pkg:bintray/apache/couchdb/couchdb-mac@2.3.0",
