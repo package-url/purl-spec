@@ -134,7 +134,7 @@ The rules for each component are:
 - **type**:
 
   - The package ``type`` MUST be composed only of ASCII letters and numbers,
-    period '.', plus '+', and dash '-'.
+    period '.', and dash '-'.
   - The ``type`` MUST start with an ASCII letter.
   - The ``type`` MUST NOT be percent-encoded.
   - The ``type`` is case insensitive. The canonical form is lowercase.
@@ -168,7 +168,7 @@ The rules for each component are:
     stripped in the canonical form. They are not part of the ``name``.
   - A ``name`` MUST be a percent-encoded string.
   - When percent-decoded, a ``name`` MAY contain any Unicode character unless
-    prohibited by the package's ``type`` definition in `<PURL-TYPES.rst>`_.
+    the package's ``type`` definition provides otherwise.
 
 
 - **version**:
@@ -205,7 +205,7 @@ The rules for each component are:
     - A ``key`` MUST NOT be percent-encoded.
     - Each ``key`` MUST be unique among all the keys of the ``qualifiers``
       component.
-    - A ``value`` MAY be composed of any character and all characters MUST be
+    - A ``value`` MAY contain any Unicode character and all characters MUST be
       encoded as described in the "Character encoding" section.
 
 
@@ -219,9 +219,11 @@ The rules for each component are:
   - Each ``subpath`` segment MUST be a percent-encoded string
   - When percent-decoded, a segment:
 
-    - MUST NOT contain a '/'
-    - MUST NOT be any of '..' or '.'
+    - MUST NOT contain any slash '/' characters
     - MUST NOT be empty
+    - MUST NOT be any of '..' or '.'
+    - MAY contain any Unicode character other than '/' unless the package's
+      ``type`` definition provides otherwise.
 
   - The ``subpath`` MUST be interpreted as relative to the root of the package
 
@@ -234,7 +236,6 @@ A canonical ``purl`` is composed of these permitted ASCII characters:
 - the Alphanumeric Characters: ``A to Z``, ``a to z``, ``0 to 9``,
 - the Punctuation Characters: ``.-_~`` (period '.',
   dash '-', underscore '_' and tilde '~'),
-- the Plus Character: ``+`` (plus '+'),
 - the Percent Character: ``%`` (percent sign '%'), and
 - the Separator Characters ``:/@?=&#`` (colon ':', slash '/', at sign '@',
   question mark '?', equal sign '=', ampersand '&' and pound sign '#').
@@ -340,7 +341,7 @@ To build a ``purl`` string from its components:
 
     - Discard any pair where the ``value`` is empty.
     - UTF-8-encode each ``value`` if needed in your programming language
-    - If the ``key`` is ``checksums`` and this is a list of ``checksums`` join this
+    - If the ``key`` is ``checksum`` and this is a list of checksums join this
       list with a ',' to create this qualifier ``value``
     - Create a string by joining the lowercased ``key``, the equal '=' sign and
       the percent-encoded ``value`` to create a qualifier
@@ -396,8 +397,8 @@ To parse a ``purl`` string in its components:
     - The ``value`` is the percent-decoded right side
     - UTF-8-decode the ``value`` if needed in your programming language
     - Discard any key/value pairs where the value is empty
-    - If the ``key`` is ``checksums``, split the ``value`` on ',' to create
-      a list of ``checksums``
+    - If the ``key`` is ``checksum``, split the ``value`` on ',' to create
+      a list of checksums
 
   - This list of key/value is the ``qualifiers`` object
 
@@ -462,6 +463,13 @@ download URL, VCS URL or checksums in an API, database or web form.
 
 With this warning, the known ``key`` and ``value`` defined here are valid for use in
 all package types:
+
+- ``vers`` allows the specification of a version range.
+  The value MUST adhere to the `Version Range Specification <VERSION-RANGE-SPEC.rst>`_.
+  This qualifier is mutually exclusive with the ``version`` component.
+  For example::
+
+       pkg:pypi/django?vers=vers:pypi%2F%3E%3D1.11.0%7C%21%3D1.11.1%7C%3C2.0.0
 
 - ``repository_url`` is an extra URL for an alternative, non-default package
   repository or registry. When a package does not come from the default public
