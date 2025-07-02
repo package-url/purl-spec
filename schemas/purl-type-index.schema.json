@@ -19,7 +19,6 @@
         "additionalProperties": false,
         "properties": {
           "type": { "type": "string", "description": "The name of the PURL type (e.g., 'maven', 'npm', 'pypi')." },
-          "description": { "type": "string", "description": "A short description of this PURL type." },
           "definition_url": { "type": "string", "format": "uri", "description": "URL pointing to the PURL Type Definition JSON Schema." }
         },
         "required": ["name", "schema_url"]
