@@ -6,17 +6,17 @@
   "type": "object",
   "properties": {
     "last_updated": {
+      "description": "The timestamp when the index was last updated, in ISO 8601 format.",
       "type": "string",
-      "format": "date-time",
-      "description": "The timestamp when the index was last updated, in ISO 8601 format."
+      "format": "date-time"
     },
-    "types": {
-      "type": "array",
+    "purl_types": {
       "description": "A list of known PURL types.",
-      "additionalItems": false,
+      "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "additionalItems": false
     }
   }
 }
