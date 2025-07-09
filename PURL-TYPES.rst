@@ -168,6 +168,18 @@ conda
 
       pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2
 
+cos
+-----
+``cos`` for [Container-Optimized OS](http://cloud/container-optimized-os/docs) packages:
+
+- There is no public repository or package manager  for these packages.
+- The ``name`` is the package name.
+- The ``version`` is the package version.
+- Qualifier ``distro``: The OS version in the form ``cos-[OSV_VERSION]``.
+- Examples::
+
+      pkg:cos/python-exec@17162.336.16?distro=cos-101
+
 cpan
 ----
 ``cpan`` for CPAN Perl packages:
