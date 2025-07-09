@@ -426,6 +426,19 @@ mlflow
       pkg:mlflow/creditfraud@3?repository_url=https://westus2.api.azureml.ms/mlflow/v1.0/subscriptions/a50f2011-fab8-4164-af23-c62881ef8c95/resourceGroups/TestResourceGroup/providers/Microsoft.MachineLearningServices/workspaces/TestWorkspace
       pkg:mlflow/trafficsigns@10?model_uuid=36233173b22f4c89b451f1228d700d49&run_id=410a3121-2709-4f88-98dd-dba0ef056b0a&repository_url=https://adb-5245952564735461.0.azuredatabricks.net/api/2.0/mlflow
 
+nipkg
+-----
+``nipkg`` for NI Package format packages:
+
+- The ``namespace`` is the maintainer from the package attributes (optional).
+- The ``name`` is the package name from from the package attributes.
+- The ``version`` is the full version from the package attributes - not the display version.
+- Examples::
+
+      pkg:nipkg/foobar@12.3.1
+      pkg:nipkg/ni-visa-17.5-dotnet-runtime
+	  pkg:nipkg/National%20Instruments/ni-labview-2019-runtime-engine-x86@19.1.4.49152-0+f0
+	  
 npm
 ---
 ``npm`` for Node NPM packages:
@@ -581,6 +594,19 @@ swift
 
       pkg:swift/github.com/Alamofire/Alamofire@5.4.3
       pkg:swift/github.com/RxSwiftCommunity/RxFlow@2.12.4
+	  
+vip
+---
+``vip`` for VI Package Manager (VIPM) format packages (LabVIEW):
+
+- The ``name`` is the package name from from the package attributes with the -version removed.
+- The ``version`` is the version string from the package attributes.
+- The qualifier ``repository_name`` is the repository name from the package attributes (optional).
+- Examples::
+
+      pkg:vip/mgi_lib_1d_array@1.0.2.3
+      pkg:vip/oglib_numeric@4.1.0.8
+	  pkg:vip/jdp_science_jsontext@1.4.5.91?repository_name=NI%20LabVIEW%20Tools%20Network
 
 Other candidate types to define:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
