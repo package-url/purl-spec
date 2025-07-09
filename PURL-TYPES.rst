@@ -481,6 +481,23 @@ including container images built by Docker and others:
       pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest
       pkg:oci/hello-wasm@sha256%3A244fd47e07d10?tag=v1
 
+opkg
+----
+
+``opkg`` for OpenWrt and Entware packages:
+
+- There is no default repository. This should be implied by the ``namespace`` together with the ``repo`` and ``arch`` qualifiers.
+- The ``namespace`` is the vendor of the package, such as ``openwrt`` or ``entware``. It is not case sensitive and must be
+  lowercased.
+- The ``set`` qualifier should be used to designate the collection of packages from which the package in question is drawn, such as ``base``, ``community-packages``, ``luci``, ``routing``, or ``telephony``. (OpenWrt refers to this as the package's "repository".)
+- The ``name`` is the name of the package. It is case sensitive.
+- The ``version`` is the version of the package. It is case sensitive.
+- The ``arch`` is the architecture for which the package is built. It is case sensitive. 
+- Examples::
+
+    pkg:opkg/openwrt/freeswitch-util-fs-ivrd@1.10.10-2?arch=mipsel_74kc&set=telephony
+    pkg:opkg/openwrt/thc-ipv6-dump-router6@2.7.1?arch=powerpc&set=base
+
 pub
 ----
 ``pub`` for Dart and Flutter packages:
@@ -616,7 +633,6 @@ Other candidate types to define:
 - ``nim`` for Nim packages:
 - ``nix`` for Nixos packages:
 - ``opam`` for OCaml packages:
-- ``openwrt`` for OpenWRT packages:
 - ``osgi`` for OSGi bundle packages:
 - ``p2`` for Eclipse p2 packages:
 - ``pear`` for Pear PHP packages:
