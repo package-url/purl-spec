@@ -468,6 +468,18 @@
     "is_invalid": true
   },
   {
+    "description": "valid swiplpack purl",
+    "purl": "pkg:swiplpack/condition@0.1.1",
+    "canonical_purl": "pkg:swiplpack/condition@0.1.1",
+    "type": "swiplpack",
+    "namespace": null,
+    "name": "condition",
+    "version": "0.1.1",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
     "description": "valid hackage purl",
     "purl": "pkg:hackage/AC-HalfInteger@1.2.1",
     "canonical_purl": "pkg:hackage/AC-HalfInteger@1.2.1",
