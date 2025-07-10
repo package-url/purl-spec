@@ -68,7 +68,6 @@ Ensure that your proposal follows the **PURL Type Definition Schema** and includ
 fields. For this see the README-dev.rst for details to run local checks.
 
 
-
 Other candidate types to define
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

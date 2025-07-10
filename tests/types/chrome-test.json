@@ -1,0 +1,41 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "valid chrome purl (long version)",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:chrome/dncgedbnidfkppmdgfgidcepclnokpkb@6.0.2.3611",
+      "expected_output": "pkg:chrome/dncgedbnidfkppmdgfgidcepclnokpkb@6.0.2.3611",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid chrome purl (short version)",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:chrome/kanfjhdeebkfgkbmnfknhejpadhlmiab@0.6",
+      "expected_output": "pkg:chrome/kanfjhdeebkfgkbmnfknhejpadhlmiab@0.6",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid chrome purl (no version)",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:chrome/dlpngalgnefjeiefhmpklpfiohadpglk",
+      "expected_output": "pkg:chrome/dlpngalgnefjeiefhmpklpfiohadpglk",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "invalid chrome name",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:chrome/kanfjhdeebkfgk@0.6",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+    }
+  ]
+}
