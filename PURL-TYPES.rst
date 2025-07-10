@@ -102,6 +102,20 @@ cargo
       pkg:cargo/clap@2.33.0
       pkg:cargo/structopt@0.3.11
 
+chrome
+-----
+``chrome`` for Chrome Browser Extensions:
+
+- The default repository is ``https://chromewebstore.google.com/``.
+- The ``name`` is the extension id - the human readable name often depends on locale.
+- The ``version`` is the package version.
+- Examples::
+
+      pkg:chrome/hlepfoohegkhhmjieoechaddaejaokhf@25.7.1
+      pkg:chrome/dncgedbnidfkppmdgfgidcepclnokpkb@6.0.2.3611
+      pkg:chrome/kanfjhdeebkfgkbmnfknhejpadhlmiab@0.6
+      pkg:chrome/dlpngalgnefjeiefhmpklpfiohadpglk@1
+
 cocoapods
 ---------
 ``cocoapods`` for CocoaPods:
