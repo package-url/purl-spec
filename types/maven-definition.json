@@ -1,57 +1,42 @@
 {
-  "$schema": "https://purl-spec.org/schemas/purl-type.schema-1.0.json",
-  "$id": "https://purl-spec.org/types/maven.json",
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/maven-definition.json",
   "type": "maven",
-  "name": "Maven",
+  "type_name": "Maven",
   "description": "PURL type for Maven packages.",
-  "definition": {
-    "namespace": {
-      "requirement": "required",
-      "allowed_characters": "^[a-zA-Z0-9_.-]+$",
-      "case_rules": {
-        "sensitivity": "case-sensitive",
-        "normalization": "none"
-      },
-      "native_label": "groupId"
-    },
-    "name": {
-      "requirement": "required",
-      "allowed_characters": "^[a-zA-Z0-9_.-]+$",
-      "native_label": "artifactId",
-      "case_rules": {
-        "sensitivity": "case-sensitive",
-        "normalization": "none"
-      }
-    },
-    "version": {
-      "requirement": "required",
-      "allowed_characters": "^[a-zA-Z0-9_.-]+$",
-      "native_label": "version"
-    },
-    "qualifiers": [
-      {
-        "name": "classifier",
-        "requirement": "optional",
-        "description": "The maven `classifier` as defined in the POM documentation."
-      },
-      {
-        "name": "type",
-        "requirement": "optional",
-        "description": "The maven `type` as defined in the POM documentation. Maven uses a concept / coordinate called packaging which does not map directly 1:1 to a file extension. In this use case, we need to construct a link to one of many possible artifacts. Maven itself uses type in a dependency declaration when needed to disambiguate between them."
-      }
-    ],
-    "subpath": {
+  "namespace_definition": {
+    "requirement": "required",
+    "is_case_sensitive": true,
+    "native_name": "groupId"
+  },
+  "name_definition": {
+    "is_case_sensitive": true,
+    "native_name": "artifactId"
+  },
+  "version_definition": {
+    "is_case_sensitive": true,
+    "native_name": "version"
+  },
+  "qualifiers_definition": [
+    {
+      "key": "classifier",
       "requirement": "optional",
-      "description": "If specified, the subpath represents the individual files within the archive, such as resources, compiled classes, and source files."
+      "description": "The maven `classifier` as defined in the POM documentation.",
+      "native_name": "classifier"
     },
-    "repository": {
-      "uses_repository": true,
-      "default": {
-        "name": "Maven Central",
-        "url": "https://repo.maven.apache.org/maven2/",
-        "description": "The central repository for Maven packages."
-      }
+    {
+      "key": "type",
+      "requirement": "optional",
+      "description": "The maven 'type' as defined in the POM documentation. Maven uses a concept called packaging which does not map directly 1:1 to a file extension. In this use case, we need to construct a link to one of many possible artifacts. Maven itself uses type in a dependency declaration when needed to disambiguate between them.",
+      "native_name": "type",
+      "default_value": "jar"
     }
+  ],
+  "repository": {
+    "use_repository": true,
+    "name": "Maven Central",
+    "description": "The central repository for Apache Maven packages. This repository is also available at https://repo1.maven.org/maven2/",
+    "url": "https://repo.maven.apache.org/maven2/"
   },
   "examples": [
     "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1",

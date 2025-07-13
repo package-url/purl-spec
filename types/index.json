@@ -1,6 +1,6 @@
 {
-  "$schema": "https://purl-spec.org/schemas/purl-type-index.schema-1.0.json",
-  "$id": "https://purl-spec.org/types/index.json",
+  "$schema": "https://packageurl.org/schemas/purl-type-index.schema-1.0.json",
+  "$id": "https://packageurl.org/types/index.json",
   "title": "Package-URL Type Index",
   "description": "The canonical index of all known PURL types and their definitions. This index is auto-generated and should not be manually edited.",
   "last_updated": "2025-03-01T16:35:54Z",

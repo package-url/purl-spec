@@ -1,47 +1,29 @@
 {
-  "$schema": "https://purl-spec.org/schemas/purl-type.schema-1.0.json",
-  "$id": "https://purl-spec.org/types/npm.json",
+  "$schema": "https://packageurl.org/schemas/purl-type.schema-1.0.json",
+  "$id": "https://packageurl.org/types/npm-definition.json",
   "type": "npm",
-  "name": "Node Package Manager (NPM)",
-  "description": "PURL type for Node.js packages managed by NPM.",
-  "definition": {
-    "namespace": {
-      "requirement": "optional",
-      "allowed_characters": "^[a-z0-9-]+$",
-      "case_rules": {
-        "sensitivity": "case-sensitive",
-        "normalization": "lowercase"
-      },
-      "native_label": "scope"
-    },
-    "name": {
-      "requirement": "required",
-      "allowed_characters": "^[a-z0-9-]+$",
-      "case_rules": {
-        "sensitivity": "case-sensitive",
-        "normalization": "lowercase"
-      },
-      "native_label": "name"
-    },
-    "version": {
-      "requirement": "optional",
-      "allowed_characters": "^[0-9a-zA-Z.-]+$",
-      "native_label": "version"
-    },
-    "subpath": {
-      "requirement": "optional",
-      "allowed": true,
-      "description": "A file or directory path within the package."
-    },
-    "qualifiers": [],
-    "repository": {
-      "uses_repository": true,
-      "default": {
-        "name": "NPM Registry",
-        "url": "https://registry.npmjs.org/",
-        "description": "The official NPM package repository."
-      }
-    }
+  "type_name": "Node Package Manager (npm)",
+  "description": "PURL type for npm packages.",
+  "namespace_definition": {
+    "requirement": "optional",
+    "is_case_sensitive": false,
+    "native_name": "scope",
+    "description": "The npm scope @ sign prefix is always percent encoded, as it was in the early days of npm scope." 
+  },
+  "name_definition": {
+    "is_case_sensitive": false,
+    "native_name": "name",
+    "description": "The npm name used to be case sensitive in the early days for some old packages." 
+  },
+  "version_definition": {
+    "is_case_sensitive": true,
+    "native_name": "version"
+  },
+  "repository": {
+      "use_repository": true,
+      "name": "npm Registry",
+      "url": "https://registry.npmjs.org/",
+      "description": "The official npm package repository."
   },
   "examples": [
     "pkg:npm/foobar@12.3.1",
