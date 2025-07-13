@@ -1,141 +1,197 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
-  "title": "Package-URL Test Definition",
-  "description": "Schema to specify a Package-URL (PURL) test input, and expected outputs when building and parsing PURL.",
+  "title": "Package-URL test definition",
+  "description": "Schema to specify a Package-URL (PURL) test data with an input and an expected output when building and parsing PURL.",
   "type": "object",
+  "additionalProperties": false,
   "definitions": {
     "purl_components": {
-      "type": "object",
+      "title": "Package-URL decoded components",
       "description": "Individual decoded PURL components to use as a test input or expectation.",
+      "type": "object",
       "additionalProperties": false,
       "properties": {
         "type": {
-          "type": "string",
-          "description": "PURL type component."
+          "title": "PURL type",
+          "description": "Package-URL type component.",
+          "type": "string"
         },
         "namespace": {
-          "type": "string",
-          "description": "PURL namespace component."
+          "title": "PURL namespace",
+          "description": "Package-URL namespace decoded component.",
+          "type": "string"
         },
         "name": {
-          "type": "string",
-          "description": "PURL name component."
+          "title": "PURL name",
+          "description": "Package-URL name decoded component.",
+          "type": "string"
         },
         "version": {
-          "type": "string",
-          "description": "PURL version component."
+          "title": "PURL version",
+          "description": "Package-URL version decoded component.",
+          "type": "string"
         },
         "qualifiers": {
-          "type": "string",
-          "description": "PURL qualifiers component."
+          "title": "PURL qualifiers",
+          "description": "Package-URL qualifiers decoded component as an object.",
+          "type": "object"
         },
         "subpath": {
-          "type": "string",
-          "description": "PURL suubpath component."
+          "title": "PURL subpath",
+          "description": "Package-URL subpath decoded component.",
+          "type": "string"
         }
       }
     },
     "description": {
-      "type": "string",
-      "description": "An optional description for this test."
+      "title": "Test description",
+      "description": "An optional description for this test.",
+      "type": "string"
     },
-    "is_invalid": {
+    "test_group": {
+      "title": "Test group",
+      "description": "The group of this test: 'base' for base conformance tests or 'advanced' for flexible PURL building and parsing.",
+      "type": "string",
+      "enum": [ "base", "advanced" ],
+      "meta:enum": {
+        "base": "Test group for conformance tests with the base PURL building and parsing capabilities.",
+        "advanced": "Test group for conformance tests with advanced, flexible PURL building and parsing, able to recover from some invalid test inputs."
+      }
+    },
+    "expected_failure": {
+      "title": "Expected failure",
+      "description": "true if this test input is expected to fail to be processed.",
       "type": "boolean",
-      "default": false,
-      "description": "true if this test is expected to fail (e.g., for invalid inputs)."
+      "default": false
+    },
+    "expected_failure_reason": {
+      "title": "Expected failure reason",
+      "description": "If expected_failure is true, this must contain a reason why the test is expected to fail.",
+      "type": "string"
     },
     "parse_test": {
+      "title": "PURL parsing test",
+      "description": "A Package-URL parsing test for a canonical or not canonical PURL string input, with an expected PURL components object output.",
       "type": "object",
-      "description": "A PURL parsing test. The input is a PURL string (canonical or not), and the expected output is an object of decoded PURL components.",
       "additionalProperties": false,
-      "required": [ "test_type", "input" ],
+      "required": [ "description", "test_group", "test_type", "input" ],
       "properties": {
-        "test_type": {
-          "const": "parse"
-        },
         "description": {
           "$ref": "#/definitions/description"
         },
+        "test_group": {
+          "$ref": "#/definitions/test_group"
+        },
+        "test_type": {
+          "const": "parse"
+        },
         "input": {
+          "title": "Input test PURL",
           "type": "string",
           "description": "A PURL string to use as a test input (canonical or not)."
         },
         "expected_output": {
-          "$ref": "#/definitions/purl_components",
-          "description": "Test output as an object decoded PURL components. Prohibited if is_invalid is true."
+          "title": "Expected output PURL components",
+          "description": "Test output as an object decoded PURL components. Prohibited if is_valid_input is true.",
+          "$ref": "#/definitions/purl_components"
         },
-        "is_invalid": {
-          "$ref": "#/definitions/is_invalid"
+        "expected_failure": {
+          "$ref": "#/definitions/expected_failure"
+        },
+        "expected_failure_reason": {
+          "$ref": "#/definitions/expected_failure_reason"
         }
       },
-      "oneOf": [
-        {
-          "required": [ "expected_output" ],
-          "not": {
-            "required": [ "is_invalid" ]
+      "if": {
+        "properties": {
+          "expected_failure": {
+            "const": true
           }
         },
-        {
-          "required": [ "is_invalid" ],
-          "not": {
-            "required": [ "expected_output" ]
-          }
+        "required": [ "expected_failure" ]
+      },
+      "then": {
+        "required": [ "expected_failure_reason" ],
+        "not": {
+          "required": [ "expected_output" ]
         }
-      ]
+      },
+      "else": {
+        "required": [ "expected_output" ],
+        "not": {
+          "required": [ "expected_failure_reason" ]
+        }
+      }
     },
     "build_test": {
+      "title": "PURL building test",
+      "description": "A Package-URL building test from an input object of decoded components, with an expected output as a canonical PURL string.",
       "type": "object",
-      "description": "A PURL building test. The test input are the decoded components, and the expected output is a canonical PURL string.",
       "additionalProperties": false,
-      "required": [ "test_type", "input" ],
+      "required": [ "description", "test_group", "test_type", "input" ],
       "properties": {
-        "test_type": {
-          "const": "build"
-        },
         "description": {
           "$ref": "#/definitions/description"
         },
+        "test_group": {
+          "$ref": "#/definitions/test_group"
+        },
+        "test_type": {
+          "const": "build"
+        },
         "input": {
-          "$ref": "#/definitions/purl_components",
-          "description": "Test input as an object of decoded PURL components."
+          "title": "Input test PURL components",
+          "description": "An object of decoded PURL components to use as a test input.",
+          "$ref": "#/definitions/purl_components"
         },
         "expected_output": {
-          "type": "string",
-          "description": "A canonical PURL string to use as test output. Prohibited if is_invalid is true."
+          "title": "Expected output canonical PURL string",
+          "description": "Test output as a canonical PURL string. Prohibited if the test is expected to fail.",
+          "type": "string"
         },
-        "is_invalid": {
-          "$ref": "#/definitions/is_invalid"
+        "expected_failure": {
+          "$ref": "#/definitions/expected_failure"
+        },
+        "expected_failure_reason": {
+          "$ref": "#/definitions/expected_failure_reason"
         }
       },
-      "oneOf": [
-        {
-          "required": [ "expected_output" ],
-          "not": {
-            "required": [ "is_invalid" ]
+      "if": {
+        "properties": {
+          "expected_failure": {
+            "const": true
           }
         },
-        {
-          "required": [ "is_invalid" ],
-          "not": {
-            "required": [ "expected_output" ]
-          }
+        "required": [ "expected_failure" ]
+      },
+      "then": {
+        "required": [ "expected_failure_reason" ],
+        "not": {
+          "required": [ "expected_output" ]
         }
-      ]
+      },
+      "else": {
+        "required": [ "expected_output" ],
+        "not": {
+          "required": [ "expected_failure_reason" ]
+        }
+      }
     }
   },
   "properties": {
     "$schema": {
-      "type": "string"
+      "title": "JSON schema",
+      "description": "Contains the URL of the JSON schema for Package-URL tests.",
+      "constant": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+      "format": "uri"
     },
-    "$id": {
-      "type": "string",
-      "description": "The unique dentifier name for this PURL test."
-    },
-    "test_suite": {
-      "type": "array",
-      "description": "A list of PURL build and parse tests.",
+    "tests": {
+      "title": "Test suite",
+      "description": "A list of Package-URL build and parse tests.",
       "additionalItems": false,
+      "type": "array",
+      "minItems": 1,
       "uniqueItems": true,
       "items": {
         "oneOf": [

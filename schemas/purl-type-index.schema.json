@@ -1,17 +1,13 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://purl-spec.org/schemas/purl-type-index.schema-1.0.json",
-  "title": "Package-URL Type Index",
-  "description": "An index of all known PURL types and their definitions.",
+  "title": "Package-URL types list.",
+  "description": "A list of the registered Package-URL type definitions.",
   "type": "object",
   "properties": {
-    "last_updated": {
-      "description": "The timestamp when the index was last updated, in ISO 8601 format.",
-      "type": "string",
-      "format": "date-time"
-    },
     "purl_types": {
-      "description": "A list of known PURL types.",
+      "title": "PURL types",
+      "description": "A list of Package-URL types.",
       "type": "array",
       "items": {
         "type": "string"

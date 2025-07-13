@@ -8,18 +8,19 @@
     "$id",
     "type",
     "type_name",
+    "type_description",
     "namespace_definition",
     "name_definition",
     "version_definition",
-    "uses_repository",
-    "default_repository_url"
+    "examples"
   ],
   "additionalProperties": false,
   "definitions": {
     "requirement": {
+      "title": "Component requirement",
+      "description": "Specifies whether this Package-URL component is required, optional, or prohibited for this PURL type.",
       "type": "string",
       "enum": [ "required", "optional", "prohibited" ],
-      "description": "Specifies whether this PURL component is required, optional, or prohibited for this type.",
       "meta:enum": {
         "required": "This PURL component is required for this PURL type.",
         "optional": "This PURL component is optional for this PURL type.",
@@ -27,91 +28,79 @@
       }
     },
     "purl_component_definition": {
-      "type": "object",
+      "title": "PURL component definition",
       "description": "PURL component definition properties that apply to most PURL component",
+      "type": "object",
       "properties": {
-        "allowed_characters": {
+        "permitted_characters": {
+          "title": "Permitted characters in this PURL component",
+          "description": "Regular expression (ECMA-262 dialect) defining the 'Permitted characters' for this component of this Package-URL type. If provided, this must be a subset of the 'Permitted characters' defined in the PURL specification.",
           "type": "string",
-          "format": "regex",
-          "description": "Regular expression (ECMA-262 dialect) defining the subset of Allowed Characters sepcific to this type. If not provided, all Allowed Character defined in the PURL specificastion are allowed."
+          "format": "regex"
         },
         "is_case_sensitive": {
+          "title": "Is case-sensitive",
+          "description": "true if this PURL component is case sensitive. If false, the canonical form must be lowercased.",
           "type": "boolean",
-          "default": true,
-          "description": "true if this component is case sensitive. If false, the canonical form must be lowercased."
+          "default": true
         },
-        "normalization_rules": {
+        "nomalization_rules": {
+          "title": "Normalization rules",
+          "description": "List of rules to normalize this component for this PURL type. These are plain text, unstructured rules as some require programming and cannot be enforced only with a schema. Tools are expected to apply these rules programmatically.",
           "type": "array",
-          "description": "List of normalization rules for this component. These are plain text, unstructured rules.",
           "uniqueItems": true,
           "items": {
             "type": "string"
           }
         },
-        "native_label": {
-          "type": "string",
-          "description": "The equivalent label or name for this component in the native package ecosystem, e.g., the 'namespace' term is 'groupId' for Maven, 'scope' for npm."
+        "native_name": {
+          "title": "Native name",
+          "description": "The equivalent native name or label for this PURL component in the package ecosystem. For instance, the native name for 'namespace' for the 'maven' PURL type is 'groupId', and 'scope' for the 'npm' PURL type.",
+          "type": "string"
         },
         "note": {
-          "type": "string",
-          "description": "Extra notes text."
+          "title": "Note",
+          "description": "Extra note text.",
+          "type": "string"
         }
-      }
-    },
-    "test_type": {
-      "type": "string",
-      "enum": [ "parse", "build" ],
-      "description": "Type of PURL test: to parse a PURL string, or to build a PURL from its decoded components.",
-      "meta:enum": {
-        "parse": "This PURL test should attempt to parse an input PURL string, and validate the decoded components.",
-        "build": "This PURL test should attempt to build a canonical PURL from the decoded components, and validate the canonical PURL string."
       }
     }
   },
   "properties": {
     "$schema": {
-      "type": "string"
+      "title": "JSON schema",
+      "description": "Contains the URL of the JSON schema for Package-URL type definition.",
+      "constant": "https://packageurl.org/schemas/purl-type.schema-1.0.json",
+      "format": "uri"
     },
     "$id": {
-      "type": "string",
+      "title": "PURL type id",
       "description": "The unique identifier URI for this PURL type definition.",
-      "pattern": "^https://packageurl\\.org/types/[a-z0-9-]+\\.json$"
+      "type": "string",
+      "pattern": "^https:\\/\\/packageurl\\.org/types/[a-z0-9-]+\\.json$"
     },
     "type": {
+      "title": "PURL type",
+      "description": "The type string for this Pacakge-URL type.",
       "type": "string",
-      "title": "Type",
-      "description": "The registered PURL type.",
       "pattern": "^[a-z][a-z0-9-\\.]+$",
       "examples": [ "maven", "npm", "pypi" ]
     },
     "type_name": {
-      "type": "string",
-      "title": "Type Name",
+      "title": "Type name",
       "description": "The human-readable name for this PURL type.",
-      "examples": [
-        "Apache Maven",
-        "Node Package Manager",
-        "Python Package Index"
-      ]
+      "type": "string",
+      "examples": [ "Apache Maven", "Node Package Manager", "Python Package" ]
     },
     "type_description": {
-      "type": "string",
       "title": "Description",
-      "description": "The description of this PURL type."
-    },
-    "reference_urls": {
-      "type": "array",
-      "title": "Reference URLs",
-      "description": "Optional list of informational URLs about this PURL type, like a homepage.",
-      "uniqueItems": true,
-      "items": {
-        "type": "string",
-        "format": "iri-reference"
-      }
+      "description": "The description of this PURL type.",
+      "type": "string"
     },
     "namespace_definition": {
-      "type": "object",
+      "title": "Namespace definition",
       "description": "Definition of the namespace component for this PURL type.",
+      "type": "object",
       "required": [ "requirement" ],
       "additionalProperties": false,
       "properties": {
@@ -126,91 +115,116 @@
       ]
     },
     "name_definition": {
-      "type": "object",
+      "title": "Name definition",
       "description": "Definition of the name component for this PURL type.",
+      "type": "object",
       "additionalProperties": false,
       "allOf": [
         {
           "$ref": "#/definitions/purl_component_definition"
         }
       ]
-    }
-  },
-  "version_definition": {
-    "type": "object",
-    "description": "Definition of the version component for this PURL type.",
-    "additionalProperties": false,
-    "allOf": [
-      {
-        "$ref": "#/definitions/purl_component_definition"
+    },
+    "version_definition": {
+      "title": "Version definition",
+      "description": "Definition of the version component for this PURL type.",
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/purl_component_definition"
+        }
+      ]
+    },
+    "qualifiers_definition": {
+      "title": "Qualifiers definition",
+      "description": "Definition for extra qualifier keys for this PURL type as a list of keys. Use also to define the requirements of standard qualifiers.",
+      "type": "array",
+      "additionalItems": false,
+      "uniqueItems": true,
+      "items": {
+        "title": "Qualifiers definition",
+        "description": "Definition for extra qualifier keys for this PURL type. Use also to define the requirements of standard qualifiers.",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "key": {
+            "title": "Qualifier key",
+            "description": "The key for the qualifier.",
+            "type": "string"
+          },
+          "requirement": {
+            "$ref": "#/definitions/requirement"
+          },
+          "description": {
+            "title": "Description",
+            "description": "The description of this qualifier.",
+            "type": "string"
+          },
+          "native_name": {
+            "title": "Native name",
+            "description": "The equivalent native name or label for this qualifier key component in the package ecosystem.",
+            "type": "string"
+          }
+        },
+        "required": [ "name", "requirement", "description" ]
       }
-    ]
-  },
-  "qualifiers_definition": {
-    "type": "array",
-    "description": "Definition for extra qualifier keys for this PURL type. Use also to define the requirements of standard qualifiers.",
-    "additionalItems": false,
-    "uniqueItems": true,
-    "items": {
+    },
+    "subpath_definition": {
+      "title": "Subpath definition",
+      "description": "Definition for the subpath for this PURL type.",
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/purl_component_definition"
+        }
+      ]
+    },
+    "repository": {
+      "title": "Repository",
+      "description": "Repository for this PURL type. For instance pypi.org for 'pypi'.",
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "name": {
+        "repository_url": {
+          "title": "Default repository URL",
+          "description": "The default public repository URL for this PURL type",
           "type": "string",
-          "description": "The key for the qualifier."
-        },
-        "is_required": {
-          "$ref": "#/definitions/requirement"
+          "format": "uri"
         },
         "description": {
-          "type": "string",
-          "description": "The description for this qualifier."
-        },
-        "native_label": {
-          "$ref": "#/definitions/native_label"
+          "title": "Repository description",
+          "description": "A description of the default repository for this PURL type.",
+          "type": "string"
         }
-      },
-      "required": [ "name", "requirement", "description" ]
-    }
-  },
-  "subpath_definition": {
-    "type": "object",
-    "description": "Definition for the subpath for this PURL type.",
-    "additionalProperties": false,
-    "allOf": [
-      {
-        "$ref": "#/definitions/purl_component_definition"
       }
-    ]
-  },
-  "uses_repository": {
-    "type": "boolean",
-    "description": "true if this PURL type uses a repository."
-  },
-  "default_repository_url": {
-    "type": [ "string", "null" ],
-    "default": null,
-    "description": "The default public repository URL for this PURL type, or null."
-  },
-  "default_repository_description": {
-    "type": "string",
-    "description": "A short description of the default repository."
-  },
-  "repository_note": {
-    "type": "string",
-    "description": "Note about the repository for this type."
-  },
-  "purl_examples": {
-    "type": "array",
-    "description": "Example of valid PURLs for this package type.",
-    "additionalItems": false,
-    "uniqueItems": true,
-    "items": {
+    },
+    "examples": {
+      "title": "PURL examples",
+      "description": "Example of valid, canonical PURLs for this package type.",
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^pkg:[a-z][a-z0-9-\\.]+/\\.*$"
+      }
+    },
+    "note": {
+      "title": "Note",
+      "description": "Note about this PURL type.",
       "type": "string"
+    },
+    "reference_urls": {
+      "title": "Reference URLs",
+      "description": "Optional list of informational reference URLs about this PURL type, like a homepage or a documentation page.",
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
     }
-  },
-  "note": {
-    "type": "string",
-    "description": "Note about this PURL type."
   }
 }
