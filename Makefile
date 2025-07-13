@@ -27,21 +27,24 @@ conf: virtualenv
 
 format:
 	@echo "-> Run Ruff format"
+	@${ACTIVATE} ruff check --select I --fix
 	@${ACTIVATE} ruff format
 	@echo "-> Run Ruff linter"
 	@${ACTIVATE} ruff check --fix
 
-check:
-	@echo "-> Run Ruff linter validation (pycodestyle, bandit, isort, and more)"
-	@${ACTIVATE} ruff check
-	@echo "-> Run Ruff format validation"
-	@${ACTIVATE} ruff format --check
+checkjson:
 	@echo "-> Validate JSON schemas"
 	@${ACTIVATE} check-jsonschema --check-metaschema --verbose schemas/*.json
 	@echo "-> Validate JSON data files against the schemas"
 	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-types-index.schema.json --verbose types/index.json
 	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-type-definition.schema.json --verbose types/*-definition.json
 #	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-test.schema.json --verbose types/*-test.json *-test.json
+
+check: checkjson
+	@echo "-> Run Ruff linter validation (pycodestyle, bandit, isort, and more)"
+	@${ACTIVATE} ruff check
+	@echo "-> Run Ruff format validation"
+	@${ACTIVATE} ruff format --check
 
 clean:
 	@echo "-> Clean the Python env"
@@ -63,4 +66,4 @@ docs:
 	@${ACTIVATE} python etc/scripts/generate_index_and_docs.py
 
 
-.PHONY: virtualenv conf valid check clean generate docs
+.PHONY: virtualenv conf valid checkjson check clean generate docs

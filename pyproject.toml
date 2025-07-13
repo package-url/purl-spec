@@ -26,13 +26,11 @@ ignore = ["D1", "D200", "D202", "D203", "D205", "D212", "D400", "D415", "I001"]
 force-single-line = true
 lines-after-imports = 1
 default-section = "first-party"
-known-first-party = ["etc/**/*.py", "schemas/**/*.py"]
+known-first-party = ["etc/scripts/*.py"]
 
-sections = { django = ["django"] }
 section-order = [
     "future",
     "standard-library",
-    "django",
     "third-party",
     "first-party",
     "local-folder",
@@ -40,8 +38,3 @@ section-order = [
 
 [tool.ruff.lint.mccabe]
 max-complexity = 10
-
-[tool.ruff.lint.per-file-ignores]
-# Place paths of files to be ignored by ruff here
-"tests/*" = ["S101"]
-"test_*.py" = ["S101"]
