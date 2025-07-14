@@ -64,7 +64,7 @@ def generate_documentation(definition) -> str:
     if use_repository:
         lines.append(f"- **Default Repository Name:** {repository['default_repository_name']}")
         lines.append(f"- **Default Repository URL:** {repository['default_repository_url']}")
-    lines.append(f"- **Description:** {repository['description']}")
+    lines.append(f"- **Note:** {repository['note']}")
     lines.append("")
 
     # PURL Components (Each gets its own section)
@@ -100,6 +100,9 @@ def generate_documentation(definition) -> str:
         native_name = component["native_name"]
         lines.append(f"- **Native Label:** {native_name}")
 
+        if note := component.get("note"):
+            lines.append(f"- **Note:** `{note}`")
+
         lines.append("")
 
     if qualifiers := definition.get("qualifiers_definition"):
@@ -112,8 +115,8 @@ def generate_documentation(definition) -> str:
             req = qualifier["requirement"].capitalize()
             native = qualifier.get("native_name", "")
             default = qualifier.get("default_value", "")
-            desc = qualifier["description"]
-            lines.append(f"| {key} | {req} | {native} | {default} | {desc} |")
+            description = qualifier["description"]
+            lines.append(f"| {key} | {req} | {native} | {default} | {description} |")
         lines.append("")
 
     lines.append("## Examples")
@@ -139,9 +142,17 @@ def generate_documentation(definition) -> str:
 
 
 if __name__ == "__main__":
+    import sys
+
+    if len(sys.argv) == 2:
+        selected_types = f"{sys.argv[1]}-definition.json"
+    else:
+        selected_types = "*-definition.json"
+
     types = []
     types_dir = Path("types")
-    for filepath in types_dir.glob("*-definition.json"):
+
+    for filepath in types_dir.glob(selected_types):
         data = json.loads(filepath.read_text())
         ptype = data["type"]
         types.append(ptype)

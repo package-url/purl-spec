@@ -71,6 +71,9 @@ class PackageUrlTypeDefinition(BaseModel):
     description: str = Field(
         ..., description="The description of this PURL type.", title="Description"
     )
+    repository: Repository = Field(
+        ..., description="Package repository usage for this PURL type.", title="Repository"
+    )
     namespace_definition: NamespaceDefinition = Field(
         ...,
         description="Definition of the namespace component for this PURL type.",
@@ -95,9 +98,6 @@ class PackageUrlTypeDefinition(BaseModel):
         None,
         description="Definition for the subpath for this PURL type.",
         title="Subpath definition",
-    )
-    repository: Repository = Field(
-        ..., description="Package repository usage for this PURL type.", title="Repository"
     )
     examples: list[Example] = Field(
         ...,
@@ -179,21 +179,17 @@ class Repository(BaseModel):
         description="true if this PURL type use a public package repository.",
         title="Use repository",
     )
-    name: Optional[str] = Field(
+    default_repository_name: Optional[str] = Field(
         None,
         description="The name of the default public repository for this PURL type",
         title="Default repository name",
     )
-    url: Optional[AnyUrl] = Field(
+    default_repository_url: Optional[AnyUrl] = Field(
         None,
         description="The default public repository URL for this PURL type",
         title="Default repository URL",
     )
-    description: str = Field(
-        ...,
-        description="A description of the default repository for this PURL type.",
-        title="Default repository description",
-    )
+    note: str = Field(..., description="Extra note text.", title="Note")
 
 
 class Requirement(RootModel[Literal["required", "optional", "prohibited"]]):

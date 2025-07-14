@@ -23,13 +23,13 @@
 
 from __future__ import annotations
 
-from typing import Optional
-
-from pydantic import BaseModel
 from pydantic import Field
+from pydantic import RootModel
 
 
-class PackageUrlTypesList(BaseModel):
-    purl_types: Optional[list[str]] = Field(
-        None, description="A list of Package-URL types.", title="PURL types"
+class PackageUrlTypesList(RootModel[list[str]]):
+    root: list[str] = Field(
+        ...,
+        description="A list of the registered Package-URL types.",
+        title="Package-URL types list.",
     )

@@ -3,7 +3,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 # PURL Type Definition: npm
 
-- **Type Name:** Node Package Manager (npm)
+- **Type Name:** Node NPM packages
 - **Description:** PURL type for npm packages.
 - **Schema ID:** `https://packageurl.org/types/npm-definition.json`
 
@@ -13,26 +13,28 @@ The structure of a PURL for this package type is:
 
     pkg:npm/<namespace>/<name>@<version>?<qualifiers>#<subpath>
 
-## Namespace definition
-
-- **Requirement:** Optional
-- **Native Label:** scope
-
-## Name definition
-
-- **Native Label:** name
-
-## Version definition
-
-- **Case Sensitive:** Yes
-- **Native Label:** version
-
 ## Repository Information
 
 - **Use Repository:** Yes
 - **Default Repository Name:** npm Registry
 - **Default Repository URL:** https://registry.npmjs.org/
-- **Description:** The official npm package repository.
+- **Note:** The default repository is `https://registry.npmjs.org`.
+
+## Namespace definition
+
+- **Requirement:** Optional
+- **Native Label:** scope
+- **Note:** `The `namespace` is used for the scope of a scoped NPM package. The npm scope @ sign prefix is always percent encoded, as it was in the early days of npm scope.`
+
+## Name definition
+
+- **Native Label:** name
+- **Note:** `Per the package.json spec, new package 'must not have uppercase letters in the name', therefore the must be lowercased. The npm name used to be case sensitive in the early days for some old packages.`
+
+## Version definition
+
+- **Case Sensitive:** Yes
+- **Native Label:** version
 
 ## Examples
 
