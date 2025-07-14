@@ -114,9 +114,11 @@ Rules for each ``purl`` component
 
 A ``purl`` string is an ASCII URL string composed of seven components.
 
-Some components are allowed to use other characters beyond ASCII: these
-components must then be UTF-8-encoded strings and percent-encoded as defined in
-the "Character encoding" section.
+Except as expressly stated otherwise in this section, each component:
+
+- MAY be composed of any of the characters defined in the "Permitted
+  characters" section
+- MUST be encoded as defined in the "Character encoding" section
 
 The rules for each component are:
 
@@ -132,7 +134,7 @@ The rules for each component are:
 - **type**:
 
   - The package ``type`` MUST be composed only of ASCII letters and numbers,
-    period '.', plus '+', and dash '-'.
+    period '.', and dash '-'.
   - The ``type`` MUST start with an ASCII letter.
   - The ``type`` MUST NOT be percent-encoded.
   - The ``type`` is case insensitive. The canonical form is lowercase.
@@ -140,38 +142,43 @@ The rules for each component are:
 
 - **namespace**:
 
-  - The optional ``namespace`` contains zero or more segments, separated by slash
-    '/'
-  - Leading and trailing slashes '/' are not significant and should be stripped
-    in the canonical form. They are not part of the ``namespace``
-  - Each ``namespace`` segment must be a percent-encoded string
+  - The ``namespace`` is optional, unless required by the package's ``type`` definition.
+  - If present, the ``namespace`` MAY contain one or more segments, separated
+    by a single unencoded slash '/' character.
+  - All leading and trailing slashes '/' are not significant and SHOULD be
+    stripped in the canonical form. They are not part of the ``namespace``.
+  - Each ``namespace`` segment MUST be a percent-encoded string.
   - When percent-decoded, a segment:
 
-    - must not contain a '/'
-    - must not be empty
+    - MUST NOT contain any slash '/' characters
+    - MUST NOT be empty
+    - MAY contain any Unicode character other than '/' unless the package's
+      ``type`` definition provides otherwise.
 
-  - A URL host or Authority must NOT be used as a ``namespace``. Use instead a
+  - A URL host or Authority MUST NOT be used as a ``namespace``. Use instead a
     ``repository_url`` qualifier. Note however that for some types, the
     ``namespace`` may look like a host.
 
 
 - **name**:
 
-  - The ``name`` is prefixed by a '/' separator when the ``namespace`` is not empty
-  - This '/' is not part of the ``name``
-  - A ``name`` must be a percent-encoded string
+  - The ``name`` is prefixed by a single slash '/' separator when the
+    ``namespace`` is not empty.
+  - All leading and trailing slashes '/' are not significant and SHOULD be
+    stripped in the canonical form. They are not part of the ``name``.
+  - A ``name`` MUST be a percent-encoded string.
+  - When percent-decoded, a ``name`` MAY contain any Unicode character unless
+    the package's ``type`` definition provides otherwise.
 
 
 - **version**:
 
-  - The ``version`` is prefixed by a '@' separator when not empty
-  - This '@' is not part of the ``version``
-  - A ``version`` must be a percent-encoded string
-
-  - A ``version`` is a plain and opaque string. Some package ``types`` use versioning
-    conventions such as SemVer for NPMs or NEVRA conventions for RPMS. A ``type``
-    may define a procedure to compare and sort versions, but there is no
-    reliable and uniform way to do such comparison consistently.
+  - The ``version`` is prefixed by a '@' separator when not empty.
+  - This '@' is not part of the ``version``.
+  - A ``version`` MUST be a percent-encoded string.
+  - When percent-decoded, a ``version`` MAY contain any Unicode character unless
+    the package's ``type`` definition provides otherwise.
+  - A ``version`` is a plain and opaque string.
 
 
 - **qualifiers**:
@@ -198,7 +205,7 @@ The rules for each component are:
     - A ``key`` MUST NOT be percent-encoded.
     - Each ``key`` MUST be unique among all the keys of the ``qualifiers``
       component.
-    - A ``value`` MAY be composed of any character and all characters MUST be
+    - A ``value`` MAY contain any Unicode character and all characters MUST be
       encoded as described in the "Character encoding" section.
 
 
@@ -212,37 +219,32 @@ The rules for each component are:
   - Each ``subpath`` segment MUST be a percent-encoded string
   - When percent-decoded, a segment:
 
-    - MUST NOT contain a '/'
-    - MUST NOT be any of '..' or '.'
+    - MUST NOT contain any slash '/' characters
     - MUST NOT be empty
+    - MUST NOT be any of '..' or '.'
+    - MAY contain any Unicode character other than '/' unless the package's
+      ``type`` definition provides otherwise.
 
   - The ``subpath`` MUST be interpreted as relative to the root of the package
 
 
-Character encoding
-~~~~~~~~~~~~~~~~~~
-
 Permitted characters
---------------------
+~~~~~~~~~~~~~~~~~~~~
 
-A canonical ``purl`` is an ASCII string composed of these characters:
+A canonical ``purl`` is composed of these permitted ASCII characters:
 
-- alphanumeric characters ``A to Z``, ``a to z``, ``0 to 9``,
-- the ``purl`` separators ``:/@?=&#`` (colon ':', slash '/', at sign '@',
-  question mark '?', equal sign '=', ampersand '&' and pound sign '#'), and
-- these punctuation marks ``%.-_~`` (percent sign '%', period '.', dash '-',
-  underscore '_' and tilde '~').
-
-All other characters MUST be encoded as UTF-8 and then percent-encoded.
-In addition, each component specifies its permitted characters and
-its percent-encoding rules.
+- the Alphanumeric Characters: ``A to Z``, ``a to z``, ``0 to 9``,
+- the Punctuation Characters: ``.-_~`` (period '.',
+  dash '-', underscore '_' and tilde '~'),
+- the Percent Character: ``%`` (percent sign '%'), and
+- the Separator Characters ``:/@?=&#`` (colon ':', slash '/', at sign '@',
+  question mark '?', equal sign '=', ampersand '&' and pound sign '#').
 
 
 ``purl`` separators
--------------------
+~~~~~~~~~~~~~~~~~~~
 
-These ``purl`` separator characters MUST NOT be percent-encoded when used as
-``purl`` separators:
+This is how each of the Separator Characters is used:
 
 - ':' (colon) is the separator between ``scheme`` and ``type``
 - '/' (slash) is the separator between ``type``, ``namespace`` and ``name``
@@ -256,17 +258,34 @@ These ``purl`` separator characters MUST NOT be percent-encoded when used as
 - '#' (number sign) is the separator before ``subpath``
 
 
-Percent-encoding rules
-----------------------
+Character encoding
+~~~~~~~~~~~~~~~~~~
 
-When applying percent-encoding or decoding to a string, use the rules of RFC
-3986 section 2 (https://datatracker.ietf.org/doc/html/rfc3986#section-2).
+- In the "Rules for each ``purl`` component" section, each component
+  defines when and how to apply percent-encoding and decoding to its content.
+- When percent-encoding is required by a component definition, the component
+  string MUST first be encoded as UTF-8.
+- In the component string, each "data octet" MUST be replaced by the
+  percent-encoded "character triplet" applying the percent-encoding mechanism
+  defined in RFC 3986 section 2.1 (https://datatracker.ietf.org/doc/html/rfc3986#section-2.1),
+  including the RFC definition of "data octet" and "character triplet",
+  and using these definitions for RFC's "allowed set" and "delimiters":
 
-Each component defines when and how to apply percent-encoding and decoding to
-its content.
+  - "allowed set" is composed of the Alphanumeric Characters and the
+    Punctuation Characters
+  - "delimiters" is composed of the Separator Characters
 
-When percent-encoding is required, all characters MUST be encoded except for
-the colon ':'.
+- The following characters MUST NOT be percent-encoded:
+
+  - the Alphanumeric Characters,
+  - the Punctuation Characters,
+  - the Separator Characters when being used as ``purl`` separators,
+  - the colon ':', whether used as a Separator Character or otherwise, and
+  - the percent sign '%' when used to represent a percent-encoded character.
+
+- Where the space ' ' is permitted, it MUST be percent-encoded as '%20'.
+- With the exception of the percent-encoding mechanism, the rules regarding
+  percent-encoding are defined by this specification alone.
 
 
 How to build ``purl`` string from its components
@@ -322,7 +341,7 @@ To build a ``purl`` string from its components:
 
     - Discard any pair where the ``value`` is empty.
     - UTF-8-encode each ``value`` if needed in your programming language
-    - If the ``key`` is ``checksums`` and this is a list of ``checksums`` join this
+    - If the ``key`` is ``checksum`` and this is a list of checksums join this
       list with a ',' to create this qualifier ``value``
     - Create a string by joining the lowercased ``key``, the equal '=' sign and
       the percent-encoded ``value`` to create a qualifier
@@ -378,8 +397,8 @@ To parse a ``purl`` string in its components:
     - The ``value`` is the percent-decoded right side
     - UTF-8-decode the ``value`` if needed in your programming language
     - Discard any key/value pairs where the value is empty
-    - If the ``key`` is ``checksums``, split the ``value`` on ',' to create
-      a list of ``checksums``
+    - If the ``key`` is ``checksum``, split the ``value`` on ',' to create
+      a list of checksums
 
   - This list of key/value is the ``qualifiers`` object
 
@@ -405,6 +424,8 @@ To parse a ``purl`` string in its components:
 - Split the ``remainder`` once from right on '/'
 
   - The left side is the ``remainder``
+  - Strip all leading characters (e.g., '/', '//' and so on)
+    from the right side
   - Percent-decode the right side. This is the ``name``
   - UTF-8-decode this ``name`` if needed in your programming language
   - Apply type-specific normalization to the ``name`` if needed
@@ -412,6 +433,8 @@ To parse a ``purl`` string in its components:
 
 - Split the ``remainder`` on '/'
 
+  - Strip all leading '/' characters (e.g., '/', '//' and so on)
+    from that split
   - Discard any empty segment from that split
   - Percent-decode each segment
   - UTF-8-decode each segment if needed in your programming language
@@ -440,6 +463,13 @@ download URL, VCS URL or checksums in an API, database or web form.
 
 With this warning, the known ``key`` and ``value`` defined here are valid for use in
 all package types:
+
+- ``vers`` allows the specification of a version range.
+  The value MUST adhere to the `Version Range Specification <VERSION-RANGE-SPEC.rst>`_.
+  This qualifier is mutually exclusive with the ``version`` component.
+  For example::
+
+       pkg:pypi/django?vers=vers:pypi%2F%3E%3D1.11.0%7C%21%3D1.11.1%7C%3C2.0.0
 
 - ``repository_url`` is an extra URL for an alternative, non-default package
   repository or registry. When a package does not come from the default public
