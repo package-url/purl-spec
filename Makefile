@@ -38,8 +38,9 @@ formatcode:
 
 formatjson:
 	@echo "-> Format JSON files"
-	@${ACTIVATE} python etc/scripts/format_json.py schemas 
-	@${ACTIVATE} python etc/scripts/format_json.py types 
+	@${ACTIVATE} python etc/scripts/format_json.py schemas/
+	@${ACTIVATE} python etc/scripts/format_json.py types/
+	@${ACTIVATE} python etc/scripts/format_json.py tests/
 
 format: formatcode formatjson
 	@echo "-> Format all files"
@@ -49,7 +50,8 @@ checkjson:
 	@${ACTIVATE} check-jsonschema --check-metaschema --verbose schemas/*.json
 	@echo "-> Validate JSON data files against the schemas"
 	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-types-index.schema.json --verbose types/purl-types-index.json
-	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-type-definition.schema.json --verbose types/*-definition.json
+	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-type-definition.schema.json --verbose types/npm-definition.json types/maven-definition.json types/swid-definition.json
+#	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-type-definition.schema.json --verbose types/*-definition.json
 #	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-test.schema.json --verbose types/*-test.json *-test.json
 
 checkcode:
@@ -81,7 +83,9 @@ gencode: checkjson
 	@${ACTIVATE} black -l 100 --preview --enable-unstable-feature string_processing etc/scripts/*.py
 
 gendocs:
-	@${ACTIVATE} python etc/scripts/generate_index_and_docs.py
+	@${ACTIVATE} python etc/scripts/generate_index_and_docs.py swid
+	@${ACTIVATE} python etc/scripts/generate_index_and_docs.py npm
+	@${ACTIVATE} python etc/scripts/generate_index_and_docs.py maven
 
 
 .PHONY: virtualenv conf formatcode formatjson format checkdeo checkjson check clean gencode gendocs
