@@ -7,6 +7,7 @@ include = [
   "etc/**/*.py",
 ]
 
+
 [tool.ruff.lint]
 # Rules: https://docs.astral.sh/ruff/rules/
 select = [
@@ -20,6 +21,10 @@ select = [
 #    "C9", # McCabe complexity
 ]
 ignore = ["D1", "D200", "D202", "D203", "D205", "D212", "D400", "D415", "I001"]
+
+
+[tool.ruff.format]
+docstring-code-format = true
 
 
 [tool.ruff.lint.isort]
