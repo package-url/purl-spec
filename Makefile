@@ -82,9 +82,7 @@ gencode: checkjson
 	@${ACTIVATE} black -l 100 --preview --enable-unstable-feature string_processing etc/scripts/*.py
 
 gendocs:
-	@${ACTIVATE} python etc/scripts/generate_index_and_docs.py swid
-	@${ACTIVATE} python etc/scripts/generate_index_and_docs.py npm
-	@${ACTIVATE} python etc/scripts/generate_index_and_docs.py maven
+	@${ACTIVATE} python etc/scripts/generate_index_and_docs.py
 
 
 .PHONY: virtualenv conf formatcode formatjson format checkdeo checkjson check clean gencode gendocs

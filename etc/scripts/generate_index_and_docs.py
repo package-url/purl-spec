@@ -63,7 +63,7 @@ def generate_documentation(definition) -> str:
     lines.append(f"- **Use Repository:** {get_yes_no(use_repository)}")
     if default_repository_url := repository.get("default_repository_url"):
         lines.append(f"- **Default Repository URL:** {default_repository_url}")
-    if note := repository["note"]:
+    if note := repository.get("note"):
         lines.append(f"- **Note:** {note}")
     lines.append("")
 
@@ -97,8 +97,8 @@ def generate_documentation(definition) -> str:
             for rule in normalization_rules:
                 lines.append(f"  - {rule}")
 
-        native_name = component["native_name"]
-        lines.append(f"- **Native Label:** {native_name}")
+        if native_name := component.get("native_name"):
+            lines.append(f"- **Native Label:** {native_name}")
 
         if note := component.get("note"):
             lines.append(f"- **Note:** `{note}`")
@@ -112,10 +112,10 @@ def generate_documentation(definition) -> str:
         lines.append("|------|-------------|-------------|---------------|-------------|")
         for qualifier in qualifiers:
             key = qualifier["key"]
-            req = qualifier["requirement"].capitalize()
+            req = qualifier.get("requirement", "optional").capitalize()
             native = qualifier.get("native_name", "")
             default = qualifier.get("default_value", "")
-            description = qualifier["description"]
+            description = qualifier.get("description","")
             lines.append(f"| {key} | {req} | {native} | {default} | {description} |")
         lines.append("")
 

@@ -16,9 +16,8 @@ The structure of a PURL for this package type is:
 ## Repository Information
 
 - **Use Repository:** Yes
-- **Default Repository Name:** Maven Central
 - **Default Repository URL:** https://repo.maven.apache.org/maven2/
-- **Note:** The central repository for Apache Maven packages. This repository is also mirrored at https://repo1.maven.org/maven2/. Use the standard `repository_url` qualifier to point to another repository
+- **Note:** The Maven Central repository is the public repository for Apache Maven packages. This repository is also mirrored at https://repo1.maven.org/maven2/. Use the standard `repository_url` qualifier to point to another repository
 
 ## Namespace definition
 

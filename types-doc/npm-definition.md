@@ -16,9 +16,8 @@ The structure of a PURL for this package type is:
 ## Repository Information
 
 - **Use Repository:** Yes
-- **Default Repository Name:** npm Registry
 - **Default Repository URL:** https://registry.npmjs.org/
-- **Note:** The default repository is `https://registry.npmjs.org`.
+- **Note:** The default repository is the npm Registry at https://registry.npmjs.org
 
 ## Namespace definition
 
@@ -29,7 +28,7 @@ The structure of a PURL for this package type is:
 ## Name definition
 
 - **Native Label:** name
-- **Note:** `Per the package.json spec, new package 'must not have uppercase letters in the name', therefore the must be lowercased. The npm name used to be case sensitive in the early days for some old packages.`
+- **Note:** `Per the package.json spec, new package `must not have uppercase letters in the name`, therefore the must be lowercased. The npm name used to be case sensitive in the early days for some old packages.`
 
 ## Version definition
 
