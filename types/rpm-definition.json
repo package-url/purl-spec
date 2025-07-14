@@ -1,18 +1,18 @@
 rpm
 ---
-``rpm`` for RPMs:
+`rpm` for RPMs:
 
 - There is no default package repository: this should be implied either from
-  the ``distro`` qualifiers key or using a repository base URL as
-  ``repository_url`` qualifiers key.
-- The ``namespace`` is the vendor such as Fedora or OpenSUSE.
+  the `distro` qualifiers key or using a repository base URL as
+  `repository_url` qualifiers key.
+- The `namespace` is the vendor such as Fedora or OpenSUSE.
   It is not case sensitive and must be lowercased.
-- The ``name`` is the RPM name and is case sensitive.
-- The ``version`` is the combined version and release of an RPM.
-- ``epoch`` (optional for RPMs) is a qualifier as it's not required for
+- The `name` is the RPM name and is case sensitive.
+- The `version` is the combined version and release of an RPM.
+- `epoch` (optional for RPMs) is a qualifier as it's not required for
   unique identification, but when the epoch exists we strongly
   encourage using it.
-- ``arch`` is the qualifiers key for a package architecture.
+- `arch` is the qualifiers key for a package architecture.
 - Examples::
 
       pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25

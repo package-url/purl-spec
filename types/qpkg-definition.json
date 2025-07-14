@@ -1,11 +1,11 @@
 qpkg
 ----
-``qpkg`` for QNX packages:
+`qpkg` for QNX packages:
 
 - There is no default package repository: this should be implied either from
-  the ``namespace`` or using a repository base URL as ``repository_url``
+  the `namespace` or using a repository base URL as `repository_url`
   qualifiers key.
-- The ``namespace`` is the vendor of the package. It is not case sensitive and must be
+- The `namespace` is the vendor of the package. It is not case sensitive and must be
   lowercased.
 - Examples::
 

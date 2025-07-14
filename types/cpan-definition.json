@@ -1,20 +1,20 @@
 cpan
 ----
-``cpan`` for CPAN Perl packages:
+`cpan` for CPAN Perl packages:
 
-- The default repository is ``https://www.cpan.org/``.
-- The ``namespace``:
-  - To refer to a CPAN distribution name, the ``namespace`` MUST be present. In this case, the namespace is the CPAN id of the author/publisher. It MUST be written uppercase, followed by the distribution name in the ``name`` component. A distribution name MUST NOT contain the string ``::``.
-  - To refer to a CPAN module, the ``namespace`` MUST be absent. The module name MAY contain zero or more ``::`` strings, and the module name MUST NOT contain a ``-``
+- The default repository is `https://www.cpan.org/`.
+- The `namespace`:
+  - To refer to a CPAN distribution name, the `namespace` MUST be present. In this case, the namespace is the CPAN id of the author/publisher. It MUST be written uppercase, followed by the distribution name in the `name` component. A distribution name MUST NOT contain the string `::`.
+  - To refer to a CPAN module, the `namespace` MUST be absent. The module name MAY contain zero or more `::` strings, and the module name MUST NOT contain a `-`
 
-- The ``name`` is the module or distribution name and is case sensitive.
-- The ``version`` is the module or distribution version.
+- The `name` is the module or distribution name and is case sensitive.
+- The `version` is the module or distribution version.
 - Optional qualifiers may include:
 
-  - ``repository_url``: CPAN/MetaCPAN/BackPAN/DarkPAN repository base URL (default is ``https://www.cpan.org``)
-  - ``download_url``: URL of package or distribution
-  - ``vcs_url``: extra URL for a package version control system
-  - ``ext``: file extension (default is ``tar.gz``)
+  - `repository_url`: CPAN/MetaCPAN/BackPAN/DarkPAN repository base URL (default is `https://www.cpan.org`)
+  - `download_url`: URL of package or distribution
+  - `vcs_url`: extra URL for a package version control system
+  - `ext`: file extension (default is `tar.gz`)
 
 - Examples::
 

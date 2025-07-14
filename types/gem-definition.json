@@ -1,10 +1,10 @@
 gem
 ---
-``gem`` for RubyGems:
+`gem` for RubyGems:
 
-- The default repository is ``https://rubygems.org``.
-- The ``platform`` qualifiers key is used to specify an alternative platform.
-  such as ``java`` for JRuby. The implied default is ``ruby`` for Ruby MRI.
+- The default repository is `https://rubygems.org`.
+- The `platform` qualifiers key is used to specify an alternative platform.
+  such as `java` for JRuby. The implied default is `ruby` for Ruby MRI.
 - Examples::
 
       pkg:gem/ruby-advisory-db-check@0.12.4

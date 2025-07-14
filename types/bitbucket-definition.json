@@ -1,13 +1,13 @@
 bitbucket
 ---------
-``bitbucket`` for Bitbucket-based packages:
+`bitbucket` for Bitbucket-based packages:
 
-- The default repository is ``https://bitbucket.org``.
-- The ``namespace`` is the user or organization. It is not case sensitive and
+- The default repository is `https://bitbucket.org`.
+- The `namespace` is the user or organization. It is not case sensitive and
   must be lowercased.
-- The ``name`` is the repository name. It is not case sensitive and must be
+- The `name` is the repository name. It is not case sensitive and must be
   lowercased.
-- The ``version`` is a commit or tag.
+- The `version` is a commit or tag.
 - Examples::
 
       pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c

@@ -1,11 +1,11 @@
 swift
 -----
-``swift`` for Swift packages:
+`swift` for Swift packages:
 
-- There is no default package repository: this should be implied from ``namespace``.
-- The ``namespace`` is source host and user/organization and is required.
-- The ``name`` is the repository name.
-- The ``version`` is the package version and is required.
+- There is no default package repository: this should be implied from `namespace`.
+- The `namespace` is source host and user/organization and is required.
+- The `name` is the repository name.
+- The `version` is the package version and is required.
 - Examples::
 
       pkg:swift/github.com/Alamofire/Alamofire@5.4.3

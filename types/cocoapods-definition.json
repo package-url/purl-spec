@@ -1,10 +1,10 @@
 cocoapods
 ---------
-``cocoapods`` for CocoaPods:
+`cocoapods` for CocoaPods:
 
-- The default repository is ``https://cdn.cocoapods.org/``.
-- The ``name`` is the pod name and is case sensitive, cannot contain whitespace, a plus (`+`) character, or begin with a period (`.`).
-- The ``version`` is the package version.
+- The default repository is `https://cdn.cocoapods.org/`.
+- The `name` is the pod name and is case sensitive, cannot contain whitespace, a plus (`+`) character, or begin with a period (`.`).
+- The `version` is the package version.
 - The purl subpath is used to represent a pods subspec (if present).
 - Examples::
 

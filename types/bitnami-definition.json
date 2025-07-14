@@ -1,12 +1,12 @@
 bitnami
 -------
-``bitnami`` for Bitnami-based packages:
+`bitnami` for Bitnami-based packages:
 
-- The default repository is ``https://downloads.bitnami.com/files/stacksmith``.
-- The ``name`` is the component name. It must be lowercased.
-- The ``version`` is the full Bitnami package version, including version and revision.
-- The ``arch`` is the qualifiers key for a package architecture. Available values: ``amd64`` (default) and ``arm64``.
-- The ``distro`` is the qualifiers key for the distribution associated to the package.
+- The default repository is `https://downloads.bitnami.com/files/stacksmith`.
+- The `name` is the component name. It must be lowercased.
+- The `version` is the full Bitnami package version, including version and revision.
+- The `arch` is the qualifiers key for a package architecture. Available values: `amd64` (default) and `arm64`.
+- The `distro` is the qualifiers key for the distribution associated to the package.
 - Examples::
 
       pkg:bitnami/wordpress?distro=debian-12

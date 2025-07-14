@@ -1,17 +1,17 @@
 conan
 -----
-``conan`` for Conan C/C++ packages. The purl is designed to closely resemble the Conan-native `<package-name>/<package-version>@<user>/<channel>` `syntax for package references <https://docs.conan.io/en/1.46/cheatsheet.html#package-terminology>`_.
+`conan` for Conan C/C++ packages. The purl is designed to closely resemble the Conan-native `<package-name>/<package-version>@<user>/<channel>` `syntax for package references <https://docs.conan.io/en/1.46/cheatsheet.html#package-terminology>`_.
 
-- ``name``: The Conan ``<package-name>``.
-- ``version``: The Conan ``<package-version>``.
-- ``namespace``: The vendor of the package.
-- Qualifier ``user``: The Conan ``<user>``. Only required if the Conan package was published with ``<user>``.
-- Qualifier ``channel``: The Conan ``<channel>``. Only required if the Conan package was published with Conan ``<channel>``.
-- Qualifier ``rrev``: The Conan recipe revision (optional). If omitted, the purl refers to the latest recipe revision available for the given version.
-- Qualifier ``prev``: The Conan package revision (optional). If omitted, the purl refers to the latest package revision available for the given version and recipe revision.
-- Qualifier ``repository_url``: The Conan repository where the package is available (optional). If omitted, ``https://center.conan.io`` as default repository is assumed.
+- `name`: The Conan `<package-name>`.
+- `version`: The Conan `<package-version>`.
+- `namespace`: The vendor of the package.
+- Qualifier `user`: The Conan `<user>`. Only required if the Conan package was published with `<user>`.
+- Qualifier `channel`: The Conan `<channel>`. Only required if the Conan package was published with Conan `<channel>`.
+- Qualifier `rrev`: The Conan recipe revision (optional). If omitted, the purl refers to the latest recipe revision available for the given version.
+- Qualifier `prev`: The Conan package revision (optional). If omitted, the purl refers to the latest package revision available for the given version and recipe revision.
+- Qualifier `repository_url`: The Conan repository where the package is available (optional). If omitted, `https://center.conan.io` as default repository is assumed.
 
-Additional qualifiers can be used to distinguish Conan packages with different settings or options, e.g. ``os=Linux``, ``build_type=Debug`` or ``shared=True``.
+Additional qualifiers can be used to distinguish Conan packages with different settings or options, e.g. `os=Linux`, `build_type=Debug` or `shared=True`.
 
 If no additional qualifiers are used to distinguish Conan packages build with different settings or options, then the purl is ambiguous and it is up to the user to work out which package is being referred to (e.g. with context information).
 

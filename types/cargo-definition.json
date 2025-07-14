@@ -1,10 +1,10 @@
 cargo
 -----
-``cargo`` for Rust:
+`cargo` for Rust:
 
-- The default repository is ``https://crates.io/``.
-- The ``name`` is the repository name.
-- The ``version`` is the package version.
+- The default repository is `https://crates.io/`.
+- The `name` is the repository name.
+- The `version` is the package version.
 - Examples::
 
       pkg:cargo/rand@0.7.2

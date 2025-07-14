@@ -1,12 +1,12 @@
 composer
 --------
-``composer`` for Composer PHP packages:
+`composer` for Composer PHP packages:
 
-- The default repository is ``https://packagist.org``.
-- The ``namespace`` is the vendor.
-- The ``namespace`` and ``name`` are not case sensitive and must be lowercased.
+- The default repository is `https://packagist.org`.
+- The `namespace` is the vendor.
+- The `namespace` and `name` are not case sensitive and must be lowercased.
 - Note: private, local packages may have no name. In this case you cannot
-  create a ``purl`` for these.
+  create a `purl` for these.
 - Examples::
 
       pkg:composer/laravel/laravel@5.5.0

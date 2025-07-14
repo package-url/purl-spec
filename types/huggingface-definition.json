@@ -1,11 +1,11 @@
 huggingface
 ------
-``huggingface`` for Hugging Face ML models
+`huggingface` for Hugging Face ML models
 
-- The default repository is ``https://huggingface.co``.
-- The ``namespace`` is the model repository username or organization, if present. It is case sensitive.
-- The ``name`` is the model repository name. It is case sensitive.
-- The ``version`` is the model revision Git commit hash. It is case insensitive and must be lowercased in the package URL.
+- The default repository is `https://huggingface.co`.
+- The `namespace` is the model repository username or organization, if present. It is case sensitive.
+- The `name` is the model repository name. It is case sensitive.
+- The `version` is the model revision Git commit hash. It is case insensitive and must be lowercased in the package URL.
 - Examples::
 
       pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027

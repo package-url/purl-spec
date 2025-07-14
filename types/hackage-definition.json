@@ -1,6 +1,6 @@
 hackage
 -------
-``hackage`` for Haskell packages:
+`hackage` for Haskell packages:
 
 - The default repository is `https://hackage.haskell.org`.
 - The `version` is package version.

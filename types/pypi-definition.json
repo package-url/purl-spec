@@ -1,12 +1,12 @@
 pypi
 ----
-``pypi`` for Python packages:
+`pypi` for Python packages:
 
-- The default repository is ``https://pypi.org``. (Previously  ``https://pypi.python.org``.)
-- PyPI treats ``-`` and ``_`` as the same character and is not case sensitive.
-  Therefore a PyPI package ``name`` must be lowercased and underscore ``_``
-  replaced with a dash ``-``.
-- The ``file_name`` qualifier selects a particular distribution file
+- The default repository is `https://pypi.org`. (Previously  `https://pypi.python.org`.)
+- PyPI treats `-` and `_` as the same character and is not case sensitive.
+  Therefore a PyPI package `name` must be lowercased and underscore `_`
+  replaced with a dash `-`.
+- The `file_name` qualifier selects a particular distribution file
   (case-sensitive). For naming convention, see the Python Packaging User Guide on
   `source distributions <https://packaging.python.org/en/latest/specifications/source-distribution-format/#source-distribution-file-name>`_,
   `binary distributions <https://packaging.python.org/en/latest/specifications/binary-distribution-format/#file-name-convention>`_,

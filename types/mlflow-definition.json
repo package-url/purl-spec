@@ -1,22 +1,22 @@
 mlflow
 ------
-``mlflow`` for MLflow ML models (Azure ML, Databricks, etc.)
+`mlflow` for MLflow ML models (Azure ML, Databricks, etc.)
 
 - The repository is the MLflow tracking URI. There is no default. Examples:
 
-  - Azure ML: ``https://<region>.api.azureml.ms/mlflow/v1.0/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>``
-  - Azure Databricks: ``https://adb-<numbers>.<number>.azuredatabricks.net/api/2.0/mlflow``
-  - AWS Databricks: ``https://dbc-<alphanumeric>-<alphanumeric>.cloud.databricks.com/api/2.0/mlflow``
-  - GCP Databricks: ``https://<numbers>.<number>.gcp.databricks.com/api/2.0/mlflow``
+  - Azure ML: `https://<region>.api.azureml.ms/mlflow/v1.0/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>`
+  - Azure Databricks: `https://adb-<numbers>.<number>.azuredatabricks.net/api/2.0/mlflow`
+  - AWS Databricks: `https://dbc-<alphanumeric>-<alphanumeric>.cloud.databricks.com/api/2.0/mlflow`
+  - GCP Databricks: `https://<numbers>.<number>.gcp.databricks.com/api/2.0/mlflow`
 
-- The ``namespace`` is empty.
-- The ``name`` is the model name. Case sensitivity depends on the server implementation:
+- The `namespace` is empty.
+- The `name` is the model name. Case sensitivity depends on the server implementation:
 
   - Azure ML: it is case sensitive and must be kept as-is in the package URL.
   - Databricks: it is case insensitive and must be lowercased in the package URL.
 
-- The ``version`` is the model version.
-- Known qualifiers keys are: ``model_uuid`` and ``run_id`` as defined in the MLflow documentation.
+- The `version` is the model version.
+- Known qualifiers keys are: `model_uuid` and `run_id` as defined in the MLflow documentation.
 - Examples::
 
       pkg:mlflow/creditfraud@3?repository_url=https://westus2.api.azureml.ms/mlflow/v1.0/subscriptions/a50f2011-fab8-4164-af23-c62881ef8c95/resourceGroups/TestResourceGroup/providers/Microsoft.MachineLearningServices/workspaces/TestWorkspace
