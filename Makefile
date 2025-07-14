@@ -9,13 +9,17 @@ ACTIVATE?=. ${VENV_LOCATION}/bin/activate;
 CODEGEN?=datamodel-codegen \
     --target-python-version 3.10 \
     --use-double-quotes \
+    --use-exact-imports \
+    --use-standard-collections \
+    --wrap-string-literal \
     --enum-field-as-literal all \
-    --use-schema-description \
+    --formatters ruff-format \
     --field-constraints \
     --disable-timestamp \
+    --keep-model-order \
     --custom-file-header-path LICENSE \
     --input-file-type jsonschema \
-    --output-model-type dataclasses.dataclass
+    --output-model-type pydantic_v2.BaseModel
 
 virtualenv:
 	@echo "-> Bootstrap the virtualenv with PYTHON_EXE=${PYTHON_EXE}"
@@ -52,6 +56,7 @@ clean:
 	find . -type f -name '*.py[co]' -delete
 
 generate:
+	@echo "-> Generate Python code from schemas"
 	@${ACTIVATE} ${CODEGEN} \
 	    --input schemas/purl-types-index.schema.json \
 	    --output etc/scripts/purl_types_index.py
@@ -61,6 +66,8 @@ generate:
 	@${ACTIVATE} ${CODEGEN} \
 	    --input schemas/purl-test.schema.json \
 	    --output etc/scripts/purl_test.py
+	@echo "-> Run Black format for generated code"
+	@${ACTIVATE} black -l 100 --preview --enable-unstable-feature string_processing etc/scripts/*.py
 
 docs:
 	@${ACTIVATE} python etc/scripts/generate_index_and_docs.py
