@@ -8,7 +8,7 @@
   "definitions": {
     "requirement": {
       "title": "Component requirement",
-      "description": "Specifies whether this Package-URL component is required, optional, or prohibited for this PURL type.",
+      "description": "States if this PURL component is required, optional, or prohibited.",
       "type": "string",
       "enum": [ "required", "optional", "prohibited" ],
       "meta:enum": {
@@ -25,7 +25,7 @@
       "properties": {
         "permitted_characters": {
           "title": "Permitted characters in this PURL component",
-          "description": "Regular expression (ECMA-262 dialect) defining the 'Permitted characters' for this component of this Package-URL type. If provided, this must be a subset of the 'Permitted characters' defined in the PURL specification.",
+          "description": "Regular expression (ECMA-262 dialect) defining the 'Permitted characters'\nfor this component of this Package-URL type.\nIf provided, this must be a subset of the 'Permitted characters' defined in the PURL specification.",
           "type": "string",
           "format": "regex"
         },
@@ -37,7 +37,7 @@
         },
         "normalization_rules": {
           "title": "Normalization rules",
-          "description": "List of rules to normalize this component for this PURL type. These are plain text, unstructured rules as some require programming and cannot be enforced only with a schema. Tools are expected to apply these rules programmatically.",
+          "description": "List of rules to normalize this component for this PURL type.\nThese are plain text, unstructured rules as some require programming and cannot be enforced only with a schema.\nTools are expected to apply these rules programmatically.",
           "type": "array",
           "uniqueItems": true,
           "items": {
@@ -46,7 +46,7 @@
         },
         "native_name": {
           "title": "Native name",
-          "description": "The equivalent native name or label for this PURL component in the package ecosystem. For instance, the native name for 'namespace' for the 'maven' PURL type is 'groupId', and 'scope' for the 'npm' PURL type.",
+          "description": "The native name of this PURL component in the package ecosystem.\nFor instance, the 'namespace' for the 'maven' type is 'groupId', and 'scope' for the 'npm' PURL type.",
           "type": "string"
         },
         "note": {
@@ -137,13 +137,13 @@
     },
     "qualifiers_definition": {
       "title": "Qualifiers definition",
-      "description": "Definition for extra qualifier keys for this PURL type as a list of keys. Use also to define the requirements of standard qualifiers.",
+      "description": "Definition for the qualifiers specific to this PURL type.",
       "type": "array",
       "additionalItems": false,
       "uniqueItems": true,
       "items": {
         "title": "Qualifiers definition",
-        "description": "Definition for extra qualifier keys for this PURL type. Use also to define the requirements of standard qualifiers.",
+        "description": "Definition of a qualifier specific to this PURL type.",
         "type": "object",
         "additionalProperties": false,
         "required": [ "key", "requirement", "description" ],
@@ -168,7 +168,7 @@
           },
           "native_name": {
             "title": "Native name",
-            "description": "The equivalent native name or label for this qualifier key component in the package ecosystem.",
+            "description": "The equivalent native name for this qualifier key.",
             "type": "string"
           }
         }
@@ -186,7 +186,7 @@
     },
     "repository": {
       "title": "Repository",
-      "description": "Package repository usage for this PURL type. For instance PyPI for the 'pypi' PURL type.",
+      "description": "Package repository usage for this PURL type.",
       "type": "object",
       "additionalProperties": false,
       "required": [ "use_repository", "description" ],
@@ -204,7 +204,7 @@
       "properties": {
         "use_repository": {
           "title": "Use repository",
-          "description": "true if this PURL type use a repository. If true, the URL and name are required.",
+          "description": "true if this PURL type use a public package repository.",
           "type": "boolean",
           "default": false
         },
@@ -244,7 +244,7 @@
     },
     "reference_urls": {
       "title": "Reference URLs",
-      "description": "Optional list of informational reference URLs about this PURL type, like a homepage or a documentation page.",
+      "description": "Optional list of informational reference URLs about this PURL type.",
       "type": "array",
       "uniqueItems": true,
       "items": {

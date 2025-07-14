@@ -1,13 +1,13 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
-  "title": "Package-URL test definition",
-  "description": "Schema to specify a Package-URL (PURL) test data with an input and an expected output when building and parsing PURL.",
+  "title": "PURL test definition",
+  "description": "Schema for Package-URL building and parsing tests with input and expected output.",
   "type": "object",
   "additionalProperties": false,
   "definitions": {
     "purl_components": {
-      "title": "Package-URL decoded components",
+      "title": "PURL decoded components",
       "description": "Individual decoded PURL components to use as a test input or expectation.",
       "type": "object",
       "additionalProperties": false,
@@ -51,12 +51,12 @@
     },
     "test_group": {
       "title": "Test group",
-      "description": "The group of this test: 'base' for base conformance tests or 'advanced' for flexible PURL building and parsing.",
+      "description": "The group of this test like 'base' or 'advanced'.",
       "type": "string",
       "enum": [ "base", "advanced" ],
       "meta:enum": {
-        "base": "Test group for conformance tests with the base PURL building and parsing capabilities.",
-        "advanced": "Test group for conformance tests with advanced, flexible PURL building and parsing, able to recover from some invalid test inputs."
+        "base": "Test group for base conformance tests for PURL building and parsing.",
+        "advanced": "Test group for advanced tests to support flexible PURL building and parsing."
       }
     },
     "expected_failure": {
@@ -67,12 +67,12 @@
     },
     "expected_failure_reason": {
       "title": "Expected failure reason",
-      "description": "If expected_failure is true, this must contain a reason why the test is expected to fail.",
+      "description": "The reason why this is is expected to fail if expected_failure is true.",
       "type": "string"
     },
     "parse_test": {
       "title": "PURL parsing test",
-      "description": "A Package-URL parsing test for a canonical or not canonical PURL string input, with an expected PURL components object output.",
+      "description": "A PURL parsing test from a canonical (or not) string input.",
       "type": "object",
       "additionalProperties": false,
       "required": [ "description", "test_group", "test_type", "input" ],
@@ -92,8 +92,8 @@
           "description": "A PURL string to use as a test input (canonical or not)."
         },
         "expected_output": {
-          "title": "Expected output PURL components",
-          "description": "Test output as an object decoded PURL components. Prohibited if is_valid_input is true.",
+          "title": "Expected output decoded PURL components",
+          "description": "Test output as an object decoded PURL components, unless expected_failure.",
           "$ref": "#/definitions/purl_components"
         },
         "expected_failure": {
@@ -126,7 +126,7 @@
     },
     "build_test": {
       "title": "PURL building test",
-      "description": "A Package-URL building test from an input object of decoded components, with an expected output as a canonical PURL string.",
+      "description": "A PURL building test from decoded components to a canonical PURL string.",
       "type": "object",
       "additionalProperties": false,
       "required": [ "description", "test_group", "test_type", "input" ],
@@ -147,7 +147,7 @@
         },
         "expected_output": {
           "title": "Expected output canonical PURL string",
-          "description": "Test output as a canonical PURL string. Prohibited if the test is expected to fail.",
+          "description": "Test output as a canonical PURL string, unless expected_failure.",
           "type": "string"
         },
         "expected_failure": {
