@@ -9,6 +9,7 @@
     "default_repository_url": "https://center.conan.io"
   },
   "namespace_definition": {
+    "requirement": "optional",
     "native_name": "vendor",
     "note": "The vendor of the package."
   },

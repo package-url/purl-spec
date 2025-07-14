@@ -23,11 +23,8 @@
     },
     "purl_component_definition": {
       "title": "PURL component definition",
-      "description": "PURL component definition properties that apply to most PURL component",
+      "description": "PURL component definition properties that apply to most PURL components",
       "type": "object",
-      "required": [
-        "native_name"
-      ],
       "properties": {
         "permitted_characters": {
           "title": "Permitted characters in this PURL component",
@@ -68,10 +65,9 @@
     "type",
     "type_name",
     "description",
+    "repository",
     "namespace_definition",
     "name_definition",
-    "version_definition",
-    "repository",
     "examples"
   ],
   "properties": {
@@ -118,36 +114,14 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "use_repository",
-        "note"
+        "use_repository"
       ],
-      "if": {
-        "properties": {
-          "use_repository": {
-            "const": true
-          }
-        },
-        "required": [
-          "use_repository"
-        ]
-      },
-      "then": {
-        "required": [
-          "default_repository_name",
-          "default_repository_url"
-        ]
-      },
       "properties": {
         "use_repository": {
           "title": "Use repository",
           "description": "true if this PURL type use a public package repository.",
           "type": "boolean",
           "default": false
-        },
-        "default_repository_name": {
-          "title": "Default repository name",
-          "description": "The name of the default public repository for this PURL type",
-          "type": "string"
         },
         "default_repository_url": {
           "title": "Default repository URL",
@@ -213,7 +187,6 @@
         "additionalProperties": false,
         "required": [
           "key",
-          "requirement",
           "description"
         ],
         "properties": {

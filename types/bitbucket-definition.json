@@ -9,6 +9,7 @@
     "default_repository_url": "https://bitbucket.org"
   },
   "namespace_definition": {
+    "requirement": "required",
     "note": "The `namespace` is the user or organization. It is not case sensitive and must be lowercased.",
     "native_name": "user or organization",
     "is_case_sensitve": false

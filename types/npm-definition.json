@@ -6,9 +6,8 @@
   "description": "PURL type for npm packages.",
   "repository": {
     "use_repository": true,
-    "default_repository_name": "npm Registry",
     "default_repository_url": "https://registry.npmjs.org/",
-    "note": "The default repository is `https://registry.npmjs.org`."
+    "note": "The default repository is the npm Registry at https://registry.npmjs.org"
   },
   "namespace_definition": {
     "requirement": "optional",

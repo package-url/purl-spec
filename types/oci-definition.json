@@ -9,6 +9,7 @@
     "note": "There is no canonical package repository for OCI artifacts. Therefore `oci` purls must be registry agnostic by default. To specify the repository, provide a `repository_url` value."
   },
   "namespace_definition": {
+    "requirement": "prohibited",
     "note": "OCI purls do not contain a `namespace`, although, `repository_url` may contain a namespace as part of the physical location of the package."
   },
   "name_definition": {

@@ -9,6 +9,7 @@
     "default_repository_url": "https://packagist.org"
   },
   "namespace_definition": {
+    "requirement": "required",
     "is_case_sensitive": false,
     "native_name": "vendor",
     "note": "The `namespace` is the vendor. The `namespace` is not case sensitive and must be lowercased."

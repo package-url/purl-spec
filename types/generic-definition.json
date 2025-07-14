@@ -8,6 +8,10 @@
     "use_repository": false,
     "note": "There is no default repository."
   },
+  "namespace_definition": {
+    "requirement": "optional",
+    "note": "there is no generic namespace definition"
+  },
   "name_definition": {
     "note": "as for other `type`, the `name` component is mandatory. In the worst case it can be a file or directory name."
   },

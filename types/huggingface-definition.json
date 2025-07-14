@@ -9,6 +9,7 @@
     "note": "The default repository is `https://huggingface.co`."
   },
   "namespace_definition": {
+    "requirement": "required",
     "is_case_sensitive": true,
     "native_name": "model repository username or organization",
     "note": "The `namespace` is the model repository username or organization, if present. It is case sensitive."

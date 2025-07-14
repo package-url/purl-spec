@@ -9,8 +9,8 @@
     "default_repository_url": "https://pub.dartlang.org"
   },
   "namespace_definition": {
-    "note": "there is no namespace",
-    "requirement": "prohibited"
+    "requirement": "prohibited",
+    "note": "there is no namespace"
   },
   "name_definition": {
     "native_name": "name",

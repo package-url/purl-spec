@@ -9,7 +9,8 @@
     "default_repository_url": "https://hackage.haskell.org"
   },
   "namespace_definition": {
-    "requirement": "prohibited"
+    "requirement": "prohibited",
+    "note": "there is no namespace"
   },
   "name_definition": {
     "is_case_sensitive": true,

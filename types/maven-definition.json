@@ -6,9 +6,8 @@
   "description": "PURL type for Maven JARs and related artifacts.",
   "repository": {
     "use_repository": true,
-    "default_repository_name": "Maven Central",
     "default_repository_url": "https://repo.maven.apache.org/maven2/",
-    "note": "The central repository for Apache Maven packages. This repository is also mirrored at https://repo1.maven.org/maven2/. Use the standard `repository_url` qualifier to point to another repository"
+    "note": "The Maven Central repository is the public repository for Apache Maven packages. This repository is also mirrored at https://repo1.maven.org/maven2/. Use the standard `repository_url` qualifier to point to another repository"
   },
   "namespace_definition": {
     "requirement": "required",

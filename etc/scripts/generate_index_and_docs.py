@@ -61,10 +61,10 @@ def generate_documentation(definition) -> str:
     repository = definition["repository"]
     use_repository = repository["use_repository"]
     lines.append(f"- **Use Repository:** {get_yes_no(use_repository)}")
-    if use_repository:
-        lines.append(f"- **Default Repository Name:** {repository['default_repository_name']}")
-        lines.append(f"- **Default Repository URL:** {repository['default_repository_url']}")
-    lines.append(f"- **Note:** {repository['note']}")
+    if default_repository_url := repository.get("default_repository_url"):
+        lines.append(f"- **Default Repository URL:** {default_repository_url}")
+    if note := repository["note"]:
+        lines.append(f"- **Note:** {note}")
     lines.append("")
 
     # PURL Components (Each gets its own section)

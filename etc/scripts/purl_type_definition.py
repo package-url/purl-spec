@@ -84,8 +84,8 @@ class PackageUrlTypeDefinition(BaseModel):
         description="Definition of the name component for this PURL type.",
         title="Name definition",
     )
-    version_definition: PurlComponentDefinition = Field(
-        ...,
+    version_definition: Optional[PurlComponentDefinition] = Field(
+        None,
         description="Definition of the version component for this PURL type.",
         title="Version definition",
     )
@@ -140,8 +140,8 @@ class PurlComponentDefinition(BaseModel):
         ),
         title="Normalization rules",
     )
-    native_name: str = Field(
-        ...,
+    native_name: Optional[str] = Field(
+        None,
         description=(
             "The native name of this PURL component in the package ecosystem. For instance, the"
             " 'namespace' for the 'maven' type is 'groupId', and 'scope' for the 'npm' PURL type."
@@ -156,7 +156,7 @@ class QualifiersDefinitionItem(BaseModel):
         extra="forbid",
     )
     key: str = Field(..., description="The key for the qualifier.", title="Qualifier key")
-    requirement: Requirement
+    requirement: Optional[Requirement] = None
     description: str = Field(
         ..., description="The description of this qualifier.", title="Description"
     )
@@ -179,17 +179,12 @@ class Repository(BaseModel):
         description="true if this PURL type use a public package repository.",
         title="Use repository",
     )
-    default_repository_name: Optional[str] = Field(
-        None,
-        description="The name of the default public repository for this PURL type",
-        title="Default repository name",
-    )
     default_repository_url: Optional[AnyUrl] = Field(
         None,
         description="The default public repository URL for this PURL type",
         title="Default repository URL",
     )
-    note: str = Field(..., description="Extra note text.", title="Note")
+    note: Optional[str] = Field(None, description="Extra note text.", title="Note")
 
 
 class Requirement(RootModel[Literal["required", "optional", "prohibited"]]):

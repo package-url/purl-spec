@@ -9,6 +9,7 @@
     "note": "There is no default package repository, this is implied in the namespace using the `go get` command conventions. In practice the go module proxy acts as a public defulat repository."
   },
   "namespace_definition": {
+    "requirement": "required",
     "is_case_sensitive": false,
     "note": "The `namespace` must be lowercased."
   },

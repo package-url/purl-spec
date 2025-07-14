@@ -10,7 +10,8 @@
   "namespace_definition": {
     "is_case_sensitive": false,
     "native_name": "user manifest",
-    "note": "The user manifest under which the package is registered. If not given, the root manifest is assumed. It is case insensitive, but lowercase is encouraged since namespaces are normalized to ASCII lowercase."
+    "note": "The user manifest under which the package is registered. If not given, the root manifest is assumed. It is case insensitive, but lowercase is encouraged since namespaces are normalized to ASCII lowercase.",
+    "requirement": "optional"
   },
   "name_definition": {
     "is_case_sensitive": false,

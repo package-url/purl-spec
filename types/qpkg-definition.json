@@ -11,7 +11,8 @@
   "namespace_definition": {
     "is_case_sensitive": false,
     "native_name": "vendor",
-    "note": "The `namespace` is the vendor of the package. It is not case sensitive and must be lowercased."
+    "note": "The `namespace` is the vendor of the package. It is not case sensitive and must be lowercased.",
+    "requirement": "required"
   },
   "name_definition": {
     "native_name": "name"
