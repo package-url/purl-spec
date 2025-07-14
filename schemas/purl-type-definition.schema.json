@@ -26,7 +26,6 @@
       "description": "PURL component definition properties that apply to most PURL component",
       "type": "object",
       "required": [
-        "is_case_sensitive",
         "native_name"
       ],
       "properties": {
