@@ -10,7 +10,11 @@
       "title": "Component requirement",
       "description": "States if this PURL component is required, optional, or prohibited.",
       "type": "string",
-      "enum": [ "required", "optional", "prohibited" ],
+      "enum": [
+        "required",
+        "optional",
+        "prohibited"
+      ],
       "meta:enum": {
         "required": "This PURL component is required for this PURL type.",
         "optional": "This PURL component is optional for this PURL type.",
@@ -21,11 +25,14 @@
       "title": "PURL component definition",
       "description": "PURL component definition properties that apply to most PURL component",
       "type": "object",
-      "required": [ "is_case_sensitive", "native_name" ],
+      "required": [
+        "is_case_sensitive",
+        "native_name"
+      ],
       "properties": {
         "permitted_characters": {
           "title": "Permitted characters in this PURL component",
-          "description": "Regular expression (ECMA-262 dialect) defining the 'Permitted characters'\nfor this component of this Package-URL type.\nIf provided, this must be a subset of the 'Permitted characters' defined in the PURL specification.",
+          "description": "Regular expression (ECMA-262 dialect) defining the 'Permitted characters' for this component of this Package-URL type. If provided, this must be a subset of the 'Permitted characters' defined in the PURL specification.",
           "type": "string",
           "format": "regex"
         },
@@ -37,7 +44,7 @@
         },
         "normalization_rules": {
           "title": "Normalization rules",
-          "description": "List of rules to normalize this component for this PURL type.\nThese are plain text, unstructured rules as some require programming and cannot be enforced only with a schema.\nTools are expected to apply these rules programmatically.",
+          "description": "List of rules to normalize this component for this PURL type. These are plain text, unstructured rules as some require programming and cannot be enforced only with a schema. Tools are expected to apply these rules programmatically.",
           "type": "array",
           "uniqueItems": true,
           "items": {
@@ -46,7 +53,7 @@
         },
         "native_name": {
           "title": "Native name",
-          "description": "The native name of this PURL component in the package ecosystem.\nFor instance, the 'namespace' for the 'maven' type is 'groupId', and 'scope' for the 'npm' PURL type.",
+          "description": "The native name of this PURL component in the package ecosystem. For instance, the 'namespace' for the 'maven' type is 'groupId', and 'scope' for the 'npm' PURL type.",
           "type": "string"
         },
         "note": {
@@ -86,13 +93,20 @@
       "description": "The type string for this Package-URL type.",
       "type": "string",
       "pattern": "^[a-z][a-z0-9-\\.]+$",
-      "examples": [ "maven", "npm", "pypi" ]
+      "examples": [
+        "maven",
+        "npm",
+        "pypi"
+      ]
     },
     "type_name": {
       "title": "Type name",
       "description": "The name for this PURL type.",
       "type": "string",
-      "examples": [ "Apache Maven", "Python Package" ]
+      "examples": [
+        "Apache Maven",
+        "Python Package"
+      ]
     },
     "description": {
       "title": "Description",
@@ -103,7 +117,9 @@
       "title": "Namespace definition",
       "description": "Definition of the namespace component for this PURL type.",
       "type": "object",
-      "required": [ "requirement" ],
+      "required": [
+        "requirement"
+      ],
       "properties": {
         "requirement": {
           "$ref": "#/definitions/requirement"
@@ -146,7 +162,11 @@
         "description": "Definition of a qualifier specific to this PURL type.",
         "type": "object",
         "additionalProperties": false,
-        "required": [ "key", "requirement", "description" ],
+        "required": [
+          "key",
+          "requirement",
+          "description"
+        ],
         "properties": {
           "key": {
             "title": "Qualifier key",
@@ -189,17 +209,25 @@
       "description": "Package repository usage for this PURL type.",
       "type": "object",
       "additionalProperties": false,
-      "required": [ "use_repository", "description" ],
+      "required": [
+        "use_repository",
+        "description"
+      ],
       "if": {
         "properties": {
           "use_repository": {
             "const": true
           }
         },
-        "required": [ "use_repository" ]
+        "required": [
+          "use_repository"
+        ]
       },
       "then": {
-        "required": [ "name", "url" ]
+        "required": [
+          "name",
+          "url"
+        ]
       },
       "properties": {
         "use_repository": {

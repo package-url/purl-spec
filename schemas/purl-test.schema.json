@@ -53,7 +53,10 @@
       "title": "Test group",
       "description": "The group of this test like 'base' or 'advanced'.",
       "type": "string",
-      "enum": [ "base", "advanced" ],
+      "enum": [
+        "base",
+        "advanced"
+      ],
       "meta:enum": {
         "base": "Test group for base conformance tests for PURL building and parsing.",
         "advanced": "Test group for advanced tests to support flexible PURL building and parsing."
@@ -75,7 +78,12 @@
       "description": "A PURL parsing test from a canonical (or not) string input.",
       "type": "object",
       "additionalProperties": false,
-      "required": [ "description", "test_group", "test_type", "input" ],
+      "required": [
+        "description",
+        "test_group",
+        "test_type",
+        "input"
+      ],
       "properties": {
         "description": {
           "$ref": "#/definitions/description"
@@ -109,18 +117,28 @@
             "const": true
           }
         },
-        "required": [ "expected_failure" ]
+        "required": [
+          "expected_failure"
+        ]
       },
       "then": {
-        "required": [ "expected_failure_reason" ],
+        "required": [
+          "expected_failure_reason"
+        ],
         "not": {
-          "required": [ "expected_output" ]
+          "required": [
+            "expected_output"
+          ]
         }
       },
       "else": {
-        "required": [ "expected_output" ],
+        "required": [
+          "expected_output"
+        ],
         "not": {
-          "required": [ "expected_failure_reason" ]
+          "required": [
+            "expected_failure_reason"
+          ]
         }
       }
     },
@@ -129,7 +147,12 @@
       "description": "A PURL building test from decoded components to a canonical PURL string.",
       "type": "object",
       "additionalProperties": false,
-      "required": [ "description", "test_group", "test_type", "input" ],
+      "required": [
+        "description",
+        "test_group",
+        "test_type",
+        "input"
+      ],
       "properties": {
         "description": {
           "$ref": "#/definitions/description"
@@ -163,18 +186,28 @@
             "const": true
           }
         },
-        "required": [ "expected_failure" ]
+        "required": [
+          "expected_failure"
+        ]
       },
       "then": {
-        "required": [ "expected_failure_reason" ],
+        "required": [
+          "expected_failure_reason"
+        ],
         "not": {
-          "required": [ "expected_output" ]
+          "required": [
+            "expected_output"
+          ]
         }
       },
       "else": {
-        "required": [ "expected_output" ],
+        "required": [
+          "expected_output"
+        ],
         "not": {
-          "required": [ "expected_failure_reason" ]
+          "required": [
+            "expected_failure_reason"
+          ]
         }
       }
     }
