@@ -110,8 +110,8 @@ def generate_documentation(definition) -> str:
     use_repository = repository["use_repository"]
     lines.append(f"- **Use Repository:** {get_yes_no(use_repository)}")
     if use_repository:
-        lines.append(f"- **Default Repository Name:** {repository['name']}")
-        lines.append(f"- **Default Repository URL:** {repository['url']}")
+        lines.append(f"- **Default Repository Name:** {repository['default_repository_name']}")
+        lines.append(f"- **Default Repository URL:** {repository['default_repository_url']}")
     lines.append(f"- **Description:** {repository['description']}")
     lines.append("")
 

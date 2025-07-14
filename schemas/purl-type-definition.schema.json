@@ -235,12 +235,12 @@
           "type": "boolean",
           "default": false
         },
-        "name": {
+        "default_repository_name": {
           "title": "Default repository name",
           "description": "The name of the default public repository for this PURL type",
           "type": "string"
         },
-        "url": {
+        "default_repository_url": {
           "title": "Default repository URL",
           "description": "The default public repository URL for this PURL type",
           "type": "string",
