@@ -9,7 +9,7 @@
     "note": "There is no default package repository, this should be implied either from the `namespace` or using a repository base URL as `repository_url` qualifiers key."
   },
   "namespace_definition": {
-    "is_case_sensitive": false,
+    "case_sensitive": false,
     "native_name": "vendor",
     "note": "The `namespace` is the vendor of the package. It is not case sensitive and must be lowercased.",
     "requirement": "required"

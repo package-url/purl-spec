@@ -12,12 +12,12 @@
     "requirement": "required",
     "note": "The `namespace` is the vendor such as `alpine` or `openwrt`. It is not case sensitive and must be lowercased.",
     "native_name": "vendor",
-    "is_case_sensitive": false
+    "case_sensitive": false
   },
   "name_definition": {
     "note": "The `name` is the package name. It is not case sensitive and must be lowercased.",
     "native_name": "name",
-    "is_case_sensitive": false
+    "case_sensitive": false
   },
   "version_definition": {
     "note": "The `version` is a package version as expected by apk.",

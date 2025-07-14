@@ -123,13 +123,13 @@ class PurlComponentDefinition(BaseModel):
         ),
         title="Permitted characters in this PURL component",
     )
-    is_case_sensitive: Optional[bool] = Field(
+    case_sensitive: Optional[bool] = Field(
         True,
         description=(
             "true if this PURL component is case sensitive. If false, the canonical form must be"
             " lowercased."
         ),
-        title="Is case sensitive",
+        title="Case sensitive",
     )
     normalization_rules: Optional[list[str]] = Field(
         None,

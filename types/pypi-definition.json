@@ -15,7 +15,7 @@
   },
   "name_definition": {
     "native_name": "name",
-    "is_case_sensitive": false,
+    "case_sensitive": false,
     "normalization_rules": [
       "Replace underscore `_` with dash `-`",
       "Replace dot `.` with underscore `_` when used in distribution (sdist, wheel) names"
@@ -23,7 +23,7 @@
     "note": "PyPI treats `-` and `_` as the same character and is not case sensitive. Therefore a PyPI package `name` must be lowercased and underscore `_` replaced with a dash `-`. Note that PyPI itself is preserving the case of package names. When used in distribution and wheel names, the dot `.` is replaced with an underscore `_`"
   },
   "version_definition": {
-    "is_case_sensitive": false,
+    "case_sensitive": false,
     "native_name": "version"
   },
   "qualifiers_definition": [

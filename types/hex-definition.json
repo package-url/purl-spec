@@ -10,12 +10,12 @@
   },
   "namespace_definition": {
     "requirement": "optional",
-    "is_case_sensitive": false,
+    "case_sensitive": false,
     "native_name": "organization for private packages",
     "note": "The `namespace` is optional; it may be used to specify the organization for private packages on hex.pm. It is not case sensitive and must be lowercased."
   },
   "name_definition": {
-    "is_case_sensitive": false,
+    "case_sensitive": false,
     "native_name": "name",
     "note": "The `name` is not case sensitive and must be lowercased."
   },

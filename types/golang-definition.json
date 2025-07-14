@@ -10,11 +10,11 @@
   },
   "namespace_definition": {
     "requirement": "required",
-    "is_case_sensitive": false,
+    "case_sensitive": false,
     "note": "The `namespace` must be lowercased."
   },
   "name_definition": {
-    "is_case_sensitive": false,
+    "case_sensitive": false,
     "note": "The `name` must be lowercased."
   },
   "subpath_definition": {

@@ -89,8 +89,8 @@ def generate_documentation(definition) -> str:
         if permitted_characters := component.get("permitted_characters"):
             lines.append(f"- **Permitted Characters:** `{permitted_characters}`")
 
-        if is_case_sensitive := component.get("is_case_sensitive"):
-            lines.append(f"- **Case Sensitive:** {get_yes_no(is_case_sensitive)}")
+        if case_sensitive := component.get("case_sensitive"):
+            lines.append(f"- **Case Sensitive:** {get_yes_no(case_sensitive)}")
 
         if normalization_rules := component.get("normalization_rules"):
             lines.append(f"- **Normalization rules:**")
@@ -115,7 +115,7 @@ def generate_documentation(definition) -> str:
             req = qualifier.get("requirement", "optional").capitalize()
             native = qualifier.get("native_name", "")
             default = qualifier.get("default_value", "")
-            description = qualifier.get("description","")
+            description = qualifier.get("description", "")
             lines.append(f"| {key} | {req} | {native} | {default} | {description} |")
         lines.append("")
 

@@ -32,8 +32,8 @@
           "type": "string",
           "format": "regex"
         },
-        "is_case_sensitive": {
-          "title": "Is case sensitive",
+        "case_sensitive": {
+          "title": "Case sensitive",
           "description": "true if this PURL component is case sensitive. If false, the canonical form must be lowercased.",
           "type": "boolean",
           "default": true

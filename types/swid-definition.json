@@ -10,19 +10,19 @@
   },
   "namespace_definition": {
     "requirement": "optional",
-    "is_case_sensitive": true,
+    "case_sensitive": true,
     "native_name": "softwareCreator",
     "note": "The `namespace` is the optional name and regid of the entity with a role of softwareCreator. If specified, name is required and is the first segment in the namespace. If regid is known, it must be specified as the second segment in the namespace. A maximum of two segments are supported."
   },
   "name_definition": {
     "requirement": "required",
-    "is_case_sensitive": true,
+    "case_sensitive": true,
     "native_name": "SoftwareIdentity/name",
     "note": "The `name` is the name as defined in the SWID SoftwareIdentity element."
   },
   "version_definition": {
     "requirement": "optional",
-    "is_case_sensitive": true,
+    "case_sensitive": true,
     "native_name": "SoftwareIdentity/version",
     "note": "The `version` is the version as defined in the SWID SoftwareIdentity element."
   },

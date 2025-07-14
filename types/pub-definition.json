@@ -14,7 +14,7 @@
   },
   "name_definition": {
     "native_name": "name",
-    "is_case_sensitive": false,
+    "case_sensitive": false,
     "permitted_characters": "^[a-z0-9_]",
     "normalization_rules": [
       "Replace non-[a-z] letters, non-[0-9] digits with underscore `_`"
