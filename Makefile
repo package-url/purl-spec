@@ -29,12 +29,20 @@ conf: virtualenv
 	@echo "-> Install dependencies"
 	@${ACTIVATE} pip install -r requirements.txt
 
-format:
+formatcode:
 	@echo "-> Run Ruff format"
 	@${ACTIVATE} ruff check --select I --fix
 	@${ACTIVATE} ruff format
 	@echo "-> Run Ruff linter"
 	@${ACTIVATE} ruff check --fix
+
+formatjson:
+	@echo "-> Format JSON files"
+	@${ACTIVATE} python etc/scripts/format_json.py schemas 
+	@${ACTIVATE} python etc/scripts/format_json.py types 
+
+format: formatcode formatjson
+	@echo "-> Format all files"
 
 checkjson:
 	@echo "-> Validate JSON schemas"
@@ -44,18 +52,21 @@ checkjson:
 	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-type-definition.schema.json --verbose types/*-definition.json
 #	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-test.schema.json --verbose types/*-test.json *-test.json
 
-check: checkjson
+checkcode:
 	@echo "-> Run Ruff linter validation (pycodestyle, bandit, isort, and more)"
 	@${ACTIVATE} ruff check
 	@echo "-> Run Ruff format validation"
 	@${ACTIVATE} ruff format --check
+
+check: checkjson checkcode
+	@echo "-> Run all checks"
 
 clean:
 	@echo "-> Clean the Python env"
 	rm -rf .venv/
 	find . -type f -name '*.py[co]' -delete
 
-generate:
+gencode: checkjson
 	@echo "-> Generate Python code from schemas"
 	@${ACTIVATE} ${CODEGEN} \
 	    --input schemas/purl-types-index.schema.json \
@@ -69,8 +80,8 @@ generate:
 	@echo "-> Run Black format for generated code"
 	@${ACTIVATE} black -l 100 --preview --enable-unstable-feature string_processing etc/scripts/*.py
 
-docs:
+gendocs:
 	@${ACTIVATE} python etc/scripts/generate_index_and_docs.py
 
 
-.PHONY: virtualenv conf valid checkjson check clean generate docs
+.PHONY: virtualenv conf formatcode formatjson format checkdeo checkjson check clean gencode gendocs
