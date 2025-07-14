@@ -55,6 +55,18 @@ def generate_documentation(definition) -> str:
     lines.append(f"    {purl_syntax}")
     lines.append("")
 
+    # Repository comes 1st
+    lines.append("## Repository Information")
+    lines.append("")
+    repository = definition["repository"]
+    use_repository = repository["use_repository"]
+    lines.append(f"- **Use Repository:** {get_yes_no(use_repository)}")
+    if use_repository:
+        lines.append(f"- **Default Repository Name:** {repository['default_repository_name']}")
+        lines.append(f"- **Default Repository URL:** {repository['default_repository_url']}")
+    lines.append(f"- **Description:** {repository['description']}")
+    lines.append("")
+
     # PURL Components (Each gets its own section)
     for key in [
         "namespace_definition",
@@ -103,17 +115,6 @@ def generate_documentation(definition) -> str:
             desc = qualifier["description"]
             lines.append(f"| {key} | {req} | {native} | {default} | {desc} |")
         lines.append("")
-
-    lines.append("## Repository Information")
-    lines.append("")
-    repository = definition["repository"]
-    use_repository = repository["use_repository"]
-    lines.append(f"- **Use Repository:** {get_yes_no(use_repository)}")
-    if use_repository:
-        lines.append(f"- **Default Repository Name:** {repository['default_repository_name']}")
-        lines.append(f"- **Default Repository URL:** {repository['default_repository_url']}")
-    lines.append(f"- **Description:** {repository['description']}")
-    lines.append("")
 
     lines.append("## Examples")
     lines.append("")
