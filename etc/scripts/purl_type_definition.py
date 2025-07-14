@@ -22,8 +22,16 @@
 
 
 from __future__ import annotations
-from pydantic import AnyUrl, BaseModel, ConfigDict, Field, RootModel
-from typing import Any, Literal, Optional
+
+from typing import Any
+from typing import Literal
+from typing import Optional
+
+from pydantic import AnyUrl
+from pydantic import BaseModel
+from pydantic import ConfigDict
+from pydantic import Field
+from pydantic import RootModel
 
 
 class Example(RootModel[str]):
@@ -115,8 +123,8 @@ class PurlComponentDefinition(BaseModel):
         ),
         title="Permitted characters in this PURL component",
     )
-    is_case_sensitive: bool = Field(
-        ...,
+    is_case_sensitive: Optional[bool] = Field(
+        True,
         description=(
             "true if this PURL component is case sensitive. If false, the canonical form must be"
             " lowercased."

@@ -1,9 +1,11 @@
-name: Generate PURL Type Index and Docs
+name: Check and generate PURL Type Docs and Index
 
 on:
   push:
     paths:
       - "types/*.json"
+      - "schemas/*.json"
+      - "etc/"
     branches:
       - main
   workflow_dispatch:
@@ -22,15 +24,18 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: pip install jsonschema
+        run: make conf
 
-      - name: Generate index.json and docs
-        run: python .github/scripts/generate_index_and_docs.py
+      - name: Validate code and data formats
+        run: make check
+
+      - name: Generate index and docs
+        run: make gendocs
 
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add types/index.json types/docs/
-          git commit -m "Auto-generate index.json and documentation" || echo "No changes to commit"
+          git add types/ types-doc/
+          git commit -s -m "Generate updated PURL type documentation" || echo "No changes to commit"
           git push

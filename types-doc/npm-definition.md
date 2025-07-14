@@ -1,58 +1,41 @@
-> NOTE: This file was auto-generated from the canonical JSON definition. Do not manually edit this file. Changes should be made in the corresponding JSON definition.
+<!--  NOTE: Auto-generated from the JSON PURL type definition.
+Do not manually edit this file. Edit the JSON type definition instead. -->
 
 # PURL Type Definition: npm
 
-**Name:** Node Package Manager (NPM)
-
-**Description:** PURL type for Node.js packages managed by NPM.
-
-**Schema ID:** `https://purl-spec.org/types/npm.json`
+- **Type Name:** Node Package Manager (npm)
+- **Description:** PURL type for npm packages.
+- **Schema ID:** `https://packageurl.org/types/npm-definition.json`
 
 ## PURL Syntax
 
 The structure of a PURL for this package type is:
 
-```
-pkg:npm/<namespace>/<name>@<version>#<subpath>
-```
+    pkg:npm/<namespace>/<name>@<version>?<qualifiers>#<subpath>
 
-## Namespace
+## Namespace definition
 
 - **Requirement:** Optional
-- **Allowed Characters:** `^[a-z0-9-]+$`
-- **Case Sensitivity:** case-sensitive
-- **Normalization:** lowercase
 - **Native Label:** scope
 
-## Name
+## Name definition
 
-- **Requirement:** Required
-- **Allowed Characters:** `^[a-z0-9-]+$`
-- **Case Sensitivity:** case-sensitive
-- **Normalization:** lowercase
 - **Native Label:** name
 
-## Version
+## Version definition
 
-- **Requirement:** Optional
-- **Allowed Characters:** `^[0-9a-zA-Z.-]+$`
+- **Case Sensitive:** Yes
 - **Native Label:** version
-
-## Subpath
-
-- **Requirement:** Optional
-- **Description:** A file or directory path within the package.
 
 ## Repository Information
 
-- **Uses Repository:** Yes
-- **Default Repository:** NPM Registry
-  - **URL:** https://registry.npmjs.org/
-  - **Description:** The official NPM package repository.
+- **Use Repository:** Yes
+- **Default Repository Name:** npm Registry
+- **Default Repository URL:** https://registry.npmjs.org/
+- **Description:** The official npm package repository.
 
 ## Examples
 
 - `pkg:npm/foobar@12.3.1`
 - `pkg:npm/%40angular/animation@12.3.1`
 - `pkg:npm/mypackage@12.4.5?vcs_url=git://host.com/path/to/repo.git%404345abcd34343`
-

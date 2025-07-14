@@ -48,7 +48,7 @@ checkjson:
 	@echo "-> Validate JSON schemas"
 	@${ACTIVATE} check-jsonschema --check-metaschema --verbose schemas/*.json
 	@echo "-> Validate JSON data files against the schemas"
-	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-types-index.schema.json --verbose types/index.json
+	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-types-index.schema.json --verbose types/purl-types-index.json
 	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-type-definition.schema.json --verbose types/*-definition.json
 #	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-test.schema.json --verbose types/*-test.json *-test.json
 

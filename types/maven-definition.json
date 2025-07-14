@@ -27,7 +27,7 @@
     {
       "key": "type",
       "requirement": "optional",
-      "description": "The maven 'type' as defined in the POM documentation. Maven uses a concept called packaging which does not map directly 1:1 to a file extension. In this use case, we need to construct a link to one of many possible artifacts. Maven itself uses type in a dependency declaration when needed to disambiguate between them.",
+      "description": "The maven `type` as defined in the POM documentation. Maven uses a concept called packaging which does not map directly 1:1 to a file extension. In this use case, we need to construct a link to one of many possible artifacts. Maven itself uses type in a dependency declaration when needed to disambiguate between them.",
       "native_name": "type",
       "default_value": "jar"
     }
@@ -35,7 +35,7 @@
   "repository": {
     "use_repository": true,
     "name": "Maven Central",
-    "description": "The central repository for Apache Maven packages. This repository is also available at https://repo1.maven.org/maven2/",
+    "description": "The central repository for Apache Maven packages. This repository is also mirrored at https://repo1.maven.org/maven2/. Use the standard `repository_url` qualifier to point to another repository",
     "url": "https://repo.maven.apache.org/maven2/"
   },
   "examples": [
