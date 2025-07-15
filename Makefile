@@ -67,7 +67,7 @@ clean:
 	rm -rf .venv/
 	find . -type f -name '*.py[co]' -delete
 
-gencode: checkjson
+gencode:
 	@echo "-> Generate Python code from schemas"
 	@${ACTIVATE} ${CODEGEN} \
 	    --input schemas/purl-types-index.schema.json \
