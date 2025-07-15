@@ -588,5 +588,420 @@
     "expected_output": null,
     "expected_failure": true,
     "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+  },
+  {
+    "description": "Parse test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1",
+    "expected_output": {
+      "type": {
+        "type": "maven",
+        "namespace": "org.apache.xmlgraphics",
+        "name": "batik-anim",
+        "version": "1.9.1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Rountrip test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1",
+    "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Build test  for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": {
+        "type": "maven",
+        "namespace": "org.apache.xmlgraphics",
+        "name": "batik-anim",
+        "version": "1.9.1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Parse test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=pom",
+    "expected_output": {
+      "type": {
+        "type": "maven",
+        "namespace": "org.apache.xmlgraphics",
+        "name": "batik-anim",
+        "version": "1.9.1",
+        "qualifiers": {
+          "type": "pom"
+        },
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Rountrip test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=pom",
+    "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=pom",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Build test  for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": {
+        "type": "maven",
+        "namespace": "org.apache.xmlgraphics",
+        "name": "batik-anim",
+        "version": "1.9.1",
+        "qualifiers": {
+          "type": "pom"
+        },
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=pom",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Parse test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources",
+    "expected_output": {
+      "type": {
+        "type": "maven",
+        "namespace": "org.apache.xmlgraphics",
+        "name": "batik-anim",
+        "version": "1.9.1",
+        "qualifiers": {
+          "classifier": "sources"
+        },
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Rountrip test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources",
+    "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Build test  for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": {
+        "type": "maven",
+        "namespace": "org.apache.xmlgraphics",
+        "name": "batik-anim",
+        "version": "1.9.1",
+        "qualifiers": {
+          "classifier": "sources"
+        },
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Parse test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=zip&classifier=dist",
+    "expected_output": {
+      "type": {
+        "type": "maven",
+        "namespace": "org.apache.xmlgraphics",
+        "name": "batik-anim",
+        "version": "1.9.1",
+        "qualifiers": {
+          "classifier": "dist",
+          "type": "zip"
+        },
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Rountrip test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=zip&classifier=dist",
+    "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=zip&classifier=dist",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Build test  for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": {
+        "type": "maven",
+        "namespace": "org.apache.xmlgraphics",
+        "name": "batik-anim",
+        "version": "1.9.1",
+        "qualifiers": {
+          "classifier": "dist",
+          "type": "zip"
+        },
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=zip&classifier=dist",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Parse test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x86&type=dll",
+    "expected_output": {
+      "type": {
+        "type": "maven",
+        "namespace": "net.sf.jacob-projec",
+        "name": "jacob",
+        "version": "1.14.3",
+        "qualifiers": {
+          "classifier": "x86",
+          "type": "dll"
+        },
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Rountrip test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x86&type=dll",
+    "expected_output": "pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x86&type=dll",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Build test  for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": {
+        "type": "maven",
+        "namespace": "net.sf.jacob-projec",
+        "name": "jacob",
+        "version": "1.14.3",
+        "qualifiers": {
+          "classifier": "x86",
+          "type": "dll"
+        },
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x86&type=dll",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Parse test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x64&type=dll",
+    "expected_output": {
+      "type": {
+        "type": "maven",
+        "namespace": "net.sf.jacob-projec",
+        "name": "jacob",
+        "version": "1.14.3",
+        "qualifiers": {
+          "classifier": "x64",
+          "type": "dll"
+        },
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Rountrip test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x64&type=dll",
+    "expected_output": "pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x64&type=dll",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Build test  for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": {
+        "type": "maven",
+        "namespace": "net.sf.jacob-projec",
+        "name": "jacob",
+        "version": "1.14.3",
+        "qualifiers": {
+          "classifier": "x64",
+          "type": "dll"
+        },
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x64&type=dll",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Parse test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:maven/groovy/groovy@1.0?repository_url=https://maven.google.com",
+    "expected_output": {
+      "type": {
+        "type": "maven",
+        "namespace": "groovy",
+        "name": "groovy",
+        "version": "1.0",
+        "qualifiers": {
+          "repository_url": "https://maven.google.com"
+        },
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Rountrip test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:maven/groovy/groovy@1.0?repository_url=https://maven.google.com",
+    "expected_output": "pkg:maven/groovy/groovy@1.0?repository_url=https://maven.google.com",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Build test  for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": {
+        "type": "maven",
+        "namespace": "groovy",
+        "name": "groovy",
+        "version": "1.0",
+        "qualifiers": {
+          "repository_url": "https://maven.google.com"
+        },
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:maven/groovy/groovy@1.0?repository_url=https://maven.google.com",
+    "expected_failure": false,
+    "expected_failure_reason": null
   }
 ]

@@ -193,11 +193,29 @@ def convert_tests(test_dir: Path):
         test_file.write_text(json.dumps(new_tests, indent=2))
 
 
+def add_headers(test_dir: Path):
+    """Read leagcy test JSON file and write updated test file in new format"""
+
+    for test_file in test_dir.glob("*.json"):
+        try:
+            tests_data = json.loads(test_file.read_text())
+        except Exception as e:
+            raise Exception(test_file) from e
+
+        with_header = {
+            "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+            "tests": tests_data,
+        }
+        test_file.write_text(json.dumps(with_header, indent=2))
+
+
 def convert_examples(def_dir: Path, test_dir: Path):
     """Read PURL type definition JSON file and write updated test file in new format"""
 
     # mapping of test data by type
     ex_tests_by_type = defaultdict(list)
+
+    print("Build tests from examples on", def_dir, "to", test_dir)
 
     # build tests from examples
     for def_file in def_dir.glob("*-definition.json"):
@@ -243,7 +261,12 @@ if __name__ == "__main__":
     if what == "convert":
         test_dir = sys.argv[2]
         convert_tests(Path(test_dir))
-    elif what == "examples":
+    elif what == "headers":
         test_dir = sys.argv[2]
+        add_headers(test_dir=Path(test_dir))
+    elif what == "examples":
         def_dir = sys.argv[3]
-        convert_example(Path(test_dir, def_dir))
+        test_dir = sys.argv[2]
+        convert_examples(def_dir=Path(def_dir), test_dir=Path(test_dir))
+    else:
+        raise Exception(f"Unknown arguments: {sys.argv!r}")

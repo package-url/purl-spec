@@ -1,65 +1,15 @@
 [
   {
-    "description": "pypi names have special rules and not case sensitive. Rountrip an input purl to canonical.",
-    "test_group": "advanced",
-    "test_type": "roundtrip",
-    "input": "pkg:PYPI/Django_package@1.11.1.dev1",
-    "expected_output": "pkg:pypi/django-package@1.11.1.dev1",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "pypi names have special rules and not case sensitive",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:PYPI/Django_package@1.11.1.dev1",
-    "expected_output": {
-      "type": "pypi",
-      "namespace": null,
-      "name": "django-package",
-      "version": "1.11.1.dev1",
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "pypi names have special rules and not case sensitive. Rountrip a canonical input to canonical output.",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:pypi/django-package@1.11.1.dev1",
-    "expected_output": "pkg:pypi/django-package@1.11.1.dev1",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "pypi names have special rules and not case sensitive",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": "pypi",
-      "namespace": null,
-      "name": "django-package",
-      "version": "1.11.1.dev1",
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_output": "pkg:pypi/django-package@1.11.1.dev1",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
     "description": "Parse test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "parse",
-    "input": "pkg:pypi/django@1.11.1",
+    "input": "pkg:hex/jason@1.1.2",
     "expected_output": {
       "type": {
-        "type": "pypi",
+        "type": "hex",
         "namespace": null,
-        "name": "django",
-        "version": "1.11.1",
+        "name": "jason",
+        "version": "1.1.2",
         "qualifiers": null,
         "subpath": null
       },
@@ -76,8 +26,8 @@
     "description": "Rountrip test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "roundtrip",
-    "input": "pkg:pypi/django@1.11.1",
-    "expected_output": "pkg:pypi/django@1.11.1",
+    "input": "pkg:hex/jason@1.1.2",
+    "expected_output": "pkg:hex/jason@1.1.2",
     "expected_failure": false,
     "expected_failure_reason": null
   },
@@ -87,10 +37,10 @@
     "test_type": "build",
     "input": {
       "type": {
-        "type": "pypi",
+        "type": "hex",
         "namespace": null,
-        "name": "django",
-        "version": "1.11.1",
+        "name": "jason",
+        "version": "1.1.2",
         "qualifiers": null,
         "subpath": null
       },
@@ -100,7 +50,7 @@
       "qualifiers": null,
       "subpath": null
     },
-    "expected_output": "pkg:pypi/django@1.11.1",
+    "expected_output": "pkg:hex/jason@1.1.2",
     "expected_failure": false,
     "expected_failure_reason": null
   },
@@ -108,131 +58,13 @@
     "description": "Parse test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "parse",
-    "input": "pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz",
+    "input": "pkg:hex/acme/foo@2.3.",
     "expected_output": {
       "type": {
-        "type": "pypi",
-        "namespace": null,
-        "name": "django",
-        "version": "1.11.1",
-        "qualifiers": {
-          "filename": "Django-1.11.1.tar.gz"
-        },
-        "subpath": null
-      },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz",
-    "expected_output": "pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
-        "type": "pypi",
-        "namespace": null,
-        "name": "django",
-        "version": "1.11.1",
-        "qualifiers": {
-          "filename": "Django-1.11.1.tar.gz"
-        },
-        "subpath": null
-      },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_output": "pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl",
-    "expected_output": {
-      "type": {
-        "type": "pypi",
-        "namespace": null,
-        "name": "django",
-        "version": "1.11.1",
-        "qualifiers": {
-          "filename": "Django-1.11.1-py2.py3-none-any.whl"
-        },
-        "subpath": null
-      },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl",
-    "expected_output": "pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
-        "type": "pypi",
-        "namespace": null,
-        "name": "django",
-        "version": "1.11.1",
-        "qualifiers": {
-          "filename": "Django-1.11.1-py2.py3-none-any.whl"
-        },
-        "subpath": null
-      },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_output": "pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:pypi/django-allauth@12.23",
-    "expected_output": {
-      "type": {
-        "type": "pypi",
-        "namespace": null,
-        "name": "django-allauth",
-        "version": "12.23",
+        "type": "hex",
+        "namespace": "acme",
+        "name": "foo",
+        "version": "2.3.",
         "qualifiers": null,
         "subpath": null
       },
@@ -249,8 +81,8 @@
     "description": "Rountrip test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "roundtrip",
-    "input": "pkg:pypi/django-allauth@12.23",
-    "expected_output": "pkg:pypi/django-allauth@12.23",
+    "input": "pkg:hex/acme/foo@2.3.",
+    "expected_output": "pkg:hex/acme/foo@2.3.",
     "expected_failure": false,
     "expected_failure_reason": null
   },
@@ -260,10 +92,10 @@
     "test_type": "build",
     "input": {
       "type": {
-        "type": "pypi",
-        "namespace": null,
-        "name": "django-allauth",
-        "version": "12.23",
+        "type": "hex",
+        "namespace": "acme",
+        "name": "foo",
+        "version": "2.3.",
         "qualifiers": null,
         "subpath": null
       },
@@ -273,7 +105,121 @@
       "qualifiers": null,
       "subpath": null
     },
-    "expected_output": "pkg:pypi/django-allauth@12.23",
+    "expected_output": "pkg:hex/acme/foo@2.3.",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Parse test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js",
+    "expected_output": {
+      "type": {
+        "type": "hex",
+        "namespace": null,
+        "name": "phoenix_html",
+        "version": "2.13.3",
+        "qualifiers": null,
+        "subpath": "priv/static/phoenix_html.js"
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Rountrip test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js",
+    "expected_output": "pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Build test  for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": {
+        "type": "hex",
+        "namespace": null,
+        "name": "phoenix_html",
+        "version": "2.13.3",
+        "qualifiers": null,
+        "subpath": "priv/static/phoenix_html.js"
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Parse test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com",
+    "expected_output": {
+      "type": {
+        "type": "hex",
+        "namespace": null,
+        "name": "bar",
+        "version": "1.2.3",
+        "qualifiers": {
+          "repository_url": "https://myrepo.example.com"
+        },
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Rountrip test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com",
+    "expected_output": "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Build test  for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": {
+        "type": "hex",
+        "namespace": null,
+        "name": "bar",
+        "version": "1.2.3",
+        "qualifiers": {
+          "repository_url": "https://myrepo.example.com"
+        },
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com",
     "expected_failure": false,
     "expected_failure_reason": null
   }

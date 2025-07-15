@@ -1,122 +1,17 @@
 [
   {
-    "description": "pypi names have special rules and not case sensitive. Rountrip an input purl to canonical.",
-    "test_group": "advanced",
-    "test_type": "roundtrip",
-    "input": "pkg:PYPI/Django_package@1.11.1.dev1",
-    "expected_output": "pkg:pypi/django-package@1.11.1.dev1",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "pypi names have special rules and not case sensitive",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:PYPI/Django_package@1.11.1.dev1",
-    "expected_output": {
-      "type": "pypi",
-      "namespace": null,
-      "name": "django-package",
-      "version": "1.11.1.dev1",
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "pypi names have special rules and not case sensitive. Rountrip a canonical input to canonical output.",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:pypi/django-package@1.11.1.dev1",
-    "expected_output": "pkg:pypi/django-package@1.11.1.dev1",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "pypi names have special rules and not case sensitive",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": "pypi",
-      "namespace": null,
-      "name": "django-package",
-      "version": "1.11.1.dev1",
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_output": "pkg:pypi/django-package@1.11.1.dev1",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
     "description": "Parse test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "parse",
-    "input": "pkg:pypi/django@1.11.1",
+    "input": "pkg:bitnami/wordpress?distro=debian-12",
     "expected_output": {
       "type": {
-        "type": "pypi",
+        "type": "bitnami",
         "namespace": null,
-        "name": "django",
-        "version": "1.11.1",
-        "qualifiers": null,
-        "subpath": null
-      },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:pypi/django@1.11.1",
-    "expected_output": "pkg:pypi/django@1.11.1",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
-        "type": "pypi",
-        "namespace": null,
-        "name": "django",
-        "version": "1.11.1",
-        "qualifiers": null,
-        "subpath": null
-      },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_output": "pkg:pypi/django@1.11.1",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz",
-    "expected_output": {
-      "type": {
-        "type": "pypi",
-        "namespace": null,
-        "name": "django",
-        "version": "1.11.1",
+        "name": "wordpress",
+        "version": null,
         "qualifiers": {
-          "filename": "Django-1.11.1.tar.gz"
+          "distro": "debian-12"
         },
         "subpath": null
       },
@@ -133,8 +28,8 @@
     "description": "Rountrip test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "roundtrip",
-    "input": "pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz",
-    "expected_output": "pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz",
+    "input": "pkg:bitnami/wordpress?distro=debian-12",
+    "expected_output": "pkg:bitnami/wordpress?distro=debian-12",
     "expected_failure": false,
     "expected_failure_reason": null
   },
@@ -144,12 +39,12 @@
     "test_type": "build",
     "input": {
       "type": {
-        "type": "pypi",
+        "type": "bitnami",
         "namespace": null,
-        "name": "django",
-        "version": "1.11.1",
+        "name": "wordpress",
+        "version": null,
         "qualifiers": {
-          "filename": "Django-1.11.1.tar.gz"
+          "distro": "debian-12"
         },
         "subpath": null
       },
@@ -159,7 +54,7 @@
       "qualifiers": null,
       "subpath": null
     },
-    "expected_output": "pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz",
+    "expected_output": "pkg:bitnami/wordpress?distro=debian-12",
     "expected_failure": false,
     "expected_failure_reason": null
   },
@@ -167,15 +62,15 @@
     "description": "Parse test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "parse",
-    "input": "pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl",
+    "input": "pkg:bitnami/wordpress@6.2.0?distro=debian-12",
     "expected_output": {
       "type": {
-        "type": "pypi",
+        "type": "bitnami",
         "namespace": null,
-        "name": "django",
-        "version": "1.11.1",
+        "name": "wordpress",
+        "version": "6.2.0",
         "qualifiers": {
-          "filename": "Django-1.11.1-py2.py3-none-any.whl"
+          "distro": "debian-12"
         },
         "subpath": null
       },
@@ -192,8 +87,8 @@
     "description": "Rountrip test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "roundtrip",
-    "input": "pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl",
-    "expected_output": "pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl",
+    "input": "pkg:bitnami/wordpress@6.2.0?distro=debian-12",
+    "expected_output": "pkg:bitnami/wordpress@6.2.0?distro=debian-12",
     "expected_failure": false,
     "expected_failure_reason": null
   },
@@ -203,12 +98,12 @@
     "test_type": "build",
     "input": {
       "type": {
-        "type": "pypi",
+        "type": "bitnami",
         "namespace": null,
-        "name": "django",
-        "version": "1.11.1",
+        "name": "wordpress",
+        "version": "6.2.0",
         "qualifiers": {
-          "filename": "Django-1.11.1-py2.py3-none-any.whl"
+          "distro": "debian-12"
         },
         "subpath": null
       },
@@ -218,7 +113,7 @@
       "qualifiers": null,
       "subpath": null
     },
-    "expected_output": "pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl",
+    "expected_output": "pkg:bitnami/wordpress@6.2.0?distro=debian-12",
     "expected_failure": false,
     "expected_failure_reason": null
   },
@@ -226,14 +121,17 @@
     "description": "Parse test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "parse",
-    "input": "pkg:pypi/django-allauth@12.23",
+    "input": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12",
     "expected_output": {
       "type": {
-        "type": "pypi",
+        "type": "bitnami",
         "namespace": null,
-        "name": "django-allauth",
-        "version": "12.23",
-        "qualifiers": null,
+        "name": "wordpress",
+        "version": "6.2.0",
+        "qualifiers": {
+          "arch": "arm64",
+          "distro": "debian-12"
+        },
         "subpath": null
       },
       "namespace": null,
@@ -249,8 +147,8 @@
     "description": "Rountrip test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "roundtrip",
-    "input": "pkg:pypi/django-allauth@12.23",
-    "expected_output": "pkg:pypi/django-allauth@12.23",
+    "input": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12",
+    "expected_output": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12",
     "expected_failure": false,
     "expected_failure_reason": null
   },
@@ -260,11 +158,14 @@
     "test_type": "build",
     "input": {
       "type": {
-        "type": "pypi",
+        "type": "bitnami",
         "namespace": null,
-        "name": "django-allauth",
-        "version": "12.23",
-        "qualifiers": null,
+        "name": "wordpress",
+        "version": "6.2.0",
+        "qualifiers": {
+          "arch": "arm64",
+          "distro": "debian-12"
+        },
         "subpath": null
       },
       "namespace": null,
@@ -273,7 +174,68 @@
       "qualifiers": null,
       "subpath": null
     },
-    "expected_output": "pkg:pypi/django-allauth@12.23",
+    "expected_output": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Parse test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4",
+    "expected_output": {
+      "type": {
+        "type": "bitnami",
+        "namespace": null,
+        "name": "wordpress",
+        "version": "6.2.0",
+        "qualifiers": {
+          "arch": "arm64",
+          "distro": "photon-4"
+        },
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Rountrip test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4",
+    "expected_output": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Build test  for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": {
+        "type": "bitnami",
+        "namespace": null,
+        "name": "wordpress",
+        "version": "6.2.0",
+        "qualifiers": {
+          "arch": "arm64",
+          "distro": "photon-4"
+        },
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4",
     "expected_failure": false,
     "expected_failure_reason": null
   }

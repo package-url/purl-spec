@@ -1,65 +1,15 @@
 [
   {
-    "description": "github namespace and name should be lowercased. Rountrip an input purl to canonical.",
-    "test_group": "advanced",
-    "test_type": "roundtrip",
-    "input": "pkg:github/Package-url/purl-Spec@244fd47e07d1004f0aed9c",
-    "expected_output": "pkg:github/package-url/purl-spec@244fd47e07d1004f0aed9c",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "github namespace and name should be lowercased",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:github/Package-url/purl-Spec@244fd47e07d1004f0aed9c",
-    "expected_output": {
-      "type": "github",
-      "namespace": "package-url",
-      "name": "purl-spec",
-      "version": "244fd47e07d1004f0aed9c",
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "github namespace and name should be lowercased. Rountrip a canonical input to canonical output.",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:github/package-url/purl-spec@244fd47e07d1004f0aed9c",
-    "expected_output": "pkg:github/package-url/purl-spec@244fd47e07d1004f0aed9c",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "github namespace and name should be lowercased",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": "github",
-      "namespace": "package-url",
-      "name": "purl-spec",
-      "version": "244fd47e07d1004f0aed9c",
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_output": "pkg:github/package-url/purl-spec@244fd47e07d1004f0aed9c",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
     "description": "Parse test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "parse",
-    "input": "pkg:github/package-url/purl-spec@244fd47e07d1004",
+    "input": "pkg:cargo/rand@0.7.2",
     "expected_output": {
       "type": {
-        "type": "github",
-        "namespace": "package-url",
-        "name": "purl-spec",
-        "version": "244fd47e07d1004",
+        "type": "cargo",
+        "namespace": null,
+        "name": "rand",
+        "version": "0.7.2",
         "qualifiers": null,
         "subpath": null
       },
@@ -76,8 +26,8 @@
     "description": "Rountrip test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "roundtrip",
-    "input": "pkg:github/package-url/purl-spec@244fd47e07d1004",
-    "expected_output": "pkg:github/package-url/purl-spec@244fd47e07d1004",
+    "input": "pkg:cargo/rand@0.7.2",
+    "expected_output": "pkg:cargo/rand@0.7.2",
     "expected_failure": false,
     "expected_failure_reason": null
   },
@@ -87,10 +37,10 @@
     "test_type": "build",
     "input": {
       "type": {
-        "type": "github",
-        "namespace": "package-url",
-        "name": "purl-spec",
-        "version": "244fd47e07d1004",
+        "type": "cargo",
+        "namespace": null,
+        "name": "rand",
+        "version": "0.7.2",
         "qualifiers": null,
         "subpath": null
       },
@@ -100,7 +50,7 @@
       "qualifiers": null,
       "subpath": null
     },
-    "expected_output": "pkg:github/package-url/purl-spec@244fd47e07d1004",
+    "expected_output": "pkg:cargo/rand@0.7.2",
     "expected_failure": false,
     "expected_failure_reason": null
   },
@@ -108,15 +58,15 @@
     "description": "Parse test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "parse",
-    "input": "pkg:github/package-url/purl-spec@244fd47e07d1004#everybody/loves/dogs",
+    "input": "pkg:cargo/clap@2.33.0",
     "expected_output": {
       "type": {
-        "type": "github",
-        "namespace": "package-url",
-        "name": "purl-spec",
-        "version": "244fd47e07d1004",
+        "type": "cargo",
+        "namespace": null,
+        "name": "clap",
+        "version": "2.33.0",
         "qualifiers": null,
-        "subpath": "everybody/loves/dogs"
+        "subpath": null
       },
       "namespace": null,
       "name": null,
@@ -131,8 +81,8 @@
     "description": "Rountrip test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "roundtrip",
-    "input": "pkg:github/package-url/purl-spec@244fd47e07d1004#everybody/loves/dogs",
-    "expected_output": "pkg:github/package-url/purl-spec@244fd47e07d1004#everybody/loves/dogs",
+    "input": "pkg:cargo/clap@2.33.0",
+    "expected_output": "pkg:cargo/clap@2.33.0",
     "expected_failure": false,
     "expected_failure_reason": null
   },
@@ -142,12 +92,12 @@
     "test_type": "build",
     "input": {
       "type": {
-        "type": "github",
-        "namespace": "package-url",
-        "name": "purl-spec",
-        "version": "244fd47e07d1004",
+        "type": "cargo",
+        "namespace": null,
+        "name": "clap",
+        "version": "2.33.0",
         "qualifiers": null,
-        "subpath": "everybody/loves/dogs"
+        "subpath": null
       },
       "namespace": null,
       "name": null,
@@ -155,7 +105,62 @@
       "qualifiers": null,
       "subpath": null
     },
-    "expected_output": "pkg:github/package-url/purl-spec@244fd47e07d1004#everybody/loves/dogs",
+    "expected_output": "pkg:cargo/clap@2.33.0",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Parse test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:cargo/structopt@0.3.11",
+    "expected_output": {
+      "type": {
+        "type": "cargo",
+        "namespace": null,
+        "name": "structopt",
+        "version": "0.3.11",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Rountrip test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:cargo/structopt@0.3.11",
+    "expected_output": "pkg:cargo/structopt@0.3.11",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Build test  for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": {
+        "type": "cargo",
+        "namespace": null,
+        "name": "structopt",
+        "version": "0.3.11",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:cargo/structopt@0.3.11",
     "expected_failure": false,
     "expected_failure_reason": null
   }

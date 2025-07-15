@@ -1,122 +1,19 @@
 [
   {
-    "description": "pypi names have special rules and not case sensitive. Rountrip an input purl to canonical.",
-    "test_group": "advanced",
-    "test_type": "roundtrip",
-    "input": "pkg:PYPI/Django_package@1.11.1.dev1",
-    "expected_output": "pkg:pypi/django-package@1.11.1.dev1",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "pypi names have special rules and not case sensitive",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:PYPI/Django_package@1.11.1.dev1",
-    "expected_output": {
-      "type": "pypi",
-      "namespace": null,
-      "name": "django-package",
-      "version": "1.11.1.dev1",
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "pypi names have special rules and not case sensitive. Rountrip a canonical input to canonical output.",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:pypi/django-package@1.11.1.dev1",
-    "expected_output": "pkg:pypi/django-package@1.11.1.dev1",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "pypi names have special rules and not case sensitive",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": "pypi",
-      "namespace": null,
-      "name": "django-package",
-      "version": "1.11.1.dev1",
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_output": "pkg:pypi/django-package@1.11.1.dev1",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
     "description": "Parse test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "parse",
-    "input": "pkg:pypi/django@1.11.1",
+    "input": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=docker.io/library/debian&arch=amd64&tag=latest",
     "expected_output": {
       "type": {
-        "type": "pypi",
+        "type": "oci",
         "namespace": null,
-        "name": "django",
-        "version": "1.11.1",
-        "qualifiers": null,
-        "subpath": null
-      },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:pypi/django@1.11.1",
-    "expected_output": "pkg:pypi/django@1.11.1",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
-        "type": "pypi",
-        "namespace": null,
-        "name": "django",
-        "version": "1.11.1",
-        "qualifiers": null,
-        "subpath": null
-      },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_output": "pkg:pypi/django@1.11.1",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz",
-    "expected_output": {
-      "type": {
-        "type": "pypi",
-        "namespace": null,
-        "name": "django",
-        "version": "1.11.1",
+        "name": "debian",
+        "version": "sha256:244fd47e07d10",
         "qualifiers": {
-          "filename": "Django-1.11.1.tar.gz"
+          "arch": "amd64",
+          "repository_url": "docker.io/library/debian",
+          "tag": "latest"
         },
         "subpath": null
       },
@@ -133,8 +30,8 @@
     "description": "Rountrip test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "roundtrip",
-    "input": "pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz",
-    "expected_output": "pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz",
+    "input": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=docker.io/library/debian&arch=amd64&tag=latest",
+    "expected_output": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=docker.io/library/debian&arch=amd64&tag=latest",
     "expected_failure": false,
     "expected_failure_reason": null
   },
@@ -144,12 +41,14 @@
     "test_type": "build",
     "input": {
       "type": {
-        "type": "pypi",
+        "type": "oci",
         "namespace": null,
-        "name": "django",
-        "version": "1.11.1",
+        "name": "debian",
+        "version": "sha256:244fd47e07d10",
         "qualifiers": {
-          "filename": "Django-1.11.1.tar.gz"
+          "arch": "amd64",
+          "repository_url": "docker.io/library/debian",
+          "tag": "latest"
         },
         "subpath": null
       },
@@ -159,7 +58,7 @@
       "qualifiers": null,
       "subpath": null
     },
-    "expected_output": "pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz",
+    "expected_output": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=docker.io/library/debian&arch=amd64&tag=latest",
     "expected_failure": false,
     "expected_failure_reason": null
   },
@@ -167,15 +66,16 @@
     "description": "Parse test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "parse",
-    "input": "pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl",
+    "input": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=ghcr.io/debian&tag=bullseye",
     "expected_output": {
       "type": {
-        "type": "pypi",
+        "type": "oci",
         "namespace": null,
-        "name": "django",
-        "version": "1.11.1",
+        "name": "debian",
+        "version": "sha256:244fd47e07d10",
         "qualifiers": {
-          "filename": "Django-1.11.1-py2.py3-none-any.whl"
+          "repository_url": "ghcr.io/debian",
+          "tag": "bullseye"
         },
         "subpath": null
       },
@@ -192,8 +92,8 @@
     "description": "Rountrip test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "roundtrip",
-    "input": "pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl",
-    "expected_output": "pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl",
+    "input": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=ghcr.io/debian&tag=bullseye",
+    "expected_output": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=ghcr.io/debian&tag=bullseye",
     "expected_failure": false,
     "expected_failure_reason": null
   },
@@ -203,12 +103,13 @@
     "test_type": "build",
     "input": {
       "type": {
-        "type": "pypi",
+        "type": "oci",
         "namespace": null,
-        "name": "django",
-        "version": "1.11.1",
+        "name": "debian",
+        "version": "sha256:244fd47e07d10",
         "qualifiers": {
-          "filename": "Django-1.11.1-py2.py3-none-any.whl"
+          "repository_url": "ghcr.io/debian",
+          "tag": "bullseye"
         },
         "subpath": null
       },
@@ -218,7 +119,7 @@
       "qualifiers": null,
       "subpath": null
     },
-    "expected_output": "pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl",
+    "expected_output": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=ghcr.io/debian&tag=bullseye",
     "expected_failure": false,
     "expected_failure_reason": null
   },
@@ -226,14 +127,17 @@
     "description": "Parse test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "parse",
-    "input": "pkg:pypi/django-allauth@12.23",
+    "input": "pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest",
     "expected_output": {
       "type": {
-        "type": "pypi",
+        "type": "oci",
         "namespace": null,
-        "name": "django-allauth",
-        "version": "12.23",
-        "qualifiers": null,
+        "name": "static",
+        "version": "sha256:244fd47e07d10",
+        "qualifiers": {
+          "repository_url": "gcr.io/distroless/static",
+          "tag": "latest"
+        },
         "subpath": null
       },
       "namespace": null,
@@ -249,8 +153,8 @@
     "description": "Rountrip test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "roundtrip",
-    "input": "pkg:pypi/django-allauth@12.23",
-    "expected_output": "pkg:pypi/django-allauth@12.23",
+    "input": "pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest",
+    "expected_output": "pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest",
     "expected_failure": false,
     "expected_failure_reason": null
   },
@@ -260,11 +164,14 @@
     "test_type": "build",
     "input": {
       "type": {
-        "type": "pypi",
+        "type": "oci",
         "namespace": null,
-        "name": "django-allauth",
-        "version": "12.23",
-        "qualifiers": null,
+        "name": "static",
+        "version": "sha256:244fd47e07d10",
+        "qualifiers": {
+          "repository_url": "gcr.io/distroless/static",
+          "tag": "latest"
+        },
         "subpath": null
       },
       "namespace": null,
@@ -273,7 +180,66 @@
       "qualifiers": null,
       "subpath": null
     },
-    "expected_output": "pkg:pypi/django-allauth@12.23",
+    "expected_output": "pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Parse test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:oci/hello-wasm@sha256%3A244fd47e07d10?tag=v1",
+    "expected_output": {
+      "type": {
+        "type": "oci",
+        "namespace": null,
+        "name": "hello-wasm",
+        "version": "sha256:244fd47e07d10",
+        "qualifiers": {
+          "tag": "v1"
+        },
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Rountrip test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:oci/hello-wasm@sha256%3A244fd47e07d10?tag=v1",
+    "expected_output": "pkg:oci/hello-wasm@sha256%3A244fd47e07d10?tag=v1",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Build test  for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": {
+        "type": "oci",
+        "namespace": null,
+        "name": "hello-wasm",
+        "version": "sha256:244fd47e07d10",
+        "qualifiers": {
+          "tag": "v1"
+        },
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:oci/hello-wasm@sha256%3A244fd47e07d10?tag=v1",
     "expected_failure": false,
     "expected_failure_reason": null
   }

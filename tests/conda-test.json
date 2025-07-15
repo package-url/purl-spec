@@ -58,5 +58,70 @@
     "expected_output": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
     "expected_failure": false,
     "expected_failure_reason": null
+  },
+  {
+    "description": "Parse test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
+    "expected_output": {
+      "type": {
+        "type": "conda",
+        "namespace": null,
+        "name": "absl-py",
+        "version": "0.4.1",
+        "qualifiers": {
+          "build": "py36h06a4308_0",
+          "channel": "main",
+          "subdir": "linux-64",
+          "type": "tar.bz2"
+        },
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Rountrip test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
+    "expected_output": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Build test  for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": {
+        "type": "conda",
+        "namespace": null,
+        "name": "absl-py",
+        "version": "0.4.1",
+        "qualifiers": {
+          "build": "py36h06a4308_0",
+          "channel": "main",
+          "subdir": "linux-64",
+          "type": "tar.bz2"
+        },
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
+    "expected_failure": false,
+    "expected_failure_reason": null
   }
 ]

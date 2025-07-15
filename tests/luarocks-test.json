@@ -1,69 +1,15 @@
 [
   {
-    "description": "Java gem can use a qualifier. Rountrip an input purl to canonical.",
-    "test_group": "advanced",
-    "test_type": "roundtrip",
-    "input": "pkg:gem/jruby-launcher@1.1.2?Platform=java",
-    "expected_output": "pkg:gem/jruby-launcher@1.1.2?platform=java",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Java gem can use a qualifier",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:gem/jruby-launcher@1.1.2?Platform=java",
-    "expected_output": {
-      "type": "gem",
-      "namespace": null,
-      "name": "jruby-launcher",
-      "version": "1.1.2",
-      "qualifiers": {
-        "platform": "java"
-      },
-      "subpath": null
-    },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Java gem can use a qualifier. Rountrip a canonical input to canonical output.",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:gem/jruby-launcher@1.1.2?platform=java",
-    "expected_output": "pkg:gem/jruby-launcher@1.1.2?platform=java",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Java gem can use a qualifier",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": "gem",
-      "namespace": null,
-      "name": "jruby-launcher",
-      "version": "1.1.2",
-      "qualifiers": {
-        "platform": "java"
-      },
-      "subpath": null
-    },
-    "expected_output": "pkg:gem/jruby-launcher@1.1.2?platform=java",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
     "description": "Parse test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "parse",
-    "input": "pkg:gem/ruby-advisory-db-check@0.12.4",
+    "input": "pkg:luarocks/luasocket@3.1.0-1",
     "expected_output": {
       "type": {
-        "type": "gem",
+        "type": "luarocks",
         "namespace": null,
-        "name": "ruby-advisory-db-check",
-        "version": "0.12.4",
+        "name": "luasocket",
+        "version": "3.1.0-1",
         "qualifiers": null,
         "subpath": null
       },
@@ -80,8 +26,8 @@
     "description": "Rountrip test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "roundtrip",
-    "input": "pkg:gem/ruby-advisory-db-check@0.12.4",
-    "expected_output": "pkg:gem/ruby-advisory-db-check@0.12.4",
+    "input": "pkg:luarocks/luasocket@3.1.0-1",
+    "expected_output": "pkg:luarocks/luasocket@3.1.0-1",
     "expected_failure": false,
     "expected_failure_reason": null
   },
@@ -91,10 +37,10 @@
     "test_type": "build",
     "input": {
       "type": {
-        "type": "gem",
+        "type": "luarocks",
         "namespace": null,
-        "name": "ruby-advisory-db-check",
-        "version": "0.12.4",
+        "name": "luasocket",
+        "version": "3.1.0-1",
         "qualifiers": null,
         "subpath": null
       },
@@ -104,7 +50,7 @@
       "qualifiers": null,
       "subpath": null
     },
-    "expected_output": "pkg:gem/ruby-advisory-db-check@0.12.4",
+    "expected_output": "pkg:luarocks/luasocket@3.1.0-1",
     "expected_failure": false,
     "expected_failure_reason": null
   },
@@ -112,15 +58,70 @@
     "description": "Parse test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "parse",
-    "input": "pkg:gem/jruby-launcher@1.1.2?platform=java",
+    "input": "pkg:luarocks/hisham/luafilesystem@1.8.0-1",
     "expected_output": {
       "type": {
-        "type": "gem",
-        "namespace": null,
-        "name": "jruby-launcher",
-        "version": "1.1.2",
+        "type": "luarocks",
+        "namespace": "hisham",
+        "name": "luafilesystem",
+        "version": "1.8.0-1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Rountrip test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:luarocks/hisham/luafilesystem@1.8.0-1",
+    "expected_output": "pkg:luarocks/hisham/luafilesystem@1.8.0-1",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Build test  for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": {
+        "type": "luarocks",
+        "namespace": "hisham",
+        "name": "luafilesystem",
+        "version": "1.8.0-1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:luarocks/hisham/luafilesystem@1.8.0-1",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Parse test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/",
+    "expected_output": {
+      "type": {
+        "type": "luarocks",
+        "namespace": "username",
+        "name": "packagename",
+        "version": "0.1.0-1",
         "qualifiers": {
-          "platform": "java"
+          "repository_url": "https://example.com/private_rocks_server/"
         },
         "subpath": null
       },
@@ -137,8 +138,8 @@
     "description": "Rountrip test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "roundtrip",
-    "input": "pkg:gem/jruby-launcher@1.1.2?platform=java",
-    "expected_output": "pkg:gem/jruby-launcher@1.1.2?platform=java",
+    "input": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/",
+    "expected_output": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/",
     "expected_failure": false,
     "expected_failure_reason": null
   },
@@ -148,12 +149,12 @@
     "test_type": "build",
     "input": {
       "type": {
-        "type": "gem",
-        "namespace": null,
-        "name": "jruby-launcher",
-        "version": "1.1.2",
+        "type": "luarocks",
+        "namespace": "username",
+        "name": "packagename",
+        "version": "0.1.0-1",
         "qualifiers": {
-          "platform": "java"
+          "repository_url": "https://example.com/private_rocks_server/"
         },
         "subpath": null
       },
@@ -163,7 +164,7 @@
       "qualifiers": null,
       "subpath": null
     },
-    "expected_output": "pkg:gem/jruby-launcher@1.1.2?platform=java",
+    "expected_output": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/",
     "expected_failure": false,
     "expected_failure_reason": null
   }

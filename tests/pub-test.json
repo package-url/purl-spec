@@ -1,65 +1,15 @@
 [
   {
-    "description": "composer names are not case sensitive. Rountrip an input purl to canonical.",
-    "test_group": "advanced",
-    "test_type": "roundtrip",
-    "input": "pkg:composer/Laravel/Laravel@5.5.0",
-    "expected_output": "pkg:composer/laravel/laravel@5.5.0",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "composer names are not case sensitive",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:composer/Laravel/Laravel@5.5.0",
-    "expected_output": {
-      "type": "composer",
-      "namespace": "laravel",
-      "name": "laravel",
-      "version": "5.5.0",
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "composer names are not case sensitive. Rountrip a canonical input to canonical output.",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:composer/laravel/laravel@5.5.0",
-    "expected_output": "pkg:composer/laravel/laravel@5.5.0",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "composer names are not case sensitive",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": "composer",
-      "namespace": "laravel",
-      "name": "laravel",
-      "version": "5.5.0",
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_output": "pkg:composer/laravel/laravel@5.5.0",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
     "description": "Parse test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "parse",
-    "input": "pkg:composer/laravel/laravel@5.5.0",
+    "input": "pkg:pub/characters@1.2.0",
     "expected_output": {
       "type": {
-        "type": "composer",
-        "namespace": "laravel",
-        "name": "laravel",
-        "version": "5.5.0",
+        "type": "pub",
+        "namespace": null,
+        "name": "characters",
+        "version": "1.2.0",
         "qualifiers": null,
         "subpath": null
       },
@@ -76,8 +26,8 @@
     "description": "Rountrip test for <class 'type'> PURL",
     "test_group": "base",
     "test_type": "roundtrip",
-    "input": "pkg:composer/laravel/laravel@5.5.0",
-    "expected_output": "pkg:composer/laravel/laravel@5.5.0",
+    "input": "pkg:pub/characters@1.2.0",
+    "expected_output": "pkg:pub/characters@1.2.0",
     "expected_failure": false,
     "expected_failure_reason": null
   },
@@ -87,10 +37,10 @@
     "test_type": "build",
     "input": {
       "type": {
-        "type": "composer",
-        "namespace": "laravel",
-        "name": "laravel",
-        "version": "5.5.0",
+        "type": "pub",
+        "namespace": null,
+        "name": "characters",
+        "version": "1.2.0",
         "qualifiers": null,
         "subpath": null
       },
@@ -100,7 +50,62 @@
       "qualifiers": null,
       "subpath": null
     },
-    "expected_output": "pkg:composer/laravel/laravel@5.5.0",
+    "expected_output": "pkg:pub/characters@1.2.0",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Parse test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:pub/flutter@0.0.0",
+    "expected_output": {
+      "type": {
+        "type": "pub",
+        "namespace": null,
+        "name": "flutter",
+        "version": "0.0.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Rountrip test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:pub/flutter@0.0.0",
+    "expected_output": "pkg:pub/flutter@0.0.0",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Build test  for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": {
+        "type": "pub",
+        "namespace": null,
+        "name": "flutter",
+        "version": "0.0.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:pub/flutter@0.0.0",
     "expected_failure": false,
     "expected_failure_reason": null
   }

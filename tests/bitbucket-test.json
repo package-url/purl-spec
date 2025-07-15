@@ -48,5 +48,60 @@
     "expected_output": "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
     "expected_failure": false,
     "expected_failure_reason": null
+  },
+  {
+    "description": "Parse test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
+    "expected_output": {
+      "type": {
+        "type": "bitbucket",
+        "namespace": "birkenfeld",
+        "name": "pygments-main",
+        "version": "244fd47e07d1014f0aed9c",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Rountrip test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
+    "expected_output": "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Build test  for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": {
+        "type": "bitbucket",
+        "namespace": "birkenfeld",
+        "name": "pygments-main",
+        "version": "244fd47e07d1014f0aed9c",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
+    "expected_failure": false,
+    "expected_failure_reason": null
   }
 ]

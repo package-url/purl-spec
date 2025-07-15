@@ -48,5 +48,60 @@
     "expected_output": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
     "expected_failure": false,
     "expected_failure_reason": null
+  },
+  {
+    "description": "Parse test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
+    "expected_output": {
+      "type": {
+        "type": "nuget",
+        "namespace": null,
+        "name": "EnterpriseLibrary.Common",
+        "version": "6.0.1304",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Rountrip test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
+    "expected_output": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Build test  for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": {
+        "type": "nuget",
+        "namespace": null,
+        "name": "EnterpriseLibrary.Common",
+        "version": "6.0.1304",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
+    "expected_failure": false,
+    "expected_failure_reason": null
   }
 ]

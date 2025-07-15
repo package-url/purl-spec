@@ -150,5 +150,115 @@
     "expected_output": null,
     "expected_failure": true,
     "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+  },
+  {
+    "description": "Parse test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:swift/github.com/Alamofire/Alamofire@5.4.3",
+    "expected_output": {
+      "type": {
+        "type": "swift",
+        "namespace": "github.com/Alamofire",
+        "name": "Alamofire",
+        "version": "5.4.3",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Rountrip test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:swift/github.com/Alamofire/Alamofire@5.4.3",
+    "expected_output": "pkg:swift/github.com/Alamofire/Alamofire@5.4.3",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Build test  for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": {
+        "type": "swift",
+        "namespace": "github.com/Alamofire",
+        "name": "Alamofire",
+        "version": "5.4.3",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:swift/github.com/Alamofire/Alamofire@5.4.3",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Parse test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:swift/github.com/RxSwiftCommunity/RxFlow@2.12.4",
+    "expected_output": {
+      "type": {
+        "type": "swift",
+        "namespace": "github.com/RxSwiftCommunity",
+        "name": "RxFlow",
+        "version": "2.12.4",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Rountrip test for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:swift/github.com/RxSwiftCommunity/RxFlow@2.12.4",
+    "expected_output": "pkg:swift/github.com/RxSwiftCommunity/RxFlow@2.12.4",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Build test  for <class 'type'> PURL",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": {
+        "type": "swift",
+        "namespace": "github.com/RxSwiftCommunity",
+        "name": "RxFlow",
+        "version": "2.12.4",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:swift/github.com/RxSwiftCommunity/RxFlow@2.12.4",
+    "expected_failure": false,
+    "expected_failure_reason": null
   }
 ]
