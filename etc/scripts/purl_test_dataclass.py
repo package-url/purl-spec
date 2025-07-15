@@ -21,8 +21,12 @@
 # Visit https://github.com/package-url/purl-spec and https://packageurl.org for support
 
 from __future__ import annotations
-from typing import Any, Literal, Optional, Union
+
 from dataclasses import dataclass
+from typing import Any
+from typing import Literal
+from typing import Optional
+from typing import Union
 
 
 @dataclass
@@ -49,7 +53,7 @@ class ParseTest:
     description: Description
     test_group: TestGroup
     test_type: str = "parse"
-    input: str =  None
+    input: str = None
     expected_output: Optional[PurlComponents] = None
     expected_failure: Optional[ExpectedFailure] = False
     expected_failure_reason: Optional[ExpectedFailureReason] = None
@@ -60,7 +64,7 @@ class RoundtripTest:
     description: Description
     test_group: TestGroup
     test_type: str = "roundtrip"
-    input: str =  None
+    input: str = None
     expected_output: Optional[str] = None
     expected_failure: Optional[ExpectedFailure] = False
     expected_failure_reason: Optional[ExpectedFailureReason] = None
