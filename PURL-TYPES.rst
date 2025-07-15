@@ -217,6 +217,11 @@ deb
   the ``distro`` qualifiers key or using a base url as a ``repository_url``
   qualifiers key.
 - The ``namespace`` is the "vendor" name such as "debian" or "ubuntu".
+
+  - Debian uses ``debian``
+  - Ubuntu uses ``ubuntu``
+  - Linux Mint uses ``linuxmint``
+
   It is not case sensitive and must be lowercased.
 - The ``name`` is not case sensitive and must be lowercased.
 - The ``version`` is the version of the binary (or source) package.
@@ -534,8 +539,21 @@ rpm
 - There is no default package repository: this should be implied either from
   the ``distro`` qualifiers key or using a repository base URL as
   ``repository_url`` qualifiers key.
-- The ``namespace`` is the vendor such as Fedora or OpenSUSE.
-  It is not case sensitive and must be lowercased.
+- The ``namespace`` is the vendor, it is not case sensitive and must be lowercased. 
+
+  - AmazonLinux uses ``amazonlinux``
+  - AzureLinux uses ``azurelinux``
+  - CBL-Mariner uses ``cbl-mariner``
+  - Fedora uses ``fedora``
+  - CentOS uses ``centos``
+  - Rocky Linux uses ``rockylinux``
+  - Red Hat Enterprise Linux uses ``redhat``
+  - AlmaLinux uses ``almalinux``
+  - OpenSUSE uses ``opensuse``
+  - SUSE Linux Enterprise products use ``suse`` 
+  - OracleLinux uses ``oraclelinux``
+  
+
 - The ``name`` is the RPM name and is case sensitive.
 - The ``version`` is the combined version and release of an RPM.
 - ``epoch`` (optional for RPMs) is a qualifier as it's not required for
@@ -545,8 +563,9 @@ rpm
 - Examples::
 
       pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
-      pkg:rpm/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25
-
+      pkg:rpm/rocky/acl@2.2.53-1.el8.1?arch=x86_64&distro=rocky-8.6&upstream=acl-2.2.53-1.el8.1.src.rpm
+      pkg:rpm/almalinux/acl@2.2.53-1.el8?arch=x86_64&distro=almalinux-8.4&upstream=acl-2.2.53-1.el8.src.rpm
+      pkg:rpm/redhat/acl@2.2.53-1.el8?arch=x86_64&distro=rhel-8.7&upstream=acl-2.2.53-1.el8.src.rpm
 swid
 -----
 ``swid`` for ISO-IEC 19770-2 Software Identification (SWID) tags:
