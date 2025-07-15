@@ -1,0 +1,45 @@
+[tool.ruff]
+line-length = 100
+extend-exclude = []
+target-version = "py310"
+include = [
+  "pyproject.toml",
+  "etc/**/*.py",
+]
+
+
+[tool.ruff.lint]
+# Rules: https://docs.astral.sh/ruff/rules/
+select = [
+    "E",  # pycodestyle
+    "W",  # pycodestyle warnings
+    "D",  # pydocstyle
+#    "F",  # Pyflakes
+#    "UP", # pyupgrade
+#    "S",  # flake8-bandit
+    "I",  # isort
+#    "C9", # McCabe complexity
+]
+ignore = ["D1", "D200", "D202", "D203", "D205", "D212", "D400", "D415", "I001"]
+
+
+[tool.ruff.format]
+docstring-code-format = true
+
+
+[tool.ruff.lint.isort]
+force-single-line = true
+lines-after-imports = 1
+default-section = "first-party"
+known-first-party = ["etc/scripts/*.py"]
+
+section-order = [
+    "future",
+    "standard-library",
+    "third-party",
+    "first-party",
+    "local-folder",
+]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10

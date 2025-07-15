@@ -1,0 +1,17 @@
+[
+  {
+    "description": "debian can use qualifiers",
+    "purl": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
+    "canonical_purl": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
+    "type": "deb",
+    "namespace": "debian",
+    "name": "curl",
+    "version": "7.50.3-1",
+    "qualifiers": {
+      "arch": "i386",
+      "distro": "jessie"
+    },
+    "subpath": null,
+    "is_invalid": false
+  }
+]

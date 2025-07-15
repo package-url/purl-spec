@@ -1,0 +1,14 @@
+[
+  {
+    "description": "bitbucket namespace and name should be lowercased",
+    "purl": "pkg:bitbucket/birKenfeld/pyGments-main@244fd47e07d1014f0aed9c",
+    "canonical_purl": "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
+    "type": "bitbucket",
+    "namespace": "birkenfeld",
+    "name": "pygments-main",
+    "version": "244fd47e07d1014f0aed9c",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  }
+]

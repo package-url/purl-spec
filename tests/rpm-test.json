@@ -1,0 +1,17 @@
+[
+  {
+    "description": "rpm often use qualifiers",
+    "purl": "pkg:Rpm/fedora/curl@7.50.3-1.fc25?Arch=i386&Distro=fedora-25",
+    "canonical_purl": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
+    "type": "rpm",
+    "namespace": "fedora",
+    "name": "curl",
+    "version": "7.50.3-1.fc25",
+    "qualifiers": {
+      "arch": "i386",
+      "distro": "fedora-25"
+    },
+    "subpath": null,
+    "is_invalid": false
+  }
+]
