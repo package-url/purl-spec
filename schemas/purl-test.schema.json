@@ -142,6 +142,74 @@
         }
       }
     },
+    "roundtrip_test": {
+      "title": "PURL roundtrip test",
+      "description": "A PURL  parsing then building back from a canonical string input.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "description",
+        "test_group",
+        "test_type",
+        "input"
+      ],
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/description"
+        },
+        "test_group": {
+          "$ref": "#/definitions/test_group"
+        },
+        "test_type": {
+          "const": "roundtrip"
+        },
+        "input": {
+          "title": "Input test PURL",
+          "type": "string",
+          "description": "A PURL string to use as a test input (canonical or not)."
+        },
+        "expected_output": {
+          "type": "string",
+          "description": "A canonical PURL string to use as a test expected output."
+        },
+        "expected_failure": {
+          "$ref": "#/definitions/expected_failure"
+        },
+        "expected_failure_reason": {
+          "$ref": "#/definitions/expected_failure_reason"
+        }
+      },
+      "if": {
+        "properties": {
+          "expected_failure": {
+            "const": true
+          }
+        },
+        "required": [
+          "expected_failure"
+        ]
+      },
+      "then": {
+        "required": [
+          "expected_failure_reason"
+        ],
+        "not": {
+          "required": [
+            "expected_output"
+          ]
+        }
+      },
+      "else": {
+        "required": [
+          "expected_output"
+        ],
+        "not": {
+          "required": [
+            "expected_failure_reason"
+          ]
+        }
+      }
+    },
     "build_test": {
       "title": "PURL building test",
       "description": "A PURL building test from decoded components to a canonical PURL string.",

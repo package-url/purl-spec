@@ -1,17 +1,58 @@
 [
   {
+    "description": "rpm often use qualifiers. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg:Rpm/fedora/curl@7.50.3-1.fc25?Arch=i386&Distro=fedora-25",
+    "expected_output": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
     "description": "rpm often use qualifiers",
-    "purl": "pkg:Rpm/fedora/curl@7.50.3-1.fc25?Arch=i386&Distro=fedora-25",
-    "canonical_purl": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
-    "type": "rpm",
-    "namespace": "fedora",
-    "name": "curl",
-    "version": "7.50.3-1.fc25",
-    "qualifiers": {
-      "arch": "i386",
-      "distro": "fedora-25"
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:Rpm/fedora/curl@7.50.3-1.fc25?Arch=i386&Distro=fedora-25",
+    "expected_output": {
+      "type": "rpm",
+      "namespace": "fedora",
+      "name": "curl",
+      "version": "7.50.3-1.fc25",
+      "qualifiers": {
+        "arch": "i386",
+        "distro": "fedora-25"
+      },
+      "subpath": null
     },
-    "subpath": null,
-    "is_invalid": false
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "rpm often use qualifiers. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
+    "expected_output": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "rpm often use qualifiers",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "rpm",
+      "namespace": "fedora",
+      "name": "curl",
+      "version": "7.50.3-1.fc25",
+      "qualifiers": {
+        "arch": "i386",
+        "distro": "fedora-25"
+      },
+      "subpath": null
+    },
+    "expected_output": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
+    "expected_failure": false,
+    "expected_failure_reason": null
   }
 ]

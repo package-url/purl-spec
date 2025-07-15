@@ -1,16 +1,56 @@
 [
   {
+    "description": "Java gem can use a qualifier. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg:gem/jruby-launcher@1.1.2?Platform=java",
+    "expected_output": "pkg:gem/jruby-launcher@1.1.2?platform=java",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
     "description": "Java gem can use a qualifier",
-    "purl": "pkg:gem/jruby-launcher@1.1.2?Platform=java",
-    "canonical_purl": "pkg:gem/jruby-launcher@1.1.2?platform=java",
-    "type": "gem",
-    "namespace": null,
-    "name": "jruby-launcher",
-    "version": "1.1.2",
-    "qualifiers": {
-      "platform": "java"
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:gem/jruby-launcher@1.1.2?Platform=java",
+    "expected_output": {
+      "type": "gem",
+      "namespace": null,
+      "name": "jruby-launcher",
+      "version": "1.1.2",
+      "qualifiers": {
+        "platform": "java"
+      },
+      "subpath": null
     },
-    "subpath": null,
-    "is_invalid": false
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Java gem can use a qualifier. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:gem/jruby-launcher@1.1.2?platform=java",
+    "expected_output": "pkg:gem/jruby-launcher@1.1.2?platform=java",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "Java gem can use a qualifier",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "gem",
+      "namespace": null,
+      "name": "jruby-launcher",
+      "version": "1.1.2",
+      "qualifiers": {
+        "platform": "java"
+      },
+      "subpath": null
+    },
+    "expected_output": "pkg:gem/jruby-launcher@1.1.2?platform=java",
+    "expected_failure": false,
+    "expected_failure_reason": null
   }
 ]

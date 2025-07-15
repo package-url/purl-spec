@@ -1,26 +1,86 @@
 [
   {
+    "description": "valid hackage purl. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg:hackage/AC-HalfInteger@1.2.1",
+    "expected_output": "pkg:hackage/AC-HalfInteger@1.2.1",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
     "description": "valid hackage purl",
-    "purl": "pkg:hackage/AC-HalfInteger@1.2.1",
-    "canonical_purl": "pkg:hackage/AC-HalfInteger@1.2.1",
-    "type": "hackage",
-    "namespace": null,
-    "name": "AC-HalfInteger",
-    "version": "1.2.1",
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": false
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:hackage/AC-HalfInteger@1.2.1",
+    "expected_output": {
+      "type": "hackage",
+      "namespace": null,
+      "name": "AC-HalfInteger",
+      "version": "1.2.1",
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "valid hackage purl. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:hackage/AC-HalfInteger@1.2.1",
+    "expected_output": "pkg:hackage/AC-HalfInteger@1.2.1",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "valid hackage purl",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "hackage",
+      "namespace": null,
+      "name": "AC-HalfInteger",
+      "version": "1.2.1",
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:hackage/AC-HalfInteger@1.2.1",
+    "expected_failure": false,
+    "expected_failure_reason": null
   },
   {
     "description": "name and version are always required",
-    "purl": "pkg:hackage",
-    "canonical_purl": "pkg:hackage",
-    "type": "hackage",
-    "namespace": null,
-    "name": null,
-    "version": null,
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": true
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:hackage",
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+  },
+  {
+    "description": "name and version are always required",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:hackage",
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
+  },
+  {
+    "description": "name and version are always required",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "hackage",
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to build a PURL from invalid input components"
   }
 ]

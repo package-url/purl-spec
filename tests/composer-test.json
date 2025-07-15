@@ -1,14 +1,52 @@
 [
   {
+    "description": "composer names are not case sensitive. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg:composer/Laravel/Laravel@5.5.0",
+    "expected_output": "pkg:composer/laravel/laravel@5.5.0",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
     "description": "composer names are not case sensitive",
-    "purl": "pkg:composer/Laravel/Laravel@5.5.0",
-    "canonical_purl": "pkg:composer/laravel/laravel@5.5.0",
-    "type": "composer",
-    "namespace": "laravel",
-    "name": "laravel",
-    "version": "5.5.0",
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": false
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:composer/Laravel/Laravel@5.5.0",
+    "expected_output": {
+      "type": "composer",
+      "namespace": "laravel",
+      "name": "laravel",
+      "version": "5.5.0",
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "composer names are not case sensitive. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:composer/laravel/laravel@5.5.0",
+    "expected_output": "pkg:composer/laravel/laravel@5.5.0",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "composer names are not case sensitive",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "composer",
+      "namespace": "laravel",
+      "name": "laravel",
+      "version": "5.5.0",
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:composer/laravel/laravel@5.5.0",
+    "expected_failure": false,
+    "expected_failure_reason": null
   }
 ]

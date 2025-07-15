@@ -5,3 +5,4 @@ ruff
 black
 Jinja2
 pydantic
+packageurl-python

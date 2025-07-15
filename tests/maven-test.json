@@ -1,157 +1,592 @@
 [
   {
+    "description": "valid maven purl. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg:maven/org.apache.commons/io@1.3.4",
+    "expected_output": "pkg:maven/org.apache.commons/io@1.3.4",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
     "description": "valid maven purl",
-    "purl": "pkg:maven/org.apache.commons/io@1.3.4",
-    "canonical_purl": "pkg:maven/org.apache.commons/io@1.3.4",
-    "type": "maven",
-    "namespace": "org.apache.commons",
-    "name": "io",
-    "version": "1.3.4",
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": false
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:maven/org.apache.commons/io@1.3.4",
+    "expected_output": {
+      "type": "maven",
+      "namespace": "org.apache.commons",
+      "name": "io",
+      "version": "1.3.4",
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "valid maven purl. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:maven/org.apache.commons/io@1.3.4",
+    "expected_output": "pkg:maven/org.apache.commons/io@1.3.4",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "valid maven purl",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "maven",
+      "namespace": "org.apache.commons",
+      "name": "io",
+      "version": "1.3.4",
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:maven/org.apache.commons/io@1.3.4",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "basic valid maven purl without version. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg:maven/org.apache.commons/io",
+    "expected_output": "pkg:maven/org.apache.commons/io",
+    "expected_failure": false,
+    "expected_failure_reason": null
   },
   {
     "description": "basic valid maven purl without version",
-    "purl": "pkg:maven/org.apache.commons/io",
-    "canonical_purl": "pkg:maven/org.apache.commons/io",
-    "type": "maven",
-    "namespace": "org.apache.commons",
-    "name": "io",
-    "version": null,
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": false
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:maven/org.apache.commons/io",
+    "expected_output": {
+      "type": "maven",
+      "namespace": "org.apache.commons",
+      "name": "io",
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "basic valid maven purl without version. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:maven/org.apache.commons/io",
+    "expected_output": "pkg:maven/org.apache.commons/io",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "basic valid maven purl without version",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "maven",
+      "namespace": "org.apache.commons",
+      "name": "io",
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:maven/org.apache.commons/io",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "maven often uses qualifiers. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg:Maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repositorY_url=repo.spring.io/release",
+    "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repository_url=repo.spring.io/release",
+    "expected_failure": false,
+    "expected_failure_reason": null
   },
   {
     "description": "maven often uses qualifiers",
-    "purl": "pkg:Maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repositorY_url=repo.spring.io/release",
-    "canonical_purl": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repository_url=repo.spring.io/release",
-    "type": "maven",
-    "namespace": "org.apache.xmlgraphics",
-    "name": "batik-anim",
-    "version": "1.9.1",
-    "qualifiers": {
-      "classifier": "sources",
-      "repository_url": "repo.spring.io/release"
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:Maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repositorY_url=repo.spring.io/release",
+    "expected_output": {
+      "type": "maven",
+      "namespace": "org.apache.xmlgraphics",
+      "name": "batik-anim",
+      "version": "1.9.1",
+      "qualifiers": {
+        "classifier": "sources",
+        "repository_url": "repo.spring.io/release"
+      },
+      "subpath": null
     },
-    "subpath": null,
-    "is_invalid": false
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "maven often uses qualifiers. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repository_url=repo.spring.io/release",
+    "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repository_url=repo.spring.io/release",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "maven often uses qualifiers",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "maven",
+      "namespace": "org.apache.xmlgraphics",
+      "name": "batik-anim",
+      "version": "1.9.1",
+      "qualifiers": {
+        "classifier": "sources",
+        "repository_url": "repo.spring.io/release"
+      },
+      "subpath": null
+    },
+    "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repository_url=repo.spring.io/release",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "maven pom reference. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg:Maven/org.apache.xmlgraphics/batik-anim@1.9.1?extension=pom&repositorY_url=repo.spring.io/release",
+    "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?extension=pom&repository_url=repo.spring.io/release",
+    "expected_failure": false,
+    "expected_failure_reason": null
   },
   {
     "description": "maven pom reference",
-    "purl": "pkg:Maven/org.apache.xmlgraphics/batik-anim@1.9.1?extension=pom&repositorY_url=repo.spring.io/release",
-    "canonical_purl": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?extension=pom&repository_url=repo.spring.io/release",
-    "type": "maven",
-    "namespace": "org.apache.xmlgraphics",
-    "name": "batik-anim",
-    "version": "1.9.1",
-    "qualifiers": {
-      "extension": "pom",
-      "repository_url": "repo.spring.io/release"
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:Maven/org.apache.xmlgraphics/batik-anim@1.9.1?extension=pom&repositorY_url=repo.spring.io/release",
+    "expected_output": {
+      "type": "maven",
+      "namespace": "org.apache.xmlgraphics",
+      "name": "batik-anim",
+      "version": "1.9.1",
+      "qualifiers": {
+        "extension": "pom",
+        "repository_url": "repo.spring.io/release"
+      },
+      "subpath": null
     },
-    "subpath": null,
-    "is_invalid": false
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "maven pom reference. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?extension=pom&repository_url=repo.spring.io/release",
+    "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?extension=pom&repository_url=repo.spring.io/release",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "maven pom reference",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "maven",
+      "namespace": "org.apache.xmlgraphics",
+      "name": "batik-anim",
+      "version": "1.9.1",
+      "qualifiers": {
+        "extension": "pom",
+        "repository_url": "repo.spring.io/release"
+      },
+      "subpath": null
+    },
+    "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?extension=pom&repository_url=repo.spring.io/release",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "maven can come with a type qualifier. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg:Maven/net.sf.jacob-project/jacob@1.14.3?classifier=x86&type=dll",
+    "expected_output": "pkg:maven/net.sf.jacob-project/jacob@1.14.3?classifier=x86&type=dll",
+    "expected_failure": false,
+    "expected_failure_reason": null
   },
   {
     "description": "maven can come with a type qualifier",
-    "purl": "pkg:Maven/net.sf.jacob-project/jacob@1.14.3?classifier=x86&type=dll",
-    "canonical_purl": "pkg:maven/net.sf.jacob-project/jacob@1.14.3?classifier=x86&type=dll",
-    "type": "maven",
-    "namespace": "net.sf.jacob-project",
-    "name": "jacob",
-    "version": "1.14.3",
-    "qualifiers": {
-      "classifier": "x86",
-      "type": "dll"
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:Maven/net.sf.jacob-project/jacob@1.14.3?classifier=x86&type=dll",
+    "expected_output": {
+      "type": "maven",
+      "namespace": "net.sf.jacob-project",
+      "name": "jacob",
+      "version": "1.14.3",
+      "qualifiers": {
+        "classifier": "x86",
+        "type": "dll"
+      },
+      "subpath": null
     },
-    "subpath": null,
-    "is_invalid": false
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "maven can come with a type qualifier. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:maven/net.sf.jacob-project/jacob@1.14.3?classifier=x86&type=dll",
+    "expected_output": "pkg:maven/net.sf.jacob-project/jacob@1.14.3?classifier=x86&type=dll",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "maven can come with a type qualifier",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "maven",
+      "namespace": "net.sf.jacob-project",
+      "name": "jacob",
+      "version": "1.14.3",
+      "qualifiers": {
+        "classifier": "x86",
+        "type": "dll"
+      },
+      "subpath": null
+    },
+    "expected_output": "pkg:maven/net.sf.jacob-project/jacob@1.14.3?classifier=x86&type=dll",
+    "expected_failure": false,
+    "expected_failure_reason": null
   },
   {
     "description": "a name is required",
-    "purl": "pkg:maven/@1.3.4",
-    "canonical_purl": "pkg:maven/@1.3.4",
-    "type": "maven",
-    "namespace": null,
-    "name": null,
-    "version": null,
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": true
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:maven/@1.3.4",
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+  },
+  {
+    "description": "a name is required",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:maven/@1.3.4",
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
+  },
+  {
+    "description": "a name is required",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "maven",
+      "namespace": null,
+      "name": null,
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+  },
+  {
+    "description": "slash / after scheme is not significant. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg:/maven/org.apache.commons/io",
+    "expected_output": "pkg:maven/org.apache.commons/io",
+    "expected_failure": false,
+    "expected_failure_reason": null
   },
   {
     "description": "slash / after scheme is not significant",
-    "purl": "pkg:/maven/org.apache.commons/io",
-    "canonical_purl": "pkg:maven/org.apache.commons/io",
-    "type": "maven",
-    "namespace": "org.apache.commons",
-    "name": "io",
-    "version": null,
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": false
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:/maven/org.apache.commons/io",
+    "expected_output": {
+      "type": "maven",
+      "namespace": "org.apache.commons",
+      "name": "io",
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "slash / after scheme is not significant. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:maven/org.apache.commons/io",
+    "expected_output": "pkg:maven/org.apache.commons/io",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "slash / after scheme is not significant",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "maven",
+      "namespace": "org.apache.commons",
+      "name": "io",
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:maven/org.apache.commons/io",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "double slash // after scheme is not significant. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg://maven/org.apache.commons/io",
+    "expected_output": "pkg:maven/org.apache.commons/io",
+    "expected_failure": false,
+    "expected_failure_reason": null
   },
   {
     "description": "double slash // after scheme is not significant",
-    "purl": "pkg://maven/org.apache.commons/io",
-    "canonical_purl": "pkg:maven/org.apache.commons/io",
-    "type": "maven",
-    "namespace": "org.apache.commons",
-    "name": "io",
-    "version": null,
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": false
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg://maven/org.apache.commons/io",
+    "expected_output": {
+      "type": "maven",
+      "namespace": "org.apache.commons",
+      "name": "io",
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "double slash // after scheme is not significant. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:maven/org.apache.commons/io",
+    "expected_output": "pkg:maven/org.apache.commons/io",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "double slash // after scheme is not significant",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "maven",
+      "namespace": "org.apache.commons",
+      "name": "io",
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:maven/org.apache.commons/io",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "slash /// after scheme is not significant. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg:///maven/org.apache.commons/io",
+    "expected_output": "pkg:maven/org.apache.commons/io",
+    "expected_failure": false,
+    "expected_failure_reason": null
   },
   {
     "description": "slash /// after scheme is not significant",
-    "purl": "pkg:///maven/org.apache.commons/io",
-    "canonical_purl": "pkg:maven/org.apache.commons/io",
-    "type": "maven",
-    "namespace": "org.apache.commons",
-    "name": "io",
-    "version": null,
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": false
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:///maven/org.apache.commons/io",
+    "expected_output": {
+      "type": "maven",
+      "namespace": "org.apache.commons",
+      "name": "io",
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "slash /// after scheme is not significant. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:maven/org.apache.commons/io",
+    "expected_output": "pkg:maven/org.apache.commons/io",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "slash /// after scheme is not significant",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "maven",
+      "namespace": "org.apache.commons",
+      "name": "io",
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:maven/org.apache.commons/io",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "valid maven purl with case sensitive namespace and name. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg:maven/HTTPClient/HTTPClient@0.3-3",
+    "expected_output": "pkg:maven/HTTPClient/HTTPClient@0.3-3",
+    "expected_failure": false,
+    "expected_failure_reason": null
   },
   {
     "description": "valid maven purl with case sensitive namespace and name",
-    "purl": "pkg:maven/HTTPClient/HTTPClient@0.3-3",
-    "canonical_purl": "pkg:maven/HTTPClient/HTTPClient@0.3-3",
-    "type": "maven",
-    "namespace": "HTTPClient",
-    "name": "HTTPClient",
-    "version": "0.3-3",
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": false
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:maven/HTTPClient/HTTPClient@0.3-3",
+    "expected_output": {
+      "type": "maven",
+      "namespace": "HTTPClient",
+      "name": "HTTPClient",
+      "version": "0.3-3",
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "valid maven purl with case sensitive namespace and name. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:maven/HTTPClient/HTTPClient@0.3-3",
+    "expected_output": "pkg:maven/HTTPClient/HTTPClient@0.3-3",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "valid maven purl with case sensitive namespace and name",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "maven",
+      "namespace": "HTTPClient",
+      "name": "HTTPClient",
+      "version": "0.3-3",
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:maven/HTTPClient/HTTPClient@0.3-3",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "valid maven purl containing a space in the version and qualifier. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg:maven/mygroup/myartifact@1.0.0%20Final?mykey=my%20value",
+    "expected_output": "pkg:maven/mygroup/myartifact@1.0.0%20Final?mykey=my%20value",
+    "expected_failure": false,
+    "expected_failure_reason": null
   },
   {
     "description": "valid maven purl containing a space in the version and qualifier",
-    "purl": "pkg:maven/mygroup/myartifact@1.0.0%20Final?mykey=my%20value",
-    "canonical_purl": "pkg:maven/mygroup/myartifact@1.0.0%20Final?mykey=my%20value",
-    "type": "maven",
-    "namespace": "mygroup",
-    "name": "myartifact",
-    "version": "1.0.0 Final",
-    "qualifiers": {
-      "mykey": "my value"
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:maven/mygroup/myartifact@1.0.0%20Final?mykey=my%20value",
+    "expected_output": {
+      "type": "maven",
+      "namespace": "mygroup",
+      "name": "myartifact",
+      "version": "1.0.0 Final",
+      "qualifiers": {
+        "mykey": "my value"
+      },
+      "subpath": null
     },
-    "subpath": null,
-    "is_invalid": false
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "valid maven purl containing a space in the version and qualifier. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:maven/mygroup/myartifact@1.0.0%20Final?mykey=my%20value",
+    "expected_output": "pkg:maven/mygroup/myartifact@1.0.0%20Final?mykey=my%20value",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "valid maven purl containing a space in the version and qualifier",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "maven",
+      "namespace": "mygroup",
+      "name": "myartifact",
+      "version": "1.0.0 Final",
+      "qualifiers": {
+        "mykey": "my value"
+      },
+      "subpath": null
+    },
+    "expected_output": "pkg:maven/mygroup/myartifact@1.0.0%20Final?mykey=my%20value",
+    "expected_failure": false,
+    "expected_failure_reason": null
   },
   {
     "description": "invalid encoded colon : between scheme and type",
-    "purl": "pkg%3Amaven/org.apache.commons/io",
-    "canonical_purl": null,
-    "type": "maven",
-    "namespace": "org.apache.commons",
-    "name": "io",
-    "version": null,
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": true
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg%3Amaven/org.apache.commons/io",
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+  },
+  {
+    "description": "invalid encoded colon : between scheme and type",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": null,
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
+  },
+  {
+    "description": "invalid encoded colon : between scheme and type",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "maven",
+      "namespace": "org.apache.commons",
+      "name": "io",
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to build a PURL from invalid input components"
   }
 ]

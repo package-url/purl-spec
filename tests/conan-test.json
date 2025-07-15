@@ -1,54 +1,176 @@
 [
   {
+    "description": "valid conan purl. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg:conan/cctz@2.3",
+    "expected_output": "pkg:conan/cctz@2.3",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
     "description": "valid conan purl",
-    "purl": "pkg:conan/cctz@2.3",
-    "canonical_purl": "pkg:conan/cctz@2.3",
-    "type": "conan",
-    "namespace": null,
-    "name": "cctz",
-    "version": "2.3",
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": false
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:conan/cctz@2.3",
+    "expected_output": {
+      "type": "conan",
+      "namespace": null,
+      "name": "cctz",
+      "version": "2.3",
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "valid conan purl. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:conan/cctz@2.3",
+    "expected_output": "pkg:conan/cctz@2.3",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "valid conan purl",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "conan",
+      "namespace": null,
+      "name": "cctz",
+      "version": "2.3",
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:conan/cctz@2.3",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "valid conan purl with namespace and qualifier channel. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
+    "expected_output": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
+    "expected_failure": false,
+    "expected_failure_reason": null
   },
   {
     "description": "valid conan purl with namespace and qualifier channel",
-    "purl": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
-    "canonical_purl": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
-    "type": "conan",
-    "namespace": "bincrafters",
-    "name": "cctz",
-    "version": "2.3",
-    "qualifiers": {
-      "channel": "stable"
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
+    "expected_output": {
+      "type": "conan",
+      "namespace": "bincrafters",
+      "name": "cctz",
+      "version": "2.3",
+      "qualifiers": {
+        "channel": "stable"
+      },
+      "subpath": null
     },
-    "subpath": null,
-    "is_invalid": false
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "valid conan purl with namespace and qualifier channel. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
+    "expected_output": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "valid conan purl with namespace and qualifier channel",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "conan",
+      "namespace": "bincrafters",
+      "name": "cctz",
+      "version": "2.3",
+      "qualifiers": {
+        "channel": "stable"
+      },
+      "subpath": null
+    },
+    "expected_output": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
+    "expected_failure": false,
+    "expected_failure_reason": null
   },
   {
     "description": "invalid conan purl only namespace",
-    "purl": "pkg:conan/bincrafters/cctz@2.3",
-    "canonical_purl": "pkg:conan/bincrafters/cctz@2.3",
-    "type": "conan",
-    "namespace": "bincrafters",
-    "name": "cctz",
-    "version": "2.3",
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": true
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:conan/bincrafters/cctz@2.3",
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+  },
+  {
+    "description": "invalid conan purl only namespace",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:conan/bincrafters/cctz@2.3",
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
+  },
+  {
+    "description": "invalid conan purl only namespace",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "conan",
+      "namespace": "bincrafters",
+      "name": "cctz",
+      "version": "2.3",
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to build a PURL from invalid input components"
   },
   {
     "description": "invalid conan purl only channel qualifier",
-    "purl": "pkg:conan/cctz@2.3?channel=stable",
-    "canonical_purl": "pkg:conan/cctz@2.3?channel=stable",
-    "type": "conan",
-    "namespace": null,
-    "name": "cctz",
-    "version": "2.3",
-    "qualifiers": {
-      "channel": "stable"
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:conan/cctz@2.3?channel=stable",
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+  },
+  {
+    "description": "invalid conan purl only channel qualifier",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:conan/cctz@2.3?channel=stable",
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
+  },
+  {
+    "description": "invalid conan purl only channel qualifier",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "conan",
+      "namespace": null,
+      "name": "cctz",
+      "version": "2.3",
+      "qualifiers": {
+        "channel": "stable"
+      },
+      "subpath": null
     },
-    "subpath": null,
-    "is_invalid": true
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to build a PURL from invalid input components"
   }
 ]

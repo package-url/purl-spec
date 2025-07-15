@@ -1,26 +1,102 @@
 [
   {
+    "description": "valid go purl without version and with subpath. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg:GOLANG/google.golang.org/genproto#/googleapis/api/annotations/",
+    "expected_output": "pkg:golang/google.golang.org/genproto#googleapis/api/annotations",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
     "description": "valid go purl without version and with subpath",
-    "purl": "pkg:GOLANG/google.golang.org/genproto#/googleapis/api/annotations/",
-    "canonical_purl": "pkg:golang/google.golang.org/genproto#googleapis/api/annotations",
-    "type": "golang",
-    "namespace": "google.golang.org",
-    "name": "genproto",
-    "version": null,
-    "qualifiers": null,
-    "subpath": "googleapis/api/annotations",
-    "is_invalid": false
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:GOLANG/google.golang.org/genproto#/googleapis/api/annotations/",
+    "expected_output": {
+      "type": "golang",
+      "namespace": "google.golang.org",
+      "name": "genproto",
+      "version": null,
+      "qualifiers": null,
+      "subpath": "googleapis/api/annotations"
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "valid go purl without version and with subpath. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:golang/google.golang.org/genproto#googleapis/api/annotations",
+    "expected_output": "pkg:golang/google.golang.org/genproto#googleapis/api/annotations",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "valid go purl without version and with subpath",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "golang",
+      "namespace": "google.golang.org",
+      "name": "genproto",
+      "version": null,
+      "qualifiers": null,
+      "subpath": "googleapis/api/annotations"
+    },
+    "expected_output": "pkg:golang/google.golang.org/genproto#googleapis/api/annotations",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "valid go purl with version and subpath. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg:GOLANG/google.golang.org/genproto@abcdedf#/googleapis/api/annotations/",
+    "expected_output": "pkg:golang/google.golang.org/genproto@abcdedf#googleapis/api/annotations",
+    "expected_failure": false,
+    "expected_failure_reason": null
   },
   {
     "description": "valid go purl with version and subpath",
-    "purl": "pkg:GOLANG/google.golang.org/genproto@abcdedf#/googleapis/api/annotations/",
-    "canonical_purl": "pkg:golang/google.golang.org/genproto@abcdedf#googleapis/api/annotations",
-    "type": "golang",
-    "namespace": "google.golang.org",
-    "name": "genproto",
-    "version": "abcdedf",
-    "qualifiers": null,
-    "subpath": "googleapis/api/annotations",
-    "is_invalid": false
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:GOLANG/google.golang.org/genproto@abcdedf#/googleapis/api/annotations/",
+    "expected_output": {
+      "type": "golang",
+      "namespace": "google.golang.org",
+      "name": "genproto",
+      "version": "abcdedf",
+      "qualifiers": null,
+      "subpath": "googleapis/api/annotations"
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "valid go purl with version and subpath. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:golang/google.golang.org/genproto@abcdedf#googleapis/api/annotations",
+    "expected_output": "pkg:golang/google.golang.org/genproto@abcdedf#googleapis/api/annotations",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "valid go purl with version and subpath",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "golang",
+      "namespace": "google.golang.org",
+      "name": "genproto",
+      "version": "abcdedf",
+      "qualifiers": null,
+      "subpath": "googleapis/api/annotations"
+    },
+    "expected_output": "pkg:golang/google.golang.org/genproto@abcdedf#googleapis/api/annotations",
+    "expected_failure": false,
+    "expected_failure_reason": null
   }
 ]

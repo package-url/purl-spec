@@ -1,14 +1,52 @@
 [
   {
+    "description": "pypi names have special rules and not case sensitive. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg:PYPI/Django_package@1.11.1.dev1",
+    "expected_output": "pkg:pypi/django-package@1.11.1.dev1",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
     "description": "pypi names have special rules and not case sensitive",
-    "purl": "pkg:PYPI/Django_package@1.11.1.dev1",
-    "canonical_purl": "pkg:pypi/django-package@1.11.1.dev1",
-    "type": "pypi",
-    "namespace": null,
-    "name": "django-package",
-    "version": "1.11.1.dev1",
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": false
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:PYPI/Django_package@1.11.1.dev1",
+    "expected_output": {
+      "type": "pypi",
+      "namespace": null,
+      "name": "django-package",
+      "version": "1.11.1.dev1",
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "pypi names have special rules and not case sensitive. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:pypi/django-package@1.11.1.dev1",
+    "expected_output": "pkg:pypi/django-package@1.11.1.dev1",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "pypi names have special rules and not case sensitive",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "pypi",
+      "namespace": null,
+      "name": "django-package",
+      "version": "1.11.1.dev1",
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:pypi/django-package@1.11.1.dev1",
+    "expected_failure": false,
+    "expected_failure_reason": null
   }
 ]

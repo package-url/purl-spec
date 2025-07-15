@@ -1,38 +1,120 @@
 [
   {
+    "description": "valid cran purl. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg:cran/A3@0.9.1",
+    "expected_output": "pkg:cran/A3@0.9.1",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
     "description": "valid cran purl",
-    "purl": "pkg:cran/A3@0.9.1",
-    "canonical_purl": "pkg:cran/A3@0.9.1",
-    "type": "cran",
-    "namespace": null,
-    "name": "A3",
-    "version": "0.9.1",
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": false
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:cran/A3@0.9.1",
+    "expected_output": {
+      "type": "cran",
+      "namespace": null,
+      "name": "A3",
+      "version": "0.9.1",
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "valid cran purl. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:cran/A3@0.9.1",
+    "expected_output": "pkg:cran/A3@0.9.1",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "valid cran purl",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "cran",
+      "namespace": null,
+      "name": "A3",
+      "version": "0.9.1",
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:cran/A3@0.9.1",
+    "expected_failure": false,
+    "expected_failure_reason": null
   },
   {
     "description": "invalid cran purl without name",
-    "purl": "pkg:cran/@0.9.1",
-    "canonical_purl": "pkg:cran/@0.9.1",
-    "type": "cran",
-    "namespace": null,
-    "name": null,
-    "version": "0.9.1",
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": true
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:cran/@0.9.1",
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+  },
+  {
+    "description": "invalid cran purl without name",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:cran/@0.9.1",
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
+  },
+  {
+    "description": "invalid cran purl without name",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "cran",
+      "namespace": null,
+      "name": null,
+      "version": "0.9.1",
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to build a PURL from invalid input components"
   },
   {
     "description": "invalid cran purl without version",
-    "purl": "pkg:cran/A3",
-    "canonical_purl": "pkg:cran/A3",
-    "type": "cran",
-    "namespace": null,
-    "name": "A3",
-    "version": null,
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": true
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:cran/A3",
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+  },
+  {
+    "description": "invalid cran purl without version",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:cran/A3",
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
+  },
+  {
+    "description": "invalid cran purl without version",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "cran",
+      "namespace": null,
+      "name": "A3",
+      "version": null,
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to build a PURL from invalid input components"
   }
 ]

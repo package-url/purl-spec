@@ -1,17 +1,58 @@
 [
   {
+    "description": "debian can use qualifiers. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
+    "expected_output": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
     "description": "debian can use qualifiers",
-    "purl": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
-    "canonical_purl": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
-    "type": "deb",
-    "namespace": "debian",
-    "name": "curl",
-    "version": "7.50.3-1",
-    "qualifiers": {
-      "arch": "i386",
-      "distro": "jessie"
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
+    "expected_output": {
+      "type": "deb",
+      "namespace": "debian",
+      "name": "curl",
+      "version": "7.50.3-1",
+      "qualifiers": {
+        "arch": "i386",
+        "distro": "jessie"
+      },
+      "subpath": null
     },
-    "subpath": null,
-    "is_invalid": false
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "debian can use qualifiers. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
+    "expected_output": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "debian can use qualifiers",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "deb",
+      "namespace": "debian",
+      "name": "curl",
+      "version": "7.50.3-1",
+      "qualifiers": {
+        "arch": "i386",
+        "distro": "jessie"
+      },
+      "subpath": null
+    },
+    "expected_output": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
+    "expected_failure": false,
+    "expected_failure_reason": null
   }
 ]

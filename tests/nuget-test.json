@@ -1,14 +1,52 @@
 [
   {
+    "description": "nuget names are case sensitive. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg:Nuget/EnterpriseLibrary.Common@6.0.1304",
+    "expected_output": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
     "description": "nuget names are case sensitive",
-    "purl": "pkg:Nuget/EnterpriseLibrary.Common@6.0.1304",
-    "canonical_purl": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
-    "type": "nuget",
-    "namespace": null,
-    "name": "EnterpriseLibrary.Common",
-    "version": "6.0.1304",
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": false
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:Nuget/EnterpriseLibrary.Common@6.0.1304",
+    "expected_output": {
+      "type": "nuget",
+      "namespace": null,
+      "name": "EnterpriseLibrary.Common",
+      "version": "6.0.1304",
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "nuget names are case sensitive. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
+    "expected_output": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "nuget names are case sensitive",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "nuget",
+      "namespace": null,
+      "name": "EnterpriseLibrary.Common",
+      "version": "6.0.1304",
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
+    "expected_failure": false,
+    "expected_failure_reason": null
   }
 ]

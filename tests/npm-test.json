@@ -1,28 +1,88 @@
 [
   {
+    "description": "npm can be scoped. Rountrip an input purl to canonical.",
+    "test_group": "advanced",
+    "test_type": "roundtrip",
+    "input": "pkg:npm/%40angular/animation@12.3.1",
+    "expected_output": "pkg:npm/%40angular/animation@12.3.1",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
     "description": "npm can be scoped",
-    "purl": "pkg:npm/%40angular/animation@12.3.1",
-    "canonical_purl": "pkg:npm/%40angular/animation@12.3.1",
-    "type": "npm",
-    "namespace": "@angular",
-    "name": "animation",
-    "version": "12.3.1",
-    "qualifiers": null,
-    "subpath": null,
-    "is_invalid": false
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:npm/%40angular/animation@12.3.1",
+    "expected_output": {
+      "type": "npm",
+      "namespace": "@angular",
+      "name": "animation",
+      "version": "12.3.1",
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "npm can be scoped. Rountrip a canonical input to canonical output.",
+    "test_group": "base",
+    "test_type": "roundtrip",
+    "input": "pkg:npm/%40angular/animation@12.3.1",
+    "expected_output": "pkg:npm/%40angular/animation@12.3.1",
+    "expected_failure": false,
+    "expected_failure_reason": null
+  },
+  {
+    "description": "npm can be scoped",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "npm",
+      "namespace": "@angular",
+      "name": "animation",
+      "version": "12.3.1",
+      "qualifiers": null,
+      "subpath": null
+    },
+    "expected_output": "pkg:npm/%40angular/animation@12.3.1",
+    "expected_failure": false,
+    "expected_failure_reason": null
   },
   {
     "description": "checks for invalid qualifier keys",
-    "purl": "pkg:npm/myartifact@1.0.0?in%20production=true",
-    "canonical_purl": null,
-    "type": "npm",
-    "namespace": null,
-    "name": "myartifact",
-    "version": "1.0.0",
-    "qualifiers": {
-      "in production": "true"
+    "test_group": "base",
+    "test_type": "parse",
+    "input": "pkg:npm/myartifact@1.0.0?in%20production=true",
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+  },
+  {
+    "description": "checks for invalid qualifier keys",
+    "test_group": "base",
+    "test_type": "parse",
+    "input": null,
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
+  },
+  {
+    "description": "checks for invalid qualifier keys",
+    "test_group": "base",
+    "test_type": "build",
+    "input": {
+      "type": "npm",
+      "namespace": null,
+      "name": "myartifact",
+      "version": "1.0.0",
+      "qualifiers": {
+        "in production": "true"
+      },
+      "subpath": null
     },
-    "subpath": null,
-    "is_invalid": true
+    "expected_output": null,
+    "expected_failure": true,
+    "expected_failure_reason": "Should fail to build a PURL from invalid input components"
   }
 ]
