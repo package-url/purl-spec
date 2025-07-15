@@ -1,67 +1,21 @@
-[
-  {
-    "description": "rpm often use qualifiers. Rountrip an input purl to canonical.",
-    "test_group": "advanced",
-    "test_type": "roundtrip",
-    "input": "pkg:Rpm/fedora/curl@7.50.3-1.fc25?Arch=i386&Distro=fedora-25",
-    "expected_output": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "rpm often use qualifiers",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:Rpm/fedora/curl@7.50.3-1.fc25?Arch=i386&Distro=fedora-25",
-    "expected_output": {
-      "type": "rpm",
-      "namespace": "fedora",
-      "name": "curl",
-      "version": "7.50.3-1.fc25",
-      "qualifiers": {
-        "arch": "i386",
-        "distro": "fedora-25"
-      },
-      "subpath": null
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "rpm often use qualifiers. Rountrip an input purl to canonical.",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:Rpm/fedora/curl@7.50.3-1.fc25?Arch=i386&Distro=fedora-25",
+      "expected_output": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "rpm often use qualifiers. Rountrip a canonical input to canonical output.",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
-    "expected_output": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "rpm often use qualifiers",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": "rpm",
-      "namespace": "fedora",
-      "name": "curl",
-      "version": "7.50.3-1.fc25",
-      "qualifiers": {
-        "arch": "i386",
-        "distro": "fedora-25"
-      },
-      "subpath": null
-    },
-    "expected_output": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
-    "expected_output": {
-      "type": {
+    {
+      "description": "rpm often use qualifiers",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:Rpm/fedora/curl@7.50.3-1.fc25?Arch=i386&Distro=fedora-25",
+      "expected_output": {
         "type": "rpm",
         "namespace": "fedora",
         "name": "curl",
@@ -72,30 +26,23 @@
         },
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
-    "expected_output": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "rpm often use qualifiers. Rountrip a canonical input to canonical output.",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
+      "expected_output": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "rpm often use qualifiers",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "rpm",
         "namespace": "fedora",
         "name": "curl",
@@ -106,23 +53,63 @@
         },
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_output": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:rpm/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25",
-    "expected_output": {
-      "type": {
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
+      "expected_output": {
+        "type": "rpm",
+        "namespace": "fedora",
+        "name": "curl",
+        "version": "7.50.3-1.fc25",
+        "qualifiers": {
+          "arch": "i386",
+          "distro": "fedora-25"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
+      "expected_output": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "rpm",
+        "namespace": "fedora",
+        "name": "curl",
+        "version": "7.50.3-1.fc25",
+        "qualifiers": {
+          "arch": "i386",
+          "distro": "fedora-25"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:rpm/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25",
+      "expected_output": {
         "type": "rpm",
         "namespace": null,
         "name": "centerim",
@@ -134,30 +121,23 @@
         },
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:rpm/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25",
-    "expected_output": "pkg:rpm/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:rpm/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25",
+      "expected_output": "pkg:rpm/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "rpm",
         "namespace": null,
         "name": "centerim",
@@ -169,14 +149,9 @@
         },
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_output": "pkg:rpm/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  }
-]
+      "expected_output": "pkg:rpm/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

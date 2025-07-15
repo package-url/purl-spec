@@ -1,11 +1,12 @@
-[
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:cargo/rand@0.7.2",
-    "expected_output": {
-      "type": {
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:cargo/rand@0.7.2",
+      "expected_output": {
         "type": "cargo",
         "namespace": null,
         "name": "rand",
@@ -13,30 +14,23 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:cargo/rand@0.7.2",
-    "expected_output": "pkg:cargo/rand@0.7.2",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:cargo/rand@0.7.2",
+      "expected_output": "pkg:cargo/rand@0.7.2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "cargo",
         "namespace": null,
         "name": "rand",
@@ -44,23 +38,16 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_output": "pkg:cargo/rand@0.7.2",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": "pkg:cargo/rand@0.7.2",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:cargo/clap@2.33.0",
-    "expected_output": {
-      "type": {
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:cargo/clap@2.33.0",
+      "expected_output": {
         "type": "cargo",
         "namespace": null,
         "name": "clap",
@@ -68,30 +55,23 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:cargo/clap@2.33.0",
-    "expected_output": "pkg:cargo/clap@2.33.0",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:cargo/clap@2.33.0",
+      "expected_output": "pkg:cargo/clap@2.33.0",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "cargo",
         "namespace": null,
         "name": "clap",
@@ -99,23 +79,16 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_output": "pkg:cargo/clap@2.33.0",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": "pkg:cargo/clap@2.33.0",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:cargo/structopt@0.3.11",
-    "expected_output": {
-      "type": {
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:cargo/structopt@0.3.11",
+      "expected_output": {
         "type": "cargo",
         "namespace": null,
         "name": "structopt",
@@ -123,30 +96,23 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:cargo/structopt@0.3.11",
-    "expected_output": "pkg:cargo/structopt@0.3.11",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:cargo/structopt@0.3.11",
+      "expected_output": "pkg:cargo/structopt@0.3.11",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "cargo",
         "namespace": null,
         "name": "structopt",
@@ -154,14 +120,9 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_output": "pkg:cargo/structopt@0.3.11",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  }
-]
+      "expected_output": "pkg:cargo/structopt@0.3.11",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

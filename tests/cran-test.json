@@ -1,129 +1,130 @@
-[
-  {
-    "description": "valid cran purl. Rountrip an input purl to canonical.",
-    "test_group": "advanced",
-    "test_type": "roundtrip",
-    "input": "pkg:cran/A3@0.9.1",
-    "expected_output": "pkg:cran/A3@0.9.1",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "valid cran purl",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:cran/A3@0.9.1",
-    "expected_output": {
-      "type": "cran",
-      "namespace": null,
-      "name": "A3",
-      "version": "0.9.1",
-      "qualifiers": null,
-      "subpath": null
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "valid cran purl. Rountrip an input purl to canonical.",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:cran/A3@0.9.1",
+      "expected_output": "pkg:cran/A3@0.9.1",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "valid cran purl. Rountrip a canonical input to canonical output.",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:cran/A3@0.9.1",
-    "expected_output": "pkg:cran/A3@0.9.1",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "valid cran purl",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": "cran",
-      "namespace": null,
-      "name": "A3",
-      "version": "0.9.1",
-      "qualifiers": null,
-      "subpath": null
+    {
+      "description": "valid cran purl",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:cran/A3@0.9.1",
+      "expected_output": {
+        "type": "cran",
+        "namespace": null,
+        "name": "A3",
+        "version": "0.9.1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": "pkg:cran/A3@0.9.1",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "invalid cran purl without name",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:cran/@0.9.1",
-    "expected_output": null,
-    "expected_failure": true,
-    "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
-  },
-  {
-    "description": "invalid cran purl without name",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:cran/@0.9.1",
-    "expected_output": null,
-    "expected_failure": true,
-    "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
-  },
-  {
-    "description": "invalid cran purl without name",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": "cran",
-      "namespace": null,
-      "name": null,
-      "version": "0.9.1",
-      "qualifiers": null,
-      "subpath": null
+    {
+      "description": "valid cran purl. Rountrip a canonical input to canonical output.",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:cran/A3@0.9.1",
+      "expected_output": "pkg:cran/A3@0.9.1",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": null,
-    "expected_failure": true,
-    "expected_failure_reason": "Should fail to build a PURL from invalid input components"
-  },
-  {
-    "description": "invalid cran purl without version",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:cran/A3",
-    "expected_output": null,
-    "expected_failure": true,
-    "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
-  },
-  {
-    "description": "invalid cran purl without version",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:cran/A3",
-    "expected_output": null,
-    "expected_failure": true,
-    "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
-  },
-  {
-    "description": "invalid cran purl without version",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": "cran",
-      "namespace": null,
-      "name": "A3",
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+    {
+      "description": "valid cran purl",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "cran",
+        "namespace": null,
+        "name": "A3",
+        "version": "0.9.1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:cran/A3@0.9.1",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": null,
-    "expected_failure": true,
-    "expected_failure_reason": "Should fail to build a PURL from invalid input components"
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:cran/A3@1.0.0",
-    "expected_output": {
-      "type": {
+    {
+      "description": "invalid cran purl without name",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:cran/@0.9.1",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+    },
+    {
+      "description": "invalid cran purl without name",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:cran/@0.9.1",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
+    },
+    {
+      "description": "invalid cran purl without name",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "cran",
+        "namespace": null,
+        "name": null,
+        "version": "0.9.1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+    },
+    {
+      "description": "invalid cran purl without version",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:cran/A3",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+    },
+    {
+      "description": "invalid cran purl without version",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:cran/A3",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
+    },
+    {
+      "description": "invalid cran purl without version",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "cran",
+        "namespace": null,
+        "name": "A3",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+    },
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:cran/A3@1.0.0",
+      "expected_output": {
         "type": "cran",
         "namespace": null,
         "name": "A3",
@@ -131,30 +132,23 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:cran/A3@1.0.0",
-    "expected_output": "pkg:cran/A3@1.0.0",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:cran/A3@1.0.0",
+      "expected_output": "pkg:cran/A3@1.0.0",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "cran",
         "namespace": null,
         "name": "A3",
@@ -162,23 +156,16 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_output": "pkg:cran/A3@1.0.0",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": "pkg:cran/A3@1.0.0",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:cran/rJava@1.0-4",
-    "expected_output": {
-      "type": {
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:cran/rJava@1.0-4",
+      "expected_output": {
         "type": "cran",
         "namespace": null,
         "name": "rJava",
@@ -186,30 +173,23 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:cran/rJava@1.0-4",
-    "expected_output": "pkg:cran/rJava@1.0-4",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:cran/rJava@1.0-4",
+      "expected_output": "pkg:cran/rJava@1.0-4",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "cran",
         "namespace": null,
         "name": "rJava",
@@ -217,23 +197,16 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_output": "pkg:cran/rJava@1.0-4",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": "pkg:cran/rJava@1.0-4",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:cran/caret@6.0-88",
-    "expected_output": {
-      "type": {
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:cran/caret@6.0-88",
+      "expected_output": {
         "type": "cran",
         "namespace": null,
         "name": "caret",
@@ -241,30 +214,23 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:cran/caret@6.0-88",
-    "expected_output": "pkg:cran/caret@6.0-88",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:cran/caret@6.0-88",
+      "expected_output": "pkg:cran/caret@6.0-88",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "cran",
         "namespace": null,
         "name": "caret",
@@ -272,14 +238,9 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_output": "pkg:cran/caret@6.0-88",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  }
-]
+      "expected_output": "pkg:cran/caret@6.0-88",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

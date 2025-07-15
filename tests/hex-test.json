@@ -1,11 +1,12 @@
-[
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:hex/jason@1.1.2",
-    "expected_output": {
-      "type": {
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:hex/jason@1.1.2",
+      "expected_output": {
         "type": "hex",
         "namespace": null,
         "name": "jason",
@@ -13,30 +14,23 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:hex/jason@1.1.2",
-    "expected_output": "pkg:hex/jason@1.1.2",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:hex/jason@1.1.2",
+      "expected_output": "pkg:hex/jason@1.1.2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "hex",
         "namespace": null,
         "name": "jason",
@@ -44,23 +38,16 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_output": "pkg:hex/jason@1.1.2",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": "pkg:hex/jason@1.1.2",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:hex/acme/foo@2.3.",
-    "expected_output": {
-      "type": {
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:hex/acme/foo@2.3.",
+      "expected_output": {
         "type": "hex",
         "namespace": "acme",
         "name": "foo",
@@ -68,30 +55,23 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:hex/acme/foo@2.3.",
-    "expected_output": "pkg:hex/acme/foo@2.3.",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:hex/acme/foo@2.3.",
+      "expected_output": "pkg:hex/acme/foo@2.3.",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "hex",
         "namespace": "acme",
         "name": "foo",
@@ -99,23 +79,16 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_output": "pkg:hex/acme/foo@2.3.",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": "pkg:hex/acme/foo@2.3.",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js",
-    "expected_output": {
-      "type": {
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js",
+      "expected_output": {
         "type": "hex",
         "namespace": null,
         "name": "phoenix_html",
@@ -123,30 +96,23 @@
         "qualifiers": null,
         "subpath": "priv/static/phoenix_html.js"
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js",
-    "expected_output": "pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js",
+      "expected_output": "pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "hex",
         "namespace": null,
         "name": "phoenix_html",
@@ -154,23 +120,16 @@
         "qualifiers": null,
         "subpath": "priv/static/phoenix_html.js"
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_output": "pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": "pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com",
-    "expected_output": {
-      "type": {
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com",
+      "expected_output": {
         "type": "hex",
         "namespace": null,
         "name": "bar",
@@ -180,30 +139,23 @@
         },
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com",
-    "expected_output": "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com",
+      "expected_output": "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "hex",
         "namespace": null,
         "name": "bar",
@@ -213,14 +165,9 @@
         },
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_output": "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  }
-]
+      "expected_output": "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

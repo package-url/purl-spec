@@ -1,11 +1,12 @@
-[
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:luarocks/luasocket@3.1.0-1",
-    "expected_output": {
-      "type": {
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:luarocks/luasocket@3.1.0-1",
+      "expected_output": {
         "type": "luarocks",
         "namespace": null,
         "name": "luasocket",
@@ -13,30 +14,23 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:luarocks/luasocket@3.1.0-1",
-    "expected_output": "pkg:luarocks/luasocket@3.1.0-1",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:luarocks/luasocket@3.1.0-1",
+      "expected_output": "pkg:luarocks/luasocket@3.1.0-1",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "luarocks",
         "namespace": null,
         "name": "luasocket",
@@ -44,23 +38,16 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_output": "pkg:luarocks/luasocket@3.1.0-1",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": "pkg:luarocks/luasocket@3.1.0-1",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:luarocks/hisham/luafilesystem@1.8.0-1",
-    "expected_output": {
-      "type": {
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:luarocks/hisham/luafilesystem@1.8.0-1",
+      "expected_output": {
         "type": "luarocks",
         "namespace": "hisham",
         "name": "luafilesystem",
@@ -68,30 +55,23 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:luarocks/hisham/luafilesystem@1.8.0-1",
-    "expected_output": "pkg:luarocks/hisham/luafilesystem@1.8.0-1",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:luarocks/hisham/luafilesystem@1.8.0-1",
+      "expected_output": "pkg:luarocks/hisham/luafilesystem@1.8.0-1",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "luarocks",
         "namespace": "hisham",
         "name": "luafilesystem",
@@ -99,23 +79,16 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_output": "pkg:luarocks/hisham/luafilesystem@1.8.0-1",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": "pkg:luarocks/hisham/luafilesystem@1.8.0-1",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/",
-    "expected_output": {
-      "type": {
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/",
+      "expected_output": {
         "type": "luarocks",
         "namespace": "username",
         "name": "packagename",
@@ -125,30 +98,23 @@
         },
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/",
-    "expected_output": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/",
+      "expected_output": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "luarocks",
         "namespace": "username",
         "name": "packagename",
@@ -158,14 +124,9 @@
         },
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_output": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  }
-]
+      "expected_output": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

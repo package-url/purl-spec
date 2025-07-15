@@ -1,65 +1,66 @@
-[
-  {
-    "description": "docker uses qualifiers and hash image id as versions. Rountrip an input purl to canonical.",
-    "test_group": "advanced",
-    "test_type": "roundtrip",
-    "input": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
-    "expected_output": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "docker uses qualifiers and hash image id as versions",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
-    "expected_output": {
-      "type": "docker",
-      "namespace": "customer",
-      "name": "dockerimage",
-      "version": "sha256:244fd47e07d1004f0aed9c",
-      "qualifiers": {
-        "repository_url": "gcr.io"
-      },
-      "subpath": null
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "docker uses qualifiers and hash image id as versions. Rountrip an input purl to canonical.",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
+      "expected_output": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "docker uses qualifiers and hash image id as versions. Rountrip a canonical input to canonical output.",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
-    "expected_output": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "docker uses qualifiers and hash image id as versions",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": "docker",
-      "namespace": "customer",
-      "name": "dockerimage",
-      "version": "sha256:244fd47e07d1004f0aed9c",
-      "qualifiers": {
-        "repository_url": "gcr.io"
+    {
+      "description": "docker uses qualifiers and hash image id as versions",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
+      "expected_output": {
+        "type": "docker",
+        "namespace": "customer",
+        "name": "dockerimage",
+        "version": "sha256:244fd47e07d1004f0aed9c",
+        "qualifiers": {
+          "repository_url": "gcr.io"
+        },
+        "subpath": null
       },
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:docker/cassandra@latest",
-    "expected_output": {
-      "type": {
+    {
+      "description": "docker uses qualifiers and hash image id as versions. Rountrip a canonical input to canonical output.",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
+      "expected_output": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "docker uses qualifiers and hash image id as versions",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "docker",
+        "namespace": "customer",
+        "name": "dockerimage",
+        "version": "sha256:244fd47e07d1004f0aed9c",
+        "qualifiers": {
+          "repository_url": "gcr.io"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:docker/cassandra@latest",
+      "expected_output": {
         "type": "docker",
         "namespace": null,
         "name": "cassandra",
@@ -67,30 +68,23 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:docker/cassandra@latest",
-    "expected_output": "pkg:docker/cassandra@latest",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:docker/cassandra@latest",
+      "expected_output": "pkg:docker/cassandra@latest",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "docker",
         "namespace": null,
         "name": "cassandra",
@@ -98,23 +92,16 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_output": "pkg:docker/cassandra@latest",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": "pkg:docker/cassandra@latest",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:docker/smartentry/debian@dc437cc87d10",
-    "expected_output": {
-      "type": {
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:docker/smartentry/debian@dc437cc87d10",
+      "expected_output": {
         "type": "docker",
         "namespace": "smartentry",
         "name": "debian",
@@ -122,30 +109,23 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:docker/smartentry/debian@dc437cc87d10",
-    "expected_output": "pkg:docker/smartentry/debian@dc437cc87d10",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:docker/smartentry/debian@dc437cc87d10",
+      "expected_output": "pkg:docker/smartentry/debian@dc437cc87d10",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "docker",
         "namespace": "smartentry",
         "name": "debian",
@@ -153,23 +133,16 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_output": "pkg:docker/smartentry/debian@dc437cc87d10",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": "pkg:docker/smartentry/debian@dc437cc87d10",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d10?repository_url=gcr.io",
-    "expected_output": {
-      "type": {
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d10?repository_url=gcr.io",
+      "expected_output": {
         "type": "docker",
         "namespace": "customer",
         "name": "dockerimage",
@@ -179,30 +152,23 @@
         },
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d10?repository_url=gcr.io",
-    "expected_output": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d10?repository_url=gcr.io",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d10?repository_url=gcr.io",
+      "expected_output": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d10?repository_url=gcr.io",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "docker",
         "namespace": "customer",
         "name": "dockerimage",
@@ -212,14 +178,9 @@
         },
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_output": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d10?repository_url=gcr.io",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  }
-]
+      "expected_output": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d10?repository_url=gcr.io",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

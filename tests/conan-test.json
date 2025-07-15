@@ -1,185 +1,186 @@
-[
-  {
-    "description": "valid conan purl. Rountrip an input purl to canonical.",
-    "test_group": "advanced",
-    "test_type": "roundtrip",
-    "input": "pkg:conan/cctz@2.3",
-    "expected_output": "pkg:conan/cctz@2.3",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "valid conan purl",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:conan/cctz@2.3",
-    "expected_output": {
-      "type": "conan",
-      "namespace": null,
-      "name": "cctz",
-      "version": "2.3",
-      "qualifiers": null,
-      "subpath": null
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "valid conan purl. Rountrip an input purl to canonical.",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:conan/cctz@2.3",
+      "expected_output": "pkg:conan/cctz@2.3",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "valid conan purl. Rountrip a canonical input to canonical output.",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:conan/cctz@2.3",
-    "expected_output": "pkg:conan/cctz@2.3",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "valid conan purl",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": "conan",
-      "namespace": null,
-      "name": "cctz",
-      "version": "2.3",
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_output": "pkg:conan/cctz@2.3",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "valid conan purl with namespace and qualifier channel. Rountrip an input purl to canonical.",
-    "test_group": "advanced",
-    "test_type": "roundtrip",
-    "input": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
-    "expected_output": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "valid conan purl with namespace and qualifier channel",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
-    "expected_output": {
-      "type": "conan",
-      "namespace": "bincrafters",
-      "name": "cctz",
-      "version": "2.3",
-      "qualifiers": {
-        "channel": "stable"
+    {
+      "description": "valid conan purl",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:conan/cctz@2.3",
+      "expected_output": {
+        "type": "conan",
+        "namespace": null,
+        "name": "cctz",
+        "version": "2.3",
+        "qualifiers": null,
+        "subpath": null
       },
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "valid conan purl with namespace and qualifier channel. Rountrip a canonical input to canonical output.",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
-    "expected_output": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "valid conan purl with namespace and qualifier channel",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": "conan",
-      "namespace": "bincrafters",
-      "name": "cctz",
-      "version": "2.3",
-      "qualifiers": {
-        "channel": "stable"
+    {
+      "description": "valid conan purl. Rountrip a canonical input to canonical output.",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:conan/cctz@2.3",
+      "expected_output": "pkg:conan/cctz@2.3",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid conan purl",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "conan",
+        "namespace": null,
+        "name": "cctz",
+        "version": "2.3",
+        "qualifiers": null,
+        "subpath": null
       },
-      "subpath": null
+      "expected_output": "pkg:conan/cctz@2.3",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "invalid conan purl only namespace",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:conan/bincrafters/cctz@2.3",
-    "expected_output": null,
-    "expected_failure": true,
-    "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
-  },
-  {
-    "description": "invalid conan purl only namespace",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:conan/bincrafters/cctz@2.3",
-    "expected_output": null,
-    "expected_failure": true,
-    "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
-  },
-  {
-    "description": "invalid conan purl only namespace",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": "conan",
-      "namespace": "bincrafters",
-      "name": "cctz",
-      "version": "2.3",
-      "qualifiers": null,
-      "subpath": null
+    {
+      "description": "valid conan purl with namespace and qualifier channel. Rountrip an input purl to canonical.",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
+      "expected_output": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": null,
-    "expected_failure": true,
-    "expected_failure_reason": "Should fail to build a PURL from invalid input components"
-  },
-  {
-    "description": "invalid conan purl only channel qualifier",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:conan/cctz@2.3?channel=stable",
-    "expected_output": null,
-    "expected_failure": true,
-    "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
-  },
-  {
-    "description": "invalid conan purl only channel qualifier",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:conan/cctz@2.3?channel=stable",
-    "expected_output": null,
-    "expected_failure": true,
-    "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
-  },
-  {
-    "description": "invalid conan purl only channel qualifier",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": "conan",
-      "namespace": null,
-      "name": "cctz",
-      "version": "2.3",
-      "qualifiers": {
-        "channel": "stable"
+    {
+      "description": "valid conan purl with namespace and qualifier channel",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
+      "expected_output": {
+        "type": "conan",
+        "namespace": "bincrafters",
+        "name": "cctz",
+        "version": "2.3",
+        "qualifiers": {
+          "channel": "stable"
+        },
+        "subpath": null
       },
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": null,
-    "expected_failure": true,
-    "expected_failure_reason": "Should fail to build a PURL from invalid input components"
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:conan/openssl@3.0.3",
-    "expected_output": {
-      "type": {
+    {
+      "description": "valid conan purl with namespace and qualifier channel. Rountrip a canonical input to canonical output.",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
+      "expected_output": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid conan purl with namespace and qualifier channel",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "conan",
+        "namespace": "bincrafters",
+        "name": "cctz",
+        "version": "2.3",
+        "qualifiers": {
+          "channel": "stable"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "invalid conan purl only namespace",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:conan/bincrafters/cctz@2.3",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+    },
+    {
+      "description": "invalid conan purl only namespace",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:conan/bincrafters/cctz@2.3",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
+    },
+    {
+      "description": "invalid conan purl only namespace",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "conan",
+        "namespace": "bincrafters",
+        "name": "cctz",
+        "version": "2.3",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+    },
+    {
+      "description": "invalid conan purl only channel qualifier",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:conan/cctz@2.3?channel=stable",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+    },
+    {
+      "description": "invalid conan purl only channel qualifier",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:conan/cctz@2.3?channel=stable",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
+    },
+    {
+      "description": "invalid conan purl only channel qualifier",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "conan",
+        "namespace": null,
+        "name": "cctz",
+        "version": "2.3",
+        "qualifiers": {
+          "channel": "stable"
+        },
+        "subpath": null
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+    },
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:conan/openssl@3.0.3",
+      "expected_output": {
         "type": "conan",
         "namespace": null,
         "name": "openssl",
@@ -187,30 +188,23 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:conan/openssl@3.0.3",
-    "expected_output": "pkg:conan/openssl@3.0.3",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:conan/openssl@3.0.3",
+      "expected_output": "pkg:conan/openssl@3.0.3",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "conan",
         "namespace": null,
         "name": "openssl",
@@ -218,23 +212,16 @@
         "qualifiers": null,
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_output": "pkg:conan/openssl@3.0.3",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": "pkg:conan/openssl@3.0.3",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:conan/openssl.org/openssl@3.0.3?user=bincrafters&channel=stable",
-    "expected_output": {
-      "type": {
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:conan/openssl.org/openssl@3.0.3?user=bincrafters&channel=stable",
+      "expected_output": {
         "type": "conan",
         "namespace": "openssl.org",
         "name": "openssl",
@@ -245,30 +232,23 @@
         },
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:conan/openssl.org/openssl@3.0.3?user=bincrafters&channel=stable",
-    "expected_output": "pkg:conan/openssl.org/openssl@3.0.3?user=bincrafters&channel=stable",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:conan/openssl.org/openssl@3.0.3?user=bincrafters&channel=stable",
+      "expected_output": "pkg:conan/openssl.org/openssl@3.0.3?user=bincrafters&channel=stable",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "conan",
         "namespace": "openssl.org",
         "name": "openssl",
@@ -279,23 +259,16 @@
         },
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_output": "pkg:conan/openssl.org/openssl@3.0.3?user=bincrafters&channel=stable",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": "pkg:conan/openssl.org/openssl@3.0.3?user=bincrafters&channel=stable",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:conan/openssl.org/openssl@3.0.3?arch=x86_64&build_type=Debug&compiler=Visual%20Studio&compiler.runtime=MDd&compiler.version=16&os=Windows&shared=True&rrev=93a82349c31917d2d674d22065c7a9ef9f380c8e&prev=b429db8a0e324114c25ec387bfd8281f330d7c5c",
-    "expected_output": {
-      "type": {
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:conan/openssl.org/openssl@3.0.3?arch=x86_64&build_type=Debug&compiler=Visual%20Studio&compiler.runtime=MDd&compiler.version=16&os=Windows&shared=True&rrev=93a82349c31917d2d674d22065c7a9ef9f380c8e&prev=b429db8a0e324114c25ec387bfd8281f330d7c5c",
+      "expected_output": {
         "type": "conan",
         "namespace": "openssl.org",
         "name": "openssl",
@@ -313,30 +286,23 @@
         },
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:conan/openssl.org/openssl@3.0.3?arch=x86_64&build_type=Debug&compiler=Visual%20Studio&compiler.runtime=MDd&compiler.version=16&os=Windows&shared=True&rrev=93a82349c31917d2d674d22065c7a9ef9f380c8e&prev=b429db8a0e324114c25ec387bfd8281f330d7c5c",
-    "expected_output": "pkg:conan/openssl.org/openssl@3.0.3?arch=x86_64&build_type=Debug&compiler=Visual%20Studio&compiler.runtime=MDd&compiler.version=16&os=Windows&shared=True&rrev=93a82349c31917d2d674d22065c7a9ef9f380c8e&prev=b429db8a0e324114c25ec387bfd8281f330d7c5c",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:conan/openssl.org/openssl@3.0.3?arch=x86_64&build_type=Debug&compiler=Visual%20Studio&compiler.runtime=MDd&compiler.version=16&os=Windows&shared=True&rrev=93a82349c31917d2d674d22065c7a9ef9f380c8e&prev=b429db8a0e324114c25ec387bfd8281f330d7c5c",
+      "expected_output": "pkg:conan/openssl.org/openssl@3.0.3?arch=x86_64&build_type=Debug&compiler=Visual%20Studio&compiler.runtime=MDd&compiler.version=16&os=Windows&shared=True&rrev=93a82349c31917d2d674d22065c7a9ef9f380c8e&prev=b429db8a0e324114c25ec387bfd8281f330d7c5c",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "conan",
         "namespace": "openssl.org",
         "name": "openssl",
@@ -354,14 +320,9 @@
         },
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_output": "pkg:conan/openssl.org/openssl@3.0.3?arch=x86_64&build_type=Debug&compiler=Visual%20Studio&compiler.runtime=MDd&compiler.version=16&os=Windows&shared=True&rrev=93a82349c31917d2d674d22065c7a9ef9f380c8e&prev=b429db8a0e324114c25ec387bfd8281f330d7c5c",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  }
-]
+      "expected_output": "pkg:conan/openssl.org/openssl@3.0.3?arch=x86_64&build_type=Debug&compiler=Visual%20Studio&compiler.runtime=MDd&compiler.version=16&os=Windows&shared=True&rrev=93a82349c31917d2d674d22065c7a9ef9f380c8e&prev=b429db8a0e324114c25ec387bfd8281f330d7c5c",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

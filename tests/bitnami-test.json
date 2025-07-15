@@ -1,11 +1,12 @@
-[
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:bitnami/wordpress?distro=debian-12",
-    "expected_output": {
-      "type": {
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:bitnami/wordpress?distro=debian-12",
+      "expected_output": {
         "type": "bitnami",
         "namespace": null,
         "name": "wordpress",
@@ -15,30 +16,23 @@
         },
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:bitnami/wordpress?distro=debian-12",
-    "expected_output": "pkg:bitnami/wordpress?distro=debian-12",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:bitnami/wordpress?distro=debian-12",
+      "expected_output": "pkg:bitnami/wordpress?distro=debian-12",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "bitnami",
         "namespace": null,
         "name": "wordpress",
@@ -48,23 +42,16 @@
         },
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_output": "pkg:bitnami/wordpress?distro=debian-12",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": "pkg:bitnami/wordpress?distro=debian-12",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:bitnami/wordpress@6.2.0?distro=debian-12",
-    "expected_output": {
-      "type": {
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:bitnami/wordpress@6.2.0?distro=debian-12",
+      "expected_output": {
         "type": "bitnami",
         "namespace": null,
         "name": "wordpress",
@@ -74,30 +61,23 @@
         },
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:bitnami/wordpress@6.2.0?distro=debian-12",
-    "expected_output": "pkg:bitnami/wordpress@6.2.0?distro=debian-12",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:bitnami/wordpress@6.2.0?distro=debian-12",
+      "expected_output": "pkg:bitnami/wordpress@6.2.0?distro=debian-12",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "bitnami",
         "namespace": null,
         "name": "wordpress",
@@ -107,23 +87,16 @@
         },
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_output": "pkg:bitnami/wordpress@6.2.0?distro=debian-12",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": "pkg:bitnami/wordpress@6.2.0?distro=debian-12",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12",
-    "expected_output": {
-      "type": {
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12",
+      "expected_output": {
         "type": "bitnami",
         "namespace": null,
         "name": "wordpress",
@@ -134,30 +107,23 @@
         },
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12",
-    "expected_output": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12",
+      "expected_output": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "bitnami",
         "namespace": null,
         "name": "wordpress",
@@ -168,23 +134,16 @@
         },
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_output": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12",
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_output": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Parse test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "parse",
-    "input": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4",
-    "expected_output": {
-      "type": {
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4",
+      "expected_output": {
         "type": "bitnami",
         "namespace": null,
         "name": "wordpress",
@@ -195,30 +154,23 @@
         },
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
+      "expected_failure": false,
+      "expected_failure_reason": null
     },
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Rountrip test for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "roundtrip",
-    "input": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4",
-    "expected_output": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  },
-  {
-    "description": "Build test  for <class 'type'> PURL",
-    "test_group": "base",
-    "test_type": "build",
-    "input": {
-      "type": {
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4",
+      "expected_output": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
         "type": "bitnami",
         "namespace": null,
         "name": "wordpress",
@@ -229,14 +181,9 @@
         },
         "subpath": null
       },
-      "namespace": null,
-      "name": null,
-      "version": null,
-      "qualifiers": null,
-      "subpath": null
-    },
-    "expected_output": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4",
-    "expected_failure": false,
-    "expected_failure_reason": null
-  }
-]
+      "expected_output": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

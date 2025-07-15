@@ -26,76 +26,10 @@ from __future__ import annotations
 from typing import Any
 from typing import Literal
 from typing import Optional
-from typing import Union
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
-from pydantic import RootModel
-
-
-class BuildTest(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    description: Description
-    test_group: TestGroup
-    test_type: Literal["build"]
-    input: PurlComponents = Field(
-        ...,
-        description="An object of decoded PURL components to use as a test input.",
-        title="Input test PURL components",
-    )
-    expected_output: Optional[str] = Field(
-        None,
-        description="Test output as a canonical PURL string, unless expected_failure.",
-        title="Expected output canonical PURL string",
-    )
-    expected_failure: Optional[ExpectedFailure] = False
-    expected_failure_reason: Optional[ExpectedFailureReason] = None
-
-
-class Description(RootModel[str]):
-    root: str = Field(
-        ..., description="An optional description for this test.", title="Test description"
-    )
-
-
-class ExpectedFailure(RootModel[bool]):
-    root: bool = Field(
-        ...,
-        description="true if this test input is expected to fail to be processed.",
-        title="Expected failure",
-    )
-
-
-class ExpectedFailureReason(RootModel[str]):
-    root: str = Field(
-        ...,
-        description="The reason why this is is expected to fail if expected_failure is true.",
-        title="Expected failure reason",
-    )
-
-
-class ParseTest(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    description: Description
-    test_group: TestGroup
-    test_type: Literal["parse"]
-    input: str = Field(
-        ...,
-        description="A PURL string to use as a test input (canonical or not).",
-        title="Input test PURL",
-    )
-    expected_output: Optional[PurlComponents] = Field(
-        None,
-        description="Test output as an object decoded PURL components, unless expected_failure.",
-        title="Expected output decoded PURL components",
-    )
-    expected_failure: Optional[ExpectedFailure] = False
-    expected_failure_reason: Optional[ExpectedFailureReason] = None
 
 
 class PurlComponents(BaseModel):
@@ -122,6 +56,28 @@ class PurlComponents(BaseModel):
     )
 
 
+class PurlTest(BaseModel):
+    description: str = Field(
+        ..., description="A description for this test.", title="Test description"
+    )
+    test_group: Literal["base", "advanced"] = Field(
+        ..., description="The group of this test like 'base' or 'advanced'.", title="Test group"
+    )
+    test_type: Literal["build", "parse", "roundtrip"] = Field(
+        ..., description="The type of this test like 'build' or 'parse'.", title="Test type"
+    )
+    expected_failure: Optional[bool] = Field(
+        False,
+        description="true if this test input is expected to fail to be processed.",
+        title="Expected failure",
+    )
+    expected_failure_reason: Optional[str] = Field(
+        None,
+        description="The reason why this test is is expected to fail if expected_failure is true.",
+        title="Expected failure reason",
+    )
+
+
 class PurlTestDefinition(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
@@ -132,34 +88,9 @@ class PurlTestDefinition(BaseModel):
         description="Contains the URL of the JSON schema for Package-URL tests.",
         title="JSON schema",
     )
-    tests: Optional[list[Union[BuildTest, ParseTest]]] = Field(
+    tests: Optional[list[PurlTest]] = Field(
         None,
         description="A list of Package-URL build and parse tests.",
         min_length=1,
         title="Test suite",
-    )
-
-
-class RoundtripTest(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    description: Description
-    test_group: TestGroup
-    test_type: Literal["roundtrip"]
-    input: str = Field(
-        ...,
-        description="A PURL string to use as a test input (canonical or not).",
-        title="Input test PURL",
-    )
-    expected_output: Optional[str] = Field(
-        None, description="A canonical PURL string to use as a test expected output."
-    )
-    expected_failure: Optional[ExpectedFailure] = False
-    expected_failure_reason: Optional[ExpectedFailureReason] = None
-
-
-class TestGroup(RootModel[Literal["base", "advanced"]]):
-    root: Literal["base", "advanced"] = Field(
-        ..., description="The group of this test like 'base' or 'advanced'.", title="Test group"
     )

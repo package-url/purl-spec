@@ -209,6 +209,34 @@ def add_headers(test_dir: Path):
         test_file.write_text(json.dumps(with_header, indent=2))
 
 
+def fix_damage(test_dir: Path):
+    for test_file in test_dir.glob("*.json"):
+        try:
+            test_data = json.loads(test_file.read_text())
+        except Exception as e:
+            raise Exception(test_file) from e
+
+        print("\nprocessing", test_file)
+
+        for test in test_data["tests"]:
+            print("   processing", test)
+            inp = test.get("input")
+            if isinstance(inp, dict):
+                inpinp = inp.get("type")
+                if isinstance(inpinp, dict):
+                    print(f"replacing {inp}\n  with {inpinp}")
+                    test["input"] = inpinp
+
+            out = test.get("expected_output")
+            if isinstance(out, dict):
+                outout = out.get("type")
+                if isinstance(outout, dict):
+                    print(f"replacing {out}\n  with {outout}")
+                    test["expected_output"] = outout
+
+        test_file.write_text(json.dumps(test_data, indent=2))
+
+
 def convert_examples(def_dir: Path, test_dir: Path):
     """Read PURL type definition JSON file and write updated test file in new format"""
 
@@ -264,6 +292,9 @@ if __name__ == "__main__":
     elif what == "headers":
         test_dir = sys.argv[2]
         add_headers(test_dir=Path(test_dir))
+    elif what == "fix":
+        test_dir = sys.argv[2]
+        fix_damage(test_dir=Path(test_dir))
     elif what == "examples":
         def_dir = sys.argv[3]
         test_dir = sys.argv[2]
