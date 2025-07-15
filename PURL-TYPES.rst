@@ -296,6 +296,29 @@ github
       pkg:github/package-url/purl-spec@244fd47e07d1004
       pkg:github/package-url/purl-spec@244fd47e07d1004#everybody/loves/dogs
 
+github-release
+--------------
+``github-release`` for GitHub releases:
+
+- ``namespace``: The GitHub user or organization. It is not case sensitive and
+  must be lowercased.
+- ``name``: The GitHub repository name. It is not case sensitive and must be
+  lowercased.
+- ``version``: The release version. It is required and is case sensitive.
+- Qualifier ``repository_url``: GitHub server hosting the release (optional).
+  Useful in case a private server is used. If omitted, ``https://github.com``
+  is assumed as the default.
+- Qualifier ``file_name``: Selects a named (case sensitive) asset contained 
+  within the release (optional).
+- Qualifier ``checksum``: Checksum for the release asset (optional). Must be
+  in the form of `lowercase_algorithm:hex_encoded_lowercase_value`.
+
+- Examples::
+
+      pkg:github-release/cli/cli@v2.67.0
+      pkg:github-release/foo/bar@v1.0.0?repository_url=https:%2F%2Ffoobar.ghe.com
+      pkg:github-release/foo/bar@v1.0.0?file_name=bin-linux.tgz&checksum=sha256:deadbeef
+
 golang
 ------
 ``golang`` for Go packages:
