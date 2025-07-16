@@ -2,11 +2,11 @@
   "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
   "tests": [
     {
-      "description": "docker uses qualifiers and hash image id as versions. Rountrip an input purl to canonical.",
+      "description": "docker uses qualifiers and hash image id as versions. Rountrip an input purl wrongly percent encoded to canonical.",
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
-      "expected_output": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
+      "expected_output": "pkg:docker/customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -14,7 +14,7 @@
       "description": "docker uses qualifiers and hash image id as versions",
       "test_group": "base",
       "test_type": "parse",
-      "input": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
+      "input": "pkg:docker/customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io",
       "expected_output": {
         "type": "docker",
         "namespace": "customer",
@@ -32,8 +32,8 @@
       "description": "docker uses qualifiers and hash image id as versions. Rountrip a canonical input to canonical output.",
       "test_group": "base",
       "test_type": "roundtrip",
-      "input": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
-      "expected_output": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
+      "input": "pkg:docker/customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io",
+      "expected_output": "pkg:docker/customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -51,7 +51,7 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c?repository_url=gcr.io",
+      "expected_output": "pkg:docker/customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -141,7 +141,7 @@
       "description": "Parse test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "parse",
-      "input": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d10?repository_url=gcr.io",
+      "input": "pkg:docker/customer/dockerimage@sha256:244fd47e07d10?repository_url=gcr.io",
       "expected_output": {
         "type": "docker",
         "namespace": "customer",
@@ -159,8 +159,8 @@
       "description": "Rountrip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
-      "input": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d10?repository_url=gcr.io",
-      "expected_output": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d10?repository_url=gcr.io",
+      "input": "pkg:docker/customer/dockerimage@sha256:244fd47e07d10?repository_url=gcr.io",
+      "expected_output": "pkg:docker/customer/dockerimage@sha256:244fd47e07d10?repository_url=gcr.io",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -178,7 +178,7 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d10?repository_url=gcr.io",
+      "expected_output": "pkg:docker/customer/dockerimage@sha256:244fd47e07d10?repository_url=gcr.io",
       "expected_failure": false,
       "expected_failure_reason": null
     }

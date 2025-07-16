@@ -79,7 +79,7 @@
       "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
     },
     {
-      "description": "check for invalid character in type",
+      "description": "check for null type",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -92,7 +92,7 @@
       },
       "expected_output": null,
       "expected_failure": true,
-      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+      "expected_failure_reason": "Should fail to build a PURL from null type"
     },
     {
       "description": "check for type that starts with number",
@@ -101,7 +101,7 @@
       "input": "pkg:3nginx/nginx@0.8.9",
       "expected_output": null,
       "expected_failure": true,
-      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+      "expected_failure_reason": "Should fail to parse a PURL from invalid purl type (cannot start with number)"
     },
     {
       "description": "check for type that starts with number",

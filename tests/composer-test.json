@@ -2,6 +2,31 @@
   "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
   "tests": [
     {
+      "description": "valid packagist purl",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:composer/guzzlehttp/promises@2.0.2",
+      "expected_output": "pkg:composer/guzzlehttp/promises@2.0.2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid packagist purl",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:composer/guzzlehttp/promises@2.0.2",
+      "expected_output": {
+        "type": "composer",
+        "namespace": "guzzlehttp",
+        "name": "promises",
+        "version": "2.0.2",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
       "description": "composer names are not case sensitive. Rountrip an input purl to canonical.",
       "test_group": "advanced",
       "test_type": "roundtrip",

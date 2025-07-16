@@ -102,19 +102,19 @@
       "expected_failure_reason": null
     },
     {
-      "description": "maven often uses qualifiers. Rountrip an input purl to canonical.",
+      "description": "maven often uses qualifiers. Rountrip an input purl to canonical using mixedcase type",
       "test_group": "advanced",
       "test_type": "roundtrip",
-      "input": "pkg:Maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repositorY_url=repo.spring.io/release",
-      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repository_url=repo.spring.io/release",
+      "input": "pkg:Maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repositorY_url=https://repo.spring.io/release",
+      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repository_url=https://repo.spring.io/release",
       "expected_failure": false,
       "expected_failure_reason": null
     },
     {
-      "description": "maven often uses qualifiers",
-      "test_group": "base",
+      "description": "maven often uses qualifiers here mixedcase type",
+      "test_group": "advanced",
       "test_type": "parse",
-      "input": "pkg:Maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repositorY_url=repo.spring.io/release",
+      "input": "pkg:Maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repositorY_url=https://repo.spring.io/release",
       "expected_output": {
         "type": "maven",
         "namespace": "org.apache.xmlgraphics",
@@ -122,7 +122,7 @@
         "version": "1.9.1",
         "qualifiers": {
           "classifier": "sources",
-          "repository_url": "repo.spring.io/release"
+          "repository_url": "https://repo.spring.io/release"
         },
         "subpath": null
       },
@@ -161,8 +161,8 @@
       "description": "maven pom reference. Rountrip an input purl to canonical.",
       "test_group": "advanced",
       "test_type": "roundtrip",
-      "input": "pkg:Maven/org.apache.xmlgraphics/batik-anim@1.9.1?extension=pom&repositorY_url=repo.spring.io/release",
-      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?extension=pom&repository_url=repo.spring.io/release",
+      "input": "pkg:Maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=pom&repositorY_url=repo.spring.io/release",
+      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=repo.spring.io/release&type=pom",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -170,14 +170,14 @@
       "description": "maven pom reference",
       "test_group": "base",
       "test_type": "parse",
-      "input": "pkg:Maven/org.apache.xmlgraphics/batik-anim@1.9.1?extension=pom&repositorY_url=repo.spring.io/release",
+      "input": "pkg:Maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=pom&repositorY_url=repo.spring.io/release",
       "expected_output": {
         "type": "maven",
         "namespace": "org.apache.xmlgraphics",
         "name": "batik-anim",
         "version": "1.9.1",
         "qualifiers": {
-          "extension": "pom",
+          "type": "pom",
           "repository_url": "repo.spring.io/release"
         },
         "subpath": null
@@ -189,8 +189,8 @@
       "description": "maven pom reference. Rountrip a canonical input to canonical output.",
       "test_group": "base",
       "test_type": "roundtrip",
-      "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?extension=pom&repository_url=repo.spring.io/release",
-      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?extension=pom&repository_url=repo.spring.io/release",
+      "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=war&repository_url=https://repo.spring.io/release",
+      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=https://repo.spring.io/release&type=war",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -204,12 +204,12 @@
         "name": "batik-anim",
         "version": "1.9.1",
         "qualifiers": {
-          "extension": "pom",
+          "classifier": "foo",
           "repository_url": "repo.spring.io/release"
         },
         "subpath": null
       },
-      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?extension=pom&repository_url=repo.spring.io/release",
+      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=foo&repository_url=repo.spring.io/release",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -304,7 +304,7 @@
       "expected_failure_reason": "Should fail to build a PURL from invalid input components"
     },
     {
-      "description": "slash / after scheme is not significant. Rountrip an input purl to canonical.",
+      "description": "slash / after type is not significant. Rountrip an input purl to canonical.",
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:/maven/org.apache.commons/io",
@@ -313,7 +313,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "slash / after scheme is not significant",
+      "description": "slash / after type is not significant",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:/maven/org.apache.commons/io",
@@ -329,7 +329,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "slash / after scheme is not significant. Rountrip a canonical input to canonical output.",
+      "description": "slash / after type is not significant. Rountrip a canonical input to canonical output.",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:maven/org.apache.commons/io",
@@ -338,7 +338,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "slash / after scheme is not significant",
+      "description": "slash / after type is not significant",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -354,7 +354,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "double slash // after scheme is not significant. Rountrip an input purl to canonical.",
+      "description": "double slash // after type is not significant. Rountrip an input purl to canonical.",
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg://maven/org.apache.commons/io",
@@ -363,7 +363,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "double slash // after scheme is not significant",
+      "description": "double slash // after type is not significant",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg://maven/org.apache.commons/io",
@@ -379,7 +379,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "double slash // after scheme is not significant. Rountrip a canonical input to canonical output.",
+      "description": "double slash // after type is not significant. Rountrip a canonical input to canonical output.",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:maven/org.apache.commons/io",
@@ -388,7 +388,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "double slash // after scheme is not significant",
+      "description": "double slash // after type is not significant",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -404,7 +404,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "slash /// after scheme is not significant. Rountrip an input purl to canonical.",
+      "description": "slash /// after type is not significant. Rountrip an input purl to canonical.",
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:///maven/org.apache.commons/io",
@@ -413,7 +413,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "slash /// after scheme is not significant",
+      "description": "slash /// after type is not significant",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:///maven/org.apache.commons/io",
@@ -429,7 +429,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "slash /// after scheme is not significant. Rountrip a canonical input to canonical output.",
+      "description": "slash /// after type is not significant. Rountrip a canonical input to canonical output.",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:maven/org.apache.commons/io",
@@ -438,7 +438,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "slash /// after scheme is not significant",
+      "description": "slash /// after type is not significant",
       "test_group": "base",
       "test_type": "build",
       "input": {
