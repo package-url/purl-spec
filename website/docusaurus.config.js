@@ -5,14 +5,31 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import {themes as prismThemes} from 'prism-react-renderer';
+import './plugins/tailwind.config.cjs';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'PURL Specs',
-  tagline: 'PURL SPEC TAGLINE',
+  title: 'My Site',
+  tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
+
+  plugins: [
+     async function tailwindPlugin(context, options) {
+      return {
+        name: 'tailwind-plugin',
+        configurePostCss(postcssOptions) {
+          postcssOptions.plugins = [
+            //require('postcss-import'),
+            require('tailwindcss'),
+            require('autoprefixer'),
+          ];
+          return postcssOptions;
+        },
+      };
+    }
+  ],
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -27,8 +44,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'Package URL', // Usually your GitHub org/user name.
-  projectName: 'Perl specs', // Usually your repo name.
+  organizationName: 'facebook', // Usually your GitHub org/user name.
+  projectName: 'docusaurus', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -51,7 +68,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/package-url',
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
@@ -62,7 +79,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/package-url',
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -81,7 +98,7 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'PURL Specs',
+        title: 'My Site',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
@@ -91,11 +108,11 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'mySidebar',
             position: 'left',
-            label: 'Docs',
+            label: 'Tutorial',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/package-url',
+            href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',
             position: 'right',
           },
@@ -108,12 +125,8 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'PURL Specs',
-                to: 'docs/PURL_SPECIFICATION',
-              },
-              {
-                label: 'PURL Types',
-                to: 'docs/PURL_TYPES',
+                label: 'Tutorial',
+                to: '/docs/intro',
               },
             ],
           },
@@ -121,12 +134,16 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Gitter',
-                href: 'https://app.gitter.im/#/room/#package-url_Lobby:gitter.im',
+                label: 'Stack Overflow',
+                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
               },
               {
-                label: 'Slack',
-                href: 'https://cyclonedx.slack.com/archives/C06KTE3BWEB',
+                label: 'Discord',
+                href: 'https://discordapp.com/invite/docusaurus',
+              },
+              {
+                label: 'X',
+                href: 'https://x.com/docusaurus',
               },
             ],
           },
@@ -139,12 +156,12 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/package-url',
+                href: 'https://github.com/facebook/docusaurus',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} PURL, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,
