@@ -4,89 +4,144 @@
         mySidebar : [
  {
   "type": "category",
-  "label": "Users_adopters_and_links",
+  "label": "Some_purl_examples",
   "items": [
    {
     "type": "doc",
-    "label": "Users_adopters_and_links",
-    "id": "Users_adopters_and_links/Users_adopters_and_links"
+    "label": "Some_purl_examples",
+    "id": "Some_purl_examples/Some_purl_examples"
    }
   ]
  },
  {
   "type": "category",
-  "label": "Known_implementations",
+  "label": "Known_purl_types",
   "items": [
    {
     "type": "doc",
-    "label": "Known_implementations",
-    "id": "Known_implementations/Known_implementations"
+    "label": "Known_purl_types",
+    "id": "Known_purl_types/Known_purl_types"
    }
   ]
  },
  {
   "type": "category",
-  "label": "Context",
+  "label": "How_to_parse_a_purl_string_in_its_components",
   "items": [
    {
     "type": "doc",
-    "label": "Context",
-    "id": "Context/Context"
+    "label": "How_to_parse_a_purl_string_in_its_components",
+    "id": "How_to_parse_a_purl_string_in_its_components/How_to_parse_a_purl_string_in_its_components"
    }
   ]
  },
  {
   "type": "category",
-  "label": "Problem",
+  "label": "A_purl_is_a_URL",
   "items": [
    {
     "type": "doc",
-    "label": "Problem",
-    "id": "Problem/Problem"
+    "label": "A_purl_is_a_URL",
+    "id": "A_purl_is_a_URL/A_purl_is_a_URL"
    }
   ]
  },
  {
   "type": "category",
-  "label": "Solution",
+  "label": "License",
   "items": [
    {
     "type": "doc",
-    "label": "Solution",
-    "id": "Solution/Solution"
+    "label": "License",
+    "id": "License/License"
    }
   ]
  },
  {
   "type": "category",
-  "label": "Some_purltitleref_examples",
+  "label": "purl_separators",
   "items": [
    {
     "type": "doc",
-    "label": "Some_purltitleref_examples",
-    "id": "Some_purltitleref_examples/Some_purltitleref_examples"
+    "label": "purl_separators",
+    "id": "purl_separators/purl_separators"
    }
   ]
  },
  {
   "type": "category",
-  "label": "Specification_details",
+  "label": "Tests",
   "items": [
    {
     "type": "doc",
-    "label": "Specification_details",
-    "id": "Specification_details/Specification_details"
+    "label": "Tests",
+    "id": "Tests/Tests"
    }
   ]
  },
  {
   "type": "category",
-  "label": "purl",
+  "label": "Known_qualifiers_keyvalue_pairs",
   "items": [
    {
     "type": "doc",
-    "label": "purl",
-    "id": "purl/purl"
+    "label": "Known_qualifiers_keyvalue_pairs",
+    "id": "Known_qualifiers_keyvalue_pairs/Known_qualifiers_keyvalue_pairs"
+   }
+  ]
+ },
+ {
+  "type": "category",
+  "label": "Package_URL_specification_v10X",
+  "items": [
+   {
+    "type": "doc",
+    "label": "Package_URL_specification_v10X",
+    "id": "Package_URL_specification_v10X/Package_URL_specification_v10X"
+   }
+  ]
+ },
+ {
+  "type": "category",
+  "label": "How_to_build_purl_string_from_its_components",
+  "items": [
+   {
+    "type": "doc",
+    "label": "How_to_build_purl_string_from_its_components",
+    "id": "How_to_build_purl_string_from_its_components/How_to_build_purl_string_from_its_components"
+   }
+  ]
+ },
+ {
+  "type": "category",
+  "label": "Permitted_characters",
+  "items": [
+   {
+    "type": "doc",
+    "label": "Permitted_characters",
+    "id": "Permitted_characters/Permitted_characters"
+   }
+  ]
+ },
+ {
+  "type": "category",
+  "label": "Character_encoding",
+  "items": [
+   {
+    "type": "doc",
+    "label": "Character_encoding",
+    "id": "Character_encoding/Character_encoding"
+   }
+  ]
+ },
+ {
+  "type": "category",
+  "label": "Rules_for_each_purl_component",
+  "items": [
+   {
+    "type": "doc",
+    "label": "Rules_for_each_purl_component",
+    "id": "Rules_for_each_purl_component/Rules_for_each_purl_component"
    }
   ]
  }
