@@ -528,6 +528,78 @@
     "is_invalid": false
   },
   {
+    "description": "Hugging Face model with git commit version",
+    "purl": "pkg:huggingface/LumiOpen/Poro-34B@6dfe71272f0af88c67d2576f1acedf57a154d0eb?repository_url=https://huggingface.co",
+    "canonical_purl": "pkg:huggingface/LumiOpen/Poro-34B@6dfe71272f0af88c67d2576f1acedf57a154d0eb?repository_url=https://huggingface.co",
+    "type": "huggingface",
+    "namespace": "LumiOpen",
+    "name": "Poro-34B",
+    "version": "6dfe71272f0af88c67d2576f1acedf57a154d0eb",
+    "qualifiers": {"repository_url": "https://huggingface.co"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "Hugging Face model with tag version",
+    "purl": "pkg:huggingface/LumiOpen/Poro-34B@100B?repository_url=https://huggingface.co",
+    "canonical_purl": "pkg:huggingface/LumiOpen/Poro-34B@100B?repository_url=https://huggingface.co",
+    "type": "huggingface",
+    "namespace": "LumiOpen",
+    "name": "Poro-34B",
+    "version": "100B",
+    "qualifiers": {"repository_url": "https://huggingface.co"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "Hugging Face model with branch version",
+    "purl": "pkg:huggingface/LumiOpen/Poro-34B@main?repository_url=https://huggingface.co",
+    "canonical_purl": "pkg:huggingface/LumiOpen/Poro-34B@main?repository_url=https://huggingface.co",
+    "type": "huggingface",
+    "namespace": "LumiOpen",
+    "name": "Poro-34B",
+    "version": "main",
+    "qualifiers": {"repository_url": "https://huggingface.co"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "Hugging Face dataset with version tag",
+    "purl": "pkg:huggingface/bigcode/the-stack@v1.1?repository_url=https://huggingface.co/datasets&type=dataset",
+    "canonical_purl": "pkg:huggingface/bigcode/the-stack@v1.1?repository_url=https://huggingface.co/datasets&type=dataset",
+    "type": "huggingface",
+    "namespace": "bigcode",
+    "name": "the-stack",
+    "version": "v1.1",
+    "qualifiers": {"repository_url": "https://huggingface.co/datasets", "type": "dataset"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "Hugging Face dataset with main branch",
+    "purl": "pkg:huggingface/bigcode/the-stack@main?repository_url=https://huggingface.co/datasets&type=dataset",
+    "canonical_purl": "pkg:huggingface/bigcode/the-stack@main?repository_url=https://huggingface.co/datasets&type=dataset",
+    "type": "huggingface",
+    "namespace": "bigcode",
+    "name": "the-stack",
+    "version": "main",
+    "qualifiers": {"repository_url": "https://huggingface.co/datasets", "type": "dataset"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "Hugging Face space without version",
+    "purl": "pkg:huggingface/black-forest-labs/FLUX.1-Kontext-Dev?repository_url=https://huggingface.co/spaces&type=space",
+    "canonical_purl": "pkg:huggingface/black-forest-labs/FLUX.1-Kontext-Dev?repository_url=https://huggingface.co/spaces&type=space",
+    "type": "huggingface",
+    "namespace": "black-forest-labs",
+    "name": "FLUX.1-Kontext-Dev",
+    "version": null,
+    "qualifiers": {"repository_url": "https://huggingface.co/spaces", "type": "space"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
     "description": "MLflow model tracked in Azure Databricks (case insensitive)",
     "purl": "pkg:mlflow/CreditFraud@3?repository_url=https://adb-5245952564735461.0.azuredatabricks.net/api/2.0/mlflow",
     "canonical_purl": "pkg:mlflow/creditfraud@3?repository_url=https://adb-5245952564735461.0.azuredatabricks.net/api/2.0/mlflow",
