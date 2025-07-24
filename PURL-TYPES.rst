@@ -527,6 +527,25 @@ qpkg
       pkg:qpkg/blackberry/com.qnx.sdp@7.0.0.SGA201702151847
       pkg:qpkg/blackberry/com.qnx.qnx710.foo.bar.qux@0.0.4.01449T202205040833L
 
+raku
+----
+``raku`` for library / module distributions in the Raku Programming Language.
+
+- There is no default repository.
+- The ``namespace`` refers to the ``auth`` of the distribution, for example `zef:lizmat`, where the token before the `:` indicates the ecosystem in which the distribution resides (currently either "zef" or "cpan").
+- The ``name`` is the distribution name and is case sensitive, and may include any Unicode character that is legal in an identifier.
+- The ``version`` is the module or distribution version, optionally followed by a slash and the API level.  Absence of API level means API level 0 (generally means only one API is available).
+- Optional qualifiers may include:
+  - ``download_url``: URL from where the distribution can be downloaded
+
+- Examples::
+
+      pkg:raku/zef:lizmat/SBOM::CycloneDX@0.0.7
+      pkg:raku/cpan:TIMOTIMO/JSON::Fast@0.19
+      pkg:raku/zef:vrurg/Cro::RPC::JSON@0.1.6/2
+      pkg:raku/zef:lizmat/SBOM::CycloneDX@0.07?download_url=https://360.zef.pm/S/BO/SBOM_CYCLONEDX/e9df9ac7d473c289aae4df19ea10c0289bb04851.tar.gz
+      pkg:raku/cpan:TIMOTIMO/JSON::Fast@0.19?download_url=https://cpan.metacpan.org/authors/id//T/TI/TIMOTIMO/Perl6/JSON-Fast-0.19.tar.gz
+
 rpm
 ---
 ``rpm`` for RPMs:
@@ -621,7 +640,6 @@ Other candidate types to define:
 - ``p2`` for Eclipse p2 packages:
 - ``pear`` for Pear PHP packages:
 - ``pecl`` for PECL PHP packages:
-- ``perl6`` for Perl 6 module packages:
 - ``platformio`` for PlatformIO packages:
 - ``puppet`` for Puppet Forge packages:
 - ``sourceforge`` for Sourceforge-based packages:

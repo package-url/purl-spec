@@ -706,5 +706,41 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": true
+  },
+  {
+    "description": "valid Raku module name without api",
+    "purl": "pkg:raku/zef:lizmat/SBOM::CycloneDX@0.0.7",
+    "canonical_purl": "pkg:raku/zef:lizmat/SBOM::CycloneDX@0.0.7",
+    "type": "raku",
+    "namespace": "zef:lizmat",
+    "name": "SBOM::CycloneDX",
+    "version": "0.0.7",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "valid Raku module name with api",
+    "purl": "pkg:raku/zef:vrurg/Cro::RPC::JSON@0.1.6/2",
+    "canonical_purl": "pkg:raku/zef:vrurg/Cro::RPC::JSON@0.1.6/2",
+    "type": "raku",
+    "namespace": "zef:vrurg",
+    "name": "Cro::RPC::JSON",
+    "version": "0.1.6/2",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "valid Raku module name on CPAN",
+    "purl": "pkg:raku/cpan:TIMOTIMO/JSON::Fast@0.19",
+    "canonical_purl": "pkg:raku/cpan:TIMOTIMO/JSON::Fast@0.19",
+    "type": "raku",
+    "namespace": "cpan:TIMOTIMO",
+    "name": "JSON::Fast",
+    "version": "0.19",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
   }
 ]
