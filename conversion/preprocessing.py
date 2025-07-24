@@ -8,7 +8,7 @@ import shutil
 # Example usage:
 # [Repository Directory]/.venv/bin/python [Repository Directory]/aiu-sdk-website-fork/conversionScript/preprocessing.py aiu-sdk-website-fork/data/PURL.rst
 
-ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) + '/..'
 
 DOCS_DIR = ROOT_DIR + '/website/docs'
 print('==============================' + DOCS_DIR)
@@ -38,8 +38,10 @@ def convert_md_to_docs(input_file):
 
     for line in f_lines:
         if line.startswith('#'):
+
             if len(md_contents) > 0:
                 with open(out_md_path, 'w') as f:
+                    print(out_md_path)
                     f.write(md_contents)
                 md_contents = ''
 
@@ -52,21 +54,22 @@ def convert_md_to_docs(input_file):
         else:
             md_contents += line
 
+    # for rootdir, _, filenames in os.walk(DOCS_DIR):
+    #     if 
+
 ########################
 
 def convert_rst_to_md(input_file, output_file=None):
     """
     Converts the input .rst file to a .md file. This is an intermediary step
     to process the input file for ease of use.
-
-    TODO: Ask ourselves if this is necessary in the future.
     """
 
-    if not os.path.isdir(DOCS_DIR):
+    # Clear the docs directory if it is populated.
+    if os.path.isdir(DOCS_DIR) and len(os.listdir(DOCS_DIR)) != 0:
+        shutil.rmtree(DOCS_DIR)
+    if not os.path.exists(DOCS_DIR):
         os.mkdir(DOCS_DIR)
-    else:
-        if len(os.listdir(DOCS_DIR)) != 0:
-            shutil.rmtree(DOCS_DIR)
 
     if not os.path.isfile(input_file):
         print(f"Error: '{input_file}' does not exist.")
@@ -110,6 +113,12 @@ def docs_to_sidebar():
     res = []
     for rootdir, _, filenames in os.walk(DOCS_DIR):
 
+        # Do not consider empty directories.
+        if len(filenames) == 0 and rootdir != DOCS_DIR:
+            print(' N H H ', rootdir)
+            os.rmdir(rootdir)
+            continue
+
         rootdir = ''.join(rootdir.split('docs')[1:])[1:]
 
         elem = {
@@ -119,7 +128,7 @@ def docs_to_sidebar():
                 {
                     "type" : "doc",
                     "label" : filename.split('.')[0],
-                    "id" : os.path.join(rootdir, filename)
+                    "id" : os.path.join(rootdir, filename)[:-3]
                 } for filename in filenames
             ]
         }
