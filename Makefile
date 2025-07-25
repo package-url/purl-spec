@@ -85,4 +85,4 @@ gendocs:
 	@${ACTIVATE} python etc/scripts/generate_index_and_docs.py
 
 
-.PHONY: virtualenv conf formatcode formatjson format checkdeo checkjson check clean gencode gendocs
+.PHONY: virtualenv conf formatcode formatjson format checkcode checkjson check clean gencode gendocs

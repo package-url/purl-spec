@@ -9,10 +9,14 @@ on:
     branches:
       - main
   workflow_dispatch:
+# All permissions should be specified at the job level
+permissions: { }
 
 jobs:
   generate-index-and-docs:
     runs-on: ubuntu-latest
+    permissions:
+      content: write
 
     steps:
       - name: Checkout repository
