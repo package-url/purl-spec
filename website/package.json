@@ -19,6 +19,7 @@
     "@mdx-js/react": "^3.0.0",
     "@tailwindcss/postcss": "^4.1.11",
     "clsx": "^2.0.0",
+    "dracula-prism": "^2.1.16",
     "postcss-import": "^16.1.1",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",

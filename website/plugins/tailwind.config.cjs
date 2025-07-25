@@ -1,21 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme');
 
-export function tailwindPlugin(context, options) {
-  return {
-    name: 'tailwind-plugin',
-    configurePostCss(postcssOptions) {
-      postcssOptions.plugins = [
-        require('postcss-import'),
-        require('tailwindcss'),
-        require('autoprefixer'),
-      ];
-      return postcssOptions;
-    },
-  };
-}
-
-module.exports = tailwindPlugin;
+//module.exports = tailwindPlugin;
 
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
@@ -58,7 +44,10 @@ module.exports = {
 				},
 			},
 			fontFamily: {
-				sans: ['Poppins', 'sans-serif']
+				sans: ['Poppins', 'sans-serif'],
+				'h1': ['Poppins', 'sans-serif'],
+				'h2': ['Poppins', 'sans-serif'],
+				'h3': ['Poppins', 'sans-serif'],
 			},
 			fontSize: {
 				base: '12pt',
@@ -75,11 +64,7 @@ module.exports = {
 				'7xl': ['4.5rem', { lineHeight: '1' }],
 				'8xl': ['6rem', { lineHeight: '1' }],
 				'9xl': ['8rem', { lineHeight: '1' }],
-
-				'h1': ['40pt', { lineHeight: '1.2' }],
-				'h2': ['24pt', { lineHeight: '1.2' }],
-				'h3': ['18pt', { lineHeight: '1.2' }],
-				'h4': ['14pt', { lineHeight: '1.2' }],
+				
 				'label': ['14pt', { lineHeight: '1.2' }],
 			},
 			fontWeight: {
