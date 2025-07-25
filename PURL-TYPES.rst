@@ -543,6 +543,7 @@ raku
       pkg:raku/zef:lizmat/SBOM::CycloneDX@0.0.7
       pkg:raku/cpan:TIMOTIMO/JSON::Fast@0.19
       pkg:raku/zef:vrurg/Cro::RPC::JSON@0.1.6/2
+      pkg:raku/zef:lizmat/駱駝道@0.0.1
       pkg:raku/zef:lizmat/SBOM::CycloneDX@0.07?download_url=https://360.zef.pm/S/BO/SBOM_CYCLONEDX/e9df9ac7d473c289aae4df19ea10c0289bb04851.tar.gz
       pkg:raku/cpan:TIMOTIMO/JSON::Fast@0.19?download_url=https://cpan.metacpan.org/authors/id//T/TI/TIMOTIMO/Perl6/JSON-Fast-0.19.tar.gz
 

@@ -708,7 +708,7 @@
     "is_invalid": true
   },
   {
-    "description": "valid Raku module name without api",
+    "description": "valid Raku dist name without api",
     "purl": "pkg:raku/zef:lizmat/SBOM::CycloneDX@0.0.7",
     "canonical_purl": "pkg:raku/zef:lizmat/SBOM::CycloneDX@0.0.7",
     "type": "raku",
@@ -720,7 +720,7 @@
     "is_invalid": false
   },
   {
-    "description": "valid Raku module name with api",
+    "description": "valid Raku dist name with api",
     "purl": "pkg:raku/zef:vrurg/Cro::RPC::JSON@0.1.6/2",
     "canonical_purl": "pkg:raku/zef:vrurg/Cro::RPC::JSON@0.1.6/2",
     "type": "raku",
@@ -732,8 +732,20 @@
     "is_invalid": false
   },
   {
-    "description": "valid Raku module name on CPAN",
-    "purl": "pkg:raku/cpan:TIMOTIMO/JSON::Fast@0.19",
+    "description": "valid Raku dist with unicode chars",
+    "purl": "pkg:raku/zef:lizmat/駱駝道@0.0.1",
+    "canonical_purl": "pkg:raku/zef:lizmat/%99f1%99dd%9053@0.0.1",
+    "type": "raku",
+    "namespace": "zef:lizmat",
+    "name": "駱駝道",
+    "version": "0.0.1",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "valid Raku dist name on PAUSE (CPAN)",
+    "purl": "pkg:raku/cpan:timotimo/JSON::Fast@0.19",
     "canonical_purl": "pkg:raku/cpan:TIMOTIMO/JSON::Fast@0.19",
     "type": "raku",
     "namespace": "cpan:TIMOTIMO",
@@ -742,5 +754,41 @@
     "qualifiers": null,
     "subpath": null,
     "is_invalid": false
+  },
+  {
+    "description": "invalid auth (namespace) in Raku dist name",
+    "purl": "pkg:raku/foo:bar/JSON::Fast@0.19",
+    "canonical_purl": null,
+    "type": "raku",
+    "namespace": "foo:bar",
+    "name": "JSON::Fast",
+    "version": "0.19",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "Raku dist with invalid version",
+    "purl": "pkg:raku/zef:lizmat/Foo::Bar@*",
+    "canonical_purl": null,
+    "type": "raku",
+    "namespace": "zef:lizmat",
+    "name": "Foo::Bar",
+    "version": null,
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
+  },
+  {
+    "description": "Raku dist with missing version",
+    "purl": "pkg:raku/zef:lizmat/Foo::Bar",
+    "canonical_purl": null,
+    "type": "raku",
+    "namespace": "zef:lizmat",
+    "name": "Foo::Bar",
+    "version": null,
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": true
   }
 ]
