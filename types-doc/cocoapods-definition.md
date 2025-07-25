@@ -27,12 +27,12 @@ The structure of a PURL for this package type is:
 
 - **Case Sensitive:** Yes
 - **Native Label:** pod name
-- **Note:** `The `name` is the pod name and is case sensitive, cannot contain whitespace, a plus (`+`) character, or begin with a period (`.`).`
+- **Note:** `The name is the pod name and is case sensitive, cannot contain whitespace, a plus (+) character, or begin with a period (.).`
 
 ## Version definition
 
 - **Native Label:** package version
-- **Note:** `The `version` is the package version.`
+- **Note:** `The version is the package version.`
 
 ## Subpath definition
 

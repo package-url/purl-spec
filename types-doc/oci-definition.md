@@ -16,20 +16,20 @@ The structure of a PURL for this package type is:
 ## Repository Information
 
 - **Use Repository:** Yes
-- **Note:** There is no canonical package repository for OCI artifacts. Therefore `oci` purls must be registry agnostic by default. To specify the repository, provide a `repository_url` value.
+- **Note:** There is no canonical package repository for OCI artifacts. Therefore oci purls must be registry agnostic by default. To specify the repository, provide a repository_url value.
 
 ## Namespace definition
 
 - **Requirement:** Prohibited
-- **Note:** `OCI purls do not contain a `namespace`, although, `repository_url` may contain a namespace as part of the physical location of the package.`
+- **Note:** `OCI purls do not contain a namespace, although, repository_url may contain a namespace as part of the physical location of the package.`
 
 ## Name definition
 
-- **Note:** `The `name` is not case sensitive and must be lowercased. The name is the last fragment of the repository name. For example if the repository name is `library/debian` then the `name` is `debian`.`
+- **Note:** `The name is not case sensitive and must be lowercased. The name is the last fragment of the repository name. For example if the repository name is library/debian then the name is debian.`
 
 ## Version definition
 
-- **Note:** `The `version` is the `sha256:hex_encoded_lowercase_digest` of the artifact and is required to uniquely identify the artifact.`
+- **Note:** `The version is the sha256:hex_encoded_lowercase_digest of the artifact and is required to uniquely identify the artifact.`
 
 ## Qualifiers Definition
 

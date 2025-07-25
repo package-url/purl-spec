@@ -23,12 +23,12 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Optional
 - **Native Label:** scope
-- **Note:** `The `namespace` is used for the scope of a scoped NPM package. The npm scope @ sign prefix is always percent encoded, as it was in the early days of npm scope.`
+- **Note:** `The namespace is used for the scope of a scoped NPM package. The npm scope @ sign prefix is always percent encoded, as it was in the early days of npm scope.`
 
 ## Name definition
 
 - **Native Label:** name
-- **Note:** `Per the package.json spec, new package `must not have uppercase letters in the name`, therefore the must be lowercased. The npm name used to be case sensitive in the early days for some old packages.`
+- **Note:** `Per the package.json spec, new package 'must not have uppercase letters in the name', therefore the name must be lowercased. The npm name used to be case sensitive in the early days for some old packages.`
 
 ## Version definition
 

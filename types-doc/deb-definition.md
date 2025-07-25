@@ -16,29 +16,29 @@ The structure of a PURL for this package type is:
 ## Repository Information
 
 - **Use Repository:** Yes
-- **Note:** There is no default package repository, this should be implied either from the `distro` qualifiers key or using a base url as a `repository_url` qualifiers key.
+- **Note:** There is no default package repository, this should be implied either from the distro qualifiers key or using a base url as a repository_url qualifiers key.
 
 ## Namespace definition
 
 - **Requirement:** Required
 - **Native Label:** vendor
-- **Note:** `The `namespace` is the "vendor" name such as "debian" or "ubuntu". It is not case sensitive and must be lowercased.`
+- **Note:** `The namespace is the "vendor" name such as "debian" or "ubuntu". It is not case sensitive and must be lowercased.`
 
 ## Name definition
 
 - **Native Label:** name
-- **Note:** `The `name` is not case sensitive and must be lowercased.`
+- **Note:** `The name is not case sensitive and must be lowercased.`
 
 ## Version definition
 
 - **Native Label:** version
-- **Note:** `The `version` is the version of the binary (or source) package.`
+- **Note:** `The version is the version of the binary (or source) package.`
 
 ## Qualifiers Definition
 
 | Key  | Requirement | Native name | Default Value | Description |
 |------|-------------|-------------|---------------|-------------|
-| arch | Optional |  |  | arch is the qualifiers key for a package architecture. The special value `arch=source` identifies a Debian source package that usually consists of a Debian Source control file (.dsc) and corresponding upstream and Debian sources. The `dpkg-query` command can print the `name` and `version` of the corresponding source package of a binary package dpkg-query -f `${source:Package} ${source:Version}` -W <binary package name> |
+| arch | Optional |  |  | arch is the qualifiers key for a package architecture. The special value arch=source identifies a Debian source package that usually consists of a Debian Source control file (.dsc) and corresponding upstream and Debian sources. The dpkg-query command can print the name and version of the corresponding source package of a binary package, e.g. dpkg-query -f ${source:Package} ${source:Version} -W <binary package name> |
 
 ## Examples
 

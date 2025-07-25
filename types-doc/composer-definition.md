@@ -22,12 +22,12 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Native Label:** vendor
-- **Note:** `The `namespace` is the vendor. The `namespace` is not case sensitive and must be lowercased.`
+- **Note:** `The namespace is the vendor. The namespace is not case sensitive and must be lowercased.`
 
 ## Name definition
 
 - **Native Label:** name
-- **Note:** `The `name` is not case sensitive and must be lowercased. Private, local packages may have no name. In this case you cannot create a `purl` for these.`
+- **Note:** `The name is not case sensitive and must be lowercased. Private, local packages may have no name. In this case you cannot create a purl for these.`
 
 ## Version definition
 

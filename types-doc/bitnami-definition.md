@@ -26,19 +26,19 @@ The structure of a PURL for this package type is:
 ## Name definition
 
 - **Native Label:** name
-- **Note:** `The `name` is the component name. It must be lowercased.`
+- **Note:** `The name is the component name. It must be lowercased.`
 
 ## Version definition
 
 - **Native Label:** full package version, including version and revision
-- **Note:** `The `version` is the full Bitnami package version, including version and revision.`
+- **Note:** `The version is the full Bitnami package version, including version and revision.`
 
 ## Qualifiers Definition
 
 | Key  | Requirement | Native name | Default Value | Description |
 |------|-------------|-------------|---------------|-------------|
-| arch | Optional |  | amd64 | The `arch` is the qualifiers key for a package architecture. Available values are `amd64` (default) and `arm64`. |
-| distro | Optional |  |  | The `distro` is the qualifiers key for the distribution associated to the package. |
+| arch | Optional |  | amd64 | The arch is the qualifiers key for a package architecture. Available values are amd64 (default) and arm64. |
+| distro | Optional |  |  | The distro is the qualifiers key for the distribution associated to the package. |
 
 ## Examples
 

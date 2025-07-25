@@ -16,7 +16,7 @@ The structure of a PURL for this package type is:
 ## Repository Information
 
 - **Use Repository:** Yes
-- **Note:** The repository is the MLflow tracking URI. There is no default. Some examples include Azure ML `https://<region>.api.azureml.ms/mlflow/v1.0/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>` and Azure Databricks `https://adb-<numbers>.<number>.azuredatabricks.net/api/2.0/mlflow` and AWS Databricks `https://dbc-<alphanumeric>-<alphanumeric>.cloud.databricks.com/api/2.0/mlflow` and GCP Databricks `https://<numbers>.<number>.gcp.databricks.com/api/2.0/mlflow`
+- **Note:** The repository is the MLflow tracking URI. There is no default. Some examples include Azure ML https://<region>.api.azureml.ms/mlflow/v1.0/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name> and Azure Databricks https://adb-<numbers>.<number>.azuredatabricks.net/api/2.0/mlflow and AWS Databricks https://dbc-<alphanumeric>-<alphanumeric>.cloud.databricks.com/api/2.0/mlflow and GCP Databricks https://<numbers>.<number>.gcp.databricks.com/api/2.0/mlflow
 
 ## Namespace definition
 
@@ -25,12 +25,12 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
-- **Note:** `The `name` is the model name. Case sensitivity depends on the server implementation, such as for Azure ML, it is case sensitive and must be kept as-is in the package URL; and for Databricks, it is case insensitive and must be lowercased in the package URL.`
+- **Note:** `The name is the model name. Case sensitivity depends on the server implementation, such as for Azure ML, it is case sensitive and must be kept as-is in the package URL; and for Databricks, it is case insensitive and must be lowercased in the package URL.`
 
 ## Version definition
 
 - **Native Label:** version
-- **Note:** `The `version` is the model version.`
+- **Note:** `The version is the model version.`
 
 ## Qualifiers Definition
 

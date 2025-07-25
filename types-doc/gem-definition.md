@@ -35,7 +35,7 @@ The structure of a PURL for this package type is:
 
 | Key  | Requirement | Native name | Default Value | Description |
 |------|-------------|-------------|---------------|-------------|
-| platform | Optional | platform | ruby | qualifiers key is used to specify an alternative platform. such as `java` for JRuby. The implied default is `ruby` for Ruby MRI. |
+| platform | Optional | platform | ruby | qualifiers key is used to specify an alternative platform. such as java for JRuby. The implied default is ruby for Ruby MRI. |
 
 ## Examples
 

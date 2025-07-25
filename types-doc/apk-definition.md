@@ -16,29 +16,29 @@ The structure of a PURL for this package type is:
 ## Repository Information
 
 - **Use Repository:** Yes
-- **Note:** There is no default package repository; this should be implied either from the `distro` qualifiers key  or using a repository base url as `repository_url` qualifiers key.
+- **Note:** There is no default package repository; this should be implied either from the distro qualifiers key  or using a repository base url as repository_url qualifiers key.
 
 ## Namespace definition
 
 - **Requirement:** Required
 - **Native Label:** vendor
-- **Note:** `The `namespace` is the vendor such as `alpine` or `openwrt`. It is not case sensitive and must be lowercased.`
+- **Note:** `The namespace is the vendor such as alpine or openwrt. It is not case sensitive and must be lowercased.`
 
 ## Name definition
 
 - **Native Label:** name
-- **Note:** `The `name` is the package name. It is not case sensitive and must be lowercased.`
+- **Note:** `The name is the package name. It is not case sensitive and must be lowercased.`
 
 ## Version definition
 
 - **Native Label:** version
-- **Note:** `The `version` is a package version as expected by apk.`
+- **Note:** `The version is a package version as expected by apk.`
 
 ## Qualifiers Definition
 
 | Key  | Requirement | Native name | Default Value | Description |
 |------|-------------|-------------|---------------|-------------|
-| arch | Optional |  |  | The `arch` is the qualifiers key for a package architecture. |
+| arch | Optional |  |  | The arch is the qualifiers key for a package architecture. |
 
 ## Examples
 

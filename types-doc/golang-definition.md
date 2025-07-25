@@ -16,24 +16,24 @@ The structure of a PURL for this package type is:
 ## Repository Information
 
 - **Use Repository:** Yes
-- **Note:** There is no default package repository, this is implied in the namespace using the `go get` command conventions. In practice the go module proxy acts as a public defulat repository.
+- **Note:** There is no default package repository, this is implied in the namespace using the go get command conventions. In practice the go module proxy acts as a public defulat repository.
 
 ## Namespace definition
 
 - **Requirement:** Required
-- **Note:** `The `namespace` must be lowercased.`
+- **Note:** `The namespace must be lowercased.`
 
 ## Name definition
 
-- **Note:** `The `name` must be lowercased.`
+- **Note:** `The name must be lowercased.`
 
 ## Version definition
 
-- **Note:** `The `version` is often empty when a commit is not specified and should be the commit in most cases when available.`
+- **Note:** `The version is often empty when a commit is not specified and should be the commit in most cases when available.`
 
 ## Subpath definition
 
-- **Note:** `The `subpath` is used to point to a subpath inside a package.`
+- **Note:** `The subpath is used to point to a subpath inside a package.`
 
 ## Examples
 

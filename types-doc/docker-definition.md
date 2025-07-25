@@ -21,7 +21,7 @@ The structure of a PURL for this package type is:
 ## Namespace definition
 
 - **Requirement:** Optional
-- **Note:** `The `namespace` is the registry/user/organization if present.`
+- **Note:** `The namespace is the registry/user/organization if present.`
 
 ## Name definition
 

@@ -27,10 +27,10 @@ The structure of a PURL for this package type is:
 ## Name definition
 
 - **Normalization rules:**
-  - Replace underscore `_` with dash `-`
-  - Replace dot `.` with underscore `_` when used in distribution (sdist, wheel) names
+  - Replace underscore _ with dash -
+  - Replace dot . with underscore _ when used in distribution (sdist, wheel) names
 - **Native Label:** name
-- **Note:** `PyPI treats `-` and `_` as the same character and is not case sensitive. Therefore a PyPI package `name` must be lowercased and underscore `_` replaced with a dash `-`. Note that PyPI itself is preserving the case of package names. When used in distribution and wheel names, the dot `.` is replaced with an underscore `_``
+- **Note:** `PyPI treats - and _ as the same character and is not case sensitive. Therefore a PyPI package name must be lowercased and underscore _ replaced with a dash -. Note that PyPI itself is preserving the case of package names. When used in distribution and wheel names, the dot . is replaced with an underscore _`
 
 ## Version definition
 
@@ -40,7 +40,7 @@ The structure of a PURL for this package type is:
 
 | Key  | Requirement | Native name | Default Value | Description |
 |------|-------------|-------------|---------------|-------------|
-| file_name | Optional |  |  | The `file_name` qualifier selects a particular distribution file (case-sensitive). For naming convention, see the Python Packaging User Guide on source distributions https://packaging.python.org/en/latest/specifications/source-distribution-format/#source-distribution-file-name and on binary distributions https://packaging.python.org/en/latest/specifications/binary-distribution-format/#file-name-convention and the rules for platform compatibility tags https://packaging.python.org/en/latest/specifications/platform-compatibility-tags/ |
+| file_name | Optional |  |  | The file_name qualifier selects a particular distribution file (case-sensitive). For naming convention, see the Python Packaging User Guide on source distributions https://packaging.python.org/en/latest/specifications/source-distribution-format/#source-distribution-file-name and on binary distributions https://packaging.python.org/en/latest/specifications/binary-distribution-format/#file-name-convention and the rules for platform compatibility tags https://packaging.python.org/en/latest/specifications/platform-compatibility-tags/ |
 
 ## Examples
 

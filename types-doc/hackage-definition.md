@@ -29,12 +29,12 @@ The structure of a PURL for this package type is:
 - **Normalization rules:**
   - Apply kebab-case
 - **Native Label:** name
-- **Note:** `The `name` is case sensitive and use kebab-case.`
+- **Note:** `The name is case sensitive and use kebab-case.`
 
 ## Version definition
 
 - **Native Label:** version
-- **Note:** `The `version` is package version.`
+- **Note:** `The version is package version.`
 
 ## Examples
 

@@ -21,20 +21,20 @@ The structure of a PURL for this package type is:
 ## Namespace definition
 
 - **Requirement:** Optional
-- **Note:** `- To refer to a CPAN distribution name, the `namespace` MUST be present. In this case, the namespace is the CPAN id of the author/publisher. It MUST be written uppercase, followed by the distribution name in the `name` component. A distribution name MUST NOT contain the string `::`.
-- To refer to a CPAN module, the `namespace` MUST be absent. The module name MAY contain zero or more `::` strings, and the module name MUST NOT contain a `-`
+- **Note:** `- To refer to a CPAN distribution name, the namespace MUST be present. In this case, the namespace is the CPAN id of the author/publisher. It MUST be written uppercase, followed by the distribution name in the name component. A distribution name MUST NOT contain the string ::.
+- To refer to a CPAN module, the namespace MUST be absent. The module name MAY contain zero or more :: strings, and the module name MUST NOT contain a -
 `
 
 ## Name definition
 
 - **Case Sensitive:** Yes
 - **Native Label:** module or distribution name
-- **Note:** `The `name` is the module or distribution name and is case sensitive.`
+- **Note:** `The name is the module or distribution name and is case sensitive.`
 
 ## Version definition
 
 - **Native Label:** version
-- **Note:** `The `version` is the module or distribution version.`
+- **Note:** `The version is the module or distribution version.`
 
 ## Qualifiers Definition
 

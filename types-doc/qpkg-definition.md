@@ -16,13 +16,13 @@ The structure of a PURL for this package type is:
 ## Repository Information
 
 - **Use Repository:** Yes
-- **Note:** There is no default package repository, this should be implied either from the `namespace` or using a repository base URL as `repository_url` qualifiers key.
+- **Note:** There is no default package repository, this should be implied either from the namespace or using a repository base URL as repository_url qualifiers key.
 
 ## Namespace definition
 
 - **Requirement:** Required
 - **Native Label:** vendor
-- **Note:** `The `namespace` is the vendor of the package. It is not case sensitive and must be lowercased.`
+- **Note:** `The namespace is the vendor of the package. It is not case sensitive and must be lowercased.`
 
 ## Name definition
 

@@ -26,12 +26,12 @@ The structure of a PURL for this package type is:
 ## Name definition
 
 - **Native Label:** name
-- **Note:** `The `name` is the package name and is case sensitive, but there cannot be two packages on CRAN with the same name ignoring case.`
+- **Note:** `The name is the package name and is case sensitive, but there cannot be two packages on CRAN with the same name ignoring case.`
 
 ## Version definition
 
 - **Native Label:** version
-- **Note:** `The `version` is the package version.`
+- **Note:** `The version is the package version.`
 
 ## Examples
 

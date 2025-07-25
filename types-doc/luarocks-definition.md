@@ -38,7 +38,7 @@ The structure of a PURL for this package type is:
 
 | Key  | Requirement | Native name | Default Value | Description |
 |------|-------------|-------------|---------------|-------------|
-| repository_url | Optional |  |  | The LuaRocks rocks server to be used; useful in case a private server is used (optional). If omitted, `https://luarocks.org` as default server is assumed. |
+| repository_url | Optional |  |  | The LuaRocks rocks server to be used; useful in case a private server is used (optional). If omitted, https://luarocks.org as default server is assumed. |
 
 ## Examples
 

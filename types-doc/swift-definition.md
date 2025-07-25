@@ -16,13 +16,13 @@ The structure of a PURL for this package type is:
 ## Repository Information
 
 - **Use Repository:** Yes
-- **Note:** There is no default package repository, this should be implied from `namespace`.
+- **Note:** There is no default package repository, this should be implied from namespace.
 
 ## Namespace definition
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
-- **Note:** `The `namespace` is source host and user/organization and is required.`
+- **Note:** `The namespace is source host and user/organization and is required.`
 
 ## Name definition
 

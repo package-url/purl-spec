@@ -26,12 +26,12 @@ The structure of a PURL for this package type is:
 ## Name definition
 
 - **Native Label:** name
-- **Note:** `The `name` is the package name.`
+- **Note:** `The name is the package name.`
 
 ## Version definition
 
 - **Native Label:** version
-- **Note:** `The `version` is the package version.`
+- **Note:** `The version is the package version.`
 
 ## Qualifiers Definition
 

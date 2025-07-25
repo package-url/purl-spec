@@ -16,7 +16,7 @@ The structure of a PURL for this package type is:
 ## Repository Information
 
 - **Use Repository:** Yes
-- **Note:** There is no default package repository; this should be implied either from the `distro` qualifiers key  or using a repository base url as  `repository_url` qualifiers key.
+- **Note:** There is no default package repository; this should be implied either from the distro qualifiers key  or using a repository base url as  repository_url qualifiers key.
 
 ## Namespace definition
 
@@ -24,12 +24,12 @@ The structure of a PURL for this package type is:
 - **Normalization rules:**
   - It is not case sensitive and must be lowercased.
 - **Native Label:** vendor
-- **Note:** `The `namespace` is the vendor such as `arch`, `arch32`, `archarm`, `manjaro` or `msys`.`
+- **Note:** `The namespace is the vendor such as arch, arch32, archarm, manjaro or msys.`
 
 ## Name definition
 
 - **Native Label:** name
-- **Note:** `The `name` is the package name. It is not case sensitive and must be lowercased.`
+- **Note:** `The name is the package name. It is not case sensitive and must be lowercased.`
 
 ## Version definition
 
@@ -37,13 +37,13 @@ The structure of a PURL for this package type is:
 - **Normalization rules:**
   - normalize version as specified in vercmp(8) at https://man.archlinux.org/man/vercmp.8#DESCRIPTION as part of alpm.
 - **Native Label:** version
-- **Note:** `The `version` is the version of the package as specified in [`vercmp(8)`](https://man.archlinux.org/man/vercmp.8#DESCRIPTION) as part of alpm.`
+- **Note:** `The version is the version of the package as specified in vercmp(8) at (https://man.archlinux.org/man/vercmp.8#DESCRIPTION as part of alpm.`
 
 ## Qualifiers Definition
 
 | Key  | Requirement | Native name | Default Value | Description |
 |------|-------------|-------------|---------------|-------------|
-| arch | Optional | arch |  | The `arch` is the qualifiers key for a package architecture. |
+| arch | Optional | arch |  | The arch is the qualifiers key for a package architecture. |
 
 ## Examples
 
