@@ -528,6 +528,54 @@
     "is_invalid": false
   },
   {
+    "description": "Hugging Face model with tag version",
+    "purl": "pkg:huggingface/LumiOpen/Poro-34B@100B",
+    "canonical_purl": "pkg:huggingface/LumiOpen/Poro-34B@100B",
+    "type": "huggingface",
+    "namespace": "LumiOpen",
+    "name": "Poro-34B",
+    "version": "100B",
+    "qualifiers": null,
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "Hugging Face model with explicit type qualifier",
+    "purl": "pkg:huggingface/LumiOpen/Poro-34B@14d8824c28d782fcd1cd9579ac06644f60e62450?type=model",
+    "canonical_purl": "pkg:huggingface/LumiOpen/Poro-34B@14d8824c28d782fcd1cd9579ac06644f60e62450?type=model",
+    "type": "huggingface",
+    "namespace": "LumiOpen",
+    "name": "Poro-34B",
+    "version": "14d8824c28d782fcd1cd9579ac06644f60e62450",
+    "qualifiers": {"type": "model"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "Hugging Face dataset with type qualifier",
+    "purl": "pkg:huggingface/bigcode/the-stack@v1.1?type=dataset",
+    "canonical_purl": "pkg:huggingface/bigcode/the-stack@v1.1?type=dataset",
+    "type": "huggingface",
+    "namespace": "bigcode",
+    "name": "the-stack",
+    "version": "v1.1",
+    "qualifiers": {"type": "dataset"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
+    "description": "Hugging Face space without version",
+    "purl": "pkg:huggingface/black-forest-labs/FLUX.1-Kontext-Dev?type=space",
+    "canonical_purl": "pkg:huggingface/black-forest-labs/FLUX.1-Kontext-Dev?type=space",
+    "type": "huggingface",
+    "namespace": "black-forest-labs",
+    "name": "FLUX.1-Kontext-Dev",
+    "version": null,
+    "qualifiers": {"type": "space"},
+    "subpath": null,
+    "is_invalid": false
+  },
+  {
     "description": "MLflow model tracked in Azure Databricks (case insensitive)",
     "purl": "pkg:mlflow/CreditFraud@3?repository_url=https://adb-5245952564735461.0.azuredatabricks.net/api/2.0/mlflow",
     "canonical_purl": "pkg:mlflow/creditfraud@3?repository_url=https://adb-5245952564735461.0.azuredatabricks.net/api/2.0/mlflow",

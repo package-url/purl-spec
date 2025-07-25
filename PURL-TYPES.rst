@@ -343,16 +343,20 @@ hex
 
 huggingface
 ------
-``huggingface`` for Hugging Face ML models
+``huggingface`` for Hugging Face packages, including models, datasets, and spaces.
 
 - The default repository is ``https://huggingface.co``.
-- The ``namespace`` is the model repository username or organization, if present. It is case sensitive.
-- The ``name`` is the model repository name. It is case sensitive.
-- The ``version`` is the model revision Git commit hash. It is case insensitive and must be lowercased in the package URL.
-- Examples::
-
+- The ``namespace`` is the repository username or organization, if present. It is case sensitive.
+- The ``name`` is the repository name. It is case sensitive.
+- The ``version`` is a revision Git commit hash or tag. It is case insensitive and must be lowercased in the package URL.
+- The ``type`` should be model (default), dataset, or space.
+- Examples:
       pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027
       pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co
+      pkg:huggingface/LumiOpen/Poro-34B@14d8824c28d782fcd1cd9579ac06644f60e62450
+      pkg:huggingface/LumiOpen/Poro-34B@100B?type=model
+      pkg:huggingface/bigcode/the-stack@v1.1?type=dataset
+      pkg:huggingface/black-forest-labs/FLUX.1-Kontext-Dev?type=space
 
 
 luarocks
