@@ -18,11 +18,11 @@
     "normalization_rules": [
       "Apply kebab-case"
     ],
-    "note": "The `name` is case sensitive and use kebab-case."
+    "note": "The name is case sensitive and use kebab-case."
   },
   "version_definition": {
     "native_name": "version",
-    "note": "The `version` is package version."
+    "note": "The version is package version."
   },
   "examples": [
     "pkg:hackage/a50@0.5",

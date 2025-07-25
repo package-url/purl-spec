@@ -9,7 +9,7 @@
     "default_repository_url": "https://hub.docker.com"
   },
   "namespace_definition": {
-    "note": "The `namespace` is the registry/user/organization if present.",
+    "note": "The namespace is the registry/user/organization if present.",
     "requirement": "optional"
   },
   "name_definition": {

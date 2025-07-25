@@ -13,23 +13,23 @@
     "note": "there is no namespace"
   },
   "name_definition": {
-    "note": "The `name` is the component name. It must be lowercased.",
+    "note": "The name is the component name. It must be lowercased.",
     "case_sensitive": false,
     "native_name": "name"
   },
   "version_definition": {
     "native_name": "full package version, including version and revision",
-    "note": "The `version` is the full Bitnami package version, including version and revision."
+    "note": "The version is the full Bitnami package version, including version and revision."
   },
   "qualifiers_definition": [
     {
       "key": "arch",
-      "description": "The `arch` is the qualifiers key for a package architecture. Available values are `amd64` (default) and `arm64`.",
+      "description": "The arch is the qualifiers key for a package architecture. Available values are amd64 (default) and arm64.",
       "default_value": "amd64"
     },
     {
       "key": "distro",
-      "description": "The `distro` is the qualifiers key for the distribution associated to the package."
+      "description": "The distro is the qualifiers key for the distribution associated to the package."
     }
   ],
   "examples": [

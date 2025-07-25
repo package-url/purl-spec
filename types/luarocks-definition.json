@@ -26,7 +26,7 @@
   "qualifiers_definition": [
     {
       "key": "repository_url",
-      "description": "The LuaRocks rocks server to be used; useful in case a private server is used (optional). If omitted, `https://luarocks.org` as default server is assumed."
+      "description": "The LuaRocks rocks server to be used; useful in case a private server is used (optional). If omitted, https://luarocks.org as default server is assumed."
     }
   ],
   "examples": [

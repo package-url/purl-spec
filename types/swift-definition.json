@@ -6,11 +6,11 @@
   "description": "Swift packages",
   "repository": {
     "use_repository": true,
-    "note": "There is no default package repository, this should be implied from `namespace`."
+    "note": "There is no default package repository, this should be implied from namespace."
   },
   "namespace_definition": {
     "requirement": "required",
-    "note": "The `namespace` is source host and user/organization and is required.",
+    "note": "The namespace is source host and user/organization and is required.",
     "case_sensitive": true
   },
   "name_definition": {

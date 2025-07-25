@@ -15,11 +15,11 @@
   "name_definition": {
     "case_sensitive": true,
     "native_name": "pod name",
-    "note": "The `name` is the pod name and is case sensitive, cannot contain whitespace, a plus (`+`) character, or begin with a period (`.`)."
+    "note": "The name is the pod name and is case sensitive, cannot contain whitespace, a plus (+) character, or begin with a period (.)."
   },
   "version_definition": {
     "native_name": "package version",
-    "note": "The `version` is the package version."
+    "note": "The version is the package version."
   },
   "subpath_definition": {
     "note": "The purl subpath is used to represent a pods subspec (if present)."

@@ -12,16 +12,16 @@
     "requirement": "required",
     "case_sensitive": false,
     "native_name": "user or organization",
-    "note": "The `namespace` is the user or organization. It is not case sensitive and must be lowercased."
+    "note": "The namespace is the user or organization. It is not case sensitive and must be lowercased."
   },
   "name_definition": {
     "case_sensitive": false,
     "native_name": "repository name",
-    "note": "The `name` is the repository name. It is not case sensitive and must be lowercased."
+    "note": "The name is the repository name. It is not case sensitive and must be lowercased."
   },
   "version_definition": {
     "native_name": "commit or tag",
-    "note": "The `version` is a commit or tag."
+    "note": "The version is a commit or tag."
   },
   "examples": [
     "pkg:github/package-url/purl-spec@244fd47e07d1004",

@@ -6,18 +6,18 @@
   "description": "MLflow ML models (Azure ML, Databricks, etc.)",
   "repository": {
     "use_repository": true,
-    "note": "The repository is the MLflow tracking URI. There is no default. Some examples include Azure ML `https://<region>.api.azureml.ms/mlflow/v1.0/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>` and Azure Databricks `https://adb-<numbers>.<number>.azuredatabricks.net/api/2.0/mlflow` and AWS Databricks `https://dbc-<alphanumeric>-<alphanumeric>.cloud.databricks.com/api/2.0/mlflow` and GCP Databricks `https://<numbers>.<number>.gcp.databricks.com/api/2.0/mlflow`"
+    "note": "The repository is the MLflow tracking URI. There is no default. Some examples include Azure ML https://<region>.api.azureml.ms/mlflow/v1.0/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name> and Azure Databricks https://adb-<numbers>.<number>.azuredatabricks.net/api/2.0/mlflow and AWS Databricks https://dbc-<alphanumeric>-<alphanumeric>.cloud.databricks.com/api/2.0/mlflow and GCP Databricks https://<numbers>.<number>.gcp.databricks.com/api/2.0/mlflow"
   },
   "namespace_definition": {
     "requirement": "prohibited",
     "note": "there is no namespace"
   },
   "name_definition": {
-    "note": "The `name` is the model name. Case sensitivity depends on the server implementation, such as for Azure ML, it is case sensitive and must be kept as-is in the package URL; and for Databricks, it is case insensitive and must be lowercased in the package URL."
+    "note": "The name is the model name. Case sensitivity depends on the server implementation, such as for Azure ML, it is case sensitive and must be kept as-is in the package URL; and for Databricks, it is case insensitive and must be lowercased in the package URL."
   },
   "version_definition": {
     "native_name": "version",
-    "note": "The `version` is the model version."
+    "note": "The version is the model version."
   },
   "qualifiers_definition": [
     {

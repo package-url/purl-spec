@@ -6,19 +6,19 @@
   "description": "For artifacts stored in registries that conform to the OCI Distribution Specification https://github.com/opencontainers/distribution-spec including container images built by Docker and others",
   "repository": {
     "use_repository": true,
-    "note": "There is no canonical package repository for OCI artifacts. Therefore `oci` purls must be registry agnostic by default. To specify the repository, provide a `repository_url` value."
+    "note": "There is no canonical package repository for OCI artifacts. Therefore oci purls must be registry agnostic by default. To specify the repository, provide a repository_url value."
   },
   "namespace_definition": {
     "requirement": "prohibited",
-    "note": "OCI purls do not contain a `namespace`, although, `repository_url` may contain a namespace as part of the physical location of the package."
+    "note": "OCI purls do not contain a namespace, although, repository_url may contain a namespace as part of the physical location of the package."
   },
   "name_definition": {
     "case_sensitive": false,
-    "note": "The `name` is not case sensitive and must be lowercased. The name is the last fragment of the repository name. For example if the repository name is `library/debian` then the `name` is `debian`."
+    "note": "The name is not case sensitive and must be lowercased. The name is the last fragment of the repository name. For example if the repository name is library/debian then the name is debian."
   },
   "version_definition": {
     "case_sensitive": false,
-    "note": "The `version` is the `sha256:hex_encoded_lowercase_digest` of the artifact and is required to uniquely identify the artifact."
+    "note": "The version is the sha256:hex_encoded_lowercase_digest of the artifact and is required to uniquely identify the artifact."
   },
   "qualifiers_definition": [
     {

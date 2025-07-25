@@ -17,10 +17,10 @@
     "native_name": "name",
     "case_sensitive": false,
     "normalization_rules": [
-      "Replace underscore `_` with dash `-`",
-      "Replace dot `.` with underscore `_` when used in distribution (sdist, wheel) names"
+      "Replace underscore _ with dash -",
+      "Replace dot . with underscore _ when used in distribution (sdist, wheel) names"
     ],
-    "note": "PyPI treats `-` and `_` as the same character and is not case sensitive. Therefore a PyPI package `name` must be lowercased and underscore `_` replaced with a dash `-`. Note that PyPI itself is preserving the case of package names. When used in distribution and wheel names, the dot `.` is replaced with an underscore `_`"
+    "note": "PyPI treats - and _ as the same character and is not case sensitive. Therefore a PyPI package name must be lowercased and underscore _ replaced with a dash -. Note that PyPI itself is preserving the case of package names. When used in distribution and wheel names, the dot . is replaced with an underscore _"
   },
   "version_definition": {
     "case_sensitive": false,
@@ -30,7 +30,7 @@
     {
       "key": "file_name",
       "requirement": "optional",
-      "description": "The `file_name` qualifier selects a particular distribution file (case-sensitive). For naming convention, see the Python Packaging User Guide on source distributions https://packaging.python.org/en/latest/specifications/source-distribution-format/#source-distribution-file-name and on binary distributions https://packaging.python.org/en/latest/specifications/binary-distribution-format/#file-name-convention and the rules for platform compatibility tags https://packaging.python.org/en/latest/specifications/platform-compatibility-tags/"
+      "description": "The file_name qualifier selects a particular distribution file (case-sensitive). For naming convention, see the Python Packaging User Guide on source distributions https://packaging.python.org/en/latest/specifications/source-distribution-format/#source-distribution-file-name and on binary distributions https://packaging.python.org/en/latest/specifications/binary-distribution-format/#file-name-convention and the rules for platform compatibility tags https://packaging.python.org/en/latest/specifications/platform-compatibility-tags/"
     }
   ],
   "examples": [

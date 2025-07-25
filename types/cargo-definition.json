@@ -15,11 +15,11 @@
   "name_definition": {
     "native_name": "name",
     "is_case_sensitve": true,
-    "note": "The `name` is the repository name."
+    "note": "The name is the repository name."
   },
   "version_definition": {
     "native_name": "version",
-    "note": "The `version` is the package version."
+    "note": "The version is the package version."
   },
   "examples": [
     "pkg:cargo/rand@0.7.2",

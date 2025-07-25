@@ -13,19 +13,19 @@
     "note": "there is no generic namespace definition"
   },
   "name_definition": {
-    "note": "as for other `type`, the `name` component is mandatory. In the worst case it can be a file or directory name."
+    "note": "as for other type, the name component is mandatory. In the worst case it can be a file or directory name."
   },
   "qualifiers_definition": [
     {
       "key": "download_url",
-      "description": "A `download_url` and `checksum` may be provided in `qualifiers` or as separate attributes outside of a `purl` for proper identification and location."
+      "description": "A download_url and checksum may be provided in qualifiers or as separate attributes outside of a purl for proper identification and location."
     },
     {
       "key": "checksum",
-      "description": "A `checksum may be provided in `qualifiers` or as separate attributes outside of a `purl` for proper identification and location."
+      "description": "A checksum may be provided in qualifiers or as separate attributes outside of a purl for proper identification and location."
     }
   ],
-  "note": "When possible another or a new purl `type` should be used instead of using the `generic` type and eventually contributed back to this specification. Example have been truncated for brevity",
+  "note": "When possible another or a new purl type should be used instead of using the generic type and eventually contributed back to this specification. Example have been truncated for brevity",
   "examples": [
     "pkg:generic/openssl@1.1.10g",
     "pkg:generic/openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da",

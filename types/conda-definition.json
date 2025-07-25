@@ -14,11 +14,11 @@
   },
   "name_definition": {
     "native_name": "name",
-    "note": "The `name` is the package name."
+    "note": "The name is the package name."
   },
   "version_definition": {
     "native_name": "version",
-    "note": "The `version` is the package version."
+    "note": "The version is the package version."
   },
   "qualifiers_definition": [
     {

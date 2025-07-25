@@ -15,11 +15,11 @@
   "name_definition": {
     "native_name": "name",
     "is_case_sensitve": true,
-    "note": "The `name` is the package name and is case sensitive, but there cannot be two packages on CRAN with the same name ignoring case."
+    "note": "The name is the package name and is case sensitive, but there cannot be two packages on CRAN with the same name ignoring case."
   },
   "version_definition": {
     "native_name": "version",
-    "note": "The `version` is the package version."
+    "note": "The version is the package version."
   },
   "examples": [
     "pkg:cran/A3@1.0.0",

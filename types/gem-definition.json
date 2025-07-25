@@ -24,7 +24,7 @@
       "native_name": "platform",
       "requirement": "optional",
       "default_value": "ruby",
-      "description": "qualifiers key is used to specify an alternative platform. such as `java` for JRuby. The implied default is `ruby` for Ruby MRI."
+      "description": "qualifiers key is used to specify an alternative platform. such as java for JRuby. The implied default is ruby for Ruby MRI."
     }
   ],
   "examples": [

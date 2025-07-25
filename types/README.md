@@ -7,7 +7,7 @@ one JSON file for each type. These JSON files serve as the reference for PURL ty
 
 - **index.json**: The index of all registered PURL types as a simple list of types.
 - Definitions: **<purl-type>-definition.json**: The definition for a specific PURL type (e.g.,
-  `maven-definition.json`, `npm-definition.json`).
+  maven-definition.json, npm-definition.json).
 - Tests: **<purl-type>-test.json**: The test suite for a specific PURL type.
 
 ##Definitions
