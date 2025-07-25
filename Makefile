@@ -27,7 +27,7 @@ virtualenv:
 
 conf: virtualenv
 	@echo "-> Install dependencies"
-	@${ACTIVATE} pip install -r requirements.txt
+	@${ACTIVATE} pip install -r etc/scripts/requirements.txt
 
 formatcode:
 	@echo "-> Run Ruff format"
