@@ -51,7 +51,7 @@ checkjson:
 	@echo "-> Validate JSON data files against the schemas"
 	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-types-index.schema.json --verbose types/purl-types-index.json
 	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-type-definition.schema.json --verbose types/*-definition.json
-	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-test.schema.json --verbose tests/*-test.json
+	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-test.schema.json --verbose tests/*/*-test.json
 
 checkcode:
 	@echo "-> Run Ruff linter validation (pycodestyle, bandit, isort, and more)"

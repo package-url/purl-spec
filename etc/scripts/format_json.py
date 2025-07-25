@@ -28,7 +28,7 @@ def format_json(path: Path):
     """
     Format in place and recursively all the files with a .json extension at ``path``.
     """
-    for json_file in path.rglob("*.json"):
+    for json_file in path.rglob("**/*.json"):
         if not json_file.is_file():
             continue
         try:
