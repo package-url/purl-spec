@@ -582,6 +582,25 @@ swift
       pkg:swift/github.com/Alamofire/Alamofire@5.4.3
       pkg:swift/github.com/RxSwiftCommunity/RxFlow@2.12.4
 
+
+nix
+---
+
+``nix`` for Nix derivations:
+
+- The default package repository is <https://github.com/NixOS/nixpkgs> but the ``repository`` qualifier can override the package repository.
+- The ``name`` is the package ``pname`` field of the given derivation. It is case sensitive.
+- The ``version`` is the ``version`` field of the given derivation.
+- The ``drvpath`` qualifier is the derivation path (``.drvPath``).
+- The ``output`` qualifier is the output field, by default: ``out``
+
+- Examples::
+
+      pkg:nix/glibc@2.39-52?drvpath=/nix/store/3nxf8kw3vgghz2y72b9qwi01sz62nhyk-glibc-2.39-52.drv&output=out
+      pkg:nix/glibc@2.39-52?drvpath=/nix/store/3nxf8kw3vgghz2y72b9qwi01sz62nhyk-glibc-2.39-52.drv&output=out&repository=github:user/nixpkgs
+      pkg:nix/systemd@255.6?drvpath=/nix/store/r34i4md1cmc19392zbbp9ya5nmd0av0k-systemd-255.6.drv&output=dev
+
+
 Other candidate types to define:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
