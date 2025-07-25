@@ -55,9 +55,9 @@ checkjson:
 
 checkcode:
 	@echo "-> Run Ruff linter validation (pycodestyle, bandit, isort, and more)"
-	@${ACTIVATE} ruff check
+	@${ACTIVATE} ruff --config etc/scripts/pyproject.toml check
 	@echo "-> Run Ruff format validation"
-	@${ACTIVATE} ruff format --check
+	@${ACTIVATE} ruff --config etc/scripts/pyproject.toml format --check
 
 check: checkjson checkcode
 	@echo "-> Run all checks"
