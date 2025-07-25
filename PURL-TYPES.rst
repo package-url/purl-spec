@@ -354,7 +354,6 @@ huggingface
       pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027
       pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co
 
-
 luarocks
 --------
 ``luarocks`` for Lua packages installed with LuaRocks:
@@ -380,6 +379,19 @@ Examples::
       pkg:luarocks/luasocket@3.1.0-1
       pkg:luarocks/hisham/luafilesystem@1.8.0-1
       pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/
+
+macos
+-----
+``macos`` for native macOS packages and applications which are either pre-installed by Apple or installed via non-standard method (i.e. installed from .dmg file, downloaded from external sources). Note that Applestore Apps are created for multiple platform such as macOS, iOS, iPadOS, watchOS, tvOS, visionOS, etc. `apple` namespace should be specified followed by platform.
+
+- There is no default repository.
+- The ``namespace`` is the app distributor which is ``apple``.
+- The ``name`` is the Application name which is often retrieved from ``CFBundleName``
+- The ``version`` is the Application version which is often retrieved from either ``CFBundleShortVersionString`` or ``CFBundleVersion``
+- Examples::
+
+      pkg:apple/macos/iTerm2@3.4.19
+      pkg:apple/macos/Music@1.3.5
 
 maven
 -----
