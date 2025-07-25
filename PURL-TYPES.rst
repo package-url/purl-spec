@@ -345,28 +345,18 @@ huggingface
 ------
 ``huggingface`` for Hugging Face packages, including models, datasets, and spaces.
 
-- The default repository is 
-  - Model:``https://huggingface.co``.
-  - Dataset: ``https://huggingface.co/datasets``.
-  - Space: ``https://huggingface.co/spaces``.
-- The ``namespace`` is the model repository username or organization, if present. It is case sensitive.
-- The ``name`` is the model repository name. It is case sensitive.
-- The ``version`` use the `git references` formats which is either:
-  - The model revision Git commit hash. It is case insensitive and must be lowercased in the package URL.
-  - The Git release tag. 
+- The default repository is ``https://huggingface.co``.
+- The ``namespace`` is the repository username or organization, if present. It is case sensitive.
+- The ``name`` is the repository name. It is case sensitive.
+- The ``version`` is a commit or tag.
 - The ``type`` should be model (default), dataset, or space.
-- Examples::
-  - Models:
+- Examples:
       pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027
-      pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co
-      pkg:huggingface/LumiOpen/Poro-34B@6dfe71272f0af88c67d2576f1acedf57a154d0eb?repository_url=https://huggingface.co
-      pkg:huggingface/LumiOpen/Poro-34B@100B?repository_url=https://huggingface.co
-      pkg:huggingface/LumiOpen/Poro-34B@main?repository_url=https://huggingface.co
-  - Datasets:
-      pkg:huggingface/bigcode/the-stack@v1.1?repository_url=https://huggingface.co/datasets?type=dataset
-      pkg:huggingface/bigcode/the-stack@main?repository_url=https://huggingface.co/datasets?type=dataset
-  - Spaces:
-      pkg:huggingface/black-forest-labs/FLUX.1-Kontext-Dev?repository_url=https://huggingface.co/spaces?type=space
+      pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111
+      pkg:huggingface/LumiOpen/Poro-34B@100B
+      pkg:huggingface/LumiOpen/Poro-34B@14d8824c28d782fcd1cd9579ac06644f60e62450?type=model
+      pkg:huggingface/bigcode/the-stack@v1.1?type=dataset
+      pkg:huggingface/black-forest-labs/FLUX.1-Kontext-Dev?type=space
 
 
 luarocks
