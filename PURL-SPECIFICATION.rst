@@ -116,9 +116,10 @@ A ``purl`` string is an ASCII URL string composed of seven components.
 
 Except as expressly stated otherwise in this section, each component:
 
-- MAY be composed of any of the characters defined in the "Permitted
-  characters" section
-- MUST be encoded as defined in the "Character encoding" section
+- MAY be composed of any of the characters defined in the "`Permitted characters`_" section
+- MUST be encoded as defined in the "`Character encoding`_" section
+
+The "lowercase" rules are defined in the "`Case folding`_" section.
 
 The rules for each component are:
 
@@ -287,6 +288,16 @@ Character encoding
 - With the exception of the percent-encoding mechanism, the rules regarding
   percent-encoding are defined by this specification alone.
 
+Case folding
+~~~~~~~~~~~~
+
+References to "lowercase" in this specification refer to the **culture-invariant**
+full case mapping defined in
+`Section 3.13.2 of the Unicode Standard <https://www.unicode.org/versions/Unicode16.0.0/core-spec/chapter-3/#G34078>`_.
+
+When applied to the ASCII character set, this operation converts uppercase
+Latin letters (``A to Z``) to their corresponding lowercase forms (``a to z``).
+All other ASCII characters remain unchanged.
 
 How to build ``purl`` string from its components
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
