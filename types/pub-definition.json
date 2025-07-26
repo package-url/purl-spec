@@ -1,0 +1,31 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/pub-definition.json",
+  "type": "pub",
+  "type_name": "Pub",
+  "description": "Dart and Flutter pub packages",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://pub.dartlang.org"
+  },
+  "namespace_definition": {
+    "requirement": "prohibited",
+    "note": "there is no namespace"
+  },
+  "name_definition": {
+    "native_name": "name",
+    "case_sensitive": false,
+    "permitted_characters": "^[a-z0-9_]",
+    "normalization_rules": [
+      "Replace non-[a-z] letters, non-[0-9] digits with underscore _"
+    ],
+    "note": "Pub normalizes all package names to be lowercase and using underscores. The only allowed characters are [a-z0-9_]. More information on pub naming and versioning is available in the pubspec documentation https://dart.dev/tools/pub/pubspec"
+  },
+  "version_definition": {
+    "native_name": "version"
+  },
+  "examples": [
+    "pkg:pub/characters@1.2.0",
+    "pkg:pub/flutter@0.0.0"
+  ]
+}
