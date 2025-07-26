@@ -1,0 +1,8 @@
+datamodel-code-generator==0.31.2
+jsonschema[formats]
+check-jsonschema
+ruff
+black
+Jinja2
+pydantic
+packageurl-python

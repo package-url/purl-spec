@@ -1,0 +1,32 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/golang-definition.json",
+  "type": "golang",
+  "type_name": "Go package",
+  "description": "Go packages",
+  "repository": {
+    "use_repository": true,
+    "note": "There is no default package repository, this is implied in the namespace using the go get command conventions. In practice the go module proxy acts as a public defulat repository."
+  },
+  "namespace_definition": {
+    "requirement": "required",
+    "case_sensitive": false,
+    "note": "The namespace must be lowercased."
+  },
+  "name_definition": {
+    "case_sensitive": false,
+    "note": "The name must be lowercased."
+  },
+  "subpath_definition": {
+    "note": "The subpath is used to point to a subpath inside a package."
+  },
+  "note": "the current definition predates Go modules and has several practical problems, and in particular it is impossible to determine what is a module and what is a package short of having full access to the source code or making an API call to the Go module proxy.",
+  "version_definition": {
+    "note": "The version is often empty when a commit is not specified and should be the commit in most cases when available."
+  },
+  "examples": [
+    "pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c",
+    "pkg:golang/google.golang.org/genproto#googleapis/api/annotations",
+    "pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c#api"
+  ]
+}

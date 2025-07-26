@@ -1,0 +1,28 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/composer-definition.json",
+  "type": "composer",
+  "type_name": "Composer",
+  "description": "Composer PHP packages",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://packagist.org"
+  },
+  "namespace_definition": {
+    "requirement": "required",
+    "case_sensitive": false,
+    "native_name": "vendor",
+    "note": "The namespace is the vendor. The namespace is not case sensitive and must be lowercased."
+  },
+  "name_definition": {
+    "case_sensitive": false,
+    "native_name": "name",
+    "note": "The name is not case sensitive and must be lowercased. Private, local packages may have no name. In this case you cannot create a purl for these."
+  },
+  "version_definition": {
+    "native_name": "version"
+  },
+  "examples": [
+    "pkg:composer/laravel/laravel@5.5.0"
+  ]
+}
