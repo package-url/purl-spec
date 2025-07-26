@@ -1,0 +1,52 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/cpan-definition.json",
+  "type": "cpan",
+  "type_name": "CPAN",
+  "description": "CPAN Perl packages",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://www.cpan.org/"
+  },
+  "namespace_definition": {
+    "requirement": "optional",
+    "note": "- To refer to a CPAN distribution name, the namespace MUST be present. In this case, the namespace is the CPAN id of the author/publisher. It MUST be written uppercase, followed by the distribution name in the name component. A distribution name MUST NOT contain the string ::.\n- To refer to a CPAN module, the namespace MUST be absent. The module name MAY contain zero or more :: strings, and the module name MUST NOT contain a -\n"
+  },
+  "name_definition": {
+    "case_sensitive": true,
+    "native_name": "module or distribution name",
+    "note": "The name is the module or distribution name and is case sensitive."
+  },
+  "version_definition": {
+    "note": "The version is the module or distribution version.",
+    "native_name": "version"
+  },
+  "qualifiers_definition": [
+    {
+      "key": "repository_url",
+      "description": "CPAN/MetaCPAN/BackPAN/DarkPAN repository base URL"
+    },
+    {
+      "key": "download_url",
+      "description": "URL of package or distribution"
+    },
+    {
+      "key": "vcs_url",
+      "description": "extra URL for a package version control system"
+    },
+    {
+      "key": "ext",
+      "description": "file extension",
+      "default_value": "tar.gz"
+    }
+  ],
+  "examples": [
+    "pkg:cpan/Perl::Version@1.013",
+    "pkg:cpan/DROLSKY/DateTime@1.55",
+    "pkg:cpan/DateTime@1.55",
+    "pkg:cpan/GDT/URI-PackageURL",
+    "pkg:cpan/LWP::UserAgent",
+    "pkg:cpan/OALDERS/libwww-perl@6.76",
+    "pkg:cpan/URI"
+  ]
+}

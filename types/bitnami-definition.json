@@ -1,0 +1,41 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/bitname-definition.json",
+  "type": "bitnami",
+  "type_name": "Bitnami",
+  "description": "Bitnami-based packages",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://downloads.bitnami.com/files/stacksmith"
+  },
+  "namespace_definition": {
+    "requirement": "prohibited",
+    "note": "there is no namespace"
+  },
+  "name_definition": {
+    "note": "The name is the component name. It must be lowercased.",
+    "case_sensitive": false,
+    "native_name": "name"
+  },
+  "version_definition": {
+    "native_name": "full package version, including version and revision",
+    "note": "The version is the full Bitnami package version, including version and revision."
+  },
+  "qualifiers_definition": [
+    {
+      "key": "arch",
+      "description": "The arch is the qualifiers key for a package architecture. Available values are amd64 (default) and arm64.",
+      "default_value": "amd64"
+    },
+    {
+      "key": "distro",
+      "description": "The distro is the qualifiers key for the distribution associated to the package."
+    }
+  ],
+  "examples": [
+    "pkg:bitnami/wordpress?distro=debian-12",
+    "pkg:bitnami/wordpress@6.2.0?distro=debian-12",
+    "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12",
+    "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4"
+  ]
+}

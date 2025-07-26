@@ -1,0 +1,28 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/swift-definition.json",
+  "type": "swift",
+  "type_name": "Swift packages",
+  "description": "Swift packages",
+  "repository": {
+    "use_repository": true,
+    "note": "There is no default package repository, this should be implied from namespace."
+  },
+  "namespace_definition": {
+    "requirement": "required",
+    "note": "The namespace is source host and user/organization and is required.",
+    "case_sensitive": true
+  },
+  "name_definition": {
+    "case_sensitive": true,
+    "native_name": "repository name"
+  },
+  "version_definition": {
+    "case_sensitive": true,
+    "native_name": "package version"
+  },
+  "examples": [
+    "pkg:swift/github.com/Alamofire/Alamofire@5.4.3",
+    "pkg:swift/github.com/RxSwiftCommunity/RxFlow@2.12.4"
+  ]
+}
