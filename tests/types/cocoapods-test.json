@@ -18,7 +18,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:cocoapods/AFNetworking@4.0.1",
@@ -59,7 +59,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:cocoapods/MapsIndoors@3.24.0",
@@ -100,7 +100,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:cocoapods/ShareKit@2.0#Twitter",
@@ -141,7 +141,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:cocoapods/GoogleUtilities@7.5.2#NSData+zlib",

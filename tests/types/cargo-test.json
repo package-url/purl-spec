@@ -18,7 +18,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:cargo/rand@0.7.2",
@@ -59,7 +59,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:cargo/clap@2.33.0",
@@ -100,7 +100,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:cargo/structopt@0.3.11",

@@ -20,7 +20,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:alpm/arch/pacman@6.0.1-1?arch=x86_64",
@@ -65,7 +65,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:alpm/arch/python-pip@21.0-1?arch=any",
@@ -110,7 +110,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:alpm/arch/containers-common@1:0.47.4-4?arch=x86_64",

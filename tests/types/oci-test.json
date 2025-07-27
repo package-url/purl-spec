@@ -22,7 +22,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=docker.io/library/debian&arch=amd64&tag=latest",
@@ -70,7 +70,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=ghcr.io/debian&tag=bullseye",
@@ -117,7 +117,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest",
@@ -163,7 +163,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:oci/hello-wasm@sha256%3A244fd47e07d10?tag=v1",

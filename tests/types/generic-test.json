@@ -18,7 +18,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:generic/openssl@1.1.10g",
@@ -62,7 +62,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:generic/openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da",
@@ -108,7 +108,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:generic/bitwarderl?vcs_url=git%2Bhttps://git.fsfe.org/dxtr/bitwarderl%40cc55108da32",

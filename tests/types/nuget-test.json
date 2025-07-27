@@ -2,7 +2,7 @@
   "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
   "tests": [
     {
-      "description": "nuget names are case sensitive. Rountrip an input purl to canonical.",
+      "description": "nuget names are case sensitive. Roundtrip an input purl to canonical.",
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:Nuget/EnterpriseLibrary.Common@6.0.1304",
@@ -27,7 +27,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "nuget names are case sensitive. Rountrip a canonical input to canonical output.",
+      "description": "nuget names are case sensitive. Roundtrip a canonical input to canonical output.",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
@@ -68,7 +68,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
