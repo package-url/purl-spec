@@ -20,7 +20,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Roundtrip test for <class 'type'> PURL",
+      "description": "Round trip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:bitnami/wordpress?distro=debian-12",
@@ -65,7 +65,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Roundtrip test for <class 'type'> PURL",
+      "description": "Round trip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:bitnami/wordpress@6.2.0?distro=debian-12",
@@ -111,7 +111,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Roundtrip test for <class 'type'> PURL",
+      "description": "Round trip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12",
@@ -158,7 +158,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Roundtrip test for <class 'type'> PURL",
+      "description": "Round trip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4",

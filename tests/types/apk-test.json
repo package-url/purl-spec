@@ -20,7 +20,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Roundtrip test for <class 'type'> PURL",
+      "description": "Round trip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:apk/alpine/curl@7.83.0-r0?arch=x86",
@@ -65,7 +65,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Roundtrip test for <class 'type'> PURL",
+      "description": "Round trip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:apk/alpine/apk@2.12.9-r3?arch=x86",

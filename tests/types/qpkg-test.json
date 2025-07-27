@@ -18,7 +18,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Roundtrip test for <class 'type'> PURL",
+      "description": "Round trip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:qpkg/blackberry/com.qnx.sdp@7.0.0.SGA201702151847",
@@ -59,7 +59,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Roundtrip test for <class 'type'> PURL",
+      "description": "Round trip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:qpkg/blackberry/com.qnx.qnx710.foo.bar.qux@0.0.4.01449T202205040833L",

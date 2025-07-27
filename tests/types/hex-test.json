@@ -18,7 +18,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Roundtrip test for <class 'type'> PURL",
+      "description": "Round trip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:hex/jason@1.1.2",
@@ -59,7 +59,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Roundtrip test for <class 'type'> PURL",
+      "description": "Round trip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:hex/acme/foo@2.3.",
@@ -100,7 +100,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Roundtrip test for <class 'type'> PURL",
+      "description": "Round trip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js",
@@ -143,7 +143,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Roundtrip test for <class 'type'> PURL",
+      "description": "Round trip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com",

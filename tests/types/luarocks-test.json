@@ -18,7 +18,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Roundtrip test for <class 'type'> PURL",
+      "description": "Round trip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:luarocks/luasocket@3.1.0-1",
@@ -59,7 +59,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Roundtrip test for <class 'type'> PURL",
+      "description": "Round trip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:luarocks/hisham/luafilesystem@1.8.0-1",
@@ -102,7 +102,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Roundtrip test for <class 'type'> PURL",
+      "description": "Round trip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/",

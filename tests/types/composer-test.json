@@ -27,7 +27,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "composer names are not case sensitive. Roundtrip an input purl to canonical.",
+      "description": "composer names are not case sensitive. Round trip an input purl to canonical.",
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:composer/Laravel/Laravel@5.5.0",
@@ -52,7 +52,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "composer names are not case sensitive. Roundtrip a canonical input to canonical output.",
+      "description": "composer names are not case sensitive. Round trip a canonical input to canonical output.",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:composer/laravel/laravel@5.5.0",
@@ -93,7 +93,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Roundtrip test for <class 'type'> PURL",
+      "description": "Round trip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:composer/laravel/laravel@5.5.0",
