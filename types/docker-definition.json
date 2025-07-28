@@ -1,0 +1,26 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/docker-definition.json",
+  "type": "docker",
+  "type_name": "Docker image",
+  "description": "for Docker images",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://hub.docker.com"
+  },
+  "namespace_definition": {
+    "note": "The namespace is the registry/user/organization if present.",
+    "requirement": "optional"
+  },
+  "name_definition": {
+    "native_name": "name"
+  },
+  "version_definition": {
+    "note": "The version should be the image id sha256 or a tag. Since tags can be moved, a sha256 image id is preferred."
+  },
+  "examples": [
+    "pkg:docker/cassandra@latest",
+    "pkg:docker/smartentry/debian@dc437cc87d10",
+    "pkg:docker/customer/dockerimage@sha256%3A244fd47e07d10?repository_url=gcr.io"
+  ]
+}

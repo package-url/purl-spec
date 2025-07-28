@@ -1,0 +1,35 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/nuget-definition.json",
+  "type": "nuget",
+  "type_name": "NuGet",
+  "description": "NuGet .NET packages",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://www.nuget.org"
+  },
+  "namespace_definition": {
+    "requirement": "prohibited",
+    "note": "there is no namespace"
+  },
+  "name_definition": {
+    "native_name": "version",
+    "case_sensitive": true,
+    "note": "Technically the name is case-perserving, but case-insensitive, and NuGet packages archives are case-perserving, while some NuGet API calls demand to lowercase the package name."
+  },
+  "version_definition": {
+    "native_name": "version",
+    "note": "The NuGet version is semver-like but may contain more than three segments"
+  },
+  "qualifiers_definition": [
+    {
+      "key": "checksum",
+      "requirement": "optional",
+      "description": "``.nupkg`` files have attached signatures:\ninside the package file, there is a signature file which signs the package content.\nNot only can NuGet authors sign packages,\nbut NuGet repositories often sign every package within the repository.\nNuGet.org applies repository signatures,\nso it is very common for a ``.nupkg`` file to contain a repository signature.\n\nThe NuGet tooling does not consider this signature file to be part of the package.\nWhen the NuGet tooling generates an SHA-512 hash of a package,\ne.g. in a ``project.assets.json`` file or ``packages.lock.json`` file,\nthat SHA-512 package hash is the hash of the ``.nupkg`` file with the ``signature.p7s`` removed.\nThis allows additional signatures to be added to the package after it has been published,\nwithout creating a distinct package that would be rejected by an existing ``packages.lock.json`` file.\n\nWhen generating a ``checksum`` qualifier for a NuGet dependency,\nNuGet's package SHA-512 should not be used.\nInstead, use the SHA-512 hash of the package file.\nThis maintains a consistent meaning of the ``checksum`` qualifier across different package types."
+    }
+  ],
+  "note": "There is no namespace per se even if the common convention is to use dot-separated package names where the first segment is namespace-like.",
+  "examples": [
+    "pkg:nuget/EnterpriseLibrary.Common@6.0.1304"
+  ]
+}
