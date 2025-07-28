@@ -51,7 +51,6 @@
       "expected_failure": false,
       "expected_failure_reason": null
     },
-
     {
       "description": "CPAN distribution without author",
       "test_group": "base",
@@ -229,7 +228,7 @@
         "name": "DateTime",
         "version": "1.55",
         "qualifiers": {
-          "repository_url":"backpan.perl.org"
+          "repository_url": "backpan.perl.org"
         },
         "subpath": null
       },
@@ -246,7 +245,7 @@
         "name": "DateTime",
         "version": "1.55",
         "qualifiers": {
-          "repository_url":"backpan.perl.org"
+          "repository_url": "backpan.perl.org"
         },
         "subpath": null
       },
