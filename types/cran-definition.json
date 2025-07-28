@@ -1,0 +1,29 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/cran-definition.json",
+  "type": "cran",
+  "type_name": "CRAN",
+  "description": "CRAN R packages",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://cran.r-project.org"
+  },
+  "namespace_definition": {
+    "requirement": "prohibited",
+    "note": "there is no namespace"
+  },
+  "name_definition": {
+    "native_name": "name",
+    "is_case_sensitve": true,
+    "note": "The name is the package name and is case sensitive, but there cannot be two packages on CRAN with the same name ignoring case."
+  },
+  "version_definition": {
+    "native_name": "version",
+    "note": "The version is the package version."
+  },
+  "examples": [
+    "pkg:cran/A3@1.0.0",
+    "pkg:cran/rJava@1.0-4",
+    "pkg:cran/caret@6.0-88"
+  ]
+}

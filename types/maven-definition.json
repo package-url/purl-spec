@@ -1,0 +1,51 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/maven-definition.json",
+  "type": "maven",
+  "type_name": "Maven",
+  "description": "PURL type for Maven JARs and related artifacts.",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://repo.maven.apache.org/maven2/",
+    "note": "The Maven Central repository is the public repository for Apache Maven packages. This repository is also mirrored at https://repo1.maven.org/maven2/. Use the standard repository_url qualifier to point to another repository"
+  },
+  "namespace_definition": {
+    "requirement": "required",
+    "case_sensitive": true,
+    "native_name": "groupId",
+    "note": "The group id is the namespace."
+  },
+  "name_definition": {
+    "case_sensitive": true,
+    "native_name": "artifactId",
+    "note": "The artifact id is the name."
+  },
+  "version_definition": {
+    "case_sensitive": true,
+    "native_name": "version"
+  },
+  "qualifiers_definition": [
+    {
+      "key": "classifier",
+      "requirement": "optional",
+      "description": "The maven classifier as defined in the POM documentation.",
+      "native_name": "classifier"
+    },
+    {
+      "key": "type",
+      "requirement": "optional",
+      "description": "The maven type as defined in the POM documentation. Note that Maven uses a concept / coordinate called packaging which does not map directly 1:1 to a file extension. In this use case, we need to construct a link to one of many possible artifacts. Maven itself uses type in a dependency declaration when needed to disambiguate between them.",
+      "native_name": "type",
+      "default_value": "jar"
+    }
+  ],
+  "examples": [
+    "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1",
+    "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=pom",
+    "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources",
+    "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=zip&classifier=dist",
+    "pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x86&type=dll",
+    "pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x64&type=dll",
+    "pkg:maven/groovy/groovy@1.0?repository_url=https://maven.google.com"
+  ]
+}

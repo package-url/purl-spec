@@ -1,0 +1,31 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/hex-definition.json",
+  "type": "hex",
+  "type_name": "Hex",
+  "description": "Hex packages",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://repo.hex.pm"
+  },
+  "namespace_definition": {
+    "requirement": "optional",
+    "case_sensitive": false,
+    "native_name": "organization for private packages",
+    "note": "The namespace is optional; it may be used to specify the organization for private packages on hex.pm. It is not case sensitive and must be lowercased."
+  },
+  "name_definition": {
+    "case_sensitive": false,
+    "native_name": "name",
+    "note": "The name is not case sensitive and must be lowercased."
+  },
+  "version_definition": {
+    "native_name": "version"
+  },
+  "examples": [
+    "pkg:hex/jason@1.1.2",
+    "pkg:hex/acme/foo@2.3.",
+    "pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js",
+    "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com"
+  ]
+}

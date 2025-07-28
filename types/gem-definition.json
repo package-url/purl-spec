@@ -1,0 +1,34 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/generic-definition.json",
+  "type": "gem",
+  "type_name": "RubyGems",
+  "description": "RubyGems",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://rubygems.org"
+  },
+  "namespace_definition": {
+    "requirement": "prohibited",
+    "note": "There is no namespace"
+  },
+  "name_definition": {
+    "native_name": "name"
+  },
+  "version_definition": {
+    "native_name": "version"
+  },
+  "qualifiers_definition": [
+    {
+      "key": "platform",
+      "native_name": "platform",
+      "requirement": "optional",
+      "default_value": "ruby",
+      "description": "qualifiers key is used to specify an alternative platform. such as java for JRuby. The implied default is ruby for Ruby MRI."
+    }
+  ],
+  "examples": [
+    "pkg:gem/ruby-advisory-db-check@0.12.4",
+    "pkg:gem/jruby-launcher@1.1.2?platform=java"
+  ]
+}

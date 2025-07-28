@@ -1,0 +1,32 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/hackage-definition.json",
+  "type": "hackage",
+  "type_name": "Haskell package",
+  "description": "Haskell packages",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://hackage.haskell.org"
+  },
+  "namespace_definition": {
+    "requirement": "prohibited",
+    "note": "there is no namespace"
+  },
+  "name_definition": {
+    "case_sensitive": true,
+    "native_name": "name",
+    "normalization_rules": [
+      "Apply kebab-case"
+    ],
+    "note": "The name is case sensitive and use kebab-case."
+  },
+  "version_definition": {
+    "native_name": "version",
+    "note": "The version is package version."
+  },
+  "examples": [
+    "pkg:hackage/a50@0.5",
+    "pkg:hackage/AC-HalfInteger@1.2.1",
+    "pkg:hackage/3d-graphics-examples@0.0.0.2"
+  ]
+}

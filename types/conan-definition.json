@@ -1,0 +1,56 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/conan-definition.json",
+  "type": "conan",
+  "type_name": "Conan C/C++ packages",
+  "description": "Conan C/C++ packages. The purl is designed to closely resemble the Conan-native <package-name>/<package-version>@<user>/<channel> syntax for package references as specified in https://docs.conan.io/en/1.46/cheatsheet.html#package-terminology",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://center.conan.io"
+  },
+  "namespace_definition": {
+    "requirement": "optional",
+    "native_name": "vendor",
+    "note": "The vendor of the package."
+  },
+  "name_definition": {
+    "native_name": "package-name",
+    "note": "The Conan <package-name>."
+  },
+  "version_definition": {
+    "native_name": "package-version",
+    "note": "The Conan <package-version>."
+  },
+  "qualifiers_definition": [
+    {
+      "key": "user",
+      "native_name": "user",
+      "requirement": "optional",
+      "description": "The Conan <user>. Only required if the Conan package was published with <user>."
+    },
+    {
+      "key": "channel",
+      "native_name": "channel",
+      "requirement": "optional",
+      "description": "The Conan <channel>. Only required if the Conan package was published with Conan <channel>."
+    },
+    {
+      "key": "rrev",
+      "native_name": "recipe revision",
+      "requirement": "optional",
+      "description": "The Conan recipe revision (optional). If omitted, the purl refers to the latest recipe revision available for the given version."
+    },
+    {
+      "key": "prev",
+      "native_name": "package revision",
+      "requirement": "optional",
+      "description": "The Conan package revision (optional). If omitted, the purl refers to the latest package revision available for the given version and recipe revision."
+    }
+  ],
+  "note": "Additional qualifiers can be used to distinguish Conan packages with different settings or options, e.g. os=Linux, build_type=Debug or shared=True. If no additional qualifiers are used to distinguish Conan packages build with different settings or options, then the purl is ambiguous and it is up to the user to work out which package is being referred to (e.g. with context information).",
+  "examples": [
+    "pkg:conan/openssl@3.0.3",
+    "pkg:conan/openssl.org/openssl@3.0.3?user=bincrafters&channel=stable",
+    "pkg:conan/openssl.org/openssl@3.0.3?arch=x86_64&build_type=Debug&compiler=Visual%20Studio&compiler.runtime=MDd&compiler.version=16&os=Windows&shared=True&rrev=93a82349c31917d2d674d22065c7a9ef9f380c8e&prev=b429db8a0e324114c25ec387bfd8281f330d7c5c"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type.schema-1.0.json",
+  "$id": "https://packageurl.org/types/npm-definition.json",
+  "type": "npm",
+  "type_name": "Node NPM packages",
+  "description": "PURL type for npm packages.",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://registry.npmjs.org/",
+    "note": "The default repository is the npm Registry at https://registry.npmjs.org"
+  },
+  "namespace_definition": {
+    "requirement": "optional",
+    "case_sensitive": false,
+    "native_name": "scope",
+    "note": "The namespace is used for the scope of a scoped NPM package. The npm scope @ sign prefix is always percent encoded, as it was in the early days of npm scope."
+  },
+  "name_definition": {
+    "case_sensitive": false,
+    "native_name": "name",
+    "note": "Per the package.json spec, new package 'must not have uppercase letters in the name', therefore the name must be lowercased. The npm name used to be case sensitive in the early days for some old packages."
+  },
+  "version_definition": {
+    "case_sensitive": true,
+    "native_name": "version"
+  },
+  "examples": [
+    "pkg:npm/foobar@12.3.1",
+    "pkg:npm/%40angular/animation@12.3.1",
+    "pkg:npm/mypackage@12.4.5?vcs_url=git://host.com/path/to/repo.git%404345abcd34343"
+  ]
+}
