@@ -1,0 +1,45 @@
+name: Check and generate PURL Type Docs and Index
+
+on:
+  push:
+    paths:
+      - "types/*.json"
+      - "schemas/*.json"
+      - "etc/"
+    branches:
+      - main
+  workflow_dispatch:
+# All permissions should be specified at the job level
+permissions: { }
+
+jobs:
+  generate-index-and-docs:
+    runs-on: ubuntu-latest
+    permissions:
+      content: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: make conf
+
+      - name: Validate code and data formats
+        run: make check
+
+      - name: Generate index and docs
+        run: make gendocs
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add types/ types-doc/
+          git commit -s -m "Generate updated PURL type documentation" || echo "No changes to commit"
+          git push

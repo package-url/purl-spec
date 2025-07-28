@@ -1,0 +1,148 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "a scheme is always required",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "EnterpriseLibrary.Common@6.0.1304",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+    },
+    {
+      "description": "a scheme is always required",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "EnterpriseLibrary.Common@6.0.1304",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
+    },
+    {
+      "description": "a scheme is always required",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": null,
+        "namespace": null,
+        "name": "EnterpriseLibrary.Common",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+    },
+    {
+      "description": "a type is always required",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:EnterpriseLibrary.Common@6.0.1304",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+    },
+    {
+      "description": "a type is always required",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:EnterpriseLibrary.Common@6.0.1304",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
+    },
+    {
+      "description": "a type is always required",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": null,
+        "namespace": null,
+        "name": "EnterpriseLibrary.Common",
+        "version": "6.0.1304",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+    },
+    {
+      "description": "check for invalid character in type",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:n&g?inx/nginx@0.8.9",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+    },
+    {
+      "description": "check for null type",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": null,
+        "namespace": null,
+        "name": "nginx",
+        "version": "0.8.9",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to build a PURL from null type"
+    },
+    {
+      "description": "check for type that starts with number",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:3nginx/nginx@0.8.9",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid purl type (cannot start with number)"
+    },
+    {
+      "description": "check for type that starts with number",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": null,
+        "namespace": null,
+        "name": "nginx",
+        "version": "0.8.9",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+    },
+    {
+      "description": "check for colon in type",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:nginx:a/nginx@0.8.9",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+    },
+    {
+      "description": "check for colon in type",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": null,
+        "namespace": null,
+        "name": "nginx",
+        "version": "0.8.9",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+    }
+  ]
+}

@@ -639,12 +639,28 @@ These are a few known versioning schemes for some common Package URL
 - **alpine**: Alpine linux https://gitlab.alpinelinux.org/alpine/apk-tools/-/blob/master/src/version.c
   which is using Gentoo-like conventions.
 
+
+These are generic schemes, to use sparingly for special cases:
+
 - **generic**: a generic version comparison algorithm (which will be specified
   later, likely based on a split on any wholly alpha or wholly numeric segments
   and dealing with digit and string comparisons, like is done in libversion)
 
+- **none**: a generic versioning scheme for a range containing no version.
+  ``vers:none/*`` is the only valid vers form for this scheme.
 
-TODO: add Rust, composer and archlinux, nginx, tomcat, apache.
+- **all**: a generic versioning scheme for a range containing all versions.
+  ``vers:all/*`` is the only valid vers form for this scheme.
+
+- **intdot**: a generic versioning scheme that allows version components to be
+  specified as integers separated by dots, e.g. ``10.234.5.12``. Versions
+  specified in this scheme consist of ASCII digits only, formatted with only
+  non-negative integers, and ignoring leading zeros. Interpretation of the
+  version should stop at the first character that is not a digit or a dot.
+
+- **semver**: a generic scheme that uses the same syntax as ``semver``. It follows the MAJOR.MINOR.PATCH format and is defined in the Semantic Versioning Specification 2.0.0, see https://semver.org/spec/v2.0.0.html. 
+
+- **datetime**: a generic scheme that uses a timestamp for comparison. The timestamp must adhere to RFC3339, section 5.6, see https://www.rfc-editor.org/rfc/rfc3339#section-5.6. 
 
 A separate document will provide details for each versioning scheme and:
 
@@ -653,6 +669,9 @@ A separate document will provide details for each versioning scheme and:
 
 This versioning schemes document will also explain how to convert CVE and OSV
 ranges to ``vers``.
+
+
+TODO: add Rust, composer and archlinux, nginx, tomcat, apache.
 
 
 Implementations

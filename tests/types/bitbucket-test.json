@@ -1,0 +1,96 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "bitbucket namespace and name should be lowercased. Rountrip an input purl to canonical.",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:bitbucket/birKenfeld/pyGments-main@244fd47e07d1014f0aed9c",
+      "expected_output": "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "bitbucket namespace and name should be lowercased",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:bitbucket/birKenfeld/pyGments-main@244fd47e07d1014f0aed9c",
+      "expected_output": {
+        "type": "bitbucket",
+        "namespace": "birkenfeld",
+        "name": "pygments-main",
+        "version": "244fd47e07d1014f0aed9c",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "bitbucket namespace and name should be lowercased. Rountrip a canonical input to canonical output.",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
+      "expected_output": "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "bitbucket namespace and name should be lowercased",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "bitbucket",
+        "namespace": "birkenfeld",
+        "name": "pygments-main",
+        "version": "244fd47e07d1014f0aed9c",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
+      "expected_output": {
+        "type": "bitbucket",
+        "namespace": "birkenfeld",
+        "name": "pygments-main",
+        "version": "244fd47e07d1014f0aed9c",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
+      "expected_output": "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "bitbucket",
+        "namespace": "birkenfeld",
+        "name": "pygments-main",
+        "version": "244fd47e07d1014f0aed9c",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

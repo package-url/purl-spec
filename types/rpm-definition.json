@@ -1,0 +1,41 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/rpm-definition.json",
+  "type": "rpm",
+  "type_name": "RPM",
+  "description": "RPM packages",
+  "repository": {
+    "use_repository": true,
+    "note": "There is no default package repository, this should be implied either from the distro qualifiers key or using a repository base URL as repository_url qualifiers key."
+  },
+  "namespace_definition": {
+    "case_sensitive": false,
+    "native_name": "vendor",
+    "note": "The namespace is the vendor such as Fedora or OpenSUSE. It is not case sensitive and must be lowercased.",
+    "requirement": "required"
+  },
+  "name_definition": {
+    "case_sensitive": true,
+    "note": "The name is the RPM name and is case sensitive.",
+    "native_name": "name"
+  },
+  "version_definition": {
+    "note": "The version is the combined version and release of an RPM.",
+    "native_name": "version-release"
+  },
+  "qualifiers_definition": [
+    {
+      "key": "epoch",
+      "requirement": "optional",
+      "description": "(optional for RPMs) is a qualifier as its not required for unique identification, but when the epoch exists we strongly encourage using it."
+    },
+    {
+      "key": "arch",
+      "description": "the qualifiers key for a package architecture."
+    }
+  ],
+  "examples": [
+    "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
+    "pkg:rpm/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25"
+  ]
+}
