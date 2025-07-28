@@ -1,23 +1,53 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+
+  /* CycloneDX primary background */
+  background-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary-lightest);
 }
 
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
+    background: linear-gradient(135deg, #5c3db7 0%, #7f63d9 100%);
+    color: var(--ifm-color-primary-lightest);
   }
+}
+
+.hero__title {
+  color: var(--ifm-color-primary-lightest);
+  margin-bottom: 0.5rem;
+}
+
+.hero__subtitle {
+  color: var(--ifm-color-primary-light);
+  font-weight: 400;
+  margin-bottom: 2rem;
 }
 
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem; 
+}
+
+.buttons .button--secondary {
+  background-color: var(--ifm-color-primary-light);
+  color: var(--ifm-color-background);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.buttons .button--secondary:hover {
+  background-color: var(--ifm-color-primary-lighter);
+  color: var(--ifm-color-background);
+  text-decoration: none;
+  cursor: pointer;
 }
