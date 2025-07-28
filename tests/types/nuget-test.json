@@ -1,0 +1,73 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "nuget names are not case sensitive. Rountrip an input purl to canonical.",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:Nuget/EnterpriseLibrary.Common@6.0.1304",
+      "expected_output": "pkg:nuget/enterpriselibrary.common@6.0.1304",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "nuget names are not case sensitive",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:Nuget/EnterpriseLibrary.Common@6.0.1304",
+      "expected_output": {
+        "type": "nuget",
+        "namespace": null,
+        "name": "enterpriselibrary.common",
+        "version": "6.0.1304",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "nuget names are not case sensitive. Rountrip a canonical input to canonical output.",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:nuget/enterpriselibrary.common@6.0.1304",
+      "expected_output": "pkg:nuget/enterpriselibrary.common@6.0.1304",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "nuget names are not case sensitive",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "nuget",
+        "namespace": null,
+        "name": "EnterpriseLibrary.Common",
+        "version": "6.0.1304",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:nuget/enterpriselibrary.common@6.0.1304",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "nuget names do not always contain separators",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:nuget/polly@8.0.0-beta.2",
+      "expected_output": "pkg:nuget/polly@8.0.0-beta.2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "nuget versions are extended semver",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:nuget/awssdk.core@3.7.303.14",
+      "expected_output": "pkg:nuget/awssdk.core@3.7.303.14",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

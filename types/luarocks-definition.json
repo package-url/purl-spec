@@ -1,0 +1,37 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/luarocks-definition.json",
+  "type": "luarocks",
+  "type_name": "LuaRocks",
+  "description": "Lua packages installed with LuaRocks",
+  "repository": {
+    "use_repository": true
+  },
+  "namespace_definition": {
+    "case_sensitive": false,
+    "native_name": "user manifest",
+    "note": "The user manifest under which the package is registered. If not given, the root manifest is assumed. It is case insensitive, but lowercase is encouraged since namespaces are normalized to ASCII lowercase.",
+    "requirement": "optional"
+  },
+  "name_definition": {
+    "case_sensitive": false,
+    "native_name": "name",
+    "note": "The LuaRocks package name. It is case insensitive, but lowercase is encouraged since package names are normalized to ASCII lowercase."
+  },
+  "version_definition": {
+    "case_sensitive": true,
+    "native_name": "full package version, including module version and rockspec revision",
+    "note": "The full LuaRocks package version, including module version and rockspec revision. It is case sensitive, and lowercase must be used to avoid compatibility issues with older LuaRocks versions. The full version number is required to uniquely identify a version."
+  },
+  "qualifiers_definition": [
+    {
+      "key": "repository_url",
+      "description": "The LuaRocks rocks server to be used; useful in case a private server is used (optional). If omitted, https://luarocks.org as default server is assumed."
+    }
+  ],
+  "examples": [
+    "pkg:luarocks/luasocket@3.1.0-1",
+    "pkg:luarocks/hisham/luafilesystem@1.8.0-1",
+    "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/"
+  ]
+}

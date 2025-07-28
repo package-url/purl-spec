@@ -15,6 +15,8 @@ Adopters
   assist with automating Open Source compliance checks.
 - `OSV Schema <https://ossf.github.io/osv-schema/>`_ and `OSV.dev <https://osv.dev>`_:
   Open Source Vulnerability Schema and distributed vulnerability database
+- `ReversingLabs Spectra Assure <https://www.reversinglabs.com/products/software-supply-chain-security>`_:
+  Software supply chain security platform for the enterprise to detect threats and exposures
 - `Scancode Toolkit <https://github.com/nexB/scancode-toolkit>`_: Reports
   `purl` from parsed package manifests using https://github.com/package-url/packageurl-python
 - `Sonatype Nexus Lifecycle <https://www.sonatype.com/product-nexus-lifecycle>`_:
