@@ -1,0 +1,39 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/raku-definition.json",
+  "type": "raku",
+  "type_name": "Raku",
+  "description": "Raku Programming Language packages",
+  "repository": {
+    "use_repository": false,
+    "note": "The 'zef' installation program may be configured to obtain from any content delivery system.  By default it will either download files from (https://360.zef.pm), or from the Raku Ecosystem Archive (http://github.com/Raku/REA/tree/main/archive)."
+  },
+  "namespace_definition": {
+    "requirement": "required",
+    "note": "The namespace indicates the 'auth' of a package, which indicates which ecosystem and author(s) are responsible for the development/maintenance of the package.  Although currently it *is* possble to specify a dependency without 'auth', it is considered bad practice and will be disallowed in the not too far future."
+  },
+  "name_definition": {
+    "case_sensitive": true,
+    "native_name": "distribution name",
+    "note": "The name is the distribution name and is case sensitive.  Although technically this can currently also be a module name, it is considered bad practice and will be disallowed in the not too far future."
+  },
+  "version_definition": {
+    "requirement": "optional",
+    "note": "The version is the distribution version.  Versions can optionally have a ':' followed by an 'api' value, indicating an API level.",
+    "native_name": "version"
+  },
+  "qualifiers_definition": [
+    {
+      "key": "download_url",
+      "description": "URL of package or distribution"
+    }
+  ],
+  "examples": [
+    "pkg:raku/zef:lizmat/SBOM::CycloneDX@0.0.7",
+    "pkg:raku/cpan:TIMOTIMO/JSON::Fast@0.19",
+    "pkg:raku/zef:vrurg/Cro::RPC::JSON@0.1.6:2",
+    "pkg:raku/zef:lizmat/駱駝道@0.0.1",
+    "pkg:raku/zef:lizmat/SBOM::CycloneDX@0.07?download_url=https://360.zef.pm/S/BO/SBOM_CYCLONEDX/e9df9ac7d473c289aae4df19ea10c0289bb04851.tar.gz",
+    "pkg:raku/cpan:TIMOTIMO/JSON::Fast@0.19?download_url=https://cpan.metacpan.org/authors/id//T/TI/TIMOTIMO/Perl6/JSON-Fast-0.19.tar.gz"
+  ]
+}

@@ -108,7 +108,6 @@ Other candidate types to define
 - ``p2`` for Eclipse p2 packages:
 - ``pear`` for Pear PHP packages:
 - ``pecl`` for PECL PHP packages:
-- ``perl6`` for Perl 6 module packages:
 - ``platformio`` for PlatformIO packages:
 - ``puppet`` for Puppet Forge packages:
 - ``sourceforge`` for Sourceforge-based packages:
