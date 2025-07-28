@@ -84,7 +84,7 @@ const config = {
         title: 'PURL Specs',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/logo.png',
         },
         style: 'dark',
         items: [

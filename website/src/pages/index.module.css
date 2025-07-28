@@ -5,9 +5,14 @@
   overflow: hidden;
 
   /* CycloneDX primary background */
-  background-color: var(--ifm-color-primary);
-  color: var(--ifm-color-primary-lightest);
+  background-image:
+    linear-gradient(to right, #1A237E, #6A1B9A, #EC407A),
+    url('/img/background-image.png');
+  background-size: cover;
+  background-blend-mode: overlay;
 }
+
+
 
 @media screen and (max-width: 996px) {
   .heroBanner {
