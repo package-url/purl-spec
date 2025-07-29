@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%; 
+
+    margin-top: 50pt;
+}
+
+.homepagegif {
+    align-self: center;
+
+    width: 520pt;
+    height: 320pt;
+
+    border: 10pt solid rgba(175, 78, 138, 1);
+    border-radius: 40pt;
+
+    margin: 0pt 50pt 50pt 50pt;
+}
+
+.label {
+    font-size: 40pt;
+    align-self: center;
+    justify-self: center;
+}
