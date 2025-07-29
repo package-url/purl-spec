@@ -115,19 +115,15 @@ const config = {
             title: 'News and Events',
             items: [
               {
-                label: 'Placeholders',
+                label: 'Newsletter',
                 to: 'docs/PURL_SPECIFICATION',
               },
               {
-                label: 'Placeholders',
+                label: 'Meetings',
                 to: 'docs/PURL_SPECIFICATION',
               },
               {
-                label: 'Placeholders',
-                to: 'docs/PURL_SPECIFICATION',
-              },
-              {
-                label: 'Placeholders',
+                label: 'Next gathering',
                 to: 'docs/PURL_SPECIFICATION',
               },
             ],
@@ -178,24 +174,24 @@ const config = {
             title: 'Standardisation',
             items: [
               {
-                label: 'CycloneDX',
-                href: 'https://cyclonedx.org/',
+                label: 'ECMA',
+                href: 'https://ecma-international.org',
               },
               {
-                label: 'SPDX',
-                href: 'https://spdx.dev/',
+                label: 'ISO',
+                href: 'https://www.iso.org/home.html',
               },
               {
-                label: 'CSAF',
-                href: 'https://www.csaf.io/',
+                label: 'ECMA TC-54 PURL',
+                href: 'https://tc54.org/purl/',
               },
               {
-                label: 'OpenVEX',
-                href: 'https://github.com/openvex/',
+                label: 'ECMA TC-54 CycloneDX',
+                href: 'https://tc54.org/cyclonedx/',
               },
               {
-                label: 'OSV Schema',
-                href: 'https://github.com/ossf/osv-schema',
+                label: 'ECMA TC-54 Transparency Exchange API',
+                href: 'https://tc54.org/tea/',
               },
             ],
           },
