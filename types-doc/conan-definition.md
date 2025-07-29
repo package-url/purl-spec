@@ -4,7 +4,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 # PURL Type Definition: conan
 
 - **Type Name:** Conan C/C++ packages
-- **Description:** Conan C/C++ packages. The purl is designed to closely resemble the Conan-native <package-name>/<package-version>@<user>/<channel> syntax for package references as specified in https://docs.conan.io/en/1.46/cheatsheet.html#package-terminology
+- **Description:** Conan C/C++ packages. The purl is designed to closely resemble the Conan-native `<package-name>/<package-version>@<user>/<channel>` syntax for package references as specified in https://docs.conan.io/en/1.46/cheatsheet.html#package-terminology
 - **Schema ID:** `https://packageurl.org/types/conan-definition.json`
 
 ## PURL Syntax
@@ -27,19 +27,19 @@ The structure of a PURL for this package type is:
 ## Name definition
 
 - **Native Label:** package-name
-- **Note:** `The Conan <package-name>.`
+- **Note:** `The Conan 'package-name'.`
 
 ## Version definition
 
 - **Native Label:** package-version
-- **Note:** `The Conan <package-version>.`
+- **Note:** `The Conan 'package-version'.`
 
 ## Qualifiers Definition
 
 | Key  | Requirement | Native name | Default Value | Description |
 |------|-------------|-------------|---------------|-------------|
-| user | Optional | user |  | The Conan <user>. Only required if the Conan package was published with <user>. |
-| channel | Optional | channel |  | The Conan <channel>. Only required if the Conan package was published with Conan <channel>. |
+| user | Optional | user |  | The Conan 'user'. Only required if the Conan package was published with 'user'. |
+| channel | Optional | channel |  | The Conan 'channel'. Only required if the Conan package was published with Conan 'channel'. |
 | rrev | Optional | recipe revision |  | The Conan recipe revision (optional). If omitted, the purl refers to the latest recipe revision available for the given version. |
 | prev | Optional | package revision |  | The Conan package revision (optional). If omitted, the purl refers to the latest package revision available for the given version and recipe revision. |
 
