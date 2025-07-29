@@ -21,19 +21,19 @@ The structure of a PURL for this package type is:
 ## Namespace definition
 
 - **Requirement:** Required
-- **Note:** `The namespace indicates the 'auth' of a package, which indicates which ecosystem and author(s) are responsible for the development/maintenance of the package.  Although currently it *is* possble to specify a dependency without 'auth', it is considered bad practice and will be disallowed in the not too far future.`
+- **Note:** `The namespace indicates the 'auth' of a package, which indicates which ecosystem and author(s) are responsible for the development/maintenance of the package. Although currently it *is* possble to specify a dependency without 'auth', it is considered bad practice and will be disallowed in the not too far future.`
 
 ## Name definition
 
 - **Case Sensitive:** Yes
 - **Native Label:** distribution name
-- **Note:** `The name is the distribution name and is case sensitive.  Although technically this can currently also be a module name, it is considered bad practice and will be disallowed in the not too far future.`
+- **Note:** `The name is the distribution name and is case sensitive. Although technically this can currently also be a module name, it is considered bad practice and will be disallowed in the not too far future.`
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** version
-- **Note:** `The version is the distribution version.  Versions can optionally have a ':' followed by an 'api' value, indicating an API level.`
+- **Note:** `The version is the distribution versioni dependency or requirement.  If used as a requirement, can contain a postfix '+' to indicate any version higher or equal than the given version.  The version can also consist of just a '*' as an indication of 'any' version. Versions can optionally have a ':' followed by an 'api' value, indicating an API level.`
 
 ## Qualifiers Definition
 
