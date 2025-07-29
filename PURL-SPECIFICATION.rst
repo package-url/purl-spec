@@ -14,7 +14,7 @@ packaging conventions, tools, APIs and databases.
 Such a package URL is useful to reliably reference the same software package
 using a simple and expressive syntax and conventions based on familiar URLs.
 
-See `<PURL-TYPES.rst>`_ for known type definitions.
+See `<PURL-TYPES.rst>`_ for registered type definitions.
 
 Check also this short ``purl`` presentation (with video) at FOSDEM 2018
 https://fosdem.org/2018/schedule/event/purl/ for an overview.
@@ -306,7 +306,7 @@ Building a ``purl`` ASCII string works from left to right, from ``type`` to
 ``subpath``.
 
 Note: some extra type-specific normalizations are required.
-See the "Known types section" for details.
+See the "Registered types section" for details.
 
 To build a ``purl`` string from its components:
 
@@ -381,7 +381,7 @@ Parsing a ``purl`` ASCII string into its components works from right to left,
 from ``subpath`` to ``type``.
 
 Note: some extra type-specific normalizations are required.
-See the "Known types section" for details.
+See the "Registered types section" for details.
 
 To parse a ``purl`` string in its components:
 
@@ -454,10 +454,10 @@ To parse a ``purl`` string in its components:
   - This is the ``namespace``
 
 
-Known ``purl`` types
+Registered ``purl`` types
 ~~~~~~~~~~~~~~~~~~~~
 
-There are several known ``purl`` package type definitions tracked in the
+There are several registered ``purl`` package type definitions tracked in the
 separate `<PURL-TYPES.rst>`_ document.
 
 Known ``qualifiers`` key/value pairs
@@ -486,7 +486,7 @@ all package types:
   repository or registry. When a package does not come from the default public
   package repository for its ``type`` a ``purl`` may be qualified with this extra
   URL. The default repository or registry of a ``type`` is documented in the
-  "Known ``purl`` types" section.
+  "Registered ``purl`` types" section.
 
 - ``download_url`` is an extra URL for a direct package web download URL to
   optionally qualify a ``purl``.
