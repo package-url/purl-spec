@@ -106,20 +106,28 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'News and Events',
             items: [
               {
-                label: 'PURL Specs',
+                label: 'Placeholders',
                 to: 'docs/PURL_SPECIFICATION',
               },
               {
-                label: 'PURL Types',
-                to: 'docs/PURL_TYPES',
+                label: 'Placeholders',
+                to: 'docs/PURL_SPECIFICATION',
+              },
+              {
+                label: 'Placeholders',
+                to: 'docs/PURL_SPECIFICATION',
+              },
+              {
+                label: 'Placeholders',
+                to: 'docs/PURL_SPECIFICATION',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'Social',
             items: [
               {
                 label: 'Gitter',
@@ -129,18 +137,59 @@ const config = {
                 label: 'Slack',
                 href: 'https://cyclonedx.slack.com/archives/C06KTE3BWEB',
               },
+              {
+                label: 'Github',
+                href: 'https://github.com/package-url',
+              },
             ],
           },
           {
-            title: 'More',
+            title: 'References',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: 'CycloneDX',
+                href: 'https://cyclonedx.org/',
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/package-url',
+                label: 'SPDX',
+                href: 'https://spdx.dev/',
+              },
+              {
+                label: 'CSAF',
+                href: 'https://www.csaf.io/',
+              },
+              {
+                label: 'OpenVEX',
+                href: 'https://github.com/openvex/',
+              },
+              {
+                label: 'OSV Schema',
+                href: 'https://github.com/ossf/osv-schema',
+              },
+            ],
+          },
+          {
+            title: 'Standardisation',
+            items: [
+              {
+                label: 'CycloneDX',
+                href: 'https://cyclonedx.org/',
+              },
+              {
+                label: 'SPDX',
+                href: 'https://spdx.dev/',
+              },
+              {
+                label: 'CSAF',
+                href: 'https://www.csaf.io/',
+              },
+              {
+                label: 'OpenVEX',
+                href: 'https://github.com/openvex/',
+              },
+              {
+                label: 'OSV Schema',
+                href: 'https://github.com/ossf/osv-schema',
               },
             ],
           },
