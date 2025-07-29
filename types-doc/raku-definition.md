@@ -33,7 +33,7 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Optional
 - **Native Label:** version
-- **Note:** `The version is the distribution versioni dependency or requirement.  If used as a requirement, can contain a postfix '+' to indicate any version higher or equal than the given version.  The version can also consist of just a '*' as an indication of 'any' version. Versions can optionally have a ':' followed by an 'api' value, indicating an API level.`
+- **Note:** `The version is the distribution version dependency or requirement.  If used as a requirement, can contain a postfix '+' to indicate any version higher or equal than the given version.  The version can also consist of just a '*' as an indication of 'any' version. Versions can optionally have a ':' followed by an 'api' value, indicating an API level.`
 
 ## Qualifiers Definition
 

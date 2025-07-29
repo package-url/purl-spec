@@ -19,7 +19,7 @@
   },
   "version_definition": {
     "requirement": "optional",
-    "note": "The version is the distribution versioni dependency or requirement.  If used as a requirement, can contain a postfix '+' to indicate any version higher or equal than the given version.  The version can also consist of just a '*' as an indication of 'any' version. Versions can optionally have a ':' followed by an 'api' value, indicating an API level.",
+    "note": "The version is the distribution version dependency or requirement.  If used as a requirement, can contain a postfix '+' to indicate any version higher or equal than the given version.  The version can also consist of just a '*' as an indication of 'any' version. Versions can optionally have a ':' followed by an 'api' value, indicating an API level.",
     "native_name": "version"
   },
   "qualifiers_definition": [
