@@ -81,7 +81,7 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'PURL Specs',
+        title: 'PURL',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.png',
@@ -94,10 +94,16 @@ const config = {
             position: 'left',
             label: 'Docs',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/docs/PURL_SPECIFICATION', label: 'PURL Specs', position: 'left'},
+          {to: '/docs/PURL_TYPES', label: 'PURL Types', position: 'left'},
           {
             href: 'https://github.com/package-url',
             label: 'GitHub',
+            position: 'right',
+          },
+          {
+            href: 'https://cyclonedx.slack.com/archives/C06KTE3BWEB',    
+            label: 'Slack',
             position: 'right',
           },
         ],
