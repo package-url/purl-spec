@@ -146,7 +146,32 @@ const config = {
             ],
           },
           {
-            title: 'References',
+            title: 'Standardisation',
+            items: [
+              {
+                label: 'ECMA',
+                href: 'https://ecma-international.org',
+              },
+              {
+                label: 'TC-54 PURL',
+                href: 'https://tc54.org/purl/',
+              },
+              {
+                label: 'TC-54 CycloneDX',
+                href: 'https://tc54.org/cyclonedx/',
+              },
+              {
+                label: 'TC-54 Transparency Exchange API',
+                href: 'https://tc54.org/tea/',
+              },
+              {
+                label: 'ISO',
+                href: 'https://www.iso.org/home.html',
+              },
+            ],
+          },
+          {
+            title: 'Related Specs',
             items: [
               {
                 label: 'CycloneDX',
@@ -167,31 +192,6 @@ const config = {
               {
                 label: 'OSV Schema',
                 href: 'https://github.com/ossf/osv-schema',
-              },
-            ],
-          },
-          {
-            title: 'Standardisation',
-            items: [
-              {
-                label: 'ECMA',
-                href: 'https://ecma-international.org',
-              },
-              {
-                label: 'ISO',
-                href: 'https://www.iso.org/home.html',
-              },
-              {
-                label: 'ECMA TC-54 PURL',
-                href: 'https://tc54.org/purl/',
-              },
-              {
-                label: 'ECMA TC-54 CycloneDX',
-                href: 'https://tc54.org/cyclonedx/',
-              },
-              {
-                label: 'ECMA TC-54 Transparency Exchange API',
-                href: 'https://tc54.org/tea/',
               },
             ],
           },
