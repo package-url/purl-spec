@@ -123,8 +123,8 @@ const config = {
                 to: 'docs/PURL_SPECIFICATION',
               },
               {
-                label: 'Next gathering',
-                to: 'docs/PURL_SPECIFICATION',
+                label: 'Blog',
+                to: '/blog',
               },
             ],
           },
