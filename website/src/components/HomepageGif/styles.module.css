@@ -1,28 +1,37 @@
 .container {
     display: flex;
     flex-direction: column;
+    justify-self: center;
     justify-content: center;
 
-    width: 100%;
-    height: 100%; 
+    width: 520pt;
+    height: 480pt;
+
+    border: 10pt solid rgba(175, 78, 138, 1);
+    border-radius: 40pt;
 
     margin-top: 50pt;
+    margin-bottom: 50pt;
+
+    padding-bottom: 50pt;
 }
 
 .homepagegif {
     align-self: center;
 
-    width: 520pt;
-    height: 320pt;
+    width: 100%;
+    height: 100%; 
 
-    border: 10pt solid rgba(175, 78, 138, 1);
-    border-radius: 40pt;
-
-    margin: 0pt 50pt 50pt 50pt;
+    margin-top: 80pt;
+    top-right: 50pt;
+    top-bottom: 0pt;
+    top-left: 50pt;
 }
 
 .label {
     font-size: 40pt;
     align-self: center;
     justify-self: center;
+    color: rgba(37, 67, 202, 1);
+    margin-top: 50pt;
 }
