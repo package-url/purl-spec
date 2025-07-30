@@ -4,32 +4,32 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: 'Simple and Standardized',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        PackageURL is built to be straightforward and universally understandable,
+        making software package identification seamless across ecosystems.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Focus on Clarity',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        With PackageURL, you can concentrate on managing your software supply chain.
+        It provides a clean, consistent format for referencing packages—no more guesswork.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Ecosystem-Agnostic',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Whether you're working with npm, Maven, PyPI, or Docker, PackageURL adapts to your environment.
+        It's designed to work across languages and platforms effortlessly.
       </>
     ),
   },

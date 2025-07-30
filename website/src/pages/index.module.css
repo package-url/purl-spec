@@ -6,7 +6,7 @@
 
   /* CycloneDX primary background */
   background-image:
-    linear-gradient(to right, #1A237E, #6A1B9A, #EC407A),
+    linear-gradient(to right, #08090cff, #6A1B9A, #ff0055ff),
     url('/img/background-image.png');
   background-size: cover;
   background-blend-mode: overlay;
