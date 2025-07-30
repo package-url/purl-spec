@@ -28,6 +28,6 @@ To validate that the schemas and data files are correct, run::
 To regenerate the Python utility model code from the JSON schemas, then regenerate the
 PURL type documentation from the JSON PURL type definition files, run::
 
-    make generate
-    make docs
+    make gencode
+    make gendocs
 
