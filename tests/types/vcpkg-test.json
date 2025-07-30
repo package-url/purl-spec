@@ -1,0 +1,100 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "simple vcpkg purl",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vcpkg/bzip2@1.0.8",
+      "expected_output": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "bzip2",
+        "version": "1.0.8",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "vcpkg with port_version",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vcpkg/bzip2@1.0.8?port_version=6",
+      "expected_output": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "bzip",
+        "version": "1.0.8",
+        "qualifiers": {
+          "port_version": "6"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "vcpkg non-default git registry",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vcpkg/ffmpeg@5.1.2?repository_url=https://github.com/azure-sdk/vcpkg&port_version=3",
+      "expected_output": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "ffmpeg",
+        "version": "5.1.2",
+        "qualifiers": {
+          "repository_url": "https://github.com/azure-sdk/vcpkg",
+          "port_version": "3"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "vcpkg filesystem registry or overlay port",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vcpkg/llvm@15.0.7?repository_url=file:///C:/local-registry/vcpkg&port_version=3",
+      "expected_output": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "llvm",
+        "version": "15.0.7",
+        "qualifiers": {
+          "repository_url": "file:///C:/local-registry/vcpkg",
+          "port_version": "3"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "vcpkg with additional qualifiers",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vcpkg/bzip2@1.0.8?port_version=6&repository_revision=41dfc53&os=Linux&os_arch=x64&build_type=Debug&linkage=dynamic",
+      "expected_output": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "bzip2",
+        "version": "1.0.8",
+        "qualifiers": {
+          "port_version": "6",
+          "repository_revision": "41dfc53",
+          "os": "Linux",
+          "os_arch": "x64",
+          "build_type": "Debug",
+          "linkage": "dynamic"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}
