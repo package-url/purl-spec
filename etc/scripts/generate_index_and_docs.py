@@ -161,7 +161,7 @@ if __name__ == "__main__":
         mddoc.write_text(md, newline="\n")
         print(f"PURL Type Documentation generated for {mddoc}")
 
-    idxdoc =  Path("purl-types-index.json")
+    idxdoc = Path("purl-types-index.json")
     idx = json.dumps(sorted(types), indent=2) + "\n"
     idxdoc.write_text(idx, newline="\n")
     print(f"PURL Types Index generated at {idxdoc}")

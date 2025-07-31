@@ -22,14 +22,8 @@
 
 
 from __future__ import annotations
-
-from typing import Any
-from typing import Literal
-from typing import Optional
-
-from pydantic import BaseModel
-from pydantic import ConfigDict
-from pydantic import Field
+from typing import Any, Literal, Optional
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class PurlComponents(BaseModel):
