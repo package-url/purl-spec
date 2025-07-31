@@ -144,8 +144,8 @@
       "description": "Rountrip test for <class 'type'> PURL",
       "test_group": "base",
       "test_type": "roundtrip",
-      "input": "pkg:cocoapods/GoogleUtilities@7.5.2#NSData+zlib",
-      "expected_output": "pkg:cocoapods/GoogleUtilities@7.5.2#NSData+zlib",
+      "input": "pkg:cocoapods/GoogleUtilities@7.5.2#NSData%2Bzlib",
+      "expected_output": "pkg:cocoapods/GoogleUtilities@7.5.2#NSData%2Bzlib",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -161,7 +161,7 @@
         "qualifiers": null,
         "subpath": "NSData+zlib"
       },
-      "expected_output": "pkg:cocoapods/GoogleUtilities@7.5.2#NSData+zlib",
+      "expected_output": "pkg:cocoapods/GoogleUtilities@7.5.2#NSData%2Bzlib",
       "expected_failure": false,
       "expected_failure_reason": null
     }
