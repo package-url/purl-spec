@@ -1,6 +1,7 @@
 [
   "alpm",
   "apk",
+  "bazel",
   "bitbucket",
   "bitnami",
   "cargo",
