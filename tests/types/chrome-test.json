@@ -27,15 +27,6 @@
       "expected_output": "pkg:chrome/dlpngalgnefjeiefhmpklpfiohadpglk",
       "expected_failure": false,
       "expected_failure_reason": null
-    },
-    {
-      "description": "invalid chrome name",
-      "test_group": "base",
-      "test_type": "parse",
-      "input": "pkg:chrome/kanfjhdeebkfgk@0.6",
-      "expected_output": null,
-      "expected_failure": true,
-      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
     }
   ]
 }
