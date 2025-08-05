@@ -1,0 +1,83 @@
+.gifcontainer {
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    justify-content: center;
+
+    width: 60rem;
+    height: 25rem;
+
+    border: 1rem solid rgba(175, 78, 138, 1);
+    border-radius: 3rem;
+
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    margin-right: 12rem;
+    padding-bottom: 5rem;
+
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background: linear-gradient(rgba(175, 78, 138, 1), rgba(27, 102, 215, 1)) no-repeat 30rem/0.5rem 100%;
+}
+
+.homepagegif {
+    align-self: center;
+    justify-self: center;
+
+    width: 80%;
+    height: 80%; 
+
+    margin-top: 30%;
+    margin-bottom: 10%;
+}
+
+.poweredby {
+    font-size: 5rem;
+    align-self: center;
+    justify-self: left;
+    color: rgba(37, 67, 202, 1);
+    margin-top: 5rem;
+    margin-right: 10rem;
+    margin-bottom: 5rem;
+    margin-left: 3rem;
+    text-align: center;
+}
+
+.logo {
+    align-self: center;
+    width: 16rem;
+    height: 25rem;
+    margin-left: 2rem;
+    margin-right: 10rem;
+}
+
+.horizontaldivider {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url('@site/static/img/horizontal-divider.png');
+    width: 100%;
+    height: 10rem;
+}
+
+.horizontaldivider::after {
+    background-color: rgba(190, 190, 190, 1);
+    content: '';
+    display: block;
+    width: 100%;
+    height: 10rem;
+}
+
+.horizontaldivider::after { 
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+   background: linear-gradient(rgba(27, 102, 215, 1), rgba(175, 78, 138, 1)) no-repeat 30rem/0.5rem 100%;
+}
