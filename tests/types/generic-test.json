@@ -66,7 +66,7 @@
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:generic/openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da",
-      "expected_output": "pkg:generic/openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da",
+      "expected_output": "pkg:generic/openssl@1.1.10g?checksum=sha256:de4d501267da&download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -85,7 +85,7 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:generic/openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da",
+      "expected_output": "pkg:generic/openssl@1.1.10g?checksum=sha256:de4d501267da&download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz",
       "expected_failure": false,
       "expected_failure_reason": null
     },

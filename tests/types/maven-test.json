@@ -737,7 +737,7 @@
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=zip&classifier=dist",
-      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=zip&classifier=dist",
+      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=dist&type=zip",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -756,7 +756,7 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=zip&classifier=dist",
+      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=dist&type=zip",
       "expected_failure": false,
       "expected_failure_reason": null
     },
