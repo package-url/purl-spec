@@ -240,7 +240,7 @@
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:conan/openssl.org/openssl@3.0.3?user=bincrafters&channel=stable",
-      "expected_output": "pkg:conan/openssl.org/openssl@3.0.3?user=bincrafters&channel=stable",
+      "expected_output": "pkg:conan/openssl.org/openssl@3.0.3?channel=stable&user=bincrafters",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -259,7 +259,7 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:conan/openssl.org/openssl@3.0.3?user=bincrafters&channel=stable",
+      "expected_output": "pkg:conan/openssl.org/openssl@3.0.3?channel=stable&user=bincrafters",
       "expected_failure": false,
       "expected_failure_reason": null
     },
