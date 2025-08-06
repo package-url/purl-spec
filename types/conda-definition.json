@@ -1,0 +1,44 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/conda-definition.json",
+  "type": "conda",
+  "type_name": "Conda",
+  "description": "conda is for Conda packages",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://repo.anaconda.com"
+  },
+  "namespace_definition": {
+    "note": "there is no namspace",
+    "requirement": "prohibited"
+  },
+  "name_definition": {
+    "native_name": "name",
+    "note": "The name is the package name."
+  },
+  "version_definition": {
+    "native_name": "version",
+    "note": "The version is the package version."
+  },
+  "qualifiers_definition": [
+    {
+      "key": "build",
+      "description": "the build string."
+    },
+    {
+      "key": "channel",
+      "description": "the package stored location."
+    },
+    {
+      "key": "subdir",
+      "description": "the associated platform."
+    },
+    {
+      "key": "type",
+      "description": "package type."
+    }
+  ],
+  "examples": [
+    "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2"
+  ]
+}

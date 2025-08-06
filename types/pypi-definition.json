@@ -1,0 +1,42 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/pypi-definition.json",
+  "type": "pypi",
+  "type_name": "PyPI",
+  "description": "Python packages",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://pypi.org",
+    "note": "Previously https://pypi.python.org"
+  },
+  "namespace_definition": {
+    "requirement": "prohibited",
+    "note": "there is no namespace"
+  },
+  "name_definition": {
+    "native_name": "name",
+    "case_sensitive": false,
+    "normalization_rules": [
+      "Replace underscore _ with dash -",
+      "Replace dot . with underscore _ when used in distribution (sdist, wheel) names"
+    ],
+    "note": "PyPI treats - and _ as the same character and is not case sensitive. Therefore a PyPI package name must be lowercased and underscore _ replaced with a dash -. Note that PyPI itself is preserving the case of package names. When used in distribution and wheel names, the dot . is replaced with an underscore _"
+  },
+  "version_definition": {
+    "case_sensitive": false,
+    "native_name": "version"
+  },
+  "qualifiers_definition": [
+    {
+      "key": "file_name",
+      "requirement": "optional",
+      "description": "The file_name qualifier selects a particular distribution file (case-sensitive). For naming convention, see the Python Packaging User Guide on source distributions https://packaging.python.org/en/latest/specifications/source-distribution-format/#source-distribution-file-name and on binary distributions https://packaging.python.org/en/latest/specifications/binary-distribution-format/#file-name-convention and the rules for platform compatibility tags https://packaging.python.org/en/latest/specifications/platform-compatibility-tags/"
+    }
+  ],
+  "examples": [
+    "pkg:pypi/django@1.11.1",
+    "pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz",
+    "pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl",
+    "pkg:pypi/django-allauth@12.23"
+  ]
+}

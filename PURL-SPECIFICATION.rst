@@ -14,7 +14,7 @@ packaging conventions, tools, APIs and databases.
 Such a package URL is useful to reliably reference the same software package
 using a simple and expressive syntax and conventions based on familiar URLs.
 
-See `<PURL-TYPES.rst>`_ for known type definitions.
+See `<PURL-TYPES.rst>`_ for registered type definitions.
 
 Check also this short ``purl`` presentation (with video) at FOSDEM 2018
 https://fosdem.org/2018/schedule/event/purl/ for an overview.
@@ -116,9 +116,10 @@ A ``purl`` string is an ASCII URL string composed of seven components.
 
 Except as expressly stated otherwise in this section, each component:
 
-- MAY be composed of any of the characters defined in the "Permitted
-  characters" section
-- MUST be encoded as defined in the "Character encoding" section
+- MAY be composed of any of the characters defined in the "`Permitted characters`_" section
+- MUST be encoded as defined in the "`Character encoding`_" section
+
+The "lowercase" rules are defined in the "`Case folding`_" section.
 
 The rules for each component are:
 
@@ -287,6 +288,16 @@ Character encoding
 - With the exception of the percent-encoding mechanism, the rules regarding
   percent-encoding are defined by this specification alone.
 
+Case folding
+~~~~~~~~~~~~
+
+References to "lowercase" in this specification refer to the **culture-invariant**
+full case mapping defined in
+`Section 3.13.2 of the Unicode Standard <https://www.unicode.org/versions/Unicode16.0.0/core-spec/chapter-3/#G34078>`_.
+
+When applied to the ASCII character set, this operation converts uppercase
+Latin letters (``A to Z``) to their corresponding lowercase forms (``a to z``).
+All other ASCII characters remain unchanged.
 
 How to build ``purl`` string from its components
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -295,7 +306,7 @@ Building a ``purl`` ASCII string works from left to right, from ``type`` to
 ``subpath``.
 
 Note: some extra type-specific normalizations are required.
-See the "Known types section" for details.
+See the "Registered types section" for details.
 
 To build a ``purl`` string from its components:
 
@@ -370,7 +381,7 @@ Parsing a ``purl`` ASCII string into its components works from right to left,
 from ``subpath`` to ``type``.
 
 Note: some extra type-specific normalizations are required.
-See the "Known types section" for details.
+See the "Registered types section" for details.
 
 To parse a ``purl`` string in its components:
 
@@ -443,10 +454,10 @@ To parse a ``purl`` string in its components:
   - This is the ``namespace``
 
 
-Known ``purl`` types
+Registered ``purl`` types
 ~~~~~~~~~~~~~~~~~~~~
 
-There are several known ``purl`` package type definitions tracked in the
+There are several registered ``purl`` package type definitions tracked in the
 separate `<PURL-TYPES.rst>`_ document.
 
 Known ``qualifiers`` key/value pairs
@@ -475,7 +486,7 @@ all package types:
   repository or registry. When a package does not come from the default public
   package repository for its ``type`` a ``purl`` may be qualified with this extra
   URL. The default repository or registry of a ``type`` is documented in the
-  "Known ``purl`` types" section.
+  "Registered ``purl`` types" section.
 
 - ``download_url`` is an extra URL for a direct package web download URL to
   optionally qualify a ``purl``.

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/nuget-definition.json",
+  "type": "nuget",
+  "type_name": "NuGet",
+  "description": "NuGet .NET packages",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://www.nuget.org"
+  },
+  "namespace_definition": {
+    "requirement": "prohibited",
+    "note": "there is no namespace"
+  },
+  "name_definition": {
+    "native_name": "version",
+    "case_sensitive": true,
+    "note": "Technically the name is case-perserving, but case-insensitive, and NuGet packages archives are case-perserving, while some NuGet API calls demand to lowercase the package name."
+  },
+  "version_definition": {
+    "native_name": "version",
+    "note": "The NuGet version is semver-like but may contain more than three segments"
+  },
+  "note": "There is no namespace per se even if the common convention is to use dot-separated package names where the first segment is namespace-like.",
+  "examples": [
+    "pkg:nuget/EnterpriseLibrary.Common@6.0.1304"
+  ]
+}
