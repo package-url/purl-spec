@@ -11,7 +11,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'PURL Specs',
-  tagline: 'PURL SPEC TAGLINE',
+  tagline: 'Standardizing software package identification for enhanced security and streamlined vulnerability management',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
