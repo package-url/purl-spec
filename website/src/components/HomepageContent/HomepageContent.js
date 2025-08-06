@@ -6,10 +6,9 @@ import styles from './styles.module.css';
 
 export default function HomepageContent() {
   return (<>
-        {/* <div className={styles.horizontaldivider}> </div> */}
-        <div className={styles.horizontaldivider}></div>
+        <img className={styles.horizontaldivider} src={hdivider} />
         <div className={styles.container}>
-            <b className={styles.poweredby}>POWERED BY PURL</b>
+            <b className={styles.poweredby}>Powered <br /> by PURL</b>
             <div className={styles.gifcontainer}>
                 <img className={styles.homepagegif} src={gif} alt='Homepage GIF'/>
             </div>
