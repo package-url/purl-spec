@@ -323,8 +323,9 @@ ABNF syntax as per `RFC5234: Augmented BNF for Syntax Specifications: ABNF <http
     namespace         = namespace-segment *( "/" namespace-segment )
     namespace-segment = 1*namespace-sc
     namespace-sc      = ALPHA / DIGIT / "." / "-" / "_" / "~"
-                      / "%"   %x30         ( DIGIT / "A" / "B" / "C" / "D" / "E" )    ; unicode except '/'(%0F)
-                      / "%" ( %x31-39 / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG    ; everything after %0F
+                      / "%" ( %x30-31 / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG   ; unicode before   %20
+                      / "%"   %x32         ( DIGIT / "A" / "B" / "C" / "D" / "E" )   ; unicode %2? - except "/"(%2F)
+                      / "%" ( %x33-39 / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG   ; everything after %2F
                               ; namespace safe characters
 
     name              = 1*PCT-ENCODED
@@ -340,8 +341,9 @@ ABNF syntax as per `RFC5234: Augmented BNF for Syntax Specifications: ABNF <http
                       / 0<subpath-sc>        ; empty
     subpath-segment   = [ "." / "%0E" ] subpath-sc *( subpath-sc / "." / "%0E" )
     subpath-sc        = ALPHA / DIGIT / "-" / "_" / "~"
-                      / "%"   %x30               ( DIGIT / "A" / "B" / "C" / "D" )    ; unicode except "."(%0E) or "/"(%0F)
-                      / "%" ( %x31-39 / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG    ; everything after %0F
+                      / "%" ( %x30-31 / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG    ; unicode before   %20
+                      / "%"   %x32               ( DIGIT / "A" / "B" / "C" / "D" )    ; unicode %2? - except "."(%2E) or "/"(%2F)
+                      / "%" ( %x33-39 / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG    ; everything after %2F
                               ; subpath safe characters
 
     LOWALPHA    = %x61-7A    ; a-z
