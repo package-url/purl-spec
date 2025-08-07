@@ -334,7 +334,7 @@ ABNF syntax as per `RFC5234: Augmented BNF for Syntax Specifications: ABNF <http
 
     qualifiers        = qualifier *( "&" qualifier )
     qualifier         = qualifier-key "=" qualifier-value
-    qualifier-key     = LOWALPHA *( LOWALPHA / DIGIT / "." / "-" / "-" )
+    qualifier-key     = LOWALPHA *( LOWALPHA / DIGIT / "." / "-" / "_" )
     qualifier-value   = 1*PCT-ENCODED
 
     subpath           = subpath-segment *( "/" subpath-segment )
