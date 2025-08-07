@@ -350,8 +350,8 @@ ABNF syntax as per `RFC5234: Augmented BNF for Syntax Specifications: ABNF <http
 
     LOWALPHA    = %x61-7A    ; a-z
     
-    PCT-ENCODED     = PERM_ALPHANUM / PERM_PUNCT / PERM_ESCAPED
-    PCT-DOT = "." / "%2E"
+    PCT-ENCODED = PERM_ALPHANUM / PERM_PUNCT / PERM_ESCAPED
+    PCT-DOT     = "." / "%2E"
 
     ; permitted character classes
     PERM_ALPHANUM = ALPHA / DIGIT
