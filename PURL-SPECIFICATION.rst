@@ -311,7 +311,7 @@ ABNF syntax as per `RFC5234: Augmented BNF for Syntax Specifications: ABNF <http
                      [ "@" version ] [ "?" qualifiers ] [ "#" *"/" subpath *"/" ]
                               ; leading and trailing slashes allowed here and there
     purl-canonical = scheme ":"      type-canonical
-                     [   "/" namespace ]  "/" name
+                     [   "/" namespace ]   "/" name
                      [ "@" version ] [ "?" qualifiers ] [ "#"      subpath      ]
 
     scheme            = %x70.6B.67    ; lowercase string "pkg"
@@ -323,9 +323,9 @@ ABNF syntax as per `RFC5234: Augmented BNF for Syntax Specifications: ABNF <http
     namespace         = namespace-segment *( "/" namespace-segment )
     namespace-segment = 1*namespace-sc
     namespace-sc      = ALPHA / DIGIT / "." / "-" / "_" / "~"
-                      / "%" ( %x30-31 / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG   ; unicode before   %20
-                      / "%"   %x32         ( DIGIT / "A" / "B" / "C" / "D" / "E" )   ; unicode %2? - except "/"(%2F)
-                      / "%" ( %x33-39 / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG   ; everything after %2F
+                      / "%" ( %x30-31 / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG    ; unicode before   %20
+                      / "%"   %x32         ( DIGIT / "A" / "B" / "C" / "D" / "E" )    ; unicode %2? - except "/"(%2F)
+                      / "%" ( %x33-39 / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG    ; everything after %2F
                               ; namespace safe characters
 
     name              = 1*PCT-ENCODED
@@ -339,8 +339,9 @@ ABNF syntax as per `RFC5234: Augmented BNF for Syntax Specifications: ABNF <http
 
     subpath           = subpath-segment *( "/" subpath-segment )
                       / 0<subpath-sc>        ; empty
-    subpath-segment   = subpath-sc  *( subpath-sc / PCT-DOT )
-                      / 1*2PCT-DOT 1*( subpath-sc / PCT-DOT )  ; prevent "." and ".."
+    subpath-segment   = subpath-sc          *( subpath-sc / PCT-DOT )
+                      / 1PCT-DOT subpath-sc *( subpath-sc / PCT-DOT )                 z; prevent "." and ".."
+                      / 2PCT-DOT           1*( subpath-sc / PCT-DOT )                 ; prevent ".."
     subpath-sc        = ALPHA / DIGIT / "-" / "_" / "~"
                       / "%" ( %x30-31 / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG    ; unicode before   %20
                       / "%"   %x32               ( DIGIT / "A" / "B" / "C" / "D" )    ; unicode %2? - except "."(%2E) or "/"(%2F)
