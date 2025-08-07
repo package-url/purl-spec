@@ -350,14 +350,14 @@ ABNF syntax as per `RFC5234: Augmented BNF for Syntax Specifications: ABNF <http
 
     LOWALPHA    = %x61-7A    ; a-z
     
-    PCT-ENCODED = PERM_ALPHANUM / PERM_PUNCT / PERM_ESCAPED
+    PCT-ENCODED = PERM-ALPHANUM / PERM-PUNCT / PERM-ESCAPED
     PCT-DOT     = "." / "%2E"
 
     ; permitted character classes
-    PERM_ALPHANUM = ALPHA / DIGIT
-    PERM_PUNCT    = "."/ "-" / "_" / "~"
-    PERM_ESCAPED  = "%" 2HEXDIG
-    PERM_DELIM    = ":" / "/" / "@" / "?" / "=" / "&" / "#"
+    PERM-ALPHANUM = ALPHA / DIGIT
+    PERM-PUNCT    = "."/ "-" / "_" / "~"
+    PERM-ESCAPED  = "%" 2HEXDIG
+    PERM-DELIM    = ":" / "/" / "@" / "?" / "=" / "&" / "#"
 
 
 How to build ``purl`` string from its components
