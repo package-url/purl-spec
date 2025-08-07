@@ -307,11 +307,11 @@ ABNF syntax as per `RFC5234: Augmented BNF for Syntax Specifications: ABNF <http
 .. code-block:: abnf
 
     purl           = scheme ":" *"/" type
-                     [ *"/" namespace 1*"/" ] *"/" name *"/"
+                     [ *"/" namespace ] 1*"/" name *"/"
                      [ "@" version ] [ "?" qualifiers ] [ "#" *"/" subpath *"/" ]
                               ; leading and trailing slashes allowed here and there
     purl-canonical = scheme ":"      type-canonical
-                     [      namespace   "/" ]      name
+                     [ "/" namespace   ]  "/" name
                      [ "@" version ] [ "?" qualifiers ] [ "#"      subpath      ]
 
     scheme            = %x70.6B.67    ; lowercase string "pkg"
@@ -339,8 +339,8 @@ ABNF syntax as per `RFC5234: Augmented BNF for Syntax Specifications: ABNF <http
 
     subpath           = subpath-segment *( "/" subpath-segment )
                       / 0<subpath-sc>        ; empty
-    subpath-segment   = subpath-sc *( subpath-sc / PCT-DOT )
-                      / 3*PCT-DOT *( subpath-sc / PCT-DOT )
+    subpath-segment   = subpath-sc  *( subpath-sc / PCT-DOT )
+                      / 1*2PCT-DOT 1*( subpath-sc / PCT-DOT )  ; prevent "." and ".."
     subpath-sc        = ALPHA / DIGIT / "-" / "_" / "~"
                       / "%" ( %x30-31 / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG    ; unicode before   %20
                       / "%"   %x32               ( DIGIT / "A" / "B" / "C" / "D" )    ; unicode %2? - except "."(%2E) or "/"(%2F)
