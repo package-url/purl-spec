@@ -432,7 +432,7 @@ To parse a ``purl`` string in its components:
   - UTF-8-decode the ``version`` if needed in your programming language
   - This is the ``version``
 
-- Strip all leading and trailing '/' characters (e.g., '/', '//', '///' and
+- Strip all trailing '/' characters (e.g., '/', '//', '///' and
   so on) from the ``remainder``
 
   - Split this once from right on '/'
