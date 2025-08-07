@@ -340,7 +340,7 @@ ABNF syntax as per `RFC5234: Augmented BNF for Syntax Specifications: ABNF <http
     subpath           = subpath-segment *( "/" subpath-segment )
                       / 0<subpath-sc>        ; empty
     subpath-segment   = subpath-sc          *( subpath-sc / PCT-DOT )
-                      / 1PCT-DOT subpath-sc *( subpath-sc / PCT-DOT )                 z; prevent "." and ".."
+                      / 1PCT-DOT subpath-sc *( subpath-sc / PCT-DOT )                 ; prevent "." and ".."
                       / 2PCT-DOT           1*( subpath-sc / PCT-DOT )                 ; prevent ".."
     subpath-sc        = ALPHA / DIGIT / "-" / "_" / "~"
                       / "%" ( %x30-31 / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG    ; unicode before   %20
