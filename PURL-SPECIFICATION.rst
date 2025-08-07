@@ -339,7 +339,8 @@ ABNF syntax as per `RFC5234: Augmented BNF for Syntax Specifications: ABNF <http
 
     subpath           = subpath-segment *( "/" subpath-segment )
                       / 0<subpath-sc>        ; empty
-    subpath-segment   = [ "." / "%2E" ] subpath-sc *( subpath-sc / "." / "%2E" )
+    subpath-segment   = subpath-sc *( subpath-sc / PCT-DOT )
+                      / 3*PCT-DOT *( subpath-sc / PCT-DOT )
     subpath-sc        = ALPHA / DIGIT / "-" / "_" / "~"
                       / "%" ( %x30-31 / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG    ; unicode before   %20
                       / "%"   %x32               ( DIGIT / "A" / "B" / "C" / "D" )    ; unicode %2? - except "."(%2E) or "/"(%2F)
@@ -347,8 +348,9 @@ ABNF syntax as per `RFC5234: Augmented BNF for Syntax Specifications: ABNF <http
                               ; subpath safe characters
 
     LOWALPHA    = %x61-7A    ; a-z
-
-    PCT-ENCODED = PERM_ALPHANUM / PERM_PUNCT / PERM_ESCAPED
+    
+    PCT-ENCODED     = PERM_ALPHANUM / PERM_PUNCT / PERM_ESCAPED
+    PCT-DOT = "." / "%2E"
 
     ; permitted character classes
     PERM_ALPHANUM = ALPHA / DIGIT
