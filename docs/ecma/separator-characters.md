@@ -1,4 +1,4 @@
-# ``purl`` separators
+## Separators
 
 This is how each of the Separator Characters is used:
 

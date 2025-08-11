@@ -1,4 +1,4 @@
-# Some ``purl`` examples
+## Some ``purl`` examples
 
 > pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c
 >

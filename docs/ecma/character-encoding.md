@@ -1,4 +1,4 @@
-# Character encoding
+## Character encoding
 
 - In the "Rules for each ``purl`` component" section, each component
   defines when and how to apply percent-encoding and decoding to its content.
@@ -21,13 +21,3 @@
 - Where the space ' ' is permitted, it MUST be percent-encoded as '%20'.
 - With the exception of the percent-encoding mechanism, the rules regarding
   percent-encoding are defined by this specification alone.
-
-## Case folding
-
-References to "lowercase" in this specification refer to the **culture-invariant**
-full case mapping defined in
-[Section 3.13.2 of the Unicode Standard](https://www.unicode.org/versions/Unicode16.0.0/core-spec/chapter-3/#G34078).
-
-When applied to the ASCII character set, this operation converts uppercase
-Latin letters (``A to Z``) to their corresponding lowercase forms (``a to z``).
-All other ASCII characters remain unchanged.

@@ -1,4 +1,4 @@
-# Known ``qualifiers`` key/value pairs
+## Known ``purl`` ``qualifiers`` key/value pairs
 
 Note: Do not abuse ``qualifiers``: it can be tempting to use many qualifier
 keys but their usage should be limited to the bare minimum for proper package
@@ -15,7 +15,9 @@ all package types:
   The value MUST adhere to the `Version Range Specification`.
   This qualifier is mutually exclusive with the ``version`` component.
   For example:
+
   > pkg:pypi/django?vers=vers:pypi%2F%3E%3D1.11.0%7C%21%3D1.11.1%7C%3C2.0.0
+
 - ``repository_url`` is an extra URL for an alternative, non-default package
   repository or registry. When a package does not come from the default public
   package repository for its ``type`` a ``purl`` may be qualified with this extra
@@ -34,4 +36,5 @@ all package types:
   ``lowercase_algorithm:hex_encoded_lowercase_value`` such as
   ``sha1:ad9503c3e994a4f611a4892f2e67ac82df727086``.
   For example (with checksums truncated for brevity):
+
   > checksum=sha1:ad9503c3e994a4f,sha256:41bf9088b3a1e6c1ef1d

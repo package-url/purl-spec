@@ -1,4 +1,4 @@
-# Rules for each ``purl`` component
+## Rules for each ``purl`` component
 
 A ``purl`` string is an ASCII URL string composed of seven components.
 

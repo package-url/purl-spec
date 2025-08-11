@@ -1,8 +1,8 @@
-# Specification
+# Package-URL Specification
 
 ``purl`` stands for **package URL**.
 
-A ``purl`` is a URL composed of seven components::
+A ``purl`` is a URL composed of seven components:
 
 > scheme:type/namespace/name@version?qualifiers#subpath
 

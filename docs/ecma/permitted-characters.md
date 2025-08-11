@@ -1,4 +1,4 @@
-# Permitted characters
+## Permitted characters
 
 A canonical ``purl`` is composed of these permitted ASCII characters:
 

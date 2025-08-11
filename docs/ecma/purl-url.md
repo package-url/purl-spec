@@ -1,4 +1,4 @@
-# A ``purl`` is a URL
+## A ``purl`` is a URL
 
 - A ``purl`` is a valid URL and URI that conforms to the URL definitions or
   specifications at:
