@@ -19,7 +19,8 @@ type-canonical    = LOWALPHA *( LOWALPHA / DIGIT / "." / "-" )
 
 namespace         = namespace-segment *( "/" namespace-segment )
 namespace-segment = 1*namespace-sc
-namespace-sc      = ALPHA / DIGIT / "." / "-" / "_" / "~"
+namespace-sc      = PERM-ALPHANUM
+                  / PERM-PUNCTUATION
                   / "%" ( %x30-31 / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG    ; unicode before   %20
                   / "%"   %x32                   ( DIGIT / "A" / "B" / "C" / )    ; unicode %2? - except seperator  "/"(%2F) and general exclusion "."(%2E) and "-"(%2D)
                   / PERM-ESCAPED-A2F                                              ; everything after %2F
@@ -36,9 +37,9 @@ qualifier-value   = 1*PCT-ENCODED
 
 subpath           = subpath-segment *( "/" subpath-segment )
                   / 0<subpath-sc>    ; empty
-subpath-segment   = subpath-sc         *( subpath-sc / PCT-DOT )
-                  / PCT-DOT subpath-sc *( subpath-sc / PCT-DOT )    ; prevent ".." and "."
-                  / PCT-DOT PCT-DOT   1*( subpath-sc / PCT-DOT )    ; prevent ".."
+subpath-segment   = subpath-sc          *( subpath-sc / PCT-DOT )
+                  / PCT-DOT subpath-sc  *( subpath-sc / PCT-DOT )    ; prevent ".." and "."
+                  / PCT-DOT PCT-DOT    1*( subpath-sc / PCT-DOT )    ; prevent ".."
 subpath-sc        = PERM-ALPHANUM
                   / "-" / "_" / "~"                              ; PERM-PUNCTUATION except "." 
                   / "%"   %x30-31                      HEXDIG    ; unicode before   %20
