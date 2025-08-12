@@ -58,8 +58,8 @@ PCT-ENCODED = PERM-ALPHANUM
 PERM-ALPHANUM    = ALPHA / DIGIT
 PERM-PUNCTUATION = "." / "-" / "_" / "~"
 PERM-SEPERATOR   = ":" / "/" / "@" / "?" / "=" / "&" / "#"
-PERM-ESCAPED     = "%" ( PERM-ESCAPED-00-1F 
-                       / PERM-ESCAPED-20-2F 
+PERM-ESCAPED     = "%" ( PERM-ESCAPED-00-1F
+                       / PERM-ESCAPED-20-2F
                        / PERM-ESCAPED-30-FF )
 
 ; applied purl spec rules for general character encoding
