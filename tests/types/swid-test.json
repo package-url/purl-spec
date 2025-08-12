@@ -114,7 +114,7 @@
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:swid/Adobe+Systems+Incorporated/Adobe+InDesign@CC?tag_id=CreativeCloud-CS6-Win-GM-MUL",
-      "expected_output": "pkg:swid/Adobe+Systems+Incorporated/Adobe+InDesign@CC?tag_id=CreativeCloud-CS6-Win-GM-MUL",
+      "expected_output": "pkg:swid/Adobe%2BSystems%2BIncorporated/Adobe%2BInDesign@CC?tag_id=CreativeCloud-CS6-Win-GM-MUL",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -132,7 +132,7 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:swid/Adobe+Systems+Incorporated/Adobe+InDesign@CC?tag_id=CreativeCloud-CS6-Win-GM-MUL",
+      "expected_output": "pkg:swid/Adobe%2BSystems%2BIncorporated/Adobe%2BInDesign@CC?tag_id=CreativeCloud-CS6-Win-GM-MUL",
       "expected_failure": false,
       "expected_failure_reason": null
     }
