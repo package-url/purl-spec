@@ -4,11 +4,11 @@ ABNF syntax as per [RFC5234: Augmented BNF for Syntax Specifications: ABNF](http
 
 ```abnf
 
-purl              = scheme ":" *"/" type
+purl              = scheme PERM-COLON *"/" type
                     [ 1*"/" namespace ] 1*"/" name *"/"
                     [ "@" version ] [ "?" qualifiers ] [ "#" *"/" subpath *"/" ]
                             ; leading and trailing slashes allowed here and there
-purl-canonical    = scheme ":"      type-canonical
+purl-canonical    = scheme PERM-COLON      type-canonical
                     [   "/" namespace ]   "/" name
                     [ "@" version ] [ "?" qualifiers ] [ "#"      subpath      ]
 
@@ -23,7 +23,7 @@ namespace-segment = 1*namespace-sc
 namespace-sc      = ALPHA / DIGIT / "." / "-" / "_" / "~"
                   / "%" ( %x30-31 / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG    ; unicode before   %20
                   / "%"   %x32         ( DIGIT / "A" / "B" / "C" / "D" / "E" )    ; unicode %2? - except "/"(%2F)
-                  / "%" ( %x33-39 / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG    ; everything after %2F
+                  / PERM-ESCAPED-A2F                                              ; everything after %2F
                             ; namespace safe characters
 
 name              = 1*PCT-ENCODED
@@ -40,21 +40,37 @@ subpath           = subpath-segment *( "/" subpath-segment )
 subpath-segment   = subpath-sc         *( subpath-sc / PCT-DOT )
                   / PCT-DOT subpath-sc *( subpath-sc / PCT-DOT )    ; prevent ".." and "."
                   / PCT-DOT PCT-DOT   1*( subpath-sc / PCT-DOT )    ; prevent ".."
-subpath-sc        = ALPHA / DIGIT / "-" / "_" / "~"                               ; no "." 
-                  / "%" ( %x30-31 / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG    ; unicode before   %20
-                  / "%"   %x32               ( DIGIT / "A" / "B" / "C" / "D" )    ; unicode %2? - except "."(%2E) and "/"(%2F)
-                  / "%" ( %x33-39 / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG    ; everything after %2F
+subpath-sc        = ALPHA / DIGIT / "-" / "_" / "~"                    ; no "." 
+                  / "%"   %x30-31                            HEXDIG    ; unicode before   %20
+                  / "%"   %x32    ( DIGIT / "A" / "B" / "C" / "D" )    ; unicode %2? - except "."(%2E) and "/"(%2F)
+                  / PERM-ESCAPED-A2F                                   ; everything after %2F
                             ; subpath safe characters
 
 LOWALPHA    = %x61-7A    ; a-z
 
-PCT-ENCODED = PERM-ALPHANUM / PERM-PUNCT / PERM-ESCAPED
+PCT-ENCODED = PERM-ALPHANUM 
+            / PERM-PUNCTUATION 
+            / PERM-COLON 
+            / PERM-ESCAPED
 PCT-DOT     = "." / "%2E"
 
 ; permitted character classes
-PERM-ALPHANUM = ALPHA / DIGIT
-PERM-PUNCT    = "." / "-" / "_" / "~"
-PERM-ESCAPED  = "%" HEXDIG HEXDIG
-PERM-DELIM    = ":" / "/" / "@" / "?" / "=" / "&" / "#"
+PERM-ALPHANUM    = ALPHA / DIGIT
+PERM-PUNCTUATION = "." / "-" / "_" / "~"
+PERM-SEPERATOR   = PERM-COLON / "/" / "@" / "?" / "=" / "&" / "#"
+PERM-COLON       = ":"
+PERM-ESCAPED     = "%"   %x30-31                                         HEXDIG    ; %00-%2F
+                 / PERM-ESCAPED-A2F
+PERM-ESCAPED-A2F = "%" (                     ; except following characters: "0"-"9" (%30-%39)
+                                             ; except following characters: ":"     (%3A)
+                         %x33                   ( "B" / "C" / "D" / "E" / "F" )    ; %3B-%3F
+                       / %x34                                              %x30    ; %40
+                                             ; except following characters: "A"-"Z" (%41-%5A)
+                       / %x35                   ( "B" / "C" / "D" / "E" / "F" )    ; %5B-%5F
+                       / %x36                                              %x30    ; %60
+                                             ; except following characters: "a"-"z" (%61-%7A)
+                       / %x37                   ( "B" / "C" / "D" / "E" / "F" )    ; %7B-%7F
+                       / ( %x38-39 / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG    ; %80-%FF
+                       )    ; applied purl spec rules for general character encoding
 
 ```
