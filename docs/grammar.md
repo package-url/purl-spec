@@ -21,9 +21,9 @@ namespace         = namespace-segment *( "/" namespace-segment )
 namespace-segment = 1*namespace-sc
 namespace-sc      = PERM-ALPHANUM
                   / PERM-PUNCTUATION
-                  / "%" ( %x30-31 / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG    ; unicode before   %20
-                  / "%"   %x32                   ( DIGIT / "A" / "B" / "C" / )    ; unicode %2? - except seperator  "/"(%2F) and general exclusion "."(%2E) and "-"(%2D)
-                  / PERM-ESCAPED-A2F                                              ; everything after %2F
+                  / "%" %x30-31                      HEXDIG    ; unicode before %20
+                  / "%" %x32    ( DIGIT / "A" / "B" / "C" )    ; unicode %2? - except seperator  "/"(%2F) and general exclusion "."(%2E) and "-"(%2D)
+                  / PERM-ESCAPED-A2F                           ; unicode after  %2F
                             ; namespace safe characters
 
 name              = 1*PCT-ENCODED
@@ -41,10 +41,10 @@ subpath-segment   = subpath-sc          *( subpath-sc / PCT-DOT )
                   / PCT-DOT subpath-sc  *( subpath-sc / PCT-DOT )    ; prevent ".." and "."
                   / PCT-DOT PCT-DOT    1*( subpath-sc / PCT-DOT )    ; prevent ".."
 subpath-sc        = PERM-ALPHANUM
-                  / "-" / "_" / "~"                              ; PERM-PUNCTUATION except "." 
-                  / "%"   %x30-31                      HEXDIG    ; unicode before   %20
-                  / "%"   %x32    ( DIGIT / "A" / "B" / "C" )    ; unicode %2? - special char "."(%2E) and seperator "/"(%2F) and general exclusion "-"(%2D)
-                  / PERM-ESCAPED-A2F                             ; everything after %2F
+                  / "-" / "_" / "~"                            ; PERM-PUNCTUATION except "." 
+                  / "%" %x30-31                      HEXDIG    ; unicode before %20
+                  / "%" %x32    ( DIGIT / "A" / "B" / "C" )    ; unicode %2? - special char "."(%2E) and seperator "/"(%2F) and general exclusion "-"(%2D)
+                  / PERM-ESCAPED-A2F                           ; unicode after  %2F
                             ; subpath safe characters
 
 LOWALPHA    = %x61-7A    ; a-z
