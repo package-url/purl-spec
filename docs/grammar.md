@@ -23,7 +23,7 @@ namespace-sc      = PERM-ALPHANUM
                   / PERM-PUNCTUATION
                   / "%" %x30-31                      HEXDIG    ; unicode before %20
                   / "%" %x32    ( DIGIT / "A" / "B" / "C" )    ; unicode %2? - except seperator  "/"(%2F) and general exclusion "."(%2E) and "-"(%2D)
-                  / PERM-ESCAPED-A2F                           ; unicode after  %2F
+                  / PERM-ESCAPED-A2F                           ; unicode after %2F
                             ; namespace safe characters
 
 name              = 1*PCT-ENCODED
@@ -37,14 +37,14 @@ qualifier-value   = 1*PCT-ENCODED
 
 subpath           = subpath-segment *( "/" subpath-segment )
                   / 0<subpath-sc>    ; empty
-subpath-segment   = subpath-sc          *( subpath-sc / PCT-DOT )
-                  / PCT-DOT subpath-sc  *( subpath-sc / PCT-DOT )    ; prevent ".." and "."
-                  / PCT-DOT PCT-DOT    1*( subpath-sc / PCT-DOT )    ; prevent ".."
+subpath-segment   = subpath-sc      *( subpath-sc / "." )
+                  / "." subpath-sc  *( subpath-sc / "." )    ; prevent ".." and "."
+                  / "." "."        1*( subpath-sc / "." )    ; prevent ".."
 subpath-sc        = PERM-ALPHANUM
                   / "-" / "_" / "~"                            ; PERM-PUNCTUATION except "." 
                   / "%" %x30-31                      HEXDIG    ; unicode before %20
                   / "%" %x32    ( DIGIT / "A" / "B" / "C" )    ; unicode %2? - special char "."(%2E) and seperator "/"(%2F) and general exclusion "-"(%2D)
-                  / PERM-ESCAPED-A2F                           ; unicode after  %2F
+                  / PERM-ESCAPED-A2F                           ; unicode after %2F
                             ; subpath safe characters
 
 LOWALPHA    = %x61-7A    ; a-z
@@ -53,7 +53,6 @@ PCT-ENCODED = PERM-ALPHANUM
             / PERM-PUNCTUATION
             / ":"    ; a specific seperatior that must not be encoded 
             / PERM-ESCAPED
-PCT-DOT     = "." / "%2E"
 
 ; permitted character classes
 PERM-ALPHANUM    = ALPHA / DIGIT
