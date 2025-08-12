@@ -14,7 +14,7 @@ purl-canonical    = scheme ":"      type-canonical
 scheme            = %x70.6B.67    ; lowercase string "pkg"
                             ; per ABNF spec: strings are case insensitive [...] To specify a rule that is case sensitive, specify the characters individually.
 
-type              = ALPHA    *( ALPHA    / DIGIT / "." / "-" )
+type              =    ALPHA *(    ALPHA / DIGIT / "." / "-" )
 type-canonical    = LOWALPHA *( LOWALPHA / DIGIT / "." / "-" )
 
 namespace         = namespace-segment *( "/" namespace-segment )
