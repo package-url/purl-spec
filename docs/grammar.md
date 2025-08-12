@@ -49,10 +49,10 @@ subpath-sc        = PERM-ALPHANUM
 
 LOWALPHA    = %x61-7A    ; a-z
 
-PCT-ENCODED = PERM-ALPHANUM 
-            / PERM-PUNCTUATION 
+PCT-ENCODED = PERM-ALPHANUM
+            / PERM-PUNCTUATION
+            / ":"    ; a specific seperatior that must not be encoded 
             / PERM-ESCAPED
-            / ":"
 PCT-DOT     = "." / "%2E"
 
 ; permitted character classes
