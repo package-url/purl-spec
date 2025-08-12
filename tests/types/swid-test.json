@@ -24,7 +24,7 @@
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:swid/Acme/example.com/Enterprise+Server@1.0.0?tag_id=75b8c285-fa7b-485b-b199-4745e3004d0d",
-      "expected_output": "pkg:swid/Acme/example.com/Enterprise+Server@1.0.0?tag_id=75b8c285-fa7b-485b-b199-4745e3004d0d",
+      "expected_output": "pkg:swid/Acme/example.com/Enterprise%2BServer@1.0.0?tag_id=75b8c285-fa7b-485b-b199-4745e3004d0d",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -42,7 +42,7 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:swid/Acme/example.com/Enterprise+Server@1.0.0?tag_id=75b8c285-fa7b-485b-b199-4745e3004d0d",
+      "expected_output": "pkg:swid/Acme/example.com/Enterprise%2BServer@1.0.0?tag_id=75b8c285-fa7b-485b-b199-4745e3004d0d",
       "expected_failure": false,
       "expected_failure_reason": null
     },
