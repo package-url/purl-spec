@@ -12,3 +12,14 @@ packaging conventions, tools, APIs and databases.
 
 A `purl` is useful to reliably reference the same software package
 using a simple and expressive syntax and conventions based on familiar URLs.
+
+
+The Package-URL specification is organized in these documents:
+
+- What is `purl` aka. package URL? -- https://github.com/package-url/purl-spec/blob/docs/standard/summary.md
+- Rules for each `purl` component -- https://github.com/package-url/purl-spec/blob/docs/standard/components.md
+- Character encoding -- https://github.com/package-url/purl-spec/blob/docs/standard/characters-and-encoding.md
+- How to build a `purl` string from its components -- https://github.com/package-url/purl-spec/blob/docs/how-to-build.md
+- How to parse a `purl` string into its components -- https://github.com/package-url/purl-spec/blob/docs/how-to-parse.md
+- Known `purl` `qualifiers` key/value pairs -- https://github.com/package-url/purl-spec/blob/docs/known-qualifiers.md
+- Tests -- https://github.com/package-url/purl-spec/blob/docs/tests.md
