@@ -89,7 +89,7 @@ The rules for each component are:
   - For each `key=value` pair:
 
     - The `key` MUST be composed only of lowercase ASCII letters and numbers,
-      period '.', dash '-' and underscore '\_'.
+      period '.', dash '-' and underscore '_'.
     - A `key` MUST start with an ASCII letter.
     - A `key` MUST NOT be percent-encoded.
     - Each `key` MUST be unique among all the keys of the `qualifiers`

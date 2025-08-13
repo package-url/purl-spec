@@ -63,7 +63,7 @@ To build a `purl` string from its components:
 - If the `subpath` is not empty and not composed only of empty, '.' and '..'
   segments:
 
-  - Append '\#' to the `purl`
+  - Append '#' to the `purl`
   - Strip the `subpath` from leading and trailing '/'
   - Split this on '/' as segments
   - Discard empty, '.' and '..' segments

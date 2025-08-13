@@ -9,7 +9,7 @@ See the "Registered types section" for details.
 
 To parse a `purl` string in its components:
 
-- Split the `purl` string once from right on '\#'
+- Split the `purl` string once from right on '#'
 
   - The left side is the `remainder`
   - Strip the right side from leading and trailing '/'
