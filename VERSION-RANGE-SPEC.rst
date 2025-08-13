@@ -658,6 +658,8 @@ These are generic schemes, to use sparingly for special cases:
   non-negative integers, and ignoring leading zeros. Interpretation of the
   version should stop at the first character that is not a digit or a dot.
 
+- **lexicographic**: a generic versioning scheme that compares versions based on lexicographic order, interpreted as UTF-8.
+
 - **semver**: a generic scheme that uses the same syntax as ``semver``. It follows the MAJOR.MINOR.PATCH format and is defined in the Semantic Versioning Specification 2.0.0, see https://semver.org/spec/v2.0.0.html. 
 
 - **datetime**: a generic scheme that uses a timestamp for comparison. The timestamp must adhere to RFC3339, section 5.6, see https://www.rfc-editor.org/rfc/rfc3339#section-5.6. 

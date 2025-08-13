@@ -8,7 +8,7 @@ The package **type** is the component of a Package-URL that is used to capture
 this information with a short string such as ``maven``, ``npm``, ``nuget``, ``gem``,
 ``pypi``, etc.
 
-These are known ``PURL`` package type definitions.
+These are registered ``PURL`` package type definitions.
 
 Definitions can also include types reserved for future use.
 
@@ -50,7 +50,7 @@ On commit, a job automatically:
 
 - Checks that all JSON files are schema-valid
 - Formats all the JSON files
-- Generates the ``purl-types-index.json`` file containing a list of defined known PURL types
+- Generates the ``purl-types-index.json`` file containing a list of defined registered PURL types
 - Generates human-readable documentation for each type
 
 
