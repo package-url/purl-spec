@@ -5,10 +5,10 @@ A canonical `purl` is composed of these permitted ASCII characters:
 
 - the Alphanumeric Characters: `A to Z`, `a to z`, `0 to 9`,
 - the Punctuation Characters: `.-_~` (period '.',
-  dash '-', underscore '\_' and tilde '\~'),
+  dash '-', underscore '_' and tilde '~'),
 - the Percent Character: `%` (percent sign '%'), and
 - the Separator Characters `:/@?=&#` (colon ':', slash '/', at sign '@',
-  question mark '?', equal sign '=', ampersand '&' and pound sign '\#').
+  question mark '?', equal sign '=', ampersand '&' and pound sign '#').
 
 
 `purl` separators
@@ -25,7 +25,7 @@ This is how each of the Separator Characters is used:
   `qualifier`
 - '&' (ampersand) is the separator between `qualifiers` (each being a
   `key=value` pair)
-- '\#' (number sign) is the separator before `subpath`
+- '#' (number sign) is the separator before `subpath`
 
 Character encoding
 ==================
