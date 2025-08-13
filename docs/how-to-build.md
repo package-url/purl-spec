@@ -1,5 +1,4 @@
-How to build `purl` string from its components
-==============================================
+## How to build a `purl` string from its components
 
 Building a `purl` ASCII string works from left to right, from `type` to
 `subpath`.

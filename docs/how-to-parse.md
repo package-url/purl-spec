@@ -1,5 +1,4 @@
-How to parse a `purl` string in its components
-==============================================
+## How to parse a `purl` string into its components
 
 Parsing a `purl` ASCII string into its components works from right to left,
 from `subpath` to `type`.

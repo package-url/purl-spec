@@ -1,5 +1,4 @@
-Permitted characters
-====================
+## Permitted characters
 
 A canonical `purl` is composed of these permitted ASCII characters:
 
@@ -11,8 +10,7 @@ A canonical `purl` is composed of these permitted ASCII characters:
   question mark '?', equal sign '=', ampersand '&' and pound sign '#').
 
 
-`purl` separators
-=================
+## Separators
 
 This is how each of the Separator Characters is used:
 
@@ -27,8 +25,7 @@ This is how each of the Separator Characters is used:
   `key=value` pair)
 - '#' (number sign) is the separator before `subpath`
 
-Character encoding
-==================
+## Character encoding
 
 - In the "Rules for each `purl` component" section, each component
   defines when and how to apply percent-encoding and decoding to its content.
@@ -36,7 +33,7 @@ Character encoding
   string MUST first be encoded as UTF-8.
 - In the component string, each "data octet" MUST be replaced by the
   percent-encoded "character triplet" applying the percent-encoding mechanism
-  defined in RFC 3986 section 2.1 (<https://datatracker.ietf.org/doc/html/rfc3986#section-2.1>),
+  defined in [RFC 3986 section 2.1](https://datatracker.ietf.org/doc/html/rfc3986#section-2.1),
   including the RFC definition of "data octet" and "character triplet",
   and using these definitions for RFC's "allowed set" and "delimiters":
 
@@ -56,8 +53,7 @@ Character encoding
 - With the exception of the percent-encoding mechanism, the rules regarding
   percent-encoding are defined by this specification alone.
 
-Case folding
-============
+## Case folding
 
 References to "lowercase" in this specification refer to the **culture-invariant**
 full case mapping defined in

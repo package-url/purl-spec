@@ -1,3 +1,5 @@
+## What is a `purl`?
+
 `purl` stands for **package URL**.
 
 A `purl` is a URL composed of seven components:
@@ -32,8 +34,7 @@ A `purl` must NOT contain a URL Authority i.e. there is no support for
 sometimes look like a `host` but its interpretation is specific to a `type`.
 
 
-Some `purl` examples
-====================
+## Some `purl` examples
 
     pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c
     pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie
@@ -47,8 +48,7 @@ Some `purl` examples
     pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
 
 
-A `purl` is a URL
-=================
+## A `purl` is a URL
 
 - A `purl` is a valid URL and URI that conforms to the URL definitions or
   specifications at:

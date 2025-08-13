@@ -1,5 +1,4 @@
-Tests
-=====
+## Tests
 
 To support the language-neutral testing of `purl` implementations, a test suite
 is provided as JSON document named `test-suite-data.json`. This JSON document

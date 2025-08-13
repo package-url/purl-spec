@@ -1,5 +1,4 @@
-Known `qualifiers` key/value pairs
-==================================
+## Known `purl` `qualifiers` key/value pairs
 
 Note: Do not abuse `qualifiers`: it can be tempting to use many qualifier
 keys but their usage should be limited to the bare minimum for proper package
@@ -13,7 +12,7 @@ With this warning, the known `key` and `value` defined here are valid for use in
 all package types:
 
 - `vers` allows the specification of a version range.
-  The value MUST adhere to the [Version Range Specification](VERSION-RANGE-SPEC.rst).
+  The value MUST adhere to the `Version Range Specification`.
   This qualifier is mutually exclusive with the `version` component.
   For example:
 
@@ -41,6 +40,6 @@ all package types:
   comma-separated list. Each item in the `value` is in form of
   `lowercase_algorithm:hex_encoded_lowercase_value` such as
   `sha1:ad9503c3e994a4f611a4892f2e67ac82df727086`.
-  For example (with checksums truncated for brevity) :
+  For example (with checksums truncated for brevity):
 
     checksum=sha1:ad9503c3e994a4f,sha256:41bf9088b3a1e6c1ef1d

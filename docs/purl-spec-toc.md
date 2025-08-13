@@ -1,5 +1,4 @@
-Package URL specification v1.0.X
-================================
+# Package-URL Specification
 
 The Package URL core specification defines a versioned and formalized format,
 syntax, and rules used to represent and validate `purl`.
@@ -11,5 +10,5 @@ A `purl` is a URL string used to identify and locate a software package in a
 mostly universal and uniform way across programming languages, package managers,
 packaging conventions, tools, APIs and databases.
 
-Such a package URL is useful to reliably reference the same software package
+A `purl` is useful to reliably reference the same software package
 using a simple and expressive syntax and conventions based on familiar URLs.
