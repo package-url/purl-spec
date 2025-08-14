@@ -22,7 +22,7 @@ namespace-segment = 1*namespace-sc
 namespace-sc      = PERM-ALPHANUM
                   / PERM-PUNCTUATION
                   / "%" ( PERM-ESCAPED-00-1F
-                        / %x32 ( DIGIT / "A" / "B" / "C" )    ; 20-2F - except seperator "/"(%2F) and general exclusion "."(%2E) and "-"(%2D)
+                        / %x32 ( DIGIT / "A" / "B" / "C" )    ; 20-2F - except separator "/"(%2F) and general exclusion "."(%2E) and "-"(%2D)
                         / PERM-ESCAPED-30-FF )
                             ; namespace safe characters
 
@@ -43,7 +43,7 @@ subpath-segment   = subpath-sc      *( subpath-sc / "." )
 subpath-sc        = PERM-ALPHANUM
                   / "-" / "_" / "~"                           ; PERM-PUNCTUATION except "."
                   / "%" ( PERM-ESCAPED-00-1F
-                        / %x32 ( DIGIT / "A" / "B" / "C" )    ; 20-2F - except special char "."(%2E) and seperator "/"(%2F) and general exclusion "-"(%2D)
+                        / %x32 ( DIGIT / "A" / "B" / "C" )    ; 20-2F - except special char "."(%2E) and separator "/"(%2F) and general exclusion "-"(%2D)
                         / PERM-ESCAPED-30-FF )
                             ; subpath safe characters
 
@@ -51,13 +51,13 @@ LOWALPHA    = %x61-7A    ; a-z
 
 PCT-ENCODED = PERM-ALPHANUM
             / PERM-PUNCTUATION
-            / ":"    ; a specific seperatior that must not be encoded
+            / ":"    ; a specific separator that must not be encoded
             / PERM-ESCAPED
 
 ; permitted character classes
 PERM-ALPHANUM    = ALPHA / DIGIT
 PERM-PUNCTUATION = "." / "-" / "_" / "~"
-PERM-SEPERATOR   = ":" / "/" / "@" / "?" / "=" / "&" / "#"
+PERM-separator   = ":" / "/" / "@" / "?" / "=" / "&" / "#"
 PERM-ESCAPED     = "%" ( PERM-ESCAPED-00-1F
                        / PERM-ESCAPED-20-2F
                        / PERM-ESCAPED-30-FF )
