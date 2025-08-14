@@ -22,9 +22,7 @@
 
 
 from __future__ import annotations
-
-from pydantic import Field
-from pydantic import RootModel
+from pydantic import Field, RootModel
 
 
 class PackageUrlTypesList(RootModel[list[str]]):
