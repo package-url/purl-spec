@@ -22,7 +22,7 @@ namespace-segment = 1*namespace-sc
 namespace-sc      = PERM-ALPHANUM
                   / PERM-PUNCTUATION
                   / "%" ( PERM-ESCAPED-00-1F
-                        / %x32 ( DIGIT / "A" / "B" / "C" )    ; 20-2F - except separator "/"(%2F) and general exclusion "."(%2E) and "-"(%2D)
+                        / PERM-ESCAPED-20-2C    ; 20-2F - except separator "/"(%2F) and general exclusion "-"(%2D) and "."(%2E) 
                         / PERM-ESCAPED-30-FF )
                             ; namespace safe characters
 
@@ -41,9 +41,9 @@ subpath-segment   = subpath-sc      *( subpath-sc / "." )
                   / "." subpath-sc  *( subpath-sc / "." )    ; prevent ".." and "."
                   / "." "."        1*( subpath-sc / "." )    ; prevent ".."
 subpath-sc        = PERM-ALPHANUM
-                  / "-" / "_" / "~"                           ; PERM-PUNCTUATION except "."
+                  / "-" / "_" / "~"             ; PERM-PUNCTUATION except "."
                   / "%" ( PERM-ESCAPED-00-1F
-                        / %x32 ( DIGIT / "A" / "B" / "C" )    ; 20-2F - except special char "."(%2E) and separator "/"(%2F) and general exclusion "-"(%2D)
+                        / PERM-ESCAPED-20-2C    ; 20-2F - except separator "/"(%2F) and special char "."(%2E) and general exclusion "-"(%2D)
                         / PERM-ESCAPED-30-FF )
                             ; subpath safe characters
 
@@ -59,13 +59,14 @@ PERM-ALPHANUM    = ALPHA / DIGIT
 PERM-PUNCTUATION = "." / "-" / "_" / "~"
 PERM-separator   = ":" / "/" / "@" / "?" / "=" / "&" / "#"
 PERM-ESCAPED     = "%" ( PERM-ESCAPED-00-1F
-                       / PERM-ESCAPED-20-2F
+                       / PERM-ESCAPED-20-2C
+                       / PERM-ESCAPED-2D-2F
                        / PERM-ESCAPED-30-FF )
 
 ; applied purl spec rules for general character encoding
 PERM-ESCAPED-00-1F =   %x30-31                                       HEXDIG    ; 00-1F
-PERM-ESCAPED-20-2F =   %x32                     ( DIGIT / "A" / "B" / "C" )    ; 20-2C
-                                             ; except following characters: "-" (2D)
+PERM-ESCAPED-20-2C =   %x32                     ( DIGIT / "A" / "B" / "C" )    ; 20-2C
+PERM-ESCAPED-2D-2F =                         ; except following characters: "-" (2D)
                                              ; except following characters: "." (2E)
                    /   %x32                                             "F"    ; 2F
 PERM-ESCAPED-30-FF =                     ; except following characters: "0"-"9" (30-39)
