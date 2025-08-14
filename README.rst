@@ -174,7 +174,7 @@ Known implementations
 Users, adopters and links
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See the `dedicated adopters list <ADOPTERS.rst>`_.
+See the `dedicated adopters list <ADOPTERS.md>`_.
 
 
 License
