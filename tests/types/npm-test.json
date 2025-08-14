@@ -209,8 +209,8 @@
       "description": "valid npm purl without version and with subpath, scope unencoded",
       "test_group": "advanced",
       "test_type": "roundtrip",
-      "input": "pkg:npm/%40babel/core#/googleapis/api/annotations/",
-      "expected_output": "pkg:npm/%40babel/core#googleapis/api/annotations",
+      "input": "pkg:npm/@babel/core#/googleapis/api/annotations/",
+      "expected_output": "pkg:npm/@babel/core#googleapis/api/annotations",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -218,7 +218,7 @@
       "description": "valid npm purl without version and with subpath, scope unencoded",
       "test_group": "advanced",
       "test_type": "parse",
-      "input": "pkg:npm/%40babel/core#/googleapis/api/annotations/",
+      "input": "pkg:npm/@babel/core#/googleapis/api/annotations/",
       "expected_output": {
         "type": "npm",
         "namespace": "@babel",
