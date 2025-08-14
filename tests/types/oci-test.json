@@ -3,7 +3,7 @@
   "tests": [
     {
       "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
+      "test_group": "advanced",
       "test_type": "parse",
       "input": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=docker.io/library/debian&arch=amd64&tag=latest",
       "expected_output": {
@@ -23,7 +23,7 @@
     },
     {
       "description": "Rountrip test for <class 'type'> PURL",
-      "test_group": "base",
+      "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=docker.io/library/debian&arch=amd64&tag=latest",
       "expected_output": "pkg:oci/debian@sha256:244fd47e07d10?arch=amd64&repository_url=docker.io/library/debian&tag=latest",
@@ -52,7 +52,7 @@
     },
     {
       "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
+      "test_group": "advanced",
       "test_type": "parse",
       "input": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=ghcr.io/debian&tag=bullseye",
       "expected_output": {
@@ -99,7 +99,7 @@
     },
     {
       "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
+      "test_group": "advanced",
       "test_type": "parse",
       "input": "pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest",
       "expected_output": {
