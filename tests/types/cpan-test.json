@@ -301,7 +301,7 @@
       "input": {
         "type": "cpan",
         "namespace": null,
-        "name": "perl::Version",
+        "name": "Perl::Version",
         "version": "1.013",
         "qualifiers": null,
         "subpath": null
@@ -465,7 +465,7 @@
       "input": {
         "type": "cpan",
         "namespace": null,
-        "name": "lwp::UserAgent",
+        "name": "LWP::UserAgent",
         "version": null,
         "qualifiers": null,
         "subpath": null
