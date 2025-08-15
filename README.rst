@@ -180,4 +180,4 @@ See the `dedicated adopters list <ADOPTERS.md>`_.
 License
 ~~~~~~~
 
-This document is licensed under the MIT license
+The `purl` specification is licensed under the `MIT license <LICENSE>`_.
