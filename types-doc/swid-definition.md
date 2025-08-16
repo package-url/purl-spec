@@ -51,9 +51,9 @@ The structure of a PURL for this package type is:
 
 ## Examples
 
-- `pkg:swid/Acme/example.com/Enterprise+Server@1.0.0?tag_id=75b8c285-fa7b-485b-b199-4745e3004d0d`
+- `pkg:swid/Acme/example.com/Enterprise%20Server@1.0.0?tag_id=75b8c285-fa7b-485b-b199-4745e3004d0d`
 - `pkg:swid/Fedora@29?tag_id=org.fedoraproject.Fedora-29`
-- `pkg:swid/Adobe+Systems+Incorporated/Adobe+InDesign@CC?tag_id=CreativeCloud-CS6-Win-GM-MUL`
+- `pkg:swid/Adobe%20Systems%20Incorporated/Adobe%20InDesign@CC?tag_id=CreativeCloud-CS6-Win-GM-MUL`
 
 ## Note
 
