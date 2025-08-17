@@ -1,6 +1,6 @@
 {
   "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
-  "$id": "https://packageurl.org/types/bitbucket-definition.json",
+  "$id": "https://packageurl.org/types/apk-definition.json",
   "type": "apk",
   "type_name": "APK-based packages",
   "description": "Alpine Linux APK-based packages",

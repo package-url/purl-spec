@@ -1,6 +1,6 @@
 {
   "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
-  "$id": "https://packageurl.org/types/bitname-definition.json",
+  "$id": "https://packageurl.org/types/bitnami-definition.json",
   "type": "bitnami",
   "type_name": "Bitnami",
   "description": "Bitnami-based packages",
