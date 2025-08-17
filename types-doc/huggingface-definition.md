@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** HuggingFace models
 - **Description:** Hugging Face ML models
-- **Schema ID:** `https://packageurl.org/types/huggingfaces-definition.json`
+- **Schema ID:** `https://packageurl.org/types/huggingface-definition.json`
 
 ## PURL Syntax
 

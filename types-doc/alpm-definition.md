@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Arch Linux package
 - **Description:** Arch Linux packages and other users of the libalpm/pacman package manager.
-- **Schema ID:** `https://packageurl.org/types/github-definition.json`
+- **Schema ID:** `https://packageurl.org/types/alpm-definition.json`
 
 ## PURL Syntax
 

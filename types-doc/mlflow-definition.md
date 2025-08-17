@@ -3,7 +3,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 # PURL Type Definition: mlflow
 
-- **Type Name:** 
+- **Type Name:** MLflow
 - **Description:** MLflow ML models (Azure ML, Databricks, etc.)
 - **Schema ID:** `https://packageurl.org/types/mlflow-definition.json`
 

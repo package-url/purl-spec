@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** APK-based packages
 - **Description:** Alpine Linux APK-based packages
-- **Schema ID:** `https://packageurl.org/types/bitbucket-definition.json`
+- **Schema ID:** `https://packageurl.org/types/apk-definition.json`
 
 ## PURL Syntax
 
