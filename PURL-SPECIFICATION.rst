@@ -14,7 +14,7 @@ packaging conventions, tools, APIs and databases.
 Such a package URL is useful to reliably reference the same software package
 using a simple and expressive syntax and conventions based on familiar URLs.
 
-See `<PURL-TYPES.md>`_ for registered type definitions.
+See `<PURL-TYPES.rst>`_ for registered type definitions.
 
 Check also this short ``purl`` presentation (with video) at FOSDEM 2018
 https://fosdem.org/2018/schedule/event/purl/ for an overview.
@@ -458,7 +458,7 @@ Registered ``purl`` types
 ~~~~~~~~~~~~~~~~~~~~
 
 There are several registered ``purl`` package type definitions tracked in the
-separate `<PURL-TYPES.md>`_ document.
+separate `<PURL-TYPES.rst>`_ document.
 
 Known ``qualifiers`` key/value pairs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
