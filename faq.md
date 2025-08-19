@@ -1,6 +1,5 @@
 # Frequently Asked Questions
 
-
 ## Scheme
 
 **QUESTION**: Can the ``scheme`` component be followed by a colon and two
@@ -9,7 +8,7 @@ slashes, like a URI?
 **ANSWER**: No.  Since a ``purl`` never contains a URL Authority, its
 ``scheme`` should not be suffixed with double slash as in 'pkg://' and should
  use 'pkg:' instead. Otherwise this would be an invalid URI per RFC 3986 at
- https://tools.ietf.org/html/rfc3986#section-3.3::
+ https://tools.ietf.org/html/rfc3986#section-3.3:
 
     If a URI does not contain an authority component, then the path
     cannot begin with two slash characters ("//").
@@ -29,7 +28,7 @@ characters between 'pkg:' and the ``type`` component.
 For example, although these two purls are strictly equivalent, the first is
 in canonical form, while the second -- with a '//' between 'pkg:' and the
 ``type`` 'gem' -- is an acceptable purl but is an invalid URI/URL per RFC
-3986::
+3986:
 
     pkg:gem/ruby-advisory-db-check@0.12.4
 
@@ -47,7 +46,6 @@ requiring any decoding. Moreover, it should be a parsing error if the colon
 ':' does not come directly after 'pkg'.  Tools are welcome to recover from
 this error to help with malformed purls, but that's not a requirement.
 
-
 ## Type
 
 **QUESTION**: What behavior is expected from a purl spec implementation if a
@@ -62,7 +60,6 @@ package ``type`` that list allowed characters:
 As a result, a purl spec implementation must return an error when
 encountering a ``type`` that contains a prohibited character.
 
-
 ## Version
 
 **QUESTION**: How do package ``types`` handle the comparison and sorting of
@@ -73,14 +70,12 @@ for NPMs or NEVRA conventions for RPMS. A ``type`` may define a procedure to
 compare and sort versions, but there is no reliable and uniform way to do
 such comparison consistently.
 
-
 Plus
 
 **QUESTION**: Can a PURL contain a plus character '+'?
 
 **ANSWER**: Decoded individual components can contain a plus. The encoded,
 canonical form can never contain an unencoded plus.
-
 
 ## Qualifiers
 

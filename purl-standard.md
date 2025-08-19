@@ -526,4 +526,4 @@ The rules for each component are:
 ## 5.6 PURL Types
 
 There are several registered `purl` package type definitions tracked in
-the separate [PURL-TYPES.rst](PURL-TYPES.rst) document.
+the separate [PURL-TYPES.md](PURL-TYPES.md) document.
