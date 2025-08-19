@@ -127,7 +127,7 @@
     },
     {
       "description": "Build test  for <class 'type'> PURL",
-      "test_group": "advanced",
+      "test_group": "base",
       "test_type": "build",
       "input": {
         "type": "oci",
@@ -173,7 +173,7 @@
     },
     {
       "description": "Build test  for <class 'type'> PURL",
-      "test_group": "advanced",
+      "test_group": "base",
       "test_type": "build",
       "input": {
         "type": "oci",
