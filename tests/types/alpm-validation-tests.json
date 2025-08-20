@@ -1,0 +1,67 @@
+{
+    "description": "Validation tests for the alpm Package URL type definition.",
+    "valid_purls": [
+      {
+        "purl": "pkg:alpm/arch/pacman@6.0.1-1?arch=x86_64",
+        "description": "Basic package with version and arch"
+      },
+      {
+        "purl": "pkg:alpm/arch/python-pip@21.0-1?arch=any",
+        "description": "Python package (any arch)"
+      },
+      {
+        "purl": "pkg:alpm/arch/containers-common@1:0.47.4-4?arch=x86_64",
+        "description": "Package with epoch in version"
+      },
+      {
+        "purl": "pkg:alpm/manjaro/bash@5.1.004-1?arch=x86_64",
+        "description": "Valid Manjaro namespace"
+      },
+      {
+        "purl": "pkg:alpm/msys2/make@4.3-1?arch=any",
+        "description": "Valid MSYS2 namespace (lowercased vendor requirement)"
+      }
+    ],
+    "invalid_purls": [
+      {
+        "purl": "pkg:alpm//pacman@6.0.1-1?arch=x86_64",
+        "reason": "Missing namespace (vendor is required)"
+      },
+      {
+        "purl": "pkg:alpm/Arch/pacman@6.0.1-1?arch=x86_64",
+        "reason": "Namespace not lowercased"
+      },
+      {
+        "purl": "pkg:alpm/arch/PacMan@6.0.1-1?arch=x86_64",
+        "reason": "Package name not lowercased"
+      },
+      {
+        "purl": "pkg:alpm/arch/@6.0.1-1?arch=x86_64",
+        "reason": "Missing package name"
+      },
+      {
+        "purl": "pkg:alpm/arch/pacman@6..1-1?arch=x86_64",
+        "reason": "Invalid version format"
+      },
+      {
+        "purl": "pkg:alpm/arch/pacman@6.0.1-1?cpu=x86_64",
+        "reason": "Unknown qualifier key (only arch is allowed)"
+      },
+      {
+        "purl": "pkg:alpm/arch/pacman",
+        "reason": "Missing version"
+      },
+      {
+        "purl": "pkg:alpm/arch/extra/pacman@6.0.1-1?arch=x86_64",
+        "reason": "Extra slash in namespace"
+      },
+      {
+        "purl": "pkg:alpm/",
+        "reason": "Empty PURL after type"
+      },
+      {
+        "purl": "alpm:pacman@6.0.1-1",
+        "reason": "Completely invalid PURL format"
+      }
+    ]
+  }
