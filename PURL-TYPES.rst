@@ -1,11 +1,12 @@
-# Package-URL Type definitions
+Package-URL Type definitions
+============================
 
-Each package manager, platform, type, or ecosystem has its own conventions
-and protocols to identify, locate, and provision software packages.
+Each package manager, platform, type, or ecosystem has its own conventions and
+protocols to identify, locate, and provision software packages.
 
-The package **type** is the component of a Package-URL that is used to
-capture this information with a short string such as ``maven``, ``npm``,
-``nuget``, ``gem``, ``pypi``, etc.
+The package **type** is the component of a Package-URL that is used to capture
+this information with a short string such as ``maven``, ``npm``, ``nuget``, ``gem``,
+``pypi``, etc.
 
 These are registered ``PURL`` package type definitions.
 
@@ -16,10 +17,12 @@ See also https://github.com/package-url/purl-spec and
 
 This document no longer contains a manually maintained list of PURL types.
 
-Instead, all PURL type definitions are now maintained in a simple JSON
-document with automatically generated documentation.
+Instead, all PURL type definitions are now maintained in a simple JSON document with
+automatically generated documentation.
 
-## Where to find PURL Type information
+
+Where to find PURL Type information
+--------------------------------------
 
 - In the JSON Index listing of all defined PURL types at:
   `/purl-types-index.json <https://github.com/package-url/purl-spec/tree/main/purl-types-index.json>`_
@@ -27,15 +30,16 @@ document with automatically generated documentation.
 - In individual JSON files, one for each PURL type definition at:
   `/types <https://github.com/package-url/purl-spec/tree/main/types>`_
 
-- As Markdown documentation, generated from for each PURL type JSON
-  definition at:
+- As Markdown documentation, generated from for each PURL type JSON definition at:
   `/types-doc <https://github.com/package-url/purl-spec/tree/main/types-doc>`_
 
-## How PURL Types are maintained
 
-All PURL type definitions are maintained as JSON definition files  and JSON
-test files in the PURL specification repository. These JSON files serve as
-the source of truth and define the structure of each PURL type, including:
+How PURL Types are maintained
+------------------------------
+
+All PURL type definitions are maintained as JSON definition files  and JSON test files in the PURL
+specification repository. These JSON files serve as the source of truth and define the
+structure of each PURL type, including:
 
 - Namespace and name formatting rules
 - Supported qualifiers
@@ -46,23 +50,27 @@ On commit, a job automatically:
 
 - Checks that all JSON files are schema-valid
 - Formats all the JSON files
-- Generates the ``purl-types-index.json`` file containing a list of defined
-  registered PURL types
+- Generates the ``purl-types-index.json`` file containing a list of defined registered PURL types
 - Generates human-readable documentation for each type
 
-## How to Propose a New PURL Type
 
-To propose a new PURL type, create an **issue** and a corresponding
-**pull request** to the repository with:
+How to Propose a New PURL Type
+------------------------------
 
-- a new JSON definition file under `types/`.
-- a new JSON test file file under `tests/types/`.
+To propose a new PURL type, create an **issue** and a corresponding **pull request** to the
+repository with:
 
-Ensure that your proposal follows the **PURL Type Definition Schema** and
-includes all required fields. For this see the README-dev.md for details to
-run local checks.
+ - a new JSON definition file under `types/`.
+ - a new JSON test file file under `tests/types/`.
 
-### Other candidate types to define
+
+Ensure that your proposal follows the **PURL Type Definition Schema** and includes all required
+fields. For this see the README-dev.rst for details to run local checks.
+
+
+
+Other candidate types to define
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - ``android`` for Android apk packages:
 - ``apache`` for Apache projects packages:
@@ -111,6 +119,8 @@ run local checks.
 - ``wordpress`` for Wordpress packages:
 - ``yocto`` for Yocto recipe packages:
 
-### License
+
+License
+~~~~~~~
 
 This document is licensed under the MIT license.
