@@ -7,7 +7,7 @@ A canonical `purl` is composed of these permitted ASCII characters:
   dash '-', underscore '_' and tilde '~'),
 - the Percent Character: `%` (percent sign '%'), and
 - the Separator Characters `:/@?=&#` (colon ':', slash '/', at sign '@',
-  question mark '?', equal sign '=', ampersand '&' and pound sign '#').
+  question mark '?', equal sign '=', ampersand '&' and hash sign '#').
 
 
 ## Separators
