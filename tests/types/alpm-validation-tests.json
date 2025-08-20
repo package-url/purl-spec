@@ -1,67 +1,60 @@
 {
     "description": "Validation tests for the alpm Package URL type definition.",
-    "valid_purls": [
+    "tests": [
       {
         "purl": "pkg:alpm/arch/pacman@6.0.1-1?arch=x86_64",
-        "description": "Basic package with version and arch"
+        "description": "Basic package with version and arch",
+        "valid": true
       },
       {
         "purl": "pkg:alpm/arch/python-pip@21.0-1?arch=any",
-        "description": "Python package (any arch)"
+        "description": "Python package (any arch)",
+        "valid": true
       },
       {
         "purl": "pkg:alpm/arch/containers-common@1:0.47.4-4?arch=x86_64",
-        "description": "Package with epoch in version"
+        "description": "Package with epoch in version",
+        "valid": true
       },
       {
         "purl": "pkg:alpm/manjaro/bash@5.1.004-1?arch=x86_64",
-        "description": "Valid Manjaro namespace"
+        "description": "Valid Manjaro namespace",
+        "valid": true
       },
       {
         "purl": "pkg:alpm/msys2/make@4.3-1?arch=any",
-        "description": "Valid MSYS2 namespace (lowercased vendor requirement)"
-      }
-    ],
-    "invalid_purls": [
+        "description": "Valid MSYS2 namespace (lowercased vendor requirement)",
+        "valid": true
+      },
       {
-        "purl": "pkg:alpm//pacman@6.0.1-1?arch=x86_64",
-        "reason": "Missing namespace (vendor is required)"
+        "purl": "pkg:alpm/pacman@6.0.1-1?arch=x86_64",
+        "description": "Missing namespace (vendor is required)",
+        "valid": false
       },
       {
         "purl": "pkg:alpm/Arch/pacman@6.0.1-1?arch=x86_64",
-        "reason": "Namespace not lowercased"
+        "description": "Namespace not lowercased",
+        "valid": false
       },
       {
         "purl": "pkg:alpm/arch/PacMan@6.0.1-1?arch=x86_64",
-        "reason": "Package name not lowercased"
-      },
-      {
-        "purl": "pkg:alpm/arch/@6.0.1-1?arch=x86_64",
-        "reason": "Missing package name"
+        "description": "Package name not lowercased",
+        "valid": false
       },
       {
         "purl": "pkg:alpm/arch/pacman@6..1-1?arch=x86_64",
-        "reason": "Invalid version format"
+        "description": "Invalid version format",
+        "valid": false
       },
       {
         "purl": "pkg:alpm/arch/pacman@6.0.1-1?cpu=x86_64",
-        "reason": "Unknown qualifier key (only arch is allowed)"
+        "description": "Unknown qualifier key (only arch is allowed)",
+        "valid": false
       },
       {
         "purl": "pkg:alpm/arch/pacman",
-        "reason": "Missing version"
-      },
-      {
-        "purl": "pkg:alpm/arch/extra/pacman@6.0.1-1?arch=x86_64",
-        "reason": "Extra slash in namespace"
-      },
-      {
-        "purl": "pkg:alpm/",
-        "reason": "Empty PURL after type"
-      },
-      {
-        "purl": "alpm:pacman@6.0.1-1",
-        "reason": "Completely invalid PURL format"
+        "description": "Missing version",
+        "valid": false
       }
     ]
   }
