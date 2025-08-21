@@ -1,0 +1,26 @@
+{
+    "description": "Validation tests for the Cargo Package URL type definition.",
+    "tests": [
+      {
+        "purl": "pkg:cargo/rand@0.7.2",
+        "description": "Valid Cargo package with version",
+        "valid": true
+      },
+      {
+        "purl": "pkg:cargo/serde",
+        "description": "Missing version is not allowed",
+        "valid": false
+      },
+      {
+        "purl": "pkg:cargo/rust-lang/serde@1.0.130",
+        "description": "Namespace is prohibited for Cargo",
+        "valid": false
+      },
+      {
+        "purl": "pkg:cargo/rand@0.8.0?platform=linux",
+        "description": "Invalid qualifier (platform not allowed in Cargo)",
+        "valid": false
+      }
+    ]
+  }
+  
