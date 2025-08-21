@@ -8,7 +8,7 @@ is JSON Schema version draft-07 (https://json-schema.org/draft-07)
 The schema shown below is available in electronic form at:
 https://github.com/package-url/purl-spec/blob/main/schemas/purl-type-definition.schema.json
 
-```json
+```
   1 | {
   2 |   "$schema": "http://json-schema.org/draft-07/schema#",
   3 |   "$id": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
@@ -272,7 +272,7 @@ https://github.com/package-url/purl-spec/blob/main/schemas/purl-type-definition.
 The schema shown below is available in electronic form at:
 https://github.com/package-url/purl-spec/blob/main/schemas/purl-types-index.schema.json
 
-```json
+```
  1 | {
  2 |   "$schema": "http://json-schema.org/draft-07/schema#",
  3 |   "$id": "https://purl-spec.org/schemas/purl-type-index.schema-1.0.json",
@@ -291,7 +291,7 @@ https://github.com/package-url/purl-spec/blob/main/schemas/purl-types-index.sche
 The schema shown below is available in electronic form at:
 https://github.com/package-url/purl-spec/blob/main/schemas/purl-test.schema.json
 
-```json
+```
   1 | {
   2 |   "$schema": "http://json-schema.org/draft-07/schema#",
   3 |   "$id": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
