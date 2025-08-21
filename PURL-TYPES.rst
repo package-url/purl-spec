@@ -62,8 +62,8 @@ repository with:
 
  - a new JSON definition file under `types/`.
  - a new JSON test file file under `tests/types/`.
- 
-  
+
+
 Ensure that your proposal follows the **PURL Type Definition Schema** and includes all required
 fields. For this see the README-dev.rst for details to run local checks.
 
