@@ -44,7 +44,7 @@ The structure of a PURL for this package type is:
 - `pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=docker.io/library/debian&arch=amd64&tag=latest`
 - `pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=ghcr.io/debian&tag=bullseye`
 - `pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest`
-- `pkg:oci/hello-wasm@sha256%3A244fd47e07d10?tag=v1`
+- `pkg:oci/hello-wasm@sha256:244fd47e07d10?tag=v1`
 
 ## Reference URLs
 
