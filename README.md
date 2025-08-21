@@ -155,7 +155,3 @@ type definitions:
 ## Users, adopters and links
 
 See the `dedicated adopters list <ADOPTERS.md>`_.
-
-## License
-
-This document is licensed under the MIT license

@@ -1,6 +1,6 @@
 ## How PURL Types are maintained
 
-All PURL type definitions are maintained as JSON definition files  and JSON
+PURL type definitions are maintained as JSON definition files and JSON
 test files in the PURL specification repository. These JSON files serve as
 the source of truth and define the structure of each PURL type, including:
 
@@ -20,7 +20,7 @@ On commit, a job automatically:
 ## How to Propose a New PURL Type
 
 To propose a new PURL type, create an **issue** and a corresponding
-**pull request** to the repository with:
+**pull request** in the repository with:
 
 - a new JSON definition file under `types/`.
 - a new JSON test file file under `tests/types/`.
