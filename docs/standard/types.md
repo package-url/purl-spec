@@ -11,9 +11,6 @@ These are registered ``PURL`` package type definitions.
 
 Definitions can also include types reserved for future use.
 
-See also https://github.com/package-url/purl-spec and
-[PURL-SPECIFICATION.rst](https://github.com/package-url/purl-spec/blob/main/PURL-SPECIFICATION.rst) for the Package URL specification.
-
 This document no longer contains a manually maintained list of PURL types.
 
 Instead, all PURL type definitions are now maintained in a simple JSON
