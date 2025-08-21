@@ -1,0 +1,60 @@
+{
+    "description": "Validation tests for the alpm Package URL type definition.",
+    "tests": [
+      {
+        "purl": "pkg:alpm/arch/pacman@6.0.1-1?arch=x86_64",
+        "description": "Basic package with version and arch",
+        "valid": true
+      },
+      {
+        "purl": "pkg:alpm/arch/python-pip@21.0-1?arch=any",
+        "description": "Python package (any arch)",
+        "valid": true
+      },
+      {
+        "purl": "pkg:alpm/arch/containers-common@1:0.47.4-4?arch=x86_64",
+        "description": "Package with epoch in version",
+        "valid": true
+      },
+      {
+        "purl": "pkg:alpm/manjaro/bash@5.1.004-1?arch=x86_64",
+        "description": "Valid Manjaro namespace",
+        "valid": true
+      },
+      {
+        "purl": "pkg:alpm/msys2/make@4.3-1?arch=any",
+        "description": "Valid MSYS2 namespace (lowercased vendor requirement)",
+        "valid": true
+      },
+      {
+        "purl": "pkg:alpm/pacman@6.0.1-1?arch=x86_64",
+        "description": "Missing namespace (vendor is required)",
+        "valid": false
+      },
+      {
+        "purl": "pkg:alpm/Arch/pacman@6.0.1-1?arch=x86_64",
+        "description": "Namespace not lowercased",
+        "valid": false
+      },
+      {
+        "purl": "pkg:alpm/arch/PacMan@6.0.1-1?arch=x86_64",
+        "description": "Package name not lowercased",
+        "valid": false
+      },
+      {
+        "purl": "pkg:alpm/arch/pacman@6..1-1?arch=x86_64",
+        "description": "Invalid version format",
+        "valid": false
+      },
+      {
+        "purl": "pkg:alpm/arch/pacman@6.0.1-1?cpu=x86_64",
+        "description": "Unknown qualifier key (only arch is allowed)",
+        "valid": false
+      },
+      {
+        "purl": "pkg:alpm/arch/pacman",
+        "description": "Missing version",
+        "valid": false
+      }
+    ]
+  }

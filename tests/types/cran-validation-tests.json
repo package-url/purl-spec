@@ -1,0 +1,26 @@
+{
+    "description": "Validation tests for the CRAN Package URL type definition.",
+    "tests": [
+      {
+        "purl": "pkg:cran/A3@1.0.0",
+        "description": "Valid CRAN package with version",
+        "valid": true
+      },
+      {
+        "purl": "pkg:cran/rJava@1.0-4",
+        "description": "Valid CRAN package with version including dash",
+        "valid": true
+      },
+      {
+        "purl": "pkg:cran/R/ggplot2@3.3.6",
+        "description": "Namespace is prohibited for CRAN",
+        "valid": false
+      },
+      {
+        "purl": "pkg:cran/data.table@1.14.0?platform=linux",
+        "description": "Invalid qualifier (platform not allowed in CRAN)",
+        "valid": false
+      }
+    ]
+  }
+  

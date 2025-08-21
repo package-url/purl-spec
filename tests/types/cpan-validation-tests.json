@@ -1,0 +1,57 @@
+{
+    "description": "Validation tests for the CPAN Package URL type definition.",
+    "tests": [
+      {
+        "purl": "pkg:cpan/Perl::Version@1.013",
+        "description": "Valid CPAN module (no namespace, module name with ::, with version)",
+        "valid": true
+      },
+      {
+        "purl": "pkg:cpan/DROLSKY/DateTime@1.55",
+        "description": "Valid CPAN distribution (namespace = author ID, distribution name without ::, with version)",
+        "valid": true
+      },
+      {
+        "purl": "pkg:cpan/LWP::UserAgent",
+        "description": "Valid CPAN module (no version, allowed for module)",
+        "valid": true
+      },
+      {
+        "purl": "pkg:cpan/URI",
+        "description": "Valid CPAN module (short name, no version)",
+        "valid": true
+      },
+      {
+        "purl": "pkg:cpan/GDT/URI-PackageURL",
+        "description": "Valid CPAN distribution (namespace = author ID, hyphen allowed in distribution)",
+        "valid": true
+      },
+      {
+        "purl": "pkg:cpan/OALDERS/libwww-perl@6.76",
+        "description": "Valid CPAN distribution with version",
+        "valid": true
+      },
+  
+      {
+        "purl": "pkg:cpan/DROLSKY/DateTime::Format",
+        "description": "Invalid distribution: distribution names must not contain ::",
+        "valid": false
+      },
+      {
+        "purl": "pkg:cpan/LWP-UserAgent",
+        "description": "Invalid module: module names must not contain '-'",
+        "valid": false
+      },
+      {
+        "purl": "pkg:cpan/drolsky/DateTime",
+        "description": "Invalid distribution: namespace (author ID) must be uppercase",
+        "valid": false
+      },
+      {
+        "purl": "pkg:cpan/DateTime@1.55?arch=x86_64",
+        "description": "Invalid qualifier (arch not allowed for CPAN)",
+        "valid": false
+      }
+    ]
+  }
+  

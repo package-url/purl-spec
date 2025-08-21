@@ -1,0 +1,36 @@
+{
+    "description": "Validation tests for the conda Package URL type definition.",
+    "tests": [
+      {
+        "purl": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
+        "description": "Valid Conda package with all qualifiers",
+        "valid": true
+      },
+      {
+        "purl": "pkg:conda/numpy@1.22.0?channel=conda-forge&subdir=osx-arm64",
+        "description": "Valid Conda package from conda-forge channel for osx-arm64",
+        "valid": true
+      },
+      {
+        "purl": "pkg:conda/scipy@1.7.3",
+        "description": "Valid Conda package with version only (no qualifiers)",
+        "valid": true
+      },
+  
+      {
+        "purl": "pkg:conda/anaconda/scipy@1.7.3",
+        "description": "Namespace is prohibited",
+        "valid": false
+      },
+      {
+        "purl": "pkg:conda/numpy",
+        "description": "Missing version",
+        "valid": false
+      },
+      {
+        "purl": "pkg:conda/numpy@1.22.0?arch=x86_64",
+        "description": "Invalid qualifier (arch is not allowed)",
+        "valid": false
+      }
+    ]
+  }
