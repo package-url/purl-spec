@@ -35,40 +35,22 @@
       "normalize version as specified in vercmp(8) at https://man.archlinux.org/man/vercmp.8#DESCRIPTION as part of alpm."
     ]
   },
-  "subpath_definition": {
-    "requirement": "prohibited",
-    "note": "The subpath component is not used for the 'alpm' purl type and must be empty."
-  },
   "qualifiers_definition": [
     {
       "key": "arch",
       "requirement": "optional",
       "native_name": "arch",
-      "description": "The arch is the qualifiers key for a package architecture.",
-      "examples": [
-        "x86_64",
-        "i686",
-        "any",
-        "arm"
-      ]
+      "description": "The arch is the qualifiers key for a package architecture."
     },
     {
       "key": "distro",
       "requirement": "optional",
-      "description": "The distribution name when using multiple distributions.",
-      "examples": [
-        "arch",
-        "manjaro",
-        "endeavouros"
-      ]
+      "description": "The distribution name when using multiple distributions."
     },
     {
       "key": "repository_url",
       "requirement": "optional",
-      "description": "Base URL for the package repository.",
-      "examples": [
-        "https://archive.archlinux.org/"
-      ]
+      "description": "Base URL for the package repository."
     }
   ],
   "examples": [
