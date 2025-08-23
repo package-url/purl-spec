@@ -1,12 +1,12 @@
 {
   "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
-  "$id": "https://packageurl.org/types/github-definition.json",
+  "$id": "https://packageurl.org/types/alpm-definition.json",
   "type": "alpm",
   "type_name": "Arch Linux package",
   "description": "Arch Linux packages and other users of the libalpm/pacman package manager.",
   "repository": {
     "use_repository": true,
-    "note": "There is no default package repository; this should be implied either from the distro qualifiers key  or using a repository base url as  repository_url qualifiers key."
+    "note": "There is no default package repository; this should be implied either from the distro qualifiers key or using a repository base url as a repository_url qualifiers key."
   },
   "namespace_definition": {
     "requirement": "required",
@@ -18,29 +18,62 @@
     ]
   },
   "name_definition": {
-    "note": "The name is the package name. It is not case sensitive and must be lowercased.",
+    "requirement": "required",
+    "note": "The name is the package name. It is not case sensitive and must be lowercased. Any characters that are reserved in the PURL specification, such as '@', must be percent-encoded.",
     "case_sensitive": false,
     "native_name": "name"
   },
   "version_definition": {
+    "requirement": "required",
     "native_name": "version",
-    "note": "The version is the version of the package as specified in vercmp(8) at (https://man.archlinux.org/man/vercmp.8#DESCRIPTION as part of alpm.",
+    "note": "The version of the package. The format must be valid for comparison by the vercmp(8) utility (see https://man.archlinux.org/man/vercmp.8).",
     "case_sensitive": true,
     "normalization_rules": [
       "normalize version as specified in vercmp(8) at https://man.archlinux.org/man/vercmp.8#DESCRIPTION as part of alpm."
     ]
+  },
+  "subpath_definition": {
+    "requirement": "prohibited",
+    "note": "The subpath component is not used for the 'alpm' purl type and must be empty."
   },
   "qualifiers_definition": [
     {
       "key": "arch",
       "requirement": "optional",
       "native_name": "arch",
-      "description": "The arch is the qualifiers key for a package architecture."
+      "description": "The arch is the qualifiers key for a package architecture.",
+      "examples": [
+        "x86_64",
+        "i686",
+        "any",
+        "arm"
+      ]
+    },
+    {
+      "key": "distro",
+      "requirement": "optional",
+      "description": "The distribution name when using multiple distributions.",
+      "examples": [
+        "arch",
+        "manjaro",
+        "endeavouros"
+      ]
+    },
+    {
+      "key": "repository_url",
+      "requirement": "optional",
+      "description": "Base URL for the package repository.",
+      "examples": [
+        "https://archive.archlinux.org/"
+      ]
     }
   ],
   "examples": [
     "pkg:alpm/arch/pacman@6.0.1-1?arch=x86_64",
     "pkg:alpm/arch/python-pip@21.0-1?arch=any",
-    "pkg:alpm/arch/containers-common@1:0.47.4-4?arch=x86_64"
+    "pkg:alpm/arch/containers-common@1:0.47.4-4?arch=x86_64",
+    "pkg:alpm/manjaro/systemd@251.7-1?arch=x86_64",
+    "pkg:alpm/arch/ca-certificates-utils@20210603-1?arch=any",
+    "pkg:alpm/arch/example%40package@1.2-3?arch=x86_64"
   ]
 }
