@@ -546,7 +546,7 @@ To check if a "tested version" is contained within a version range:
   then the "tested version" is in the range. Check is finished.
 
 - If the "tested version" is equal to the any of the constraint version where
-  the constraint comparator is "=!" then the "tested version" is NOT in the
+  the constraint comparator is "!=" then the "tested version" is NOT in the
   range. Check is finished.
 
 - Split the constraint list in two sub lists:
