@@ -1,5 +1,4 @@
-Context
-=======
+# Context
 
 We build and release software by massively consuming and producing software
 packages such as NPMs, RPMs, Rubygems, etc.
@@ -7,9 +6,7 @@ packages such as NPMs, RPMs, Rubygems, etc.
 Each package manager, platform, type or ecosystem has its own conventions and
 protocols to identify, locate and provision software packages.
 
-
-Problem
-=======
+# Problem
 
 When tools, APIs and databases process or store multiple package types, it is
 difficult to reference the same software package across tools in a uniform way.
@@ -48,9 +45,7 @@ differences in syntax, naming and conventions:
 - Sonatype Lifecycle uses a format id followed by format specific coordinates.
   https://links.sonatype.com/products/nxiq/doc/component-identifier
 
-
-Solution
-========
+# Solution
 
 A `purl` or package URL is an attempt to standardize existing approaches to
 reliably identify and locate software packages.
@@ -62,17 +57,14 @@ packaging conventions, tools, APIs and databases.
 Such a package URL is useful to reliably reference the same software package
 using a simple and expressive syntax and conventions based on familiar URLs.
 
-
 Check also this short `purl` presentation (with video) at FOSDEM 2018
 https://fosdem.org/2018/schedule/event/purl/ for an overview.
 
-
-purl
-~~~~~
+## purl
 
 `purl` stands for **package URL**.
 
-A `purl` is a URL composed of seven components::
+A `purl` is a URL composed of seven components:
 
     scheme:type/namespace/name@version?qualifiers#subpath
 
@@ -94,20 +86,14 @@ The definition for each components is:
 - **subpath**: extra subpath within a package, relative to the package root.
   Optional.
 
-
 Components are designed such that they form a hierarchy from the most significant component
 on the left to the least significant component on the right.
-
 
 A `purl` must NOT contain a URL Authority i.e. there is no support for
 `username`, `password`, `host` and `port` components. A `namespace` segment may
 sometimes look like a `host` but its interpretation is specific to a `type`.
 
-
-Some `purl` examples
-~~~~~~~~~~~~~~~~~~~~
-
-::
+## Some `purl` examples
 
     pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c
 
@@ -138,9 +124,7 @@ Some `purl` examples
 
 (NB: some checksums are truncated for brevity)
 
-
-Specification details
-~~~~~~~~~~~~~~~~~~~~~
+## Specification details
 
 The `purl` specification consists of a core syntax definition and independent
 type definitions:
@@ -148,13 +132,11 @@ type definitions:
 - `Package URL core <PURL-SPECIFICATION.rst>`_: Defines a versioned and
   formalized format, syntax, and rules used to represent and validate `purl`.
 
-- `Type definitions <PURL-TYPES.rst>`_: Defines `purl` types (e.g. maven, npm,
+- `Type definitions <PURL-TYPES.md>`_: Defines `purl` types (e.g. maven, npm,
   cargo, rpm, etc) independent of the core specification. Definitions also
   include types reserved for future use.
 
-
-Known implementations
-~~~~~~~~~~~~~~~~~~~~~
+## Known implementations
 
 - .NET: https://github.com/package-url/packageurl-dotnet
 - Erlang / Elixir: https://github.com/erlef/purl
@@ -170,14 +152,6 @@ Known implementations
 - Rust: https://github.com/package-url/packageurl.rs
 - Swift: https://github.com/package-url/packageurl-swift
 
-
-Users, adopters and links
-~~~~~~~~~~~~~~~~~~~~~~~~~
+## Users, adopters and links
 
 See the `dedicated adopters list <ADOPTERS.md>`_.
-
-
-License
-~~~~~~~
-
-This document is licensed under the MIT license
