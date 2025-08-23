@@ -11,7 +11,7 @@
   "namespace_definition": {
     "requirement": "required",
     "native_name": "CPAN ID of the author/publisher",
-    "note": "It MUST be written uppercase and is required."
+    "note": "It MUST be written uppercase and is required"
   },
   "name_definition": {
     "case_sensitive": true,
@@ -19,7 +19,7 @@
     "note": "The name is the distribution name and is case sensitive. A distribution name MUST NOT contain the string '::'"
   },
   "version_definition": {
-    "note": "The version is the distribution version.",
+    "note": "The version is the distribution version",
     "native_name": "version"
   },
   "qualifiers_definition": [
@@ -45,6 +45,7 @@
       "default_value": "tar.gz"
     }
   ],
+  "note":"The previous CPAN PURL type specification allowed module names (e.g. URI::PackageURL) to be used as PURL 'name' while also omitting the PURL 'namespace'. The parser MUST emit an error when a module is specified as a PURL 'name' or detect '::' characters.",
   "examples": [
     "pkg:cpan/GDT/URI-PackageURL",
     "pkg:cpan/OALDERS/libwww-perl@6.76",
