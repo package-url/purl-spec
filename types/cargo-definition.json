@@ -10,17 +10,26 @@
   },
   "namespace_definition": {
     "requirement": "prohibited",
-    "note": "there is no namespace"
+    "note": "There is no namespace for Cargo packages."
   },
   "name_definition": {
+    "requirement": "required",
     "native_name": "name",
-    "is_case_sensitve": true,
-    "note": "The name is the repository name."
+    "case_sensitive": true,
+    "note": "The name is the package name. It is case-sensitive."
   },
   "version_definition": {
+    "requirement": "required",
     "native_name": "version",
-    "note": "The version is the package version."
+    "note": "The version is the package version. It should follow the Semantic Versioning (SemVer) specification."
   },
+  "qualifiers_definition": [
+    {
+      "key": "repository_url",
+      "requirement": "optional",
+      "description": "The repository URL of the registry where the package is located, if not the default crates.io."
+    }
+  ],
   "examples": [
     "pkg:cargo/rand@0.7.2",
     "pkg:cargo/clap@2.33.0",
