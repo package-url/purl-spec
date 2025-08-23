@@ -9,15 +9,45 @@
     "default_repository_url": "https://hub.docker.com"
   },
   "namespace_definition": {
+    "requirement": "optional",
     "note": "The namespace is the registry/user/organization if present.",
-    "requirement": "optional"
+    "native_name": "registry/user/organization",
+    "case_sensitive": false,
+    "normalization_rules": [
+      "It is not case sensitive and must be lowercased."
+    ]
   },
   "name_definition": {
-    "native_name": "name"
+    "requirement": "required",
+    "native_name": "image name",
+    "note": "The name is the Docker image name.",
+    "case_sensitive": false,
+    "normalization_rules": [
+      "It is not case sensitive and must be lowercased."
+    ]
   },
   "version_definition": {
+    "requirement": "optional",
+    "native_name": "tag or image id",
     "note": "The version should be the image id sha256 or a tag. Since tags can be moved, a sha256 image id is preferred."
   },
+  "qualifiers_definition": [
+    {
+      "key": "repository_url",
+      "requirement": "optional",
+      "description": "Custom container registry URL"
+    },
+    {
+      "key": "arch",
+      "requirement": "optional",
+      "description": "Architecture for multi-architecture images"
+    },
+    {
+      "key": "os",
+      "requirement": "optional",
+      "description": "Operating system for multi-OS images"
+    }
+  ],
   "examples": [
     "pkg:docker/cassandra@latest",
     "pkg:docker/smartentry/debian@dc437cc87d10",
