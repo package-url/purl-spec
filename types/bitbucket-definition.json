@@ -10,20 +10,42 @@
   },
   "namespace_definition": {
     "requirement": "required",
-    "note": "The namespace is the user or organization. It is not case sensitive and must be lowercased.",
-    "native_name": "user or organization",
-    "is_case_sensitve": false
+    "note": "The namespace is the user or organization (for Bitbucket Cloud), or the Project Key (for Bitbucket Server/Data Center). It is not case sensitive and must be lowercased.",
+    "native_name": "user, organization, or project key",
+    "case_sensitive": false,
+    "normalization_rules": [
+      "It is not case sensitive and must be lowercased."
+    ]
   },
   "name_definition": {
+    "requirement": "required",
     "note": "The name is the repository name. It is not case sensitive and must be lowercased.",
     "native_name": "repository name",
-    "is_case_sensitve": false
+    "case_sensitive": false,
+    "normalization_rules": [
+      "It is not case sensitive and must be lowercased."
+    ]
   },
   "version_definition": {
-    "note": "The version is a commit or tag.",
+    "requirement": "required",
+    "note": "The version is an immutable commit hash (full or short) or a tag. Branch names (e.g., 'main') should not be used as they are mutable pointers.",
     "native_name": "commit or tag"
   },
+  "subpath_definition": {
+    "requirement": "optional",
+    "note": "The subpath is used to specify a subdirectory within the repository, which is essential for monorepos."
+  },
+  "qualifiers_definition": [
+    {
+      "key": "repository_url",
+      "requirement": "optional",
+      "description": "Custom repository URL for self-hosted Bitbucket Server/Data Center instances."
+    }
+  ],
   "examples": [
-    "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c"
+    "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
+    "pkg:bitbucket/atlassian/atlassian-frontend@v104.1.0",
+    "pkg:bitbucket/atlassian/atlassian-frontend@v104.1.0#packages/analytics",
+    "pkg:bitbucket/proj/internal-repo@abcdef123?repository_url=https://bitbucket.company.com"
   ]
 }
