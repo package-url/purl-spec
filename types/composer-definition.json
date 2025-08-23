@@ -12,17 +12,27 @@
     "requirement": "required",
     "case_sensitive": false,
     "native_name": "vendor",
-    "note": "The namespace is the vendor. The namespace is not case sensitive and must be lowercased."
+    "note": "The namespace is the vendor. The namespace is not case sensitive and must be lowercased.",
+    "normalization_rules": [
+      "It is not case sensitive and must be lowercased."
+    ]
   },
   "name_definition": {
+    "requirement": "required",
     "case_sensitive": false,
     "native_name": "name",
-    "note": "The name is not case sensitive and must be lowercased. Private, local packages may have no name. In this case you cannot create a purl for these."
+    "note": "The name is not case sensitive and must be lowercased. Private, local packages may have no name. In this case you cannot create a purl for these.",
+    "normalization_rules": [
+      "It is not case sensitive and must be lowercased."
+    ]
   },
   "version_definition": {
-    "native_name": "version"
+    "requirement": "required",
+    "native_name": "version",
+    "note": "The version is the package version and is a required component."
   },
   "examples": [
-    "pkg:composer/laravel/laravel@5.5.0"
+    "pkg:composer/laravel/laravel@5.5.0",
+    "pkg:composer/symfony/console@5.4.0"
   ]
 }
