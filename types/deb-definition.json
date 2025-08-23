@@ -10,23 +10,42 @@
   },
   "namespace_definition": {
     "native_name": "vendor",
-    "is_case_sensitve": false,
+    "case_sensitive": false,
     "note": "The namespace is the \"vendor\" name such as \"debian\" or \"ubuntu\". It is not case sensitive and must be lowercased.",
-    "requirement": "required"
+    "requirement": "required",
+    "normalization_rules": [
+      "It is not case sensitive and must be lowercased."
+    ]
   },
   "name_definition": {
+    "requirement": "required",
     "native_name": "name",
-    "is_case_sensitve": false,
-    "note": "The name is not case sensitive and must be lowercased."
+    "case_sensitive": false,
+    "note": "The name is not case sensitive and must be lowercased.",
+    "normalization_rules": [
+      "It is not case sensitive and must be lowercased."
+    ]
   },
   "version_definition": {
+    "requirement": "required",
     "native_name": "version",
     "note": "The version is the version of the binary (or source) package."
   },
   "qualifiers_definition": [
     {
       "key": "arch",
+      "requirement": "optional",
       "description": "arch is the qualifiers key for a package architecture. The special value arch=source identifies a Debian source package that usually consists of a Debian Source control file (.dsc) and corresponding upstream and Debian sources. The dpkg-query command can print the name and version of the corresponding source package of a binary package, e.g. dpkg-query -f ${source:Package} ${source:Version} -W <binary package name>"
+    },
+    {
+      "key": "distro",
+      "requirement": "optional",
+      "description": "The distribution name, codename, or suite."
+    },
+    {
+      "key": "repository_url",
+      "requirement": "optional",
+      "description": "Base URL for the package repository."
     }
   ],
   "examples": [
