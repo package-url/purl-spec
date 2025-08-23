@@ -9,36 +9,44 @@
     "default_repository_url": "https://repo.anaconda.com"
   },
   "namespace_definition": {
-    "note": "there is no namspace",
+    "note": "There is no namespace for Conda packages.",
     "requirement": "prohibited"
   },
   "name_definition": {
+    "requirement": "required",
     "native_name": "name",
     "note": "The name is the package name."
   },
   "version_definition": {
+    "requirement": "required",
     "native_name": "version",
     "note": "The version is the package version."
   },
   "qualifiers_definition": [
     {
       "key": "build",
+      "requirement": "optional",
       "description": "the build string."
     },
     {
       "key": "channel",
+      "requirement": "optional",
       "description": "the package stored location."
     },
     {
       "key": "subdir",
+      "requirement": "optional",
       "description": "the associated platform."
     },
     {
       "key": "type",
+      "requirement": "optional",
       "description": "package type."
     }
   ],
   "examples": [
-    "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2"
+    "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
+    "pkg:conda/numpy@1.20.3?subdir=linux-64",
+    "pkg:conda/python@3.9.7?build=h70747c6_1&channel=defaults&subdir=osx-64"
   ]
 }
