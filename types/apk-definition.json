@@ -35,32 +35,17 @@
     {
       "key": "arch",
       "requirement": "optional",
-      "description": "The arch is the qualifiers key for a package architecture.",
-      "examples": [
-        "x86",
-        "x86_64",
-        "aarch64",
-        "armhf",
-        "armv7",
-        "noarch"
-      ]
+      "description": "The arch is the qualifiers key for a package architecture."
     },
     {
       "key": "distro",
       "requirement": "optional",
-      "description": "The distribution name when using multiple distributions",
-      "examples": [
-        "alpine",
-        "postmarketos"
-      ]
+      "description": "The distribution name when using multiple distributions"
     },
     {
       "key": "repository_url",
       "requirement": "optional",
-      "description": "Base URL for the package repository",
-      "examples": [
-        "https://dl-cdn.alpinelinux.org/alpine/"
-      ]
+      "description": "Base URL for the package repository"
     }
   ],
   "examples": [
