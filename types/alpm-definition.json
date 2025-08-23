@@ -21,7 +21,10 @@
     "requirement": "required",
     "note": "The name is the package name. It is not case sensitive and must be lowercased. Any characters that are reserved in the PURL specification, such as '@', must be percent-encoded.",
     "case_sensitive": false,
-    "native_name": "name"
+    "native_name": "name",
+    "normalization_rules": [
+      "It is not case sensitive and must be lowercased."
+    ]
   },
   "version_definition": {
     "requirement": "required",
