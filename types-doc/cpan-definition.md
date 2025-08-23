@@ -33,7 +33,7 @@ The structure of a PURL for this package type is:
 ## Version definition
 
 - **Native Label:** version
-- **Note:** `The version is the distribution version.`
+- **Note:** `The version is the distribution version`
 
 ## Qualifiers Definition
 
@@ -49,3 +49,7 @@ The structure of a PURL for this package type is:
 - `pkg:cpan/GDT/URI-PackageURL`
 - `pkg:cpan/OALDERS/libwww-perl@6.76`
 - `pkg:cpan/DROLSKY/DateTime@1.55?repository_url=backpan.perl.org`
+
+## Note
+
+The previous CPAN PURL type specification allowed module names (e.g. URI::PackageURL) to be used as PURL 'name' while also omitting the PURL 'namespace'. The parser MUST emit an error when a module is specified as a PURL 'name' or detect '::' characters.
