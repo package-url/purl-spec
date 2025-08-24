@@ -254,6 +254,223 @@
       "expected_output": "pkg:npm/core@2.0.1#googleapis/api/annotations",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Negative Test: An npm purl with an un-encoded @ in scope should fail parsing",
+      "test_group": "advanced",
+      "test_type": "parse",
+      "input": "pkg:npm/@angular/animation@12.3.1",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse due to unencoded '@' in the namespace"
+    },
+    {
+      "description": "Negative Test: An npm purl with an uppercase name should fail parsing",
+      "test_group": "advanced",
+      "test_type": "parse",
+      "input": "pkg:npm/React@17.0.1",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse due to uppercase characters in the name"
+    },
+    {
+      "description": "Normalization Test: An npm purl with an uppercase name should be lowercased on roundtrip",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:npm/LoDash@4.17.21",
+      "expected_output": "pkg:npm/lodash@4.17.21",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Positive Test: An npm purl with no version is valid",
+      "test_group": "advanced",
+      "test_type": "parse",
+      "input": "pkg:npm/react",
+      "expected_output": {
+        "type": "npm",
+        "namespace": null,
+        "name": "react",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Positive Test: A scoped npm purl with no version is valid",
+      "test_group": "advanced",
+      "test_type": "parse",
+      "input": "pkg:npm/%40angular/core",
+      "expected_output": {
+        "type": "npm",
+        "namespace": "@angular",
+        "name": "core",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Negative Test: An npm purl with an empty version should fail",
+      "test_group": "advanced",
+      "test_type": "parse",
+      "input": "pkg:npm/foobar@",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse due to an empty version string"
+    },
+    {
+      "description": "Negative Test: An npm purl with a name starting with a dot should fail",
+      "test_group": "advanced",
+      "test_type": "parse",
+      "input": "pkg:npm/.foobar@1.0.0",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse because the name starts with a dot"
+    },
+    {
+      "description": "Negative Test: An npm purl with a name starting with an underscore should fail",
+      "test_group": "advanced",
+      "test_type": "parse",
+      "input": "pkg:npm/_foobar@1.0.0",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse because the name starts with an underscore"
+    },
+    {
+      "description": "Edge Case Test: Version with pre-release and build metadata should be preserved",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:npm/foobar@1.2.3-alpha.1+build.456",
+      "expected_output": "pkg:npm/foobar@1.2.3-alpha.1+build.456",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Positive Test: Package name with dots and hyphens is valid",
+      "test_group": "advanced",
+      "test_type": "parse",
+      "input": "pkg:npm/my-package.js@1.0.0",
+      "expected_output": {
+        "type": "npm",
+        "namespace": null,
+        "name": "my-package.js",
+        "version": "1.0.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Normalization Test: Both scope and name with uppercase letters are lowercased",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:npm/%40MyScope/MyPackage@1.0.0",
+      "expected_output": "pkg:npm/%40myscope/mypackage@1.0.0",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Negative Test: A purl with only a type should fail parsing",
+      "test_group": "advanced",
+      "test_type": "parse",
+      "input": "pkg:npm/",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse because name is a required component"
+    },
+    {
+      "description": "Negative Test: An npm purl with a unicode character (emoji) in the name should fail parsing",
+      "test_group": "advanced",
+      "test_type": "parse",
+      "input": "pkg:npm/foo%F0%9F%98%83bar@1.0.0",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse because the name contains characters not allowed by npm naming rules"
+    },
+    {
+      "description": "Negative Test: An npm purl with a unicode character (emoji) in the scope should fail parsing",
+      "test_group": "advanced",
+      "test_type": "parse",
+      "input": "pkg:npm/%40foo%F0%9F%98%83/bar@1.0.0",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse because the scope contains characters not allowed by npm naming rules"
+    },
+    {
+      "description": "Positive Test: An npm purl with a subpath containing unicode characters (emoji) should roundtrip correctly",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:npm/foo@1.0.0#src/%F0%9F%98%83/file.js",
+      "expected_output": "pkg:npm/foo@1.0.0#src/%F0%9F%98%83/file.js",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Positive Test: An npm purl with a subpath containing unicode characters (emoji) should parse correctly",
+      "test_group": "advanced",
+      "test_type": "parse",
+      "input": "pkg:npm/foo@1.0.0#src/%F0%9F%98%83/file.js",
+      "expected_output": {
+        "type": "npm",
+        "namespace": null,
+        "name": "foo",
+        "version": "1.0.0",
+        "qualifiers": null,
+        "subpath": "src/😃/file.js"
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Positive Test: An npm purl with a qualifier value containing unicode characters (emoji) should roundtrip correctly",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:npm/foo@1.0.0?vcs_url=https://a.com/b/c%F0%9F%98%83d.git",
+      "expected_output": "pkg:npm/foo@1.0.0?vcs_url=https://a.com/b/c%F0%9F%98%83d.git",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Positive Test: An npm purl with a qualifier value containing unicode characters (emoji) should parse correctly",
+      "test_group": "advanced",
+      "test_type": "parse",
+      "input": "pkg:npm/foo@1.0.0?vcs_url=https://a.com/b/c%F0%9F%98%83d.git",
+      "expected_output": {
+        "type": "npm",
+        "namespace": null,
+        "name": "foo",
+        "version": "1.0.0",
+        "qualifiers": {
+          "vcs_url": "https://a.com/b/c😃d.git"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Edge Case Test: An npm purl with a unicode character in the version string should roundtrip",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:npm/foo@1.2.3-%F0%9F%98%83",
+      "expected_output": "pkg:npm/foo@1.2.3-%F0%9F%98%83",
+      "expected_failure": false,
+      "expected_failure_reason": "Version is treated as verbatim, even if it's not valid SemVer"
+    },
+    {
+      "description": "Positive test for a package with a name containing a problematic but valid character like a dot",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:npm/foo.bar@1.2.3",
+      "expected_output": "pkg:npm/foo.bar@1.2.3",
+      "expected_failure": false,
+      "expected_failure_reason": null
     }
   ]
 }
