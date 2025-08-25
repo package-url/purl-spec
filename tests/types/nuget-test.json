@@ -2,23 +2,23 @@
   "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
   "tests": [
     {
-      "description": "nuget names are case sensitive. Rountrip an input purl to canonical.",
+      "description": "nuget names are not case sensitive. Rountrip an input purl to canonical.",
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:Nuget/EnterpriseLibrary.Common@6.0.1304",
-      "expected_output": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
+      "expected_output": "pkg:nuget/enterpriselibrary.common@6.0.1304",
       "expected_failure": false,
       "expected_failure_reason": null
     },
     {
-      "description": "nuget names are case sensitive",
+      "description": "nuget names are not case sensitive",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:Nuget/EnterpriseLibrary.Common@6.0.1304",
       "expected_output": {
         "type": "nuget",
         "namespace": null,
-        "name": "EnterpriseLibrary.Common",
+        "name": "enterpriselibrary.common",
         "version": "6.0.1304",
         "qualifiers": null,
         "subpath": null
@@ -27,16 +27,16 @@
       "expected_failure_reason": null
     },
     {
-      "description": "nuget names are case sensitive. Rountrip a canonical input to canonical output.",
+      "description": "nuget names are not case sensitive. Rountrip a canonical input to canonical output.",
       "test_group": "base",
       "test_type": "roundtrip",
-      "input": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
-      "expected_output": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
+      "input": "pkg:nuget/enterpriselibrary.common@6.0.1304",
+      "expected_output": "pkg:nuget/enterpriselibrary.common@6.0.1304",
       "expected_failure": false,
       "expected_failure_reason": null
     },
     {
-      "description": "nuget names are case sensitive",
+      "description": "nuget names are not case sensitive",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -47,48 +47,25 @@
         "qualifiers": null,
         "subpath": null
       },
-      "expected_output": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
+      "expected_output": "pkg:nuget/enterpriselibrary.common@6.0.1304",
       "expected_failure": false,
       "expected_failure_reason": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
-      "test_type": "parse",
-      "input": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
-      "expected_output": {
-        "type": "nuget",
-        "namespace": null,
-        "name": "EnterpriseLibrary.Common",
-        "version": "6.0.1304",
-        "qualifiers": null,
-        "subpath": null
-      },
-      "expected_failure": false,
-      "expected_failure_reason": null
-    },
-    {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "nuget names do not always contain separators",
       "test_group": "base",
       "test_type": "roundtrip",
-      "input": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
-      "expected_output": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
+      "input": "pkg:nuget/polly@8.0.0-beta.2",
+      "expected_output": "pkg:nuget/polly@8.0.0-beta.2",
       "expected_failure": false,
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "nuget versions are extended semver",
       "test_group": "base",
-      "test_type": "build",
-      "input": {
-        "type": "nuget",
-        "namespace": null,
-        "name": "EnterpriseLibrary.Common",
-        "version": "6.0.1304",
-        "qualifiers": null,
-        "subpath": null
-      },
-      "expected_output": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
+      "test_type": "roundtrip",
+      "input": "pkg:nuget/awssdk.core@3.7.303.14",
+      "expected_output": "pkg:nuget/awssdk.core@3.7.303.14",
       "expected_failure": false,
       "expected_failure_reason": null
     }
