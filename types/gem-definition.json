@@ -1,6 +1,6 @@
 {
   "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
-  "$id": "https://packageurl.org/types/generic-definition.json",
+  "$id": "https://packageurl.org/types/gem-definition.json",
   "type": "gem",
   "type_name": "RubyGems",
   "description": "RubyGems",

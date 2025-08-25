@@ -14,7 +14,7 @@
   },
   "name_definition": {
     "native_name": "name",
-    "is_case_sensitve": true,
+    "case_sensitive": true,
     "note": "The name is the repository name."
   },
   "version_definition": {
