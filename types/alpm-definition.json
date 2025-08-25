@@ -1,6 +1,6 @@
 {
   "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
-  "$id": "https://packageurl.org/types/github-definition.json",
+  "$id": "https://packageurl.org/types/alpm-definition.json",
   "type": "alpm",
   "type_name": "Arch Linux package",
   "description": "Arch Linux packages and other users of the libalpm/pacman package manager.",
