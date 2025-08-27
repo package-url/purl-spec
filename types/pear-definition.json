@@ -1,0 +1,29 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/pear-definition.json",
+  "type": "pear",
+  "type_name": "PEAR/PECL",
+  "description": "PEAR and PECL PHP packages",
+  "repository": {
+    "use_repository": true,
+    "note": "the depository URL is derived from the `namespace`"
+  },
+  "namespace_definition": {
+    "requirement": "required",
+    "case_sensitive": true,
+    "normalization_rules": [ "The domain portion of the channel MUST be lowercased." ],
+    "native_name": "channel",
+    "note": "The `namespace` is the channel of the package."
+  },
+  "name_definition": {
+    "native_name": "package",
+    "case_sensitive": true
+  },
+  "version_definition": {
+    "native_name": "version"
+  },
+  "examples": [
+    "pkg:pear/pear.php.net/Text_Password@1.2.1",
+    "pkg:pear/pecl.php.net/APCu@5.1.23"
+  ]
+}
