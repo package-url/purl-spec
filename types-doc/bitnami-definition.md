@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Bitnami
 - **Description:** Bitnami-based packages
-- **Schema ID:** `https://packageurl.org/types/bitname-definition.json`
+- **Schema ID:** `https://packageurl.org/types/bitnami-definition.json`
 
 ## PURL Syntax
 
