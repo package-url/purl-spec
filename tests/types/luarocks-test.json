@@ -127,6 +127,82 @@
       "expected_output": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid LuaRocks package with only name and version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": {
+        "type": "luarocks",
+        "namespace": null,
+        "name": "luasocket",
+        "version": "3.1.0-1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_messages": null
+    },
+    {
+      "description": "Valid LuaRocks package with namespace and version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": {
+        "type": "luarocks",
+        "namespace": "hisham",
+        "name": "luafilesystem",
+        "version": "1.8.0-1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_messages": null
+    },
+    {
+      "description": "Valid LuaRocks package with private repository_url qualifier",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": {
+        "type": "luarocks",
+        "namespace": "username",
+        "name": "packagename",
+        "version": "0.1.0-1",
+        "qualifiers": {
+          "repository_url": "https://example.com/private_rocks_server/"
+        },
+        "subpath": null
+      },
+      "expected_messages": null
+    },
+    {
+      "description": "Unsupported qualifier is provided",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": {
+        "type": "luarocks",
+        "namespace": "username",
+        "name": "packagename",
+        "version": "0.1.0-1",
+        "qualifiers": {
+          "channel": "beta"
+        },
+        "subpath": null
+      },
+      "expected_messages": ["Invalid qualifiers found: channel. Allowed qualifiers are: repository_url"]
+    },
+    {
+      "description": "Advanced validation for name with uppercase letters",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": {
+        "type": "luarocks",
+        "namespace": null,
+        "name": "LuaSocket",
+        "version": "3.1.0-1",
+        "qualifiers": {
+          "private_url": "https://example.com/private_rocks_server/"
+        },
+        "subpath": null
+      },
+      "expected_messages": null
     }
   ]
 }

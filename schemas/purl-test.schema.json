@@ -104,12 +104,14 @@
           "enum": [
             "build",
             "parse",
-            "roundtrip"
+            "roundtrip",
+            "validation"
           ],
           "meta:enum": {
             "build": "A PURL building test from decoded components to a canonical PURL string.",
             "parse": "A PURL building test from decoded components to a canonical PURL string.",
-            "roundtrip": "A PURL roundtrip test, parsing then building back a PURL from a canonical string input."
+            "roundtrip": "A PURL roundtrip test, parsing then building back a PURL from a canonical string input.",
+            "validation": "A PURL validation test, checking if a PURL follows all the rules for a particular ecosystem."
           }
         },
         "expected_failure": {
@@ -126,7 +128,16 @@
             "string",
             "null"
           ]
+        },
+        "expected_messages": {
+        "title": "Expected messages",
+        "description": "Validation messages expected for this test. Can be null or a list of strings.",
+        "default": null,
+        "type": ["null", "array"],
+        "items": {
+          "type": "string"
         }
+      }
       },
       "allOf": [
         {
@@ -283,6 +294,31 @@
               "input",
               "expected_failure_reason"
             ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test_type": { "const": "validation" }
+            },
+            "required": ["test_type"]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Expected decoded PURL components",
+                "description": "Test input as an object with decoded PURL components for validation.",
+                "$ref": "#/definitions/purl_components"
+              },
+              "expected_messages": {
+                "title": "Expected messages",
+                "description": "Validation messages expected for this test. Can be null or a list of strings.",
+                "default": null,
+                "type": ["null", "array"],
+                "items": { "type": "string" }
+              }
+            },
+            "required": ["input"]
           }
         }
       ]

@@ -222,6 +222,94 @@
       "expected_output": "pkg:pypi/django-allauth@12.23",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid PyPI package with version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": {
+        "type": "pypi",
+        "namespace": null,
+        "name": "django",
+        "version": "1.11.1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_messages": []
+    },
+    {
+      "description": "Valid PyPI package with file_name qualifier",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": {
+        "type": "pypi",
+        "namespace": null,
+        "name": "django",
+        "version": "1.11.1",
+        "qualifiers": {
+          "file_name": "Django-1.11.1.tar.gz"
+        },
+        "subpath": null
+      },
+      "expected_messages": []
+    },
+    {
+      "description": "Valid PyPI package with wheel file_name",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": {
+        "type": "pypi",
+        "namespace": null,
+        "name": "django",
+        "version": "1.11.1",
+        "qualifiers": {
+          "file_name": "Django-1.11.1-py2.py3-none-any.whl"
+        },
+        "subpath": null
+      },
+      "expected_messages": []
+    },
+    {
+      "description": "PyPI package with name containing underscores and dots",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": {
+        "type": "pypi",
+        "namespace": null,
+        "name": "django_allauth",
+        "version": "12.23",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_messages": ["Name cannot contain `_` for purl type:'pypi'"]
+    },
+    {
+      "description": "PyPI package with name containing underscores and dots",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": {
+        "type": "pypi",
+        "namespace": null,
+        "name": "django_allauth",
+        "version": "12.23",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_messages": null
+    },
+    {
+      "description": "Name with uppercase letters",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": {
+        "type": "pypi",
+        "namespace": null,
+        "name": "Django-AllAuth",
+        "version": "12.23",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_messages": null
     }
   ]
 }

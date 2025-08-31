@@ -140,6 +140,82 @@
       "expected_output": "pkg:gem/jruby-launcher@1.1.2?platform=java",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid RubyGem with default platform",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": {
+        "type": "gem",
+        "namespace": null,
+        "name": "ruby-advisory-db-check",
+        "version": "0.12.4",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_messages": []
+    },
+    {
+      "description": "Valid RubyGem with java platform",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": {
+        "type": "gem",
+        "namespace": null,
+        "name": "jruby-launcher",
+        "version": "1.1.2",
+        "qualifiers": {
+          "platform": "java"
+        },
+        "subpath": null
+      },
+      "expected_messages": []
+    },
+    {
+      "description": "Subpath included",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": {
+        "type": "gem",
+        "namespace": null,
+        "name": "nokogiri",
+        "version": "1.14.3",
+        "qualifiers": null,
+        "subpath": "lib/nokogiri.rb"
+      },
+      "expected_messages": []
+    },
+    {
+      "description": "Extra unknown qualifier",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": {
+        "type": "gem",
+        "namespace": null,
+        "name": "sinatra",
+        "version": "3.1.2",
+        "qualifiers": {
+          "unknown": "value"
+        },
+        "subpath": null
+      },
+      "expected_messages": ["Invalid qualifiers found: unknown. Allowed qualifiers are: platform, repository_url"]
+    },
+    {
+      "description": "Extra unknown qualifier",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": {
+        "type": "gem",
+        "namespace": null,
+        "name": "sinatra",
+        "version": "3.1.2",
+        "qualifiers": {
+          "unknown": "value"
+        },
+        "subpath": null
+      },
+      "expected_messages": null
     }
   ]
 }

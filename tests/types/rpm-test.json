@@ -152,6 +152,94 @@
       "expected_output": "pkg:rpm/centerim@4.22.10-1.el6?arch=i686&distro=fedora-25&epoch=1",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid RPM with vendor, name, version and arch",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": {
+        "type": "rpm",
+        "namespace": "fedora",
+        "name": "curl",
+        "version": "7.50.3-1.fc25",
+        "qualifiers": {
+          "arch": "i386"
+        },
+        "subpath": null
+      },
+      "expected_messages": null
+    },
+    {
+      "description": "Valid RPM with epoch qualifier",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": {
+        "type": "rpm",
+        "namespace": "fedora",
+        "name": "centerim",
+        "version": "4.22.10-1.el6",
+        "qualifiers": {
+          "arch": "i686",
+          "epoch": "1",
+          "distro": "fedora-25"
+        },
+        "subpath": null
+      },
+      "expected_messages": null
+    },
+    {
+      "description": "RPM missing vendor (namespace)",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": {
+        "type": "rpm",
+        "namespace": null,
+        "name": "curl",
+        "version": "7.50.3-1.fc25",
+        "qualifiers": {
+          "arch": "i386",
+          "distro": "fedora-25"
+        },
+        "subpath": null
+      },
+      "expected_messages": [
+        "Namespace is required for purl type: 'rpm'", 
+        "Invalid qualifiers found: distro. Allowed qualifiers are: arch, epoch, repository_url"
+      ]
+    },
+    {
+      "description": "Valid RPM without version",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": {
+        "type": "rpm",
+        "namespace": "opensuse",
+        "name": "zsh",
+        "version": null,
+        "qualifiers": {
+          "arch": "x86_64",
+          "distro": "opensuse-15.3"
+        },
+        "subpath": null
+      },
+      "expected_messages": null
+    },
+    {
+      "description": "Valid RPM with repository_url instead of distro",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": {
+        "type": "rpm",
+        "namespace": "centos",
+        "name": "vim",
+        "version": "8.0-1.el7",
+        "qualifiers": {
+          "arch": "x86_64",
+          "repository_url": "https://mirror.centos.org/centos/7/os/x86_64"
+        },
+        "subpath": null
+      },
+      "expected_messages": null
     }
   ]
 }

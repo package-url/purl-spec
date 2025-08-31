@@ -234,6 +234,64 @@
       "expected_output": "pkg:swift/github.com/RxSwiftCommunity/RxFlow@2.12.4",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid Swift package with namespace, name, and version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": {
+        "type": "swift",
+        "namespace": "github.com/Alamofire",
+        "name": "Alamofire",
+        "version": "5.4.3",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_messages": null
+    },
+    {
+      "description": "namespace is missing",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": {
+        "type": "swift",
+        "namespace": null,
+        "name": "Alamofire",
+        "version": "5.4.3",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_messages": ["Namespace is required for purl type: 'swift'"]
+    },
+    {
+      "description": "unsupported qualifier is provided",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": {
+        "type": "swift",
+        "namespace": "github.com/Alamofire",
+        "name": "Alamofire",
+        "version": "5.4.3",
+        "qualifiers": {
+          "repository_url": "https://swiftpm.example.com/"
+        },
+        "subpath": null
+      },
+      "expected_messages": null
+    },
+    {
+      "description": "Valid Swift package with case-sensitive namespace and name",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": {
+        "type": "swift",
+        "namespace": "GitHub.com/SomeOrg",
+        "name": "MyLibrary",
+        "version": "1.0.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_messages": null
     }
   ]
 }
