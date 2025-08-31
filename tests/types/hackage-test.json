@@ -207,6 +207,92 @@
       "expected_output": "pkg:hackage/3d-graphics-examples@0.0.0.2",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid Hackage package with simple kebab-case name",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": {
+        "type": "hackage",
+        "namespace": null,
+        "name": "lens",
+        "version": "5.0.1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_messages": null
+    },
+    {
+      "description": "Valid Hackage package with uppercase letters",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": {
+        "type": "hackage",
+        "namespace": null,
+        "name": "AC-HalfInteger",
+        "version": "1.2.1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_messages": null
+    },
+    {
+      "description": "Valid Hackage package with numbers and dots in version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": {
+        "type": "hackage",
+        "namespace": null,
+        "name": "3d-graphics-examples",
+        "version": "0.0.0.2",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_messages": null
+    },
+    {
+      "description": "Hackage package with namespace included",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": {
+        "type": "hackage",
+        "namespace": "haskell",
+        "name": "text",
+        "version": "1.2.4",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_messages": [
+        "Namespace is prohibited for purl type: 'hackage'"
+      ]
+    },
+    {
+      "description": "Hackage package with name not in kebab-case",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": {
+        "type": "hackage",
+        "namespace": null,
+        "name": "My_Package",
+        "version": "0.1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_messages": ["Name contains underscores but should be kebab-case for purl type: 'hackage'"]
+    },
+    {
+      "description": "Hackage package with name not in kebab-case",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": {
+        "type": "hackage",
+        "namespace": null,
+        "name": "My_Package",
+        "version": "0.1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_messages": null
     }
   ]
 }
