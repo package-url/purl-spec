@@ -20,7 +20,13 @@ def generate_purl_syntax(definition) -> str:
     else:
         namespace = ""
 
-    purl_syntax = f"pkg:{definition['type']}{namespace}/<name>@<version>?<qualifiers>#<subpath>"
+    subpath = definition.get("subpath_definition", {}).get("requirement", "optional")
+    if subpath in ["required", "optional"]:
+        subpath = "#<subpath>"
+    else:
+        subpath = ""
+
+    purl_syntax = f"pkg:{definition['type']}{namespace}/<name>@<version>?<qualifiers>{subpath}"
 
     return purl_syntax
 
