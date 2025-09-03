@@ -140,96 +140,44 @@
       "description": "Valid alpm package with arch qualifier",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "alpm",
-        "namespace": "arch",
-        "name": "pacman",
-        "version": "6.0.1-1",
-        "qualifiers": {
-          "arch": "x86_64"
-        },
-        "subpath": null
-      },
+      "input": "pkg:alpm/arch/pacman@6.0.1-1?arch=x86_64",
       "expected_messages": null
     },
     {
       "description": "alpm package with uppercase nmamespace",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "alpm",
-        "namespace": "Arch",
-        "name": "pacman",
-        "version": "6.0.1-1",
-        "qualifiers": {
-          "arch": "x86_64"
-        },
-        "subpath": null
-      },
-      "expected_messages": ["Namespace is not lowercased for purl type: 'alpm'"]
+      "input": "pkg:alpm/Arch/pacman@6.0.1-1?arch=x86_64",
+      "expected_messages": [
+        "Namespace is not lowercased for purl type: 'alpm'"
+      ]
     },
     {
       "description": "alpm package with uppercase nmamespace (advanced)",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "alpm",
-        "namespace": "Arch",
-        "name": "pacman",
-        "version": "6.0.1-1",
-        "qualifiers": {
-          "arch": "x86_64"
-        },
-        "subpath": null
-      },
+      "input": "pkg:alpm/Arch/pacman@6.0.1-1?arch=x86_64",
       "expected_messages": null
     },
     {
       "description": "Valid alpm package with 'any' arch",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "alpm",
-        "namespace": "arch",
-        "name": "python-pip",
-        "version": "21.0-1",
-        "qualifiers": {
-          "arch": "any"
-        },
-        "subpath": null
-      },
+      "input": "pkg:alpm/arch/python-pip@21.0-1?arch=any",
       "expected_messages": null
     },
     {
       "description": "Valid alpm package with epoch in version",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "alpm",
-        "namespace": "arch",
-        "name": "containers-common",
-        "version": "1:0.47.4-4",
-        "qualifiers": {
-          "arch": "x86_64"
-        },
-        "subpath": null
-      },
+      "input": "pkg:alpm/arch/containers-common@1:0.47.4-4?arch=x86_64",
       "expected_messages": null
     },
     {
       "description": "alpm package missing namespace",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "alpm",
-        "namespace": null,
-        "name": "pacman",
-        "version": "6.0.1-1",
-        "qualifiers": {
-          "arch": "x86_64"
-        },
-        "subpath": null
-      },
+      "input": "pkg:alpm/pacman@6.0.1-1?arch=x86_64",
       "expected_messages": [
         "Namespace is required for purl type: 'alpm'"
       ]

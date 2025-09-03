@@ -128,56 +128,28 @@
       "description": "Valid Cargo package with name and version",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "cargo",
-        "namespace": null,
-        "name": "rand",
-        "version": "0.7.2",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:cargo/rand@0.7.2",
       "expected_messages": []
     },
     {
       "description": "Valid Cargo package with another example",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "cargo",
-        "namespace": null,
-        "name": "clap",
-        "version": "2.33.0",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:cargo/clap@2.33.0",
       "expected_messages": null
     },
     {
       "description": "Cargo package without version",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "cargo",
-        "namespace": null,
-        "name": "structopt",
-        "version": null,
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:cargo/structopt",
       "expected_messages": null
     },
     {
       "description": "Cargo package with namespace (not allowed)",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "cargo",
-        "namespace": "rustlang",
-        "name": "serde",
-        "version": "1.0.0",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:cargo/rustlang/serde@1.0.0",
       "expected_messages": [
         "Namespace is prohibited for purl type: 'cargo'"
       ]

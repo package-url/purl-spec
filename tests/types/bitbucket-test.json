@@ -96,62 +96,28 @@
       "description": "Valid Bitbucket package with commit hash as version",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "bitbucket",
-        "namespace": "birkenfeld",
-        "name": "pygments-main",
-        "version": "244fd47e07d1014f0aed9c",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
       "expected_messages": null
     },
     {
       "description": "Valid Bitbucket package with subpath",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "bitbucket",
-        "namespace": "teamname",
-        "name": "repo-name",
-        "version": "1.0.0",
-        "qualifiers": null,
-        "subpath": "src/main"
-      },
+      "input": "pkg:bitbucket/teamname/repo-name@1.0.0#src/main",
       "expected_messages": null
     },
     {
       "description": "Valid Bitbucket package with qualifiers",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "bitbucket",
-        "namespace": "company",
-        "name": "service",
-        "version": "release-2024",
-        "qualifiers": {
-          "arch": "x86_64",
-          "os": "linux"
-        },
-        "subpath": null
-      },
+      "input": "pkg:bitbucket/company/service@release-2024?arch=x86_64&os=linux",
       "expected_messages": null
     },
     {
       "description": "Valid Bitbucket package with qualifiers",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "bitbucket",
-        "namespace": "company",
-        "name": "service",
-        "version": "release-2024",
-        "qualifiers": {
-          "arch": "x86_64",
-          "os": "linux"
-        },
-        "subpath": null
-      },
+      "input": "pkg:bitbucket/company/service@release-2024?arch=x86_64&os=linux",
       "expected_messages": null
     }
   ]

@@ -140,98 +140,42 @@
       "description": "Valid SWID with namespace, name, version and tag_id",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "swid",
-        "namespace": "Acme",
-        "name": "example.com/Enterprise+Server",
-        "version": "1.0.0",
-        "qualifiers": {
-          "tag_id": "75b8c285-fa7b-485b-b199-4745e3004d0d"
-        },
-        "subpath": null
-      },
+      "input": "pkg:swid/Acme/example.com/Enterprise+Server@1.0.0?tag_id=75b8c285-fa7b-485b-b199-4745e3004d0d",
       "expected_messages": null
     },
     {
       "description": "Valid SWID with only name and tag_id (no namespace)",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "swid",
-        "namespace": null,
-        "name": "Fedora",
-        "version": "29",
-        "qualifiers": {
-          "tag_id": "org.fedoraproject.Fedora-29"
-        },
-        "subpath": null
-      },
+      "input": "pkg:swid/Fedora@29?tag_id=org.fedoraproject.Fedora-29",
       "expected_messages": null
     },
     {
       "description": "Valid SWID with tag_creator_name and tag_creator_regid qualifiers",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "swid",
-        "namespace": "Adobe Systems Incorporated",
-        "name": "Adobe InDesign",
-        "version": "CC",
-        "qualifiers": {
-          "tag_id": "CreativeCloud-CS6-Win-GM-MUL",
-          "tag_creator_name": "AdobeCorp",
-          "tag_creator_regid": "com.adobe"
-        },
-        "subpath": null
-      },
+      "input": "pkg:swid/Adobe Systems Incorporated/Adobe InDesign@CC?tag_creator_name=AdobeCorp&tag_creator_regid=com.adobe&tag_id=CreativeCloud-CS6-Win-GM-MUL",
       "expected_messages": null
     },
     {
       "description": "SWID missing required tag_id qualifier",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "swid",
-        "namespace": "Acme",
-        "name": "example.com/Enterprise+Server",
-        "version": "1.0.0",
-        "qualifiers": {},
-        "subpath": null
-      },
+      "input": "pkg:swid/Acme/example.com/Enterprise+Server@1.0.0",
       "expected_messages": null
     },
     {
       "description": "SWID with empty tag_id",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "swid",
-        "namespace": "Acme",
-        "name": "example.com/Enterprise+Server",
-        "version": "1.0.0",
-        "qualifiers": {
-          "tag_id": ""
-        },
-        "subpath": null
-      },
+      "input": "pkg:swid/Acme/example.com/Enterprise+Server@1.0.0?tag_id=",
       "expected_messages": null
     },
     {
       "description": "Valid SWID with optional patch and tag_version",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "swid",
-        "namespace": "Acme",
-        "name": "example.com/Enterprise+Server",
-        "version": "1.0.0",
-        "qualifiers": {
-          "tag_id": "75b8c285-fa7b-485b-b199-4745e3004d0d",
-          "tag_version": "3",
-          "patch": "true"
-        },
-        "subpath": null
-      },
+      "input": "pkg:swid/Acme/example.com/Enterprise+Server@1.0.0?patch=true&tag_id=75b8c285-fa7b-485b-b199-4745e3004d0d&tag_version=3",
       "expected_messages": null
     }
   ]

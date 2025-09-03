@@ -186,76 +186,35 @@
       "description": "Valid Docker image with tag only",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "docker",
-        "namespace": null,
-        "name": "cassandra",
-        "version": "latest",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:docker/cassandra@latest",
       "expected_messages": null
     },
     {
       "description": "Valid Docker image with namespace and sha256 digest",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "docker",
-        "namespace": "smartentry",
-        "name": "debian",
-        "version": "dc437cc87d10",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:docker/smartentry/debian@dc437cc87d10",
       "expected_messages": null
     },
     {
       "description": "Valid Docker image with repository_url qualifier",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "docker",
-        "namespace": "customer",
-        "name": "dockerimage",
-        "version": "sha256:244fd47e07d10",
-        "qualifiers": {
-          "repository_url": "gcr.io"
-        },
-        "subpath": null
-      },
+      "input": "pkg:docker/customer/dockerimage@sha256:244fd47e07d10?repository_url=gcr.io",
       "expected_messages": null
     },
     {
       "description": "Docker image with unsupported qualifier",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "docker",
-        "namespace": null,
-        "name": "ubuntu",
-        "version": "20.04",
-        "qualifiers": {
-          "bad": "value"
-        },
-        "subpath": null
-      },
+      "input": "pkg:docker/ubuntu@20.04?bad=value",
       "expected_messages": null
     },
     {
       "description": "Docker image with unsupported qualifier",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "docker",
-        "namespace": null,
-        "name": "ubuntu",
-        "version": "20.04",
-        "qualifiers": {
-          "bad": "value"
-        },
-        "subpath": null
-      },
+      "input": "pkg:docker/ubuntu@20.04?bad=value",
       "expected_messages": null
     }
   ]

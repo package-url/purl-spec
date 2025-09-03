@@ -96,84 +96,44 @@
       "description": "Valid NuGet package with name and version",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "nuget",
-        "namespace": null,
-        "name": "EnterpriseLibrary.Common",
-        "version": "6.0.1304",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:nuget/EnterpriseLibrary.Common@6.0.1304",
       "expected_messages": null
     },
     {
       "description": "Valid NuGet package with lowercase name",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "nuget",
-        "namespace": null,
-        "name": "newtonsoft.json",
-        "version": "13.0.3",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:nuget/newtonsoft.json@13.0.3",
       "expected_messages": null
     },
     {
       "description": "NuGet package without version",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "nuget",
-        "namespace": null,
-        "name": "NUnit",
-        "version": null,
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:nuget/NUnit",
       "expected_messages": null
     },
     {
       "description": "NuGet package with namespace (should be prohibited)",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "nuget",
-        "namespace": "microsoft",
-        "name": "aspnetcore.mvc",
-        "version": "2.2.0",
-        "qualifiers": null,
-        "subpath": null
-      },
-      "expected_messages": ["Namespace is prohibited for purl type: 'nuget'"]
+      "input": "pkg:nuget/microsoft/aspnetcore.mvc@2.2.0",
+      "expected_messages": [
+        "Namespace is prohibited for purl type: 'nuget'"
+      ]
     },
     {
       "description": "NuGet package with pre-release version",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "nuget",
-        "namespace": null,
-        "name": "EntityFramework",
-        "version": "7.0.0-preview.2",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:nuget/EntityFramework@7.0.0-preview.2",
       "expected_messages": null
     },
     {
       "description": "NuGet package with 4-part version",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "nuget",
-        "namespace": null,
-        "name": "System.Data.SqlClient",
-        "version": "4.8.5.1234",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:nuget/System.Data.SqlClient@4.8.5.1234",
       "expected_messages": null
     }
   ]

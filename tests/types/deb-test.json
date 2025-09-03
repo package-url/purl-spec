@@ -290,65 +290,28 @@
       "description": "Valid deb package with vendor, name, version, and arch",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "deb",
-        "namespace": "debian",
-        "name": "curl",
-        "version": "7.50.3-1",
-        "qualifiers": {
-          "arch": "i386",
-          "distro": "jessie"
-        },
-        "subpath": null
-      },
+      "input": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
       "expected_messages": null
     },
     {
       "description": "Valid deb package with vendor, name, version, without distro",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "deb",
-        "namespace": "ubuntu",
-        "name": "dpkg",
-        "version": "1.19.0.4",
-        "qualifiers": {
-          "arch": "amd64"
-        },
-        "subpath": null
-      },
+      "input": "pkg:deb/ubuntu/dpkg@1.19.0.4?arch=amd64",
       "expected_messages": []
     },
     {
       "description": "Valid deb source package",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "deb",
-        "namespace": "debian",
-        "name": "attr",
-        "version": "1:2.4.47-2",
-        "qualifiers": {
-          "arch": "source"
-        },
-        "subpath": null
-      },
+      "input": "pkg:deb/debian/attr@1:2.4.47-2?arch=source",
       "expected_messages": []
     },
     {
       "description": "Deb package missing vendor",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "deb",
-        "namespace": null,
-        "name": "curl",
-        "version": "7.50.3-1",
-        "qualifiers": {
-          "arch": "amd64"
-        },
-        "subpath": null
-      },
+      "input": "pkg:deb/curl@7.50.3-1?arch=amd64",
       "expected_messages": [
         "Namespace is required for purl type: 'deb'"
       ]
@@ -357,16 +320,7 @@
       "description": "deb package with unsupported qualifier",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "deb",
-        "namespace": "debian",
-        "name": "curl",
-        "version": "7.50.3-1",
-        "qualifiers": {
-          "foo": "bar"
-        },
-        "subpath": null
-      },
+      "input": "pkg:deb/debian/curl@7.50.3-1?foo=bar",
       "expected_messages": null
     }
   ]

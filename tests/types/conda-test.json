@@ -116,47 +116,21 @@
       "description": "Valid Conda package with name and version only",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "conda",
-        "namespace": null,
-        "name": "absl-py",
-        "version": "0.4.1",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:conda/absl-py@0.4.1",
       "expected_messages": []
     },
     {
       "description": "Valid Conda package with full qualifiers (build, channel, subdir, type)",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "conda",
-        "namespace": null,
-        "name": "absl-py",
-        "version": "0.4.1",
-        "qualifiers": {
-          "build": "py36h06a4308_0",
-          "channel": "main",
-          "subdir": "linux-64",
-          "type": "tar.bz2"
-        },
-        "subpath": null
-      },
+      "input": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
       "expected_messages": []
     },
     {
       "description": "Conda package with namespace (not allowed)",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "conda",
-        "namespace": "anaconda",
-        "name": "absl-py",
-        "version": "0.4.1",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:conda/anaconda/absl-py@0.4.1",
       "expected_messages": [
         "Namespace is prohibited for purl type: 'conda'"
       ]
@@ -165,16 +139,7 @@
       "description": "Conda package with unsupported qualifier",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "conda",
-        "namespace": null,
-        "name": "absl-py",
-        "version": "0.4.1",
-        "qualifiers": {
-          "foo": "bar"
-        },
-        "subpath": null
-      },
+      "input": "pkg:conda/absl-py@0.4.1?foo=bar",
       "expected_messages": null
     }
   ]

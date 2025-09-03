@@ -193,67 +193,28 @@
       "description": "Valid OCI package with repository_url, arch, and tag",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "oci",
-        "namespace": null,
-        "name": "debian",
-        "version": "sha256:244fd47e07d10",
-        "qualifiers": {
-          "repository_url": "docker.io/library/debian",
-          "arch": "amd64",
-          "tag": "latest"
-        },
-        "subpath": null
-      },
+      "input": "pkg:oci/debian@sha256:244fd47e07d10?arch=amd64&repository_url=docker.io/library/debian&tag=latest",
       "expected_messages": []
     },
     {
       "description": "Valid OCI package with repository_url and tag only",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "oci",
-        "namespace": null,
-        "name": "debian",
-        "version": "sha256:244fd47e07d10",
-        "qualifiers": {
-          "repository_url": "ghcr.io/debian",
-          "tag": "bullseye"
-        },
-        "subpath": null
-      },
+      "input": "pkg:oci/debian@sha256:244fd47e07d10?repository_url=ghcr.io/debian&tag=bullseye",
       "expected_messages": []
     },
     {
       "description": "Valid OCI package without repository_url (allowed, registry agnostic)",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "oci",
-        "namespace": null,
-        "name": "hello-wasm",
-        "version": "sha256:244fd47e07d10",
-        "qualifiers": {
-          "tag": "v1"
-        },
-        "subpath": null
-      },
+      "input": "pkg:oci/hello-wasm@sha256:244fd47e07d10?tag=v1",
       "expected_messages": []
     },
     {
       "description": "OCI package with namespace provided (prohibited)",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "oci",
-        "namespace": "library",
-        "name": "debian",
-        "version": "sha256:244fd47e07d10",
-        "qualifiers": {
-          "repository_url": "docker.io/library/debian"
-        },
-        "subpath": null
-      },
+      "input": "pkg:oci/library/debian@sha256:244fd47e07d10?repository_url=docker.io/library/debian",
       "expected_messages": [
         "Namespace is prohibited for purl type: 'oci'"
       ]
@@ -262,33 +223,14 @@
       "description": "OCI package with missing version (required digest)",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "oci",
-        "namespace": null,
-        "name": "debian",
-        "version": null,
-        "qualifiers": {
-          "repository_url": "docker.io/library/debian",
-          "tag": "latest"
-        },
-        "subpath": null
-      },
+      "input": "pkg:oci/debian?repository_url=docker.io/library/debian&tag=latest",
       "expected_messages": null
     },
     {
       "description": "OCI package with uppercase name",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "oci",
-        "namespace": null,
-        "name": "Debian",
-        "version": "sha256:244fd47e07d10",
-        "qualifiers": {
-          "repository_url": "docker.io/library/debian"
-        },
-        "subpath": null
-      },
+      "input": "pkg:oci/Debian@sha256:244fd47e07d10?repository_url=docker.io/library/debian",
       "expected_messages": [
         "Name is not lowercased for purl type: 'oci'"
       ]
@@ -297,16 +239,7 @@
       "description": "OCI package with uppercase name",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "oci",
-        "namespace": null,
-        "name": "Debian",
-        "version": "sha256:244fd47e07d10",
-        "qualifiers": {
-          "repository_url": "docker.io/library/debian"
-        },
-        "subpath": null
-      },
+      "input": "pkg:oci/Debian@sha256:244fd47e07d10?repository_url=docker.io/library/debian",
       "expected_messages": null
     }
   ]

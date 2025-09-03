@@ -169,56 +169,28 @@
       "description": "Valid CocoaPods package with name and version",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "cocoapods",
-        "namespace": null,
-        "name": "AFNetworking",
-        "version": "4.0.1",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:cocoapods/AFNetworking@4.0.1",
       "expected_messages": []
     },
     {
       "description": "Valid CocoaPods package with subspec in subpath",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "cocoapods",
-        "namespace": null,
-        "name": "GoogleUtilities",
-        "version": "7.5.2",
-        "qualifiers": null,
-        "subpath": "NSData+zlib"
-      },
+      "input": "pkg:cocoapods/GoogleUtilities@7.5.2#NSData+zlib",
       "expected_messages": []
     },
     {
       "description": "CocoaPods package without version",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "cocoapods",
-        "namespace": null,
-        "name": "MapsIndoors",
-        "version": null,
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:cocoapods/MapsIndoors",
       "expected_messages": []
     },
     {
       "description": "CocoaPods package with namespace (not allowed)",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "cocoapods",
-        "namespace": "apple",
-        "name": "ShareKit",
-        "version": "2.0",
-        "qualifiers": null,
-        "subpath": "Twitter"
-      },
+      "input": "pkg:cocoapods/apple/ShareKit@2.0#Twitter",
       "expected_messages": [
         "Namespace is prohibited for purl type: 'cocoapods'"
       ]
