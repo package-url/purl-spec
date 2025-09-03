@@ -155,7 +155,7 @@
       "input": "pkg:generic/bitwarderl?vcs_url=git+https://git.fsfe.org/dxtr/bitwarderl@cc55108da32",
       "expected_output": [
         {
-          "level": "info",
+          "severity": "info",
           "message": "Invalid qualifiers found: vcs_url. Allowed qualifiers are: checksum, download_url"
         }
       ]

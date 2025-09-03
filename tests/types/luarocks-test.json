@@ -156,7 +156,7 @@
       "input": "pkg:luarocks/username/packagename@0.1.0-1?channel=beta",
       "expected_output": [
         {
-          "level": "info",
+          "severity": "info",
           "message": "Invalid qualifiers found: channel. Allowed qualifiers are: repository_url"
         }
       ]
