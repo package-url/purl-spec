@@ -291,29 +291,32 @@
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
-      "expected_messages": null
+      "expected_output": null
     },
     {
       "description": "Valid deb package with vendor, name, version, without distro",
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:deb/ubuntu/dpkg@1.19.0.4?arch=amd64",
-      "expected_messages": []
+      "expected_output": []
     },
     {
       "description": "Valid deb source package",
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:deb/debian/attr@1:2.4.47-2?arch=source",
-      "expected_messages": []
+      "expected_output": []
     },
     {
       "description": "Deb package missing vendor",
       "test_group": "advanced",
       "test_type": "validation",
       "input": "pkg:deb/curl@7.50.3-1?arch=amd64",
-      "expected_messages": [
-        "Namespace is required for purl type: 'deb'"
+      "expected_output": [
+        {
+          "severity": "error",
+          "message": "Namespace is required for purl type: 'deb'"
+        }
       ]
     },
     {
@@ -321,7 +324,12 @@
       "test_group": "advanced",
       "test_type": "validation",
       "input": "pkg:deb/debian/curl@7.50.3-1?foo=bar",
-      "expected_messages": null
+      "expected_output": [
+        {
+          "severity": "info",
+          "message": "Invalid qualifiers found: distro. Allowed qualifiers are: arch, repository_url"
+        }
+      ]
     }
   ]
 }

@@ -329,35 +329,40 @@
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:conan/openssl@3.0.3",
-      "expected_messages": []
+      "expected_output": []
     },
     {
       "description": "Valid Conan package with namespace (vendor) and qualifiers user+channel",
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:conan/openssl.org/openssl@3.0.3?channel=stable&user=bincrafters",
-      "expected_messages": []
+      "expected_output": []
     },
     {
       "description": "Valid Conan package with namespace, complex qualifiers including rrev and prev",
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:conan/openssl.org/openssl@3.0.3?arch=x86_64&build_type=Debug&compiler=Visual Studio&compiler.runtime=MDd&compiler.version=16&os=Windows&prev=b429db8a0e324114c25ec387bfd8281f330d7c5c&rrev=93a82349c31917d2d674d22065c7a9ef9f380c8e&shared=True",
-      "expected_messages": null
+      "expected_output": null
     },
     {
       "description": "Valid Conan package with only namespace and no qualifiers",
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:conan/openssl.org/openssl@3.0.3",
-      "expected_messages": []
+      "expected_output": []
     },
     {
       "description": "Conan package with unsupported qualifier key",
       "test_group": "advanced",
       "test_type": "validation",
       "input": "pkg:conan/openssl@3.0.3?foo=bar",
-      "expected_messages": null
+      "expected_output": [
+        {
+          "severity": "info",
+          "message": "Invalid qualifiers found: arch, build_type, compiler, compiler.runtime, compiler.version, os, shared. Allowed qualifiers are: channel, prev, repository_url, rrev, user"
+        }
+      ]
     }
   ]
 }

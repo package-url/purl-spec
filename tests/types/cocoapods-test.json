@@ -170,29 +170,32 @@
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:cocoapods/AFNetworking@4.0.1",
-      "expected_messages": []
+      "expected_output": []
     },
     {
       "description": "Valid CocoaPods package with subspec in subpath",
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:cocoapods/GoogleUtilities@7.5.2#NSData+zlib",
-      "expected_messages": []
+      "expected_output": []
     },
     {
       "description": "CocoaPods package without version",
       "test_group": "advanced",
       "test_type": "validation",
       "input": "pkg:cocoapods/MapsIndoors",
-      "expected_messages": []
+      "expected_output": []
     },
     {
       "description": "CocoaPods package with namespace (not allowed)",
       "test_group": "advanced",
       "test_type": "validation",
       "input": "pkg:cocoapods/apple/ShareKit@2.0#Twitter",
-      "expected_messages": [
-        "Namespace is prohibited for purl type: 'cocoapods'"
+      "expected_output": [
+        {
+          "severity": "error",
+          "message": "Namespace is prohibited for purl type: 'cocoapods'"
+        }
       ]
     }
   ]

@@ -129,29 +129,32 @@
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:cargo/rand@0.7.2",
-      "expected_messages": []
+      "expected_output": []
     },
     {
       "description": "Valid Cargo package with another example",
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:cargo/clap@2.33.0",
-      "expected_messages": null
+      "expected_output": []
     },
     {
       "description": "Cargo package without version",
       "test_group": "advanced",
       "test_type": "validation",
       "input": "pkg:cargo/structopt",
-      "expected_messages": null
+      "expected_output": []
     },
     {
       "description": "Cargo package with namespace (not allowed)",
       "test_group": "advanced",
       "test_type": "validation",
       "input": "pkg:cargo/rustlang/serde@1.0.0",
-      "expected_messages": [
-        "Namespace is prohibited for purl type: 'cargo'"
+      "expected_output": [
+        {
+          "severity": "error",
+          "message": "Namespace is prohibited for purl type: 'cargo'"
+        }
       ]
     }
   ]
