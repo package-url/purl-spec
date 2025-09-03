@@ -291,7 +291,7 @@
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
-      "expected_output": null
+      "expected_output": []
     },
     {
       "description": "Valid deb package with vendor, name, version, without distro",

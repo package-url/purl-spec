@@ -158,22 +158,25 @@
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386",
-      "expected_messages": null
+      "expected_output": []
     },
     {
       "description": "Valid RPM with epoch qualifier",
       "test_group": "advanced",
       "test_type": "validation",
       "input": "pkg:rpm/fedora/centerim@4.22.10-1.el6?arch=i686&distro=fedora-25&epoch=1",
-      "expected_messages": null
+      "expected_output": []
     },
     {
       "description": "RPM missing vendor (namespace)",
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:rpm/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
-      "expected_messages": [
-        "Namespace is required for purl type: 'rpm'"
+      "expected_output": [
+        {
+          "severity": "error",
+          "message": "Namespace is required for purl type: 'rpm'"
+        }
       ]
     },
     {
@@ -181,14 +184,14 @@
       "test_group": "advanced",
       "test_type": "validation",
       "input": "pkg:rpm/opensuse/zsh?arch=x86_64&distro=opensuse-15.3",
-      "expected_messages": null
+      "expected_output": []
     },
     {
       "description": "Valid RPM with repository_url instead of distro",
       "test_group": "advanced",
       "test_type": "validation",
       "input": "pkg:rpm/centos/vim@8.0-1.el7?arch=x86_64&repository_url=https://mirror.centos.org/centos/7/os/x86_64",
-      "expected_messages": null
+      "expected_output": []
     }
   ]
 }

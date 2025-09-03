@@ -240,15 +240,18 @@
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:swift/github.com/Alamofire/Alamofire@5.4.3",
-      "expected_messages": null
+      "expected_output": []
     },
     {
       "description": "namespace is missing",
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:swift/Alamofire@5.4.3",
-      "expected_messages": [
-        "Namespace is required for purl type: 'swift'"
+      "expected_output": [
+        {
+          "severity": "error",
+          "message": "Namespace is required for purl type: 'swift'"
+        }
       ]
     },
     {
@@ -256,14 +259,14 @@
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:swift/github.com/Alamofire/Alamofire@5.4.3?repository_url=https://swiftpm.example.com/",
-      "expected_messages": null
+      "expected_output": []
     },
     {
       "description": "Valid Swift package with case-sensitive namespace and name",
       "test_group": "advanced",
       "test_type": "validation",
       "input": "pkg:swift/GitHub.com/SomeOrg/MyLibrary@1.0.0",
-      "expected_messages": null
+      "expected_output": []
     }
   ]
 }

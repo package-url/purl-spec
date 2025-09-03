@@ -174,36 +174,39 @@
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:hex/jason@1.1.2",
-      "expected_messages": null
+      "expected_output": []
     },
     {
       "description": "Valid Hex package with optional namespace",
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:hex/acme/foo@2.3.0",
-      "expected_messages": null
+      "expected_output": []
     },
     {
       "description": "Valid Hex package with subpath",
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js",
-      "expected_messages": null
+      "expected_output": []
     },
     {
       "description": "Valid Hex package with repository_url qualifier",
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com",
-      "expected_messages": null
+      "expected_output": []
     },
     {
       "description": "Hex package with uppercase name",
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:hex/Phoenix_HTML@1.0.0",
-      "expected_messages": [
-        "Name is not lowercased for purl type: 'hex'"
+      "expected_output": [
+        {
+          "severity": "warning",
+          "message": "Name is not lowercased for purl type: 'hex'"
+        }
       ]
     },
     {
@@ -211,15 +214,18 @@
       "test_group": "advanced",
       "test_type": "validation",
       "input": "pkg:hex/Phoenix_HTML@1.0.0",
-      "expected_messages": null
+      "expected_output": []
     },
     {
       "description": "Hex package with uppercase namespace",
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:hex/ACME/foo@1.0.0",
-      "expected_messages": [
-        "Namespace is not lowercased for purl type: 'hex'"
+      "expected_output": [
+        {
+          "severity": "warning",
+          "message": "Namespace is not lowercased for purl type: 'hex'"
+        }
       ]
     },
     {
@@ -227,7 +233,7 @@
       "test_group": "advanced",
       "test_type": "validation",
       "input": "pkg:hex/ACME/foo@1.0.0",
-      "expected_messages": null
+      "expected_output": []
     }
   ]
 }

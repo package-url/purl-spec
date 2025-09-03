@@ -146,35 +146,35 @@
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:gem/ruby-advisory-db-check@0.12.4",
-      "expected_messages": []
+      "expected_output": []
     },
     {
       "description": "Valid RubyGem with java platform",
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:gem/jruby-launcher@1.1.2?platform=java",
-      "expected_messages": []
+      "expected_output": []
     },
     {
       "description": "Subpath included",
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:gem/nokogiri@1.14.3#lib/nokogiri.rb",
-      "expected_messages": []
+      "expected_output": []
     },
     {
       "description": "Extra unknown qualifier",
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:gem/sinatra@3.1.2?unknown=value",
-      "expected_messages": null
+      "expected_output": []
     },
     {
       "description": "Extra unknown qualifier",
       "test_group": "advanced",
       "test_type": "validation",
       "input": "pkg:gem/sinatra@3.1.2?unknown=value",
-      "expected_messages": null
+      "expected_output": []
     }
   ]
 }

@@ -246,8 +246,11 @@
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
-      "expected_messages": [
-        "Namespace is required for purl type: 'huggingface'"
+      "expected_output": [
+        {
+          "severity": "error",
+          "message": "Namespace is required for purl type: 'huggingface'"
+        }
       ]
     },
     {
@@ -255,21 +258,21 @@
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111",
-      "expected_messages": []
+      "expected_output": []
     },
     {
       "description": "Valid Hugging Face model with subpath",
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:huggingface/EleutherAI/gpt-neo-1.3B@797174552ae47f449ab70b684cabcb6603e5e85e#tokenizer/config.json",
-      "expected_messages": []
+      "expected_output": []
     },
     {
       "description": "Valid Hugging Face model with repository_url qualifier",
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:huggingface/EleutherAI/gpt-neo-1.3B@797174552ae47f449ab70b684cabcb6603e5e85e?repository_url=https://hub-ci.huggingface.co",
-      "expected_messages": []
+      "expected_output": []
     }
   ]
 }
