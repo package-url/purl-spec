@@ -260,29 +260,32 @@
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:npm/foobar@12.3.1",
-      "expected_messages": null
+      "expected_output": []
     },
     {
       "description": "Valid npm package with scope",
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:npm/%40angular/animation@12.3.1",
-      "expected_messages": null
+      "expected_output": []
     },
     {
       "description": "Valid npm package with qualifier vcs_url",
       "test_group": "advanced",
       "test_type": "validation",
       "input": "pkg:npm/mypackage@12.4.5?vcs_url=git://host.com/path/to/repo.git%404345abcd34343",
-      "expected_messages": null
+      "expected_output": []
     },
     {
       "description": "npm package with uppercase name",
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:npm/MyPackage@1.0.0",
-      "expected_messages": [
-        "Name is not lowercased for purl type: 'npm'"
+      "expected_output": [
+        {
+          "severity": "warning",
+          "message": "Name is not lowercased for purl type: 'npm'"
+        }
       ]
     },
     {
@@ -290,7 +293,7 @@
       "test_group": "advanced",
       "test_type": "validation",
       "input": "pkg:npm/MyPackage@1.0.0",
-      "expected_messages": null
+      "expected_output": []
     }
   ]
 }
