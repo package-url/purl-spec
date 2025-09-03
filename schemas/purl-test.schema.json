@@ -68,6 +68,34 @@
         }
       }
     },
+    "purl_validation_message": {
+      "title": "PURL validation message",
+      "description": "Validation severity and message to use as a test expected output when validating a PURL.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "severity": {
+          "title": "Validation severity",
+          "description": "Validation severity.",
+          "type": "string",
+          "enum": [
+            "info",
+            "warning",
+            "error"
+          ],
+          "meta:enum": {
+            "info": "Informational validation message",
+            "warning": "Warning validation message",
+            "error": "Error validation message"
+          }
+        },
+        "message": {
+          "title": "Validation message",
+          "description": "Validation message.",
+          "type": "string"
+        }
+      }
+    },
     "purl_test": {
       "title": "PURL test",
       "description": "A PURL test with input and expected output.",
@@ -128,16 +156,7 @@
             "string",
             "null"
           ]
-        },
-        "expected_messages": {
-        "title": "Expected messages",
-        "description": "Validation messages expected for this test. Can be null or a list of strings.",
-        "default": null,
-        "type": ["null", "array"],
-        "items": {
-          "type": "string"
         }
-      }
       },
       "allOf": [
         {
@@ -299,9 +318,44 @@
         {
           "if": {
             "properties": {
-              "test_type": { "const": "validation" }
+              "test_type": {
+                "const": "validation"
+              }
             },
-            "required": ["test_type"]
+            "required": [
+              "test_type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input test PURL",
+                "description": "A PURL string to use as a test input (canonical or not).",
+                "type": "string"
+              },
+              "expected_output": {
+                "title": "Expected validation messages and severities",
+                "description": "List of validation objects with message and severity expected for this test. Can be an empty list.",
+                "type": "array",
+                "$ref": "#/definitions/purl_validation_message"
+              }
+            },
+            "required": [
+              "input",
+              "expected_output"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "validation"
+              }
+            },
+            "required": [
+              "test_type"
+            ]
           },
           "then": {
             "properties": {
@@ -314,11 +368,18 @@
                 "title": "Expected messages",
                 "description": "Validation messages expected for this test. Can be null or a list of strings.",
                 "default": null,
-                "type": ["null", "array"],
-                "items": { "type": "string" }
+                "type": [
+                  "null",
+                  "array"
+                ],
+                "items": {
+                  "type": "string"
+                }
               }
             },
-            "required": ["input"]
+            "required": [
+              "input"
+            ]
           }
         }
       ]
