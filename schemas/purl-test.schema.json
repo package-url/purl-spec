@@ -337,48 +337,14 @@
                 "title": "Expected validation messages and severities",
                 "description": "List of validation objects with message and severity expected for this test. Can be an empty list.",
                 "type": "array",
-                "$ref": "#/definitions/purl_validation_message"
+                "items": {
+                  "$ref": "#/definitions/purl_validation_message"
+                }
               }
             },
             "required": [
               "input",
               "expected_output"
-            ]
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "test_type": {
-                "const": "validation"
-              }
-            },
-            "required": [
-              "test_type"
-            ]
-          },
-          "then": {
-            "properties": {
-              "input": {
-                "title": "Expected decoded PURL components",
-                "description": "Test input as an object with decoded PURL components for validation.",
-                "$ref": "#/definitions/purl_components"
-              },
-              "expected_messages": {
-                "title": "Expected messages",
-                "description": "Validation messages expected for this test. Can be null or a list of strings.",
-                "default": null,
-                "type": [
-                  "null",
-                  "array"
-                ],
-                "items": {
-                  "type": "string"
-                }
-              }
-            },
-            "required": [
-              "input"
             ]
           }
         }
