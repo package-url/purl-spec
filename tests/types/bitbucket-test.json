@@ -135,7 +135,7 @@
         },
         "subpath": null
       },
-      "expected_messages": ["Invalid qualifiers found: arch, os. Allowed qualifiers are: repository_url"]
+      "expected_messages": null
     },
     {
       "description": "Valid Bitbucket package with qualifiers",

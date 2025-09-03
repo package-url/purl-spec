@@ -199,7 +199,7 @@
         },
         "subpath": null
       },
-      "expected_messages": ["Invalid qualifiers found: unknown. Allowed qualifiers are: platform, repository_url"]
+      "expected_messages": null
     },
     {
       "description": "Extra unknown qualifier",

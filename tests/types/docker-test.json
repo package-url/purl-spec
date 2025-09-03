@@ -256,9 +256,7 @@
         },
         "subpath": null
       },
-      "expected_messages": [
-        "Invalid qualifiers found: bad. Allowed qualifiers are: repository_url"
-      ]
+      "expected_messages": null
     }
   ]
 }

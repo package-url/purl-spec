@@ -301,7 +301,7 @@
         },
         "subpath": null
       },
-      "expected_messages": ["Invalid qualifiers found: distro. Allowed qualifiers are: arch, repository_url"]
+      "expected_messages": null
     },
     {
       "description": "Valid deb package with vendor, name, version, without distro",

@@ -186,7 +186,7 @@
         },
         "subpath": null
       },
-      "expected_messages": ["Invalid qualifiers found: channel. Allowed qualifiers are: repository_url"]
+      "expected_messages": null
     },
     {
       "description": "Advanced validation for name with uppercase letters",

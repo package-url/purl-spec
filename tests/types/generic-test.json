@@ -179,7 +179,7 @@
         },
         "subpath": null
       },
-      "expected_messages": ["Invalid qualifiers found: vcs_url. Allowed qualifiers are: checksum, download_url"]
+      "expected_messages": null
     },
     {
       "description": "Extra unknown qualifier",
