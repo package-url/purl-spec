@@ -154,7 +154,12 @@
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:luarocks/username/packagename@0.1.0-1?channel=beta",
-      "expected_output": []
+      "expected_output": [
+        {
+          "level": "info",
+          "message": "Invalid qualifiers found: channel. Allowed qualifiers are: repository_url"
+        }
+      ]
     },
     {
       "description": "Advanced validation for name with uppercase letters",

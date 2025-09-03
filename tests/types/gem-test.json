@@ -167,7 +167,12 @@
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:gem/sinatra@3.1.2?unknown=value",
-      "expected_output": []
+      "expected_output": [
+        {
+          "severity": "info",
+          "message": "Invalid qualifiers found: unknown. Allowed qualifiers are: platform, repository_url"
+        }
+      ]
     },
     {
       "description": "Extra unknown qualifier",

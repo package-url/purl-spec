@@ -306,7 +306,12 @@
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:mlflow/creditfraud@3?foo=bar",
-      "expected_output": []
+      "expected_output": [
+        {
+          "severity": "info",
+          "message": "Invalid qualifiers found: foo. Allowed qualifiers are: model_uuid, repository_url, run_id"
+        }
+      ]
     }
   ]
 }

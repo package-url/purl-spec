@@ -149,11 +149,16 @@
       "expected_output": []
     },
     {
-      "description": "Valid generic package with vcs_url",
+      "description": "generic package with vcs_url",
       "test_group": "base",
       "test_type": "validation",
       "input": "pkg:generic/bitwarderl?vcs_url=git+https://git.fsfe.org/dxtr/bitwarderl@cc55108da32",
-      "expected_output": []
+      "expected_output": [
+        {
+          "level": "info",
+          "message": "Invalid qualifiers found: vcs_url. Allowed qualifiers are: checksum, download_url"
+        }
+      ]
     },
     {
       "description": "Extra unknown qualifier",
