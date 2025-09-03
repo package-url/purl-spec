@@ -95,64 +95,28 @@
       "description": "Valid apk package with arch qualifier",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "apk",
-        "namespace": "alpine",
-        "name": "curl",
-        "version": "7.83.0-r0",
-        "qualifiers": {
-          "arch": "x86"
-        },
-        "subpath": null
-      },
+      "input": "pkg:apk/alpine/curl@7.83.0-r0?arch=x86",
       "expected_messages": null
     },
     {
       "description": "Valid apk package with higher version and arch qualifier",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "apk",
-        "namespace": "alpine",
-        "name": "apk",
-        "version": "2.12.9-r3",
-        "qualifiers": {
-          "arch": "x86"
-        },
-        "subpath": null
-      },
+      "input": "pkg:apk/alpine/apk@2.12.9-r3?arch=x86",
       "expected_messages": null
     },
     {
       "description": "Valid apk package with openwrt vendor",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "apk",
-        "namespace": "openwrt",
-        "name": "busybox",
-        "version": "1.35.0-r5",
-        "qualifiers": {
-          "arch": "mips"
-        },
-        "subpath": null
-      },
+      "input": "pkg:apk/openwrt/busybox@1.35.0-r5?arch=mips",
       "expected_messages": null
     },
     {
       "description": "apk package missing namespace",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "apk",
-        "namespace": null,
-        "name": "curl",
-        "version": "7.83.0-r0",
-        "qualifiers": {
-          "arch": "x86"
-        },
-        "subpath": null
-      },
+      "input": "pkg:apk/curl@7.83.0-r0?arch=x86",
       "expected_messages": [
         "Namespace is required for purl type: 'apk'"
       ]
@@ -161,16 +125,7 @@
       "description": "apk package with uppercase namespace and name",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "apk",
-        "namespace": "FOO",
-        "name": "BAR",
-        "version": "7.83.0-r0",
-        "qualifiers": {
-          "arch": "x86"
-        },
-        "subpath": null
-      },
+      "input": "pkg:apk/FOO/BAR@7.83.0-r0?arch=x86",
       "expected_messages": [
         "Namespace is not lowercased for purl type: 'apk'",
         "Name is not lowercased for purl type: 'apk'"
@@ -180,16 +135,7 @@
       "description": "apk package with uppercase namespace and name (advanced)",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "apk",
-        "namespace": "FOO",
-        "name": "BAR",
-        "version": "7.83.0-r0",
-        "qualifiers": {
-          "arch": "x86"
-        },
-        "subpath": null
-      },
+      "input": "pkg:apk/FOO/BAR@7.83.0-r0?arch=x86",
       "expected_messages": null
     }
   ]

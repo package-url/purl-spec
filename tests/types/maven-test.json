@@ -903,93 +903,42 @@
       "description": "Valid Maven package with groupId, artifactId, and version",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "maven",
-        "namespace": "org.apache.xmlgraphics",
-        "name": "batik-anim",
-        "version": "1.9.1",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1",
       "expected_messages": []
     },
     {
       "description": "Valid Maven package with type qualifier (pom)",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "maven",
-        "namespace": "org.apache.xmlgraphics",
-        "name": "batik-anim",
-        "version": "1.9.1",
-        "qualifiers": {
-          "type": "pom"
-        },
-        "subpath": null
-      },
+      "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=pom",
       "expected_messages": []
     },
     {
       "description": "Valid Maven package with classifier qualifier (sources)",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "maven",
-        "namespace": "org.apache.xmlgraphics",
-        "name": "batik-anim",
-        "version": "1.9.1",
-        "qualifiers": {
-          "classifier": "sources"
-        },
-        "subpath": null
-      },
+      "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources",
       "expected_messages": []
     },
     {
       "description": "Valid Maven package with both type and classifier qualifiers",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "maven",
-        "namespace": "org.apache.xmlgraphics",
-        "name": "batik-anim",
-        "version": "1.9.1",
-        "qualifiers": {
-          "type": "zip",
-          "classifier": "dist"
-        },
-        "subpath": null
-      },
+      "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=dist&type=zip",
       "expected_messages": []
     },
     {
       "description": "Valid Maven package with repository_url qualifier",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "maven",
-        "namespace": "groovy",
-        "name": "groovy",
-        "version": "1.0",
-        "qualifiers": {
-          "repository_url": "https://maven.google.com"
-        },
-        "subpath": null
-      },
+      "input": "pkg:maven/groovy/groovy@1.0?repository_url=https://maven.google.com",
       "expected_messages": []
     },
     {
       "description": "Maven package missing namespace (groupId required)",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "maven",
-        "namespace": null,
-        "name": "batik-anim",
-        "version": "1.9.1",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:maven/batik-anim@1.9.1",
       "expected_messages": [
         "Namespace is required for purl type: 'maven'"
       ]

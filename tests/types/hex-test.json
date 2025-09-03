@@ -173,114 +173,60 @@
       "description": "Valid Hex package with lowercase name",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "hex",
-        "namespace": null,
-        "name": "jason",
-        "version": "1.1.2",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:hex/jason@1.1.2",
       "expected_messages": null
     },
     {
       "description": "Valid Hex package with optional namespace",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "hex",
-        "namespace": "acme",
-        "name": "foo",
-        "version": "2.3.0",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:hex/acme/foo@2.3.0",
       "expected_messages": null
     },
     {
       "description": "Valid Hex package with subpath",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "hex",
-        "namespace": null,
-        "name": "phoenix_html",
-        "version": "2.13.3",
-        "qualifiers": null,
-        "subpath": "priv/static/phoenix_html.js"
-      },
+      "input": "pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js",
       "expected_messages": null
     },
     {
       "description": "Valid Hex package with repository_url qualifier",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "hex",
-        "namespace": null,
-        "name": "bar",
-        "version": "1.2.3",
-        "qualifiers": {
-          "repository_url": "https://myrepo.example.com"
-        },
-        "subpath": null
-      },
+      "input": "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com",
       "expected_messages": null
     },
     {
       "description": "Hex package with uppercase name",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "hex",
-        "namespace": null,
-        "name": "Phoenix_HTML",
-        "version": "1.0.0",
-        "qualifiers": null,
-        "subpath": null
-      },
-      "expected_messages": ["Name is not lowercased for purl type: 'hex'"]
+      "input": "pkg:hex/Phoenix_HTML@1.0.0",
+      "expected_messages": [
+        "Name is not lowercased for purl type: 'hex'"
+      ]
     },
     {
       "description": "Hex package with uppercase name",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "hex",
-        "namespace": null,
-        "name": "Phoenix_HTML",
-        "version": "1.0.0",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:hex/Phoenix_HTML@1.0.0",
       "expected_messages": null
     },
     {
       "description": "Hex package with uppercase namespace",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "hex",
-        "namespace": "ACME",
-        "name": "foo",
-        "version": "1.0.0",
-        "qualifiers": null,
-        "subpath": null
-      },
-      "expected_messages": ["Namespace is not lowercased for purl type: 'hex'"]
+      "input": "pkg:hex/ACME/foo@1.0.0",
+      "expected_messages": [
+        "Namespace is not lowercased for purl type: 'hex'"
+      ]
     },
     {
       "description": "Hex package with uppercase namespace",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "hex",
-        "namespace": "ACME",
-        "name": "foo",
-        "version": "1.0.0",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:hex/ACME/foo@1.0.0",
       "expected_messages": null
     }
   ]

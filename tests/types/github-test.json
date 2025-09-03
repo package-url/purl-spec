@@ -137,42 +137,21 @@
       "description": "Valid GitHub package with namespace, name, and version",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "github",
-        "namespace": "package-url",
-        "name": "purl-spec",
-        "version": "244fd47e07d1004",
-        "subpath": null,
-        "qualifiers": {}
-      },
+      "input": "pkg:github/package-url/purl-spec@244fd47e07d1004",
       "expected_messages": []
     },
     {
       "description": "Valid GitHub package with subpath",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "github",
-        "namespace": "package-url",
-        "name": "purl-spec",
-        "version": "244fd47e07d1004",
-        "subpath": "everybody/loves/dogs",
-        "qualifiers": {}
-      },
+      "input": "pkg:github/package-url/purl-spec@244fd47e07d1004#everybody/loves/dogs",
       "expected_messages": []
     },
     {
       "description": "GitHub package missing namespace",
       "test_group": "advanced",
       "test_type": "validation",
-      "input": {
-        "type": "github",
-        "namespace": null,
-        "name": "purl-spec",
-        "version": "244fd47e07d1004",
-        "subpath": null,
-        "qualifiers": {}
-      },
+      "input": "pkg:github/purl-spec@244fd47e07d1004",
       "expected_messages": [
         "Namespace is required for purl type: 'github'"
       ]

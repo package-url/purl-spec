@@ -246,56 +246,28 @@
       "description": "Valid CRAN package with name and version",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "cran",
-        "namespace": null,
-        "name": "A3",
-        "version": "1.0.0",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:cran/A3@1.0.0",
       "expected_messages": []
     },
     {
       "description": "Valid CRAN package with hyphen in version",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "cran",
-        "namespace": null,
-        "name": "rJava",
-        "version": "1.0-4",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:cran/rJava@1.0-4",
       "expected_messages": []
     },
     {
       "description": "Valid CRAN package with complex version",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "cran",
-        "namespace": null,
-        "name": "caret",
-        "version": "6.0-88",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:cran/caret@6.0-88",
       "expected_messages": []
     },
     {
       "description": "CRAN package with namespace (not allowed)",
       "test_group": "base",
       "test_type": "validation",
-      "input": {
-        "type": "cran",
-        "namespace": "ml",
-        "name": "caret",
-        "version": "6.0-88",
-        "qualifiers": null,
-        "subpath": null
-      },
+      "input": "pkg:cran/ml/caret@6.0-88",
       "expected_messages": [
         "Namespace is prohibited for purl type: 'cran'"
       ]
