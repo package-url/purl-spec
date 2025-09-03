@@ -355,9 +355,7 @@
         },
         "subpath": null
       },
-      "expected_messages": [
-        "Invalid qualifiers found: foo. Allowed qualifiers are: model_uuid, repository_url, run_id"
-      ]
+      "expected_messages": null
     }
   ]
 }

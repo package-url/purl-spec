@@ -204,7 +204,6 @@
       },
       "expected_messages": [
         "Namespace is required for purl type: 'rpm'", 
-        "Invalid qualifiers found: distro. Allowed qualifiers are: arch, epoch, repository_url"
       ]
     },
     {

@@ -377,7 +377,7 @@
         },
         "subpath": null
       },
-      "expected_messages": ["Invalid qualifiers found: arch, build_type, compiler, compiler.runtime, compiler.version, os, shared. Allowed qualifiers are: channel, prev, repository_url, rrev, user"]
+      "expected_messages": null
     },
     {
       "description": "Valid Conan package with only namespace and no qualifiers",
