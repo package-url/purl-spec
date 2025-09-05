@@ -252,7 +252,7 @@
       "expected_output": [
         {
           "severity": "warning",
-          "message": "Name cannot contain `_` for purl type:'pypi'"
+          "message": "Name cannot contain underscores for purl type:'pypi'"
         }
       ]
     },

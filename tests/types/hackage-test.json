@@ -248,8 +248,8 @@
       "input": "pkg:hackage/My_Package@0.1",
       "expected_output": [
         {
-          "severity": "error",
-          "message": "Name contains underscores but should be kebab-case for purl type: 'hackage'"
+          "severity": "warning",
+          "message": "Name cannot contain underscores for purl type:'hackage'"
         }
       ]
     },

@@ -117,7 +117,7 @@
       "expected_output": [
         {
           "severity": "error",
-          "message": "Name contains invalid characters but should only contain lowercase letters, digits, or underscores for purl type: 'pub'"
+          "message": "Name contains invalid characters but should only contain letters, digits, or underscores for purl type: 'pub'"
         }
       ]
     },
