@@ -12,12 +12,12 @@
     "requirement": "required",
     "note": "The namespace is the user or organization. It is not case sensitive and must be lowercased.",
     "native_name": "user or organization",
-    "is_case_sensitve": false
+    "case_sensitive": false
   },
   "name_definition": {
     "note": "The name is the repository name. It is not case sensitive and must be lowercased.",
     "native_name": "repository name",
-    "is_case_sensitve": false
+    "case_sensitive": false
   },
   "version_definition": {
     "note": "The version is a commit or tag.",
