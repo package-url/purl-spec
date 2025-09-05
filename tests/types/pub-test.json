@@ -116,7 +116,7 @@
       "input": "pkg:pub/http-client@0.13.6",
       "expected_output": [
         {
-          "severity": "error",
+          "severity": "warning",
           "message": "Name contains invalid characters but should only contain letters, digits, or underscores for purl type: 'pub'"
         }
       ]
