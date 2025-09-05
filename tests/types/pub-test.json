@@ -82,6 +82,51 @@
       "expected_output": "pkg:pub/flutter@0.0.0",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid pub package with version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:pub/characters@1.2.0",
+      "expected_output": []
+    },
+    {
+      "description": "Valid pub package without version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:pub/flutter",
+      "expected_output": []
+    },
+    {
+      "description": "Pub package with uppercase letters",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:pub/Flutter@1.0.0",
+      "expected_output": [
+        {
+          "severity": "warning",
+          "message": "Name is not lowercased for purl type: 'pub'"
+        }
+      ]
+    },
+    {
+      "description": "Pub package with hyphen",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:pub/http-client@0.13.6",
+      "expected_output": [
+        {
+          "severity": "warning",
+          "message": "Name contains invalid characters but should only contain letters, digits, or underscores for purl type: 'pub'"
+        }
+      ]
+    },
+    {
+      "description": "Pub package with qualifiers",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:pub/characters@1.2.0?repository_url=https://pub.dev",
+      "expected_output": []
     }
   ]
 }

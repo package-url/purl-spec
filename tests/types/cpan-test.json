@@ -555,6 +555,84 @@
       "expected_output": "pkg:cpan/URI",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid CPAN module without namespace",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:cpan/Perl::Version@1.013",
+      "expected_output": []
+    },
+    {
+      "description": "Valid CPAN distribution with uppercase namespace (author ID)",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:cpan/DROLSKY/DateTime@1.55",
+      "expected_output": []
+    },
+    {
+      "description": "Valid CPAN distribution without version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:cpan/GDT/URI-PackageURL",
+      "expected_output": []
+    },
+    {
+      "description": "Valid CPAN module with :: in name and no namespace",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:cpan/LWP::UserAgent",
+      "expected_output": []
+    },
+    {
+      "description": "CPAN distribution with lowercase namespace (must be uppercase)",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:cpan/oalders/libwww-perl@6.76",
+      "expected_output": [
+        {
+          "severity": "warning",
+          "message": "Namespace must be uppercase for purl type: 'cpan'"
+        }
+      ]
+    },
+    {
+      "description": "CPAN distribution with lowercase namespace (must be uppercase)",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:cpan/oalders/libwww-perl@6.76",
+      "expected_output": []
+    },
+    {
+      "description": "CPAN module with '-' in name (not allowed without namespace)",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:cpan/libwww-perl@6.76",
+      "expected_output": [
+        {
+          "severity": "error",
+          "message": "Name must not contain '-' when Namespace is absent for purl type: 'cpan'"
+        }
+      ]
+    },
+    {
+      "description": "CPAN distribution name containing '::' (not allowed with namespace)",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:cpan/TESTUSER/Bad::Dist@1.0",
+      "expected_output": [
+        {
+          "severity": "error",
+          "message": "Name must not contain '::' when Namespace is present for purl type: 'cpan'"
+        }
+      ]
+    },
+    {
+      "description": "Valid CPAN package with qualifiers (repository_url, download_url, vcs_url)",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:cpan/OALDERS/libwww-perl@6.76?download_url=https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.76.tar.gz&ext=tar.gz&repository_url=https://cpan.metacpan.org&vcs_url=https://github.com/libwww-perl",
+      "expected_output": []
     }
   ]
 }

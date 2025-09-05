@@ -82,6 +82,46 @@
       "expected_output": "pkg:qpkg/blackberry/com.qnx.qnx710.foo.bar.qux@0.0.4.01449T202205040833L",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid QPKG with vendor and version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:qpkg/blackberry/com.qnx.sdp@7.0.0.SGA201702151847",
+      "expected_output": []
+    },
+    {
+      "description": "Valid QPKG with complex name and version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:qpkg/blackberry/com.qnx.qnx710.foo.bar.qux@0.0.4.01449T202205040833L",
+      "expected_output": []
+    },
+    {
+      "description": "Valid QPKG with repository_url qualifier",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:qpkg/blackberry/com.qnx.sdp@7.0.0?repository_url=https://example.com/qpkg",
+      "expected_output": []
+    },
+    {
+      "description": "QPKG missing vendor (namespace)",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:qpkg/com.qnx.sdp@7.0.0",
+      "expected_output": [
+        {
+          "severity": "error",
+          "message": "Namespace is required for purl type: 'qpkg'"
+        }
+      ]
+    },
+    {
+      "description": "Namespace should be lowercased",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:qpkg/BlackBerry/com.qnx.sdp@7.0.0",
+      "expected_output": []
     }
   ]
 }

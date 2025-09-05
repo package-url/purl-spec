@@ -898,6 +898,53 @@
       "expected_output": "pkg:maven/groovy/groovy@1.0?repository_url=https://maven.google.com",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid Maven package with groupId, artifactId, and version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1",
+      "expected_output": []
+    },
+    {
+      "description": "Valid Maven package with type qualifier (pom)",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=pom",
+      "expected_output": []
+    },
+    {
+      "description": "Valid Maven package with classifier qualifier (sources)",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources",
+      "expected_output": []
+    },
+    {
+      "description": "Valid Maven package with both type and classifier qualifiers",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=dist&type=zip",
+      "expected_output": []
+    },
+    {
+      "description": "Valid Maven package with repository_url qualifier",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:maven/groovy/groovy@1.0?repository_url=https://maven.google.com",
+      "expected_output": []
+    },
+    {
+      "description": "Maven package missing namespace (groupId required)",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:maven/batik-anim@1.9.1",
+      "expected_output": [
+        {
+          "severity": "error",
+          "message": "Namespace is required for purl type: 'maven'"
+        }
+      ]
     }
   ]
 }

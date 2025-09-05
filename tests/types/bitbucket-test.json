@@ -91,6 +91,39 @@
       "expected_output": "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid Bitbucket package with commit hash as version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
+      "expected_output": []
+    },
+    {
+      "description": "Valid Bitbucket package with subpath",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:bitbucket/teamname/repo-name@1.0.0#src/main",
+      "expected_output": []
+    },
+    {
+      "description": "Valid Bitbucket package with qualifiers",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:bitbucket/company/service@release-2024?arch=x86_64&os=linux",
+      "expected_output": [
+        {
+          "severity": "info",
+          "message": "Invalid qualifiers found: arch, os. Allowed qualifiers are: repository_url"
+        }
+      ]
+    },
+    {
+      "description": "Valid Bitbucket package with qualifiers",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:bitbucket/company/service@release-2024?arch=x86_64&os=linux",
+      "expected_output": []
     }
   ]
 }

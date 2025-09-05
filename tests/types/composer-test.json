@@ -116,6 +116,62 @@
       "expected_output": "pkg:composer/laravel/laravel@5.5.0",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid Composer package with vendor, name, and version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:composer/laravel/laravel@5.5.0",
+      "expected_output": []
+    },
+    {
+      "description": "Composer package without version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:composer/symfony/console",
+      "expected_output": []
+    },
+    {
+      "description": "Composer package with uppercase namespace (should normalize to lowercase)",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:composer/Laravel/Framework@10.0.0",
+      "expected_output": [
+        {
+          "severity": "warning",
+          "message": "Namespace is not lowercased for purl type: 'composer'"
+        },
+        {
+          "severity": "warning",
+          "message": "Name is not lowercased for purl type: 'composer'"
+        }
+      ]
+    },
+    {
+      "description": "Composer package with uppercase namespace (should normalize to lowercase)",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:composer/Laravel/Framework@10.0.0",
+      "expected_output": []
+    },
+    {
+      "description": "Composer package missing namespace",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:composer/console@5.0.0",
+      "expected_output": [
+        {
+          "severity": "error",
+          "message": "Namespace is required for purl type: 'composer'"
+        }
+      ]
+    },
+    {
+      "description": "Composer package with qualifiers",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:composer/laravel/laravel@5.5.0?repository_url=https://packagist.org",
+      "expected_output": []
     }
   ]
 }
