@@ -13,10 +13,12 @@
     "note": "OCI purls do not contain a namespace, although, repository_url may contain a namespace as part of the physical location of the package."
   },
   "name_definition": {
+    "requirement": "required",
     "case_sensitive": false,
     "note": "The name is not case sensitive and must be lowercased. The name is the last fragment of the repository name. For example if the repository name is library/debian then the name is debian."
   },
   "version_definition": {
+    "requirement": "optional",
     "case_sensitive": false,
     "note": "The version is the sha256:hex_encoded_lowercase_digest of the artifact and is required to uniquely identify the artifact."
   },

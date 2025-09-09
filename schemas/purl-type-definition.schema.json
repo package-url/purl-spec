@@ -21,6 +21,16 @@
         "prohibited": "This PURL component is prohibited: it must not be present for this PURL type."
       }
     },
+    "optional_requirement": {
+      "title": "Component optional requirement",
+      "description": "States that this PURL component is optional.",
+      "constant": "optional"
+    },
+    "required_requirement": {
+      "title": "Component required requirement",
+      "description": "States that this PURL component is required.",
+      "constant": "required"
+    },
     "purl_component_definition": {
       "title": "PURL component definition",
       "description": "PURL component definition properties that apply to most PURL components",
@@ -158,6 +168,14 @@
       "title": "Name definition",
       "description": "Definition of the name component for this PURL type.",
       "type": "object",
+      "required": [
+        "requirement"
+      ],
+      "properties": {
+        "requirement": {
+          "$ref": "#/definitions/required_requirement"
+        }
+      },
       "allOf": [
         {
           "$ref": "#/definitions/purl_component_definition"
@@ -168,6 +186,14 @@
       "title": "Version definition",
       "description": "Definition of the version component for this PURL type.",
       "type": "object",
+      "required": [
+        "requirement"
+      ],
+      "properties": {
+        "requirement": {
+          "$ref": "#/definitions/optional_requirement"
+        }
+      },
       "allOf": [
         {
           "$ref": "#/definitions/purl_component_definition"
@@ -220,6 +246,14 @@
       "title": "Subpath definition",
       "description": "Definition for the subpath for this PURL type.",
       "type": "object",
+      "required": [
+        "requirement"
+      ],
+      "properties": {
+        "requirement": {
+          "$ref": "#/definitions/optional_requirement"
+        }
+      },
       "allOf": [
         {
           "$ref": "#/definitions/purl_component_definition"

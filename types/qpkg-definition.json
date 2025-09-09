@@ -15,6 +15,7 @@
     "requirement": "required"
   },
   "name_definition": {
+    "requirement": "required",
     "native_name": "name"
   },
   "examples": [
