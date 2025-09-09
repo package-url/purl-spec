@@ -961,7 +961,7 @@ https://github.com/package-url/purl-spec/blob/main/schemas/purl-test.schema.json
 109 |           "meta:enum": {
 110 |             "build": "A PURL building test from decoded components to a canonical PURL string.",
 111 |             "parse": "A PURL building test from decoded components to a canonical PURL string.",
-112 |             "roundtrip": "A PURL routrip test, parsing then building back a PURL from a canonical string input."
+112 |             "roundtrip": "A PURL roundtrip test, parsing then building back a PURL from a canonical string input."
 113 |           }
 114 |         },
 115 |         "expected_failure": {
