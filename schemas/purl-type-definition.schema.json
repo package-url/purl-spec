@@ -138,7 +138,7 @@
     },
     "namespace_definition": {
       "title": "Namespace definition",
-      "description": "Definition of the namespace component for this PURL type.",
+      "description": "Definition of the namespace component for this PURL type.  The PURL namespace may required, optional or prohibited for a given PURL type.",
       "type": "object",
       "required": [
         "requirement"
@@ -156,7 +156,7 @@
     },
     "name_definition": {
       "title": "Name definition",
-      "description": "Definition of the name component for this PURL type.",
+      "description": "Definition of the name component for this PURL type. The PURL name is always required.",
       "type": "object",
       "allOf": [
         {
@@ -166,7 +166,7 @@
     },
     "version_definition": {
       "title": "Version definition",
-      "description": "Definition of the version component for this PURL type.",
+      "description": "Definition of the version component for this PURL type. The PURL version is optional, and may be needed depending on intended usage.",
       "type": "object",
       "allOf": [
         {
@@ -176,7 +176,7 @@
     },
     "qualifiers_definition": {
       "title": "Qualifiers definition",
-      "description": "Definition for the qualifiers specific to this PURL type.",
+      "description": "Definition for the qualifiers specific to this PURL type.  The PURL qualifiers are optional in general, but a specific key may be required or optional for a given PURL type.",
       "type": "array",
       "additionalItems": false,
       "uniqueItems": true,
@@ -218,7 +218,7 @@
     },
     "subpath_definition": {
       "title": "Subpath definition",
-      "description": "Definition for the subpath for this PURL type.",
+      "description": "Definition for the subpath for this PURL type. The PURL subpath is optional.",
       "type": "object",
       "allOf": [
         {
