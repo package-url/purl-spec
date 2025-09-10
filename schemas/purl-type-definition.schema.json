@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://schema.packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
   "title": "Package-URL Type Definition",
   "description": "Schema to specify a Package-URL (PURL) type as a structured definition.",
   "type": "object",
@@ -84,7 +84,7 @@
     "$schema": {
       "title": "JSON schema",
       "description": "Contains the URL of the JSON schema for Package-URL type definition.",
-      "constant": "https://schema.packageurl.org/schemas/purl-type.schema-1.0.json",
+      "constant": "https://packageurl.org/schemas/purl-type.schema-1.0.json",
       "format": "uri"
     },
     "$id": {
