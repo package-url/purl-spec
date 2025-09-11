@@ -25,11 +25,14 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
+- **Requirement:** Required
+- **Case Sensitive:** Yes
 - **Native Label:** name
 - **Note:** `The name is the repository name.`
 
 ## Version definition
 
+- **Requirement:** Optional
 - **Native Label:** version
 - **Note:** `The version is the package version.`
 
