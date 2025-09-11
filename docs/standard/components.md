@@ -1,6 +1,6 @@
-## Rules for each `purl` component
+## Rules for each PURL component
 
-A `purl` string is an ASCII URL string composed of seven components.
+A PURL string is an ASCII URL string composed of seven components.
 
 Except as expressly stated otherwise in this section, each component:
 
@@ -15,7 +15,7 @@ The rules for each component are:
 
   - The `scheme` is a constant with the value "pkg".
   - The `scheme` must be followed by an unencoded colon ':'.
-  - `purl` parsers must accept URLs where the `scheme` and colon ':' are
+  - PURL parsers must accept URLs where the `scheme` and colon ':' are
     followed by one or more slash '/' characters, such as 'pkg://', and must
     ignore and remove all such '/' characters.
 
@@ -99,7 +99,7 @@ The rules for each component are:
 
 - **subpath**:
   - The `subpath` string is prefixed by a '#' separator when not empty
-  - This '#' is not part of the `subpath`
+  - The '#' is not part of the `subpath`
   - The `subpath` contains zero or more segments, separated by slash '/'
   - Leading and trailing slashes '/' are not significant and should be stripped
     in the canonical form
