@@ -26,6 +26,7 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
+- **Requirement:** Required
 - **Normalization rules:**
   - Replace underscore _ with dash -
   - Replace dot . with underscore _ when used in distribution (sdist, wheel) names
@@ -34,6 +35,7 @@ The structure of a PURL for this package type is:
 
 ## Version definition
 
+- **Requirement:** Optional
 - **Native Label:** version
 
 ## Qualifiers Definition
