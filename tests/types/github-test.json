@@ -132,6 +132,32 @@
       "expected_output": "pkg:github/package-url/purl-spec@244fd47e07d1004#everybody/loves/dogs",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid GitHub package with namespace, name, and version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:github/package-url/purl-spec@244fd47e07d1004",
+      "expected_output": []
+    },
+    {
+      "description": "Valid GitHub package with subpath",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:github/package-url/purl-spec@244fd47e07d1004#everybody/loves/dogs",
+      "expected_output": []
+    },
+    {
+      "description": "GitHub package missing namespace",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:github/purl-spec@244fd47e07d1004",
+      "expected_output": [
+        {
+          "severity": "error",
+          "message": "Namespace is required for purl type: 'github'"
+        }
+      ]
     }
   ]
 }

@@ -222,6 +222,53 @@
       "expected_output": "pkg:pypi/django-allauth@12.23",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid PyPI package with version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:pypi/django@1.11.1",
+      "expected_output": []
+    },
+    {
+      "description": "Valid PyPI package with file_name qualifier",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:pypi/django@1.11.1?file_name=Django-1.11.1.tar.gz",
+      "expected_output": []
+    },
+    {
+      "description": "Valid PyPI package with wheel file_name",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:pypi/django@1.11.1?file_name=Django-1.11.1-py2.py3-none-any.whl",
+      "expected_output": []
+    },
+    {
+      "description": "PyPI package with name containing underscores and dots",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:pypi/django_allauth@12.23",
+      "expected_output": [
+        {
+          "severity": "warning",
+          "message": "Name cannot contain underscores for purl type:'pypi'"
+        }
+      ]
+    },
+    {
+      "description": "PyPI package with name containing underscores and dots",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:pypi/django_allauth@12.23",
+      "expected_output": []
+    },
+    {
+      "description": "Name with uppercase letters",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:pypi/Django-AllAuth@12.23",
+      "expected_output": []
     }
   ]
 }
