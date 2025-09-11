@@ -26,6 +26,24 @@ from typing import Any, Literal, Optional
 from pydantic import BaseModel, ConfigDict, Field
 
 
+class PackageUrlTestDefinition(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    field_schema: Optional[Any] = Field(
+        None,
+        alias="$schema",
+        description="Contains the URL of the JSON schema for Package-URL tests.",
+        title="JSON schema",
+    )
+    tests: Optional[list[PurlTest]] = Field(
+        None,
+        description="A list of Package-URL build and parse tests.",
+        min_length=1,
+        title="Test suite",
+    )
+
+
 class PurlComponents(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
@@ -69,22 +87,4 @@ class PurlTest(BaseModel):
         None,
         description="The reason why this test is is expected to fail if expected_failure is true.",
         title="Expected failure reason",
-    )
-
-
-class PurlTestDefinition(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    field_schema: Optional[Any] = Field(
-        None,
-        alias="$schema",
-        description="Contains the URL of the JSON schema for Package-URL tests.",
-        title="JSON schema",
-    )
-    tests: Optional[list[PurlTest]] = Field(
-        None,
-        description="A list of Package-URL build and parse tests.",
-        min_length=1,
-        title="Test suite",
     )
