@@ -24,11 +24,13 @@
     "optional_requirement": {
       "title": "Component optional requirement",
       "description": "States that this PURL component is optional for a PURL type.",
+      "type": "string",
       "constant": "optional"
     },
     "required_requirement": {
       "title": "Component required requirement",
       "description": "States that this PURL component is required for a PURL type.",
+      "type": "string",
       "constant": "required"
     },
     "purl_component_definition": {

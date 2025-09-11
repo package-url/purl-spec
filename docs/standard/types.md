@@ -1,13 +1,13 @@
-## Package-URL Type definitions
+## Package-URL type definitions
 
 Each package manager, platform, type, or ecosystem has its own conventions
 and protocols to identify, locate, and provision software packages.
 
 The package **type** is the component of a Package-URL that is used to
-capture this information with a short string such as ``maven``, ``npm``,
-``nuget``, ``gem``, ``pypi``, etc.
+capture this information with a short string such as `maven`, `npm`,
+`nuget`, `gem`, `pypi`, etc.
 
-These are registered ``PURL`` package type definitions.
+These are registered PURL package type definitions.
 
 Definitions can also include types reserved for future use.
 
