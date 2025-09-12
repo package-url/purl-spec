@@ -1,0 +1,30 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/terraform-definition.json",
+  "type": "terraform",
+  "type_name": "Terraform providers and modules",
+  "description": "Terraform providers and modules",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://registry.terraform.io",
+    "note": "The HashiCorp registry is the default. Use the standard repository_url qualifier to point to another registry."
+  },
+  "namespace_definition": {
+    "requirement": "required",
+    "note": "The namespace is the provider or module namespace, which is usually the organization or vendor name.",
+    "case_sensitive": true
+  },
+  "name_definition": {
+    "case_sensitive": true,
+    "native_name": "Name is the name of the terraform provider or module."
+  },
+  "version_definition": {
+    "case_sensitive": true,
+    "native_name": "Version is the package version and is required."
+  },
+  "examples": [
+    "pkg:terraform/hashicorp/aws@6.0.0",
+    "pkg:terraform/terraform-aws-modules/vpc@6.0.1",
+    "pkg:terraform/terraform-aws-modules/vpc@6.0.1?registry_url=https://registry.example.com"
+  ]
+}

@@ -30,5 +30,6 @@
   "qpkg",
   "rpm",
   "swid",
-  "swift"
+  "swift",
+  "terraform"
 ]
