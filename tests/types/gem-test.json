@@ -2,7 +2,7 @@
   "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
   "tests": [
     {
-      "description": "Java gem can use a qualifier. Rountrip an input purl to canonical.",
+      "description": "Ruby gems can use qualifiers. Rountrip an input purl to canonical.",
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:gem/jruby-launcher@1.1.2?Platform=java",
@@ -11,7 +11,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Java gem can use a qualifier",
+      "description": "Ruby gems can use qualifiers",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:gem/jruby-launcher@1.1.2?Platform=java",
@@ -29,7 +29,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Java gem can use a qualifier. Rountrip a canonical input to canonical output.",
+      "description": "Ruby gems can use qualifiers. Rountrip a canonical input to canonical output.",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:gem/jruby-launcher@1.1.2?platform=java",
@@ -38,7 +38,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Java gem can use a qualifier",
+      "description": "Ruby gems can use qualifiers",
       "test_group": "base",
       "test_type": "build",
       "input": {

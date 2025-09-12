@@ -26,12 +26,14 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
+- **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** distribution name
 - **Note:** `The name is the distribution name and is case sensitive. A distribution name MUST NOT contain the string '::'`
 
 ## Version definition
 
+- **Requirement:** Optional
 - **Native Label:** version
 - **Note:** `The version is the distribution version`
 

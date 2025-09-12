@@ -25,14 +25,17 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
+- **Requirement:** Required
 - **Note:** `The name must be lowercased.`
 
 ## Version definition
 
+- **Requirement:** Optional
 - **Note:** `The version is often empty when a commit is not specified and should be the commit in most cases when available.`
 
 ## Subpath definition
 
+- **Requirement:** Optional
 - **Note:** `The subpath is used to point to a subpath inside a package.`
 
 ## Examples
