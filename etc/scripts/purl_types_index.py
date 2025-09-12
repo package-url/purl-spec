@@ -25,9 +25,9 @@ from __future__ import annotations
 from pydantic import Field, RootModel
 
 
-class PackageUrlTypesList(RootModel[list[str]]):
+class PackageUrlTypesIndex(RootModel[list[str]]):
     root: list[str] = Field(
         ...,
-        description="A list of the registered Package-URL types.",
-        title="Package-URL types list.",
+        description="An index of registered Package-URL types.",
+        title="Package-URL types index",
     )
