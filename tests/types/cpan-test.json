@@ -68,6 +68,163 @@
       "expected_failure_reason": "Should fail to build a PURL from invalid input components"
     },
     {
+      "description": "cpan valid module name. Rountrip an input purl to canonical.",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:cpan/DateTime@1.55",
+      "expected_output": "pkg:cpan/DateTime@1.55",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "cpan valid module name",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:cpan/DateTime@1.55",
+      "expected_output": {
+        "type": "cpan",
+        "namespace": null,
+        "name": "DateTime",
+        "version": "1.55",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "cpan valid module name. Rountrip a canonical input to canonical output.",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:cpan/DateTime@1.55",
+      "expected_output": "pkg:cpan/DateTime@1.55",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "cpan valid module name",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "cpan",
+        "namespace": null,
+        "name": "DateTime",
+        "version": "1.55",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:cpan/DateTime@1.55",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "cpan valid module name without version. Rountrip an input purl to canonical.",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:cpan/URI",
+      "expected_output": "pkg:cpan/URI",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "cpan valid module name without version",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:cpan/URI",
+      "expected_output": {
+        "type": "cpan",
+        "namespace": null,
+        "name": "URI",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "cpan valid module name without version. Rountrip a canonical input to canonical output.",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:cpan/URI",
+      "expected_output": "pkg:cpan/URI",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "cpan valid module name without version",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "cpan",
+        "namespace": null,
+        "name": "URI",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:cpan/URI",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:cpan/Perl::Version@1.013",
+      "expected_output": {
+        "type": "cpan",
+        "namespace": null,
+        "name": "perl::Version",
+        "version": "1.013",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:cpan/Perl::Version@1.013",
+      "expected_output": "pkg:cpan/Perl::Version@1.013",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "cpan",
+        "namespace": null,
+        "name": "Perl::Version",
+        "version": "1.013",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:cpan/Perl::Version@1.013",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:cpan/DROLSKY/DateTime@1.55",
+      "expected_output": {
+        "type": "cpan",
+        "namespace": "DROLSKY",
+        "name": "DateTime",
+        "version": "1.55",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
       "description": "CPAN with just the module name and version",
       "test_group": "base",
       "test_type": "parse",
@@ -123,6 +280,47 @@
         "subpath": null
       },
       "expected_output": "pkg:cpan/DROLSKY/DateTime@1.55",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:cpan/LWP::UserAgent",
+      "expected_output": {
+        "type": "cpan",
+        "namespace": null,
+        "name": "lwp::UserAgent",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:cpan/LWP::UserAgent",
+      "expected_output": "pkg:cpan/LWP::UserAgent",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "cpan",
+        "namespace": null,
+        "name": "LWP::UserAgent",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:cpan/LWP::UserAgent",
       "expected_failure": false,
       "expected_failure_reason": null
     },
