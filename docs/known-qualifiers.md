@@ -32,8 +32,6 @@ all package types:
   Python pip or the SPDX specification. See
   https://github.com/spdx/spdx-spec/blob/cfa1b9d08903/chapters/3-package-information.md#37-package-download-location
 
-  - TODO: incorporate the details from SPDX here.
-
 - `file_name` is an extra file name of a package archive.
 
 - `checksum` is a qualifier for one or more checksums stored as a
