@@ -3,7 +3,7 @@
   "$id": "https://packageurl.org/types/cpan-definition.json",
   "type": "cpan",
   "type_name": "CPAN",
-  "description": "Perl package distributions published on CPAN",
+  "description": "Perl distributions (packages) published on CPAN",
   "repository": {
     "use_repository": true,
     "default_repository_url": "https://www.cpan.org/"
