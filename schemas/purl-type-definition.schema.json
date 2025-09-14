@@ -6,20 +6,23 @@
   "type": "object",
   "additionalProperties": false,
   "definitions": {
-    "requirement": {
-      "title": "Component requirement",
-      "description": "States if this PURL component is required, optional, or prohibited.",
+    "optional_requirement": {
+      "title": "Component optional requirement",
+      "description": "States that this PURL component is optional for a PURL type.",
       "type": "string",
-      "enum": [
-        "required",
-        "optional",
-        "prohibited"
-      ],
-      "meta:enum": {
-        "required": "This PURL component is required for this PURL type.",
-        "optional": "This PURL component is optional for this PURL type.",
-        "prohibited": "This PURL component is prohibited: it must not be present for this PURL type."
-      }
+      "const": "optional"
+    },
+    "required_requirement": {
+      "title": "Component required requirement",
+      "description": "States that this PURL component is required for a PURL type.",
+      "type": "string",
+      "const": "required"
+    },
+    "prohibited_requirement": {
+      "title": "Component prohibited requirement",
+      "description": "States that this PURL component is prohibited for a PURL type.",
+      "type": "string",
+      "const": "prohibited"
     },
     "purl_component_definition": {
       "title": "PURL component definition",
@@ -28,7 +31,7 @@
       "properties": {
         "permitted_characters": {
           "title": "Permitted characters in this PURL component",
-          "description": "Regular expression (ECMA-262 dialect) defining the 'Permitted characters' for this component of this Package-URL type. If provided, this must be a subset of the 'Permitted characters' defined in the PURL specification.",
+          "description": "A regular expression (ECMA-262 dialect) defining the 'Permitted characters' for this component of this Package-URL type. If provided, this must be a subset of the 'Permitted characters' defined in the PURL specification.",
           "type": "string",
           "format": "regex"
         },
@@ -74,7 +77,7 @@
     "$schema": {
       "title": "JSON schema",
       "description": "Contains the URL of the JSON schema for Package-URL type definition.",
-      "constant": "https://packageurl.org/schemas/purl-type.schema-1.0.json",
+      "const": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
       "format": "uri"
     },
     "$id": {
@@ -110,7 +113,7 @@
     },
     "repository": {
       "title": "Repository",
-      "description": "Package repository usage for this PURL type.",
+      "description": "The package repository usage for this PURL type.",
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -119,7 +122,7 @@
       "properties": {
         "use_repository": {
           "title": "Use repository",
-          "description": "true if this PURL type use a public package repository.",
+          "description": "true if this PURL type uses a public package repository.",
           "type": "boolean",
           "default": false
         },
@@ -138,14 +141,27 @@
     },
     "namespace_definition": {
       "title": "Namespace definition",
-      "description": "Definition of the namespace component for this PURL type.",
+      "description": "Definition of the namespace component for this PURL type. The PURL namespace component must be required, optional or prohibited for a specific PURL type definition.",
       "type": "object",
       "required": [
         "requirement"
       ],
       "properties": {
         "requirement": {
-          "$ref": "#/definitions/requirement"
+          "title": "Namespace requirement",
+          "description": "States that the PURL namespace component is optional, required or prohibited for a PURL type.",
+          "type": "string",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/optional_requirement"
+            },
+            {
+              "$ref": "#/definitions/required_requirement"
+            },
+            {
+              "$ref": "#/definitions/prohibited_requirement"
+            }
+          ]
         }
       },
       "allOf": [
@@ -156,8 +172,23 @@
     },
     "name_definition": {
       "title": "Name definition",
-      "description": "Definition of the name component for this PURL type.",
+      "description": "Definition of the name component for this PURL type. The PURL name component is required for all PURL type definitions.",
       "type": "object",
+      "required": [
+        "requirement"
+      ],
+      "properties": {
+        "requirement": {
+          "title": "Name component requirement",
+          "description": "States that the PURL name component is always required.",
+          "type": "string",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/required_requirement"
+            }
+          ]
+        }
+      },
       "allOf": [
         {
           "$ref": "#/definitions/purl_component_definition"
@@ -166,8 +197,23 @@
     },
     "version_definition": {
       "title": "Version definition",
-      "description": "Definition of the version component for this PURL type.",
+      "description": "Definition of the version component for this PURL type. The PURL version component is optional for a specific PURL type definition.",
       "type": "object",
+      "required": [
+        "requirement"
+      ],
+      "properties": {
+        "requirement": {
+          "title": "Version requirement",
+          "description": "States that the PURL version is optional.",
+          "type": "string",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/optional_requirement"
+            }
+          ]
+        }
+      },
       "allOf": [
         {
           "$ref": "#/definitions/purl_component_definition"
@@ -176,13 +222,13 @@
     },
     "qualifiers_definition": {
       "title": "Qualifiers definition",
-      "description": "Definition for the qualifiers specific to this PURL type.",
+      "description": "Definition of the qualifiers specific to this PURL type. The PURL qualifiers component is optional for a specific PURL type, but a qualifiers key or keys may be required for a specific PURL type.",
       "type": "array",
       "additionalItems": false,
       "uniqueItems": true,
       "items": {
         "title": "Qualifiers definition",
-        "description": "Definition of a qualifier specific to this PURL type.",
+        "description": "The definition of a qualifier specific to this PURL type.",
         "type": "object",
         "additionalProperties": false,
         "required": [
@@ -196,7 +242,17 @@
             "type": "string"
           },
           "requirement": {
-            "$ref": "#/definitions/requirement"
+            "title": "Qualifier key requirement",
+            "description": "States that a PURL qualifier key is optional or required for a PURL type.",
+            "type": "string",
+            "oneOf": [
+              {
+                "$ref": "#/definitions/optional_requirement"
+              },
+              {
+                "$ref": "#/definitions/required_requirement"
+              }
+            ]
           },
           "description": {
             "title": "Description",
@@ -218,8 +274,23 @@
     },
     "subpath_definition": {
       "title": "Subpath definition",
-      "description": "Definition for the subpath for this PURL type.",
+      "description": "The definition for the subpath for this PURL type. The PURL subpath component is optional for a specific PURL type definition.",
       "type": "object",
+      "required": [
+        "requirement"
+      ],
+      "properties": {
+        "requirement": {
+          "title": "Subpath requirement",
+          "description": "States that the PURL subpath is optional.",
+          "type": "string",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/optional_requirement"
+            }
+          ]
+        }
+      },
       "allOf": [
         {
           "$ref": "#/definitions/purl_component_definition"
