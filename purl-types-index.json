@@ -25,6 +25,7 @@
   "npm",
   "nuget",
   "oci",
+  "openvsx",
   "pub",
   "pypi",
   "qpkg",
