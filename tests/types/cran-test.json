@@ -2,7 +2,7 @@
   "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
   "tests": [
     {
-      "description": "valid cran purl. Rountrip an input purl to canonical.",
+      "description": "valid cran purl. Roundtrip an input purl to canonical.",
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:cran/A3@0.9.1",
@@ -27,7 +27,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "valid cran purl. Rountrip a canonical input to canonical output.",
+      "description": "valid cran purl. Roundtrip a canonical input to canonical output.",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:cran/A3@0.9.1",
@@ -120,7 +120,7 @@
       "expected_failure_reason": "Should fail to build a PURL from invalid input components"
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: cran",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:cran/A3@1.0.0",
@@ -136,7 +136,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: cran",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:cran/A3@1.0.0",
@@ -145,7 +145,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: cran",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -161,7 +161,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: cran",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:cran/rJava@1.0-4",
@@ -177,7 +177,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: cran",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:cran/rJava@1.0-4",
@@ -186,7 +186,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: cran",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -202,7 +202,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: cran",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:cran/caret@6.0-88",
@@ -218,7 +218,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: cran",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:cran/caret@6.0-88",
@@ -227,7 +227,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: cran",
       "test_group": "base",
       "test_type": "build",
       "input": {
