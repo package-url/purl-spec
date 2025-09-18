@@ -2,7 +2,7 @@
   "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
   "tests": [
     {
-      "description": "valid conan purl. Rountrip an input purl to canonical.",
+      "description": "valid conan purl. Roundtrip an input purl to canonical.",
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:conan/cctz@2.3",
@@ -27,7 +27,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "valid conan purl. Rountrip a canonical input to canonical output.",
+      "description": "valid conan purl. Roundtrip a canonical input to canonical output.",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:conan/cctz@2.3",
@@ -52,7 +52,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "valid conan purl with namespace and qualifier channel. Rountrip an input purl to canonical.",
+      "description": "valid conan purl with namespace and qualifier channel. Roundtrip an input purl to canonical.",
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
@@ -79,7 +79,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "valid conan purl with namespace and qualifier channel. Rountrip a canonical input to canonical output.",
+      "description": "valid conan purl with namespace and qualifier channel. Roundtrip a canonical input to canonical output.",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:conan/bincrafters/cctz@2.3?channel=stable",
@@ -176,7 +176,7 @@
       "expected_failure_reason": "Should fail to build a PURL from invalid input components"
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: conan",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:conan/openssl@3.0.3",
@@ -192,7 +192,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: conan",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:conan/openssl@3.0.3",
@@ -201,7 +201,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: conan",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -217,7 +217,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: conan",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:conan/openssl.org/openssl@3.0.3?user=bincrafters&channel=stable",
@@ -236,7 +236,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: conan",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:conan/openssl.org/openssl@3.0.3?user=bincrafters&channel=stable",
@@ -245,7 +245,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: conan",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -264,7 +264,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: conan",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:conan/openssl.org/openssl@3.0.3?arch=x86_64&build_type=Debug&compiler=Visual%20Studio&compiler.runtime=MDd&compiler.version=16&os=Windows&shared=True&rrev=93a82349c31917d2d674d22065c7a9ef9f380c8e&prev=b429db8a0e324114c25ec387bfd8281f330d7c5c",
@@ -290,7 +290,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: conan",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:conan/openssl.org/openssl@3.0.3?arch=x86_64&build_type=Debug&compiler=Visual%20Studio&compiler.runtime=MDd&compiler.version=16&os=Windows&shared=True&rrev=93a82349c31917d2d674d22065c7a9ef9f380c8e&prev=b429db8a0e324114c25ec387bfd8281f330d7c5c",
@@ -299,7 +299,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: conan",
       "test_group": "base",
       "test_type": "build",
       "input": {

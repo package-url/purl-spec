@@ -27,7 +27,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "composer names are not case sensitive. Rountrip an input purl to canonical.",
+      "description": "composer names are not case sensitive. Roundtrip an input purl to canonical.",
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:composer/Laravel/Laravel@5.5.0",
@@ -52,7 +52,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "composer names are not case sensitive. Rountrip a canonical input to canonical output.",
+      "description": "composer names are not case sensitive. Roundtrip a canonical input to canonical output.",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:composer/laravel/laravel@5.5.0",
@@ -77,7 +77,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: composer",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:composer/laravel/laravel@5.5.0",
@@ -93,7 +93,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: composer",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:composer/laravel/laravel@5.5.0",
@@ -102,7 +102,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: composer",
       "test_group": "base",
       "test_type": "build",
       "input": {

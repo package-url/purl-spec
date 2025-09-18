@@ -2,7 +2,7 @@
   "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
   "tests": [
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: oci",
       "test_group": "advanced",
       "test_type": "parse",
       "input": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=docker.io/library/debian&arch=amd64&tag=latest",
@@ -22,7 +22,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: oci",
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=docker.io/library/debian&arch=amd64&tag=latest",
@@ -31,7 +31,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: oci",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -51,7 +51,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: oci",
       "test_group": "advanced",
       "test_type": "parse",
       "input": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=ghcr.io/debian&tag=bullseye",
@@ -70,7 +70,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: oci",
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=ghcr.io/debian&tag=bullseye",
@@ -79,7 +79,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: oci",
       "test_group": "advanced",
       "test_type": "build",
       "input": {
@@ -98,7 +98,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: oci",
       "test_group": "advanced",
       "test_type": "parse",
       "input": "pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest",
@@ -117,7 +117,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: oci",
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest",
@@ -126,7 +126,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: oci",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -145,7 +145,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: oci",
       "test_group": "advanced",
       "test_type": "parse",
       "input": "pkg:oci/hello-wasm@sha256%3A244fd47e07d10?tag=v1",
@@ -163,7 +163,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: oci",
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:oci/hello-wasm@sha256%3A244fd47e07d10?tag=v1",
@@ -172,7 +172,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: oci",
       "test_group": "base",
       "test_type": "build",
       "input": {
