@@ -2,7 +2,7 @@
   "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
   "tests": [
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: pub",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:pub/characters@1.2.0",
@@ -18,7 +18,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: pub",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:pub/characters@1.2.0",
@@ -27,7 +27,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: pub",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -43,7 +43,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: pub",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:pub/flutter@0.0.0",
@@ -59,7 +59,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: pub",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:pub/flutter@0.0.0",
@@ -68,7 +68,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: pub",
       "test_group": "base",
       "test_type": "build",
       "input": {

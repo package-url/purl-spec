@@ -2,7 +2,7 @@
   "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
   "tests": [
     {
-      "description": "valid conda purl with qualifiers. Rountrip an input purl to canonical.",
+      "description": "valid conda purl with qualifiers. Roundtrip an input purl to canonical.",
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
@@ -32,7 +32,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "valid conda purl with qualifiers. Rountrip a canonical input to canonical output.",
+      "description": "valid conda purl with qualifiers. Roundtrip a canonical input to canonical output.",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
@@ -62,7 +62,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: conda",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
@@ -83,7 +83,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: conda",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
@@ -92,7 +92,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: conda",
       "test_group": "base",
       "test_type": "build",
       "input": {

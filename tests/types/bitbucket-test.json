@@ -2,7 +2,7 @@
   "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
   "tests": [
     {
-      "description": "bitbucket namespace and name should be lowercased. Rountrip an input purl to canonical.",
+      "description": "bitbucket namespace and name should be lowercased. Roundtrip an input purl to canonical.",
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:bitbucket/birKenfeld/pyGments-main@244fd47e07d1014f0aed9c",
@@ -27,7 +27,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "bitbucket namespace and name should be lowercased. Rountrip a canonical input to canonical output.",
+      "description": "bitbucket namespace and name should be lowercased. Roundtrip a canonical input to canonical output.",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
@@ -52,7 +52,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: bitbucket",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
@@ -68,7 +68,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: bitbucket",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c",
@@ -77,7 +77,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: bitbucket",
       "test_group": "base",
       "test_type": "build",
       "input": {

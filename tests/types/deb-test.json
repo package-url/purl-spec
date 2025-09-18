@@ -2,7 +2,7 @@
   "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
   "tests": [
     {
-      "description": "debian can use qualifiers. Rountrip an input purl to canonical.",
+      "description": "debian can use qualifiers. Roundtrip an input purl to canonical.",
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
@@ -30,7 +30,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "debian can use qualifiers. Rountrip a canonical input to canonical output.",
+      "description": "debian can use qualifiers. Roundtrip a canonical input to canonical output.",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
@@ -58,7 +58,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: deb",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
@@ -77,7 +77,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: deb",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
@@ -86,7 +86,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: deb",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -105,7 +105,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: deb",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:deb/debian/dpkg@1.19.0.4?arch=amd64&distro=stretch",
@@ -124,7 +124,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: deb",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:deb/debian/dpkg@1.19.0.4?arch=amd64&distro=stretch",
@@ -133,7 +133,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: deb",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -152,7 +152,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: deb",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:deb/ubuntu/dpkg@1.19.0.4?arch=amd64",
@@ -170,7 +170,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: deb",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:deb/ubuntu/dpkg@1.19.0.4?arch=amd64",
@@ -179,7 +179,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: deb",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -197,7 +197,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: deb",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:deb/debian/attr@1:2.4.47-2?arch=source",
@@ -215,7 +215,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: deb",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:deb/debian/attr@1:2.4.47-2?arch=source",
@@ -224,7 +224,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: deb",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -242,7 +242,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: deb",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:deb/debian/attr@1:2.4.47-2%2Bb1?arch=amd64",
@@ -260,7 +260,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: deb",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:deb/debian/attr@1:2.4.47-2%2Bb1?arch=amd64",
@@ -269,7 +269,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: deb",
       "test_group": "base",
       "test_type": "build",
       "input": {
