@@ -257,7 +257,7 @@ class NamespaceDefinition(PurlComponentDefinition):
     known_values: Optional[list[str]] = Field(
         None,
         description=(
-            "Optional set of allowed values for this namespace. If provided, the namespace value"
+            "Optional set of known values for this namespace. If provided, the namespace value"
             " SHOULD be one of these."
         ),
         title="Known values",
