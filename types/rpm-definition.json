@@ -13,7 +13,7 @@
     "native_name": "vendor",
     "note": "The namespace is the vendor such as Fedora or OpenSUSE. It is not case sensitive and must be lowercased.",
     "requirement": "required",
-    "valid_values": [
+    "known_values": [
       "redhat",
       "centos",
       "fedora",

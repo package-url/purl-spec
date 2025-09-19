@@ -163,9 +163,9 @@
             }
           ]
         },
-        "valid_values": {
-          "title": "Valid values",
-          "description": "Optional set of allowed values for this namespace. If provided, the namespace value MUST be one of these.",
+        "known_values": {
+          "title": "Known values",
+          "description": "Optional set of allowed values for this namespace. If provided, the namespace value SHOULD be one of these.",
           "type": "array",
           "items": {
             "type": "string"
