@@ -162,6 +162,15 @@
               "$ref": "#/definitions/prohibited_requirement"
             }
           ]
+        },
+        "valid_values": {
+          "title": "Valid values",
+          "description": "Optional set of allowed values for this namespace. If provided, the namespace value MUST be one of these.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
         }
       },
       "allOf": [

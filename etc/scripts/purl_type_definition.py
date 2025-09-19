@@ -254,3 +254,11 @@ class NamespaceDefinition(PurlComponentDefinition):
         ),
         title="Namespace requirement",
     )
+    valid_values: Optional[list[str]] = Field(
+        None,
+        description=(
+            "Optional set of allowed values for this namespace. If provided, the namespace value"
+            " MUST be one of these."
+        ),
+        title="Valid values",
+    )

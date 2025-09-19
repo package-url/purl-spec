@@ -12,7 +12,18 @@
     "case_sensitive": false,
     "native_name": "vendor",
     "note": "The namespace is the vendor such as Fedora or OpenSUSE. It is not case sensitive and must be lowercased.",
-    "requirement": "required"
+    "requirement": "required",
+    "valid_values": [
+      "redhat",
+      "centos",
+      "fedora",
+      "almalinux",
+      "rockylinux",
+      "opensuse",
+      "oraclelinux",
+      "amazonlinux",
+      "azurelinux"
+    ]
   },
   "name_definition": {
     "requirement": "required",
