@@ -2,7 +2,7 @@
   "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
   "$id": "https://packageurl.org/types/mlflow-definition.json",
   "type": "mlflow",
-  "type_name": "",
+  "type_name": "MLflow",
   "description": "MLflow ML models (Azure ML, Databricks, etc.)",
   "repository": {
     "use_repository": true,
