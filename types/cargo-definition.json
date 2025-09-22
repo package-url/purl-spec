@@ -1,0 +1,31 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/cargo-definition.json",
+  "type": "cargo",
+  "type_name": "Cargo",
+  "description": "Cargo packages for Rust",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://crates.io/"
+  },
+  "namespace_definition": {
+    "requirement": "prohibited",
+    "note": "there is no namespace"
+  },
+  "name_definition": {
+    "requirement": "required",
+    "native_name": "name",
+    "case_sensitive": true,
+    "note": "The name is the repository name."
+  },
+  "version_definition": {
+    "requirement": "optional",
+    "native_name": "version",
+    "note": "The version is the package version."
+  },
+  "examples": [
+    "pkg:cargo/rand@0.7.2",
+    "pkg:cargo/clap@2.33.0",
+    "pkg:cargo/structopt@0.3.11"
+  ]
+}
