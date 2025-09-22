@@ -12,7 +12,6 @@ purl-canonical    = scheme ":"      type-canonical
                     [ "@" version ] [ "?" qualifiers ] [ "#"      subpath      ]
 
 scheme            = %x70.6B.67    ; lowercase string "pkg"
-                            ; per ABNF spec: strings are case insensitive [...] To specify a rule that is case sensitive, specify the characters individually.
 
 type              =    ALPHA *(    ALPHA / DIGIT / "." / "-" )
 type-canonical    = LOWALPHA *( LOWALPHA / DIGIT / "." / "-" )
@@ -57,7 +56,7 @@ PCT-ENCODED = PERM-ALPHANUM
 ; permitted character classes
 PERM-ALPHANUM    = ALPHA / DIGIT
 PERM-PUNCTUATION = "." / "-" / "_" / "~"
-PERM-separator   = ":" / "/" / "@" / "?" / "=" / "&" / "#"
+PERM-SEPARATOR   = ":" / "/" / "@" / "?" / "=" / "&" / "#"
 PERM-ESCAPED     = "%" ( PERM-ESCAPED-00-1F
                        / PERM-ESCAPED-20-2C
                        / PERM-ESCAPED-2D-2F
@@ -66,8 +65,8 @@ PERM-ESCAPED     = "%" ( PERM-ESCAPED-00-1F
 ; applied purl spec rules for general character encoding
 PERM-ESCAPED-00-1F =   %x30-31                                       HEXDIG    ; 00-1F
 PERM-ESCAPED-20-2C =   %x32                     ( DIGIT / "A" / "B" / "C" )    ; 20-2C
-PERM-ESCAPED-2D-2F =                         ; except following characters: "-" (2D)
-                                             ; except following characters: "." (2E)
+PERM-ESCAPED-2D-2F =                     ; except following characters: "-"     (2D)
+                                         ; except following characters: "."     (2E)
                    /   %x32                                             "F"    ; 2F
 PERM-ESCAPED-30-FF =                     ; except following characters: "0"-"9" (30-39)
                                          ; except following characters: ":"     (3A)
