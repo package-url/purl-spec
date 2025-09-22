@@ -1,1 +1,1 @@
-The file `purl-spec/VERSION-RANGE-SPEC.rst` has been moved to `vers-spec/VERSION-RANGE-SPEC.rst`. The `package-url/vers-spec` repository is also the home for any Issues, PRs, Discussions or other files related to VERS.
+The file `purl-spec/VERSION-RANGE-SPEC.rst` has been moved to https://github.com/package-url/vers-spec/blob/main/VERSION-RANGE-SPEC.rst. The https://github.com/package-url/vers-spec/ repository is also the home for any Issues, PRs, Discussions or other files related to VERS.
