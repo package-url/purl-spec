@@ -90,6 +90,51 @@
       "expected_output": "pkg:apk/alpine/apk@2.12.9-r3?arch=x86",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: apk",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:apk/alpine/curl@8.12.1-r0?arch=source",
+      "expected_output": {
+        "type": "apk",
+        "namespace": "alpine",
+        "name": "curl",
+        "version": "8.12.1-r0",
+        "qualifiers": {
+          "arch": "source"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: apk",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:apk/alpine/curl@8.12.1-r0?arch=source",
+      "expected_output": "pkg:apk/alpine/curl@8.12.1-r0?arch=source",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: apk",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "apk",
+        "namespace": "alpine",
+        "name": "curl",
+        "version": "8.12.1-r0",
+        "qualifiers": {
+          "arch": "source"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:apk/alpine/curl@8.12.1-r0?arch=source",
+      "expected_failure": false,
+      "expected_failure_reason": null
     }
   ]
 }
