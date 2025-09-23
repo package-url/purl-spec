@@ -4,9 +4,9 @@ A PURL string is an ASCII URL string composed of seven components.
 
 Except as expressly stated otherwise in this section, each component:
 
-- may be composed of any of the characters defined in the "Permitted
+- May be composed of any of the characters defined in the "Permitted
   characters" section
-- must be encoded as defined in the "Character encoding" section
+- Must be encoded as defined in the "Character encoding" section
 
 The "lowercase" rules are defined in the "Case folding" section.
 
