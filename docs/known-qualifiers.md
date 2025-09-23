@@ -13,7 +13,7 @@ With this warning, the known `key` and `value` defined here are valid for use
 in all package types:
 
 - `vers` allows the specification of a version range.
-  The value MUST adhere to the `Version Range Specification`.
+  The value must adhere to the `Version Range Specification`.
   This qualifier is mutually exclusive with the `version` component.
   For example:
 
