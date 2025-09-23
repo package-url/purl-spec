@@ -4,9 +4,9 @@ A PURL string is an ASCII URL string composed of seven components.
 
 Except as expressly stated otherwise in this section, each component:
 
-- MAY be composed of any of the characters defined in the "Permitted
+- may be composed of any of the characters defined in the "Permitted
   characters" section
-- MUST be encoded as defined in the "Character encoding" section
+- must be encoded as defined in the "Character encoding" section
 
 The "lowercase" rules are defined in the "Case folding" section.
 
@@ -66,7 +66,7 @@ The rules for each component are:
 
   - The `version` is prefixed by a '@' separator when not empty.
   - This '@' is not part of the `version`.
-  - A `version` MUST be a percent-encoded string.
+  - A `version` must be a percent-encoded string.
   - When percent-decoded, a `version` may contain any Unicode character
     unless the package's `type` definition provides otherwise.
   - A `version` is a plain and opaque string.
