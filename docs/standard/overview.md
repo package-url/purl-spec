@@ -23,7 +23,7 @@ tool implementers, and organisations involved in software composition
 analysis, dependency management, and supply chain security. PURL is
 foundational to a variety of use cases, from software bill of materials
 (SBOM) generation and license compliance to vulnerability tracking and
-software artifact exchange.
+software artefact exchange.
 
 While this document serves as the authoritative reference for implementing
 PURL, it is complemented by various ecosystem-specific guidance documents,

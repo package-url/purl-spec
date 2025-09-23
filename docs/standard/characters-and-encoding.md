@@ -1,13 +1,13 @@
 ## Permitted characters
 
-A canonical `purl` is composed of these permitted ASCII characters:
+A canonical PURL is composed of these permitted ASCII characters:
 
 - the Alphanumeric Characters: `A to Z`, `a to z`, `0 to 9`,
 - the Punctuation Characters: `.-_~` (period '.',
   dash '-', underscore '_' and tilde '~'),
 - the Percent Character: `%` (percent sign '%'), and
 - the Separator Characters `:/@?=&#` (colon ':', slash '/', at sign '@',
-  question mark '?', equal sign '=', ampersand '&' and pound sign '#').
+  question mark '?', equal sign '=', ampersand '&' and hash sign '#').
 
 
 ## Separators
@@ -23,15 +23,15 @@ This is how each of the Separator Characters is used:
   `qualifier`
 - '&' (ampersand) is the separator between `qualifiers` (each being a
   `key=value` pair)
-- '#' (number sign) is the separator before `subpath`
+- '#' (hash sign) is the separator before `subpath`
 
 ## Character encoding
 
-- In the "Rules for each `purl` component" section, each component
+- In the "Rules for each PURL component" section, each component
   defines when and how to apply percent-encoding and decoding to its content.
 - When percent-encoding is required by a component definition, the component
-  string MUST first be encoded as UTF-8.
-- In the component string, each "data octet" MUST be replaced by the
+  string must first be encoded as UTF-8.
+- In the component string, each "data octet" must be replaced by the
   percent-encoded "character triplet" applying the percent-encoding mechanism
   defined in [RFC 3986 section 2.1](https://datatracker.ietf.org/doc/html/rfc3986#section-2.1),
   including the RFC definition of "data octet" and "character triplet",
@@ -41,15 +41,15 @@ This is how each of the Separator Characters is used:
     Punctuation Characters
   - "delimiters" is composed of the Separator Characters
 
-- The following characters MUST NOT be percent-encoded:
+- The following characters must not be percent-encoded:
 
   - the Alphanumeric Characters,
   - the Punctuation Characters,
-  - the Separator Characters when being used as `purl` separators,
+  - the Separator Characters when being used as PURL separators,
   - the colon ':', whether used as a Separator Character or otherwise, and
   - the percent sign '%' when used to represent a percent-encoded character.
 
-- Where the space ' ' is permitted, it MUST be percent-encoded as '%20'.
+- Where the space ' ' is permitted, it must be percent-encoded as '%20'.
 - With the exception of the percent-encoding mechanism, the rules regarding
   percent-encoding are defined by this specification alone.
 

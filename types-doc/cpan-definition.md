@@ -4,7 +4,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 # PURL Type Definition: cpan
 
 - **Type Name:** CPAN
-- **Description:** CPAN Perl packages
+- **Description:** Perl package distributions published on CPAN
 - **Schema ID:** `https://packageurl.org/types/cpan-definition.json`
 
 ## PURL Syntax
@@ -20,21 +20,22 @@ The structure of a PURL for this package type is:
 
 ## Namespace definition
 
-- **Requirement:** Optional
-- **Note:** `- To refer to a CPAN distribution name, the namespace MUST be present. In this case, the namespace is the CPAN id of the author/publisher. It MUST be written uppercase, followed by the distribution name in the name component. A distribution name MUST NOT contain the string ::.
-- To refer to a CPAN module, the namespace MUST be absent. The module name MAY contain zero or more :: strings, and the module name MUST NOT contain a -
-`
+- **Requirement:** Required
+- **Native Label:** CPAN ID of the author/publisher
+- **Note:** `It MUST be written uppercase and is required.`
 
 ## Name definition
 
+- **Requirement:** Required
 - **Case Sensitive:** Yes
-- **Native Label:** module or distribution name
-- **Note:** `The name is the module or distribution name and is case sensitive.`
+- **Native Label:** distribution name
+- **Note:** `The name is the distribution name and is case sensitive. A distribution name MUST NOT contain the string '::'`
 
 ## Version definition
 
+- **Requirement:** Optional
 - **Native Label:** version
-- **Note:** `The version is the module or distribution version.`
+- **Note:** `The version is the distribution version`
 
 ## Qualifiers Definition
 
@@ -47,10 +48,10 @@ The structure of a PURL for this package type is:
 
 ## Examples
 
-- `pkg:cpan/Perl::Version@1.013`
-- `pkg:cpan/DROLSKY/DateTime@1.55`
-- `pkg:cpan/DateTime@1.55`
 - `pkg:cpan/GDT/URI-PackageURL`
-- `pkg:cpan/LWP::UserAgent`
 - `pkg:cpan/OALDERS/libwww-perl@6.76`
-- `pkg:cpan/URI`
+- `pkg:cpan/DROLSKY/DateTime@1.55?repository_url=backpan.perl.org`
+
+## Note
+
+The previous CPAN PURL type specification allowed module names (e.g. URI::PackageURL) to be used as PURL 'name' while also omitting the PURL 'namespace'. The parser MUST emit an error when a module is specified as a PURL 'name' or detect '::' characters.
