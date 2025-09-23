@@ -20,14 +20,13 @@ Table 1: Components of a PURL
 | qualifiers | Optional    | Qualifier data for a package such as OS, architecture, repository, etc. Qualifiers are type-specific. |
 | subpath    | Optional    | Subpath within a package, relative to the package root. |
 
-
-Components are designed such that they form a hierarchy from the most significant
-on the left to the least significant components on the right.
-
+Components are designed such that they form a hierarchy from the most
+significant on the left to the least significant components on the right.
 
 A PURL must not contain a URL Authority, i.e. there is no support for
-`username`, `password`, `host` and `port` components. A `namespace` segment may
-sometimes look like a `host`, but its interpretation is specific to a `type`.
+`username`, `password`, `host` and `port` components. A `namespace` segment
+may sometimes look like a `host`, but its interpretation is specific to a
+`type`.
 
 
 ## Some PURL examples

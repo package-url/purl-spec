@@ -4,7 +4,8 @@ A PURL string is an ASCII URL string composed of seven components.
 
 Except as expressly stated otherwise in this section, each component:
 
-- May be composed of any of the characters defined in the "Permitted characters" section
+- May be composed of any of the characters defined in the "Permitted
+  characters" section
 - Must be encoded as defined in the "Character encoding" section
 
 The "lowercase" rules are defined in the "Case folding" section.
@@ -31,7 +32,8 @@ The rules for each component are:
 
 - **namespace**:
 
-  - The `namespace` is optional, unless required by the package's `type` definition.
+  - The `namespace` is optional, unless required by the package's `type`
+    definition.
   - If present, the `namespace` may contain one or more segments, separated
     by a single unencoded slash '/' character.
   - All leading and trailing slashes '/' are not significant and should be
@@ -65,8 +67,8 @@ The rules for each component are:
   - The `version` is prefixed by a '@' separator when not empty.
   - This '@' is not part of the `version`.
   - A `version` must be a percent-encoded string.
-  - When percent-decoded, a `version` may contain any Unicode character unless
-    the package's `type` definition provides otherwise.
+  - When percent-decoded, a `version` may contain any Unicode character
+    unless the package's `type` definition provides otherwise.
   - A `version` is a plain and opaque string.
 
 
@@ -101,8 +103,8 @@ The rules for each component are:
   - The `subpath` string is prefixed by a '#' separator when not empty
   - The '#' is not part of the `subpath`
   - The `subpath` contains zero or more segments, separated by slash '/'
-  - Leading and trailing slashes '/' are not significant and should be stripped
-    in the canonical form
+  - Leading and trailing slashes '/' are not significant and should be
+    stripped in the canonical form
   - Each `subpath` segment must be a percent-encoded string
   - When percent-decoded, a segment:
 
