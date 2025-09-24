@@ -207,6 +207,58 @@
       "expected_output": "pkg:hackage/3d-graphics-examples@0.0.0.2",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid Hackage package with simple kebab-case name",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:hackage/lens@5.0.1",
+      "expected_output": []
+    },
+    {
+      "description": "Valid Hackage package with uppercase letters",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:hackage/AC-HalfInteger@1.2.1",
+      "expected_output": []
+    },
+    {
+      "description": "Valid Hackage package with numbers and dots in version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:hackage/3d-graphics-examples@0.0.0.2",
+      "expected_output": []
+    },
+    {
+      "description": "Hackage package with namespace included",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:hackage/haskell/text@1.2.4",
+      "expected_output": [
+        {
+          "severity": "error",
+          "message": "Namespace is prohibited for purl type: 'hackage'"
+        }
+      ]
+    },
+    {
+      "description": "Hackage package with name not in kebab-case",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:hackage/My_Package@0.1",
+      "expected_output": [
+        {
+          "severity": "warning",
+          "message": "Name cannot contain underscores for purl type:'hackage'"
+        }
+      ]
+    },
+    {
+      "description": "Hackage package with name not in kebab-case",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:hackage/My_Package@0.1",
+      "expected_output": []
     }
   ]
 }

@@ -241,6 +241,39 @@
       "expected_output": "pkg:cran/caret@6.0-88",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid CRAN package with name and version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:cran/A3@1.0.0",
+      "expected_output": []
+    },
+    {
+      "description": "Valid CRAN package with hyphen in version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:cran/rJava@1.0-4",
+      "expected_output": []
+    },
+    {
+      "description": "Valid CRAN package with complex version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:cran/caret@6.0-88",
+      "expected_output": []
+    },
+    {
+      "description": "CRAN package with namespace (not allowed)",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:cran/ml/caret@6.0-88",
+      "expected_output": [
+        {
+          "severity": "error",
+          "message": "Namespace is prohibited for purl type: 'cran'"
+        }
+      ]
     }
   ]
 }
