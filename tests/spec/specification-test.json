@@ -143,6 +143,42 @@
       "expected_output": null,
       "expected_failure": true,
       "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+    },
+    {
+      "description": "percent signs are properly decoded",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:generic/100%25/100%25@100%25?repository_url=https://example.com/100%2525/#100%25",
+      "expected_output": {
+        "type": "generic",
+        "namespace": "100%",
+        "name": "100%",
+        "version": "100%",
+        "qualifiers": {
+          "repository_url": "https://example.com/100%25/"
+        },
+        "subpath": "100%"
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "percent signs are properly encoded",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "generic",
+        "namespace": "100%",
+        "name": "100%",
+        "version": "100%",
+        "qualifiers": {
+          "repository_url": "https://example.com/100%25/"
+        },
+        "subpath": "100%"
+      },
+      "expected_output": "pkg:generic/100%25/100%25@100%25?repository_url=https://example.com/100%2525/#100%25",
+      "expected_failure": false,
+      "expected_failure_reason": null
     }
   ]
 }
