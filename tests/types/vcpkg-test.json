@@ -1,0 +1,100 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "simple vcpkg purl",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vcpkg/ms-gsl@4.0.0",
+      "expected_output": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "ms-gsl",
+        "version": "4.0.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "vcpkg with port_revision",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vcpkg/ms-gsl@4.0.0?port_revision=4",
+      "expected_output": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "ms-gsl",
+        "version": "4.0.0",
+        "qualifiers": {
+          "port_revision": "4"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "vcpkg non-default git registry",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vcpkg/ffmpeg@5.1.2?repository_url=https://github.com/azure-sdk/vcpkg&port_revision=3",
+      "expected_output": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "ffmpeg",
+        "version": "5.1.2",
+        "qualifiers": {
+          "repository_url": "https://github.com/azure-sdk/vcpkg",
+          "port_revision": "3"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "vcpkg filesystem registry or overlay port",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vcpkg/llvm@15.0.7?repository_url=file:///C:/local-registry/vcpkg&port_revision=3",
+      "expected_output": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "llvm",
+        "version": "15.0.7",
+        "qualifiers": {
+          "repository_url": "file:///C:/local-registry/vcpkg",
+          "port_revision": "3"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "vcpkg with additional qualifiers",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vcpkg/ms-gsl@4.0.0?port_revision=4&repository_revision=42301df395&os=Linux&os_arch=x64&build_type=Debug&linkage=dynamic",
+      "expected_output": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "ms-gsl",
+        "version": "4.0.0",
+        "qualifiers": {
+          "port_revision": "4",
+          "repository_revision": "42301df395",
+          "os": "Linux",
+          "os_arch": "x64",
+          "build_type": "Debug",
+          "linkage": "dynamic"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}
