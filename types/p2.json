@@ -1,0 +1,22 @@
+{
+  "$schema": "https://packageurl.org/schemas/p2-1.0.json",
+  "$id": "https://packageurl.org/types/p2.json",
+  "type": "p2",
+  "type_name": "p2",
+  "description": "Installation and updates are managed in Eclipse using a provisioning platform called p2.",
+  "repository": {
+    "use_repository": true,
+    "note": "There is no default package repository; the repository url must be provided as 'location' qualifier key."
+  },
+  "location": {
+    "requirement": "required",
+    "note": "URL for the repository, the artifact is located at."
+  },
+  "qualifier": {
+    "requirement": "optional",
+    "note": "The artifact type. e.g. 'osgi.bundle'."
+  },
+  "examples": [
+    "pkg:p2/org.eclipse.swt@3.124.200.v20231113-1355?classifier=osgi.bundle&amp;location=https%3A%2F%2Fdownload.eclipse.org%2Freleases%2F2023-12"
+  ]
+}
