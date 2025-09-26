@@ -162,6 +162,15 @@
               "$ref": "#/definitions/prohibited_requirement"
             }
           ]
+        },
+        "known_values": {
+          "title": "Known values",
+          "description": "Optional set of known values for this namespace. If provided, the namespace value SHOULD be one of these.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
         }
       },
       "allOf": [
