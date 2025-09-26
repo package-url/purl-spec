@@ -6,6 +6,7 @@ on:
       - "types/*.json"
       - "schemas/*.json"
       - "etc/"
+      - ".github/workflows/generate-index-and-docs.yml"  # this file
     branches:
       - main
   workflow_dispatch:
