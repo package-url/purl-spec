@@ -11,7 +11,8 @@ To build a `purl` string from its components:
 
 - Start a `purl` string with the "pkg:" `scheme` as a lowercase ASCII string
 
-- Append the `type` string to the `purl` as an unencoded lowercase ASCII string
+- Append the `type` string to the `purl` as an unencoded lowercase ASCII
+  string
 
   - Append '/' to the `purl`
 
