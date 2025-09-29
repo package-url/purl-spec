@@ -13,9 +13,11 @@
     "requirement": "optional"
   },
   "name_definition": {
+    "requirement": "required",
     "native_name": "name"
   },
   "version_definition": {
+    "requirement": "optional",
     "note": "The version should be the image id sha256 or a tag. Since tags can be moved, a sha256 image id is preferred."
   },
   "examples": [

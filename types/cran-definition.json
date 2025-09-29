@@ -13,11 +13,13 @@
     "note": "there is no namespace"
   },
   "name_definition": {
+    "requirement": "required",
     "native_name": "name",
     "case_sensitive": true,
     "note": "The name is the package name and is case sensitive, but there cannot be two packages on CRAN with the same name ignoring case."
   },
   "version_definition": {
+    "requirement": "optional",
     "native_name": "version",
     "note": "The version is the package version."
   },

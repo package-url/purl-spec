@@ -14,10 +14,12 @@
     "note": "The vendor of the package."
   },
   "name_definition": {
+    "requirement": "required",
     "native_name": "package-name",
     "note": "The Conan <package-name>."
   },
   "version_definition": {
+    "requirement": "optional",
     "native_name": "package-version",
     "note": "The Conan <package-version>."
   },

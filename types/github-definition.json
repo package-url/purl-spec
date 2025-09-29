@@ -15,11 +15,13 @@
     "note": "The namespace is the user or organization. It is not case sensitive and must be lowercased."
   },
   "name_definition": {
+    "requirement": "required",
     "case_sensitive": false,
     "native_name": "repository name",
     "note": "The name is the repository name. It is not case sensitive and must be lowercased."
   },
   "version_definition": {
+    "requirement": "optional",
     "native_name": "commit or tag",
     "note": "The version is a commit or tag."
   },
