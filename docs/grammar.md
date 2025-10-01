@@ -3,48 +3,51 @@
 ABNF syntax as per [RFC5234: Augmented BNF for Syntax Specifications: ABNF](https://datatracker.ietf.org/doc/html/rfc5234).
 
 ```abnf
-purl                = scheme ":" *"/" type
-                      [ 1*"/" namespace           ] 1*"/" name *"/"
-                      [ "@" version ] [ "?" qualifiers ] [ "#" *"/" subpath *"/" ]
-                            ; leading and trailing slashes allowed here and there
-purl-canonical      = scheme ":"      type-canonical
-                      [   "/" namespace-canonical ]   "/" name
-                      [ "@" version ] [ "?" qualifiers ] [ "#"      subpath      ]
+purl                    = scheme ":" *"/" type
+                          [ 1*"/" namespace           ] 1*"/" name *"/"
+                          [ "@" version ] [ "?" qualifiers ]           [ "#" *"/" subpath *"/" ]
+                             ; leading and trailing slashes allowed here and there
+purl-canonical          = scheme ":"      type-canonical
+                          [   "/" namespace-canonical ]   "/" name
+                          [ "@" version ] [ "?" qualifiers-canonical ] [ "#"      subpath      ]
 
-scheme              = %x70.6B.67    ; lowercase string "pkg"
+scheme                  = %x70.6B.67    ; lowercase string "pkg"
 
-type                =    ALPHA *(    ALPHA / DIGIT / "." / "-" )
-type-canonical      = LOWALPHA *( LOWALPHA / DIGIT / "." / "-" )
+type                    =    ALPHA *(    ALPHA / DIGIT / "." / "-" )
+type-canonical          = LOWALPHA *( LOWALPHA / DIGIT / "." / "-" )
 
-namespace           = namespace-segment *( 1*"/" namespace-segment )
-namespace-canonical = namespace-segment *(   "/" namespace-segment )
-namespace-segment   = 1*namespace-sc
-namespace-sc        = PERM-ALPHANUM
-                    / PERM-PUNCTUATION
-                    / "%" ( PERM-ESCAPED-00-1F
-                          / PERM-ESCAPED-20-2C    ; 20-2F - except separator "/"(%2F) and general exclusion "-"(%2D) and "."(%2E) 
-                          / PERM-ESCAPED-30-FF )
+namespace               = namespace-segment *( 1*"/" namespace-segment )
+namespace-canonical     = namespace-segment *(   "/" namespace-segment )
+namespace-segment       = 1*namespace-sc
+namespace-sc            = PERM-ALPHANUM
+                        / PERM-PUNCTUATION
+                        / "%" ( PERM-ESCAPED-00-1F
+                              / PERM-ESCAPED-20-2C    ; 20-2F - except separator "/"(%2F) and general exclusion "-"(%2D) and "."(%2E) 
+                              / PERM-ESCAPED-30-FF )
                             ; namespace safe characters
 
-name                = 1*PCT-ENCODED
+name                    = 1*PCT-ENCODED
 
-version             = 1*PCT-ENCODED
+version                 = 1*PCT-ENCODED
 
-qualifiers          = qualifier *( "&" qualifier )
-qualifier           = qualifier-key "=" qualifier-value
-qualifier-key       = LOWALPHA *( LOWALPHA / DIGIT / "." / "-" / "_" )
-qualifier-value     = 1*PCT-ENCODED
+qualifiers              = qualifier           *( "&" qualifier           )
+qualifiers-canonical    = qualifier-canonical *( "&" qualifier-canonical )
+qualifier               = qualifier-key           "=" [ qualifier-value ]
+qualifier-canonical     = qualifier-key-canonical "="   qualifier-value
+qualifier-key           =    ALPHA *(    ALPHA / DIGIT / "." / "-" / "_" )
+qualifier-key-canonical = LOWALPHA *( LOWALPHA / DIGIT / "." / "-" / "_" )
+qualifier-value         = 1*PCT-ENCODED
 
-subpath             = subpath-segment *( "/" subpath-segment )
-                    / 0<subpath-sc>    ; empty
-subpath-segment     = subpath-sc      *( subpath-sc / "." )
-                    / "." subpath-sc  *( subpath-sc / "." )    ; prevent ".." and "."
-                    / "." "."        1*( subpath-sc / "." )    ; prevent ".."
-subpath-sc          = PERM-ALPHANUM
-                    / "-" / "_" / "~"             ; PERM-PUNCTUATION except "."
-                    / "%" ( PERM-ESCAPED-00-1F
-                          / PERM-ESCAPED-20-2C    ; 20-2F - except separator "/"(%2F) and special char "."(%2E) and general exclusion "-"(%2D)
-                          / PERM-ESCAPED-30-FF )
+subpath                 = subpath-segment *( "/" subpath-segment )
+                        / 0<subpath-sc>    ; empty
+subpath-segment         = subpath-sc      *( subpath-sc / "." )
+                        / "." subpath-sc  *( subpath-sc / "." )    ; prevent ".." and "."
+                        / "." "."        1*( subpath-sc / "." )    ; prevent ".."
+subpath-sc              = PERM-ALPHANUM
+                        / "-" / "_" / "~"             ; PERM-PUNCTUATION except "."
+                        / "%" ( PERM-ESCAPED-00-1F
+                              / PERM-ESCAPED-20-2C    ; 20-2F - except separator "/"(%2F) and special char "."(%2E) and general exclusion "-"(%2D)
+                              / PERM-ESCAPED-30-FF )
                             ; subpath safe characters
 
 LOWALPHA    = %x61-7A    ; a-z
