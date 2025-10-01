@@ -4,6 +4,7 @@
 
 - [CycloneDX](https://github.com/CycloneDX): A lightweight software
   bill-of-material (SBOM) specification
+- [Dark Sky Technology (Bulletproof Trust)](https://www.darkskytechnology.com/bulletproof-trust): A software assurance platform to measure risk and detect threats in critical open-source supply chains.
 - [Ecosyste.ms](https://ecosyste.ms): Indexes and analyzes open source packages, ecosystems, and their dependencies.
 - [GitHub Dependency Submission API](https://docs.github.com/en/rest/dependency-graph/dependency-submission): allows third-party tools
   to submit dependency data to GitHub for inclusion in a repository's dependency graph.
