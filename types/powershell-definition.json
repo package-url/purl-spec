@@ -1,0 +1,33 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/powershell-definition.json",
+  "type": "psgallery",
+  "type_name": "PowerShell Gallery",
+  "description": "PowerShell Gallery packages",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://www.powershellgallery.com"
+  },
+  "namespace_definition": {
+    "requirement": "prohibited",
+    "note": "there is no namespace"
+  },
+  "name_definition": {
+    "requirement": "required",
+    "native_name": "version",
+    "case_sensitive": false,
+    "note": "The `name` is not case sensitive and must be lowercased."
+  },
+  "version_definition": {
+    "requirement": "optional",
+    "native_name": "version",
+    "case_sensitive": false,
+    "note": "The `version` is not case sensitive and must be lowercased."
+  },
+  "note": "There is no namespace per se even if the common convention is to use dot-separated package names where the first segment is namespace-like.",
+  "examples": [
+      "pkg:psgallery/pswindowsupdate@2.2.1.5",
+      "pkg:psgallery/powershellget@3.0.22-beta22",
+      "pkg:psgallery/aws.tools.cloudwatch@4.1.820"
+  ]
+}
