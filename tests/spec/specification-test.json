@@ -143,6 +143,67 @@
       "expected_output": null,
       "expected_failure": true,
       "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+    },
+    {
+      "description": "checks for invalid qualifier keys",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:npm/myartifact@1.0.0?in%20production=true",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+    },
+    {
+      "description": "checks for invalid qualifier keys",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "npm",
+        "namespace": null,
+        "name": "myartifact",
+        "version": "1.0.0",
+        "qualifiers": {
+          "in production": "true"
+        },
+        "subpath": null
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+    },
+    {
+      "description": "a name is required",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:maven/@1.3.4",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+    },
+    {
+      "description": "a name is required",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "maven",
+        "namespace": null,
+        "name": null,
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+    },
+    {
+      "description": "invalid encoded colon : between scheme and type",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg%3Amaven/org.apache.commons/io",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
     }
   ]
 }

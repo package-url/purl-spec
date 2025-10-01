@@ -52,33 +52,6 @@
       "expected_failure_reason": null
     },
     {
-      "description": "checks for invalid qualifier keys",
-      "test_group": "base",
-      "test_type": "parse",
-      "input": "pkg:npm/myartifact@1.0.0?in%20production=true",
-      "expected_output": null,
-      "expected_failure": true,
-      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
-    },
-    {
-      "description": "checks for invalid qualifier keys",
-      "test_group": "base",
-      "test_type": "build",
-      "input": {
-        "type": "npm",
-        "namespace": null,
-        "name": "myartifact",
-        "version": "1.0.0",
-        "qualifiers": {
-          "in production": "true"
-        },
-        "subpath": null
-      },
-      "expected_output": null,
-      "expected_failure": true,
-      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
-    },
-    {
       "description": "Parse test for PURL type: npm",
       "test_group": "base",
       "test_type": "parse",
