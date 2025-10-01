@@ -163,7 +163,7 @@
             }
           ]
         },
-        "known_values": {
+        "registered_values": {
           "title": "Registered values",
           "description": "Optional set of known namespace values for this package type. If provided, the namespace value should be one of these.",
           "type": "array",

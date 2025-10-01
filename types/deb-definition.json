@@ -13,7 +13,7 @@
     "case_sensitive": false,
     "note": "The namespace is the \"vendor\" name such as \"debian\" or \"ubuntu\". It is not case sensitive and must be lowercased.",
     "requirement": "required",
-    "known_values": [
+    "registered_values": [
       "debian",
       "ubuntu"
     ]
