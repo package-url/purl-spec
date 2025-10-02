@@ -143,6 +143,33 @@
       "expected_output": null,
       "expected_failure": true,
       "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+    },
+    {
+      "description": "Build with normalized checksum",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "generic",
+        "namespace": null,
+        "name": "openssl",
+        "version": "1.1.10g",
+        "qualifiers": {
+          "checksum": "SHA256:dE4d501267Da"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:generic/openssl@1.1.10g?checksum=sha256:de4d501267da",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip with normalized checksum",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:generic/bitwarderl?checksum=SHA256:dE4d501267Da",
+      "expected_output": "pkg:generic/bitwarderl?checksum=sha256:de4d501267da",
+      "expected_failure": false,
+      "expected_failure_reason": null
     }
   ]
 }
