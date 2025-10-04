@@ -133,6 +133,53 @@
       "expected_output": "pkg:generic/bitwarderl?vcs_url=git%2Bhttps://git.fsfe.org/dxtr/bitwarderl%40cc55108da32",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid generic package with version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:generic/openssl@1.1.10g",
+      "expected_output": []
+    },
+    {
+      "description": "Valid generic package with download_url and checksum",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:generic/openssl@1.1.10g?checksum=sha256:de4d501267da&download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz",
+      "expected_output": []
+    },
+    {
+      "description": "generic package with vcs_url",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:generic/bitwarderl?vcs_url=git+https://git.fsfe.org/dxtr/bitwarderl@cc55108da32",
+      "expected_output": [
+        {
+          "severity": "info",
+          "message": "Invalid qualifiers found: vcs_url. Allowed qualifiers are: checksum, download_url"
+        }
+      ]
+    },
+    {
+      "description": "Extra unknown qualifier",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:generic/mypkg@3.0.0?foo=bar",
+      "expected_output": []
+    },
+    {
+      "description": "Subpath included",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:generic/libexample@0.5.2#src/libexample.c",
+      "expected_output": []
+    },
+    {
+      "description": "Missing version and no qualifiers",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:generic/noversionpkg",
+      "expected_output": []
     }
   ]
 }

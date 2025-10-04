@@ -181,6 +181,46 @@
       "expected_output": "pkg:docker/customer/dockerimage@sha256:244fd47e07d10?repository_url=gcr.io",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid Docker image with tag only",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:docker/cassandra@latest",
+      "expected_output": []
+    },
+    {
+      "description": "Valid Docker image with namespace and sha256 digest",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:docker/smartentry/debian@dc437cc87d10",
+      "expected_output": []
+    },
+    {
+      "description": "Valid Docker image with repository_url qualifier",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:docker/customer/dockerimage@sha256:244fd47e07d10?repository_url=gcr.io",
+      "expected_output": []
+    },
+    {
+      "description": "Docker image with unsupported qualifier",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:docker/ubuntu@20.04?bad=value",
+      "expected_output": []
+    },
+    {
+      "description": "Docker image with unsupported qualifier",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:docker/ubuntu@20.04?bad=value",
+      "expected_output": [
+        {
+          "severity": "info",
+          "message": "Invalid qualifiers found: bad. Allowed qualifiers are: repository_url"
+        }
+      ]
     }
   ]
 }

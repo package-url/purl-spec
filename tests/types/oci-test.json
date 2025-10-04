@@ -188,6 +188,65 @@
       "expected_output": "pkg:oci/hello-wasm@sha256:244fd47e07d10?tag=v1",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid OCI package with repository_url, arch, and tag",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:oci/debian@sha256:244fd47e07d10?arch=amd64&repository_url=docker.io/library/debian&tag=latest",
+      "expected_output": []
+    },
+    {
+      "description": "Valid OCI package with repository_url and tag only",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:oci/debian@sha256:244fd47e07d10?repository_url=ghcr.io/debian&tag=bullseye",
+      "expected_output": []
+    },
+    {
+      "description": "Valid OCI package without repository_url (allowed, registry agnostic)",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:oci/hello-wasm@sha256:244fd47e07d10?tag=v1",
+      "expected_output": []
+    },
+    {
+      "description": "OCI package with namespace provided (prohibited)",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:oci/library/debian@sha256:244fd47e07d10?repository_url=docker.io/library/debian",
+      "expected_output": [
+        {
+          "severity": "error",
+          "message": "Namespace is prohibited for purl type: 'oci'"
+        }
+      ]
+    },
+    {
+      "description": "OCI package with missing version (required digest)",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:oci/debian?repository_url=docker.io/library/debian&tag=latest",
+      "expected_output": []
+    },
+    {
+      "description": "OCI package with uppercase name",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:oci/Debian@sha256:244fd47e07d10?repository_url=docker.io/library/debian",
+      "expected_output": [
+        {
+          "severity": "warning",
+          "message": "Name is not lowercased for purl type: 'oci'"
+        }
+      ]
+    },
+    {
+      "description": "OCI package with uppercase name",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:oci/Debian@sha256:244fd47e07d10?repository_url=docker.io/library/debian",
+      "expected_output": []
     }
   ]
 }
