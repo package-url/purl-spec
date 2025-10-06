@@ -8,6 +8,7 @@
 - [Ecosyste.ms](https://ecosyste.ms): Indexes and analyzes open source packages, ecosystems, and their dependencies.
 - [GitHub Dependency Submission API](https://docs.github.com/en/rest/dependency-graph/dependency-submission): allows third-party tools
   to submit dependency data to GitHub for inclusion in a repository's dependency graph.
+- [NTT ZEN SecDB](https://secdb.nttzen.cloud): A security intelligence platform providing unified access to vulnerabilities, advisories, and exploit data across ecosystems, leveraging PURL for consistent package identification.
 - [OWASP Dependency-Track](https://www.owasp.org/index.php/OWASP_Dependency_Track_Project):
   Open source component analysis platform
 - [OSS Index](https://ossindex.sonatype.org): A free catalog of Open Source
