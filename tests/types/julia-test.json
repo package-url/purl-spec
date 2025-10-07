@@ -20,24 +20,6 @@
       "expected_failure_reason": null
     },
     {
-      "description": "valid julia purl for package with repository_url",
-      "test_group": "base",
-      "test_type": "parse",
-      "input": "pkg:julia/RegisterQD@0.3.1?repository_url=https://github.com/HolyLab/HolyLabRegistry",
-      "expected_output": {
-        "type": "julia",
-        "namespace": null,
-        "name": "RegisterQD",
-        "version": "0.3.1",
-        "qualifiers": {
-          "repository_url": "https://github.com/HolyLab/HolyLabRegistry"
-        },
-        "subpath": null
-      },
-      "expected_failure": false,
-      "expected_failure_reason": null
-    },
-    {
       "description": "valid julia purl for stdlib package with uuid but no version",
       "test_group": "base",
       "test_type": "parse",
