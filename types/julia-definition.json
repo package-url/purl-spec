@@ -15,7 +15,7 @@
   "name_definition": {
     "native_name": "name",
     "case_sensitive": true,
-    "note": "The name is the package name. The name is case sensitive."
+    "note": "The name is the package name (without a `.jl` suffix). The name is case sensitive."
   },
   "version_definition": {
     "native_name": "version",
