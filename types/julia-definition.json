@@ -13,6 +13,7 @@
     "note": "there is no namespace"
   },
   "name_definition": {
+    "requirement": "required",
     "native_name": "name",
     "case_sensitive": true,
     "note": "The name is the package name (without a `.jl` suffix). The name is case sensitive."
