@@ -1,7 +1,7 @@
 {
   "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
-  "$id": "https://packageurl.org/types/vsx-definition.json",
-  "type": "vsx",
+  "$id": "https://packageurl.org/types/vscode-definition.json",
+  "type": "vscode",
   "type_name": "VS Code Extension packages",
   "description": "VS Code Extension packages",
   "repository": {
@@ -9,19 +9,19 @@
     "default_repository_url": "https://marketplace.visualstudio.com/vscode"
   },
   "namespace_definition": {
-    "requirement": "optional",
-    "case_sensitive": true,
+    "requirement": "required",
+    "case_sensitive": false,
     "native_name": "publisher",
     "note": "The namespace is the publisher or vendor of the extension (e.g., 'redhat', 'microsoft')"
   },
   "name_definition": {
     "requirement": "required",
-    "case_sensitive": true,
+    "case_sensitive": false,
     "native_name": "name"
   },
   "version_definition": {
     "requirement": "optional",
-    "case_sensitive": true,
+    "case_sensitive": false,
     "native_name": "version"
   },
   "qualifiers_definition": [
@@ -34,9 +34,9 @@
     }
   ],
   "examples": [
-    "pkg:vsx/ms-python/python@2023.25.10292213",
-    "pkg:vsx/muhammad-sammy/csharp@2.15.30?repository_url=open-vsx.org",
-    "pkg:vsx/golang/go@0.39.1?platform=win32-x64"
+    "pkg:vscode/ms-python/python@2023.25.10292213",
+    "pkg:vscode/muhammad-sammy/csharp@2.15.30?repository_url=https://open-vsx.org",
+    "pkg:vscode/golang/go@0.39.1?platform=win32-x64"
   ],
   "reference_urls": [
     "https://open-vsx.org/",
