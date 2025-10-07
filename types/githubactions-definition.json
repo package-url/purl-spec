@@ -1,0 +1,32 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/githubactions-definition.json",
+  "type": "githubactions",
+  "type_name": "GitHub Actions",
+  "description": "GitHub Actions including workflows",
+  "repository": {
+    "use_repository": true,
+    "note": "Github.com is the Actions repository."
+  },
+  "namespace_definition": {
+    "requirement": "required",
+    "case_sensitive": false,
+    "note": "The namespace must be lowercased."
+  },
+  "name_definition": {
+    "requirement": "required",
+    "case_sensitive": true,
+    "note": "The name contains both the repository name and optionally a path within the repository to a certain action or workflow. The first section before the slash is the repository name, this is not case sensitive and should be lowercase. The rest is the path within the repository, which is case sensitive."
+  },
+  "note": "GitHub Actions, including workflows.",
+  "version_definition": {
+    "requirement": "optional",
+    "note": "The version is often empty when a commit is not specified and should be the commit in most cases when available."
+  },
+  "examples": [
+    "pkg:githubactions/myorg/myaction",
+    "pkg:githubactions/myorg/myworkflows/.github/workflows/general.yml",
+    "pkg:githubactions/myorg/myaction@v1",
+    "pkg:githubactions/myorg/myworkflows/.github/workflows/general.yml@v1"
+  ]
+}
