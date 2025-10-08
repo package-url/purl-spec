@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/schemas/purl-type-definition.schema-1.1.json",
   "title": "Package-URL Type Definition",
   "description": "Schema to specify a Package-URL (PURL) type as a structured definition.",
   "type": "object",

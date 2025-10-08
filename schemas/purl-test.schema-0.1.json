@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "$id": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
   "title": "Package-URL test definition",
   "description": "Schema for Package-URL building and parsing tests with input and expected output.",
   "type": "object",
