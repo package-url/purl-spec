@@ -3,7 +3,7 @@
   "$id": "https://packageurl.org/types/githubactions-definition.json",
   "type": "githubactions",
   "type_name": "GitHub Actions",
-  "description": "GitHub Actions including workflows",
+  "description": "GitHub Actions",
   "repository": {
     "use_repository": true,
     "note": "Github.com is the Actions repository."
@@ -11,22 +11,26 @@
   "namespace_definition": {
     "requirement": "required",
     "case_sensitive": false,
-    "note": "The namespace must be lowercased."
+    "native_name": "user or organization",
+    "note": "The namespace is the user or organization. It is not case sensitive and must be lowercased."
   },
   "name_definition": {
     "requirement": "required",
     "case_sensitive": true,
-    "note": "The name contains both the repository name and optionally a path within the repository to a certain action or workflow. The first section before the slash is the repository name, this is not case sensitive and should be lowercase. The rest is the path within the repository, which is case sensitive."
+    "note": "The name contains both the repository name and optionally a path within the repository to a certain action. The first section before the slash is the repository name, this is not case sensitive and should be lowercase. The rest is the URL-encoded path within the repository, which is case sensitive."
   },
-  "note": "GitHub Actions, including workflows.",
+  "note": "GitHub Actions",
   "version_definition": {
     "requirement": "optional",
     "note": "The version is often empty when a commit is not specified and should be the commit in most cases when available."
   },
   "examples": [
+    "pkg:githubactions/actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3",
+    "pkg:githubactions/actions/checkout@v5",
+    "pkg:githubactions/actions/checkout@v5.2.0",
+    "pkg:githubactions/actions/checkout@main",
     "pkg:githubactions/myorg/myaction",
-    "pkg:githubactions/myorg/myworkflows/.github/workflows/general.yml",
     "pkg:githubactions/myorg/myaction@v1",
-    "pkg:githubactions/myorg/myworkflows/.github/workflows/general.yml@v1"
+    "pkg:githubactions/myorg/actions-repo%2Fmyaction@main"
   ]
 }
