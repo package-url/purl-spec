@@ -223,6 +223,51 @@
       "expected_output": "pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c#api",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid golang package with namespace, name, and version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c",
+      "expected_output": []
+    },
+    {
+      "description": "Valid golang package with namespace and name only (no version)",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:golang/golang.org/x/crypto",
+      "expected_output": []
+    },
+    {
+      "description": "Valid golang package with subpath",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:golang/google.golang.org/genproto#googleapis/api/annotations",
+      "expected_output": []
+    },
+    {
+      "description": "Golang package with uppercase namespace",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:golang/GitHub.com/Gorilla/context@234fd47e07d1004f0aed9c",
+      "expected_output": [
+        {
+          "severity": "warning",
+          "message": "Namespace is not lowercased for purl type: 'golang'"
+        }
+      ]
+    },
+    {
+      "description": "Golang package with missing namespace",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:golang/context@234fd47e07d1004f0aed9c",
+      "expected_output": [
+        {
+          "severity": "error",
+          "message": "Namespace is required for purl type: 'golang'"
+        }
+      ]
     }
   ]
 }

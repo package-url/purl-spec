@@ -68,6 +68,34 @@
         }
       }
     },
+    "purl_validation_message": {
+      "title": "PURL validation message",
+      "description": "Validation severity and message to use as a test expected output when validating a PURL.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "severity": {
+          "title": "Validation severity",
+          "description": "Validation severity.",
+          "type": "string",
+          "enum": [
+            "info",
+            "warning",
+            "error"
+          ],
+          "meta:enum": {
+            "info": "Informational validation message",
+            "warning": "Warning validation message",
+            "error": "Error validation message"
+          }
+        },
+        "message": {
+          "title": "Validation message",
+          "description": "Validation message.",
+          "type": "string"
+        }
+      }
+    },
     "purl_test": {
       "title": "PURL test",
       "description": "A PURL test with input and expected output.",
@@ -104,12 +132,14 @@
           "enum": [
             "build",
             "parse",
-            "roundtrip"
+            "roundtrip",
+            "validation"
           ],
           "meta:enum": {
             "build": "A PURL building test from decoded components to a canonical PURL string.",
             "parse": "A PURL building test from decoded components to a canonical PURL string.",
-            "roundtrip": "A PURL roundtrip test, parsing then building back a PURL from a canonical string input."
+            "roundtrip": "A PURL roundtrip test, parsing then building back a PURL from a canonical string input.",
+            "validation": "A PURL validation test, checking if a PURL follows all the rules for a particular ecosystem."
           }
         },
         "expected_failure": {
@@ -282,6 +312,39 @@
             "required": [
               "input",
               "expected_failure_reason"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "validation"
+              }
+            },
+            "required": [
+              "test_type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input test PURL",
+                "description": "A PURL string to use as a test input (canonical or not).",
+                "type": "string"
+              },
+              "expected_output": {
+                "title": "Expected validation messages and severities",
+                "description": "List of validation objects with message and severity expected for this test. Can be an empty list.",
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/purl_validation_message"
+                }
+              }
+            },
+            "required": [
+              "input",
+              "expected_output"
             ]
           }
         }

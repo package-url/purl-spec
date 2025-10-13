@@ -135,6 +135,48 @@
       "expected_output": "pkg:swid/Adobe%2BSystems%2BIncorporated/Adobe%2BInDesign@CC?tag_id=CreativeCloud-CS6-Win-GM-MUL",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid SWID with namespace, name, version and tag_id",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:swid/Acme/example.com/Enterprise+Server@1.0.0?tag_id=75b8c285-fa7b-485b-b199-4745e3004d0d",
+      "expected_output": []
+    },
+    {
+      "description": "Valid SWID with only name and tag_id (no namespace)",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:swid/Fedora@29?tag_id=org.fedoraproject.Fedora-29",
+      "expected_output": []
+    },
+    {
+      "description": "Valid SWID with tag_creator_name and tag_creator_regid qualifiers",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:swid/Adobe Systems Incorporated/Adobe InDesign@CC?tag_creator_name=AdobeCorp&tag_creator_regid=com.adobe&tag_id=CreativeCloud-CS6-Win-GM-MUL",
+      "expected_output": []
+    },
+    {
+      "description": "SWID missing required tag_id qualifier",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:swid/Acme/example.com/Enterprise+Server@1.0.0",
+      "expected_output": []
+    },
+    {
+      "description": "SWID with empty tag_id",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:swid/Acme/example.com/Enterprise+Server@1.0.0?tag_id=",
+      "expected_output": []
+    },
+    {
+      "description": "Valid SWID with optional patch and tag_version",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:swid/Acme/example.com/Enterprise+Server@1.0.0?patch=true&tag_id=75b8c285-fa7b-485b-b199-4745e3004d0d&tag_version=3",
+      "expected_output": []
     }
   ]
 }

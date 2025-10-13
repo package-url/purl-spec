@@ -123,6 +123,39 @@
       "expected_output": "pkg:cargo/structopt@0.3.11",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid Cargo package with name and version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:cargo/rand@0.7.2",
+      "expected_output": []
+    },
+    {
+      "description": "Valid Cargo package with another example",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:cargo/clap@2.33.0",
+      "expected_output": []
+    },
+    {
+      "description": "Cargo package without version",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:cargo/structopt",
+      "expected_output": []
+    },
+    {
+      "description": "Cargo package with namespace (not allowed)",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:cargo/rustlang/serde@1.0.0",
+      "expected_output": [
+        {
+          "severity": "error",
+          "message": "Namespace is prohibited for purl type: 'cargo'"
+        }
+      ]
     }
   ]
 }

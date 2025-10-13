@@ -260,6 +260,58 @@
       "expected_output": "pkg:mlflow/trafficsigns@10?model_uuid=36233173b22f4c89b451f1228d700d49&repository_url=https://adb-5245952564735461.0.azuredatabricks.net/api/2.0/mlflow&run_id=410a3121-2709-4f88-98dd-dba0ef056b0a",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid MLflow package with name and version only",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:mlflow/creditfraud@3",
+      "expected_output": []
+    },
+    {
+      "description": "Valid MLflow package with repository_url qualifier",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:mlflow/creditfraud@3?repository_url=https://westus2.api.azureml.ms/mlflow/v1.0/subscriptions/a50f2011-fab8-4164-af23-c62881ef8c95/resourceGroups/TestResourceGroup/providers/Microsoft.MachineLearningServices/workspaces/TestWorkspace",
+      "expected_output": []
+    },
+    {
+      "description": "Valid MLflow package with model_uuid and run_id qualifiers",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:mlflow/trafficsigns@10?model_uuid=36233173b22f4c89b451f1228d700d49&repository_url=https://adb-5245952564735461.0.azuredatabricks.net/api/2.0/mlflow&run_id=410a3121-2709-4f88-98dd-dba0ef056b0a",
+      "expected_output": []
+    },
+    {
+      "description": "MLflow package with namespace (not allowed)",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:mlflow/azure/creditfraud@3",
+      "expected_output": [
+        {
+          "severity": "error",
+          "message": "Namespace is prohibited for purl type: 'mlflow'"
+        }
+      ]
+    },
+    {
+      "description": "MLflow package with unsupported qualifier",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:mlflow/creditfraud@3?foo=bar",
+      "expected_output": []
+    },
+    {
+      "description": "MLflow package with unsupported qualifier",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:mlflow/creditfraud@3?foo=bar",
+      "expected_output": [
+        {
+          "severity": "info",
+          "message": "Invalid qualifiers found: foo. Allowed qualifiers are: model_uuid, repository_url, run_id"
+        }
+      ]
     }
   ]
 }

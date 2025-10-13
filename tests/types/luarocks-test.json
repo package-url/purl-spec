@@ -127,6 +127,46 @@
       "expected_output": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Valid LuaRocks package with only name and version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:luarocks/luasocket@3.1.0-1",
+      "expected_output": []
+    },
+    {
+      "description": "Valid LuaRocks package with namespace and version",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:luarocks/hisham/luafilesystem@1.8.0-1",
+      "expected_output": []
+    },
+    {
+      "description": "Valid LuaRocks package with private repository_url qualifier",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/",
+      "expected_output": []
+    },
+    {
+      "description": "Unsupported qualifier is provided",
+      "test_group": "base",
+      "test_type": "validation",
+      "input": "pkg:luarocks/username/packagename@0.1.0-1?channel=beta",
+      "expected_output": [
+        {
+          "severity": "info",
+          "message": "Invalid qualifiers found: channel. Allowed qualifiers are: repository_url"
+        }
+      ]
+    },
+    {
+      "description": "Advanced validation for name with uppercase letters",
+      "test_group": "advanced",
+      "test_type": "validation",
+      "input": "pkg:luarocks/LuaSocket@3.1.0-1?private_url=https://example.com/private_rocks_server/",
+      "expected_output": []
     }
   ]
 }
