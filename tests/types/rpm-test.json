@@ -152,6 +152,25 @@
       "expected_output": "pkg:rpm/fedora/centerim@4.22.10-1.el6?arch=i686&distro=fedora-25&epoch=1",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL for VMWare Photon OS",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "rpm",
+        "namespace": "photon",
+        "name": "bash",
+        "version": "5.2-7.ph5",
+        "qualifiers": {
+          "arch": "x86_64",
+          "distro": "photon-5.0"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:rpm/photon/bash@5.2-7.ph5?arch=x86_64&distro=photon-5.0",
+      "expected_failure": false,
+      "expected_failure_reason": null
     }
   ]
 }
