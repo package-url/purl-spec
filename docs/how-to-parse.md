@@ -11,12 +11,11 @@ To parse a `purl` string in its components:
 - Split the `purl` string once from right on '#'
 
   - The left side is the `remainder`
-  - Strip the right side from leading and trailing '/'
-  - Split this on '/'
-  - Discard any empty string segment from that split
+  - Split the right side on `/`
   - Percent-decode each segment
-  - Discard any '.' or '..' segment from that split
   - UTF-8-decode each segment if needed in your programming language
+  - Discard any segment that is empty, or equal to `.` or `..`
+  - Report an error if any segment contains a slash `/`
   - Join segments back with a '/'
   - This is the `subpath`
 

@@ -108,10 +108,10 @@
       "description": "Parse test for PURL type: rpm",
       "test_group": "base",
       "test_type": "parse",
-      "input": "pkg:rpm/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25",
+      "input": "pkg:rpm/fedora/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25",
       "expected_output": {
         "type": "rpm",
-        "namespace": null,
+        "namespace": "fedora",
         "name": "centerim",
         "version": "4.22.10-1.el6",
         "qualifiers": {
@@ -128,8 +128,8 @@
       "description": "Roundtrip test for PURL type: rpm",
       "test_group": "base",
       "test_type": "roundtrip",
-      "input": "pkg:rpm/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25",
-      "expected_output": "pkg:rpm/centerim@4.22.10-1.el6?arch=i686&distro=fedora-25&epoch=1",
+      "input": "pkg:rpm/fedora/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25",
+      "expected_output": "pkg:rpm/fedora/centerim@4.22.10-1.el6?arch=i686&distro=fedora-25&epoch=1",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -139,7 +139,7 @@
       "test_type": "build",
       "input": {
         "type": "rpm",
-        "namespace": null,
+        "namespace": "fedora",
         "name": "centerim",
         "version": "4.22.10-1.el6",
         "qualifiers": {
@@ -149,7 +149,7 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:rpm/centerim@4.22.10-1.el6?arch=i686&distro=fedora-25&epoch=1",
+      "expected_output": "pkg:rpm/fedora/centerim@4.22.10-1.el6?arch=i686&distro=fedora-25&epoch=1",
       "expected_failure": false,
       "expected_failure_reason": null
     }
