@@ -22,12 +22,13 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Native Label:** publisher
-- **Note:** `The namespace is the publisher or vendor of the extension (e.g., 'redhat', 'microsoft')`
+- **Note:** `The namespace is the publisher or vendor of the extension (e.g., 'redhat', 'microsoft'). This corresponds to the Publisher value in the package's .vsixmanifest file.`
 
 ## Name definition
 
 - **Requirement:** Required
 - **Native Label:** name
+- **Note:** `The extension name. This corresponds to the Id value in the package's .vsixmanifest file.`
 
 ## Version definition
 

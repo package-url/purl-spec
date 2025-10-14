@@ -12,12 +12,13 @@
     "requirement": "required",
     "case_sensitive": false,
     "native_name": "publisher",
-    "note": "The namespace is the publisher or vendor of the extension (e.g., 'redhat', 'microsoft')"
+    "note": "The namespace is the publisher or vendor of the extension (e.g., 'redhat', 'microsoft'). This corresponds to the Publisher value in the package's .vsixmanifest file."
   },
   "name_definition": {
     "requirement": "required",
     "case_sensitive": false,
-    "native_name": "name"
+    "native_name": "name",
+    "note": "The extension name. This corresponds to the Id value in the package's .vsixmanifest file."
   },
   "version_definition": {
     "requirement": "optional",
