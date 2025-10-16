@@ -36,27 +36,29 @@ The rules for each component are:
     definition.
   - If present, the `namespace` may contain one or more segments, separated
     by a single unencoded slash '/' character.
-  - All leading and trailing slashes '/' are not significant and should be
-    stripped in the canonical form. They are not part of the `namespace`.
   - Each `namespace` segment must be a percent-encoded string.
   - When percent-decoded, a segment:
 
     - Must not contain any slash '/' characters
-    - Must not be empty
+    - Must not be empty. In particular, leading and trailing empty segments
+      are not allowed
     - Must contain any Unicode character other than '/' unless the package's
       `type` definition provides otherwise.
 
   - A URL host or Authority must not be used as a `namespace`. Use instead a
     `repository_url` qualifier. Note however, that for some types, the
     `namespace` may look like a host.
-
+  - PURL parsers must accept URLs where `namespace` contains empty segments,
+    and must remove them.
 
 - **name**:
 
   - The `name` is prefixed by a single slash '/' separator when the
     `namespace` is not empty.
-  - All leading and trailing slashes '/' are not significant and should be
-    stripped in the canonical form. They are not part of the `name`.
+  - PURL parsers must accept inputs where `name` is prefixed with multiple `/` separators
+    and normalize them to one.
+  - PURL parsers must accept URLs where `name` is suffixed with one or more `/` separators
+    and remove them.
   - A `name` must be a percent-encoded string.
   - When percent-decoded, a `name` may contain any Unicode character unless
     the package's `type` definition provides otherwise.
@@ -103,15 +105,16 @@ The rules for each component are:
   - The `subpath` string is prefixed by a '#' separator when not empty
   - The '#' is not part of the `subpath`
   - The `subpath` contains zero or more segments, separated by slash '/'
-  - Leading and trailing slashes '/' are not significant and should be
-    stripped in the canonical form
   - Each `subpath` segment must be a percent-encoded string
   - When percent-decoded, a segment:
 
     - Must not contain any slash '/' characters
-    - Must not be empty
+    - Must not be empty. In particular, leading and trailing empty segments
+      are not allowed
     - Must not be any of '..' or '.'
     - May contain any Unicode character other than '/' unless the package's
       `type` definition provides otherwise.
 
   - The `subpath` must be interpreted as relative to the root of the package
+  - PURL parsers must accept URLs where `subpath` contains empty segments,
+    and must remove them.
