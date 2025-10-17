@@ -43,7 +43,7 @@ The rules for each component are:
 
     - Must not contain any slash '/' characters
     - Must not be empty
-    - Must contain any Unicode character other than '/' unless the package's
+    - May contain any Unicode character other than '/' unless the package's
       `type` definition provides otherwise.
 
   - A URL host or Authority must not be used as a `namespace`. Use instead a
