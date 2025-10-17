@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
-  "title": "PURL test definition",
+  "$id": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "title": "Package-URL test definition",
   "description": "Schema for Package-URL building and parsing tests with input and expected output.",
   "type": "object",
   "additionalProperties": false,
@@ -109,7 +109,7 @@
           "meta:enum": {
             "build": "A PURL building test from decoded components to a canonical PURL string.",
             "parse": "A PURL building test from decoded components to a canonical PURL string.",
-            "roundtrip": "A PURL routrip test, parsing then building back a PURL from a canonical string input."
+            "roundtrip": "A PURL roundtrip test, parsing then building back a PURL from a canonical string input."
           }
         },
         "expected_failure": {

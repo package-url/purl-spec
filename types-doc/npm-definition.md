@@ -27,11 +27,13 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
+- **Requirement:** Required
 - **Native Label:** name
 - **Note:** `Per the package.json spec, new package 'must not have uppercase letters in the name', therefore the name must be lowercased. The npm name used to be case sensitive in the early days for some old packages.`
 
 ## Version definition
 
+- **Requirement:** Optional
 - **Case Sensitive:** Yes
 - **Native Label:** version
 

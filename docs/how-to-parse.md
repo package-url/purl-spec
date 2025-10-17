@@ -11,12 +11,11 @@ To parse a `purl` string in its components:
 - Split the `purl` string once from right on '#'
 
   - The left side is the `remainder`
-  - Strip the right side from leading and trailing '/'
-  - Split this on '/'
-  - Discard any empty string segment from that split
+  - Split the right side on `/`
   - Percent-decode each segment
-  - Discard any '.' or '..' segment from that split
   - UTF-8-decode each segment if needed in your programming language
+  - Discard any segment that is empty, or equal to `.` or `..`
+  - Report an error if any segment contains a slash `/`
   - Join segments back with a '/'
   - This is the `subpath`
 
@@ -41,7 +40,7 @@ To parse a `purl` string in its components:
   - The left side lowercased is the `scheme`
   - The right side is the `remainder`
 
-- Strip all leading and trailing '/' characters (e.g., '/', '//', '///' and
+- Strip all leading '/' characters (e.g., '/', '//', '///' and
   so on) from the `remainder`
 
   - Split this once from left on '/'
@@ -55,11 +54,11 @@ To parse a `purl` string in its components:
   - UTF-8-decode the `version` if needed in your programming language
   - This is the `version`
 
-- Split the `remainder` once from right on '/'
+- Strip all trailing '/' characters (e.g., '/', '//', '///' and
+  so on) from the `remainder`
 
+  - Split this once from right on '/'
   - The left side is the `remainder`
-  - Strip all leading characters (e.g., '/', '//' and so on)
-    from the right side
   - Percent-decode the right side. This is the `name`
   - UTF-8-decode this `name` if needed in your programming language
   - Apply type-specific normalization to the `name` if needed
@@ -67,8 +66,6 @@ To parse a `purl` string in its components:
 
 - Split the `remainder` on '/'
 
-  - Strip all leading '/' characters (e.g., '/', '//' and so on)
-    from that split
   - Discard any empty segment from that split
   - Percent-decode each segment
   - UTF-8-decode each segment if needed in your programming language
