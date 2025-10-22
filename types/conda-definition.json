@@ -13,10 +13,12 @@
     "requirement": "prohibited"
   },
   "name_definition": {
+    "requirement": "required",
     "native_name": "name",
     "note": "The name is the package name."
   },
   "version_definition": {
+    "requirement": "optional",
     "native_name": "version",
     "note": "The version is the package version."
   },

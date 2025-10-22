@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Arch Linux package
 - **Description:** Arch Linux packages and other users of the libalpm/pacman package manager.
-- **Schema ID:** `https://packageurl.org/types/github-definition.json`
+- **Schema ID:** `https://packageurl.org/types/alpm-definition.json`
 
 ## PURL Syntax
 
@@ -28,11 +28,13 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
+- **Requirement:** Required
 - **Native Label:** name
 - **Note:** `The name is the package name. It is not case sensitive and must be lowercased.`
 
 ## Version definition
 
+- **Requirement:** Optional
 - **Case Sensitive:** Yes
 - **Normalization rules:**
   - normalize version as specified in vercmp(8) at https://man.archlinux.org/man/vercmp.8#DESCRIPTION as part of alpm.

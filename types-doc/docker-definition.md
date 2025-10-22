@@ -25,10 +25,12 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
+- **Requirement:** Required
 - **Native Label:** name
 
 ## Version definition
 
+- **Requirement:** Optional
 - **Note:** `The version should be the image id sha256 or a tag. Since tags can be moved, a sha256 image id is preferred.`
 
 ## Examples

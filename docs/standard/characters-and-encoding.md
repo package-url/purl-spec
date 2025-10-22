@@ -1,6 +1,6 @@
 ## Permitted characters
 
-A canonical `purl` is composed of these permitted ASCII characters:
+A canonical PURL is composed of these permitted ASCII characters:
 
 - the Alphanumeric Characters: `A to Z`, `a to z`, `0 to 9`,
 - the Punctuation Characters: `.-_~` (period '.',
@@ -23,11 +23,11 @@ This is how each of the Separator Characters is used:
   `qualifier`
 - '&' (ampersand) is the separator between `qualifiers` (each being a
   `key=value` pair)
-- '#' (number sign) is the separator before `subpath`
+- '#' (hash sign) is the separator before `subpath`
 
 ## Character encoding
 
-- In the "Rules for each `purl` component" section, each component
+- In the "Rules for each PURL component" section, each component
   defines when and how to apply percent-encoding and decoding to its content.
 - When percent-encoding is required by a component definition, the component
   string must first be encoded as UTF-8.
@@ -45,7 +45,7 @@ This is how each of the Separator Characters is used:
 
   - the Alphanumeric Characters,
   - the Punctuation Characters,
-  - the Separator Characters when being used as `purl` separators,
+  - the Separator Characters when being used as PURL separators,
   - the colon ':', whether used as a Separator Character or otherwise, and
   - the percent sign '%' when used to represent a percent-encoded character.
 

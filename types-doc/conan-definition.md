@@ -26,11 +26,13 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
+- **Requirement:** Required
 - **Native Label:** package-name
 - **Note:** `The Conan <package-name>.`
 
 ## Version definition
 
+- **Requirement:** Optional
 - **Native Label:** package-version
 - **Note:** `The Conan <package-version>.`
 

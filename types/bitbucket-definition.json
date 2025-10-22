@@ -15,11 +15,13 @@
     "case_sensitive": false
   },
   "name_definition": {
+    "requirement": "required",
     "note": "The name is the repository name. It is not case sensitive and must be lowercased.",
     "native_name": "repository name",
     "case_sensitive": false
   },
   "version_definition": {
+    "requirement": "optional",
     "note": "The version is a commit or tag.",
     "native_name": "commit or tag"
   },

@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Bitnami
 - **Description:** Bitnami-based packages
-- **Schema ID:** `https://packageurl.org/types/bitname-definition.json`
+- **Schema ID:** `https://packageurl.org/types/bitnami-definition.json`
 
 ## PURL Syntax
 
@@ -25,11 +25,13 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
+- **Requirement:** Required
 - **Native Label:** name
 - **Note:** `The name is the component name. It must be lowercased.`
 
 ## Version definition
 
+- **Requirement:** Optional
 - **Native Label:** full package version, including version and revision
 - **Note:** `The version is the full Bitnami package version, including version and revision.`
 

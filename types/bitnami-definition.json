@@ -13,11 +13,13 @@
     "note": "there is no namespace"
   },
   "name_definition": {
+    "requirement": "required",
     "note": "The name is the component name. It must be lowercased.",
     "case_sensitive": false,
     "native_name": "name"
   },
   "version_definition": {
+    "requirement": "optional",
     "native_name": "full package version, including version and revision",
     "note": "The version is the full Bitnami package version, including version and revision."
   },

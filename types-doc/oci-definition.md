@@ -25,10 +25,12 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
+- **Requirement:** Required
 - **Note:** `The name is not case sensitive and must be lowercased. The name is the last fragment of the repository name. For example if the repository name is library/debian then the name is debian.`
 
 ## Version definition
 
+- **Requirement:** Optional
 - **Note:** `The version is the sha256:hex_encoded_lowercase_digest of the artifact and is required to uniquely identify the artifact.`
 
 ## Qualifiers Definition

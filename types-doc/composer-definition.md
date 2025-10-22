@@ -26,11 +26,13 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
+- **Requirement:** Required
 - **Native Label:** name
 - **Note:** `The name is not case sensitive and must be lowercased. Private, local packages may have no name. In this case you cannot create a purl for these.`
 
 ## Version definition
 
+- **Requirement:** Optional
 - **Native Label:** version
 
 ## Examples

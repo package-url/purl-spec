@@ -13,11 +13,13 @@
     "note": "there is no namespace"
   },
   "name_definition": {
+    "requirement": "required",
     "native_name": "version",
     "case_sensitive": true,
     "note": "Technically the name is case-perserving, but case-insensitive, and NuGet packages archives are case-perserving, while some NuGet API calls demand to lowercase the package name."
   },
   "version_definition": {
+    "requirement": "optional",
     "native_name": "version",
     "note": "The NuGet version is semver-like but may contain more than three segments"
   },

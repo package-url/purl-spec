@@ -1,0 +1,39 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/julia-definition.json",
+  "type": "julia",
+  "type_name": "Julia Package",
+  "description": "Julia packages",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://github.com/JuliaRegistries/General"
+  },
+  "namespace_definition": {
+    "requirement": "prohibited",
+    "note": "there is no namespace"
+  },
+  "name_definition": {
+    "requirement": "required",
+    "native_name": "name",
+    "case_sensitive": true,
+    "note": "The name is the package name (without a `.jl` suffix). The name is case sensitive."
+  },
+  "version_definition": {
+    "native_name": "version",
+    "note": "The version is the package version."
+  },
+  "qualifiers_definition": [
+    {
+      "key": "uuid",
+      "native_name": "uuid",
+      "requirement": "required",
+      "description": "The Julia package UUID."
+    }
+  ],
+  "examples": [
+    "pkg:julia/Dates@1.9.0?uuid=ade2ca70-3891-5945-98fb-dc099432e06a",
+    "pkg:julia/Dates?uuid=ade2ca70-3891-5945-98fb-dc099432e06a",
+    "pkg:julia/RegisterQD@0.3.1?uuid=ac24ea0c-1830-11e9-18d4-81f172323054",
+    "pkg:julia/RegisterQD@0.3.1?uuid=ac24ea0c-1830-11e9-18d4-81f172323054&repository_url=https://github.com/HolyLab/HolyLabRegistry"
+  ]
+}

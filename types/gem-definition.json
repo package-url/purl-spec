@@ -13,9 +13,11 @@
     "note": "There is no namespace"
   },
   "name_definition": {
+    "requirement": "required",
     "native_name": "name"
   },
   "version_definition": {
+    "requirement": "optional",
     "native_name": "version"
   },
   "qualifiers_definition": [

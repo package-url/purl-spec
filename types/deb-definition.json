@@ -15,11 +15,13 @@
     "requirement": "required"
   },
   "name_definition": {
+    "requirement": "required",
     "native_name": "name",
     "case_sensitive": false,
     "note": "The name is not case sensitive and must be lowercased."
   },
   "version_definition": {
+    "requirement": "optional",
     "native_name": "version",
     "note": "The version is the version of the binary (or source) package."
   },
