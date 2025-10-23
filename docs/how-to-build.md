@@ -64,8 +64,8 @@ To build a `purl` string from its components:
   segments:
 
   - Append '#' to the `purl`
-  - Strip the `subpath` from leading and trailing '/'
-  - Split this on '/' as segments
+  - Divide the `subpath` into segments using the path delimiter of your
+    environment (operating system, file system, etc)
   - Discard empty, '.' and '..' segments
   - Percent-encode each segment
   - UTF-8-encode each segment if needed in your programming language
