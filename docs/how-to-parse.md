@@ -17,8 +17,10 @@ To parse a `purl` string in its components:
   - Discard any segment that is empty, or equal to `.` or `..`
   - Report an error if any segment contains a slash `/`
   - This list of path segments is the ``subpath``
-  - You may escape these path segments if needed by your environment (operating system, file system, programming language, shell, etc)
-  - You may join these path segments with the path delimiter of your environment (operating system, file system, etc)
+  - You may escape these path segments if needed by your environment
+    (operating system, file system, programming language, shell, etc)
+  - You may join these path segments with the path delimiter of your
+    environment (operating system, file system, etc)
 
 - Split the `remainder` once from right on '?'
 
