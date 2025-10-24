@@ -1,0 +1,87 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "Powershell names are case insensitive. Roundtrip test for Powershell with version.",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:Psgallery/EnterpriseLibrary.Common@6.0.1304",
+      "expected_output": "pkg:psgallery/enterpriselibrary.common@6.0.1304",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Powershell names are case insensitive. Parse test with version.",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:psgallery/Enterpriselibrary.Common@6.0.1304",
+      "expected_output": {
+        "type": "psgallery",
+        "namespace": null,
+        "name": "enterpriselibrary.common",
+        "version": "6.0.1304",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Powershell names are case insensitive. Build test with version.",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "psgallery",
+        "namespace": null,
+        "name": "EnterpriseLibrary.Common",
+        "version": "6.0.1304",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:psgallery/enterpriselibrary.common@6.0.1304",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Powershell names are case insensitive. Roundtrip test for Powershell without version.",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:Psgallery/EnterpriseLibrary.Common",
+      "expected_output": "pkg:psgallery/enterpriselibrary.common",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Powershell names are case insensitive. Parse test without version.",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:psgallery/Enterpriselibrary.Common",
+      "expected_output": {
+        "type": "psgallery",
+        "namespace": null,
+        "name": "enterpriselibrary.common",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Powershell names are case insensitive. Build test without version.",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "psgallery",
+        "namespace": null,
+        "name": "EnterpriseLibrary.Common",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:psgallery/enterpriselibrary.common",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}
