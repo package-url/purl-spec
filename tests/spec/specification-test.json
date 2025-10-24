@@ -145,7 +145,7 @@
       "expected_failure_reason": "Should fail to build a PURL from invalid input components"
     },
     {
-      "description": "Build with normalized checksum",
+      "description": "Build with multiple checksum",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -154,20 +154,20 @@
         "name": "openssl",
         "version": "1.1.10g",
         "qualifiers": {
-          "checksum": "SHA256:dE4d501267Da"
+          "checksum": "sha1:ad9503c3e994a4f,sha256:41bf9088b3a1e6c1ef1d"
         },
         "subpath": null
       },
-      "expected_output": "pkg:generic/openssl@1.1.10g?checksum=sha256:de4d501267da",
+      "expected_output": "pkg:generic/openssl@1.1.10g?checksum=sha1:ad9503c3e994a4f%2Csha256:41bf9088b3a1e6c1ef1d",
       "expected_failure": false,
       "expected_failure_reason": null
     },
     {
-      "description": "Roundtrip with normalized checksum",
+      "description": "Roundtrip with multiple checksum",
       "test_group": "base",
       "test_type": "roundtrip",
-      "input": "pkg:generic/bitwarderl?checksum=SHA256:dE4d501267Da",
-      "expected_output": "pkg:generic/bitwarderl?checksum=sha256:de4d501267da",
+      "input": "pkg:generic/bitwarderl?checksum=sha1:ad9503c3e994a4f%2Csha256:41bf9088b3a1e6c1ef1d",
+      "expected_output": "pkg:generic/bitwarderl?checksum=sha1:ad9503c3e994a4f%2Csha256:41bf9088b3a1e6c1ef1d",
       "expected_failure": false,
       "expected_failure_reason": null
     }
