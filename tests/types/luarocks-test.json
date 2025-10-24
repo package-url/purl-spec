@@ -106,7 +106,7 @@
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/",
-      "expected_output": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/",
+      "expected_output": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https:%2F%2Fexample.com%2Fprivate_rocks_server%2F",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -124,7 +124,7 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/",
+      "expected_output": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https:%2F%2Fexample.com%2Fprivate_rocks_server%2F",
       "expected_failure": false,
       "expected_failure_reason": null
     }
