@@ -147,7 +147,7 @@
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com",
-      "expected_output": "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com",
+      "expected_output": "pkg:hex/bar@1.2.3?repository_url=https:%2F%2Fmyrepo.example.com",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -165,7 +165,7 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com",
+      "expected_output": "pkg:hex/bar@1.2.3?repository_url=https:%2F%2Fmyrepo.example.com",
       "expected_failure": false,
       "expected_failure_reason": null
     }
