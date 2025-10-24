@@ -1,5 +1,5 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
   "tests": [
     {
       "description": "Parse test for PURL type: apk",
