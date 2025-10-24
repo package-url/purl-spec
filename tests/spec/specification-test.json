@@ -204,6 +204,31 @@
       "expected_output": null,
       "expected_failure": true,
       "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+      "description": "Build with multiple checksum",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "generic",
+        "namespace": null,
+        "name": "openssl",
+        "version": "1.1.10g",
+        "qualifiers": {
+          "checksum": "sha1:ad9503c3e994a4f,sha256:41bf9088b3a1e6c1ef1d"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:generic/openssl@1.1.10g?checksum=sha1:ad9503c3e994a4f%2Csha256:41bf9088b3a1e6c1ef1d",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip with multiple checksum",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:generic/bitwarderl?checksum=sha1:ad9503c3e994a4f%2Csha256:41bf9088b3a1e6c1ef1d",
+      "expected_output": "pkg:generic/bitwarderl?checksum=sha1:ad9503c3e994a4f%2Csha256:41bf9088b3a1e6c1ef1d",
+      "expected_failure": false,
+      "expected_failure_reason": null
     }
   ]
 }
