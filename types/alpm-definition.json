@@ -18,11 +18,13 @@
     ]
   },
   "name_definition": {
+    "requirement": "required",
     "note": "The name is the package name. It is not case sensitive and must be lowercased.",
     "case_sensitive": false,
     "native_name": "name"
   },
   "version_definition": {
+    "requirement": "optional",
     "native_name": "version",
     "note": "The version is the version of the package as specified in vercmp(8) at (https://man.archlinux.org/man/vercmp.8#DESCRIPTION as part of alpm.",
     "case_sensitive": true,

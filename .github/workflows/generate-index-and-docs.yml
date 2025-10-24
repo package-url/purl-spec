@@ -6,6 +6,7 @@ on:
       - "types/*.json"
       - "schemas/*.json"
       - "etc/"
+      - ".github/workflows/generate-index-and-docs.yml"  # this file
     branches:
       - main
   workflow_dispatch:
@@ -16,7 +17,7 @@ jobs:
   generate-index-and-docs:
     runs-on: ubuntu-latest
     permissions:
-      content: write
+      contents: write
 
     steps:
       - name: Checkout repository

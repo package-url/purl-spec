@@ -15,11 +15,13 @@
     "case_sensitive": false
   },
   "name_definition": {
+    "requirement": "required",
     "note": "The name is the package name. It is not case sensitive and must be lowercased.",
     "native_name": "name",
     "case_sensitive": false
   },
   "version_definition": {
+    "requirement": "optional",
     "note": "The version is a package version as expected by apk.",
     "native_name": "version"
   },
