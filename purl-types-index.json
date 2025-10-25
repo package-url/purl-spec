@@ -19,6 +19,7 @@
   "hackage",
   "hex",
   "huggingface",
+  "julia",
   "luarocks",
   "maven",
   "mlflow",
