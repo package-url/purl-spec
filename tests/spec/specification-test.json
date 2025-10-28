@@ -203,7 +203,7 @@
       "input": "pkg%3Amaven/org.apache.commons/io",
       "expected_output": null,
       "expected_failure": true,
-      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input",
       "description": "Build with multiple checksum",
       "test_group": "base",
       "test_type": "build",
