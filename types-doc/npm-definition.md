@@ -41,4 +41,4 @@ The structure of a PURL for this package type is:
 
 - `pkg:npm/foobar@12.3.1`
 - `pkg:npm/%40angular/animation@12.3.1`
-- `pkg:npm/mypackage@12.4.5?vcs_url=git://host.com/path/to/repo.git%404345abcd34343`
+- `pkg:npm/mypackage@12.4.5?vcs_url=git:%2F%2Fhost.com%2Fpath%2Fto%2Frepo.git%404345abcd34343`

@@ -46,7 +46,7 @@
       "description": "Parse test for PURL type: generic",
       "test_group": "base",
       "test_type": "parse",
-      "input": "pkg:generic/openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da",
+      "input": "pkg:generic/openssl@1.1.10g?download_url=https:%2F%2Fopenssl.org%2Fsource%2Fopenssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da",
       "expected_output": {
         "type": "generic",
         "namespace": null,
@@ -65,7 +65,7 @@
       "description": "Roundtrip test for PURL type: generic",
       "test_group": "base",
       "test_type": "roundtrip",
-      "input": "pkg:generic/openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da",
+      "input": "pkg:generic/openssl@1.1.10g?download_url=https:%2F%2Fopenssl.org%2Fsource%2Fopenssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da",
       "expected_output": "pkg:generic/openssl@1.1.10g?checksum=sha256:de4d501267da&download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz",
       "expected_failure": false,
       "expected_failure_reason": null
@@ -93,7 +93,7 @@
       "description": "Parse test for PURL type: generic",
       "test_group": "base",
       "test_type": "parse",
-      "input": "pkg:generic/bitwarderl?vcs_url=git%2Bhttps://git.fsfe.org/dxtr/bitwarderl%40cc55108da32",
+      "input": "pkg:generic/bitwarderl?vcs_url=git%2Bhttps:%2F%2Fgit.fsfe.org%2Fdxtr%2Fbitwarderl%40cc55108da32",
       "expected_output": {
         "type": "generic",
         "namespace": null,
@@ -111,7 +111,7 @@
       "description": "Roundtrip test for PURL type: generic",
       "test_group": "base",
       "test_type": "roundtrip",
-      "input": "pkg:generic/bitwarderl?vcs_url=git%2Bhttps://git.fsfe.org/dxtr/bitwarderl%40cc55108da32",
+      "input": "pkg:generic/bitwarderl?vcs_url=git%2Bhttps:%2F%2Fgit.fsfe.org%2Fdxtr%2Fbitwarderl%40cc55108da32",
       "expected_output": "pkg:generic/bitwarderl?vcs_url=git%2Bhttps://git.fsfe.org/dxtr/bitwarderl%40cc55108da32",
       "expected_failure": false,
       "expected_failure_reason": null
