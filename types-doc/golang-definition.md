@@ -16,7 +16,7 @@ The structure of a PURL for this package type is:
 ## Repository Information
 
 - **Use Repository:** Yes
-- **Note:** There is no default package repository, this is implied in the namespace using the go get command conventions. In practice the go module proxy acts as a public defulat repository.
+- **Note:** There is no default package repository, this is implied in the namespace using the go get command conventions. In practice the Go module proxy acts as a public default repository.
 
 ## Namespace definition
 
@@ -46,4 +46,4 @@ The structure of a PURL for this package type is:
 
 ## Note
 
-the current definition predates Go modules and has several practical problems, and in particular it is impossible to determine what is a module and what is a package short of having full access to the source code or making an API call to the Go module proxy.
+The current definition predates Go modules and has several practical problems, and in particular it is impossible to determine what is a module and what is a package short of having full access to the source code or making an API call to the Go module proxy.
