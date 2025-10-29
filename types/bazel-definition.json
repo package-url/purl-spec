@@ -1,0 +1,49 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type.schema-1.0.json",
+  "$id": "https://packageurl.org/types/bazel-definition.json",
+  "type": "bazel",
+  "type_name": "Bazel modules",
+  "description": "Bazel modules as specified at https://bazel.build/external/module",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://bcr.bazel.build",
+    "note": "The default repository is the Bazel Central Registry (BCR)"
+  },
+  "namespace_definition": {
+    "requirement": "prohibited",
+    "note": "Bazel modules do not use namespaces"
+  },
+  "name_definition": {
+    "requirement": "required",
+    "note": "The name as defined in the MODULE.bazel file"
+  },
+  "version_definition": {
+    "requirement": "required",
+    "note": "The version as defined in the MODULE.bazel file. Uses a relaxed semantic versioning format described at https://bazel.build/external/module#version-format."
+  },
+  "subpath_definition": {
+    "requirement": "optional",
+    "native_name": "label",
+    "note": "The optional subpath MAY refer to a label of a particular package or target in the module (https://bazel.build/concepts/labels). The label MUST NOT include a repo name and the leading '//' MUST be omitted. When referring to targets, the label MUST include the name of the target, separated from the package by ':'. If there is no target name, subpath is assumed to refer to the whole package."
+  },
+  "qualifiers_definition": [
+    {
+      "key": "repository_url",
+      "native_name": "registry",
+      "requirement": "optional",
+      "default_value": "https://bcr.bazel.build",
+      "description": "The URL of the registry that hosts this Bazel module. If not specified, it defaults to the BCR URL."
+    }
+  ],
+  "examples": [
+    "pkg:bazel/rules_java@7.8.0",
+    "pkg:bazel/curl@8.8.0.bcr.1",
+    "pkg:bazel/curl@8.8.0?repository_url=https://example.org/bazel-registry",
+    "pkg:bazel/rules_java@8.5.0#java/runfiles",
+    "pkg:bazel/rules_java@8.5.0#java/runfiles:runfiles",
+    "pkg:bazel/rules_go@0.48.0#go"
+  ],
+  "reference_urls": [
+    "https://bazel.build/external/module"
+  ]
+}
