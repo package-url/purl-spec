@@ -429,7 +429,7 @@ To build a `purl` string from its components:
   - UTF-8-encode the `name` if needed in your programming language
   - Append the percent-encoded `name` to the `purl`
 
-- If the `namespace` is empty:
+- If the `name` is empty:
 
   - Apply type-specific normalization to the `name` if needed
   - UTF-8-encode the `name` if needed in your programming language
