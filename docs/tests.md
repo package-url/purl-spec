@@ -25,9 +25,11 @@ building and parsing.
 string See also `/docs/how-build.md`.
 - **parse**: A PURL building test from decoded components to a canonical PURL 
 string. See also `/docs/how-parse.md`.
-- **roundtrip**: A PURL roundtrip test, parsing a PURL and then building back a PURL from a canonical string input.
+- **roundtrip**: A PURL roundtrip test, parsing a PURL and then building back 
+a PURL from a canonical string input.
 
-To test PURL parsing and building, a tool can use the specification and type tests to run tests for:
+To test PURL parsing and building, a tool can use the specification and type 
+tests to run tests for:
 
 - Parsing an input test canonical PURL then re-building a PURL from the
   parsed components should return the test canonical PURL
