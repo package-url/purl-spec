@@ -107,7 +107,7 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:julia/RegisterQD@0.3.1?repository_url=https://github.com/HolyLab/HolyLabRegistry&uuid=ac24ea0c-1830-11e9-18d4-81f172323054",
+      "expected_output": "pkg:julia/RegisterQD@0.3.1?repository_url=https:%2F%2Fgithub.com%2FHolyLab%2FHolyLabRegistry&uuid=ac24ea0c-1830-11e9-18d4-81f172323054",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -125,7 +125,7 @@
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:julia/RegisterQD@0.3.1?repository_url=https://github.com/HolyLab/HolyLabRegistry&uuid=ac24ea0c-1830-11e9-18d4-81f172323054",
-      "expected_output": "pkg:julia/RegisterQD@0.3.1?repository_url=https://github.com/HolyLab/HolyLabRegistry&uuid=ac24ea0c-1830-11e9-18d4-81f172323054",
+      "expected_output": "pkg:julia/RegisterQD@0.3.1?repository_url=https:%2F%2Fgithub.com%2FHolyLab%2FHolyLabRegistry&uuid=ac24ea0c-1830-11e9-18d4-81f172323054",
       "expected_failure": false,
       "expected_failure_reason": null
     },
