@@ -106,7 +106,7 @@
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:Maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repositorY_url=https://repo.spring.io/release",
-      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repository_url=https://repo.spring.io/release",
+      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repository_url=https:%2F%2Frepo.spring.io%2Frelease",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -134,7 +134,7 @@
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repository_url=repo.spring.io/release",
-      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repository_url=repo.spring.io/release",
+      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repository_url=repo.spring.io%2Frelease",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -153,7 +153,7 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repository_url=repo.spring.io/release",
+      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=sources&repository_url=repo.spring.io%2Frelease",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -162,7 +162,7 @@
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:Maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=pom&repositorY_url=repo.spring.io/release",
-      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=repo.spring.io/release&type=pom",
+      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=repo.spring.io%2Frelease&type=pom",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -190,7 +190,7 @@
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=war&repository_url=https://repo.spring.io/release",
-      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=https://repo.spring.io/release&type=war",
+      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=https:%2F%2Frepo.spring.io%2Frelease&type=war",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -209,7 +209,7 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=foo&repository_url=repo.spring.io/release",
+      "expected_output": "pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?classifier=foo&repository_url=repo.spring.io%2Frelease",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -818,7 +818,7 @@
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:maven/groovy/groovy@1.0?repository_url=https://maven.google.com",
-      "expected_output": "pkg:maven/groovy/groovy@1.0?repository_url=https://maven.google.com",
+      "expected_output": "pkg:maven/groovy/groovy@1.0?repository_url=https:%2F%2Fmaven.google.com",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -836,7 +836,7 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:maven/groovy/groovy@1.0?repository_url=https://maven.google.com",
+      "expected_output": "pkg:maven/groovy/groovy@1.0?repository_url=https:%2F%2Fmaven.google.com",
       "expected_failure": false,
       "expected_failure_reason": null
     }
