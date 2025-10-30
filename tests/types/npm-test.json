@@ -156,12 +156,12 @@
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:npm/mypackage@12.4.5?vcs_url=git://host.com/path/to/repo.git%404345abcd34343",
-      "expected_output": "pkg:npm/mypackage@12.4.5?vcs_url=git://host.com/path/to/repo.git%404345abcd34343",
+      "expected_output": "pkg:npm/mypackage@12.4.5?vcs_url=git:%2F%2Fhost.com%2Fpath%2Fto%2Frepo.git%404345abcd34343",
       "expected_failure": false,
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for PURL type: npm",
+      "description": "Build test for PURL type: npm",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -174,7 +174,7 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:npm/mypackage@12.4.5?vcs_url=git://host.com/path/to/repo.git%404345abcd34343",
+      "expected_output": "pkg:npm/mypackage@12.4.5?vcs_url=git:%2F%2Fhost.com%2Fpath%2Fto%2Frepo.git%404345abcd34343",
       "expected_failure": false,
       "expected_failure_reason": null
     },
