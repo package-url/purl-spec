@@ -1,33 +1,40 @@
 ## Tests
 
-To support the language-neutral testing of `purl` implementations, a test
-suite is provided as JSON document named `test-suite-data.json`. This JSON
-document contains an array of objects. Each object represents a test with
-these key/value pairs some of which may not be normalized:
+The Package-URL (PURL) specification provides a JSON schema and many test 
+files to support language-neutral testing of PURL implementations. The current
+ JSON schema is available at: purl-spec/schemas/purl-test.schema-0.1.json. The
+  test files are available at:
 
-- **purl**: a `purl` string.
-- **canonical**: the same `purl` string in canonical, normalized form
-- **type**: the `type` corresponding to this `purl`.
-- **namespace**: the `namespace` corresponding to this `purl`.
-- **name**: the `name` corresponding to this `purl`.
-- **version**: the `version` corresponding to this `purl`.
-- **qualifiers**: the `qualifiers` corresponding to this `purl` as an object
-  of {key: value} qualifier pairs.
-- **subpath**: the `subpath` corresponding to this `purl`.
-- **is_invalid**: a boolean flag set to true if the test should report an
-  error
+- `purl-spec/tests/spec/specification-test.json` - This file contains an array 
+of test objects that primarily cover testing the validity of individual PURL 
+components or separators between a pair of PURL components.
+- `purl-spec/tests/types/` - This folder contains one JSON test file for each 
+registered PURL type. These tests primarily cover the validity of a complete 
+PURL for the corresponding PURL type. 
 
-To test `purl` parsing and building, a tool can use this test suite and for
-every listed test object, run these tests:
+Two key properties in the PURL test JSON schema are:
 
-- parsing the test canonical `purl` then re-building a `purl` from these
-  parsed components should return the test canonical `purl`
+**test_group**: There are two PURL test groups:
+- **base**: Test group for base conformance tests for PURL building and 
+parsing.
+- **advanced**: Test group for advanced tests to support flexible PURL 
+building and parsing.
 
-- parsing the test `purl` should return the components parsed from the test
-  canonical `purl`
+**test_type**: There are three PURL test types:
+- **build**: A PURL building test from decoded components to a canonical PURL 
+string See also `/docs/how-build.md`.
+- **parse**: A PURL building test from decoded components to a canonical PURL 
+string. See also `/docs/how-parse.md`.
+- **roundtrip**: A PURL roundtrip test, parsing a PURL and then building back a PURL from a canonical string input.
 
-- parsing the test `purl` then re-building a `purl` from these parsed
-  components should return the test canonical `purl`
+To test PURL parsing and building, a tool can use the specification and type tests to run tests for:
 
-- building a `purl` from the test components should return the test canonical
-  `purl`
+- Parsing an input test canonical PURL then re-building a PURL from the
+  parsed components should return the test canonical PURL
+- Parsing an input test PURL should return the components parsed from the test
+  canonical PURL
+- Parsing an input test PURL then re-building a PURL from the parsed
+  components should return the test canonical PURL
+- Building a PURL from input test components should return the test canonical
+  PURL
+
