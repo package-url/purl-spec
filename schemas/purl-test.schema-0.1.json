@@ -292,7 +292,7 @@
     "$schema": {
       "title": "JSON schema",
       "description": "Contains the URL of the JSON schema for Package-URL tests.",
-      "constant": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+      "constant": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
       "format": "uri"
     },
     "tests": {
