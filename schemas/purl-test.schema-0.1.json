@@ -108,7 +108,7 @@
           ],
           "meta:enum": {
             "build": "A PURL building test from decoded components to a canonical PURL string.",
-            "parse": "A PURL building test from decoded components to a canonical PURL string.",
+            "parse": "A PURL parsing test from a canonical PURL string to decoded components.",
             "roundtrip": "A PURL roundtrip test, parsing then building back a PURL from a canonical string input."
           }
         },
