@@ -6,7 +6,7 @@
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:bazel/rules_java@7.8.0?repository_url=https://bcr.bazel.build/",
-      "expected_output": "pkg:bazel/rules_java@7.8.0",
+      "expected_output": "pkg:bazel/rules_java@7.8.0?repository_url=https:%2F%2Fbcr.bazel.build%2F",
       "expected_failure": false,
       "expected_failure_reason": null
     },
