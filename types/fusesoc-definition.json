@@ -6,7 +6,7 @@
   "description": "FuseSoC core",
   "repository": {
     "use_repository": true,
-    "note": "There is no default package repository."
+    "default_repository_url": "https://cores.fusesoc.net"
   },
   "namespace_definition": {
     "native_name": "vendor/library",
