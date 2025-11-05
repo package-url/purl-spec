@@ -1,0 +1,33 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/fusesoc-definition.json",
+  "type": "fusesoc",
+  "type_name": "FuseSoC core",
+  "description": "FuseSoC core",
+  "repository": {
+    "use_repository": true,
+    "note": "There is no default package repository."
+  },
+  "namespace_definition": {
+    "native_name": "vendor/library",
+    "case_sensitive": true,
+    "note": "The namespace contains both the vendor and library part of the fusesoc core name.",
+    "requirement": "required"
+  },
+  "name_definition": {
+    "requirement": "required",
+    "native_name": "name",
+    "case_sensitive": true
+  },
+  "version_definition": {
+    "requirement": "optional",
+    "native_name": "version",
+    "note": "The version is the semantic version of the fusesoc core.  We would really like this to be required, but that breaks validation."
+  },
+  "examples": [
+      "pkg:fusesoc/open-logic/open-logic/base@3.3.0",
+      "pkg:fusesoc/fusesoc/utils/blinky@1.1.0",
+      "pkg:fusesoc/award-winning/serv/servile@1.3.0",
+      "pkg:fusesoc/yosys/techlibs/ecp5@0.8.0"
+  ]
+}
