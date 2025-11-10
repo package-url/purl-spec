@@ -1,7 +1,7 @@
 # Context
 
 We build and release software by massively consuming and producing software
-packages such as NPMs, RPMs, Rubygems, etc.
+packages such as npm packages, RPMs, Ruby gems, etc.
 
 Each package manager, platform, type or ecosystem has its own conventions and
 protocols to identify, locate and provision software packages.
@@ -154,4 +154,4 @@ type definitions:
 
 ## Users, adopters and links
 
-See the `dedicated adopters list <ADOPTERS.md>`_.
+See the [dedicated adopters list](ADOPTERS.md).
