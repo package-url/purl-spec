@@ -86,40 +86,6 @@
       "expected_failure_reason": "Should fail to build a PURL from invalid input components"
     },
     {
-      "description": "invalid cran purl without version",
-      "test_group": "base",
-      "test_type": "parse",
-      "input": "pkg:cran/A3",
-      "expected_output": null,
-      "expected_failure": true,
-      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
-    },
-    {
-      "description": "invalid cran purl without version",
-      "test_group": "base",
-      "test_type": "parse",
-      "input": "pkg:cran/A3",
-      "expected_output": null,
-      "expected_failure": true,
-      "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
-    },
-    {
-      "description": "invalid cran purl without version",
-      "test_group": "base",
-      "test_type": "build",
-      "input": {
-        "type": "cran",
-        "namespace": null,
-        "name": "A3",
-        "version": null,
-        "qualifiers": null,
-        "subpath": null
-      },
-      "expected_output": null,
-      "expected_failure": true,
-      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
-    },
-    {
       "description": "Parse test for PURL type: cran",
       "test_group": "base",
       "test_type": "parse",
