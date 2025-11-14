@@ -25,11 +25,13 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
+- **Requirement:** Required
 - **Native Label:** name
 - **Note:** `The LuaRocks package name. It is case insensitive, but lowercase is encouraged since package names are normalized to ASCII lowercase.`
 
 ## Version definition
 
+- **Requirement:** Optional
 - **Case Sensitive:** Yes
 - **Native Label:** full package version, including module version and rockspec revision
 - **Note:** `The full LuaRocks package version, including module version and rockspec revision. It is case sensitive, and lowercase must be used to avoid compatibility issues with older LuaRocks versions. The full version number is required to uniquely identify a version.`

@@ -1,8 +1,8 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
   "tests": [
     {
-      "description": "pypi names have special rules and not case sensitive. Rountrip an input purl to canonical.",
+      "description": "pypi names have special rules and not case sensitive. Roundtrip an input purl to canonical.",
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:PYPI/Django_package@1.11.1.dev1",
@@ -27,7 +27,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "pypi names have special rules and not case sensitive. Rountrip a canonical input to canonical output.",
+      "description": "pypi names have special rules and not case sensitive. Roundtrip a canonical input to canonical output.",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:pypi/django-package@1.11.1.dev1",
@@ -52,7 +52,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: pypi",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:pypi/django@1.11.1",
@@ -68,7 +68,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: pypi",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:pypi/django@1.11.1",
@@ -77,7 +77,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: pypi",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -93,17 +93,17 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: pypi",
       "test_group": "base",
       "test_type": "parse",
-      "input": "pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz",
+      "input": "pkg:pypi/django@1.11.1?file_name=Django-1.11.1.tar.gz",
       "expected_output": {
         "type": "pypi",
         "namespace": null,
         "name": "django",
         "version": "1.11.1",
         "qualifiers": {
-          "filename": "Django-1.11.1.tar.gz"
+          "file_name": "Django-1.11.1.tar.gz"
         },
         "subpath": null
       },
@@ -111,16 +111,16 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: pypi",
       "test_group": "base",
       "test_type": "roundtrip",
-      "input": "pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz",
-      "expected_output": "pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz",
+      "input": "pkg:pypi/django@1.11.1?file_name=Django-1.11.1.tar.gz",
+      "expected_output": "pkg:pypi/django@1.11.1?file_name=Django-1.11.1.tar.gz",
       "expected_failure": false,
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: pypi",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -129,26 +129,26 @@
         "name": "django",
         "version": "1.11.1",
         "qualifiers": {
-          "filename": "Django-1.11.1.tar.gz"
+          "file_name": "Django-1.11.1.tar.gz"
         },
         "subpath": null
       },
-      "expected_output": "pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz",
+      "expected_output": "pkg:pypi/django@1.11.1?file_name=Django-1.11.1.tar.gz",
       "expected_failure": false,
       "expected_failure_reason": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: pypi",
       "test_group": "base",
       "test_type": "parse",
-      "input": "pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl",
+      "input": "pkg:pypi/django@1.11.1?file_name=Django-1.11.1-py2.py3-none-any.whl",
       "expected_output": {
         "type": "pypi",
         "namespace": null,
         "name": "django",
         "version": "1.11.1",
         "qualifiers": {
-          "filename": "Django-1.11.1-py2.py3-none-any.whl"
+          "file_name": "Django-1.11.1-py2.py3-none-any.whl"
         },
         "subpath": null
       },
@@ -156,16 +156,16 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: pypi",
       "test_group": "base",
       "test_type": "roundtrip",
-      "input": "pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl",
-      "expected_output": "pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl",
+      "input": "pkg:pypi/django@1.11.1?file_name=Django-1.11.1-py2.py3-none-any.whl",
+      "expected_output": "pkg:pypi/django@1.11.1?file_name=Django-1.11.1-py2.py3-none-any.whl",
       "expected_failure": false,
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: pypi",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -174,16 +174,16 @@
         "name": "django",
         "version": "1.11.1",
         "qualifiers": {
-          "filename": "Django-1.11.1-py2.py3-none-any.whl"
+          "file_name": "Django-1.11.1-py2.py3-none-any.whl"
         },
         "subpath": null
       },
-      "expected_output": "pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl",
+      "expected_output": "pkg:pypi/django@1.11.1?file_name=Django-1.11.1-py2.py3-none-any.whl",
       "expected_failure": false,
       "expected_failure_reason": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
+      "description": "Parse test for PURL type: pypi",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:pypi/django-allauth@12.23",
@@ -199,7 +199,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
+      "description": "Roundtrip test for PURL type: pypi",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:pypi/django-allauth@12.23",
@@ -208,7 +208,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
+      "description": "Build test  for PURL type: pypi",
       "test_group": "base",
       "test_type": "build",
       "input": {

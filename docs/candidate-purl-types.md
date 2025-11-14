@@ -1,0 +1,48 @@
+## Other candidate types to define
+
+- ``android`` for Android apk packages
+- ``apache`` for Apache projects packages
+- ``atom`` for Atom packages
+- ``bower`` for Bower JavaScript packages
+- ``brew`` for Homebrew packages
+- ``buildroot`` for Buildroot packages
+- ``carthage`` for Cocoapods Cocoa packages
+- ``chef`` for Chef packages
+- ``chocolatey`` for Chocolatey packages
+- ``clojars`` for Clojure packages
+- ``coreos`` for CoreOS packages
+- ``crystal`` for Crystal Shards packages
+- ``ctan`` for CTAN TeX packages
+- ``drupal`` for Drupal packages
+- ``dtype`` for DefinitelyTyped TypeScript type definitions
+- ``dub`` for D packages
+- ``ebuild`` for Gentoo Linux portage packages
+- ``eclipse`` for Eclipse projects packages
+- ``elm`` for Elm packages
+- ``gitea`` for Gitea-based packages
+- ``gitlab`` for GitLab-based packages
+- ``gradle`` for Gradle plugins
+- ``guix`` for Guix packages
+- ``haxe`` for Haxe packages
+- ``helm`` for Kubernetes packages
+- ``julia`` for Julia packages
+- ``melpa`` for Emacs packages
+- ``meteor`` for Meteor JavaScript packages
+- ``nim`` for Nim packages
+- ``nix`` for Nixos packages
+- ``opam`` for OCaml packages
+- ``openwrt`` for OpenWRT packages
+- ``osgi`` for OSGi bundle packages
+- ``p2`` for Eclipse p2 packages
+- ``pear`` for Pear PHP packages
+- ``pecl`` for PECL PHP packages
+- ``perl6`` for Perl 6 module packages
+- ``platformio`` for PlatformIO packages
+- ``puppet`` for Puppet Forge packages
+- ``sourceforge`` for Sourceforge-based packages
+- ``sublime`` for Sublime packages
+- ``terraform`` for Terraform modules
+- ``vagrant`` for Vagrant boxes
+- ``vim`` for Vim scripts packages
+- ``wordpress`` for Wordpress packages
+- ``yocto`` for Yocto recipe packages

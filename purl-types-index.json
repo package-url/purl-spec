@@ -1,6 +1,7 @@
 [
   "alpm",
   "apk",
+  "bazel",
   "bitbucket",
   "bitnami",
   "cargo",
@@ -19,6 +20,7 @@
   "hackage",
   "hex",
   "huggingface",
+  "julia",
   "luarocks",
   "maven",
   "mlflow",

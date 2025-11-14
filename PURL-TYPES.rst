@@ -1,5 +1,3 @@
-Package-URL Type definitions
-============================
 
 Each package manager, platform, type, or ecosystem has its own conventions and
 protocols to identify, locate, and provision software packages.
@@ -123,3 +121,5 @@ License
 ~~~~~~~
 
 This document is licensed under the MIT license.
+The contents of this file: purl-spec/PURL-TYPES.rst have been moved to:
+purl-spec/docs/standard/types.md and purl-spec/docs/maintain-purl-types.md.
