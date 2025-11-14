@@ -18,9 +18,11 @@ for a specific PURL type.
   that primarily cover testing the validity of individual PURL components or
   separators between a pair of PURL components.
   - component-`test.json`: These are test files for a specific PURL component.
+ See https://github.com/package-url/purl-spec/pull/738 which adds 
+ `tests/spec/qualifiers.json`.
 - `purl-spec/tests/types/`: This folder contains one JSON test file for each 
-registered PURL type. These tests primarily cover the validity of a complete 
-PURL for the corresponding PURL type.
+registered PURL type. These tests should be focused on test cases that are
+specific to a PURL type, such as those for namespace or qualifiers.
 
 Two key properties in the PURL test JSON schema are:
 
@@ -43,7 +45,8 @@ There are four PURL test types:
 decoded PURL components. See also `/docs/how-build.md`.
 - **parse**: A test to parse decoded components from a canonical PURL 
 input string. See also `/docs/how-parse.md`.
-- **roundtrip**: A test to parse an input PURL string and then rebuild it as a canonical PURL output string.
+- **roundtrip**: A test to parse an input PURL string and then rebuild it as a
+ canonical PURL output string.
 - **validation**: A test to validate a PURL input string and report severity 
 messages - info, warning or error. A validation test may optionally correct 
 errors in an output PURL string.
@@ -52,6 +55,10 @@ errors in an output PURL string.
 - *The validation test type is currently a proposed PURL test schema change. 
 See https://github.com/package-url/purl-spec/pull/614.*
 - *Do we need both roundtrip and validation test types?*
+- *Should the proposed validation test type be split into two test types for:*
+   - *validation: message output*
+   - *remediation: corrects errors and also provides messages documenting the 
+   corrections*
 - *For tests in the advanced test group we may want to distinguish between 
 validation test types that return only a validation message and a remediation
 test type which corrects an error or errors and also returns a message (see 
@@ -64,11 +71,11 @@ below) that explains the remediation.*
       "input": "pkg:PYPI/Django_package@1.11.1.dev1",\
       "expected_output": "pkg:pypi/django-package@1.11.1.dev1",\
       "expected_failure": false,\
-      "expected_failure_reason": null`
+      "expected_failure_reason": null
 
   *This test case is arguably an example of an advanced remediation test case 
   because it corrects two errors. An advanced validation test case should 
-  arguably return two error messages such as:
+  arguably return two error messages such as:*
     - *The pkg component must be lowercased.*
     - *The name component must be lowercased.*
 
@@ -79,7 +86,7 @@ below) that explains the remediation.*
 
 The standard error-handling behaviour for all test cases is based on two
 properties from the PURL test schema:
-- `expected_failure` 
+- `expected_failure`
   - description: "true if this test input is expected to fail to be 
 processed."
   - type: boolean
@@ -106,10 +113,13 @@ validation severity messages:*
    - *warning: "Warning validation message*
    - *error: "Error validation message"*
 
+  *We will need to clearly define the difference between an info message and 
+  a warning message.*
+  
   *NB - there is no message proposed for a successful test.*
 
-- *We should consider adding the message levels for all test types, not just
-the validation test type.*
+- *We should add message levels for all test types, not just the validation 
+test type.*
 
 
 
