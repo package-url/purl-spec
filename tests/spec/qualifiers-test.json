@@ -71,7 +71,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "keep qualifiers unchanged",
+      "description": "keep qualifiers unchanged when fixing encoding",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:generic/example?calc=2%2B1%3D3&preencoded_url=https:%2F%2Fexample.com%2Fsite%3Fval%255B1%255D%3Dmy%2520key%26d%3D%2523%23docs&unencoded_url=https:%2F%2Fexample.com%2Fsite%3Fval%5B1%5D%3Dmy%20key%23docs",
