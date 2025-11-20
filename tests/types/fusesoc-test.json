@@ -164,6 +164,155 @@
       "expected_output": "pkg:fusesoc/yosys/techlibs/ecp5@0.8.0",
       "expected_failure": false,
       "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: fusesoc, check case sensitivity",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:fusesoc/fusesoc/utils/Blinky@1.1.0",
+      "expected_output": "pkg:fusesoc/fusesoc/utils/Blinky@1.1.0",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: fusesoc, check case sensitivity",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:fusesoc/fusesoc/utils/Blinky@1.1.0",
+      "expected_output": "pkg:fusesoc/fusesoc/utils/blinky@1.1.0",
+      "expected_failure": true,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: fusesoc, check case sensitivity",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:fusesoc/fusesoc/utils/blinky@1.1.0",
+      "expected_output": "pkg:fusesoc/fusesoc/utils/Blinky@1.1.0",
+      "expected_failure": true,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: fusesoc, check case sensitivity",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:fusesoc/fuSesoc/utilS/Blinky@1.1.0",
+      "expected_output": "pkg:fusesoc/fuSesoc/utilS/Blinky@1.1.0",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: fusesoc, check case sensitivity",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:fusesoc/yoSys/techLibs/ecp5@0.8.0",
+      "expected_output": {
+        "type": "fusesoc",
+        "namespace": "yosys/techlibs",
+        "name": "ecp5",
+        "version": "0.8.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": true,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: fusesoc, check case sensitivity",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:fusesoc/yoSys/techLibs/ecp5@0.8.0",
+      "expected_output": {
+        "type": "fusesoc",
+        "namespace": "yoSys/techLibs",
+        "name": "ecp5",
+        "version": "0.8.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: fusesoc, version shortening",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:fusesoc/yoSys/techLibs/ecp5@0.8.0",
+      "expected_output": {
+        "type": "fusesoc",
+        "namespace": "yoSys/techLibs",
+        "name": "ecp5",
+        "version": "0.8",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": true,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: fusesoc, version shortening",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "fusesoc",
+        "namespace": "open-logic/open-logic",
+        "name": "base",
+        "version": "3.3.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:fusesoc/open-logic/open-logic/base@3.3",
+      "expected_failure": true,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: fusesoc, case sensitivity",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "fusesoc",
+        "namespace": "open-Logic/open-logic",
+        "name": "base",
+        "version": "3.3.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:fusesoc/open-logic/open-logic/base@3.3.0",
+      "expected_failure": true,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: fusesoc, case sensitivity",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "fusesoc",
+        "namespace": "open-logic/open-logic",
+        "name": "basE",
+        "version": "3.3.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:fusesoc/open-logic/open-logic/base@3.3.0",
+      "expected_failure": true,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: fusesoc, case sensitivity",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "fusesoc",
+        "namespace": "open-logic/open-logic",
+        "name": "basE",
+        "version": "3.3.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:fusesoc/open-logic/open-logic/basE@3.3.0",
+      "expected_failure": false,
+      "expected_failure_reason": null
     }
+
   ]
 }
