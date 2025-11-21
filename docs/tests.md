@@ -43,6 +43,11 @@ PURL components during a parsing or building operation.
 - After PR 738 is approved/merged we will probably want to create test files
 for each PURL component by moving component-specific test cases from
 `specification-test.json` to the new test files.
+- [Issue 743](https://github.com/package-url/purl-spec/issues/743) proposes 
+that the current test files should be re-organized so that:
+  - Everything based on core spec definition is done in the spec tests. all the canonicalization, parsing, building, validation, ...
+  - Type tests only test things that are based on the type definition. Type 
+tests don't test core spec again.
 
 > *End of test file discussion*
 
