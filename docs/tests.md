@@ -57,7 +57,7 @@ Two key properties in the PURL test JSON schema are:
 
 The focus of this document is to clearly define these properties/concepts.
 
-**Test groups**
+### Test groups
 
 There are two PURL test groups definded in the current v0.1 test schema:
 - **base**: "Test group for base conformance tests for PURL building and 
@@ -76,7 +76,8 @@ correct errors from test input (or both?)
 
 >*Discussion for test groups*
 - What is the intersection of test groups with test types?
-  - Are **build** or **parse** test types always in the **base** test group?
+  - Are **build** or **parse** test types that return only pass/fail always in the **base** test group?
+   - Are **build** or **parse** test types that remediate an error always in the **advanced** test group?
   - Are **roundtrip** tests that return only pass/fail always in the **base** 
   test group?
   - Are **roundtrip** tests that remediate an error always in the **advanced**
@@ -93,7 +94,7 @@ the base tests.
 
 > *End of test group discussion*
 
-**Test types**
+### Test types
 
 There are three PURL test types defined in the current v0.1 test schema:
 
@@ -119,7 +120,7 @@ input PURL string.
 For the **build** and **parse** test types there is no normative change here -
  just an attempt to improve the text.
 
-***New validation test type***
+#### New validation test type
 
 There is a proposed new **validation** test type from [Issue 692](https://github.com/package-url/purl-spec/issues/692) and [PR 614](https://github.com/package-url/purl-spec/pull/614). 
 The proposed definition is: "A PURL validation test, checking if a PURL 
@@ -129,7 +130,7 @@ input PURL string complies with the rules for its PURL type."
 - The new PURL type test cases in PR 614 are a mixture of **base** and
 **advanced** test groups, but there is no obvious pattern for the difference.
 
-***Validation test messages:***
+#### Validation test messages:
 
 PR 614 adds a **purl_validation_message** to the test schema with possible 
 validation severity values of "info", "warning" or "error". There is no 
@@ -162,9 +163,9 @@ provide that guidance. We will need to create new How-to documentation for
 that, but we need a basic definition of error messages and their intended use 
 in PURL tools to complete the updates to the test schema.
 
-***Current error behaviour***
+### Error handling
 
-The current error behaviour for all test cases is based on two
+The current error handling behaviour for all test cases is based on two
 properties from the PURL test schema:
 - `expected_failure`
   - description: "true if this test input is expected to fail to be 
@@ -177,44 +178,46 @@ if expected_failure is true."
 
 In the case of a test case failure the `expected_output` is `null`.
 
-***Validation messages***
+#### Validation messages
 
 As discussed above the **validation** test type introduces a set of 
-validation messages for that type, but these messages might also be useful for
-other test types. For example:
+validation messages for that test type, but these messages might also be useful for other test types. For example:
 
-The first test case in [`tests/types/pypi.test.json`](https://github.com/package-url/purl-spec/blob/main/tests/spec/specification-test.json) is an example of an **advanced** 
-**roundtrip** test. The test case data is:\
-    "description": "pypi names have special rules and not case sensitive. 
-       Roundtrip an input purl to canonical.",\  
-      "test_group": "advanced",\
-      "test_type": "roundtrip",\
-      "input": "pkg:PYPI/Django_package@1.11.1.dev1",\
-      "expected_output": "pkg:pypi/django-package@1.11.1.dev1",\
-      "expected_failure": false,\
-      "expected_failure_reason": null
+The first test case in [`tests/types/pypi.test.json`](https://github.com/package-url/purl-spec/blob/main/tests/types/pypi-test.json) is an example of an **advanced** **roundtrip** test. The test case data is:
+
+```
+"description": "pypi names have special rules and not case sensitive. Roundtrip an input purl to canonical.",  
+"test_group": "advanced",  
+"test_type": "roundtrip",  
+"input": "pkg:PYPI/Django_package@1.11.1.dev1",    
+"expected_output": "pkg:pypi/django-package@1.11.1.dev1",  
+"expected_failure": false,  
+"expected_failure_reason": null
+```  
  
  In this case it would be helpful for the test case to provide a ("warning" or 
- "info"?) message explaining the correction(s), such as:\
-    - The pkg component must be lowercased.\
-    - The name component must be lowercased.\
+ "info"?) message explaining the correction, such as:  
+    - The pkg component must be lowercased.  
+    - The name component must be lowercased.  
     - Runs of consecutive dash -, underscore _, or dot . characters must be 
-    replaced with a single dash -\
+    replaced with a single dash -.  
 
 Without a message the user will never know that there was a correction 
-needed for the PURL.
+needed for the input PURL string.
 
-***Error message handling by PURL tools***
+#### Error message handling by PURL tools
 
 The current v0.1 test schema does not include any specific properties for 
 error messages. Most of the test case examples with an expected 
-failure are in the file `test/spec/specification-test.json`. Based on those 
-examples a tool could usually derive an error message from the description, 
-but the message would be indirect. For example from the first test case the 
-description is: "pypi names have special rules and not case sensitive". A 
-better message could be: "The name component for a PyPI package is not case 
-sensitive and requires changing a consecutive dash, underscore or dot 
-character to a single dash".
+failure are in the file [`test/spec/specification-test.json`](https://github.com/package-url/purl-spec/blob/main/tests/spec/specification-test.json). Based on these examples a tool could usually derive an error message from the description, but the message would be indirect. For example from the first test case in `test/spec/specification-test.json` we have:
+
+`"description": "a scheme is always required"`.  
+`"expected_output": null,`  
+`"expected_failure": true,`  
+`"expected_failure_reason": "Should fail to parse a PURL from invalid purl input"`
+
+If a tool wants to provide a specific error message it would apparently need to construct a message by combining information from the `description` and the `expected_failure_reason` like: "Invalid PURL input - the PURL scheme is missing." The solution may be to update `expected_failure_reason` to be a more
+specific error message.
 
 There is also an important perspective from [PR 747](https://github.com/package-url/purl-spec/pull/747)
 regarding the expected use of PURL test messages by PURL tools.
