@@ -41,8 +41,8 @@ This folder contains JSON test files that are not for a specific PURL type.
 registered PURL type. These tests should be focused on test cases that are
 specific to a PURL type, such as those for namespace or qualifiers.
 
-Any PURL implementation tool is expected to canonicalize a PURL string or 
-PURL components during a parsing or building operation.
+Any PURL implementation tool is expected to canonicalize a PURL string during 
+a parsing or building operation.
 
 >*Discussion for PURL test files*
 - After PR 738 is approved/merged we will probably want to create test files
@@ -65,7 +65,7 @@ The focus of this document is to clearly define these properties/concepts.
 
 ### Test groups
 
-There are two PURL test groups definded in the current v0.1 test schema:
+There are two PURL test groups defined in the current v0.1 test schema:
 - **base**: "Test group for base conformance tests for PURL building and 
 parsing."
 - **advanced**: "Test group for advanced tests to support flexible PURL 
@@ -87,10 +87,11 @@ correct errors from test input (or both?)
    - Are **build** or **parse** test types that remediate an error always in 
    the **advanced** test group?
   - Are **roundtrip** tests that return only pass/fail always in the **base** 
-  test group?
+  test group? _pombredanne - not always_
   - Are **roundtrip** tests that remediate an error always in the **advanced**
-   test group?
+   test group? _pombredanne - yes_
    - Are **validation** tests always in the **advanced** test group?
+   _pombrdeanne - yes_
 
 - Is there a better name for the the test groups? Strict and permissive? 
 Or strict and lenient?
@@ -159,7 +160,8 @@ Issues [690](https://github.com/package-url/purl-spec/issues/690) and
 Validation message notes:
 - The proposed change for validation messages allows multiple messages from a 
 single test case.
-- There is no message returned for a successful validation.
+- There is no message returned for a successful validation. _pombredanne - we
+can add one_
 - We will need to clearly define the difference between an info message and a 
 warning message or reduce the set to warning and error messages.
 - The messages as shown in the test case examples from PR 614 are clear and 
