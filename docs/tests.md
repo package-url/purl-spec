@@ -246,8 +246,7 @@ to
  construct a message by combining information from the `description` and the 
  `expected_failure_reason` like: "Invalid PURL input - the PURL scheme is 
  missing." The solution may be to update `expected_failure_reason` to be a 
- more
-specific error message.
+ more specific error message.
 
 There is also an important perspective from [PR 747](https://github.com/package-url/purl-spec/pull/747)
 regarding the expected use of PURL test messages by PURL tools.
