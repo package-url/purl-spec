@@ -30,7 +30,6 @@
 - ``meteor`` for Meteor JavaScript packages
 - ``nim`` for Nim packages
 - ``nix`` for Nixos packages
-- ``opam`` for OCaml packages
 - ``openwrt`` for OpenWRT packages
 - ``osgi`` for OSGi bundle packages
 - ``p2`` for Eclipse p2 packages
