@@ -27,7 +27,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for PURL type: fusesoc",
+      "description": "Build test for PURL type: fusesoc",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -68,7 +68,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for PURL type: fusesoc",
+      "description": "Build test for PURL type: fusesoc",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -109,7 +109,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for PURL type: fusesoc",
+      "description": "Build test for PURL type: fusesoc",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -150,7 +150,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for PURL type: fusesoc",
+      "description": "Build test for PURL type: fusesoc",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -250,7 +250,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for PURL type: fusesoc, version shortening",
+      "description": "Build test for PURL type: fusesoc, version shortening",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -266,7 +266,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for PURL type: fusesoc, case sensitivity",
+      "description": "Build test for PURL type: fusesoc, case sensitivity",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -282,7 +282,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for PURL type: fusesoc, case sensitivity",
+      "description": "Build test for PURL type: fusesoc, case sensitivity",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -298,7 +298,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for PURL type: fusesoc, case sensitivity",
+      "description": "Build test for PURL type: fusesoc, case sensitivity",
       "test_group": "base",
       "test_type": "build",
       "input": {
