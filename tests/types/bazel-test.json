@@ -73,7 +73,7 @@
     },
     {
       "description": "bazel module with custom registry",
-      "test_group": "base",
+      "test_group": "advanced",
       "test_type": "build",
       "input": {
         "type": "bazel",
