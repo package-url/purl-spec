@@ -10,7 +10,7 @@ instructions:
 
 ## Setup
 
-1. Ensure that you have a recent Python version 3 and Make installed.
+1. Ensure that you have a recent Python version 3 (at least 3.10) and Make installed.
 2. Configure your environment:
 
     ```bash
