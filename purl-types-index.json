@@ -27,6 +27,7 @@
   "npm",
   "nuget",
   "oci",
+  "opam",
   "pub",
   "pypi",
   "qpkg",
