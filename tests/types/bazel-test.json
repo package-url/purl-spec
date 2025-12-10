@@ -46,7 +46,7 @@
     },
     {
       "description": "bazel module with custom registry",
-      "test_group": "advanced,
+      "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:bazel/rules_java@7.8.0?repository_url=https://example.org/bazel-registry/",
       "expected_output": "pkg:bazel/rules_java@7.8.0?repository_url=https:%2F%2Fexample.org%2Fbazel-registry%2F",
