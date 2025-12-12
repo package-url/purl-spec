@@ -1,26 +1,4 @@
-# 2 Conformance
-
-## 2.1 Requirements Terminology
-
-In this standard, the words that are used to define the significance of each
-requirement are detailed below. These words are used in accordance with their
-definitions in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt), and their
-respective meanings are reproduced below:
-
-* Must: This word, or the adjective “required” and the auxiliary verb
-  "shall", means that the item is an absolute requirement of the standard.
-* Should: This word, or the adjective “recommended”, means that there might
-  exist valid reasons in particular circumstances to ignore this item, but
-  the full implications should be understood and the case carefully weighed
-  before making an implementation decision.
-* May: This word, or the adjective “optional”, means that this item is truly
-  optional.
-
-The words "must not", "shall not", "should not", and "not recommended", are
-the negative forms of "must", "shall", "should", and "recommended",
-respectively. There is no negative form of "may".
-
-## 2.2 Implementation Conformance
+# Conformance
 
 A conforming implementation of Package-URL (PURL) must fully implement and
 support all elements defined within this specification, including the syntax,
@@ -61,14 +39,3 @@ components, or semantics defined by this specification. Any prohibited
 extensions explicitly identified in the specification must not be
 implemented. Furthermore, behaviours that compromise the interoperability of
 PURLs across tools, platforms, or ecosystems are strictly disallowed.
-
-A conforming implementation of Package-URL may choose to implement or not
-implement Normative Optional subclauses. If any Normative Optional behaviour
-is implemented, all of the behaviour in the containing Normative Optional
-clause must be implemented. A Normative Optional clause is denoted in this
-specification with the words "Normative Optional" in a coloured box, as shown
-below.
-
-## 2.3 Example Normative Optional Clause Heading
-
-Example clause contents.
