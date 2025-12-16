@@ -8,11 +8,11 @@ A PURL is a URL composed of seven components:
 
 Components are separated by a specific character for unambiguous parsing.
 
-Table 1: Components of a PURL
+Table 1 —  Components of a PURL
 
 | Component  | Requirement | Description|
 | ---------- | ----------- |:------------------------------------------------------ |
-| scheme     | Required    | The URL scheme with the constant value of "pkg". One of the primary reasons for this single scheme is to facilitate the future official registration of the "pkg" scheme for package URLs. |
+| scheme     | Required    | The URL scheme with the constant value of "pkg". One of the primary reasons for this single scheme is to facilitate the future official registration of the "pkg" scheme for Package-URLs. |
 | type       | Required    | The package "type" or package "protocol" such as maven, npm, nuget, gem, pypi, etc. |
 | namespace  | Optional    | A name prefix such as a Maven groupid, a Docker image owner, a GitHub user or organization. Namespace is type-specific. |
 | name       | Required    | The name of the package. |
@@ -84,11 +84,11 @@ as defined in Python pip or SPDX download locations are not valid PURL types.
 A canonical PURL is composed of these permitted ASCII characters:
 
 - the Alphanumeric Characters: **A to Z**, **a to z**, **0 to 9**,
-- the Punctuation Characters: **.-_~** (period '.',
-  dash '-', underscore '_' and tilde '~'),
-- the Percent Character: **%** (percent sign '%'), and
+- the Punctuation Characters: **.-_~** (period '.'
+  dash '-', underscore '_' and tilde '~')
+- the Percent Character: **%** (percent sign '%')
 - the Separator Characters **:/@?=&#** (colon ':', slash '/', at sign '@',
-  question mark '?', equal sign '=', ampersand '&' and hash sign '#').
+  question mark '?', equal sign '=', ampersand '&' and hash sign '#')
 
 
 ## Separator characters
@@ -132,11 +132,11 @@ This is how each of the Separator Characters is used:
 
 - Where the space ' ' is permitted, it shall be percent-encoded as '%20'.
 - With the exception of the percent-encoding mechanism, the rules regarding
-  percent-encoding are defined by this specification alone.
+  percent-encoding are defined by this Standard alone.
 
 ## Case folding
 
-References to "lowercase" in this specification refer to the 
+References to "lowercase" in this Standard refer to the 
 **culture-invariant** full case mapping defined in
 [Section 3.13.2 of the Unicode Standard](https://www.unicode.org/versions/Unicode16.0.0/core-spec/chapter-3/#G34078).
 
@@ -149,13 +149,13 @@ All other ASCII characters remain unchanged.
 
 A PURL string is an ASCII URL string composed of seven components.
 
-Except as expressly stated otherwise in this section, each component:
+Except as expressly stated otherwise in this Clause, each component:
 
-- may be composed of any of the characters defined in the "Permitted
-  characters" section
-- shall be encoded as defined in the "Character encoding" section
+- may be composed of any of the characters defined in the _Permitted
+  characters_ clause
+- shall be encoded as defined in the _Character encoding_ clause
 
-The "lowercase" rules are defined in the "Case folding" clause.
+The "lowercase" rules are defined in the Case folding clause.
 
 The rules for each component are:
 
@@ -185,7 +185,7 @@ stripped in the canonical form. They are not part of the **namespace**.
     - shall not contain any slash '/' characters
     - shall not be empty
     - may contain any Unicode character other than '/' unless the package's
-**type** definition provides otherwise.
+**type** definition provides otherwise
 - A URL host or Authority shall not be used as a **namespace**. Use instead a
 **repository_url** qualifier. Note however, that for some types, the
 **namespace** may look like a host.
@@ -222,7 +222,7 @@ This '&' separator is not part of an individual **qualifier**.
     - A **key** shall not be percent-encoded.
     - Each **key** shall be unique among all the keys of the **qualifiers**    component.
     - A **value** may contain any Unicode character and all characters shall 
-    be encoded as described in the "Character encoding" section.
+    be encoded as described in the _Character encoding_ clause.
 
 ### Subpath
 - The **subpath** string is prefixed by a '#' separator when not empty.
@@ -234,8 +234,8 @@ in the canonical form.
 - When percent-decoded, a segment:
     - shall not contain any slash '/' characters
     - shall not be empty
-    - Shall not be any of '..' or '.'
-    - May contain any Unicode character other than '/' unless the package's       **type** definition provides otherwise.
+    - shall not be any of '..' or '.'
+    - may contain any Unicode character other than '/' unless the package's       **type** definition provides otherwise.
 - The **subpath** shall be interpreted as relative to the root of the package.
 
 

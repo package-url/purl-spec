@@ -19,8 +19,10 @@ meet the needs of diverse package ecosystems without compromising its
 universal applicability.
 
 The primary audience for this Standard includes developers, tool implementers,
-and organisations involved in software composition analysis, dependency management, and supply chain security. PURL is foundational to a variety of 
-use cases, from software bill of materials (SBOM) generation and license compliance to vulnerability tracking and software artefact exchange.
+and organisations involved in software composition analysis, dependency 
+management, and supply chain security. PURL is foundational to a variety of 
+use cases, from software bill of materials (SBOM) generation and license 
+compliance to vulnerability tracking and software artefact exchange.
 
 While this document serves as the authoritative reference for implementing
 PURL, it is complemented by various ecosystem-specific guidance documents,
@@ -29,4 +31,4 @@ and practical insights for leveraging PURL effectively.
 
 This overview is non-normative and serves to provide context for the
 specification’s intent, purpose, and audience. For detailed requirements and
-conformance criteria, refer to the normative sections of this Standard.
+conformance criteria, refer to the normative clauses of this Standard.
