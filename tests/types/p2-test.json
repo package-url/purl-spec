@@ -1,0 +1,96 @@
+{
+  "$schema": "https://packageurl.org/schemas/p2-test-1.0.json",
+  "tests": [
+    {
+      "description": "valid p2 purl",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "p2",
+        "name": "org.eclipse.swt",
+        "version": "3.124.200.v20231113-1355",
+        "qualifiers": {
+          "classifier": "osgi.bundle",
+          "repository_url": "https://download.eclipse.org/releases/2023-12"
+        }
+      },
+      "expected_output": "pkg:p2/org.eclipse.swt@3.124.200.v20231113-1355?classifier=osgi.bundle&repository_url=https://download.eclipse.org/releases/2023-12",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid p2 purl (without classifier)",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "p2",
+        "name": "org.eclipse.swt",
+        "version": "3.124.200.v20231113-1355",
+        "qualifiers": {
+          "repository_url": "https://download.eclipse.org/releases/2023-12"
+        }
+      },
+      "expected_output": "pkg:p2/org.eclipse.swt@3.124.200.v20231113-1355?repository_url=https://download.eclipse.org/releases/2023-12",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "invalid p2 purl",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "p2",
+        "name": "org.eclipse.swt",
+        "version": "3.124.200.v20231113-1355",
+        "qualifiers": {
+          "classifier": "osgi.bundle"
+        }
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "The 'repository_url' qualifier is mandatory"
+    },
+    {
+      "description": "parse valid p2 purl",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:p2/org.eclipse.swt@3.124.200.v20231113-1355?classifier=osgi.bundle&repository_url=https://download.eclipse.org/releases/2023-12",
+      "expected_output": {
+        "type": "p2",
+        "name": "org.eclipse.swt",
+        "version": "3.124.200.v20231113-1355",
+        "qualifiers": {
+          "classifier": "osgi.bundle",
+          "repository_url": "https://download.eclipse.org/releases/2023-12"
+        }
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "parse valid p2 purl (without classifier)",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:p2/org.eclipse.swt@3.124.200.v20231113-1355?repository_url=https://download.eclipse.org/releases/2023-12",
+      "expected_output": {
+        "type": "p2",
+        "name": "org.eclipse.swt",
+        "version": "3.124.200.v20231113-1355",
+        "qualifiers": {
+          "repository_url": "https://download.eclipse.org/releases/2023-12"
+        }
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "parse invalid p2 purl",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:p2/org.eclipse.swt@3.124.200.v20231113-1355?classifier=osgi.bundle",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "The 'repository_url' qualifier is mandatory"
+    }
+  ]
+}
