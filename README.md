@@ -163,7 +163,7 @@ License for the **purl-spec** software:
 
 SPDX-License-Identifier: MIT
 
-The license for the ECMA-427 standard is the _ECMA Copyright License and 
+License for the ECMA-427 standard:
 Disclaimer_.
 - SPDX-License-Identifier: LicenseRef-scancode-ecma-standard-copyright-2024
 - See page v of [ECMA-427](https://tc54.org/purl/) for the license text.
