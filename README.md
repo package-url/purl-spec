@@ -45,8 +45,8 @@ using a simple and expressive syntax and conventions based on familiar URLs.
 
 PURL is used as a standard identifier for software components in:
 - A CycloneDX or SPDX SBOM
-- Most software vulnerability databases such as [OSV](https://osv.dev/) and 
-[Sonatype OSS Index](https://ossindex.sonatype.org/)
+- Most software vulnerability databases such as [OSV](https://osv.dev/), 
+[Sonatype OSS Index](https://ossindex.sonatype.org/), and [VulnerablCode](https://public2.vulnerablecode.io/)
 - Many package repositories, such as [Crates.io](https://crates.io/) and 
 [Packagist](https://packagist.org/)
 
@@ -140,6 +140,7 @@ identifier, there are many FOSS projects that implement PURL for languages or so
 - Perl: https://github.com/giterlizzi/perl-URI-PackageURL
 - PHP: https://github.com/package-url/packageurl-php
 - Python: https://github.com/package-url/packageurl-python
+- Raku: https://github.com/lizmat/PURL
 - Ruby: https://github.com/package-url/packageurl-ruby
 - Rust: https://github.com/package-url/packageurl.rs
 - Swift: https://github.com/package-url/packageurl-swift
@@ -159,9 +160,8 @@ at:
 
 Copyright (c) the purl authors
 
-The license for **purl-spec** software is MIT: 
-- SPDX-License-Identifier: MIT-License.
-- See the *LICENSE* file in this repository for the license text.
+The license for the **purl-spec** software is:
+SPDX-License-Identifier: MIT.
 
 The license for the ECMA-427 standard is the _ECMA Copyright License and 
 Disclaimer_.
