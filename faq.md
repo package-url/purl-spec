@@ -16,10 +16,10 @@ slashes, like a URI?
 This rule applies to all slash '/' characters between the **scheme**'s colon
 separator and the **type** component, e.g., ':/', '://', ':///' et al.
 
-In its canonical form, a PURL must not use any ':/' **scheme**
+In its canonical form, a PURL shall not use any ':/' **scheme**
 suffix and may only use ':' as a **scheme** suffix.  This means that:
 
-- PURL parsers must accept URLs such as 'pkg://' and must ignore and
+- PURL parsers shall accept URLs such as 'pkg://' and shall ignore and
 remove all such '/' characters.
 
 - PURL builders should not create invalid URLs with one or more slash '/'
@@ -38,7 +38,7 @@ in canonical form, while the second -- with a '//' between 'pkg:' and the
 encoded? If yes, how?
 
 **ANSWER**: The "Rules for each PURL component" section provides that the
-**scheme** MUST be followed by an unencoded colon ':'.
+**scheme** shall be followed by an unencoded colon ':'.
 
 In this case, the colon ':' between **scheme** and **type** is being used as
 a separator, and consequently should be used as-is, never encoded and never
@@ -52,12 +52,9 @@ this error to help with malformed PURLs, but that is not a requirement.
 **type** contains a character like a slash '/' or a colon ':'?
 
 **ANSWER**: The "Rules for each PURL component" section provides that the
-package **type** that list allowed characters:
+package **type** that list allowed characters shall be composed only of ASCII letters and numbers, period '.', and dash '-'
 
-    MUST be composed only of ASCII letters and numbers, period '.', and
-    dash '-'
-
-As a result, a PURL spec implementation must return an error when
+As a result, a PURL spec implementation shall return an error when
 encountering a **type** that contains a prohibited character.
 
 ## Version
