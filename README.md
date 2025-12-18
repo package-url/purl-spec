@@ -159,7 +159,7 @@ at:
 
 Copyright (c) the purl authors
 
-The license for **purl-spec** software is MIT: 
+License for the **purl-spec** software: 
 
 SPDX-License-Identifier: MIT
 - See the *LICENSE* file in this repository for the license text.
