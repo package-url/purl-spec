@@ -1,157 +1,168 @@
-# Context
 
-We build and release software by massively consuming and producing software
-packages such as npm packages, RPMs, Ruby gems, etc.
+# Package-URL (PURL) Specification
 
-Each package manager, platform, type or ecosystem has its own conventions and
-protocols to identify, locate and provision software packages.
+Software ecosystems have evolved into highly interconnected networks of
+components, packages, and dependencies. Managing this complexity demands a
+robust, uniform mechanism to identify and track software packages across
+diverse ecosystems and tools. Package-URL (PURL) was developed to address
+this challenge by providing a simple, consistent, and flexible approach to
+identifying software packages with precision and clarity.
 
-# Problem
+PURL introduces a standardized URL-based syntax that uniquely identifies
+software packages, independent of their ecosystem or distribution channel.
+Unlike traditional identification methods, PURL embeds critical metadata
+directly into its structure, enabling efficient, accurate package
+identification at scale. This standardization ensures interoperability
+between tools and ecosystems, fostering greater collaboration and reducing
+ambiguity in software supply chain management.
 
-When tools, APIs and databases process or store multiple package types, it is
-difficult to reference the same software package across tools in a uniform way.
+Challenges addressed by PURL:
 
-For example, these tools, specifications and API use relatively similar
-approaches to identify and locate software packages, each with subtle
-differences in syntax, naming and conventions:
+- **Ambiguity in Package Identification:** With diverse naming conventions
+  across ecosystems, identifying software packages reliably has historically
+  been a challenge. PURL eliminates this ambiguity by creating a universal
+  identifier with a predictable structure.
+- **Cross-Ecosystem Interoperability:** Developers, organizations, and tools
+  often work across multiple ecosystems, each with its own package management
+  systems. PURL harmonizes these differences, enabling seamless
+  interoperability.
+- **Enhanced Traceability and Risk Management:** In an era where supply chain
+  security is critical, PURL provides the foundation for identifying and
+  tracing packages to their origins, dependencies, and potential
+  vulnerabilities.
+- **Tooling and Automation:** By standardizing package identification, PURL
+  simplifies tooling development, automation, and integration for tasks such
+  as software composition analysis, vulnerability management, and license
+  compliance.
 
-- Grafeas uses a scheme, namespace, name and version in a URL-like string.
-  https://github.com/Grafeas/Grafeas
+PURL is an Ecma standard: [ECMA-427](https://tc54.org/purl/), and is
+ in process to also become an ISO standard.
 
-- Here.com OSRK uses a package manager, name and version field and a colon-
-  separated URL-like string
-  https://github.com/heremaps/oss-review-toolkit
+## Why use PURL?
 
-- JFrog XRay uses a scheme, namespace, name and version in a URL-like string
-  https://www.jfrog.com/confluence/display/XRAY/Xray+REST+API#XrayRESTAPI-ComponentIdentifiers
-
-- Libraries.io uses a platform, name and version
-  https://libraries.io/
-
-- OpenShift fabric8 analytics uses ecosystem, name and version
-  https://github.com/fabric8-analytics/
-
-- ScanCode and AboutCode.org use a type, name and version
-  https://github.com/nexB/scancode-toolkit
-
-- SPDX has an appendix for external repository references and uses a type and a
-  locator with a type-specific syntax for component separators in a URL-like
-  string
-  https://spdx.github.io/spdx-spec/latest/package-information/
-
-- versioneye uses a type, name and version
-  https://github.com/versioneye/
-
-- Sonatype Lifecycle uses a format id followed by format specific coordinates.
-  https://links.sonatype.com/products/nxiq/doc/component-identifier
-
-# Solution
-
-A `purl` or package URL is an attempt to standardize existing approaches to
-reliably identify and locate software packages.
-
-A `purl` is a URL string used to identify and locate a software package in a
-mostly universal and uniform way across programming languages, package managers,
-packaging conventions, tools, APIs and databases.
-
-Such a package URL is useful to reliably reference the same software package
+A PURL is useful to reliably reference the same software package
 using a simple and expressive syntax and conventions based on familiar URLs.
 
-Check also this short `purl` presentation (with video) at FOSDEM 2018
-https://fosdem.org/2018/schedule/event/purl/ for an overview.
+PURL is used as a standard identifier for software components in:
+- A CycloneDX or SPDX SBOM
+- Most software vulnerability databases such as [OSV](https://osv.dev/), 
+[Sonatype OSS Index](https://ossindex.sonatype.org/), and [VulnerablCode](https://public2.vulnerablecode.io/)
+- Many package repositories, such as [Crates.io](https://crates.io/) and 
+[Packagist](https://packagist.org/)
 
-## purl
+PURL was recently added to the standard [CVE Record Format v5.2.0](https://github.com/CVEProject/cve-schema/releases/tag/v5.2.0).
 
-`purl` stands for **package URL**.
+## Getting started
 
-A `purl` is a URL composed of seven components:
+A PURL is a URL composed of seven components:
 
     scheme:type/namespace/name@version?qualifiers#subpath
 
 Components are separated by a specific character for unambiguous parsing.
 
-The definition for each components is:
+The definition for each component is:
 
-- **scheme**: this is the URL scheme with the constant value of "pkg". One of
-  the primary reason for this single scheme is to facilitate the future official
-  registration of the "pkg" scheme for package URLs. Required.
-- **type**: the package "type" or package "protocol" such as maven, npm, nuget,
-  gem, pypi, etc. Required.
-- **namespace**: some name prefix such as a Maven groupid, a Docker image owner,
-  a GitHub user or organization. Optional and type-specific.
-- **name**: the name of the package. Required.
-- **version**: the version of the package. Optional.
-- **qualifiers**: extra qualifying data for a package such as an OS,
-  architecture, a distro, etc. Optional and type-specific.
-- **subpath**: extra subpath within a package, relative to the package root.
-  Optional.
+| Component  | Requirement | Description|
+| ---------- | ----------- |:------------------------------------------------------ |
+| scheme     | Required    | The URL scheme with the constant value of "pkg". One of the primary reasons for this single scheme is to facilitate the future official registration of the "pkg" scheme for Package-URLs. |
+| type       | Required    | The package "type" or package "protocol" such as maven, npm, nuget, gem, pypi, etc. |
+| namespace  | Optional    | A name prefix such as a Maven groupid, a Docker image owner, a GitHub user or organization. Namespace is type-specific. |
+| name       | Required    | The name of the package. |
+| version    | Optional    | The version of the package.  |
+| qualifiers | Optional    | Qualifier data for a package such as OS, architecture, repository, etc. Qualifiers are type-specific. |
+| subpath    | Optional    | Subpath within a package, relative to the package root. |
 
-Components are designed such that they form a hierarchy from the most significant component
-on the left to the least significant component on the right.
+Components are designed such that they form a hierarchy from the most 
+significant component on the left to the least significant component on the 
+right.
 
-A `purl` must NOT contain a URL Authority i.e. there is no support for
-`username`, `password`, `host` and `port` components. A `namespace` segment may
-sometimes look like a `host` but its interpretation is specific to a `type`.
-
-## Some `purl` examples
-
-    pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c
+### Some PURL examples
 
     pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie
-
     pkg:docker/cassandra@sha256:244fd47e07d1004f0aed9c
-    pkg:docker/customer/dockerimage@sha256:244fd47e07d1004f0aed9c?repository_url=gcr.io
-
     pkg:gem/jruby-launcher@1.1.2?platform=java
-    pkg:gem/ruby-advisory-db-check@0.12.4
-
-    pkg:github/package-url/purl-spec@244fd47e07d1004f0aed9c
-
     pkg:golang/google.golang.org/genproto#googleapis/api/annotations
-
-    pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources
-    pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=repo.spring.io/release
-
+    pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=repo.spring.io%2Frelease&packaging=sources
     pkg:npm/%40angular/animation@12.3.1
-    pkg:npm/foobar@12.3.1
-
     pkg:nuget/EnterpriseLibrary.Common@6.0.1304
-
     pkg:pypi/django@1.11.1
-
     pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25
     pkg:rpm/opensuse/curl@7.56.1-1.1.?arch=i386&distro=opensuse-tumbleweed
 
-(NB: some checksums are truncated for brevity)
+(NB: the checksum for the docker example is truncated for brevity)
 
-## Specification details
+### PURL specification
 
-The `purl` specification consists of a core syntax definition and independent
-type definitions:
+The PURL specification consists of a core syntax definition and specific
+PURL type definitions:
 
-- `Package URL core <PURL-SPECIFICATION.rst>`_: Defines a versioned and
-  formalized format, syntax, and rules used to represent and validate `purl`.
+The core PURL syntax is defined in the Package-URL Specification / [ECMA-427](https://tc54.org/purl/). See ECMA-427 *Clause 5 Package-URL specification* 
+for syntax details.
 
-- `Type definitions <PURL-TYPES.md>`_: Defines `purl` types (e.g. maven, npm,
-  cargo, rpm, etc) independent of the core specification. Definitions also
-  include types reserved for future use.
+Each package manager, platform, type, or ecosystem has its own conventions
+and protocols to identify, locate, and provision software packages. The 
+package **type** is the component of a Package-URL that is used to capture 
+this information with a short string such as **maven**, **npm** and **pypi**. 
+See ECMA-427 *Clause 6 Package-URL Type Definition Schema* for PURL type 
+definition details.
 
-## Known implementations
+## Package-URL type definitions
+
+PURL type definitions are maintained in a set of JSON Schema files with a
+separate file for each PURL **type**. and a simple index of all currently registered PURL types. You can find comprehensive PURL type information in 
+this repository as follows:
+
+- One JSON file for each PURL type definition at:
+  https://github.com/package-url/purl-spec/tree/main/types
+
+- Markdown documentation, generated from each PURL type JSON
+  definition at:
+  https://github.com/package-url/purl-spec/tree/main/types-doc
+
+- The JSON Index listing of all registered PURL types at:
+  https://github.com/package-url/purl-spec/tree/main/purl-types-index.json
+
+## Adopters
+
+See the *ADOPTERS.md* file in this repository for a partial list of FOSS projects and software companies who have adopted PURL as a standard software identfier.
+
+## Implementations
+
+In addition to the broad and growing adoption of PURL as a standard software
+identifier, there are many FOSS projects that implement PURL for languages or software ecosystems. A partial list is:
 
 - .NET: https://github.com/package-url/packageurl-dotnet
 - Erlang / Elixir: https://github.com/erlef/purl
 - Go: https://github.com/package-url/packageurl-go
-- Java: https://github.com/package-url/packageurl-java,
-  https://github.com/sonatype/package-url-java
+- Java: https://github.com/package-url/packageurl-java
 - JavaScript: https://github.com/package-url/packageurl-js
 - Kotlin: https://github.com/iseki0/PUrlKt
 - Perl: https://github.com/giterlizzi/perl-URI-PackageURL
 - PHP: https://github.com/package-url/packageurl-php
 - Python: https://github.com/package-url/packageurl-python
+- Raku: https://github.com/lizmat/PURL
 - Ruby: https://github.com/package-url/packageurl-ruby
 - Rust: https://github.com/package-url/packageurl.rs
 - Swift: https://github.com/package-url/packageurl-swift
 
-## Users, adopters and links
+## Support
 
-See the [dedicated adopters list](ADOPTERS.md).
+If you have a specific problem, suggestion or bug, please submit a 
+[GitHub issue](https://github.com/package-url/purl-spec/issues).
+
+For quick questions or socializing, join the PURL community discussions 
+at:
+- [AboutCode Slack](https://aboutcode-org.slack.com/archives/C08LBQMA7DE)
+- [CycloneDX Slack](https://cyclonedx.slack.com/archives/C06KTE3BWEB)
+- [Gitter](https://matrix.to/#/#package-url_Lobby:gitter.im)
+
+## License
+
+Copyright (c) the purl authors
+
+License for the **purl-spec** software: 
+
+- SPDX-License-Identifier: MIT
+
+License for the ECMA-427 standard:
+- SPDX-License-Identifier: LicenseRef-scancode-ecma-standard-copyright-2024
