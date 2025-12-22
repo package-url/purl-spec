@@ -5,15 +5,7 @@
   "type_name": "PEAR/PECL",
   "description": "PEAR and PECL PHP packages",
   "repository": {
-    "use_repository": true,
-    "note": "the depository URL is derived from the `namespace`"
-  },
-  "namespace_definition": {
-    "requirement": "required",
-    "case_sensitive": true,
-    "normalization_rules": [ "The domain portion of the channel MUST be lowercased." ],
-    "native_name": "channel",
-    "note": "The `namespace` is the channel of the package."
+    "use_repository": true
   },
   "name_definition": {
     "native_name": "package",
