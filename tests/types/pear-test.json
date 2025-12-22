@@ -2,7 +2,7 @@
   "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
   "tests": [
     {
-      "description": "valid pear purl. Rountrip an input purl to canonical.",
+      "description": "valid pear purl. Roundtrip an input purl to canonical.",
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:PEAR/pear.php.net/Text_Password@1.2.1",
@@ -43,7 +43,7 @@
       "exp,ected_failure_reason": null
     },
     {
-      "description": "valid pear purl. Rountrip a canonical input to canonical output.",
+      "description": "valid pear purl. Roundtrip an input PURL to canonical output.",
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:PEAR/pear.php.net/Text_Password@1.2.1",
