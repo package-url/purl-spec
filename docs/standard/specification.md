@@ -214,7 +214,7 @@ unless the package's **type** definition provides otherwise.
 - The **qualifiers** component is composed of one or more **key=value** pairs. Multiple **key=value** pairs shall be separated by an unencoded ampersand '&'. 
 This '&' separator is not part of an individual **qualifier**.
 - A **key** and **value** shall be separated by the unencoded equal sign '=' character. This '=' separator is not part of the **key** or **value**.
-- A **value** dhall not be an empty string: a **key=value** pair with an empty **value** is the same as if no **key=value** pair exists for this **key**.
+- A **value** shall not be an empty string: a **key=value** pair with an empty **value** is the same as if no **key=value** pair exists for this **key**.
 - For each **key=value** pair:
     - The **key** shall be composed only of lowercase ASCII letters and 
     numbers, period '.', dash '-' and underscore '_'.
