@@ -25,10 +25,10 @@ namespace-segment         = 1*namespace-sc
 namespace-sc              = PERM-ALPHANUM
                           / PERM-PUNCTUATION
                           / "%" ( PERM-ESCAPED-00-1F
-                                / PERM-ESCAPED-20-2C    ; 20-2F - except:
-                                  ; general exclusion "-"(2D)
-                                  ; general exclusion "."(2E)
-                                  ;     the separator "/"(2F)
+                                / PERM-ESCAPED-20-2C
+                                ; general exclusion "-" (2D)
+                                ; general exclusion "." (2E)
+                                ;     the separator "/" (2F)
                                 / PERM-ESCAPED-30-FF )
                             ; namespace safe characters
 
@@ -58,10 +58,10 @@ subpath-segment-canonical = [ "." ] subpath-sc *( subpath-sc / "." )
 subpath-sc                = PERM-ALPHANUM
                           / "-" / "_" / "~"  ; PERM-PUNCTUATION except "."
                           / "%" ( PERM-ESCAPED-00-1F
-                                / PERM-ESCAPED-20-2C    ; 20-2F - except:
-                                  ;     the separator "/"(2F)
-                                  ;  the special char "."(2E)
-                                  ; general exclusion "-"(2D)
+                                / PERM-ESCAPED-20-2C
+                                  ;     the separator "/" (2F)
+                                  ;  the special char "." (2E)
+                                  ; general exclusion "-" (2D)
                                 / PERM-ESCAPED-30-FF )
                             ; subpath safe characters
 
