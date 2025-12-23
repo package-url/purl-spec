@@ -1,6 +1,6 @@
 # Package-URL Grammar
 
-A PURL is a string adhering the following grammar, 
+A PURL string adhers to the following grammar, 
 using syntax as per [RFC5234: Augmented BNF for Syntax Specifications: ABNF](https://datatracker.ietf.org/doc/html/rfc5234).
 
 ```abnf
@@ -14,6 +14,7 @@ purl-canonical            = scheme ":"      type-canonical
                             [ "@" version ] [ "?" qualifiers-canonical ]
                             [ "#"      subpath-canonical ]
 
+
 scheme                    = %x70.6B.67    ; lowercase string "pkg"
 
 type                      =    ALPHA *(    ALPHA / DIGIT / "." / "-" )
@@ -26,9 +27,9 @@ namespace-sc              = PERM-ALPHANUM
                           / PERM-PUNCTUATION
                           / "%" ( PERM-ESCAPED-00-1F
                                 / PERM-ESCAPED-20-2C
-                                ; general exclusion "-" (2D)
-                                ; general exclusion "." (2E)
-                                ;     the separator "/" (2F)
+                                ; except general exclusion "-" (2D)
+                                ; except general exclusion "." (2E)
+                                ; except the separator "/"     (2F)
                                 / PERM-ESCAPED-30-FF )
                             ; namespace safe characters
 
@@ -59,11 +60,12 @@ subpath-sc                = PERM-ALPHANUM
                           / "-" / "_" / "~"  ; PERM-PUNCTUATION except "."
                           / "%" ( PERM-ESCAPED-00-1F
                                 / PERM-ESCAPED-20-2C
-                                  ;     the separator "/" (2F)
-                                  ;  the special char "." (2E)
-                                  ; general exclusion "-" (2D)
+                                ; except general exclusion "-" (2D)
+                                ; except the special char "."  (2E)
+                                ; except the separator "/"     (2F)
                                 / PERM-ESCAPED-30-FF )
                             ; subpath safe characters
+
 
 LOWALPHA    = %x61-7A    ; a-z
 
