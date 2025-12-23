@@ -1,6 +1,7 @@
-# Grammar of a `purl` string
+# Package-URL Grammar
 
-ABNF syntax as per [RFC5234: Augmented BNF for Syntax Specifications: ABNF](https://datatracker.ietf.org/doc/html/rfc5234).
+A PURL is a string adhering the following grammar, 
+using syntax as per [RFC5234: Augmented BNF for Syntax Specifications: ABNF](https://datatracker.ietf.org/doc/html/rfc5234).
 
 ```abnf
 purl                      = scheme ":" *"/" type
