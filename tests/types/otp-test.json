@@ -1,0 +1,120 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:otp/asn1@5.4.1?arch=amd64&platform=linux&repository_url=https:%2F%2Fgithub.com%2Ferlang%2Fotp&vcs_url=git%2Bhttps:%2F%2Fgithub.com%2Ferlang%2Fotp.git#src/asn1ct.erl",
+      "expected_output": {
+        "type": "otp",
+        "namespace": null,
+        "name": "asn1",
+        "version": "5.4.1",
+        "qualifiers": {
+          "platform": "linux",
+          "arch": "amd64",
+          "repository_url": "https://github.com/erlang/otp",
+          "vcs_url": "git+https://github.com/erlang/otp.git"
+        },
+        "subpath": "src/asn1ct.erl"
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:otp/asn1@5.4.1?arch=amd64&platform=linux&repository_url=https://github.com/erlang/otp&vcs_url=git%2Bhttps://github.com/erlang/otp.git#src/asn1ct.erl",
+      "expected_output": "pkg:otp/asn1@5.4.1?arch=amd64&platform=linux&repository_url=https:%2F%2Fgithub.com%2Ferlang%2Fotp&vcs_url=git%2Bhttps:%2F%2Fgithub.com%2Ferlang%2Fotp.git#src/asn1ct.erl",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "otp",
+        "namespace": null,
+        "name": "asn1",
+        "version": "5.4.1",
+        "qualifiers": {
+          "platform": "linux",
+          "arch": "amd64",
+          "repository_url": "https://github.com/erlang/otp",
+          "vcs_url": "git+https://github.com/erlang/otp.git"
+        },
+        "subpath": "src/asn1ct.erl"
+      },
+      "expected_output": "pkg:otp/asn1@5.4.1?arch=amd64&platform=linux&repository_url=https:%2F%2Fgithub.com%2Ferlang%2Fotp&vcs_url=git%2Bhttps:%2F%2Fgithub.com%2Ferlang%2Fotp.git#src/asn1ct.erl",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:otp/hex@2.1.1",
+      "expected_output": {
+        "type": "otp",
+        "namespace": null,
+        "name": "hex",
+        "version": "2.1.1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:otp/hex@2.1.1",
+      "expected_output": "pkg:otp/hex@2.1.1",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "otp",
+        "namespace": null,
+        "name": "hex",
+        "version": "2.1.1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:otp/hex@2.1.1",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:otp/namespace/hex@2.1.1",
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse an OTP PURL containing a prohibited namespace component"
+    },
+    {
+      "description": "Build test  for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "otp",
+        "namespace": "namespace",
+        "name": "hex",
+        "version": "2.1.1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to build an OTP PURL containing a prohibited namespace component"
+    }
+  ]
+}
