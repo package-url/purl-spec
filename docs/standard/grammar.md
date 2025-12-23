@@ -27,9 +27,9 @@ namespace-sc              = PERM-ALPHANUM
                           / PERM-PUNCTUATION
                           / "%" ( PERM-ESCAPED-00-1F
                                 / PERM-ESCAPED-20-2C
-                                ; except general exclusion "-" (2D)
-                                ; except general exclusion "." (2E)
-                                ; except the separator "/"     (2F)
+                                ; except puntuation: "-"   (2D)
+                                ; except puntuation: "."   (2E)
+                                ; except the separator "/" (2F)
                                 / PERM-ESCAPED-30-FF )
                             ; namespace safe characters
 
@@ -60,13 +60,14 @@ subpath-sc                = PERM-ALPHANUM
                           / "-" / "_" / "~"  ; PERM-PUNCTUATION except "."
                           / "%" ( PERM-ESCAPED-00-1F
                                 / PERM-ESCAPED-20-2C
-                                ; except general exclusion "-" (2D)
+                                ; except puntuation: "-"       (2D)
                                 ; except the special char "."  (2E)
                                 ; except the separator "/"     (2F)
                                 / PERM-ESCAPED-30-FF )
                             ; subpath safe characters
 
 
+UPRALPHA    = %x41-5A    ; A-Z
 LOWALPHA    = %x61-7A    ; a-z
 
 PCT-ENCODED = PERM-ALPHANUM
@@ -82,24 +83,25 @@ PERM-ESCAPED     = "%" ( PERM-ESCAPED-00-1F
                        / PERM-ESCAPED-20-2C
                        / PERM-ESCAPED-2D-2F
                        / PERM-ESCAPED-30-FF )
+PERM-SPACE       = "%20" ; escaped space
 
 ; applied purl spec rules for general character encoding
 PERM-ESCAPED-00-1F = %x30-31                               HEXDIG    ; 00-1F
 PERM-ESCAPED-20-2C = %x32             ( DIGIT / "A" / "B" / "C" )    ; 20-2C
-PERM-ESCAPED-2D-2F =           ; except following characters: "-"     (2D)
-                               ; except following characters: "."     (2E)
+PERM-ESCAPED-2D-2F =                     ; except puntuation: "-"     (2D)
+                                         ; except puntuation: "."     (2E)
                    / %x32                                     "F"    ; 2F
-PERM-ESCAPED-30-FF =           ; except following characters: "0"-"9" (30-39)
-                               ; except following characters: ":"     (3A)
+PERM-ESCAPED-30-FF =                   ; except alphanumeric: "0"-"9" (30-39)
+                                          ; except colon: ":"     (3A)
                      %x33         ( "B" / "C" / "D" / "E" / "F" )    ; 3B-3F
                    / %x34                                    %x30    ; 40
-                               ; except following characters: "A"-"Z" (41-5A)
+                                       ; except alphanumeric: "A"-"Z" (41-5A)
                    / %x35               ( "B" / "C" / "D" / "E" )    ; 5B-5E
-                               ; except following characters: "_"     (5F)
+                                         ; except puntuation: "_"     (5F)
                    / %x36                                    %x30    ; 60
-                               ; except following characters: "a"-"z" (61-7A)
+                                       ; except alphanumeric: "a"-"z" (61-7A)
                    / %x37                     ( "B" / "C" / "D" )    ; 7B-7D
-                               ; except following characters: "~"     (7E)
+                                         ; except puntuation: "~"     (7E)
                    / %x37                                     "F"    ; 7F
                    / %x38-39                               HEXDIG    ; 80-9F
                    / ( "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG    ; A0-FF
