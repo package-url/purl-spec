@@ -1,4 +1,4 @@
-# Grammar
+# Grammar of a `purl` string
 
 ABNF syntax as per [RFC5234: Augmented BNF for Syntax Specifications: ABNF](https://datatracker.ietf.org/doc/html/rfc5234).
 
