@@ -1,6 +1,6 @@
 # Package-URL Grammar
 
-A PURL string adhers to the following grammar, 
+A PURL string adheres to the following grammar,
 using syntax as per [RFC5234: Augmented BNF for Syntax Specifications: ABNF](https://datatracker.ietf.org/doc/html/rfc5234).
 
 ```abnf
@@ -45,13 +45,13 @@ qualifier-key             =    ALPHA *(    ALPHA / DIGIT / "." / "-" / "_" )
 qualifier-key-canonical   = LOWALPHA *( LOWALPHA / DIGIT / "." / "-" / "_" )
 qualifier-value           = 1*PCT-ENCODED
 
-subpath                   = subpath-segment
-                            *( 1*"/" subpath-segment           )
-                          / 0<subpath-sc>    ; empty
-subpath-canonical         = subpath-segment-canonical 
-                            *(   "/" subpath-segment-canonical )
-                          / 0<subpath-sc>    ; empty
-subpath-segment           =               1*( subpath-sc / "." / "%2E" )
+subpath                   = [ subpath-segment
+                              *( 1*"/" subpath-segment           )
+                            ]    ; zero or more segments
+subpath-canonical         = [ subpath-segment-canonical
+                              *(   "/" subpath-segment-canonical )
+                            ]    ; zero or more segments
+subpath-segment           =                   1*( subpath-sc / "." / "%2E" )
 subpath-segment-canonical = [ "." ] subpath-sc *( subpath-sc / "." )
                             ; prevent "." and ".." standalone
                           / "." "."           1*( subpath-sc / "." )
