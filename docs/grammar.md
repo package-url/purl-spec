@@ -5,7 +5,7 @@ ABNF syntax as per [RFC5234: Augmented BNF for Syntax Specifications: ABNF](http
 ```abnf
 purl                      = scheme ":" *"/" type
                             [ 1*"/" namespace           ] 1*"/" name *"/"
-                            [ "@" version ] [ "?" qualifiers ]           [ "#" *"/" subpath      *"/" ]
+                            [ "@" version ] [ "?" qualifiers           ] [ "#" *"/" subpath      *"/" ]
                              ; leading and trailing slashes allowed here and there
 purl-canonical            = scheme ":"      type-canonical
                             [   "/" namespace-canonical ]   "/" name
