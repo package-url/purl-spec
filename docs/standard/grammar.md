@@ -47,7 +47,7 @@ qualifier-value           = 1*PCT-ENCODED
 
 subpath                   = [ subpath-segment
                               *( 1*"/" subpath-segment           )
-                            ]    ; zero or more segments
+                            ]   ; zero or more segments
 subpath-canonical         = [ subpath-segment-canonical
                               *(   "/" subpath-segment-canonical )
                             ]    ; zero or more segments
