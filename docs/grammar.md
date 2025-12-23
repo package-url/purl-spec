@@ -42,10 +42,9 @@ subpath                   = subpath-segment           *( 1*"/" subpath-segment  
                           / 0<subpath-sc>    ; empty
 subpath-canonical         = subpath-segment-canonical *(   "/" subpath-segment-canonical )
                           / 0<subpath-sc>    ; empty
-subpath-segment           =                1*( subpath-sc / "." / "%2E" )
-subpath-segment-canonical = subpath-sc      *( subpath-sc / "." )    ; prevent leading  "."
-                          / "." subpath-sc  *( subpath-sc / "." )    ; prevent ".." and "."
-                          / "." "."        1*( subpath-sc / "." )    ; prevent ".."
+subpath-segment           =               1*( subpath-sc / "." / "%2E" )
+subpath-segment-canonical = [ "." ] subpath-sc *( subpath-sc / "." )    ; prevent "." and ".." standalone
+                          / "." "."           1*( subpath-sc / "." )    ; prevent ".." standalone
 subpath-sc                = PERM-ALPHANUM
                           / "-" / "_" / "~"             ; PERM-PUNCTUATION except "."
                           / "%" ( PERM-ESCAPED-00-1F
