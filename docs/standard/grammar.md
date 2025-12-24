@@ -90,7 +90,7 @@ PERM-ESCAPED-00-1F = %x30-31                               HEXDIG    ; 00-1F
 PERM-ESCAPED-20-2C = %x32             ( DIGIT / "A" / "B" / "C" )    ; 20-2C
 PERM-ESCAPED-2D-2F =                     ; except puntuation: "-"     (2D)
                                          ; except puntuation: "."     (2E)
-                   / %x32                                     "F"    ; 2F
+                     %x32                                     "F"    ; 2F
 PERM-ESCAPED-30-FF =                   ; except alphanumeric: "0"-"9" (30-39)
                                           ; except colon: ":"     (3A)
                      %x33         ( "B" / "C" / "D" / "E" / "F" )    ; 3B-3F
