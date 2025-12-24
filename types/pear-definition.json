@@ -1,0 +1,22 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/pear-definition.json",
+  "type": "pear",
+  "type_name": "PEAR/PECL",
+  "description": "PEAR and PECL PHP packages",
+  "repository": {
+    "use_repository": true,
+    "note": "There is no default package repository; this should be implied either from a repository base url as repository_url qualifiers key."
+  },
+  "name_definition": {
+    "native_name": "package",
+    "case_sensitive": true
+  },
+  "version_definition": {
+    "native_name": "version"
+  },
+  "examples": [
+    "pkg:pear/pear.php.net/Text_Password@1.2.1",
+    "pkg:pear/pecl.php.net/APCu@5.1.23"
+  ]
+}
