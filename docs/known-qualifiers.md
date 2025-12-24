@@ -31,7 +31,7 @@ in all package types:
 - `vcs_url` is an extra URL for a package version control system URL to
   optionally qualify a `purl`. The syntax for this URL should be as defined
   in Python pip or the SPDX specification. See
-  https://github.com/spdx/spdx-spec/blob/cfa1b9d08903/chapters/3-package-information.md#37-package-download-location
+  https://github.com/spdx/spdx-spec/blob/cfa1b9d08903/chapters/3-package-information.md#3.7
 
 - `file_name` is an extra file name of a package archive.
 
