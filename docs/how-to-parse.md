@@ -1,7 +1,7 @@
 ## How to parse a **PURL** string into its components
 
 Parsing a **PURL** ASCII string into its components works from right to left,
-from *subpath* to **type**.
+from **subpath** to **type**.
 
 Note: some extra type-specific normalizations are required.
 See the 'Registered types section' for details.
@@ -43,7 +43,7 @@ To parse a **PURL** string in its components:
   - The left side lowercased is the **scheme**
   - The right side is the **remainder**
 
-- Strip all leading '/' characters (e.g., '/', '/', '///' and
+- Strip all leading '/' characters (e.g., '/', '//', '///' and
   so on) from the **remainder**
 
   - Split this once from left on '/'
