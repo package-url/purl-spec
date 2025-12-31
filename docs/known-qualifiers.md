@@ -13,17 +13,16 @@ With this warning, the known **key** and **value** defined here are valid for
 use in all package types:
 
 - VERS allows the specification of a version range.
-  The value must adhere to the [Version Range Specification](https://github.com/package-url/vers-spec/blob/main/VERSION-RANGE-SPEC.md).
+  The **value** must adhere to the [Version Range Specification](https://github.com/package-url/vers-spec/blob/main/VERSION-RANGE-SPEC.md).
   This qualifier is mutually exclusive with the **version** component.
   For example:
 
       pkg:pypi/django?vers=vers:pypi%2F%3E%3D1.11.0%7C%21%3D1.11.1%7C%3C2.0.0
 
 - 'repository_url' is an extra URL for an alternative, non-default package
-  repository or registry. When a package does not come from the default
-  public package repository for its **type** a PURL may be qualified with
-  this extra URL. The default repository or registry of a **type** is
-  documented in the "Registered PURL types" section.
+repository or registry. When a package does not come from the 
+'default_repository_url' for its **type** a PURL may be qualified with this 
+extra URL.
 
 - 'download_url' is an extra URL for a direct package web download URL to
   optionally qualify a PURL .
@@ -36,7 +35,7 @@ use in all package types:
 - 'file_name' is an extra file name of a package archive.
 
 - 'checksum' is a qualifier for one or more checksums stored as a
-  comma-separated list. Each item in the value is in form of
+  comma-separated list. Each item in the **value** is in form of
   'lowercase_algorithm:hex_encoded_lowercase_value' such as
   'sha1:ad9503c3e994a4f611a4892f2e67ac82df727086'.
 
