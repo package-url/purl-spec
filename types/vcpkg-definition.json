@@ -1,0 +1,46 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/vcpkg-definition.json",
+  "type": "vcpkg",
+  "type_name": "Vcpkg C/C++ packages",
+  "description": "Vcpkg C/C++ packages",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://github.com/microsoft/vcpkg/",
+    "note": "The absolute URL of the vcpkg registry where the package is available (optional). If omitted, ``https://github.com/microsoft/vcpkg`` as default registry is assumed. For filesystem registries or [overlay ports](https://learn.microsoft.com/vcpkg/concepts/overlay-ports), the URI will have a `file` URI scheme."
+  },
+  "namespace_definition": {
+    "requirement": "prohibited"
+  },
+  "name_definition": {
+    "requirement": "required",
+    "native_name": "package-name",
+    "note": "The vcpkg package name."
+  },
+  "version_definition": {
+    "requirement": "optional",
+    "native_name": "package-version",
+    "note": "The vcpg package version."
+  },
+  "qualifiers_definition": [
+    {
+      "key": "port_version",
+      "native_name": "port_version",
+      "requirement": "optional",
+      "description": "A string specifying the [port file revision](https://learn.microsoft.com/vcpkg/reference/vcpkg-json#port-version). If omitted, the purl refers to port file revision 0."
+    },
+    {
+      "key": "repository_revision",
+      "native_name": "repository_revision",
+      "requirement": "optional",
+      "description": "The commit hash of the vcpkg registry, potentially abbreviated. If omitted, the purl refers to the latest revision available."
+    }
+  ],
+  "note": "Additional qualifiers may be present on the purl that provide additional information about the context in which the package is being used, such as build configuration or platform information. These additional qualifiers must be tolerated during parsing and can be ignored if the parser does not expect them.",
+  "examples": [
+    "pkg:vcpkg/bzip2@1.0.8?port_version=6",
+    "pkg:vcpkg/ffmpeg@5.1.2?repository_url=https://github.com/azure-sdk/vcpkg",
+    "pkg:vcpkg/llvm@15.0.7?repository_url=file:///C:/local-registry/vcpkg",
+    "pkg:vcpkg/bzip2@1.0.8?port_version=6&repository_revision=41dfc53&os=Linux&os_arch=x64&build_type=Debug&linkage=dynamic"
+  ]
+}
