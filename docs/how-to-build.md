@@ -4,7 +4,6 @@ Building a PURL ASCII string works from left to right, from **type** to
 **subpath**.
 
 Note: some extra type-specific normalizations are required.
-See the "Registered types section" for details.
 
 To build a PURL string from its components:
 
@@ -53,7 +52,7 @@ To build a PURL string from its components:
     - UTF-8-encode each **value** if needed in your programming language
     - If the **key** is 'checksum' and this is a list of checksums join this
       list with a ',' to create this qualifier **value**
-    - Create a string by joining the lowercased **key**, the equal '=' sign 
+    - Create a string by joining the lowercased **key**, the equal '=' sign
       and the percent-encoded **value** to create a qualifier
 
   - Sort this list of qualifier strings lexicographically

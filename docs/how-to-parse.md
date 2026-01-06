@@ -4,7 +4,6 @@ Parsing a **PURL** ASCII string into its components works from right to left,
 from **subpath** to **type**.
 
 Note: some extra type-specific normalizations are required.
-See the 'Registered types section' for details.
 
 To parse a **PURL** string in its components:
 
