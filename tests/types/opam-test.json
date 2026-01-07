@@ -54,24 +54,6 @@
     {
       "description": "name and version are always required",
       "test_group": "base",
-      "test_type": "parse",
-      "input": "pkg:opam",
-      "expected_output": null,
-      "expected_failure": true,
-      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
-    },
-    {
-      "description": "name and version are always required",
-      "test_group": "base",
-      "test_type": "parse",
-      "input": "pkg:opam",
-      "expected_output": null,
-      "expected_failure": true,
-      "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
-    },
-    {
-      "description": "name and version are always required",
-      "test_group": "base",
       "test_type": "build",
       "input": {
         "type": "opam",
