@@ -3,8 +3,8 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 # PURL Type Definition: yocto
 
-- **Type Name:** Yocto Linux
-- **Description:** Yocto Linux recipes
+- **Type Name:** Yocto Project
+- **Description:** Yocto Project recipes
 - **Schema ID:** `https://packageurl.org/types/yocto-definition.json`
 
 ## PURL Syntax

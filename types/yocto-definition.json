@@ -2,8 +2,8 @@
   "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
   "$id": "https://packageurl.org/types/yocto-definition.json",
   "type": "yocto",
-  "type_name": "Yocto Linux",
-  "description": "Yocto Linux recipes",
+  "type_name": "Yocto Project",
+  "description": "Yocto Project recipes",
   "repository": {
     "use_repository": true,
     "requirement": "optional",
