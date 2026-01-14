@@ -27,6 +27,7 @@
   "npm",
   "nuget",
   "oci",
+  "opam",
   "otp",
   "pub",
   "pypi",
