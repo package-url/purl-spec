@@ -34,5 +34,6 @@
   "qpkg",
   "rpm",
   "swid",
-  "swift"
+  "swift",
+  "yocto"
 ]

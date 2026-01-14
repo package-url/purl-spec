@@ -1,0 +1,49 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/yocto-definition.json",
+  "type": "yocto",
+  "type_name": "Yocto Project",
+  "description": "Yocto Project recipes",
+  "repository": {
+    "use_repository": true,
+    "requirement": "optional",
+    "note": "There is no default package repository. The classifier repository_url is optional."
+  },
+  "namespace_definition": {
+    "case_sensitive": false,
+    "native_name": "layer",
+    "note": "The namespace is the name of the layer which provides the recipe. The layer name as specified in the BBFILE_COLLECTIONS variable in conf/layer.conf of the layer.",
+    "requirement": "optional"
+  },
+  "name_definition": {
+    "requirement": "required",
+    "case_sensitive": true,
+    "note": "The name of the package with common prefixes and suffixes removed, also known as BPN (https://docs.yoctoproject.org/ref-manual/variables.html#term-BPN) in a yocto recipe.",
+    "native_name": "BPN"
+  },
+  "version_definition": {
+    "requirement": "optional",
+    "note": "The version of the package also known as PV (https://docs.yoctoproject.org/ref-manual/variables.html#term-PV>) in a yocto recipe.",
+    "native_name": "PV"
+  },
+  "qualifiers_definition": [
+    {
+      "key": "repository_url",
+      "requirement": "optional",
+      "description": "The GIT URL of the layer. In example: https:%2F%2Fgit.openembedded.org%2Fopenembedded-core or https:%2F%2Fgithub.com%2Fakuster%2Fmeta-odroid. The URL scheme is mandatory and must be one of https, http, ssh, or git."
+    },
+    {
+      "key": "layer_version",
+      "requirement": "optional",
+      "description": "layer_version is the version of the yocto layer which is a SHA1 commit, tag or branch of the yocto layer GIT repository. It should support also short commits (https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection#_short_sha_1)."
+    }
+  ],
+  "examples": [
+    "pkg:yocto/core/glibc@2.35",
+    "pkg:yocto/core/glibc@2.35&repository_url=https:%2F%2Fgit.openembedded.org%2Fopenembedded-core&layer_version=kirkstone",
+    "pkg:yocto/core/glibc@2.35&repository_url=https:%2F%2Fgit.openembedded.org%2Fopenembedded-core&layer_version=25ba9895b9",
+    "pkg:yocto/core/glibc@2.35&repository_url=https:%2F%2Fgit.openembedded.org%2Fopenembedded-core&layer_version=25ba9895b98715adb66a06e50f644aea2e2c9eb6",
+    "pkg:yocto/xilinx/u-boot-xlnx-uenv@1.0.0",
+    "pkg:yocto/odroid-layer/emmc@1.0.0?layer_version=4e07fab&repository_url=https:%2F%2Fgithub.com%2Fakuster%2Fmeta-odroid"
+  ]
+}
