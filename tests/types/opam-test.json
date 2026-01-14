@@ -36,23 +36,23 @@
       "expected_failure_reason": null
     },
     {
-      "description": "valid opam purl",
+      "description": "valid opam purl (name only)",
       "test_group": "base",
       "test_type": "build",
       "input": {
         "type": "opam",
         "namespace": null,
         "name": "conex",
-        "version": "1.0.0",
+        "version": null,
         "qualifiers": null,
         "subpath": null
       },
-      "expected_output": "pkg:opam/conex@1.0.0",
+      "expected_output": "pkg:opam/conex",
       "expected_failure": false,
       "expected_failure_reason": null
     },
     {
-      "description": "name and version are always required",
+      "description": "name is always required",
       "test_group": "base",
       "test_type": "build",
       "input": {
