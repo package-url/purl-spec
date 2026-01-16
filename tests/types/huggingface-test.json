@@ -5,8 +5,8 @@
       "description": "minimal Hugging Face model. Roundtrip an input purl to canonical.",
       "test_group": "advanced",
       "test_type": "roundtrip",
-      "input": "pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
-      "expected_output": "pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "input": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "expected_output": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -14,10 +14,10 @@
       "description": "minimal Hugging Face model",
       "test_group": "base",
       "test_type": "parse",
-      "input": "pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "input": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
       "expected_output": {
         "type": "huggingface",
-        "namespace": null,
+        "namespace": "distilbert",
         "name": "distilbert-base-uncased",
         "version": "043235d6088ecd3dd5fb5ca3592b6913fd516027",
         "qualifiers": null,
@@ -30,8 +30,8 @@
       "description": "minimal Hugging Face model. Roundtrip a canonical input to canonical output.",
       "test_group": "base",
       "test_type": "roundtrip",
-      "input": "pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
-      "expected_output": "pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "input": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "expected_output": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -41,13 +41,13 @@
       "test_type": "build",
       "input": {
         "type": "huggingface",
-        "namespace": null,
+        "namespace": "distilbert",
         "name": "distilbert-base-uncased",
         "version": "043235d6088ecd3dd5fb5ca3592b6913fd516027",
         "qualifiers": null,
         "subpath": null
       },
-      "expected_output": "pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "expected_output": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -159,10 +159,10 @@
       "description": "Parse test for PURL type: huggingface",
       "test_group": "base",
       "test_type": "parse",
-      "input": "pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "input": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
       "expected_output": {
         "type": "huggingface",
-        "namespace": null,
+        "namespace": "distilbert",
         "name": "distilbert-base-uncased",
         "version": "043235d6088ecd3dd5fb5ca3592b6913fd516027",
         "qualifiers": null,
@@ -175,8 +175,8 @@
       "description": "Roundtrip test for PURL type: huggingface",
       "test_group": "base",
       "test_type": "roundtrip",
-      "input": "pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
-      "expected_output": "pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "input": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "expected_output": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -186,13 +186,13 @@
       "test_type": "build",
       "input": {
         "type": "huggingface",
-        "namespace": null,
+        "namespace": "distilbert",
         "name": "distilbert-base-uncased",
         "version": "043235d6088ecd3dd5fb5ca3592b6913fd516027",
         "qualifiers": null,
         "subpath": null
       },
-      "expected_output": "pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "expected_output": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
       "expected_failure": false,
       "expected_failure_reason": null
     },
