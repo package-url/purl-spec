@@ -9,14 +9,16 @@
 - [GitHub Dependency Submission API](https://docs.github.com/en/rest/dependency-graph/dependency-submission): allows third-party tools
   to submit dependency data to GitHub for inclusion in a repository's dependency graph.
 - [NTT ZEN SecDB](https://secdb.nttzen.cloud): A security intelligence platform providing unified access to vulnerabilities, advisories, and exploit data across ecosystems, leveraging PURL for consistent package identification.
-- [OWASP Dependency-Track](https://www.owasp.org/index.php/OWASP_Dependency_Track_Project):
-  Open source component analysis platform
+- [OpenVEX Specification](https://github.com/openvex/spec/blob/main/OPENVEX-SPEC.md#appendix-b-software-identifier-types-table): A machine-readable format to communicate
+  the status of vulnerabilities affecting products and projects.
 - [OSS Index](https://ossindex.sonatype.org): A free catalog of Open Source
   Components and scanning tools to help developers identify vulnerable components
 - [OSS Review Toolkit](https://oss-review-toolkit.org/): A suite of tools to
   assist with automating Open Source compliance checks.
 - [OSV Schema](https://ossf.github.io/osv-schema/) and [OSV.dev](https://osv.dev):
   Open Source Vulnerability Schema and distributed vulnerability database
+- [OWASP Dependency-Track](https://www.owasp.org/index.php/OWASP_Dependency_Track_Project):
+  Open source component analysis platform
 - [ReversingLabs Spectra Assure](https://www.reversinglabs.com/products/software-supply-chain-security):
   Software supply chain security platform for the enterprise to detect threats and exposures
 - [Scancode Toolkit](https://github.com/nexB/scancode-toolkit): Reports

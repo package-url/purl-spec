@@ -1,6 +1,7 @@
 [
   "alpm",
   "apk",
+  "bazel",
   "bitbucket",
   "bitnami",
   "cargo",
@@ -19,12 +20,15 @@
   "hackage",
   "hex",
   "huggingface",
+  "julia",
   "luarocks",
   "maven",
   "mlflow",
   "npm",
   "nuget",
   "oci",
+  "opam",
+  "otp",
   "pub",
   "pypi",
   "qpkg",
@@ -32,4 +36,5 @@
   "swid",
   "swift",
   "vscode"
+  "yocto"
 ]

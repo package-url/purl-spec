@@ -56,7 +56,7 @@
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
-      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
+      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https:%2F%2Fhub-ci.huggingface.co",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -83,7 +83,7 @@
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
-      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
+      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https:%2F%2Fhub-ci.huggingface.co",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -101,7 +101,7 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
+      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https:%2F%2Fhub-ci.huggingface.co",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -219,7 +219,7 @@
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
-      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
+      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https:%2F%2Fhub-ci.huggingface.co",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -237,7 +237,7 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
+      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https:%2F%2Fhub-ci.huggingface.co",
       "expected_failure": false,
       "expected_failure_reason": null
     }
