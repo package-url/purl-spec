@@ -85,6 +85,6 @@ class PurlTest(BaseModel):
     )
     expected_failure_reason: Optional[str] = Field(
         None,
-        description="The reason why this test is is expected to fail if expected_failure is true.",
+        description="The reason why this test is expected to fail if expected_failure is true.",
         title="Expected failure reason",
     )
