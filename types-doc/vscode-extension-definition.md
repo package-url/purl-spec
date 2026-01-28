@@ -1,22 +1,22 @@
 <!--  NOTE: Auto-generated from the JSON PURL type definition.
 Do not manually edit this file. Edit the JSON type definition instead. -->
 
-# PURL Type Definition: vscode
+# PURL Type Definition: vscode-extension
 
 - **Type Name:** VS Code Extension packages
 - **Description:** VS Code Extension packages
-- **Schema ID:** `https://packageurl.org/types/vscode-definition.json`
+- **Schema ID:** `https://packageurl.org/types/vscode-extension-definition.json`
 
 ## PURL Syntax
 
 The structure of a PURL for this package type is:
 
-    pkg:vscode/<namespace>/<name>@<version>?<qualifiers>#<subpath>
+    pkg:vscode-extension/<namespace>/<name>@<version>?<qualifiers>#<subpath>
 
 ## Repository Information
 
 - **Use Repository:** Yes
-- **Default Repository URL:** https://marketplace.visualstudio.com/vscode
+- **Default Repository URL:** https://marketplace.visualstudio.com/vscode-extension
 
 ## Namespace definition
 
@@ -44,9 +44,9 @@ The structure of a PURL for this package type is:
 
 ## Examples
 
-- `pkg:vscode/ms-python/python@2023.25.10292213`
-- `pkg:vscode/muhammad-sammy/csharp@2.15.30?repository_url=https://open-vsx.org`
-- `pkg:vscode/golang/go@0.39.1?platform=win32-x64`
+- `pkg:vscode-extension/ms-python/python@2023.25.10292213`
+- `pkg:vscode-extension/muhammad-sammy/csharp@2.15.30?repository_url=https://open-vsx.org`
+- `pkg:vscode-extension/golang/go@0.39.1?platform=win32-x64`
 
 ## Reference URLs
 
