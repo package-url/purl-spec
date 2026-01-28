@@ -41,7 +41,7 @@ The structure of a PURL for this package type is:
 
 | Key  | Requirement | Native name | Default Value | Description |
 |------|-------------|-------------|---------------|-------------|
-| repository_url | Optional |  |  | The GIT URL of the layer. In example: https%3A%2F%2Fgit.openembedded.org%2Fopenembedded-core or https%3A%2F%2Fgithub.com%2Fakuster%2Fmeta-odroid. The URL scheme is mandatory and must be one of https, http, ssh, or git. |
+| repository_url | Optional |  |  | The GIT URL of the layer. In example: https:%2F%2Fgit.openembedded.org%2Fopenembedded-core or https:%2F%2Fgithub.com%2Fakuster%2Fmeta-odroid. The URL scheme is mandatory and must be one of https, http, ssh, or git. |
 | layer_version | Optional |  |  | layer_version is the version of the yocto layer which is a SHA1 commit, tag or branch of the yocto layer GIT repository. It should support also short commits (https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection#_short_sha_1). |
 
 ## Examples

@@ -49,14 +49,14 @@ The structure of a PURL for this package type is:
 
 ## Examples
 
-- `pkg:otp/erts@10.6.3?platform=linux&arch=amd64&repository_url=https:%2F%2Fgithub.com%2Ferlang%2Fotp&vcs_url=git%20https:%2F%2Fgithub.com%2Ferlang%2Fotp.git`
-- `pkg:otp/stdlib@3.11.2?repository_url=https:%2F%2Fgithub.com%2Ferlang%2Fotp&vcs_url=git%20https:%2F%2Fgithub.com%2Ferlang%2Fotp.git`
-- `pkg:otp/crypto@4.6.4?platform=darwin&arch=x86_64&repository_url=https:%2F%2Fgithub.com%2Ferlang%2Fotp&vcs_url=git%20https:%2F%2Fgithub.com%2Ferlang%2Fotp.git`
-- `pkg:otp/elixir@1.10.0?repository_url=https:%2F%2Fgithub.com%2Felixir-lang%2Felixir&vcs_url=git%20https:%2F%2Fgithub.com%2Felixir-lang%2Felixir.git`
-- `pkg:otp/eex@1.10.0?repository_url=https:%2F%2Fgithub.com%2Felixir-lang%2Felixir&vcs_url=git%20https:%2F%2Fgithub.com%2Felixir-lang%2Felixir.git`
-- `pkg:otp/logger@1.10.0?repository_url=https:%2F%2Fgithub.com%2Felixir-lang%2Felixir&vcs_url=git%20https:%2F%2Fgithub.com%2Felixir-lang%2Felixir.git`
-- `pkg:otp/rebar@3.13.0?repository_url=https:%2F%2Fgithub.com%2Ferlang%2Frebar3&vcs_url=git%20https:%2F%2Fgithub.com%2Ferlang%2Frebar3.git`
-- `pkg:otp/hex@2.1.1?repository_url=https:%2F%2Fgithub.com%2Fhexpm%2Fhex&vcs_url=git%20https:%2F%2Fgithub.com%2Fhexpm%2Fhex.git`
+- `pkg:otp/erts@10.6.3?platform=linux&arch=amd64&repository_url=https:%2F%2Fgithub.com%2Ferlang%2Fotp&vcs_url=git%2Bhttps:%2F%2Fgithub.com%2Ferlang%2Fotp.git`
+- `pkg:otp/stdlib@3.11.2?repository_url=https:%2F%2Fgithub.com%2Ferlang%2Fotp&vcs_url=git%2Bhttps:%2F%2Fgithub.com%2Ferlang%2Fotp.git`
+- `pkg:otp/crypto@4.6.4?platform=darwin&arch=x86_64&repository_url=https:%2F%2Fgithub.com%2Ferlang%2Fotp&vcs_url=git%2Bhttps:%2F%2Fgithub.com%2Ferlang%2Fotp.git`
+- `pkg:otp/elixir@1.10.0?repository_url=https:%2F%2Fgithub.com%2Felixir-lang%2Felixir&vcs_url=git%2Bhttps:%2F%2Fgithub.com%2Felixir-lang%2Felixir.git`
+- `pkg:otp/eex@1.10.0?repository_url=https:%2F%2Fgithub.com%2Felixir-lang%2Felixir&vcs_url=git%2Bhttps:%2F%2Fgithub.com%2Felixir-lang%2Felixir.git`
+- `pkg:otp/logger@1.10.0?repository_url=https:%2F%2Fgithub.com%2Felixir-lang%2Felixir&vcs_url=git%2Bhttps:%2F%2Fgithub.com%2Felixir-lang%2Felixir.git`
+- `pkg:otp/rebar@3.13.0?repository_url=https:%2F%2Fgithub.com%2Ferlang%2Frebar3&vcs_url=git%2Bhttps:%2F%2Fgithub.com%2Ferlang%2Frebar3.git`
+- `pkg:otp/hex@2.1.1?repository_url=https:%2F%2Fgithub.com%2Fhexpm%2Fhex&vcs_url=git%2Bhttps:%2F%2Fgithub.com%2Fhexpm%2Fhex.git`
 
 ## Note
 
