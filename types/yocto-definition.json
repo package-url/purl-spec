@@ -6,7 +6,6 @@
   "description": "Yocto Project recipes",
   "repository": {
     "use_repository": true,
-    "requirement": "optional",
     "note": "There is no default package repository. The classifier repository_url is optional."
   },
   "namespace_definition": {
