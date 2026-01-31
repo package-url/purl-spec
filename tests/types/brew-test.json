@@ -1,0 +1,248 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "Simple Homebrew formula with version",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:brew/sqlite@3.43.2",
+      "expected_output": {
+        "type": "brew",
+        "namespace": null,
+        "name": "sqlite",
+        "version": "3.43.2",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Simple Homebrew formula with version - roundtrip",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:brew/sqlite@3.43.2",
+      "expected_output": "pkg:brew/sqlite@3.43.2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Simple Homebrew formula with version - build",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "brew",
+        "namespace": null,
+        "name": "sqlite",
+        "version": "3.43.2",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:brew/sqlite@3.43.2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Homebrew formula without version (versionless purl)",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:brew/go",
+      "expected_output": {
+        "type": "brew",
+        "namespace": null,
+        "name": "go",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Homebrew formula without version - roundtrip",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:brew/go",
+      "expected_output": "pkg:brew/go",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Homebrew formula without version - build",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "brew",
+        "namespace": null,
+        "name": "go",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:brew/go",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Versioned formula with @ in name (postgresql@12) - @ must be percent-encoded",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:brew/postgresql%4012@12.17",
+      "expected_output": {
+        "type": "brew",
+        "namespace": null,
+        "name": "postgresql@12",
+        "version": "12.17",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Versioned formula with @ in name - roundtrip",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:brew/postgresql%4012@12.17",
+      "expected_output": "pkg:brew/postgresql%4012@12.17",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Versioned formula with @ in name - build",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "brew",
+        "namespace": null,
+        "name": "postgresql@12",
+        "version": "12.17",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:brew/postgresql%4012@12.17",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Homebrew formula with namespace (tap) - parse",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:brew/homebrew/core/sqlite@3.43.2",
+      "expected_output": {
+        "type": "brew",
+        "namespace": "homebrew/core",
+        "name": "sqlite",
+        "version": "3.43.2",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Homebrew formula with namespace (tap) - roundtrip",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:brew/homebrew/core/sqlite@3.43.2",
+      "expected_output": "pkg:brew/homebrew/core/sqlite@3.43.2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Homebrew formula with namespace (tap) - build",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "brew",
+        "namespace": "homebrew/core",
+        "name": "sqlite",
+        "version": "3.43.2",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:brew/homebrew/core/sqlite@3.43.2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Homebrew formula with third-party tap and repository_url - parse",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:brew/some-org/some-tap/some-app@1.2.3?repository_url=https://github.com/some-org/homebrew-some-tap.git",
+      "expected_output": {
+        "type": "brew",
+        "namespace": "some-org/some-tap",
+        "name": "some-app",
+        "version": "1.2.3",
+        "qualifiers": {
+          "repository_url": "https://github.com/some-org/homebrew-some-tap.git"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Homebrew formula with third-party tap and repository_url - roundtrip",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:brew/some-org/some-tap/some-app@1.2.3?repository_url=https://github.com/some-org/homebrew-some-tap.git",
+      "expected_output": "pkg:brew/some-org/some-tap/some-app@1.2.3?repository_url=https:%2F%2Fgithub.com%2Fsome-org%2Fhomebrew-some-tap.git",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Homebrew formula with third-party tap and repository_url - build",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "brew",
+        "namespace": "some-org/some-tap",
+        "name": "some-app",
+        "version": "1.2.3",
+        "qualifiers": {
+          "repository_url": "https://github.com/some-org/homebrew-some-tap.git"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:brew/some-org/some-tap/some-app@1.2.3?repository_url=https:%2F%2Fgithub.com%2Fsome-org%2Fhomebrew-some-tap.git",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Versioned formula with unencoded @ should parse (advanced)",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:brew/node@20@20.10.0",
+      "expected_output": "pkg:brew/node%4020@20.10.0",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Homebrew cask example",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:brew/homebrew/cask/firefox@120.0",
+      "expected_output": {
+        "type": "brew",
+        "namespace": "homebrew/cask",
+        "name": "firefox",
+        "version": "120.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Homebrew cask example - roundtrip",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:brew/homebrew/cask/firefox@120.0",
+      "expected_output": "pkg:brew/homebrew/cask/firefox@120.0",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}
