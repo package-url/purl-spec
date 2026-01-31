@@ -18,7 +18,7 @@
     "note": "The name as defined in the MODULE.bazel file"
   },
   "version_definition": {
-    "requirement": "required",
+    "requirement": "optional",
     "note": "The version as defined in the MODULE.bazel file. Uses a relaxed semantic versioning format described at https://bazel.build/external/module#version-format."
   },
   "subpath_definition": {
