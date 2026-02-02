@@ -1,0 +1,69 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "valid pear purl",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:pear/pear.php.net/Text_Password@1.2.1",
+      "expected_output": {
+        "type": "pear",
+        "namespace": "pear.php.net",
+        "name": "Text_Password",
+        "version": "1.2.1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid pecl purl",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:pear/pecl.php.net/APCu@5.1.23",
+      "expected_output": {
+        "type": "pear",
+        "namespace": "pecl.php.net",
+        "name": "APCu",
+        "version": "5.1.23",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "exp,ected_failure_reason": null
+    },
+    {
+      "description": "valid pear purl",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "pear",
+        "namespace": "pear.php.net",
+        "name": "Text_Password",
+        "version": "1.2.1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output":  "pkg:pear/pear.php.net/Text_Password@1.2.1",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid pecl purl",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "pear",
+        "namespace": "pecl.php.net",
+        "name": "APCu",
+        "version": "5.1.23",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:pear/pecl.php.net/APCu@5.1.23",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

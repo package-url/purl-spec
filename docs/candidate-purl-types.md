@@ -33,8 +33,6 @@
 - ``openwrt`` for OpenWRT packages
 - ``osgi`` for OSGi bundle packages
 - ``p2`` for Eclipse p2 packages
-- ``pear`` for Pear PHP packages
-- ``pecl`` for PECL PHP packages
 - ``perl6`` for Perl 6 module packages
 - ``platformio`` for PlatformIO packages
 - ``puppet`` for Puppet Forge packages
