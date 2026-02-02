@@ -27,11 +27,15 @@
   "npm",
   "nuget",
   "oci",
+  "opam",
+  "otp",
   "pub",
   "pypi",
   "qpkg",
   "raku",
   "rpm",
   "swid",
-  "swift"
+  "swift",
+  "vscode-extension",
+  "yocto"
 ]
