@@ -80,7 +80,7 @@ class PackageUrlTypeDefinition(BaseModel):
         ...,
         description=(
             "Definition of the namespace component for this PURL type. The PURL namespace component"
-            " must be required, optional or prohibited for a specific PURL type definition."
+            " shall be required, optional or prohibited for a specific PURL type definition."
         ),
         title="Namespace definition",
     )
@@ -144,7 +144,7 @@ class PurlComponentDefinition(BaseModel):
         None,
         description=(
             "A regular expression (ECMA-262 dialect) defining the 'Permitted characters' for this"
-            " component of this Package-URL type. If provided, this must be a subset of the"
+            " component of this Package-URL type. If provided, this shall be a subset of the"
             " 'Permitted characters' defined in the PURL specification."
         ),
         title="Permitted characters in this PURL component",
@@ -152,7 +152,7 @@ class PurlComponentDefinition(BaseModel):
     case_sensitive: Optional[bool] = Field(
         True,
         description=(
-            "true if this PURL component is case sensitive. If false, the canonical form must be"
+            "true if this PURL component is case sensitive. If false, the canonical form shall be"
             " lowercased."
         ),
         title="Case sensitive",
