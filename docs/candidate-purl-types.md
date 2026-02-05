@@ -4,7 +4,7 @@
 - ``apache`` for Apache projects packages
 - ``atom`` for Atom packages
 - ``bower`` for Bower JavaScript packages
-- ``brew`` for Homebrew packages
+- ``brew`` for Homebrew packages - See https://github.com/package-url/purl-spec/pull/796
 - ``buildroot`` for Buildroot packages
 - ``carthage`` for Cocoapods Cocoa packages
 - ``chef`` for Chef packages
@@ -24,24 +24,23 @@
 - ``gradle`` for Gradle plugins
 - ``guix`` for Guix packages
 - ``haxe`` for Haxe packages
-- ``helm`` for Kubernetes packages
-- ``julia`` for Julia packages
+- ``helm`` for Kubernetes packages - See https://github.com/package-url/purl-spec/pull/236
 - ``melpa`` for Emacs packages
 - ``meteor`` for Meteor JavaScript packages
 - ``nim`` for Nim packages
-- ``nix`` for Nixos packages
+- ``nix`` for Nixos packages - See https://github.com/package-url/purl-spec/pull/314 
 - ``openwrt`` for OpenWRT packages
 - ``osgi`` for OSGi bundle packages
-- ``p2`` for Eclipse p2 packages
-- ``pear`` for Pear PHP packages
-- ``pecl`` for PECL PHP packages
-- ``perl6`` for Perl 6 module packages
+- ``p2`` for Eclipse p2 packages - See https://github.com/package-url/purl-spec/pull/272
+- ``pear`` for Pear/PECL PHP packages - See https://github.com/package-url/purl-spec/pull/300
+- ``raku`` for Perl 6 module packages - See https://github.com/package-url/purl-spec/pull/550
 - ``platformio`` for PlatformIO packages
 - ``puppet`` for Puppet Forge packages
 - ``sourceforge`` for Sourceforge-based packages
 - ``sublime`` for Sublime packages
 - ``terraform`` for Terraform modules
 - ``vagrant`` for Vagrant boxes
+- ``vcpkg`` for Microsoft vcpkg - See https://github.com/package-url/purl-spec/issues/217
 - ``vim`` for Vim scripts packages
+- ``winget`` for Windows Package Manager - See https://github.com/package-url/purl-spec/issues/255 
 - ``wordpress`` for Wordpress packages
-- ``yocto`` for Yocto recipe packages
