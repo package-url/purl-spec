@@ -1,0 +1,196 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "valid julia purl for stdlib package with version and uuid",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:julia/Dates@1.9.0?uuid=ade2ca70-3891-5945-98fb-dc099432e06a",
+      "expected_output": {
+        "type": "julia",
+        "namespace": null,
+        "name": "Dates",
+        "version": "1.9.0",
+        "qualifiers": {
+          "uuid": "ade2ca70-3891-5945-98fb-dc099432e06a"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid julia purl for stdlib package with uuid but no version",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:julia/Dates?uuid=ade2ca70-3891-5945-98fb-dc099432e06a",
+      "expected_output": {
+        "type": "julia",
+        "namespace": null,
+        "name": "Dates",
+        "version": null,
+        "qualifiers": {
+          "uuid": "ade2ca70-3891-5945-98fb-dc099432e06a"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid julia purl, version and uuid",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:julia/AWS@1.88.0?uuid=fbe9abb3-538b-5e4e-ba9e-bc94f4f92ebc",
+      "expected_output": {
+        "type": "julia",
+        "namespace": null,
+        "name": "AWS",
+        "version": "1.88.0",
+        "qualifiers": {
+          "uuid": "fbe9abb3-538b-5e4e-ba9e-bc94f4f92ebc"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid julia purl with both uuid and repository_url qualifiers",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:julia/RegisterQD@0.3.1?repository_url=https://github.com/HolyLab/HolyLabRegistry&uuid=ac24ea0c-1830-11e9-18d4-81f172323054",
+      "expected_output": {
+        "type": "julia",
+        "namespace": null,
+        "name": "RegisterQD",
+        "version": "0.3.1",
+        "qualifiers": {
+          "repository_url": "https://github.com/HolyLab/HolyLabRegistry",
+          "uuid": "ac24ea0c-1830-11e9-18d4-81f172323054"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid julia purl build test - stdlib package with version and uuid",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "julia",
+        "namespace": null,
+        "name": "Dates",
+        "version": "1.9.0",
+        "qualifiers": {
+          "uuid": "ade2ca70-3891-5945-98fb-dc099432e06a"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:julia/Dates@1.9.0?uuid=ade2ca70-3891-5945-98fb-dc099432e06a",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid julia purl build test with both qualifiers",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "julia",
+        "namespace": null,
+        "name": "RegisterQD",
+        "version": "0.3.1",
+        "qualifiers": {
+          "repository_url": "https://github.com/HolyLab/HolyLabRegistry",
+          "uuid": "ac24ea0c-1830-11e9-18d4-81f172323054"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:julia/RegisterQD@0.3.1?repository_url=https:%2F%2Fgithub.com%2FHolyLab%2FHolyLabRegistry&uuid=ac24ea0c-1830-11e9-18d4-81f172323054",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid julia purl roundtrip test - basic package",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:julia/Dates@1.9.0?uuid=ade2ca70-3891-5945-98fb-dc099432e06a",
+      "expected_output": "pkg:julia/Dates@1.9.0?uuid=ade2ca70-3891-5945-98fb-dc099432e06a",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid julia purl roundtrip test - multiple qualifiers",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:julia/RegisterQD@0.3.1?repository_url=https://github.com/HolyLab/HolyLabRegistry&uuid=ac24ea0c-1830-11e9-18d4-81f172323054",
+      "expected_output": "pkg:julia/RegisterQD@0.3.1?repository_url=https:%2F%2Fgithub.com%2FHolyLab%2FHolyLabRegistry&uuid=ac24ea0c-1830-11e9-18d4-81f172323054",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "invalid julia purl without name",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:julia/@1.9.0",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+    },
+    {
+      "description": "invalid julia purl with only type",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:julia",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+    },
+    {
+      "description": "invalid julia purl build test - null name",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "julia",
+        "namespace": null,
+        "name": null,
+        "version": "1.9.0",
+        "qualifiers": {
+          "uuid": "ade2ca70-3891-5945-98fb-dc099432e06a"
+        },
+        "subpath": null
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+    },
+    {
+      "description": "invalid julia purl build test - empty name",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "julia",
+        "namespace": null,
+        "name": "",
+        "version": "1.9.0",
+        "qualifiers": {
+          "uuid": "ade2ca70-3891-5945-98fb-dc099432e06a"
+        },
+        "subpath": null
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+    },
+    {
+      "description": "invalid julia purl for package without uuid",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:julia/Dates",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+    }
+  ]
+}

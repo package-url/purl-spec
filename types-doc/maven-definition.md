@@ -28,12 +28,14 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
+- **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** artifactId
 - **Note:** `The artifact id is the name.`
 
 ## Version definition
 
+- **Requirement:** Optional
 - **Case Sensitive:** Yes
 - **Native Label:** version
 
