@@ -11,7 +11,7 @@ the input PURL
 - analyze a PURL string and recover from small errors to produce a canonical
 PURL when possible
 
-The current JSON schema for test files is available at: [`purl-spec/schemas/purl-test.schema-0.1.json`](https://github.com/package-url/purl-spec/blob/main/schemas/purl-type-definition.schema-1.0.json).
+The current JSON schema for test files *will be* available at: `purl-spec/schemas/purl-test.schema-0.2.json`
 
 The PURL test files are available at:
 - [`purl-spec/tests/spec/`](https://github.com/package-url/purl-spec/tree/main/tests/spec) 
@@ -33,11 +33,11 @@ component.
 - [`purl-spec/tests/types/`](https://github.com/package-url/purl-spec/tree/main/tests/types)
 This folder contains one JSON test file for each registered PURL type. These 
 tests should be focused on test cases that are specific to a PURL type, such 
-as those for the **namespace** or **qualifiers** components. These PURL type
-test cases should not duplicate specification level test cases.
+as those for the **namespace** or **qualifiers** components. PURL type
+test cases should not duplicate specification or component level test cases.
 
-This document d does not provide specific guidance or instructions for 
-using PURL test files. That will be the subject of future "How-to" 
+This document does not provide specific guidance or instructions for using 
+PURL test files. That will be the subject of future "How-to" 
 documentation.
 
 Two key properties in the PURL test JSON schema are:
@@ -66,13 +66,13 @@ decoded PURL components."
 - 'parse': A test to parse decoded components from a PURL input string.
 - 'round-trip': A test to parse a PURL string input and build a canonical 
 PURL string output. Round-trip test cases are in the 'advanced' **test group**
-when the PURL string input is not canonical.
+if the test case output shows a corrected PURL string.
 - 'validation': A test to validate that a PURL string input complies with 
 the rules for its PURL **type**. The only output from a 'validation' test case
 is one or more messages.
 
 Any PURL implementation tool is expected to canonicalize a PURL string during 
-a parsing or building operation.
+a parse or build operation.
 
 ## Test results and messages
 The PURL specification does not mandate how a PURL implementation tool 
@@ -100,7 +100,7 @@ if expected_failure is true."
 In the case of a test case failure the test case `expected_output` is 'null'.
 
 ### Advanced test group error handling and messages
-Test cases in the 'advanced' **test group** may be pass/fail, but most should 
+Test cases in the 'advanced' **test group** may be pass/fail. Most should 
 provide a validation message. If a test case provides corrected output it 
 shall at a minimum also provide a validation message that explains the 
 correction.
@@ -108,11 +108,11 @@ correction.
 ### Validation messages
 There are 3 levels of **validation message**:
 - 'info': An 'info' message means that there is some anomaly in the test 
-input that is not an error. A common *future* example could be the presence of 
+input that is not an error. A *future* example could be the presence of 
 a qualifier that is not a registered for a PURL **type**.
 - 'warning': A 'warning' message means some of the test input is incorrect, 
 but that it can be corrected with information from the PURL **type** 
-definition. A common example is correcting case sensitivity.
+definition. An example is correcting case sensitivity.
 - 'error': An 'error' message means that the test input does not provide 
 enough information to produce a canonical PURL or a set of canonical PURL
 components (for a 'parse' **test type**).
