@@ -1,5 +1,5 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-type.schema-1.0.json",
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
   "$id": "https://packageurl.org/types/bazel-definition.json",
   "type": "bazel",
   "type_name": "Bazel modules",
@@ -18,7 +18,7 @@
     "note": "The name as defined in the MODULE.bazel file"
   },
   "version_definition": {
-    "requirement": "required",
+    "requirement": "optional",
     "note": "The version as defined in the MODULE.bazel file. Uses a relaxed semantic versioning format described at https://bazel.build/external/module#version-format."
   },
   "subpath_definition": {
