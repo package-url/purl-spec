@@ -11,7 +11,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 The structure of a PURL for this package type is:
 
-    pkg:chrome/<name>@<version>?<qualifiers>#<subpath>
+    pkg:chrome-extension/<name>@<version>?<qualifiers>#<subpath>
 
 ## Repository Information
 
@@ -37,11 +37,11 @@ The structure of a PURL for this package type is:
 
 ## Examples
 
-- `pkg:chrome/hlepfoohegkhhmjieoechaddaejaokhf@25.7.1`
-- `pkg:chrome/dncgedbnidfkppmdgfgidcepclnokpkb@6.0.2.3611`
-- `pkg:chrome/kanfjhdeebkfgkbmnfknhejpadhlmiab@0.6`
-- `pkg:chrome/dlpngalgnefjeiefhmpklpfiohadpglk@1`
-- `pkg:chrome/dlpngalgnefjeiefhmpklpfiohadpglk`
+- `pkg:chrome-extension/hlepfoohegkhhmjieoechaddaejaokhf@25.7.1`
+- `pkg:chrome-extension/dncgedbnidfkppmdgfgidcepclnokpkb@6.0.2.3611`
+- `pkg:chrome-extension/kanfjhdeebkfgkbmnfknhejpadhlmiab@0.6`
+- `pkg:chrome-extension/dlpngalgnefjeiefhmpklpfiohadpglk@1`
+- `pkg:chrome-extension/dlpngalgnefjeiefhmpklpfiohadpglk`
 
 ## Note
 
