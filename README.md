@@ -136,6 +136,7 @@ identifier, there are many FOSS projects that implement PURL for languages or so
 - Go: https://github.com/package-url/packageurl-go
 - Java: https://github.com/package-url/packageurl-java
 - JavaScript: https://github.com/package-url/packageurl-js
+- Julia: https://github.com/s-celles/PackageURLs.jl
 - Kotlin: https://github.com/iseki0/PUrlKt
 - Perl: https://github.com/giterlizzi/perl-URI-PackageURL
 - PHP: https://github.com/package-url/packageurl-php
