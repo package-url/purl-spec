@@ -4,6 +4,7 @@
   "bazel",
   "bitbucket",
   "bitnami",
+  "brew",
   "cargo",
   "cocoapods",
   "composer",
