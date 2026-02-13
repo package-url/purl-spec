@@ -10,7 +10,7 @@ necessary to ensure that PURLs stay compact and readable.
 Some commonly-used **qualifiers keys** are:
 
 - 'checksum' is a qualifier for one or more checksums stored as a
-comma-separated list. Each item in the **value** is in form of
+comma-separated list. Each item in the **value** is in the form of
 'lowercase_algorithm:hex_encoded_lowercase_value' such as
 'sha1:ad9503c3e994a4f611a4892f2e67ac82df727086'.
 
@@ -30,13 +30,13 @@ multiple commonly used repositories for a PURL **type**.
 
 - 'vcs_url' should be used to provide a URL for a version control system (aka 
 SCM or VCS) for the use case where you need to specify a PURL for a package at
-its SCM/VCS location. The syntax for 'vcs_url" should follow the Python pip 
+its SCM/VCS location. The syntax for 'vcs_url' should follow the Python pip 
 syntax or the SPDX specification for ["Package Download Location"](https://github.com/spdx/spdx-spec/blob/cfa1b9d08903/chapters/3-package-information.md#3.7).
 
 - 'vers' allows the specification of a version range instead of a single 
 version. The primary use cases for this **qualifiers key** are to identify a 
 version range for dependency analysis or vulnerability reporting. Use of this 
-*key** is mutually exclusive with the **version** component. The **value** 
+**key** is mutually exclusive with the **version** component. The **value** 
 must adhere to the [Version Range Specification](https://github.com/package-url/vers-spec/blob/main/VERSION-RANGE-SPEC.md).
 
   For example:
