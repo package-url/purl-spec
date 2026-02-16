@@ -1,0 +1,74 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "valid getit purl without qualifiers",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:getit/GroqCloudAPIwrapper@1.0",
+      "expected_output": {
+        "type": "getit",
+        "namespace": null,
+        "name": "GroqCloudAPIwrapper",
+        "version": "1.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid getit purl with multiple qualifiers and commas in values",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:getit/AWSSDKforDelphi-12-1.4.0@1.4.0?platform=x86,x64&category=libraries,promoted",
+      "expected_output": {
+        "type": "getit",
+        "namespace": null,
+        "name": "AWSSDKforDelphi-12-1.4.0",
+        "version": "1.4.0",
+        "qualifiers": {
+          "platform": "x86,x64",
+          "category": "libraries,promoted"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid getit purl with multiple qualifiers \u2014 canonical order",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:getit/AWSSDKforDelphi-12-1.4.0@1.4.0?platform=x86,x64&category=libraries,promoted",
+      "expected_output": "pkg:getit/AWSSDKforDelphi-12-1.4.0@1.4.0?category=libraries,promoted&platform=x86,x64",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "invalid getit purl without name",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:getit/@11.0?platform=ios&category=libraries",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "name is required for getit packages"
+    },
+    {
+      "description": "Build test for getit PURL without qualifiers",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "getit",
+        "namespace": null,
+        "name": "GroqCloudAPIwrapper",
+        "version": "1.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:getit/GroqCloudAPIwrapper@1.0",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}
