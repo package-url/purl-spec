@@ -31,7 +31,7 @@ The structure of a PURL for this package type is:
 
 ## Version definition
 
-- **Requirement:** Required
+- **Requirement:** Optional
 - **Note:** `The version as defined in the MODULE.bazel file. Uses a relaxed semantic versioning format described at https://bazel.build/external/module#version-format.`
 
 ## Subpath definition
