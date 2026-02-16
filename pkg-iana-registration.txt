@@ -1,0 +1,44 @@
+Scheme name: pkg
+
+Status: Provisional
+
+Scheme syntax: pkg:<type>/<namespace/name>@version?<qualifiers>#<subpath>
+
+Scheme semantics: Identify and locate a software package.
+
+Applications/protocols that use this scheme name:
+
+  Binary Analysis Next Generation (BANG): https://github.com/armijnhemel/binaryanalysis-ng
+  CycloneDX: https://github.com/CycloneDX
+  DefectDojo: https://github.com/DefectDojo/django-DefectDojo
+  DejaCode: https://enterprise.dejacode.com/
+  DeltaCode: https://github.com/nexb/deltacode
+  Eclipse Steady: https://github.com/eclipse/steady
+  Eclipse Software 360: https://github.com/eclipse/sw360/
+  Fasten project: https://github.com/fasten-project
+  Google OSV DB: https://github.com/google/osv
+  Search Maven.org: https://search.maven.org
+  Open Source Vulnerability Schema: https://ossf.github.io/osv-schema/
+  Optum Barista: https://github.com/Optum/barista
+  ORT Open Source Review Toolkit: https://github.com/oss-review-toolkit/ort
+  OSS Index: https://ossindex.sonatype.org/
+  OWASP DependencyCheck: https://owasp.org/www-project-dependency-check/
+  OWASP Dependency-Track: https://owasp.org/www-project-dependency-track/
+  Philips Software SPDX-Builder: https://github.com/philips-software/spdx-builder
+  Python PyPA Security advisory database: https://github.com/pypa/advisory-db
+  SAP Fosstars: https://github.com/SAP/fosstars-rating-core
+  ScanCode.io: https://github.com/nexB/scancode.io/
+  ScanCode Toolkit: https://github.com/nexB/scancode-toolkit
+  Software Package Data Exchange (SPDX) - ISO/IEC 5962:2021: https://spdx.org/
+  Sonatype Nexus Lifecycle: https://www.sonatype.com/products/open-source-security-dependency-management
+  VulnerableCode: https://github.com/nexb/vulnerablecode
+
+Encoding considerations: UTF-8
+
+Contact: Philippe Ombredanne <pombredanne&nexb.com>
+
+Change controller: nexB Inc. <info&nexb.com>
+
+References:
+  Scheme specification: https://github.com/package-url/purl-spec
+  Scheme implementations: https://github.com/package-url
