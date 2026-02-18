@@ -1,0 +1,32 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "valid chrome purl (long version)",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:chrome-extension/dncgedbnidfkppmdgfgidcepclnokpkb@6.0.2.3611",
+      "expected_output": "pkg:chrome-extension/dncgedbnidfkppmdgfgidcepclnokpkb@6.0.2.3611",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid chrome purl (short version)",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:chrome-extension/kanfjhdeebkfgkbmnfknhejpadhlmiab@0.6",
+      "expected_output": "pkg:chrome-extension/kanfjhdeebkfgkbmnfknhejpadhlmiab@0.6",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid chrome purl (no version)",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:chrome-extension/dlpngalgnefjeiefhmpklpfiohadpglk",
+      "expected_output": "pkg:chrome-extension/dlpngalgnefjeiefhmpklpfiohadpglk",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}
