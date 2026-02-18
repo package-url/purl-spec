@@ -1,0 +1,277 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+
+    {
+      "description": "valid Raku dist name without api",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "raku",
+        "namespace": "zef:lizmat",
+        "name": "SBOM::CycloneDX",
+        "version": "0.0.7",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:raku/zef:lizmat/SBOM::CycloneDX@0.0.7",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid Raku dist name without api",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:raku/zef:lizmat/SBOM::CycloneDX@0.0.7",
+      "expected_output": {
+        "type": "raku",
+        "namespace": "zef:lizmat",
+        "name": "SBOM::CycloneDX",
+        "version": "0.0.7",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid Raku dist name without api",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:raku/zef:lizmat/SBOM::CycloneDX@0.0.7",
+      "expected_output": "pkg:raku/zef:lizmat/SBOM::CycloneDX@0.0.7",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+
+    {
+      "description": "valid Raku dist name with api",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "raku",
+        "namespace": "zef:vrurg",
+        "name": "Cro::RPC::JSON",
+        "version": "0.1.6:2",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:raku/zef:vrurg/Cro::RPC::JSON@0.1.6:2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid Raku dist name with api",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:raku/zef:vrurg/Cro::RPC::JSON@0.1.6:2",
+      "expected_output": "pkg:raku/zef:vrurg/Cro::RPC::JSON@0.1.6:2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid Raku dist name with api",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:raku/zef:vrurg/Cro::RPC::JSON@0.1.6:2",
+      "expected_output": {
+        "type": "raku",
+        "namespace": "zef:vrurg",
+        "name": "Cro::RPC::JSON",
+        "version": "0.1.6:2",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+
+    {
+      "description": "valid Raku dist with unicode chars",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "raku",
+        "namespace": "zef:lizmat",
+        "name": "駱駝道",
+        "version": "0.0.1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:raku/zef:lizmat/%E9%A7%B1%E9%A7%9D%E9%81%93@0.0.1",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid Raku dist with unicode chars",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:raku/zef:lizmat/駱駝道@0.0.1",
+      "expected_output": "pkg:raku/zef:lizmat/%E9%A7%B1%E9%A7%9D%E9%81%93@0.0.1",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid Raku dist with unicode chars",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:raku/zef:lizmat/%E9%A7%B1%E9%A7%9D%E9%81%93@0.0.1",
+      "expected_output": {
+        "type": "raku",
+        "namespace": "zef:lizmat",
+        "name": "駱駝道",
+        "version": "0.0.1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+
+    {
+      "description": "valid Raku dist name on PAUSE (CPAN)",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "raku",
+        "namespace": "cpan:timotimo",
+        "name": "JSON::Fast",
+        "version": "0.19",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:raku/cpan:TIMOTIMO/JSON::Fast@0.19",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid Raku dist name on PAUSE (CPAN)",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:raku/cpan:timotimo/JSON::Fast@0.19",
+      "expected_output": "pkg:raku/cpan:TIMOTIMO/JSON::Fast@0.19",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid Raku dist name on PAUSE (CPAN)",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:raku/cpan:TIMOTIMO/JSON::Fast@0.19",
+      "expected_output": {
+        "type": "raku",
+        "namespace": "cpan:TIMOTIMO",
+        "name": "JSON::Fast",
+        "version": "0.19",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+
+    {
+      "description": "valid Raku dist name on PAUSE (CPAN) without version",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "raku",
+        "namespace": "cpan:timotimo",
+        "name": "JSON::Fast",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:raku/cpan:TIMOTIMO/JSON::Fast",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid Raku dist name on PAUSE (CPAN) without version",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:raku/cpan:timotimo/JSON::Fast",
+      "expected_output": "pkg:raku/cpan:TIMOTIMO/JSON::Fast",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid Raku dist name on PAUSE (CPAN) without version",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:raku/cpan:TIMOTIMO/JSON::Fast",
+      "expected_output": {
+        "type": "raku",
+        "namespace": "cpan:TIMOTIMO",
+        "name": "JSON::Fast",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+
+    {
+      "description": "valid Raku dist name on PAUSE (CPAN), whatever version",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "raku",
+        "namespace": "cpan:timotimo",
+        "name": "JSON::Fast",
+        "version": "*",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:raku/cpan:TIMOTIMO/JSON::Fast@*",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid Raku dist name on PAUSE (CPAN), whatever version",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:raku/cpan:timotimo/JSON::Fast@*",
+      "expected_output": "pkg:raku/cpan:TIMOTIMO/JSON::Fast@*",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid Raku dist name on PAUSE (CPAN), whatever version",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:raku/cpan:TIMOTIMO/JSON::Fast@*",
+      "expected_output": {
+        "type": "raku",
+        "namespace": "cpan:TIMOTIMO",
+        "name": "JSON::Fast",
+        "version": "*",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+
+    {
+      "description": "invalid auth (namespace) in Raku dist name",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:raku/foo:bar/JSON::Fast@0.19",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "invalid auth: should be 'zef' or 'cpan', not 'foo'"
+    },
+
+    {
+      "description": "no auth (namespace) in Raku dist name",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:raku/JSON::Fast@0.19",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "must have an auth (namespace)"
+    }
+  ]
+}
