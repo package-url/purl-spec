@@ -3,7 +3,7 @@
   "$id": "https://packageurl.org/types/conan-definition.json",
   "type": "conan",
   "type_name": "Conan C/C++ packages",
-  "description": "Conan C/C++ packages. The purl is designed to closely resemble the Conan-native <package-name>/<package-version>@<user>/<channel> syntax for package references as specified in https://docs.conan.io/en/1.46/cheatsheet.html#package-terminology",
+  "description": "Conan C/C++ packages. The purl is designed to closely resemble the Conan-native `<package-name>/<package-version>@<user>/<channel>` syntax for package references as specified in https://docs.conan.io/en/1.46/cheatsheet.html#package-terminology",
   "repository": {
     "use_repository": true,
     "default_repository_url": "https://center.conan.io"
@@ -16,25 +16,25 @@
   "name_definition": {
     "requirement": "required",
     "native_name": "package-name",
-    "note": "The Conan <package-name>."
+    "note": "The Conan 'package-name'."
   },
   "version_definition": {
     "requirement": "optional",
     "native_name": "package-version",
-    "note": "The Conan <package-version>."
+    "note": "The Conan 'package-version'."
   },
   "qualifiers_definition": [
     {
       "key": "user",
       "native_name": "user",
       "requirement": "optional",
-      "description": "The Conan <user>. Only required if the Conan package was published with <user>."
+      "description": "The Conan 'user'. Only required if the Conan package was published with 'user'."
     },
     {
       "key": "channel",
       "native_name": "channel",
       "requirement": "optional",
-      "description": "The Conan <channel>. Only required if the Conan package was published with Conan <channel>."
+      "description": "The Conan 'channel'. Only required if the Conan package was published with Conan 'channel'."
     },
     {
       "key": "rrev",
