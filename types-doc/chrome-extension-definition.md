@@ -27,14 +27,16 @@ The structure of a PURL for this package type is:
 ## Name definition
 
 - **Requirement:** Required
+- **Permitted Characters:** `^[a-z]{32}$`
 - **Native Label:** extension_id
 - **Note:** `The name is a 32 characters a-z and is case insensitive. This is not the same as the display name which is human readable and may vary with locale.`
 
 ## Version definition
 
 - **Requirement:** Optional
+- **Permitted Characters:** `^\d+(\.\d+){0,3}$`
 - **Native Label:** version
-- **Note:** `The chrome extension version is semver-like but 1-4 segments`
+- **Note:** `The chrome extension version is semver-like but 1-4 segments. See https://developer.chrome.com/docs/extensions/reference/manifest/version`
 
 ## Examples
 
