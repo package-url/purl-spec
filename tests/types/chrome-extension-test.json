@@ -36,7 +36,7 @@
       "input": "pkg:chrome-extension/44444algnefjeiefhmpklpfiohadpglk",
       "expected_output": null,
       "expected_failure": true,
-      "expected_failure_reason": "permitteds_characters"
+      "expected_failure_reason": "permitted_characters"
     },
     {
       "description": "invalid chrome purl (name: wrong length)",
@@ -45,16 +45,16 @@
       "input": "pkg:chrome-extension/dogs",
       "expected_output": null,
       "expected_failure": true,
-      "expected_failure_reason": "permitteds_characters"
+      "expected_failure_reason": "permitted_characters"
     },
     {
-      "description": "invalid chrome purl (version: too many parts  )",
+      "description": "invalid chrome purl (version: too many segments)",
       "test_group": "base",
       "test_type": "parse",
       "input": "pkg:chrome-extension/dlpngalgnefjeiefhmpklpfiohadpglk@1.2.3.4.5",
       "expected_output": null,
       "expected_failure": true,
-      "expected_failure_reason": "permitteds_characters"
+      "expected_failure_reason": "permitted_characters"
     },
     {
       "description": "invalid chrome purl (version: invalid characters)",
@@ -63,7 +63,7 @@
       "input": "pkg:chrome-extension/dlpngalgnefjeiefhmpklpfiohadpglk@1.2.3-beta",
       "expected_output": null,
       "expected_failure": true,
-      "expected_failure_reason": "permitteds_characters"
+      "expected_failure_reason": "permitted_characters"
     }
   ]
 }
