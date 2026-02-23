@@ -1,10 +1,10 @@
 <!--  NOTE: Auto-generated from the JSON PURL type definition.
 Do not manually edit this file. Edit the JSON type definition instead. -->
 
-# PURL Type Definition: chrome
+# PURL Type Definition: chrome-extension
 
-- **Type Name:** chrome
-- **Description:** Chrome Browser Extensions (extensions from the official Chrome Webstore)
+- **Type Name:** Chrome Browser Extensions
+- **Description:** Chrome Browser Extensions. Note: there are currently no officially documented APIs, further there appears to be no way to query different versions of a package - there only seems to be responses on the latest version. To this end the version component of a chrome purl can be optional. Two known data sources are a sitemap which can be crawled to discover (some) extensions at https://chromewebstore.google.com/sitemap, and an 'updatecheck' API which you can read about here https://github.com/Rob--W/crxviewer , and perhaps here https://github.com/chromium/chromium/blob/main/docs/updater/protocol_3_1.md
 - **Schema ID:** `https://packageurl.org/types/chrome-definition.json`
 
 ## PURL Syntax
@@ -26,8 +26,9 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
-- **Native Label:** version
-- **Note:** `The name is a 32 characters a-z and is case insensitive`
+- **Requirement:** Required
+- **Native Label:** extension_id
+- **Note:** `The name is a 32 characters a-z and is case insensitive. This is not the same as the display name which is human readable and may vary with locale.`
 
 ## Version definition
 
@@ -42,7 +43,3 @@ The structure of a PURL for this package type is:
 - `pkg:chrome-extension/kanfjhdeebkfgkbmnfknhejpadhlmiab@0.6`
 - `pkg:chrome-extension/dlpngalgnefjeiefhmpklpfiohadpglk@1`
 - `pkg:chrome-extension/dlpngalgnefjeiefhmpklpfiohadpglk`
-
-## Note
-
-There is currently no documented API for querying different versions of a package - there only seems to be responses on the latest version. To this end the version component of a chrome purl can be optional.
