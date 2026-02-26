@@ -5,7 +5,7 @@
       "description": "basic yocto recipe test",
       "test_group": "base",
       "test_type": "parse",
-      "input": "pkg:yocto/core/glibc@2.35&repository_url=https:%2F%2Fgit.openembedded.org%2Fopenembedded-core&layer_version=kirkstone",
+      "input": "pkg:yocto/core/glibc@2.35?repository_url=https:%2F%2Fgit.openembedded.org%2Fopenembedded-core&layer_version=kirkstone",
       "expected_output": {
         "type": "yocto",
         "namespace": "core",
