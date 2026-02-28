@@ -129,7 +129,7 @@ are available on the [Package-URL website](https://www.packageurl.org/).
 
 - See [Specifications](https://www.packageurl.org/docs/getting-started/specgrid) 
 for the list of these specifications.
-- See [Tools](https:/www.packageurl.org/docs/getting-started/toolgrid) for the list of these tools.
+- See [Tools](https://www.packageurl.org/docs/getting-started/toolgrid) for the list of these tools.
 
 If you want to add a tool or specification that supports PURL please create an issue in the [Package-URL website repository](https://github.com/package-url/www.packageurl.org/issues). 
 There are separate issue templates for 'Add a Tool' and 'Add a Specification' because the data fields are different.
