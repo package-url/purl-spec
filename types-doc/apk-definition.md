@@ -40,11 +40,12 @@ The structure of a PURL for this package type is:
 
 | Key  | Requirement | Native name | Default Value | Description |
 |------|-------------|-------------|---------------|-------------|
-| arch | Optional |  |  | The arch is the qualifiers key for a package architecture. |
+| arch | Optional |  |  | The arch is the qualifiers key for a package architecture. The special value arch=source identifies an Alpine source package as built by "abuild srcpkg".  |
 
 ## Examples
 
 - `pkg:apk/alpine/curl@7.83.0-r0?arch=x86`
+- `pkg:apk/alpine/curl@8.12.1-r0?arch=source`
 - `pkg:apk/alpine/apk@2.12.9-r3?arch=x86`
 
 ## Note
