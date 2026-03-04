@@ -23,7 +23,7 @@
   "version_definition": {
     "requirement": "optional",
     "native_name": "A git reference",
-    "note": "The version is a git reference. Ideally a commit or tag."
+    "note": "The version is a git reference (https://git-scm.com/book/en/v2/Git-Internals-Git-References). Ideally a commit or tag."
   },
   "examples": [
     "pkg:git/codeberg.org/forgejo/forgejo/@a72d2c07cfca03b55371089de6aa230d8c951fa0#options/locale_readme.md",
