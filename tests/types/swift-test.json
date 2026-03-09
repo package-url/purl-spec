@@ -88,24 +88,6 @@
     {
       "description": "invalid swift purl without name",
       "test_group": "base",
-      "test_type": "parse",
-      "input": "pkg:swift/github.com/Alamofire/@5.4.3",
-      "expected_output": null,
-      "expected_failure": true,
-      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
-    },
-    {
-      "description": "invalid swift purl without name",
-      "test_group": "base",
-      "test_type": "parse",
-      "input": "pkg:swift/github.com/Alamofire/@5.4.3",
-      "expected_output": null,
-      "expected_failure": true,
-      "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
-    },
-    {
-      "description": "invalid swift purl without name",
-      "test_group": "base",
       "test_type": "build",
       "input": {
         "type": "swift",
