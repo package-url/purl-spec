@@ -42,8 +42,8 @@ encoded? If yes, how?
 
 In this case, the colon ':' between **scheme** and **type** is being used as
 a separator, and consequently should be used as-is, never encoded and never
-requiring any decoding. Moreover, it should be a parsing error if the colon
-':' does not come directly after 'pkg'.  Tools are welcome to recover from
+requiring decoding. Moreover, it should be a parsing error if the colon
+':' does not come directly after 'pkg'.  Tools may recover from
 this error to help with malformed PURLs, but that is not a requirement.
 
 ## Type
@@ -51,12 +51,8 @@ this error to help with malformed PURLs, but that is not a requirement.
 **QUESTION**: What behavior is expected from a PURL spec implementation if a
 **type** contains a character like a slash '/' or a colon ':'?
 
-**ANSWER**: The "Rules for each PURL component" section provides that the
-package **type** that list allowed characters shall be composed only of ASCII letters 
-and numbers, period '.', and dash '-'
-
-As a result, a PURL spec implementation shall return an error when
-encountering a **type** that contains a prohibited character.
+**ANSWER**: The [Rules for each PURL component](https://ecma-tc54.github.io/ECMA-427/#sec-purl-specification-component-rules) section of ECMA-427 for PURL **type** specifies that: "The package type shall be composed only of ASCII letters and numbers, period '.', and dash '-'."
+A PURL spec implementation shall return an error when encountering a **type** that contains a prohibited character.
 
 ## Version
 
@@ -68,40 +64,38 @@ for NPMs or NEVRA conventions for RPMs. A package manager may define a procedure
 compare and sort versions, but there is no reliable and uniform way to do
 such comparison consistently.
 
+The new [VERS specification](https://www.packageurl.org/docs/vers/introduction) is a 
+companion to PURL to address this challenge.
+
 **QUESTION**: Why is the PURL **version** optional?
 
-**ANSWER**: This is to support pointers to any version of a package or when you do
- not know the version (yet). This should not be abused but is useful and used
-in practice. For example a package version may depend on another package
-with no version specified.
+**ANSWER**: This is to support reference to any version of a package or when you do
+ not know the version (yet). This is useful in practice for dependency analysis and
+ vulnerability reporting use cases. 
 
 ## Qualifiers
 
 **QUESTION**: What is the **qualifier** for a checksum like a SHA1?
 
-**ANSWER**: The spec was originally ambiguous and used **checksum**
-(singular) in one place and **checksums** (plural) in other places. This has
-been discussed extensively in issues and PRs such as
-https://github.com/package-url/purl-spec/issues/73 and
-https://github.com/package-url/purl-spec/pull/209 . The official form
-is **checksum** (singular). When writing a lenient parser, consider accepting
- **checksum** (singular) or  **checksums** (plural) when reading a PURL,
-and always emit **checksum** (singular) when writing a PURL.
+**ANSWER**: The official form is **checksum** (singular). When writing a lenient 
+parser, consider accepting **checksum** (singular) or  **checksums** (plural) 
+when reading a PURL, but always emit **checksum** (singular) when writing a PURL.
+See also https://www.packageurl.org/docs/purl/common-qualifiers.
 
 ## Subpath
 
 **QUESTION**: Can I use a PURL subpath with multiple subpaths, globs or regexes in a PURL?
 
-**ANSWER**: **No.** Use multiple PURLs or other attributes outside of a PURL.
+**ANSWER**: No. Use multiple PURLs or other attributes outside of a PURL.
 
 ## Plus character
 
 **QUESTION**: Can a PURL contain a plus character '+'?
 
-**ANSWER**: Decoded individual PURL components can contain a plus. The 
-encoded, canonical form can never contain an unencoded plus.
+**ANSWER**: Individual decoded PURL components can contain a plus character. An 
+encoded, canonical PURL can never contain an unencoded plus.
 
-## From the wiki
+## Historical FAQs From the wiki
 
 **QUESTION**: Why create yet another standard with PURL?
 
@@ -146,23 +140,22 @@ In fact the URL spec says that if you are not using a host or Authority (See the
 FAQ entry above) you must not use `://`; use a plain colon `:`
 after a URL scheme (i.e. a PURL **type**).
 
-**QUESTION**: Can I use a CPE instead of a PURL
+**QUESTION**: Can I use a CPE instead of a PURL?
 
-**ANSWER**: **Not really... no and yes!** CPE https://en.wikipedia.org/wiki/Common_Platform_Enumeration
-are URIs and fairly close to PURL concepts but they are rather complex and
-there are subtle differences:`cpe:2.3:a:artifex:ghostscript:8_64:*:*:*:*:*:*:*`
+**ANSWER**: **Not really... no and yes!** A CPE (https://en.wikipedia.org/wiki/Common_Platform_Enumeration)
+is a URI. The CPE concept is similar to the PURL concept, but there are important differences.
 
 CPEs originated in the world of proprietary software security and require a
-'vendor' attribute before the 'name' attribute, somewhat similar to a purl
+'vendor' attribute before the 'name' attribute, somewhat similar to a PURL
 **namespace** but not exactly. These names are assigned centrally and
-arbitrarily by NIST and Mitre. For instance, the vendor for `zlib` is
-`GNU`: this does not make any sense.
+arbitrarily by [NIST](https://nvd.nist.gov/general/cve-process) or a CNA. 
+For instance, the vendor for `zlib` is `GNU`: this does not make sense.
 
 In contrast, PURL names are not centrally or arbitrarily assigned or
 created: they are naturally and directly derived from whatever name a
 package author picked. Also CPEs specifies rather complex version semantics
 and can be hard to parse and build. They often mesh poorly with the
-world of software packages and are difficukt to map to actual
+world of software packages and are difficult to map to actual
 common software packages as used in software development.
 
 Yet CPEs can be a useful additional reference when they exist to relate a
