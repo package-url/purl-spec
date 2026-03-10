@@ -136,25 +136,6 @@ There are separate issue templates for 'Add a Tool' and 'Add a Specification' be
 There is also a "staging website" for Package-URL at: https://package-url.github.io/www.packageurl.org/ 
 that may have more recent information than the production website between releases.
 
-## Implementations
-
-In addition to the broad and growing adoption of PURL as a standard software
-identifier, there are many FOSS projects that implement PURL for languages or software ecosystems. A partial list is:
-
-- .NET: https://github.com/package-url/packageurl-dotnet
-- Erlang / Elixir: https://github.com/erlef/purl
-- Go: https://github.com/package-url/packageurl-go
-- Java: https://github.com/package-url/packageurl-java
-- JavaScript: https://github.com/package-url/packageurl-js
-- Kotlin: https://github.com/iseki0/PUrlKt
-- Perl: https://github.com/giterlizzi/perl-URI-PackageURL
-- PHP: https://github.com/package-url/packageurl-php
-- Python: https://github.com/package-url/packageurl-python
-- Raku: https://github.com/lizmat/PURL
-- Ruby: https://github.com/package-url/packageurl-ruby
-- Rust: https://github.com/package-url/packageurl.rs
-- Swift: https://github.com/package-url/packageurl-swift
-
 ## Support
 
 If you have a specific problem, suggestion or bug, please submit a 
