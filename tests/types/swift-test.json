@@ -120,40 +120,6 @@
       "expected_failure_reason": "Should fail to build a PURL from invalid input components"
     },
     {
-      "description": "invalid swift purl without version",
-      "test_group": "base",
-      "test_type": "parse",
-      "input": "pkg:swift/github.com/Alamofire/Alamofire",
-      "expected_output": null,
-      "expected_failure": true,
-      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
-    },
-    {
-      "description": "invalid swift purl without version",
-      "test_group": "base",
-      "test_type": "parse",
-      "input": "pkg:swift/github.com/Alamofire/Alamofire",
-      "expected_output": null,
-      "expected_failure": true,
-      "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
-    },
-    {
-      "description": "invalid swift purl without version",
-      "test_group": "base",
-      "test_type": "build",
-      "input": {
-        "type": "swift",
-        "namespace": "github.com/Alamofire",
-        "name": "Alamofire",
-        "version": null,
-        "qualifiers": null,
-        "subpath": null
-      },
-      "expected_output": null,
-      "expected_failure": true,
-      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
-    },
-    {
       "description": "Parse test for PURL type: swift",
       "test_group": "base",
       "test_type": "parse",

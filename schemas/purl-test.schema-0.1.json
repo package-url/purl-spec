@@ -107,9 +107,9 @@
             "roundtrip"
           ],
           "meta:enum": {
-            "build": "A PURL building test from decoded components to a canonical PURL string.",
-            "parse": "A PURL parsing test from a canonical PURL string to decoded components.",
-            "roundtrip": "A PURL roundtrip test, parsing then building back a PURL from a canonical string input."
+            "build": "A test to build a canonical PURL output string from an input of decoded PURL components.",
+            "parse": "A test to parse a PURL input string into a set of decoded components.",
+            "roundtrip": "A test to produce a canonical PURL output string from an input PURL string."
           }
         },
         "expected_failure": {
@@ -120,7 +120,7 @@
         },
         "expected_failure_reason": {
           "title": "Expected failure reason",
-          "description": "The reason why this test is is expected to fail if expected_failure is true.",
+          "description": "The reason why this test is expected to fail if expected_failure is true.",
           "default": null,
           "type": [
             "string",

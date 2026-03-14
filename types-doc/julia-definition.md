@@ -32,6 +32,7 @@ The structure of a PURL for this package type is:
 
 ## Version definition
 
+- **Requirement:** Optional
 - **Native Label:** version
 - **Note:** `The version is the package version.`
 

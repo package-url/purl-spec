@@ -1,0 +1,24 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "basic yocto recipe test",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:yocto/core/glibc@2.35?repository_url=https:%2F%2Fgit.openembedded.org%2Fopenembedded-core&layer_version=kirkstone",
+      "expected_output": {
+        "type": "yocto",
+        "namespace": "core",
+        "name": "glibc",
+        "version": "2.35",
+        "qualifiers": {
+          "layer_version": "kirkstone",
+          "repository_url": "https://git.openembedded.org/openembedded-core"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

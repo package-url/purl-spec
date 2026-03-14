@@ -1,0 +1,30 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/opam-definition.json",
+  "type": "opam",
+  "type_name": "Opam package",
+  "description": "Opam packages",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://opam.ocaml.org"
+  },
+  "namespace_definition": {
+    "requirement": "prohibited",
+    "note": "there is no namespace"
+  },
+  "name_definition": {
+    "requirement": "required",
+    "case_sensitive": true,
+    "native_name": "name",
+    "note": "The name is case sensitive."
+  },
+  "version_definition": {
+    "requirement": "optional",
+    "native_name": "version",
+    "note": "The version is package version."
+  },
+  "examples": [
+    "pkg:opam/ocaml-base-compiler@5.2.0",
+    "pkg:opam/git@3/16.1"
+  ]
+}

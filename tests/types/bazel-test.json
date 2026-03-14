@@ -6,7 +6,7 @@
       "test_group": "base",
       "test_type": "roundtrip",
       "input": "pkg:bazel/rules_java@7.8.0?repository_url=https://bcr.bazel.build/",
-      "expected_output": "pkg:bazel/rules_java@7.8.0",
+      "expected_output": "pkg:bazel/rules_java@7.8.0?repository_url=https:%2F%2Fbcr.bazel.build%2F",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -20,7 +20,9 @@
         "namespace": null,
         "name": "rules_java",
         "version": "7.8.0",
-        "qualifiers": null,
+        "qualifiers": {
+          "repository_url":"https://bcr.bazel.build/"
+        },
         "subpath": null
       },
       "expected_failure": false,
@@ -44,10 +46,10 @@
     },
     {
       "description": "bazel module with custom registry",
-      "test_group": "base",
+      "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:bazel/rules_java@7.8.0?repository_url=https://example.org/bazel-registry/",
-      "expected_output": "pkg:bazel/rules_java@7.8.0?repository_url=https://example.org/bazel-registry",
+      "expected_output": "pkg:bazel/rules_java@7.8.0?repository_url=https:%2F%2Fexample.org%2Fbazel-registry%2F",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -62,7 +64,7 @@
         "name": "rules_java",
         "version": "7.8.0",
         "qualifiers": {
-          "repository_url": "https://example.org/bazel-registry"
+          "repository_url": "https://example.org/bazel-registry/"
         },
         "subpath": null
       },
@@ -71,7 +73,7 @@
     },
     {
       "description": "bazel module with custom registry",
-      "test_group": "base",
+      "test_group": "advanced",
       "test_type": "build",
       "input": {
         "type": "bazel",
@@ -83,7 +85,7 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:bazel/rules_java@7.8.0?repository_url=https://example.org/bazel-registry",
+      "expected_output": "pkg:bazel/rules_java@7.8.0?repository_url=https:%2F%2Fexample.org%2Fbazel-registry",
       "expected_failure": false,
       "expected_failure_reason": null
     },
