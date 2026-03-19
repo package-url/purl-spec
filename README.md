@@ -35,8 +35,8 @@ Challenges addressed by PURL:
   as software composition analysis, vulnerability management, and license
   compliance.
 
-PURL is an Ecma standard: [ECMA-427](https://tc54.org/purl/), and is
- in process to also become an ISO standard.
+PURL is an Ecma standard: [ECMA-427](https://tc54.org/purl/), and it is
+in process to also become an ISO standard.
 
 ## Why use PURL?
 
@@ -96,7 +96,7 @@ right.
 The PURL specification consists of a core syntax definition and specific
 PURL type definitions:
 
-The core PURL syntax is defined in the Package-URL Specification / [ECMA-427](https://tc54.org/purl/). See ECMA-427 *Clause 5 Package-URL specification* 
+The core PURL syntax is defined in the Package-URL Specification / [ECMA-427](https://ecma-tc54.github.io/ECMA-427/). See ECMA-427 *Clause 5 Package-URL specification* 
 for syntax details.
 
 Each package manager, platform, type, or ecosystem has its own conventions
@@ -109,8 +109,9 @@ definition details.
 ## Package-URL type definitions
 
 PURL type definitions are maintained in a set of JSON Schema files with a
-separate file for each PURL **type**. and a simple index of all currently registered PURL types. You can find comprehensive PURL type information in 
-this repository as follows:
+separate file for each PURL **type**. and a simple index of all currently 
+registered PURL **type**s. You can find comprehensive PURL **type** 
+information in this repository as follows:
 
 - One JSON file for each PURL type definition at:
   https://github.com/package-url/purl-spec/tree/main/types
@@ -123,18 +124,22 @@ this repository as follows:
   https://github.com/package-url/purl-spec/tree/main/purl-types-index.json
 
 ## Adopters
-PURL has been adopted by other specifications and is supported by many tools. The details are available on the [Package-URL website](https://www.packageurl.org/).
+PURL has been adopted by other specifications and is supported by many tools. 
+The details are available on the [Package-URL website](https://www.packageurl.org/).
 - See [Specifications](https://www.packageurl.org/docs/getting-started/specgrid) 
 for the list of these specifications.
 - See [Tools](https://www.packageurl.org/docs/getting-started/toolgrid) 
 for the list of these tools.
 
-If you want to add a tool or specification that supports PURL please create an issue in the [Package-URL website repostory](https://github.com/package-url/www.packageurl.org/issues). 
-There are separate issue templates for 'Add a Tool' and 'Add a Specification' because the data fields are different.
+If you want to add a tool or specification that supports PURL please create 
+an issue in the [Package-URL website repository](https://github.com/package-url/www.packageurl.org/issues). 
+There are separate issue templates for 'Add a Tool' and 'Add a Specification' 
+because the data fields are different.
 
 **NB** The "production" website for the Package-URL project is at: https://www.packageurl.org/.
 There is also a "staging website" for Package-URL at: https://package-url.github.io/www.packageurl.org/ 
-that may have more recent information than the production website between releases.
+that may have more recent information than the production website between 
+releases.
 
 ## Support
 
