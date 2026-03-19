@@ -6,14 +6,14 @@ new PURL **type**, writing documentation or adding/improving test cases.
 
 The **purl-spec** project is responsible for development and maintenance of:
 - [ECMA-427](https://ecma-tc54.github.io/ECMA-427/) - This is the Ecma 
-standard for Package-URL (PURL); also known as the "Core Specification".
+standard for Package-URL (PURL), also known as the "Core Specification".
 - Other PURL documentation including JSON Schemas, PURL **type** definitions,
 test cases, how-to guides and more. 
 
 ## Documentation 
 PURL documentation is published at:
 - [ECMA-427](https://ecma-tc54.github.io/ECMA-427/) - the Core Specification
-- https://wwww.packageurl.org/ - this is the production website for the 
+- https://www.packageurl.org/ - this is the production website for the 
 project.
 - https://package-url.github.io/www.packageurl.org/ - this is the staging
 website which may have more recent content than production.
@@ -38,7 +38,7 @@ request.
 
 - **Attach your PR to an existing issue.** Discuss the reason for a PR in an 
 existing issue or create a new one. The Conversation feature for a PR should 
-used to discuss the PR details, not the reason for the PR.
+be used to discuss the PR details, not the reason for the PR.
 
 - **Keep your PR focused** Keep your PR small and focused. This will optimize
 review and implementation.
@@ -61,7 +61,8 @@ For most changes, except documentation in human-written markdown files, you
 will want to install a local development environment because you will need to 
 run some utilities to:
 - Validate JSON schema changes for correctness and format
-- Validate that test case data files are schema-valid
+- Validate that test case data files are valid according to the PURL test 
+schema
 - Generate or update generated PURL **type** documentation
 
 To setup an environment to contribute a pull request follow these instructions:
@@ -93,7 +94,7 @@ make gendocs
 ## Project communications
 
 You can also participate in **purl-spec** project meetings or via Slack. See 
-the [Participate](https://www.packageurl.org/docs/participate/meetings) page 
+the [Meetings](https://www.packageurl.org/docs/participate/meetings) page 
 on the website for details.
 
 

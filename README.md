@@ -96,7 +96,7 @@ right.
 The PURL specification consists of a core syntax definition and specific
 PURL type definitions:
 
-The core PURL syntax is defined in the Package-URL Specification / [ECMA-427](https://tc54.org/purl/). See ECMA-427 *Clause 5 Package-URL specification* 
+The core PURL syntax is defined in the Package-URL Specification / [ECMA-427](https://ecma-tc54.github.io/ECMA-427/). See ECMA-427 *Clause 5 Package-URL specification* 
 for syntax details.
 
 Each package manager, platform, type, or ecosystem has its own conventions
@@ -132,7 +132,7 @@ for the list of these specifications.
 for the list of these tools.
 
 If you want to add a tool or specification that supports PURL please create 
-an issue in the [Package-URL website repostory](https://github.com/package-url/www.packageurl.org/issues). 
+an issue in the [Package-URL website repository](https://github.com/package-url/www.packageurl.org/issues). 
 There are separate issue templates for 'Add a Tool' and 'Add a Specification' 
 because the data fields are different.
 
