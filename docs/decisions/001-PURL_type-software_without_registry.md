@@ -1,4 +1,9 @@
-# Proposal: Add new PURL type `sid` (**S**oftware **ID**entification)
+---
+status: proposed
+date: 2026-03-24
+---
+
+# Proposal: Add new PURL type **sid** (**S**oftware **ID**entification)
 
 ## Background
 
@@ -11,7 +16,7 @@ repository with a supported PURL type, such as GitHub.
 
 ## Proposal
 
-Introduce a new PURL type: `sid`, an acronym for **Software IDentification**, 
+Introduce a new PURL type: **sid**, an acronym for **Software IDentification**, 
 pronounced /sɪd/.
 
 This PURL type is intended to cover:
@@ -123,17 +128,17 @@ One of the design goals of this PURL type is to enable interoperability
 with existing systems that utilize legacy identifiers such as CPE. While CPE 
 provides a structured method of identifying software, it suffers from 
 centralization, a rigid schema, and a heavy reliance on manual human curation.
- These characteristics make it difficult to scale in modern, dynamic 
- environments where new software products, forks, and distributions emerge 
- continuously. In contrast, the PURL format is inherently decentralized and 
- URI-friendly, enabling toolchains, vendors, and open source communities to 
- generate identifiers independently without requiring central registry 
- approval. Despite this shift, `sid` PURLs aim to retain semantic 
- compatibility with CPE by using comparable fields and qualifiers, ensuring 
- they can be adopted by inventory, vulnerability, and compliance systems that 
- currently rely on CPE naming conventions.
+These characteristics make it difficult to scale in modern, dynamic 
+environments where new software products, forks, and distributions emerge 
+continuously. In contrast, the PURL format is inherently decentralized and 
+URI-friendly, enabling toolchains, vendors, and open source communities to 
+generate identifiers independently without requiring central registry 
+approval. Despite this shift, **sid** PURLs aim to retain semantic 
+compatibility with CPE by using comparable fields and qualifiers, ensuring 
+they can be adopted by inventory, vulnerability, and compliance systems that 
+currently rely on CPE naming conventions.
 
-| CPE Field     | `sid` PURL Equivalent        | Notes                                                                 |
+| CPE Field     | **sid** PURL Equivalent        | Notes                                                                 |
 |---------------|-------------------------------|-----------------------------------------------------------------------|
 | `part`        | (implicit in PURL context)     | CPE uses `a` (application), `o` (OS), `h` (hardware); `scid` PURL assumes software |
 | `vendor`      | `authority    `                      | Domain of the publishing entity. For registry-based namespaces, the registered namespace serves as the authority. The optional publisher segment provides the human readable name.                   |
@@ -147,7 +152,7 @@ centralization, a rigid schema, and a heavy reliance on manual human curation.
 | `target_hw`   | `arch` (qualifier)            | CPU architecture (e.g., `x86_64`, `arm64`)                           |
 | `other`       | (not mapped)                  | Use additional PURL qualifiers           |
 
-`sid` PURLs align with CPE parts `a` (application) and `o` (operating 
+**sid** PURLs align with CPE parts `a` (application) and `o` (operating 
 system). Hardware identification (CPE part `h`) is out of scope. Established 
 standards such as GS1 GMN and GTIN already serve that purpose.
 

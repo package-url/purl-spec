@@ -1,5 +1,5 @@
 ---
-status: "{proposed | rejected | accepted | deprecated | … | superseded by ______"
+status: "{proposed | rejected | concluded | deprecated | … | superseded by ______"
 date: {YYYY-MM-DD when the decision was last updated}
 ---
 
@@ -8,12 +8,12 @@ date: {YYYY-MM-DD when the decision was last updated}
 
 ## Context and Problem Statement
 
-{Describe the context and problem. You may want to include add links to 
+{Describe the context and problem. You may want to include links to 
 relevant issues or discussions.}
 
 ## Solution Statement
 
-{Describe the solution. You may want to include add links to relevant 
+{Describe the solution. You may want to include links to relevant 
 issues or pull requests.}
 
 ## Decision Drivers
