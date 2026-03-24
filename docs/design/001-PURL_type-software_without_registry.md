@@ -1,6 +1,6 @@
-## Proposal: Add new PURL type `sid` (**S**oftware **ID**entification)
+# Proposal: Add new PURL type `sid` (**S**oftware **ID**entification)
 
-### Background
+## Background
 
 The current list of PURL types covers a wide range of package ecosystems. 
 However, there remains a significant gap in the ability to identify 
@@ -9,7 +9,7 @@ However, there remains a significant gap in the ability to identify
 distributed through a package manager or authoritatively available on a 
 repository with a supported PURL type, such as GitHub.
 
-### Proposal
+## Proposal
 
 Introduce a new PURL type: `sid`, an acronym for **Software IDentification**, 
 pronounced /sɪd/.
@@ -26,7 +26,7 @@ registry-driven packaging exists
 pkg:sid/<domain>/<authority>/<component>@<version>?arch=<arch>&edition=<edition>&target=<target>&locale=<locale>
 ```
 
-### Field Breakdown
+## Field Breakdown
 
 | Field       | PURL Component | Requirement | Description                                                                 |
 |-------------|----------------|----------|-----------------------------------------------------------------------------|
@@ -39,7 +39,7 @@ pkg:sid/<domain>/<authority>/<component>@<version>?arch=<arch>&edition=<edition>
 | `locale`    | qualifiers       | Optional | Language of the software, expressed as an ISO 639-1 code (e.g., `en`) or a full BCP 47 language tag (e.g., `en-GB`). |
 |  | subpath | Optional | The subpath optionally identifies a specific module, subcomponent, or file within the broader software product. |
 
-### The Namespace
+## The Namespace
 
 The namespace for the **sid** PURL type requires an authority as the first 
 segment. Additional segments are optional and may represent any organizational 
@@ -48,7 +48,7 @@ divisions.
 
 ---
 
-#### 1. Authority as the Namespace Anchor
+### 1. Authority as the Namespace Anchor
 
 The first segment of the namespace serves as the primary anchor for identity 
 and discovery. It takes one of two forms.
@@ -71,7 +71,7 @@ a domain or prefer centralized registration, such as long-standing open source
 
 ---
 
-#### 2. Publisher as Optional Context
+### 2. Publisher as Optional Context
 
 The optional publisher segment provides a human recognizable name for the 
 entity that made the software available for use. Including a publisher is 
@@ -82,7 +82,7 @@ making a separate publisher segment redundant in those cases.
 
 ---
 
-#### 3. Flexible Namespace Segments
+### 3. Flexible Namespace Segments
 
 The namespace supports multiple slash separated segments beyond the domain and
  optional publisher. These additional segments allow organizations to 
@@ -98,7 +98,7 @@ pkg:sid/acme.com/Acme%20Robotics/robot-os@2.3.0 pkg:sid/acme.com/Acme%20Robotics
 
 ---
 
-#### 4. Disambiguation Through Domain
+### 4. Disambiguation Through Domain
 
 For domain-qualified namespaces, organizations with identical or similar names
  are disambiguated by their domain. For example:
@@ -117,7 +117,7 @@ registration process.
 
 ---
 
-### Interoperable Successor to CPE
+## Interoperable Successor to CPE
 
 One of the design goals of this PURL type is to enable interoperability 
 with existing systems that utilize legacy identifiers such as CPE. While CPE 
