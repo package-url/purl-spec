@@ -28,14 +28,14 @@ package ecosystem
 registry-driven packaging exists
 
 ```
-pkg:sid/<domain>/<authority>/<component>@<version>?arch=<arch>&edition=<edition>&target=<target>&locale=<locale>
+pkg:sid/<authority>/<component>@<version>?arch=<arch>&edition=<edition>&target=<target>&locale=<locale>
 ```
 
 ## Field Breakdown
 
 | Field       | PURL Component | Requirement | Description                                                                 |
 |-------------|----------------|----------|-----------------------------------------------------------------------------|
-| `authority`    | namespace       | Required     | The first segment of the namespace serves as the authority. When the segment contains a dot, it is treated as a domain-qualified namespace representing the internet domain of the publishing entity. Domain-qualified namespaces are self-asserted and do not require registration in the PURL registry. <br> When the first segment does not contain a dot, it is a registry-based namespace that must be registered in the PURL registry. A registry-based namespace that is not registered in the PURL registry is invalid. <br> Additional namespace segments beyond the domain may represent the human readable name of the publisher, organizational structure such as business units, product lines, or divisions, or both. |
+| `authority`    | namespace       | Required     | The first segment of the namespace serves as the authority. When the segment contains a dot, it is treated as a domain-qualified namespace representing the internet domain of the publishing entity. Domain-qualified namespaces are self-asserted and do not require registration in the PURL registry. <br> When the first segment does not contain a dot, it is a registry-based namespace that must be registered in the PURL registry. A registry-based namespace that is not registered in the PURL registry is invalid. <br> Additional namespace segments beyond a domain may represent the human readable name of the publisher, organizational structure such as business units, product lines, or divisions, or both. |
 | `component`   | name            | Required     | Name of the software component. |
 | `version`   | version         | Optional | Version string identifying the specific release, tag, or snapshot of the product.  |
 | `arch`      | qualifiers       | Optional | CPU architecture the software was built for (e.g., `x86_64`, `arm64`).  |

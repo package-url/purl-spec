@@ -35,7 +35,7 @@ proposal and (2) summary level information on its disposition.
 normal process for review and approval by the project maintainers.
 - Comments other than those essential inside a pull request should be captured
  in a GH discussion or issue and referenced by links in the decision document.
-- We plan to publish `concluded' status documents to the [website](www.packageurl.org) along with guidance to review 'proposed' or other decision documents in GitHub. 
+- We plan to publish 'concluded' status documents to the [website](https://www.packageurl.org) along with guidance to review 'proposed' or other decision documents in GitHub. 
 
 
 <!-- We have elected to use the ADR materials under the CC0-1. license -->
