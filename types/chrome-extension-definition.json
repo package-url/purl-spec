@@ -1,0 +1,36 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/chrome-definition.json",
+  "type": "chrome-extension",
+  "type_name": "Chrome Browser Extensions",
+  "description": "Chrome Browser Extensions. Note: there are currently no officially documented APIs, further there appears to be no way to query different versions of a package - there only seems to be responses on the latest version. To this end the version component of a chrome purl can be optional. Two known data sources are a sitemap which can be crawled to discover (some) extensions at https://chromewebstore.google.com/sitemap, and an 'updatecheck' API which you can read about here https://github.com/Rob--W/crxviewer , and perhaps here https://github.com/chromium/chromium/blob/main/docs/updater/protocol_3_1.md",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://https://chromewebstore.google.com/",
+    "note": "There is no documented API, only a sitemap and 'updatecheck' endpoints."
+  },
+  "namespace_definition": {
+    "requirement": "prohibited",
+    "note": "There is no namespace"
+  },
+  "name_definition": {
+    "native_name": "extension_id",
+    "requirement": "required",
+    "permitted_characters": "^[a-z]{32}$",
+    "case_sensitive": false,
+    "note": "The name is a 32 characters a-z and is case insensitive. This is not the same as the display name which is human readable and may vary with locale."
+  },
+  "version_definition": {
+    "native_name": "version",
+    "requirement": "optional",
+    "permitted_characters": "^\\d+(\\.\\d+){0,3}$",
+    "note": "The chrome extension version is semver-like but 1-4 segments. See https://developer.chrome.com/docs/extensions/reference/manifest/version"
+  },
+  "examples": [
+    "pkg:chrome-extension/hlepfoohegkhhmjieoechaddaejaokhf@25.7.1",
+    "pkg:chrome-extension/dncgedbnidfkppmdgfgidcepclnokpkb@6.0.2.3611",
+    "pkg:chrome-extension/kanfjhdeebkfgkbmnfknhejpadhlmiab@0.6",
+    "pkg:chrome-extension/dlpngalgnefjeiefhmpklpfiohadpglk@1",
+    "pkg:chrome-extension/dlpngalgnefjeiefhmpklpfiohadpglk"
+  ]
+}
