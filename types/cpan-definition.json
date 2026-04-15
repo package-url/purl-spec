@@ -9,9 +9,9 @@
     "default_repository_url": "https://www.cpan.org/"
   },
   "namespace_definition": {
-    "requirement": "required",
-    "native_name": "CPAN ID of the author/publisher",
-    "note": "It MUST be written uppercase and is required"
+    "requirement": "optional",
+    "native_name": "CPAN author/publisher ID (CPANID)",
+    "note": "When present, it represents the CPAN author/publisher ID (CPANID) and MUST be uppercase. It is appropriate to use 'namespace' for compatibility with existing CPAN purl producers/consumers or when a workflow explicitly requires author-scoped identifiers. For new identifiers, the 'author' qualifier is the preferred way to specify the author/publisher. When 'version' is omitted, author scoping via 'namespace' MAY be ambiguous because a distribution can change maintainers over time."
   },
   "name_definition": {
     "requirement": "required",
@@ -25,6 +25,16 @@
     "native_name": "version"
   },
   "qualifiers_definition": [
+    {
+      "key": "author",
+      "requirement": "optional",
+      "description": "CPAN author/publisher ID (CPANID)"
+    },
+    {
+      "key": "distpath",
+      "requirement": "optional",
+      "description": "Repository-relative path (not a URL) to the distribution archive or directory, typically under 'authors/id/...'"
+    },
     {
       "key": "repository_url",
       "requirement": "optional",
@@ -43,14 +53,18 @@
     {
       "key": "ext",
       "requirement": "optional",
-      "description": "file extension",
+      "description": "distribution file extension",
       "default_value": "tar.gz"
     }
   ],
-  "note":"The previous CPAN PURL type specification allowed module names (e.g. URI::PackageURL) to be used as PURL 'name' while also omitting the PURL 'namespace'. The parser MUST emit an error when a module is specified as a PURL 'name' or detect '::' characters.",
+  "note":"The PURL 'name' MUST be the CPAN distribution name (case sensitive) and MUST NOT contain the '::' separator (module name). The CPAN author/publisher ID (CPANID) is OPTIONAL: when needed, it SHOULD be provided using the 'author' qualifier. The PURL 'namespace' is OPTIONAL and, when present, represents the CPANID and MUST be uppercase; it MAY be used for compatibility with existing identifiers or tooling. When PURL 'version' is omitted, author scoping (via 'author' qualifier or 'namespace') MAY be ambiguous because a distribution can change maintainers over time.",
   "examples": [
-    "pkg:cpan/GDT/URI-PackageURL",
-    "pkg:cpan/OALDERS/libwww-perl@6.76",
-    "pkg:cpan/DROLSKY/DateTime@1.55?repository_url=backpan.perl.org"
+    "pkg:cpan/perl@5.42",
+    "pkg:cpan/DBI@1.646",
+    "pkg:cpan/SBOM-CycloneDX",
+    "pkg:cpan/URI-PackageURL?author=GDT",
+    "pkg:cpan/libwww-perl@6.76?author=OALDERS",
+    "pkg:cpan/DateTime@1.55?author=DROLSKY&repository_url=backpan.perl.org",
+    "pkg:cpan/Term-Gnuplot@0.90380906?distpath=authors/id/I/IL/ILYAZ/modules/Term-Gnuplot-0.90380906.zip"
   ]
 }
