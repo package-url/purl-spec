@@ -10,7 +10,8 @@
   },
   "namespace_definition": {
     "requirement": "optional",
-    "note": "There is no author namespace. Use 'author' qualifier instead"
+    "native_name": "CPAN author/publisher ID (CPANID)",
+    "note": "When present, it represents the CPAN author/publisher ID (CPANID) and MUST be uppercase. It is appropriate to use 'namespace' for compatibility with existing CPAN purl producers/consumers or when a workflow explicitly requires author-scoped identifiers. For new identifiers, the 'author' qualifier is the preferred way to specify the author/publisher. When 'version' is omitted, author scoping via 'namespace' MAY be ambiguous because a distribution can change maintainers over time."
   },
   "name_definition": {
     "requirement": "required",
@@ -27,7 +28,7 @@
     {
       "key": "author",
       "requirement": "optional",
-      "description": "CPAN ID of the author/publisher"
+      "description": "CPAN author/publisher ID (CPANID)"
     },
     {
       "key": "distpath",
