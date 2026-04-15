@@ -57,7 +57,7 @@
       "default_value": "tar.gz"
     }
   ],
-  "note":"The previous CPAN PURL type specification allowed the CPAN ID of the author/publisher to be used as PURL 'namespace'. To specify the author/publisher CPAN ID, use the 'author' qualifier instead. A parser MUST reject PURL name values that contain the '::' separator (module name).",
+  "note":"The PURL 'name' MUST be the CPAN distribution name (case sensitive) and MUST NOT contain the '::' separator (module name). The CPAN author/publisher ID (CPANID) is OPTIONAL: when needed, it SHOULD be provided using the 'author' qualifier. The PURL 'namespace' is OPTIONAL and, when present, represents the CPANID and MUST be uppercase; it MAY be used for compatibility with existing identifiers or tooling. When PURL 'version' is omitted, author scoping (via 'author' qualifier or 'namespace') MAY be ambiguous because a distribution can change maintainers over time.",
   "examples": [
     "pkg:cpan/perl@5.42",
     "pkg:cpan/DBI@1.646",
