@@ -1,0 +1,68 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/ansible-definition.json",
+  "type": "ansible",
+  "type_name": "Ansible Collection",
+  "description": "Ansible collections",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://galaxy.ansible.com",
+    "note": "Ansible Galaxy is the default public repository. Use the repository_url qualifier for Red Hat Automation Hub or private Galaxy servers. Note that the same collection artifact may be available from multiple sources (e.g., Galaxy and Automation Hub may serve identical artifacts). The repository_url qualifier indicates the intended or actual download source, not necessarily a unique origin."
+  },
+  "namespace_definition": {
+    "requirement": "required",
+    "case_sensitive": false,
+    "native_name": "namespace",
+    "note": "The collection namespace as defined in galaxy.yml or MANIFEST.json (e.g., 'cisco' in cisco.aci). Must be lowercased."
+  },
+  "name_definition": {
+    "requirement": "required",
+    "case_sensitive": false,
+    "native_name": "name",
+    "note": "The collection name as defined in galaxy.yml or MANIFEST.json (e.g., 'aci' in cisco.aci). Must be lowercased."
+  },
+  "version_definition": {
+    "requirement": "optional",
+    "case_sensitive": true,
+    "native_name": "version",
+    "note": "Semantic version of the collection as defined in galaxy.yml or MANIFEST.json."
+  },
+  "qualifiers_definition": [
+    {
+      "key": "repository_url",
+      "requirement": "optional",
+      "description": "URL of an alternative Galaxy-compatible repository. Common values include Red Hat Automation Hub (console.redhat.com/ansible/automation-hub) or private Galaxy servers. Omit for the default Ansible Galaxy."
+    },
+    {
+      "key": "vcs_url",
+      "requirement": "optional",
+      "description": "URL for a version control repository when the collection is installed directly from source rather than a Galaxy-compatible server. Ansible uses a comma to separate the version reference (e.g., git+https://github.com/ansible-collections/community.general.git,12.5.0)."
+    },
+    {
+      "key": "download_url",
+      "requirement": "optional",
+      "description": "Direct download URL for a collection tarball when installed from a URL that is not a Galaxy-compatible API endpoint."
+    },
+    {
+      "key": "packaging",
+      "requirement": "optional",
+      "description": "Distribution packaging method when not installed via ansible-galaxy (e.g., rpm, deb). Omit for standard ansible-galaxy installs. Scanners should detect RPM/deb-installed collections by checking if the collection path is system-managed and cross-referencing with the package database."
+    }
+  ],
+  "examples": [
+    "pkg:ansible/cisco/aci@2.13.0",
+    "pkg:ansible/community/general@6.0.0",
+    "pkg:ansible/ansible/netcommon@5.1.0",
+    "pkg:ansible/redhat/rhel_system_roles@1.20.0?repository_url=console.redhat.com%2Fansible%2Fautomation-hub",
+    "pkg:ansible/community/general@12.5.0?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fansible-collections%2Fcommunity.general.git%2C12.5.0",
+    "pkg:ansible/custom/collection@2.0.0?download_url=https%3A%2F%2Fexample.com%2Fcustom-collection-2.0.0.tar.gz",
+    "pkg:ansible/ansible/posix@1.5.4?packaging=rpm"
+  ],
+  "note": "Ansible collections are identified by namespace.name (e.g., cisco.aci). The MANIFEST.json file in a collection tarball contains authoritative metadata including namespace, name, version, and a repository field pointing to the source VCS. However, MANIFEST.json does not indicate which Galaxy-compatible server the tarball was downloaded from - this information is extrinsic and must be tracked at install time.",
+  "reference_urls": [
+    "https://docs.ansible.com/ansible/latest/collections_guide/index.html",
+    "https://galaxy.ansible.com/docs/",
+    "https://docs.ansible.com/ansible/latest/dev_guide/developing_collections_structure.html",
+    "https://docs.ansible.com/ansible/latest/collections_guide/collections_installing.html"
+  ]
+}
