@@ -10,6 +10,6 @@ name: The name for this purl type is the path on the host to the codebase
 eg. The `path-to-git-repo` in git terminology.
 https://git-scm.com/docs/git-clone.html#_git_urls 
 
-version: The verison for this type defines a specific point in the lineage of the codebase. Generally this is a commit or tag, but can be any valid git reference.
+version: The version for this type defines a specific point in the lineage of the codebase. Generally this is a commit or tag, but can be any valid git reference.
 eg. The `git reference` in git terminology
 https://git-scm.com/book/en/v2/Git-Internals-Git-References
