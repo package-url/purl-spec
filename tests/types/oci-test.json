@@ -26,12 +26,12 @@
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=docker.io/library/debian&arch=amd64&tag=latest",
-      "expected_output": "pkg:oci/debian@sha256:244fd47e07d10?arch=amd64&repository_url=docker.io/library/debian&tag=latest",
+      "expected_output": "pkg:oci/debian@sha256:244fd47e07d10?arch=amd64&repository_url=docker.io%2Flibrary%2Fdebian&tag=latest",
       "expected_failure": false,
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for PURL type: oci",
+      "description": "Build test for PURL type: oci",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -46,7 +46,7 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:oci/debian@sha256:244fd47e07d10?arch=amd64&repository_url=docker.io/library/debian&tag=latest",
+      "expected_output": "pkg:oci/debian@sha256:244fd47e07d10?arch=amd64&repository_url=docker.io%2Flibrary%2Fdebian&tag=latest",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -74,12 +74,12 @@
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=ghcr.io/debian&tag=bullseye",
-      "expected_output": "pkg:oci/debian@sha256:244fd47e07d10?repository_url=ghcr.io/debian&tag=bullseye",
+      "expected_output": "pkg:oci/debian@sha256:244fd47e07d10?repository_url=ghcr.io%2Fdebian&tag=bullseye",
       "expected_failure": false,
       "expected_failure_reason": null
     },
     {
-      "description": "Build test  for PURL type: oci",
+      "description": "Build test for PURL type: oci",
       "test_group": "advanced",
       "test_type": "build",
       "input": {
@@ -93,7 +93,7 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:oci/debian@sha256:244fd47e07d10?repository_url=ghcr.io/debian&tag=bullseye",
+      "expected_output": "pkg:oci/debian@sha256:244fd47e07d10?repository_url=ghcr.io%2Fdebian&tag=bullseye",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -121,7 +121,7 @@
       "test_group": "advanced",
       "test_type": "roundtrip",
       "input": "pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest",
-      "expected_output": "pkg:oci/static@sha256:244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest",
+      "expected_output": "pkg:oci/static@sha256:244fd47e07d10?repository_url=gcr.io%2Fdistroless%2Fstatic&tag=latest",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -140,7 +140,7 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:oci/static@sha256:244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest",
+      "expected_output": "pkg:oci/static@sha256:244fd47e07d10?repository_url=gcr.io%2Fdistroless%2Fstatic&tag=latest",
       "expected_failure": false,
       "expected_failure_reason": null
     },

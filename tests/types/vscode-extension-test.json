@@ -1,0 +1,211 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "Parse test for basic VS Code Extension PURL with version",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vscode-extension/redhat/java@1.46.2025091308",
+      "expected_output": {
+        "type": "vscode-extension",
+        "namespace": "redhat",
+        "name": "java",
+        "version": "1.46.2025091308",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for basic VS Code Extension PURL with version",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:vscode-extension/redhat/java@1.46.2025091308",
+      "expected_output": "pkg:vscode-extension/redhat/java@1.46.2025091308",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test for basic VS Code Extension PURL with version",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "vscode-extension",
+        "namespace": "redhat",
+        "name": "java",
+        "version": "1.46.2025091308",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:vscode-extension/redhat/java@1.46.2025091308",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for VS Code Extension PURL with platform qualifier",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vscode-extension/redhat/java@1.46.2025091308?platform=linux-x64",
+      "expected_output": {
+        "type": "vscode-extension",
+        "namespace": "redhat",
+        "name": "java",
+        "version": "1.46.2025091308",
+        "qualifiers": {
+          "platform": "linux-x64"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for VS Code Extension PURL with platform qualifier",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:vscode-extension/redhat/java@1.46.2025091308?platform=linux-x64",
+      "expected_output": "pkg:vscode-extension/redhat/java@1.46.2025091308?platform=linux-x64",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test for VS Code Extension PURL with platform qualifier",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "vscode-extension",
+        "namespace": "redhat",
+        "name": "java",
+        "version": "1.46.2025091308",
+        "qualifiers": {
+          "platform": "linux-x64"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:vscode-extension/redhat/java@1.46.2025091308?platform=linux-x64",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for VS Code Extension PURL without version",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vscode-extension/ms-python/python",
+      "expected_output": {
+        "type": "vscode-extension",
+        "namespace": "ms-python",
+        "name": "python",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for VS Code Extension PURL without version",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:vscode-extension/ms-python/python",
+      "expected_output": "pkg:vscode-extension/ms-python/python",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test for VS Code Extension PURL without version",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "vscode-extension",
+        "namespace": "microsoft",
+        "name": "python",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:vscode-extension/microsoft/python",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for VS Code Extension PURL with darwin-arm64 platform",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vscode-extension/microsoft/python@2024.10.0?platform=darwin-arm64",
+      "expected_output": {
+        "type": "vscode-extension",
+        "namespace": "microsoft",
+        "name": "python",
+        "version": "2024.10.0",
+        "qualifiers": {
+          "platform": "darwin-arm64"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for VS Code Extension PURL with win32-x64 platform",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vscode-extension/golang/go@0.39.1?platform=win32-x64",
+      "expected_output": {
+        "type": "vscode-extension",
+        "namespace": "golang",
+        "name": "go",
+        "version": "0.39.1",
+        "qualifiers": {
+          "platform": "win32-x64"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for VS Code Extension PURL without namespace should fail",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vscode-extension/java@1.46.2025091308",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "VS Code Extension PURLs require a namespace (publisher)"
+    },
+    {
+      "description": "Build test for VS Code Extension PURL without namespace should fail",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "vscode-extension",
+        "namespace": null,
+        "name": "java",
+        "version": "1.46.2025091308",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "VS Code Extension PURLs require a namespace (publisher)"
+    },
+    {
+      "description": "Parse test for VS Code Extension PURL with platform=universal (default)",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vscode-extension/redhat/java@1.46.2025091308?platform=universal",
+      "expected_output": {
+        "type": "vscode-extension",
+        "namespace": "redhat",
+        "name": "java",
+        "version": "1.46.2025091308",
+        "qualifiers": {
+          "platform": "universal"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

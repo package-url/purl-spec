@@ -20,6 +20,7 @@
   },
   "version_definition": {
     "native_name": "version",
+    "requirement": "optional",
     "note": "The version is the package version."
   },
   "qualifiers_definition": [

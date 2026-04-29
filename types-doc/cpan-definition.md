@@ -22,7 +22,7 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Native Label:** CPAN ID of the author/publisher
-- **Note:** `It MUST be written uppercase and is required.`
+- **Note:** `It MUST be written uppercase and is required`
 
 ## Name definition
 

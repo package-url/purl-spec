@@ -1,0 +1,71 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "valid opam purl. Roundtrip an input purl to canonical.",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:opam/conex@1.0.0",
+      "expected_output": "pkg:opam/conex@1.0.0",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid opam purl",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:opam/conex@1.0.0",
+      "expected_output": {
+        "type": "opam",
+        "namespace": null,
+        "name": "conex",
+        "version": "1.0.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid opam purl. Roundtrip a canonical input to canonical output.",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:opam/conex@1.0.0",
+      "expected_output": "pkg:opam/conex@1.0.0",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid opam purl (name only)",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "opam",
+        "namespace": null,
+        "name": "conex",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:opam/conex",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "name is always required",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "opam",
+        "namespace": null,
+        "name": null,
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+    }
+  ]
+}
