@@ -47,3 +47,12 @@ documentation, but they are not part of the ECMA-427 1st edition Standard.
 Most of the documents provide information to support implementation of the 
 PURL Specification in other software or databases.
 
+**NB:** Many files in the `purl-spec/docs` folder contain "front matter" that
+is used for publishing the content on the www.package.url website. 
+The "front matter" layout is:
+| id | title | sidebar_label | hide_table_of_contents |
+| -- | ----- | ------------- | ---------------------- |
+|    |       |               |                        |
+			
+
+
