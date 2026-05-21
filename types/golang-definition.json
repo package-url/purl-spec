@@ -25,7 +25,7 @@
   "note": "The current definition predates Go modules and has several practical problems, and in particular it is impossible to determine what is a module and what is a package short of having full access to the source code or making an API call to the Go module proxy.",
   "version_definition": {
     "requirement": "optional",
-    "note": "The version may start with a lowercased \"v\" followed by: a semantic version, or a Go \"pseudo-version\", which consists of a semantic version followed by a timestamp and revision identifier."
+    "note": "The version may start with a lowercased \"v\" followed by: a semantic version, or a Go \"pseudo-version\", which consists of a semantic version followed by a timestamp and revision identifier (see https://go.dev/ref/mod#pseudo-versions)."
   },
   "examples": [
     "pkg:golang/github.com/gorilla/context@v1.1.1",
