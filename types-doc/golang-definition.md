@@ -31,18 +31,18 @@ The structure of a PURL for this package type is:
 ## Version definition
 
 - **Requirement:** Optional
-- **Note:** `The version is often empty when a commit is not specified and should be the commit in most cases when available.`
+- **Note:** `The version may start with a lowercased "v" followed by: a semantic version, or a Go "pseudo-version", which consists of a semantic version followed by a timestamp and revision identifier.`
 
 ## Subpath definition
 
 - **Requirement:** Optional
-- **Note:** `The subpath is used to point to a subpath inside a package.`
+- **Note:** `The subpath is used to point to a package inside a module.`
 
 ## Examples
 
-- `pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c`
+- `pkg:golang/github.com/gorilla/context@v1.1.1`
 - `pkg:golang/google.golang.org/genproto#googleapis/api/annotations`
-- `pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c#api`
+- `pkg:golang/golang.org/x/text@v0.0.0-20170915032832-14c0d48ead0c#collate`
 
 ## Note
 
