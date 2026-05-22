@@ -19,7 +19,7 @@
     "normalization_rules": [
       "Replace runs of consecutive dash -, underscore _, or dot . characters with a single dash -"
     ],
-    "note": "See the name normalization section of the Python Packaging User Guide: https://packaging.python.org/en/latest/specifications/name-normalization/"
+    "note": "See the name normalization section of the Python Packaging User Guide: https://packaging.python.org/en/latest/specifications/name-normalization/ or the original PEP 503 definition (https://peps.python.org/pep-0503/#normalized-names)"
   },
   "version_definition": {
     "case_sensitive": false,
