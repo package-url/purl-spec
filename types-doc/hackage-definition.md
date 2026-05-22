@@ -25,6 +25,7 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
+- **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Normalization rules:**
   - Apply kebab-case
@@ -33,6 +34,7 @@ The structure of a PURL for this package type is:
 
 ## Version definition
 
+- **Requirement:** Optional
 - **Native Label:** version
 - **Note:** `The version is package version.`
 

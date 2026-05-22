@@ -1,0 +1,48 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/vscode-extension-definition.json",
+  "type": "vscode-extension",
+  "type_name": "VS Code Extension packages",
+  "description": "VS Code Extension packages",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://marketplace.visualstudio.com/vscode-extension"
+  },
+  "namespace_definition": {
+    "requirement": "required",
+    "case_sensitive": false,
+    "native_name": "publisher",
+    "note": "The namespace is the publisher or vendor of the extension (e.g., 'redhat', 'microsoft'). This corresponds to the 'Publisher' property of the 'Identity' element in the package's .vsixmanifest file."
+  },
+  "name_definition": {
+    "requirement": "required",
+    "case_sensitive": false,
+    "native_name": "name",
+    "note": "The extension name. This corresponds to the 'Id' property of the 'Identity' element in the package's .vsixmanifest file."
+  },
+  "version_definition": {
+    "requirement": "optional",
+    "case_sensitive": false,
+    "native_name": "version",
+    "note": "The extension version. This corresponds to the 'Version' property of the 'Identity' element in the package's .vsixmanifest file."
+  },
+  "qualifiers_definition": [
+    {
+      "key": "platform",
+      "requirement": "optional",
+      "description": "The target platform for the extension. Common values include 'universal', 'linux-x64', 'linux-arm64', 'darwin-x64', 'darwin-arm64', 'win32-x64', 'win32-arm64', etc.",
+      "default_value": "universal",
+      "native_name": "targetPlatform"
+    }
+  ],
+  "examples": [
+    "pkg:vscode-extension/ms-python/python@2023.25.10292213",
+    "pkg:vscode-extension/muhammad-sammy/csharp@2.15.30?repository_url=https://open-vsx.org",
+    "pkg:vscode-extension/golang/go@0.39.1?platform=win32-x64"
+  ],
+  "reference_urls": [
+    "https://open-vsx.org/",
+    "https://github.com/eclipse/openvsx",
+    "https://code.visualstudio.com/api/working-with-extensions/publishing-extension#platformspecific-extensions"
+  ]
+}

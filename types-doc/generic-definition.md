@@ -25,6 +25,7 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
+- **Requirement:** Required
 - **Note:** `as for other type, the name component is mandatory. In the worst case it can be a file or directory name.`
 
 ## Qualifiers Definition

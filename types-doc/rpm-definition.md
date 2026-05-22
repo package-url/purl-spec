@@ -26,12 +26,14 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
+- **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** name
 - **Note:** `The name is the RPM name and is case sensitive.`
 
 ## Version definition
 
+- **Requirement:** Optional
 - **Native Label:** version-release
 - **Note:** `The version is the combined version and release of an RPM.`
 

@@ -1,0 +1,20 @@
+2025-08-13 Wednesday 18:18:27 -- jmhoran@aboutcode.org -- The current process
+for generating (and regenerating as needed) the purl-standard.md and
+purl-specification.md files is a combination of manual and scripted steps.
+
+- Start with the set of .md files created from the former PURL-SPECIFICATION.rst
+  file.
+- Update one or more of those .md files as needed in a Visual Studio Code
+  instance running locally in a branch of a clone of the purl-spec repo.
+- Manually copy the full set of .md files to a separate VSCode instance for a
+  local repo running pypandoc.  See, e.g., https://pypi.org/project/pypandoc/.
+- Configure the code we've written to choose which compiled .md output we want
+  (purl-specification.md or purl-standard.md), the input .md files, and any
+  changes needed for heading names and numbers.
+- Run the code, vet the output .md, fix what needs fixing, and manually copy
+  the output .md back into the local purl-spec VSCode instance.
+- After careful vetting etc., commit, push, open a new PR if not already opened,
+  advise reviewers that the PR is ready for review, and wait for feedback.
+- Repeat when needed.
+
+The process is currently run on Windows using WSL2/Ubuntu-20.04.

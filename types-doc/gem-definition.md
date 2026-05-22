@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** RubyGems
 - **Description:** RubyGems
-- **Schema ID:** `https://packageurl.org/types/generic-definition.json`
+- **Schema ID:** `https://packageurl.org/types/gem-definition.json`
 
 ## PURL Syntax
 
@@ -25,10 +25,12 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
+- **Requirement:** Required
 - **Native Label:** name
 
 ## Version definition
 
+- **Requirement:** Optional
 - **Native Label:** version
 
 ## Qualifiers Definition

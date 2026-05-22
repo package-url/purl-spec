@@ -15,11 +15,13 @@
     "note": "The namespace is optional; it may be used to specify the organization for private packages on hex.pm. It is not case sensitive and must be lowercased."
   },
   "name_definition": {
+    "requirement": "required",
     "case_sensitive": false,
     "native_name": "name",
     "note": "The name is not case sensitive and must be lowercased."
   },
   "version_definition": {
+    "requirement": "optional",
     "native_name": "version"
   },
   "examples": [

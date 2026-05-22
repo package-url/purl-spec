@@ -13,6 +13,7 @@
     "note": "there is no generic namespace definition"
   },
   "name_definition": {
+    "requirement": "required",
     "note": "as for other type, the name component is mandatory. In the worst case it can be a file or directory name."
   },
   "qualifiers_definition": [

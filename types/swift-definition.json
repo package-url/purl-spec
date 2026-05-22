@@ -14,10 +14,12 @@
     "case_sensitive": true
   },
   "name_definition": {
+    "requirement": "required",
     "case_sensitive": true,
     "native_name": "repository name"
   },
   "version_definition": {
+    "requirement": "optional",
     "case_sensitive": true,
     "native_name": "package version"
   },

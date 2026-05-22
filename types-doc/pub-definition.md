@@ -25,6 +25,7 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
+- **Requirement:** Required
 - **Permitted Characters:** `^[a-z0-9_]`
 - **Normalization rules:**
   - Replace non-[a-z] letters, non-[0-9] digits with underscore _
@@ -33,6 +34,7 @@ The structure of a PURL for this package type is:
 
 ## Version definition
 
+- **Requirement:** Optional
 - **Native Label:** version
 
 ## Examples

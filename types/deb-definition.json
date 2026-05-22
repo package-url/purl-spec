@@ -10,16 +10,18 @@
   },
   "namespace_definition": {
     "native_name": "vendor",
-    "is_case_sensitve": false,
+    "case_sensitive": false,
     "note": "The namespace is the \"vendor\" name such as \"debian\" or \"ubuntu\". It is not case sensitive and must be lowercased.",
     "requirement": "required"
   },
   "name_definition": {
+    "requirement": "required",
     "native_name": "name",
-    "is_case_sensitve": false,
+    "case_sensitive": false,
     "note": "The name is not case sensitive and must be lowercased."
   },
   "version_definition": {
+    "requirement": "optional",
     "native_name": "version",
     "note": "The version is the version of the binary (or source) package."
   },

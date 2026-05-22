@@ -26,6 +26,7 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
+- **Requirement:** Required
 - **Normalization rules:**
   - Replace underscore _ with dash -
   - Replace dot . with underscore _ when used in distribution (sdist, wheel) names
@@ -34,6 +35,7 @@ The structure of a PURL for this package type is:
 
 ## Version definition
 
+- **Requirement:** Optional
 - **Native Label:** version
 
 ## Qualifiers Definition
@@ -45,6 +47,6 @@ The structure of a PURL for this package type is:
 ## Examples
 
 - `pkg:pypi/django@1.11.1`
-- `pkg:pypi/django@1.11.1?filename=Django-1.11.1.tar.gz`
-- `pkg:pypi/django@1.11.1?filename=Django-1.11.1-py2.py3-none-any.whl`
+- `pkg:pypi/django@1.11.1?file_name=Django-1.11.1.tar.gz`
+- `pkg:pypi/django@1.11.1?file_name=Django-1.11.1-py2.py3-none-any.whl`
 - `pkg:pypi/django-allauth@12.23`

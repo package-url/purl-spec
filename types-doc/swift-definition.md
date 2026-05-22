@@ -26,11 +26,13 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
+- **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** repository name
 
 ## Version definition
 
+- **Requirement:** Optional
 - **Case Sensitive:** Yes
 - **Native Label:** package version
 

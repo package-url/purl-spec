@@ -25,10 +25,12 @@ The structure of a PURL for this package type is:
 
 ## Name definition
 
+- **Requirement:** Required
 - **Note:** `The name is not case sensitive and must be lowercased. The name is the last fragment of the repository name. For example if the repository name is library/debian then the name is debian.`
 
 ## Version definition
 
+- **Requirement:** Optional
 - **Note:** `The version is the sha256:hex_encoded_lowercase_digest of the artifact and is required to uniquely identify the artifact.`
 
 ## Qualifiers Definition
@@ -44,7 +46,7 @@ The structure of a PURL for this package type is:
 - `pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=docker.io/library/debian&arch=amd64&tag=latest`
 - `pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=ghcr.io/debian&tag=bullseye`
 - `pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest`
-- `pkg:oci/hello-wasm@sha256%3A244fd47e07d10?tag=v1`
+- `pkg:oci/hello-wasm@sha256:244fd47e07d10?tag=v1`
 
 ## Reference URLs
 
