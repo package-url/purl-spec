@@ -19,7 +19,7 @@
     "requirement": "required",
     "case_sensitive": true,
     "native_name": "name",
-    "note": "Per the package.json spec, new package 'must not have uppercase letters in the name', therefore the name must be lowercased. The npm name used to be case sensitive in the early days for some old packages."
+    "note": "The package.json spec changed in 2015 to require that a new package 'must not have uppercase letters in the name', but old packages with mixed case names were \"grandfathered in\"."
   },
   "version_definition": {
     "requirement": "optional",
