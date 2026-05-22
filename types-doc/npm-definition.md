@@ -22,12 +22,14 @@ The structure of a PURL for this package type is:
 ## Namespace definition
 
 - **Requirement:** Optional
+- **Case Sensitive:** Yes
 - **Native Label:** scope
 - **Note:** `The namespace is used for the scope of a scoped NPM package. The npm scope @ sign prefix is always percent encoded, as it was in the early days of npm scope.`
 
 ## Name definition
 
 - **Requirement:** Required
+- **Case Sensitive:** Yes
 - **Native Label:** name
 - **Note:** `Per the package.json spec, new package 'must not have uppercase letters in the name', therefore the name must be lowercased. The npm name used to be case sensitive in the early days for some old packages.`
 
