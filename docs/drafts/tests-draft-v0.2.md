@@ -90,7 +90,7 @@ PURL test schema:
   - description: "true if this test input is expected to fail to be 
 processed."
   - type: boolean
-  - default: 'false'
+  - default: false
 - `expected_failure_reason`
   - description: "The reason why this test is expected to fail if 
   expected_failure is true."
@@ -98,7 +98,7 @@ processed."
   - default: null
 
 ### Advanced test group error handling and messages
-Test cases in the 'advanced **test group** are intended to provide specific 
+Test cases in the 'advanced' **test group** are intended to provide specific 
 examples of use cases where a tool could:
   - Correct data errors when there is sufficient information in the test 
   input data to provide canonical output data.
