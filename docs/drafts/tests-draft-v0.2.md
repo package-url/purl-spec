@@ -114,7 +114,7 @@ The structure for "advanced" message handling is:
   case."
   - type: object
   - properties:
-    - advanced_message_type:
+    - `advanced_message_type`:
       - title: "Message type for the output of an advanced PURL test."
       - description: "Indicates whether an advanced PURL test case shows how to
       update a non-canonical input to a canonical output or provides 
@@ -131,7 +131,7 @@ The structure for "advanced" message handling is:
           in the test input that is not an error. A common example is the 
           presence of a **namespace** or **qualifiers** value that is not
           currently enumerated for a specific PURL **type**.
-    - advanced_message: "Advanced PURL test message."
+    - `advanced_message`: "Advanced PURL test message."
       - title: "Advanced test message".
       - description: "Message explaining the result of an advanced test case."
       - type: string
@@ -139,7 +139,9 @@ The structure for "advanced" message handling is:
 
 ### Test case examples
 
-#### Advanced message example
+### Base test examples
+
+#### Advanced test examples
 
 
 ## Summary of changes from PURL test schema v0.1
