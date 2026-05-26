@@ -23,7 +23,9 @@ components.
   - `type-test.json` This file contains tests for the PURL **type** component.
   - `namespace-test.json` This file contains tests for the PURL **namespace** 
 component.
-  - `version-test.json` This file contains tests for the PURL **name** 
+  - `name-test.json` This file contains tests for the PURL **name** 
+component.
+  - `version-test.json` This file contains tests for the PURL **version** 
   component.
   - `qualifiers-test.json` This file contains tests for the PURL **qualifiers** 
 component.
