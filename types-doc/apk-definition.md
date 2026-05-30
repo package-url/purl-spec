@@ -40,12 +40,15 @@ The structure of a PURL for this package type is:
 
 | Key  | Requirement | Native name | Default Value | Description |
 |------|-------------|-------------|---------------|-------------|
-| arch | Optional |  |  | The arch is the qualifiers key for a package architecture. |
+| arch | Optional | arch |  | The arch is the qualifiers key for a package architecture. |
+| distro | Optional |  |  | A more specific, optionally version qualified, distribution name. |
+| upstream | Optional | origin |  | The upstream origin (source / APKBUILD / melange.yaml) for a given binary apk. |
 
 ## Examples
 
 - `pkg:apk/alpine/curl@7.83.0-r0?arch=x86`
 - `pkg:apk/alpine/apk@2.12.9-r3?arch=x86`
+- `pkg:apk/alpine/libcrypto3@3.5.5-r0?arch=x86_64&distro=alpine-edge&upstream=openssl`
 
 ## Note
 

@@ -28,12 +28,23 @@
   "qualifiers_definition": [
     {
       "key": "arch",
-      "description": "The arch is the qualifiers key for a package architecture."
+      "description": "The arch is the qualifiers key for a package architecture.",
+      "native_name": "arch"
+    },
+    {
+      "key": "distro",
+      "description": "A more specific, optionally version qualified, distribution name."
+    },
+    {
+      "key": "upstream",
+      "description": "The upstream origin (source / APKBUILD / melange.yaml) for a given binary apk.",
+      "native_name": "origin"
     }
   ],
   "examples": [
     "pkg:apk/alpine/curl@7.83.0-r0?arch=x86",
-    "pkg:apk/alpine/apk@2.12.9-r3?arch=x86"
+    "pkg:apk/alpine/apk@2.12.9-r3?arch=x86",
+    "pkg:apk/alpine/libcrypto3@3.5.5-r0?arch=x86_64&distro=alpine-edge&upstream=openssl"
   ],
   "note": "not to be confused with Android packages with a .apk extension."
 }
