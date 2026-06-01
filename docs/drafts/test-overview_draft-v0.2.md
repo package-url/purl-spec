@@ -23,21 +23,11 @@ The PURL test files are available at:
 This folder contains JSON test files that are for the core specification and 
 not for a specific PURL type. 
 The specification-level tests are tests required to demonstrate conformance 
-with [ECMA-427](https://ecma-tc54.github.io/ECMA-427/). These test cases are
- part of the 'base' **test group**.
-  - [`specification-test.json`](https://github.com/package-url/purl-spec/blob/main/tests/spec/specification-test.json) This file contains a set of test cases that cover 
-testing the validity of PURL strings including separators between PURL 
-components.
-  - `type-test.json` This file contains tests for the PURL **type** component.
-  - `namespace-test.json` This file contains tests for the PURL **namespace** 
-component.
-  - `version-test.json` This file contains tests for the PURL **name** 
-  component.
-  - `qualifiers-test.json` This file contains tests for the PURL **qualifiers** 
-component.
-  - `subpath-test.json` This file contains tests for the PURL **subpath** 
-component.
-- [`purl-spec/tests/types/`](https://github.com/package-url/purl-spec/tree/main/tests/types)
+with [ECMA-427](https://ecma-tc54.github.io/ECMA-427/). 
+  - [`specification-test.json`](https://github.com/package-url/purl-spec/blob/main/tests/spec/specification-test.json): This file contains a set of test cases that cover 
+testing the validity of PURL strings including separators between PURL components.
+  - There is a current proposal to move component-specific test files with the naming convention: <component-name>-test.json`
+- [`purl-spec/tests/types/`](https://github.com/package-url/purl-spec/tree/main/tests/types):
 This folder contains one JSON test file for each registered PURL **type**. 
 These tests are focused on test cases that are specific to a PURL type, such 
 as those for the **namespace** or **qualifiers** components. PURL **type**
@@ -128,8 +118,7 @@ The structure for PURL test message handling is:
       - description: "Indicates whether a PURL test case includes an
       update of a non-canonical input to a canonical output or provides 
       information about an anomaly in the test input data.
-      - type: string
-        enum: 
+      - type: string (enum of;)
           - 'info': An 'info' level message means that there is some anomaly 
           in the test input that is not an error. A common example is the 
           presence of a **namespace** or **qualifiers** value that is not
