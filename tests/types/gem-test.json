@@ -1,0 +1,145 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "Ruby gems can use qualifiers. Roundtrip an input purl to canonical.",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:gem/jruby-launcher@1.1.2?Platform=java",
+      "expected_output": "pkg:gem/jruby-launcher@1.1.2?platform=java",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Ruby gems can use qualifiers",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:gem/jruby-launcher@1.1.2?Platform=java",
+      "expected_output": {
+        "type": "gem",
+        "namespace": null,
+        "name": "jruby-launcher",
+        "version": "1.1.2",
+        "qualifiers": {
+          "platform": "java"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Ruby gems can use qualifiers. Roundtrip a canonical input to canonical output.",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:gem/jruby-launcher@1.1.2?platform=java",
+      "expected_output": "pkg:gem/jruby-launcher@1.1.2?platform=java",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Ruby gems can use qualifiers",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "gem",
+        "namespace": null,
+        "name": "jruby-launcher",
+        "version": "1.1.2",
+        "qualifiers": {
+          "platform": "java"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:gem/jruby-launcher@1.1.2?platform=java",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: gem",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:gem/ruby-advisory-db-check@0.12.4",
+      "expected_output": {
+        "type": "gem",
+        "namespace": null,
+        "name": "ruby-advisory-db-check",
+        "version": "0.12.4",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: gem",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:gem/ruby-advisory-db-check@0.12.4",
+      "expected_output": "pkg:gem/ruby-advisory-db-check@0.12.4",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: gem",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "gem",
+        "namespace": null,
+        "name": "ruby-advisory-db-check",
+        "version": "0.12.4",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:gem/ruby-advisory-db-check@0.12.4",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: gem",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:gem/jruby-launcher@1.1.2?platform=java",
+      "expected_output": {
+        "type": "gem",
+        "namespace": null,
+        "name": "jruby-launcher",
+        "version": "1.1.2",
+        "qualifiers": {
+          "platform": "java"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: gem",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:gem/jruby-launcher@1.1.2?platform=java",
+      "expected_output": "pkg:gem/jruby-launcher@1.1.2?platform=java",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: gem",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "gem",
+        "namespace": null,
+        "name": "jruby-launcher",
+        "version": "1.1.2",
+        "qualifiers": {
+          "platform": "java"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:gem/jruby-launcher@1.1.2?platform=java",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

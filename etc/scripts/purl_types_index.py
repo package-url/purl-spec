@@ -19,3 +19,15 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 # Visit https://github.com/package-url/purl-spec and https://packageurl.org for support
+
+
+from __future__ import annotations
+from pydantic import Field, RootModel
+
+
+class PackageUrlTypesIndex(RootModel[list[str]]):
+    root: list[str] = Field(
+        ...,
+        description="An index of registered Package-URL types.",
+        title="Package-URL types index",
+    )

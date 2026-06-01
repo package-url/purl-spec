@@ -1,1 +1,4 @@
 /tmp/
+/venv/
+/.python-version
+.ruff_cache/

@@ -1,0 +1,290 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "debian can use qualifiers. Roundtrip an input purl to canonical.",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
+      "expected_output": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "debian can use qualifiers",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
+      "expected_output": {
+        "type": "deb",
+        "namespace": "debian",
+        "name": "curl",
+        "version": "7.50.3-1",
+        "qualifiers": {
+          "arch": "i386",
+          "distro": "jessie"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "debian can use qualifiers. Roundtrip a canonical input to canonical output.",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
+      "expected_output": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "debian can use qualifiers",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "deb",
+        "namespace": "debian",
+        "name": "curl",
+        "version": "7.50.3-1",
+        "qualifiers": {
+          "arch": "i386",
+          "distro": "jessie"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: deb",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
+      "expected_output": {
+        "type": "deb",
+        "namespace": "debian",
+        "name": "curl",
+        "version": "7.50.3-1",
+        "qualifiers": {
+          "arch": "i386",
+          "distro": "jessie"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: deb",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
+      "expected_output": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: deb",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "deb",
+        "namespace": "debian",
+        "name": "curl",
+        "version": "7.50.3-1",
+        "qualifiers": {
+          "arch": "i386",
+          "distro": "jessie"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: deb",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:deb/debian/dpkg@1.19.0.4?arch=amd64&distro=stretch",
+      "expected_output": {
+        "type": "deb",
+        "namespace": "debian",
+        "name": "dpkg",
+        "version": "1.19.0.4",
+        "qualifiers": {
+          "arch": "amd64",
+          "distro": "stretch"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: deb",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:deb/debian/dpkg@1.19.0.4?arch=amd64&distro=stretch",
+      "expected_output": "pkg:deb/debian/dpkg@1.19.0.4?arch=amd64&distro=stretch",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: deb",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "deb",
+        "namespace": "debian",
+        "name": "dpkg",
+        "version": "1.19.0.4",
+        "qualifiers": {
+          "arch": "amd64",
+          "distro": "stretch"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:deb/debian/dpkg@1.19.0.4?arch=amd64&distro=stretch",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: deb",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:deb/ubuntu/dpkg@1.19.0.4?arch=amd64",
+      "expected_output": {
+        "type": "deb",
+        "namespace": "ubuntu",
+        "name": "dpkg",
+        "version": "1.19.0.4",
+        "qualifiers": {
+          "arch": "amd64"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: deb",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:deb/ubuntu/dpkg@1.19.0.4?arch=amd64",
+      "expected_output": "pkg:deb/ubuntu/dpkg@1.19.0.4?arch=amd64",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: deb",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "deb",
+        "namespace": "ubuntu",
+        "name": "dpkg",
+        "version": "1.19.0.4",
+        "qualifiers": {
+          "arch": "amd64"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:deb/ubuntu/dpkg@1.19.0.4?arch=amd64",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: deb",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:deb/debian/attr@1:2.4.47-2?arch=source",
+      "expected_output": {
+        "type": "deb",
+        "namespace": "debian",
+        "name": "attr",
+        "version": "1:2.4.47-2",
+        "qualifiers": {
+          "arch": "source"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: deb",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:deb/debian/attr@1:2.4.47-2?arch=source",
+      "expected_output": "pkg:deb/debian/attr@1:2.4.47-2?arch=source",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: deb",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "deb",
+        "namespace": "debian",
+        "name": "attr",
+        "version": "1:2.4.47-2",
+        "qualifiers": {
+          "arch": "source"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:deb/debian/attr@1:2.4.47-2?arch=source",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: deb",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:deb/debian/attr@1:2.4.47-2%2Bb1?arch=amd64",
+      "expected_output": {
+        "type": "deb",
+        "namespace": "debian",
+        "name": "attr",
+        "version": "1:2.4.47-2+b1",
+        "qualifiers": {
+          "arch": "amd64"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: deb",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:deb/debian/attr@1:2.4.47-2%2Bb1?arch=amd64",
+      "expected_output": "pkg:deb/debian/attr@1:2.4.47-2%2Bb1?arch=amd64",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: deb",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "deb",
+        "namespace": "debian",
+        "name": "attr",
+        "version": "1:2.4.47-2+b1",
+        "qualifiers": {
+          "arch": "amd64"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:deb/debian/attr@1:2.4.47-2%2Bb1?arch=amd64",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "github namespace and name should be lowercased. Roundtrip an input purl to canonical.",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:github/Package-url/purl-Spec@244fd47e07d1004f0aed9c",
+      "expected_output": "pkg:github/package-url/purl-spec@244fd47e07d1004f0aed9c",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "github namespace and name should be lowercased",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:github/Package-url/purl-Spec@244fd47e07d1004f0aed9c",
+      "expected_output": {
+        "type": "github",
+        "namespace": "package-url",
+        "name": "purl-spec",
+        "version": "244fd47e07d1004f0aed9c",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "github namespace and name should be lowercased. Roundtrip a canonical input to canonical output.",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:github/package-url/purl-spec@244fd47e07d1004f0aed9c",
+      "expected_output": "pkg:github/package-url/purl-spec@244fd47e07d1004f0aed9c",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "github namespace and name should be lowercased",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "github",
+        "namespace": "package-url",
+        "name": "purl-spec",
+        "version": "244fd47e07d1004f0aed9c",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:github/package-url/purl-spec@244fd47e07d1004f0aed9c",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: github",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:github/package-url/purl-spec@244fd47e07d1004",
+      "expected_output": {
+        "type": "github",
+        "namespace": "package-url",
+        "name": "purl-spec",
+        "version": "244fd47e07d1004",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: github",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:github/package-url/purl-spec@244fd47e07d1004",
+      "expected_output": "pkg:github/package-url/purl-spec@244fd47e07d1004",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: github",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "github",
+        "namespace": "package-url",
+        "name": "purl-spec",
+        "version": "244fd47e07d1004",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:github/package-url/purl-spec@244fd47e07d1004",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: github",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:github/package-url/purl-spec@244fd47e07d1004#everybody/loves/dogs",
+      "expected_output": {
+        "type": "github",
+        "namespace": "package-url",
+        "name": "purl-spec",
+        "version": "244fd47e07d1004",
+        "qualifiers": null,
+        "subpath": "everybody/loves/dogs"
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: github",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:github/package-url/purl-spec@244fd47e07d1004#everybody/loves/dogs",
+      "expected_output": "pkg:github/package-url/purl-spec@244fd47e07d1004#everybody/loves/dogs",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: github",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "github",
+        "namespace": "package-url",
+        "name": "purl-spec",
+        "version": "244fd47e07d1004",
+        "qualifiers": null,
+        "subpath": "everybody/loves/dogs"
+      },
+      "expected_output": "pkg:github/package-url/purl-spec@244fd47e07d1004#everybody/loves/dogs",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

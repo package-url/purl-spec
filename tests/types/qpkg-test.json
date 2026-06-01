@@ -1,0 +1,87 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "Parse test for PURL type: qpkg",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:qpkg/blackberry/com.qnx.sdp@7.0.0.SGA201702151847",
+      "expected_output": {
+        "type": "qpkg",
+        "namespace": "blackberry",
+        "name": "com.qnx.sdp",
+        "version": "7.0.0.SGA201702151847",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: qpkg",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:qpkg/blackberry/com.qnx.sdp@7.0.0.SGA201702151847",
+      "expected_output": "pkg:qpkg/blackberry/com.qnx.sdp@7.0.0.SGA201702151847",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: qpkg",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "qpkg",
+        "namespace": "blackberry",
+        "name": "com.qnx.sdp",
+        "version": "7.0.0.SGA201702151847",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:qpkg/blackberry/com.qnx.sdp@7.0.0.SGA201702151847",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: qpkg",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:qpkg/blackberry/com.qnx.qnx710.foo.bar.qux@0.0.4.01449T202205040833L",
+      "expected_output": {
+        "type": "qpkg",
+        "namespace": "blackberry",
+        "name": "com.qnx.qnx710.foo.bar.qux",
+        "version": "0.0.4.01449T202205040833L",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: qpkg",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:qpkg/blackberry/com.qnx.qnx710.foo.bar.qux@0.0.4.01449T202205040833L",
+      "expected_output": "pkg:qpkg/blackberry/com.qnx.qnx710.foo.bar.qux@0.0.4.01449T202205040833L",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: qpkg",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "qpkg",
+        "namespace": "blackberry",
+        "name": "com.qnx.qnx710.foo.bar.qux",
+        "version": "0.0.4.01449T202205040833L",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:qpkg/blackberry/com.qnx.qnx710.foo.bar.qux@0.0.4.01449T202205040833L",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

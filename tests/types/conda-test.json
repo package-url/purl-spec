@@ -1,0 +1,116 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "valid conda purl with qualifiers. Roundtrip an input purl to canonical.",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
+      "expected_output": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid conda purl with qualifiers",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
+      "expected_output": {
+        "type": "conda",
+        "namespace": null,
+        "name": "absl-py",
+        "version": "0.4.1",
+        "qualifiers": {
+          "build": "py36h06a4308_0",
+          "channel": "main",
+          "subdir": "linux-64",
+          "type": "tar.bz2"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid conda purl with qualifiers. Roundtrip a canonical input to canonical output.",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
+      "expected_output": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid conda purl with qualifiers",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "conda",
+        "namespace": null,
+        "name": "absl-py",
+        "version": "0.4.1",
+        "qualifiers": {
+          "build": "py36h06a4308_0",
+          "channel": "main",
+          "subdir": "linux-64",
+          "type": "tar.bz2"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: conda",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
+      "expected_output": {
+        "type": "conda",
+        "namespace": null,
+        "name": "absl-py",
+        "version": "0.4.1",
+        "qualifiers": {
+          "build": "py36h06a4308_0",
+          "channel": "main",
+          "subdir": "linux-64",
+          "type": "tar.bz2"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: conda",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
+      "expected_output": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: conda",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "conda",
+        "namespace": null,
+        "name": "absl-py",
+        "version": "0.4.1",
+        "qualifiers": {
+          "build": "py36h06a4308_0",
+          "channel": "main",
+          "subdir": "linux-64",
+          "type": "tar.bz2"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

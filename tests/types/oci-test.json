@@ -1,0 +1,193 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "Parse test for PURL type: oci",
+      "test_group": "advanced",
+      "test_type": "parse",
+      "input": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=docker.io/library/debian&arch=amd64&tag=latest",
+      "expected_output": {
+        "type": "oci",
+        "namespace": null,
+        "name": "debian",
+        "version": "sha256:244fd47e07d10",
+        "qualifiers": {
+          "arch": "amd64",
+          "repository_url": "docker.io/library/debian",
+          "tag": "latest"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: oci",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=docker.io/library/debian&arch=amd64&tag=latest",
+      "expected_output": "pkg:oci/debian@sha256:244fd47e07d10?arch=amd64&repository_url=docker.io%2Flibrary%2Fdebian&tag=latest",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test for PURL type: oci",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "oci",
+        "namespace": null,
+        "name": "debian",
+        "version": "sha256:244fd47e07d10",
+        "qualifiers": {
+          "arch": "amd64",
+          "repository_url": "docker.io/library/debian",
+          "tag": "latest"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:oci/debian@sha256:244fd47e07d10?arch=amd64&repository_url=docker.io%2Flibrary%2Fdebian&tag=latest",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: oci",
+      "test_group": "advanced",
+      "test_type": "parse",
+      "input": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=ghcr.io/debian&tag=bullseye",
+      "expected_output": {
+        "type": "oci",
+        "namespace": null,
+        "name": "debian",
+        "version": "sha256:244fd47e07d10",
+        "qualifiers": {
+          "repository_url": "ghcr.io/debian",
+          "tag": "bullseye"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: oci",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=ghcr.io/debian&tag=bullseye",
+      "expected_output": "pkg:oci/debian@sha256:244fd47e07d10?repository_url=ghcr.io%2Fdebian&tag=bullseye",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test for PURL type: oci",
+      "test_group": "advanced",
+      "test_type": "build",
+      "input": {
+        "type": "oci",
+        "namespace": null,
+        "name": "debian",
+        "version": "sha256:244fd47e07d10",
+        "qualifiers": {
+          "repository_url": "ghcr.io/debian",
+          "tag": "bullseye"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:oci/debian@sha256:244fd47e07d10?repository_url=ghcr.io%2Fdebian&tag=bullseye",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: oci",
+      "test_group": "advanced",
+      "test_type": "parse",
+      "input": "pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest",
+      "expected_output": {
+        "type": "oci",
+        "namespace": null,
+        "name": "static",
+        "version": "sha256:244fd47e07d10",
+        "qualifiers": {
+          "repository_url": "gcr.io/distroless/static",
+          "tag": "latest"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: oci",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest",
+      "expected_output": "pkg:oci/static@sha256:244fd47e07d10?repository_url=gcr.io%2Fdistroless%2Fstatic&tag=latest",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: oci",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "oci",
+        "namespace": null,
+        "name": "static",
+        "version": "sha256:244fd47e07d10",
+        "qualifiers": {
+          "repository_url": "gcr.io/distroless/static",
+          "tag": "latest"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:oci/static@sha256:244fd47e07d10?repository_url=gcr.io%2Fdistroless%2Fstatic&tag=latest",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: oci",
+      "test_group": "advanced",
+      "test_type": "parse",
+      "input": "pkg:oci/hello-wasm@sha256%3A244fd47e07d10?tag=v1",
+      "expected_output": {
+        "type": "oci",
+        "namespace": null,
+        "name": "hello-wasm",
+        "version": "sha256:244fd47e07d10",
+        "qualifiers": {
+          "tag": "v1"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: oci",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:oci/hello-wasm@sha256%3A244fd47e07d10?tag=v1",
+      "expected_output": "pkg:oci/hello-wasm@sha256:244fd47e07d10?tag=v1",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: oci",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "oci",
+        "namespace": null,
+        "name": "hello-wasm",
+        "version": "sha256:244fd47e07d10",
+        "qualifiers": {
+          "tag": "v1"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:oci/hello-wasm@sha256:244fd47e07d10?tag=v1",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

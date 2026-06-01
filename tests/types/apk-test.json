@@ -1,0 +1,95 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "Parse test for PURL type: apk",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:apk/alpine/curl@7.83.0-r0?arch=x86",
+      "expected_output": {
+        "type": "apk",
+        "namespace": "alpine",
+        "name": "curl",
+        "version": "7.83.0-r0",
+        "qualifiers": {
+          "arch": "x86"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: apk",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:apk/alpine/curl@7.83.0-r0?arch=x86",
+      "expected_output": "pkg:apk/alpine/curl@7.83.0-r0?arch=x86",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: apk",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "apk",
+        "namespace": "alpine",
+        "name": "curl",
+        "version": "7.83.0-r0",
+        "qualifiers": {
+          "arch": "x86"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:apk/alpine/curl@7.83.0-r0?arch=x86",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: apk",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:apk/alpine/apk@2.12.9-r3?arch=x86",
+      "expected_output": {
+        "type": "apk",
+        "namespace": "alpine",
+        "name": "apk",
+        "version": "2.12.9-r3",
+        "qualifiers": {
+          "arch": "x86"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: apk",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:apk/alpine/apk@2.12.9-r3?arch=x86",
+      "expected_output": "pkg:apk/alpine/apk@2.12.9-r3?arch=x86",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: apk",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "apk",
+        "namespace": "alpine",
+        "name": "apk",
+        "version": "2.12.9-r3",
+        "qualifiers": {
+          "arch": "x86"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:apk/alpine/apk@2.12.9-r3?arch=x86",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "Parse test for PURL type: luarocks",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:luarocks/luasocket@3.1.0-1",
+      "expected_output": {
+        "type": "luarocks",
+        "namespace": null,
+        "name": "luasocket",
+        "version": "3.1.0-1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: luarocks",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:luarocks/luasocket@3.1.0-1",
+      "expected_output": "pkg:luarocks/luasocket@3.1.0-1",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: luarocks",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "luarocks",
+        "namespace": null,
+        "name": "luasocket",
+        "version": "3.1.0-1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:luarocks/luasocket@3.1.0-1",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: luarocks",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:luarocks/hisham/luafilesystem@1.8.0-1",
+      "expected_output": {
+        "type": "luarocks",
+        "namespace": "hisham",
+        "name": "luafilesystem",
+        "version": "1.8.0-1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: luarocks",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:luarocks/hisham/luafilesystem@1.8.0-1",
+      "expected_output": "pkg:luarocks/hisham/luafilesystem@1.8.0-1",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: luarocks",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "luarocks",
+        "namespace": "hisham",
+        "name": "luafilesystem",
+        "version": "1.8.0-1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:luarocks/hisham/luafilesystem@1.8.0-1",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: luarocks",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/",
+      "expected_output": {
+        "type": "luarocks",
+        "namespace": "username",
+        "name": "packagename",
+        "version": "0.1.0-1",
+        "qualifiers": {
+          "repository_url": "https://example.com/private_rocks_server/"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: luarocks",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/",
+      "expected_output": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https:%2F%2Fexample.com%2Fprivate_rocks_server%2F",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: luarocks",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "luarocks",
+        "namespace": "username",
+        "name": "packagename",
+        "version": "0.1.0-1",
+        "qualifiers": {
+          "repository_url": "https://example.com/private_rocks_server/"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:luarocks/username/packagename@0.1.0-1?repository_url=https:%2F%2Fexample.com%2Fprivate_rocks_server%2F",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

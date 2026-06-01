@@ -1,0 +1,138 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "Parse test for PURL type: generic",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:generic/openssl@1.1.10g",
+      "expected_output": {
+        "type": "generic",
+        "namespace": null,
+        "name": "openssl",
+        "version": "1.1.10g",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: generic",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:generic/openssl@1.1.10g",
+      "expected_output": "pkg:generic/openssl@1.1.10g",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: generic",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "generic",
+        "namespace": null,
+        "name": "openssl",
+        "version": "1.1.10g",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:generic/openssl@1.1.10g",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: generic",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:generic/openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da",
+      "expected_output": {
+        "type": "generic",
+        "namespace": null,
+        "name": "openssl",
+        "version": "1.1.10g",
+        "qualifiers": {
+          "checksum": "sha256:de4d501267da",
+          "download_url": "https://openssl.org/source/openssl-1.1.0g.tar.gz"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: generic",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:generic/openssl@1.1.10g?download_url=https://openssl.org/source/openssl-1.1.0g.tar.gz&checksum=sha256:de4d501267da",
+      "expected_output": "pkg:generic/openssl@1.1.10g?checksum=sha256:de4d501267da&download_url=https:%2F%2Fopenssl.org%2Fsource%2Fopenssl-1.1.0g.tar.gz",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: generic",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "generic",
+        "namespace": null,
+        "name": "openssl",
+        "version": "1.1.10g",
+        "qualifiers": {
+          "checksum": "sha256:de4d501267da",
+          "download_url": "https://openssl.org/source/openssl-1.1.0g.tar.gz"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:generic/openssl@1.1.10g?checksum=sha256:de4d501267da&download_url=https:%2F%2Fopenssl.org%2Fsource%2Fopenssl-1.1.0g.tar.gz",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: generic",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:generic/bitwarderl?vcs_url=git%2Bhttps://git.fsfe.org/dxtr/bitwarderl%40cc55108da32",
+      "expected_output": {
+        "type": "generic",
+        "namespace": null,
+        "name": "bitwarderl",
+        "version": null,
+        "qualifiers": {
+          "vcs_url": "git+https://git.fsfe.org/dxtr/bitwarderl@cc55108da32"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: generic",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:generic/bitwarderl?vcs_url=git%2Bhttps://git.fsfe.org/dxtr/bitwarderl%40cc55108da32",
+      "expected_output": "pkg:generic/bitwarderl?vcs_url=git%2Bhttps:%2F%2Fgit.fsfe.org%2Fdxtr%2Fbitwarderl%40cc55108da32",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: generic",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "generic",
+        "namespace": null,
+        "name": "bitwarderl",
+        "version": null,
+        "qualifiers": {
+          "vcs_url": "git+https://git.fsfe.org/dxtr/bitwarderl@cc55108da32"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:generic/bitwarderl?vcs_url=git%2Bhttps:%2F%2Fgit.fsfe.org%2Fdxtr%2Fbitwarderl%40cc55108da32",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

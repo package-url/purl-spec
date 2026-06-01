@@ -1,0 +1,87 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "Parse test for PURL type: pub",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:pub/characters@1.2.0",
+      "expected_output": {
+        "type": "pub",
+        "namespace": null,
+        "name": "characters",
+        "version": "1.2.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: pub",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:pub/characters@1.2.0",
+      "expected_output": "pkg:pub/characters@1.2.0",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: pub",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "pub",
+        "namespace": null,
+        "name": "characters",
+        "version": "1.2.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:pub/characters@1.2.0",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: pub",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:pub/flutter@0.0.0",
+      "expected_output": {
+        "type": "pub",
+        "namespace": null,
+        "name": "flutter",
+        "version": "0.0.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: pub",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:pub/flutter@0.0.0",
+      "expected_output": "pkg:pub/flutter@0.0.0",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: pub",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "pub",
+        "namespace": null,
+        "name": "flutter",
+        "version": "0.0.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:pub/flutter@0.0.0",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

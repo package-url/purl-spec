@@ -1,0 +1,140 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "Parse test for PURL type: alpm",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:alpm/arch/pacman@6.0.1-1?arch=x86_64",
+      "expected_output": {
+        "type": "alpm",
+        "namespace": "arch",
+        "name": "pacman",
+        "version": "6.0.1-1",
+        "qualifiers": {
+          "arch": "x86_64"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: alpm",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:alpm/arch/pacman@6.0.1-1?arch=x86_64",
+      "expected_output": "pkg:alpm/arch/pacman@6.0.1-1?arch=x86_64",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: alpm",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "alpm",
+        "namespace": "arch",
+        "name": "pacman",
+        "version": "6.0.1-1",
+        "qualifiers": {
+          "arch": "x86_64"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:alpm/arch/pacman@6.0.1-1?arch=x86_64",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: alpm",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:alpm/arch/python-pip@21.0-1?arch=any",
+      "expected_output": {
+        "type": "alpm",
+        "namespace": "arch",
+        "name": "python-pip",
+        "version": "21.0-1",
+        "qualifiers": {
+          "arch": "any"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: alpm",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:alpm/arch/python-pip@21.0-1?arch=any",
+      "expected_output": "pkg:alpm/arch/python-pip@21.0-1?arch=any",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: alpm",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "alpm",
+        "namespace": "arch",
+        "name": "python-pip",
+        "version": "21.0-1",
+        "qualifiers": {
+          "arch": "any"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:alpm/arch/python-pip@21.0-1?arch=any",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: alpm",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:alpm/arch/containers-common@1:0.47.4-4?arch=x86_64",
+      "expected_output": {
+        "type": "alpm",
+        "namespace": "arch",
+        "name": "containers-common",
+        "version": "1:0.47.4-4",
+        "qualifiers": {
+          "arch": "x86_64"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: alpm",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:alpm/arch/containers-common@1:0.47.4-4?arch=x86_64",
+      "expected_output": "pkg:alpm/arch/containers-common@1:0.47.4-4?arch=x86_64",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: alpm",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "alpm",
+        "namespace": "arch",
+        "name": "containers-common",
+        "version": "1:0.47.4-4",
+        "qualifiers": {
+          "arch": "x86_64"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:alpm/arch/containers-common@1:0.47.4-4?arch=x86_64",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}

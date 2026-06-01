@@ -1,0 +1,245 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "minimal Hugging Face model. Roundtrip an input purl to canonical.",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "expected_output": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "minimal Hugging Face model",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "expected_output": {
+        "type": "huggingface",
+        "namespace": "distilbert",
+        "name": "distilbert-base-uncased",
+        "version": "043235d6088ecd3dd5fb5ca3592b6913fd516027",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "minimal Hugging Face model. Roundtrip a canonical input to canonical output.",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "expected_output": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "minimal Hugging Face model",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "huggingface",
+        "namespace": "distilbert",
+        "name": "distilbert-base-uncased",
+        "version": "043235d6088ecd3dd5fb5ca3592b6913fd516027",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Hugging Face model with staging endpoint. Roundtrip an input purl to canonical.",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
+      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https:%2F%2Fhub-ci.huggingface.co",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Hugging Face model with staging endpoint",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
+      "expected_output": {
+        "type": "huggingface",
+        "namespace": "microsoft",
+        "name": "deberta-v3-base",
+        "version": "559062ad13d311b87b2c455e67dcd5f1c8f65111",
+        "qualifiers": {
+          "repository_url": "https://hub-ci.huggingface.co"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Hugging Face model with staging endpoint. Roundtrip a canonical input to canonical output.",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
+      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https:%2F%2Fhub-ci.huggingface.co",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Hugging Face model with staging endpoint",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "huggingface",
+        "namespace": "microsoft",
+        "name": "deberta-v3-base",
+        "version": "559062ad13d311b87b2c455e67dcd5f1c8f65111",
+        "qualifiers": {
+          "repository_url": "https://hub-ci.huggingface.co"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https:%2F%2Fhub-ci.huggingface.co",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Hugging Face model with various cases. Roundtrip an input purl to canonical.",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:huggingface/EleutherAI/gpt-neo-1.3B@797174552AE47F449AB70B684CABCB6603E5E85E",
+      "expected_output": "pkg:huggingface/EleutherAI/gpt-neo-1.3B@797174552ae47f449ab70b684cabcb6603e5e85e",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Hugging Face model with various cases",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:huggingface/EleutherAI/gpt-neo-1.3B@797174552AE47F449AB70B684CABCB6603E5E85E",
+      "expected_output": {
+        "type": "huggingface",
+        "namespace": "EleutherAI",
+        "name": "gpt-neo-1.3B",
+        "version": "797174552ae47f449ab70b684cabcb6603e5e85e",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Hugging Face model with various cases. Roundtrip a canonical input to canonical output.",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:huggingface/EleutherAI/gpt-neo-1.3B@797174552ae47f449ab70b684cabcb6603e5e85e",
+      "expected_output": "pkg:huggingface/EleutherAI/gpt-neo-1.3B@797174552ae47f449ab70b684cabcb6603e5e85e",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Hugging Face model with various cases",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "huggingface",
+        "namespace": "EleutherAI",
+        "name": "gpt-neo-1.3B",
+        "version": "797174552ae47f449ab70b684cabcb6603e5e85e",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:huggingface/EleutherAI/gpt-neo-1.3B@797174552ae47f449ab70b684cabcb6603e5e85e",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: huggingface",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "expected_output": {
+        "type": "huggingface",
+        "namespace": "distilbert",
+        "name": "distilbert-base-uncased",
+        "version": "043235d6088ecd3dd5fb5ca3592b6913fd516027",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: huggingface",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "expected_output": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: huggingface",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "huggingface",
+        "namespace": "distilbert",
+        "name": "distilbert-base-uncased",
+        "version": "043235d6088ecd3dd5fb5ca3592b6913fd516027",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: huggingface",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
+      "expected_output": {
+        "type": "huggingface",
+        "namespace": "microsoft",
+        "name": "deberta-v3-base",
+        "version": "559062ad13d311b87b2c455e67dcd5f1c8f65111",
+        "qualifiers": {
+          "repository_url": "https://hub-ci.huggingface.co"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: huggingface",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
+      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https:%2F%2Fhub-ci.huggingface.co",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test  for PURL type: huggingface",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "huggingface",
+        "namespace": "microsoft",
+        "name": "deberta-v3-base",
+        "version": "559062ad13d311b87b2c455e67dcd5f1c8f65111",
+        "qualifiers": {
+          "repository_url": "https://hub-ci.huggingface.co"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https:%2F%2Fhub-ci.huggingface.co",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}
