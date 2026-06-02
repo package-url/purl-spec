@@ -26,7 +26,7 @@ The specification-level tests are tests required to demonstrate conformance
 with [ECMA-427](https://ecma-tc54.github.io/ECMA-427/). 
   - [`specification-test.json`](https://github.com/package-url/purl-spec/blob/main/tests/spec/specification-test.json): This file contains a set of test cases that cover 
 testing the validity of PURL strings including separators between PURL components.
-  - There is a current proposal to move component-specific test files with the naming convention: <component-name>-test.json`
+  - There is a current proposal to add component-specific test files with the naming convention: <component-name>-test.json`
 - [`purl-spec/tests/types/`](https://github.com/package-url/purl-spec/tree/main/tests/types):
 This folder contains one JSON test file for each registered PURL **type**. 
 These tests are focused on test cases that are specific to a PURL type, such 
@@ -69,7 +69,7 @@ validation. The three PURL **test types** defined in the PURL test schema are:
 from an input of decoded PURL components.
 - 'parse': A test for the use case of parsing a PURL input string and creating
  a set of decoded PURL components.
-- `validation': A test for the use case of validatang that a PURL string input
+- `validation': A test for the use case of validating that a PURL string input
  complies with the core specification (ECMA-427) and the rules for its PURL 
  **type**. This **test type** was previously named 'roundtrip'.
 
@@ -78,12 +78,13 @@ The PURL test specification covers two levels of error handling and
 messages. 
 - **expected failure**: Each test case must specify `expected_failure` as a 
 boolean and it must provide the `expected_failure_reason` if `expected_failure`
-is true. This is the primary error message for a test case.
+is true. The `expected_failure_reason` is the primary error message for a test case
+and it should describe a specific reason for the failure - e.g. "PURL type input
+contains invalid character(s)."
 - **test message**: A `test_message` applies only for a test case where 
 `expected_failure` is false.
 
 #### Expected failures
-
 PURL test cases are pass/fail based on two properties from the PURL test 
 schema:
 - `expected_failure`
@@ -98,7 +99,6 @@ processed."
   - default: null
 
 #### Test messages
-
 In addition to the basic error handling a PURL test case may provide a message
 to provide additional information for a non-failure test for two use cases:
   - Provide advisory information beyond the core specification. This is most
@@ -143,7 +143,7 @@ PURL **failure reasons** and **test messages** are separate from
 set of decoded PURL components. If a test case includes normalization of test
 input required by the PURL specification, then the test case must include a
 `test_message` (`message_type: "update") that documents the normalization.
-- The `expected_output` for a failing test is null
+- The `expected_output` for a failing test is null.
 
 ## Summary of changes from PURL test schema v0.1
 - Removed **test group** in favor of one set of tests to focus on conformance 
@@ -152,6 +152,24 @@ with the PURL specification.
 - Added `test_message` as an object with 2 properties: 
   - `message_type` (enum) and 
   - `message_text` (string)
+
+## Action items
+- Create new PURL component level test files by extracting them from
+`tests/spec/specification-test.json`
+- Review and resolve the impact of changes to current PRs - most are listed
+at: [Upgrade PURL test suite](https://github.com/orgs/package-url/projects/10)
+- Contact maintainer of known PURL implementations (toolgrid) for feedback and
+impact analysis
+- Draft "How to create a PURL test case"
+
+## Open items
+The following proposed changes to the PURL test framework are not covered
+by this draft:
+- Defining a unique name for each test case (manual or generated)
+- Moving test cases to one file per test case
+
+
+
 
 
 
