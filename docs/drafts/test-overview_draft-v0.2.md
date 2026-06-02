@@ -153,12 +153,22 @@ with the PURL specification.
   - `message_type` (enum) and 
   - `message_text` (string)
 
+## Open questions
+- Do we really need two types of **test message**s?
+   - The only "normalization" required by the ECMA-427 1st edition appears to be:
+ Clause 5.6.1: "PURL parsers shall accept URLs where the scheme and colon ':'
+are followed by one or more slash '/' characters,  such as 'pkg://', and shall
+ignore and remove all such '/' characters." 
+   - If that is the case then we should be able to simplify the **test message**
+from an object to a string for the message (& possibly rename it) and
+devise some other way to deak with the normalization anomaly in Clause 5.6.1.
+
 ## Action items
 - Create new PURL component level test files by extracting them from
 `tests/spec/specification-test.json`
 - Review and resolve the impact of changes to current PRs - most are listed
 at: [Upgrade PURL test suite](https://github.com/orgs/package-url/projects/10)
-- Contact maintainer of known PURL implementations (toolgrid) for feedback and
+- Contact maintainers of known PURL implementations (toolgrid) for feedback and
 impact analysis
 - Draft "How to create a PURL test case"
 
@@ -167,11 +177,6 @@ The following proposed changes to the PURL test framework are not covered
 by this draft:
 - Defining a unique name for each test case (manual or generated)
 - Moving test cases to one file per test case
-
-
-
-
-
-
+- Adding an ABNF grammmar
 
 
