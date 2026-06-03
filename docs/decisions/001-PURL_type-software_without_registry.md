@@ -41,7 +41,7 @@ pkg:sid/<authority>/<component>@<version>?arch=<arch>&edition=<edition>&target=<
 | `arch`      | qualifiers       | Optional | CPU architecture the software was built for (e.g., `x86_64`, `arm64`).  |
 | `edition`   | qualifiers       | Optional | Specific edition of the product (e.g., `community`, `enterprise`).  |
 | `target`    | qualifiers      | Optional | Target software environment (e.g., `windows`, `java`, `android`). |
-| `locale`    | qualifiers       | Optional | Language of the software, expressed as an ISO 639-1 code (e.g., `en`) or a full BCP 47 language tag (e.g., `en-GB`). |
+| `locale`    | qualifiers       | Optional | Locale of the software, expressed as an ISO 639-1 code (e.g., `en`) or a full BCP 47 language tag with Extension U (RFC 6067) support (e.g., `en-GB`, `ja-JP-u-ca-japanese`). |
 |  | subpath | Optional | The subpath optionally identifies a specific module, subcomponent, or file within the broader software product. |
 
 ## The Namespace
@@ -139,14 +139,14 @@ they can be adopted by inventory, vulnerability, and compliance systems that
 currently rely on CPE naming conventions.
 
 | CPE Field     | **sid** PURL Equivalent        | Notes                                                                 |
-|---------------|-------------------------------|-----------------------------------------------------------------------|
+|---------------|--------------------------------|-----------------------------------------------------------------------|
 | `part`        | (implicit in PURL context)     | CPE uses `a` (application), `o` (OS), `h` (hardware); `scid` PURL assumes software |
 | `vendor`      | `authority    `                      | Domain of the publishing entity. For registry-based namespaces, the registered namespace serves as the authority. The optional publisher segment provides the human readable name.                   |
 | `product`     | `component`                     | Software project, product, or component name                                         |
 | `version`     | `version`                     | Version string                                                       |
 | `update`      | (not directly mapped)          | Could be embedded in `version` or excluded for simplicity            |
 | `edition`     | `edition` (qualifier)         | Directly mapped                                                      |
-| `language`    | `locale` (qualifier)          | `locale` supports ISO 639-1 and BCP 47                               |
+| `language`    | `locale` (qualifier)          | `locale` supports ISO 639-1 and BCP 47 with Extension U              |
 | `sw_edition`  | `edition` (qualifier)         | May be combined under `edition` in PURL                             |
 | `target_sw`   | `target` (qualifier)          | Target software environment (e.g., `java`, `windows`)               |
 | `target_hw`   | `arch` (qualifier)            | CPU architecture (e.g., `x86_64`, `arm64`)                           |
