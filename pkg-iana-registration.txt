@@ -29,8 +29,6 @@ Applications/protocols that use this scheme name:
   VulnerableCode: https://github.com/nexb/vulnerablecode
 The most current list is at: https://packageurl.org/docs/getting-started/toolgrid
 
-Encoding considerations: UTF-8
-
 Contact: Philippe Ombredanne <pombredanne&aboutcode.org>
 
 Change controller: AboutCode Europe ASBL <info&aboutcode.org)
