@@ -1,0 +1,40 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/nix-definition.json",
+  "type": "nix",
+  "type_name": "Nix",
+  "description": "Nix Packages",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://github.com/NixOS/nixpkgs"
+  },
+  "namespace_definition": {
+    "requirement": "required",
+    "case_sensitive": false,
+    "native_name": "origin",
+    "note": "The namespace is the source origin of the package such as nixpkgs, nixos-hardware etc."
+  },
+  "name_definition": {
+    "requirement": "required",
+    "case_sensitive": false,
+    "native_name": "attribute path",
+    "note": "The attribute path of the package within the nixpkgs package set."
+  },
+  "version_definition": {
+    "requirement": "optional",
+    "native_name": "version",
+    "note": "The upstream version of the nix package."
+  },
+  "qualifiers_definition": [
+    {
+      "key": "commit",
+      "requirement": "optional",
+      "native_name": "commit_hash",
+      "description": "The Git commit hash identifying the nixpkgs revision from which the package is evaluated."
+    }
+  ],
+  "examples": [
+    "pkg:nix/nixpkgs/haskellPackages._3d-graphics-examples@0.0.0.2",
+    "pkg:nix/nixpkgs/imlib2@1.12.6?commit=git:ea04e1fdd523987348c468e8cb53cc36c575d629"
+  ]
+}

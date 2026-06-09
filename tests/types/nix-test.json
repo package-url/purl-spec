@@ -1,0 +1,141 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "nix can be scoped. Roundtrip an input purl to canonical.",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:nix/nixpkgs/haskellPackages._3d-graphics-examples@0.0.0.2",
+      "expected_output": "pkg:nix/nixpkgs/haskellPackages._3d-graphics-examples@0.0.0.2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "nix can be scoped",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:nix/nixpkgs/haskellPackages._3d-graphics-examples@0.0.0.2",
+      "expected_output": {
+        "type": "nix",
+        "namespace": "nixpkgs",
+        "name": "haskellPackages._3d-graphics-examples",
+        "version": "0.0.2",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "nix can be scoped. Roundtrip a canonical input to canonical output.",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:nix/nixpkgs/haskellPackages._3d-graphics-examples@0.0.0.2",
+      "expected_output": "pkg:nix/nixpkgs/haskellPackages._3d-graphics-examples@0.0.0.2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "nix can be scoped",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "nix",
+        "namespace": "nixpkgs",
+        "name": "haskellPackages._3d-graphics-examples",
+        "version": "0.0.0.2",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:nix/nixpkgs/haskellPackages._3d-graphics-examples@0.0.0.2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: nix",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=git:ea04e1fdd523987348c468e8cb53cc36c575d629",
+      "expected_output": {
+        "type": "nix",
+        "namespace": "nixpkgs",
+        "name": "imlib2",
+        "version": "1.12.6",
+        "qualifiers": {
+          "commit": "git:ea04e1fdd523987348c468e8cb53cc36c575d629"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: nix",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=git:ea04e1fdd523987348c468e8cb53cc36c575d629",
+      "expected_output": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=git:ea04e1fdd523987348c468e8cb53cc36c575d629",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test for PURL type: nix",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "nix",
+        "namespace": "nixpkgs",
+        "name": "imlib2",
+        "version": "1.12.6",
+        "qualifiers": {
+          "commit": "git:ea04e1fdd523987348c468e8cb53cc36c575d629"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=git:ea04e1fdd523987348c468e8cb53cc36c575d629",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "nix can be scoped. Roundtrip an input purl to canonical.",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=git:ea04e1fdd523987348c468e8cb53cc36c575d629",
+      "expected_output": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=git:ea04e1fdd523987348c468e8cb53cc36c575d629",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid nix purl without version",
+      "test_group": "advanced",
+      "test_type": "parse",
+      "input": "pkg:nix/nixpkgs/zthrottle",
+      "expected_output": {
+        "type": "nix",
+        "namespace": "nixpkgs",
+        "name": "zthrottle",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid nix purl without version",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:nix/nixpkgs/zthrottle",
+      "expected_output": {
+        "type": "nix",
+        "namespace": "nixpkgs",
+        "name": "zthrottle",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}
