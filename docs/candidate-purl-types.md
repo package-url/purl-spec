@@ -28,7 +28,7 @@
 - ``melpa`` for Emacs packages
 - ``meteor`` for Meteor JavaScript packages
 - ``nim`` for Nim packages
-- ``nix`` for Nixos packages - See https://github.com/package-url/purl-spec/pull/877
+- ``nix`` for Nix packages - See https://github.com/package-url/purl-spec/pull/877
 - ``openwrt`` for OpenWRT packages
 - ``osgi`` for OSGi bundle packages
 - ``p2`` for Eclipse p2 packages - See https://github.com/package-url/purl-spec/pull/272
