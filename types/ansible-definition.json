@@ -53,7 +53,7 @@
     "pkg:ansible/cisco/aci@2.13.0",
     "pkg:ansible/community/general@6.0.0",
     "pkg:ansible/ansible/netcommon@5.1.0",
-    "pkg:ansible/redhat/rhel_system_roles@1.20.0?repository_url=console.redhat.com%2Fansible%2Fautomation-hub",
+    "pkg:ansible/redhat/rhel_system_roles@1.20.0?repository_url=https://console.redhat.com%2Fansible%2Fautomation-hub",
     "pkg:ansible/community/general@12.5.0?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fansible-collections%2Fcommunity.general.git%2C12.5.0",
     "pkg:ansible/custom/collection@2.0.0?download_url=https%3A%2F%2Fexample.com%2Fcustom-collection-2.0.0.tar.gz",
     "pkg:ansible/ansible/posix@1.5.4?packaging=rpm"
