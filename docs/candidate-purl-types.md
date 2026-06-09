@@ -28,7 +28,7 @@
 - ``melpa`` for Emacs packages
 - ``meteor`` for Meteor JavaScript packages
 - ``nim`` for Nim packages
-- ``nix`` for Nixos packages - See https://github.com/package-url/purl-spec/pull/314 
+- ``nix`` for Nixos packages - See https://github.com/package-url/purl-spec/pull/877
 - ``openwrt`` for OpenWRT packages
 - ``osgi`` for OSGi bundle packages
 - ``p2`` for Eclipse p2 packages - See https://github.com/package-url/purl-spec/pull/272
@@ -42,5 +42,5 @@
 - ``vagrant`` for Vagrant boxes
 - ``vcpkg`` for Microsoft vcpkg - See https://github.com/package-url/purl-spec/issues/217
 - ``vim`` for Vim scripts packages
-- ``winget`` for Windows Package Manager - See https://github.com/package-url/purl-spec/issues/255 
+- ``winget`` for Windows Package Manager - See https://github.com/package-url/purl-spec/issues/255
 - ``wordpress`` for Wordpress packages
