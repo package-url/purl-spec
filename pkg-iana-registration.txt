@@ -31,7 +31,7 @@ Applications/protocols that use this scheme name:
 
 Contact: Philippe Ombredanne <pombredanne&aboutcode.org>
 
-Change controller: nexB Inc. <info&aboutcode.org>
+Change controller: <e-TC54-TG2@ecma-international.org>
 
 References:
   Scheme specification: https://ecma-tc54.github.io/ECMA-427/
