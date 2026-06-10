@@ -12,13 +12,13 @@
     "requirement": "required",
     "case_sensitive": false,
     "native_name": "origin",
-    "note": "The namespace is the source origin of the package such as nixpkgs, nixos-hardware etc."
+    "note": "The namespace is the source origin of the package ecosystem, such as nixpkgs, nixos-hardware, or a custom flake name."
   },
   "name_definition": {
     "requirement": "required",
     "case_sensitive": true,
     "native_name": "attribute path",
-    "note": "The attribute path of the package within the nixpkgs package set."
+    "note": "The exact, case-sensitive attribute path of the package within the target package set."
   },
   "version_definition": {
     "requirement": "optional",
@@ -30,7 +30,7 @@
       "key": "commit",
       "requirement": "optional",
       "native_name": "commit_hash",
-      "description": "The Git commit hash identifying the nixpkgs revision from which the package is evaluated."
+      "description": "The Git commit hash (hexadecimal) identifying the exact revision of the origin repository from which the package is evaluated."
     }
   ],
   "examples": [
