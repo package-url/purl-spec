@@ -55,14 +55,14 @@
       "description": "Parse test for PURL type: nix",
       "test_group": "base",
       "test_type": "parse",
-      "input": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=git:ea04e1fdd523987348c468e8cb53cc36c575d629",
+      "input": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629",
       "expected_output": {
         "type": "nix",
         "namespace": "nixpkgs",
         "name": "imlib2",
         "version": "1.12.6",
         "qualifiers": {
-          "commit": "git:ea04e1fdd523987348c468e8cb53cc36c575d629"
+          "commit": "ea04e1fdd523987348c468e8cb53cc36c575d629"
         },
         "subpath": null
       },
@@ -73,8 +73,8 @@
       "description": "Roundtrip test for PURL type: nix",
       "test_group": "base",
       "test_type": "roundtrip",
-      "input": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=git:ea04e1fdd523987348c468e8cb53cc36c575d629",
-      "expected_output": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=git:ea04e1fdd523987348c468e8cb53cc36c575d629",
+      "input": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629",
+      "expected_output": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -88,11 +88,11 @@
         "name": "imlib2",
         "version": "1.12.6",
         "qualifiers": {
-          "commit": "git:ea04e1fdd523987348c468e8cb53cc36c575d629"
+          "commit": "ea04e1fdd523987348c468e8cb53cc36c575d629"
         },
         "subpath": null
       },
-      "expected_output": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=git:ea04e1fdd523987348c468e8cb53cc36c575d629",
+      "expected_output": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -100,8 +100,8 @@
       "description": "nix can be scoped. Roundtrip an input purl to canonical.",
       "test_group": "advanced",
       "test_type": "roundtrip",
-      "input": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=git:ea04e1fdd523987348c468e8cb53cc36c575d629",
-      "expected_output": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=git:ea04e1fdd523987348c468e8cb53cc36c575d629",
+      "input": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629",
+      "expected_output": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629",
       "expected_failure": false,
       "expected_failure_reason": null
     },

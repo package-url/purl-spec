@@ -35,6 +35,6 @@
   ],
   "examples": [
     "pkg:nix/nixpkgs/haskellPackages._3d-graphics-examples@0.0.0.2",
-    "pkg:nix/nixpkgs/imlib2@1.12.6?commit=git:ea04e1fdd523987348c468e8cb53cc36c575d629"
+    "pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629"
   ]
 }
