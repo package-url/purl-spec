@@ -1,0 +1,69 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "valid chrome purl (version: full)",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:chrome-extension/dncgedbnidfkppmdgfgidcepclnokpkb@6.0.2.3611",
+      "expected_output": "pkg:chrome-extension/dncgedbnidfkppmdgfgidcepclnokpkb@6.0.2.3611",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid chrome purl (version: short)",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:chrome-extension/kanfjhdeebkfgkbmnfknhejpadhlmiab@0.6",
+      "expected_output": "pkg:chrome-extension/kanfjhdeebkfgkbmnfknhejpadhlmiab@0.6",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid chrome purl (version: missing)",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:chrome-extension/dlpngalgnefjeiefhmpklpfiohadpglk",
+      "expected_output": "pkg:chrome-extension/dlpngalgnefjeiefhmpklpfiohadpglk",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+
+    {
+      "description": "invalid chrome purl (name: invalid characters)",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:chrome-extension/44444algnefjeiefhmpklpfiohadpglk",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "permitted_characters"
+    },
+    {
+      "description": "invalid chrome purl (name: wrong length)",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:chrome-extension/dogs",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "permitted_characters"
+    },
+    {
+      "description": "invalid chrome purl (version: too many segments)",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:chrome-extension/dlpngalgnefjeiefhmpklpfiohadpglk@1.2.3.4.5",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "permitted_characters"
+    },
+    {
+      "description": "invalid chrome purl (version: invalid characters)",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:chrome-extension/dlpngalgnefjeiefhmpklpfiohadpglk@1.2.3-beta",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "permitted_characters"
+    }
+  ]
+}
