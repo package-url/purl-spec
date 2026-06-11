@@ -3,7 +3,7 @@ Scheme name: pkg
 Status: Provisional
 
 Applications/protocols that use this scheme name:
-  This scheme is used to identify standard software identifiers in many applications and databases.
+  This scheme is used to provide standard software identifiers in many applications and databases.
   Protocols include:
   CVE (Common Vulnerability Enumeration): https://github.com/CVEProject/cve-schema/
   CycloneDX: https://github.com/CycloneDX/
@@ -16,4 +16,5 @@ Change controller: <e-TC54-TG2@ecma-international.org>
 
 References:
   Scheme specification: https://ecma-tc54.github.io/ECMA-427/
-  Security considerations: 
+  Security considerations: The underlying security consideration for PURLs is that they continue to resolve to the same packages over time. 
+  The key threat isn't in the PURL itself but in the repository/package system itself not being properly maintained.
