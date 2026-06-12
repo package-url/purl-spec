@@ -4,11 +4,14 @@ Status: Provisional
 
 Applications/protocols that use this scheme name:
   This scheme is used to provide standard software identifiers in many applications and databases.
-  Protocols include:
-  CVE (Common Vulnerability Enumeration): https://github.com/CVEProject/cve-schema/
-  CycloneDX: https://github.com/CycloneDX/
-  Open Source Vulnerability Schema: https://ossf.github.io/osv-schema/
+  It is standardized as ECMA-427. Its usage include:
+  CVE Schema (Common Vulnerability Enumeration) - https://github.com/CVEProject/cve-schema/
+  CycloneDX: ECMA-424 - https://github.com/CycloneDX/ 
+  OASIS Common Security Advisory Framework (CSAF) - ISO/IEC 20153:2025: https://www.csaf.io/specification/
   Software Package Data Exchange (SPDX) - ISO/IEC 5962:2021: https://spdx.org/
+  Common Lifecycle Enumeration (CLE) - ECMA-428: https://tc54.org/cle/
+  Open Source Vulnerability Schema - https://ossf.github.io/osv-schema/
+  OpenVEX Specification - https://openvex.dev
 
 Contact: Philippe Ombredanne <pombredanne&aboutcode.org>
 
