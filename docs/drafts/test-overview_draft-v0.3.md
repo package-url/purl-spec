@@ -136,6 +136,7 @@ with the PURL specification.
 - Should we remove **test** from the property names? This prefix seems 
 redundant in the context of the test schema, but it may be helpful in
 documentation that references test cases and other PURL data.
+- Should a **test message** have a type attribute- e.g. ERROR or INFO?
 - How do we handle testing for unregistered PURL **types**? When a PURL
 implementation tool processes a syntactically correct PURL string with an 
 unregistered PURL **type**, there should be a **test message** indicating that
@@ -160,9 +161,10 @@ impact analysis
 ## Open items
 The following proposed changes to the PURL test framework are not covered
 by this draft:
+- Adding the ABNF grammmar
 - Defining a unique name or id for each test case (manual or generated)
 - Moving test cases to one file per test case
-- Adding the ABNF grammmar
+- Defining a catalog of standard error messages
 
 ## Not in scope
 - This document does not provide specific guidance or instructions for creating
