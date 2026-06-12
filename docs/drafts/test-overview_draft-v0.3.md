@@ -59,7 +59,7 @@ validation should result in different types or enum values.
 ## Test cases
 The basic structure of a PURL test case is:
 - `test_description`: string
-- `test_type`: 'build', 'parse' or 'validation'
+- `test_type`: 'build', 'parse' or 'validate'
 - `test_input`: a PURL string or an object containing PURL components
 - `test_result`: string with an enum of: 'failure' or 'success'
 - `test_output`: a PURL string or an object containing PURL components
@@ -84,7 +84,7 @@ validation. The three PURL **test types** defined in the PURL test schema are:
 from an input of decoded PURL components.
 - 'parse': A test for the use case of parsing a PURL input string and creating
  a set of decoded PURL components.
-- `validation': A test for the use case of validating that a PURL string input
+- `validate': A test for the use case of validating that a PURL string input
  complies with the core specification (ECMA-427) and the rules for its PURL 
  **type**. This **test type** was previously named 'roundtrip'.
 
@@ -130,7 +130,7 @@ corresponding PURL **type** definition.
    - Renamed `expected_failure_reason` to `message`
 - Removed **test group** in favor of one set of tests to focus on conformance 
 with the PURL specification.
-- Renamed **test type** value 'roundtrip' to 'validation'.
+- Renamed **test type** value 'roundtrip' to 'validate'.
 
 ## Open questions
 - Should we remove **test** from the property names? This prefix seems 
