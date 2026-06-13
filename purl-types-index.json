@@ -36,6 +36,7 @@
   "rpm",
   "swid",
   "swift",
+  "vcpkg",
   "vscode-extension",
   "yocto"
 ]
