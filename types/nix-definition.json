@@ -1,0 +1,53 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/nix-definition.json",
+  "type": "nix",
+  "type_name": "Nix",
+  "description": "Nix Packages",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://github.com/NixOS/nixpkgs"
+  },
+  "namespace_definition": {
+    "requirement": "required",
+    "case_sensitive": false,
+    "native_name": "origin",
+    "note": "The namespace is the source origin of the package ecosystem, such as nixpkgs, nixos-hardware, or a custom flake name."
+  },
+  "name_definition": {
+    "requirement": "required",
+    "case_sensitive": true,
+    "native_name": "attribute path",
+    "note": "The exact, case-sensitive attribute path of the package within the target package set."
+  },
+  "version_definition": {
+    "requirement": "optional",
+    "native_name": "version",
+    "note": "The upstream version of the nix package."
+  },
+  "qualifiers_definition": [
+    {
+      "key": "commit",
+      "requirement": "optional",
+      "native_name": "commit_hash",
+      "description": "The Git commit hash (hexadecimal) identifying the exact revision of the origin repository from which the package is evaluated."
+    },
+    {
+      "key": "system",
+      "requirement": "optional",
+      "native_name": "system",
+      "description": "The target system architecture and operating system platform tuple for which the package is built (e.g., x86_64-linux, aarch64-darwin)."
+    },
+    {
+      "key": "output",
+      "requirement": "optional",
+      "native_name": "output",
+      "description": "The specific multi-output derivation name of the package (e.g., out, dev, lib, bin, man). Defaults to 'out' if omitted."
+    }
+  ],
+  "examples": [
+    "pkg:nix/nixpkgs/haskellPackages._3d-graphics-examples@0.0.0.2",
+    "pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629",
+    "pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629&system=x86_64-linux&output=dev"
+  ]
+}
