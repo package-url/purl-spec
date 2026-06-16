@@ -64,8 +64,8 @@ test cases should not duplicate specification- or component-level test cases.
 ## Test cases
 The basic structure of a PURL **test case** is:
 - `test_description`: string
-- `test_conformance:` boolean
-- `test_type`: 'build', 'parse' or 'validate'
+- `test_level:` 'spec'. 'type', or 'extra'
+- `test_type`: 'build', 'parse', or 'validate'
 - `test_input`: a PURL string or an object containing PURL components
 - `test_result`: 'failure' or 'success'
 - `test_output`: a PURL string or an object containing PURL components
@@ -83,25 +83,25 @@ message handling implemented by a PURL tool.
 The test description should describe the condition that is the subject of a 
 test case. It should be as specific as possible.
 
-### Test conformance
-The **test conformance** property defines whether a test case is intended to 
+### Test level
+The **test level** property defines whether and how a test case is intended to 
 demonstrate conformance with ECMA-427. 
-- A test case where **test_conformance** is true is intended to document
-conformance. Each test case shall document conformance 'success' or 'failure'
-using the related **test_result** property.
-- A test case where **test_conformance** is false is intended to document 
-common patterns in PURL data that will help PURL tools to recognize
-and possibly remediate non-canonical PURL data.
+- 'spec': A test case that demonstrates conformance with the core Package-URL
+specification (Clause 5 of ECMA-427).
+- 'type': A test case that demonstrates conformance with the PURL **type**
+definition (Clause 6 of ECMA-427) for a registered PURL **type**.
+- 'extra': A test case that is useful for PURL tools, but is not required
+for conformance.
 
 ### Test type
 PURL test cases are organized according to three **test types** that map 
 to typical implementation tool functionality - building, parsing, or 
 validation. The three PURL **test types** defined in the PURL test schema are:
-- 'build': A test for the use case of building a canonical PURL output string 
+- 'build': A test case for the use case of building a canonical PURL output string 
 from an input of decoded PURL components.
-- 'parse': A test for the use case of parsing a PURL input string and creating
+- 'parse': A test case for the use case of parsing a PURL input string and creating
  a set of decoded PURL components.
-- `validate': A test for the use case of validating that a PURL string input
+- `validate': A test case for the use case of validating that a PURL string input
  complies with the core specification (ECMA-427) and the rules for its PURL 
  **type**. This **test type** was previously named 'roundtrip'.
 
@@ -162,7 +162,7 @@ cases
 ## Open items
 
 ### Open questions
-- How do we handle testing for unregistered PURL **types**?
+- How do we handle testing related to unregistered PURL **types**?
    - This condition is logically a specification level test for the PURL 
    **type** component to check whether a PURL **type** is present in 
    `purl-types-index.json` at the time of the test.
