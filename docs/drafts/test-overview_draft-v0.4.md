@@ -87,11 +87,11 @@ test case. It should be as specific as possible.
 The **test conformance** property defines whether a test case is intended to 
 demonstrate conformance with ECMA-427. 
 - A test case where **test_conformance** is true is intended to document
-conformance. Each test can document conformance 'success' or 'failure'using
-the related **test_result** property.
+conformance. Each test case shall document conformance 'success' or 'failure'
+using the related **test_result** property.
 - A test case where **test_conformance** is false is intended to document 
 common patterns in PURL data that will help PURL tools to recognize
-and possibly remedidate non-canonical PURL data.
+and possibly remediate non-canonical PURL data.
 
 ### Test type
 PURL test cases are organized according to three **test types** that map 
@@ -107,36 +107,37 @@ from an input of decoded PURL components.
 
 ### Test input
 **Test input** may be a PURL string or an object containing PURL components.
-**Test input** does not need to be in canonical form, but a test with 
-non-canonical input shall fail a test case when **test conformance** is true.
+**Test input** does not need to be in canonical form, but a test case with 
+non-canonical input shall fail when **test conformance** is true unless 
+there is a normalization exception in ECMA-427.
 
 ### Test result
 The **test result** shall be 'failure' or 'success'.
-- If a **test result** is 'failure' then a **test message** explaining
+- If a **test result** is 'failure', then a **test message** explaining
 the failure is required.
-- If a **test result** is 'success' then a **test message** is optional.
+- If a **test result** is 'success', then a **test message** is optional.
 
 ### Test output
 **Test output** is either a canonical PURL string or an object containing
 a set of decoded PURL components.
-- If a **test result** is 'failure' then then the **test output** is null.
-- If a **test result** is "success' then the **test output** is required.
+- If a **test result** is 'failure', then the **test output** is null.
+- If a **test result** is "success', then the **test output** is required.
 
 ### Test message
 A **test message** is a string that provides information about the **test 
 result**.
-- If a **test result** is 'failure' then the **test message** is required
+- If a **test result** is 'failure', then the **test message** is required
 and should explain the reason for the 'failure'.
-- If a **test result** is "success' then the **test message** is optional. The 
+- If a **test result** is "success', then the **test message** is optional. The 
 typical reason for a **test message** in this case is to provide a warning or 
 other information about the **test_input**. Some examples are:
    - ECMA-427 mandates normalization of some **test input**. In this case, the
-messsage alerts a PURL tool that the **test intput** was not in canonical
+messsage alerts a PURL tool that the **test input** was not in canonical
 form even though the **test result** was 'success'.
-   - The **namespace** value from the **test input** is syntactically correct, 
-but it is not included in the list of **namespace** values enumerated in the 
+   - The **namespace** value from the **test input** is syntactically correct 
+but is not included in the list of **namespace** values enumerated in the 
 corresponding PURL **type** definition.
-   - A **key** value in **qualifiers** input is syntactically correct, but is 
+   - A **key** value in **qualifiers** input is syntactically correct but is 
 not included in the list of **qualifiers** values enumerated in the 
 corresponding PURL **type** definition.
 
