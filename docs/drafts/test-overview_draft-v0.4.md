@@ -8,9 +8,7 @@ conform to the PURL specification for core functions such as:
 - parse a PURL string into a set of PURL components
 - validate a PURL string
 
-The PURL test suite is intended to help a PURL implementation tool demonstrate
-conformance with the PURL specification. There are two distinct levels of test
-files in the test suite:
+There are two distinct levels of test files in the test suite:
 - Specification: These test files are based on the Core Specification which is 
 Clause 5 of [ECMA-427 1st edition](https://ecma-tc54.github.io/ECMA-427/). 
 The specification-level tests cover the canonical syntax for a PURL string and
