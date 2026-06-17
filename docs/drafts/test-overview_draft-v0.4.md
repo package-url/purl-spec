@@ -64,7 +64,7 @@ test cases should not duplicate specification- or component-level test cases.
 ## Test cases
 The basic structure of a PURL **test case** is:
 - `test_description`: string
-- `test_level:` 'spec'. 'type', or 'extra'
+- `test_level': 'core'. 'type', or 'extra'
 - `test_type`: 'build', 'parse', or 'validate'
 - `test_input`: a PURL string or an object containing PURL components
 - `test_result`: 'failure' or 'success'
@@ -86,7 +86,7 @@ test case. It should be as specific as possible.
 ### Test level
 The **test level** property defines whether and how a test case is intended to 
 demonstrate conformance with ECMA-427. 
-- 'spec': A test case that demonstrates conformance with the core Package-URL
+- 'core': A test case that demonstrates conformance with the core Package-URL
 specification (Clause 5 of ECMA-427).
 - 'type': A test case that demonstrates conformance with the PURL **type**
 definition (Clause 6 of ECMA-427) for a registered PURL **type**.
