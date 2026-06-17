@@ -150,7 +150,7 @@ validation should result in different types or enum values.
 
 ## Summary of changes from PURL test schema v0.1
 - Added prefix of "test_" to all property names for consistency
-- Replaced `test group` with `test_conformance`
+- Replaced `test group` with `test_level`
 - Renamed `test type` value 'roundtrip' to 'validate'
 - Renamed `expected_output` to `test_output`
 - Renamed `expected_failure` to `test_result` and redefined from a boolean to
