@@ -64,7 +64,7 @@ test cases should not duplicate specification- or component-level test cases.
 ## Test cases
 The basic structure of a PURL **test case** is:
 - `test_description`: string
-- `test_level': 'core'. 'type', or 'extra'
+- `test_level`: 'core'. 'type', or 'extra'
 - `test_type`: 'build', 'parse', or 'validate'
 - `test_input`: a PURL string or an object containing PURL components
 - `test_result`: 'failure' or 'success'
