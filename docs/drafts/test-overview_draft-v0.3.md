@@ -8,12 +8,25 @@ conform to the PURL specification for core functions such as:
 - parse a PURL string into a set of PURL components
 - validate a PURL string
 
+The PURL test suite is intended to help a PURL implementation tool demonstrate
+conformance with the PURL specification. There are two distinct levels of test
+files in the test suite:
+- Specification: This covers conformance with the Core Specification which is 
+Clause 5 of [ECMA-427 1st edition](https://ecma-tc54.github.io/ECMA-427/). 
+The specification-level tests cover the canonical syntax for a PURL string and
+for a set of PURL components. These tests may change with a new edition of
+ECMA-427.
+- PURL **types**: This covers conformance with the PURL **type** definitions 
+for the current set of registered PURL **types**. The structure of PURL 
+**types** is defined in Clause 6 and ANNEX A (JSON Schema) of ECMA-427, but
+the set of registered PURL **types** is dynamic as new PURL **types** are 
+approved or existing PURL **types** are updated.  
+
 ## Test files
 
 Each PURL test file is a collection of test cases whose structure is defined
 by the PURL test schema (a JSON Schema). The PURL test schema is not currently
-included in the [ECMA-427 1st edition](https://ecma-tc54.github.io/ECMA-427/) 
-PURL standard because it is still under active development.
+included in ECMA-427 because it is still under active development.
 
 See [PURL Tests](https://packageurl.org/docs/purl/schemas#purl-tests) for 
 details about the current PURL test schema.
@@ -23,7 +36,7 @@ The PURL test files are available at:
 This folder contains JSON test files that are for the core specification and 
 not for a specific PURL type. 
 The specification-level tests are tests required to demonstrate conformance 
-with [ECMA-427](https://ecma-tc54.github.io/ECMA-427/). 
+with ECMA-427. 
   - [`specification-test.json`](https://github.com/package-url/purl-spec/blob/main/tests/spec/specification-test.json): This file contains a set of test cases that cover 
 testing the validity of PURL strings including separators between PURL components.
   - There is a current proposal to add component-specific test files with the 
@@ -40,10 +53,13 @@ that throw exceptions or return typed results should return typed errors, i.e.
 a syntactically invalid PURL and a PURL input that fails PURL **type**-specific 
 validation should result in different types or enum values.
 
+### Considerations for PURL type tests
+
+
 ## Test cases
 The basic structure of a PURL test case is:
 - `test_description`: string
-- `test_type`: 'build', 'parse' or 'validation'
+- `test_type`: 'build', 'parse' or 'validate'
 - `test_input`: a PURL string or an object containing PURL components
 - `test_result`: string with an enum of: 'failure' or 'success'
 - `test_output`: a PURL string or an object containing PURL components
@@ -68,7 +84,7 @@ validation. The three PURL **test types** defined in the PURL test schema are:
 from an input of decoded PURL components.
 - 'parse': A test for the use case of parsing a PURL input string and creating
  a set of decoded PURL components.
-- `validation': A test for the use case of validating that a PURL string input
+- `validate': A test for the use case of validating that a PURL string input
  complies with the core specification (ECMA-427) and the rules for its PURL 
  **type**. This **test type** was previously named 'roundtrip'.
 
@@ -80,9 +96,9 @@ input shall fail.
 
 ### Test result
 The **test result** must be 'failure' or 'success'
-- If a **test result** is 'failure' then then a **test message** explaining
+- If a **test result** is 'failure' then a **test message** explaining
 the failure is required.
-- If a **test result** is "success' then a **test message** is optional.
+- If a **test result** is 'success' then a **test message** is optional.
 
 ### Test output
 **Test output** is either a canonical PURL string or an object containing
@@ -93,7 +109,7 @@ a set of decoded PURL components.
 ### Test message
 A **test message** is a string that provides information about the **test 
 result**.
-- If a **test result** is 'failure' then then the **test message** is required
+- If a **test result** is 'failure' then the **test message** is required
 and should explain the reason for the 'failure'.
 - If a **test result** is "success' then the **test message** is optional. The 
 typical reason for a **test message** in this case is to provide a "warning" 
@@ -102,9 +118,9 @@ Some examples are:
    - The **namespace** from the input is syntactically correct, but is not 
 included in the list of **namespace** values enumerated in the corresponding 
 PURL **type** definition.
-   - A **key** value in **qualifiers** input is syntactically correct, but is not
-included in the list of **qualifiers** values enumerated in the corresponding 
-PURL **type** definition.
+   - A **key** value in **qualifiers** input is syntactically correct, but is 
+not included in the list of **qualifiers** values enumerated in the 
+corresponding PURL **type** definition.
 
 ## Summary of changes from PURL test schema v0.1
 - Renamed test case properties to simpler names:
@@ -114,12 +130,22 @@ PURL **type** definition.
    - Renamed `expected_failure_reason` to `message`
 - Removed **test group** in favor of one set of tests to focus on conformance 
 with the PURL specification.
-- Renamed **test type** value 'roundtrip' to 'validation'.
+- Renamed **test type** value 'roundtrip' to 'validate'.
 
 ## Open questions
 - Should we remove **test** from the property names? This prefix seems 
-redundant in the context of this document but it may be helpful in other 
+redundant in the context of the test schema, but it may be helpful in
 documentation that references test cases and other PURL data.
+- Should a **test message** have a type attribute- e.g. ERROR or INFO?
+- How do we handle testing for unregistered PURL **types**? When a PURL
+implementation tool processes a syntactically correct PURL string with an 
+unregistered PURL **type**, there should be a **test message** indicating that
+the PURL **type** is not registered.
+   - This condition is logically a test at the level of the **type** PURL
+   component to check whether a PURL **type** is present in 
+   `purl-types-index.json` at the time of the test.
+   - This type of test does not seem to fit easily into the test case schema, 
+   because the list of registered PURL **types** is dynamic.
 
 ## Action items
 - Create new PURL component level test files by extracting them from
@@ -135,9 +161,10 @@ impact analysis
 ## Open items
 The following proposed changes to the PURL test framework are not covered
 by this draft:
+- Adding the ABNF grammmar
 - Defining a unique name or id for each test case (manual or generated)
 - Moving test cases to one file per test case
-- Adding the ABNF grammmar
+- Defining a catalog of standard error messages
 
 ## Not in scope
 - This document does not provide specific guidance or instructions for creating
