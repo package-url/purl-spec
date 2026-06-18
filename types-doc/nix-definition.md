@@ -41,12 +41,12 @@ The structure of a PURL for this package type is:
 
 | Key  | Requirement | Native name | Default Value | Description |
 |------|-------------|-------------|---------------|-------------|
-| commit | Optional | commit_hash |  | The Git commit hash (hexadecimal) identifying the exact revision of the origin repository from which the package is evaluated. |
-| system | Optional | system |  | The target system architecture and operating system platform tuple for which the package is built (e.g., x86_64-linux, aarch64-darwin). |
-| output | Optional | output |  | The specific multi-output derivation name of the package (e.g., out, dev, lib, bin, man). Defaults to 'out' if omitted. |
+| commit | Optional | commit_hash |  | The Git commit hash (hexadecimal) identifying the exact revision of the origin repository from which the package is evaluated. If omitted, evaluation falls back to the specified version field; if no version is provided, it defaults to the latest version of the package. |
+| system | Optional | system |  | The target system architecture and operating system platform tuple for which the package is built (e.g., x86_64-linux, aarch64-darwin). This qualifier is required to resolve system-specific binaries. |
+| output | Optional | output |  | The specific multi-output derivation name of the package (e.g., out, dev, lib, bin, man). This qualifier is dependent on 'system' for exact artifact mapping. Defaults to 'out' if omitted. |
 
 ## Examples
 
 - `pkg:nix/nixpkgs/haskellPackages._3d-graphics-examples@0.0.0.2`
-- `pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629`
-- `pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629&system=x86_64-linux&output=dev`
+- `pkg:nix/nixpkgs/imlib2@1.12.6?commit=49a4bd0573c376468dd7996ddb6f9fa31d8c4d97`
+- `pkg:nix/nixpkgs/imlib2@1.12.6?commit=49a4bd0573c376468dd7996ddb6f9fa31d8c4d97&system=x86_64-linux&output=dev`
