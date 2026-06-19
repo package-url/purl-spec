@@ -1,0 +1,23 @@
+Scheme name: pkg
+
+Status: Provisional
+
+Applications/protocols that use this scheme name:
+  This scheme is used to provide standard software identifiers in many applications and databases.
+  It is standardized as ECMA-427. Its usage include:
+  CVE Schema (Common Vulnerability Enumeration) - https://github.com/CVEProject/cve-schema/
+  CycloneDX: ECMA-424 - https://github.com/CycloneDX/ 
+  OASIS Common Security Advisory Framework (CSAF) - ISO/IEC 20153:2025: https://www.csaf.io/specification/
+  Software Package Data Exchange (SPDX) - ISO/IEC 5962:2021: https://spdx.org/
+  Common Lifecycle Enumeration (CLE) - ECMA-428: https://tc54.org/cle/
+  Open Source Vulnerability Schema - https://ossf.github.io/osv-schema/
+  OpenVEX Specification - https://openvex.dev
+
+Contact: Philippe Ombredanne <pombredanne&aboutcode.org>
+
+Change controller: <e-TC54-TG2@ecma-international.org>
+
+References:
+  Scheme specification: https://ecma-tc54.github.io/ECMA-427/
+  Security considerations: The underlying security consideration for PURLs is that they continue to resolve to the same packages over time. 
+  The key threat isn't in the PURL itself but in the repository/package system itself not being properly maintained.

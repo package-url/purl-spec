@@ -39,7 +39,8 @@ and the use of italics instead of intra-document links.
 The purpose of keeping a copy of the ECMA-427 text here is to make it easier
 to track any proposed changes to the PURL specification that will affect
 the ECMA-427 Standard. Any such changes need to be tracked and approved for
-a future 2nd edition of the ECMA-427 Standard.
+a future 2nd edition of the ECMA-427 Standard. The folder `docs/standard/2nd-edition`
+is for updates to existing files and new files for the 2nd edition.
 
 ## PURL specification documentation
 The other files in the `purl-spec/docs` folder are also specification 
