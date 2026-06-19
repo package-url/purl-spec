@@ -27,6 +27,12 @@
   },
   "qualifiers_definition": [
     {
+      "key": "flakeref",
+      "requirement": "optional",
+      "native_name": "flakeref",
+      "description": "The Nix Flake reference string specifying the source coordinates and transport scheme from which the package is evaluated (e.g., github:owner/repo, git+https://server.com/repo.git, or path:/local/dir)."
+    },
+    {
       "key": "commit",
       "requirement": "optional",
       "native_name": "commit_hash",
@@ -48,6 +54,8 @@
   "examples": [
     "pkg:nix/nixpkgs/haskellPackages._3d-graphics-examples@0.0.0.2",
     "pkg:nix/nixpkgs/imlib2@1.12.6?commit=49a4bd0573c376468dd7996ddb6f9fa31d8c4d97",
-    "pkg:nix/nixpkgs/imlib2@1.12.6?commit=49a4bd0573c376468dd7996ddb6f9fa31d8c4d97&system=x86_64-linux&output=dev"
+    "pkg:nix/nixpkgs/imlib2@1.12.6?commit=49a4bd0573c376468dd7996ddb6f9fa31d8c4d97&system=x86_64-linux&output=dev",
+    "pkg:nix/nixpkgs/ripgrep@14.1.0?flakeref=github:NixOS/nixpkgs/nixos-unstable",
+    "pkg:nix/hyprland/hyprland?flakeref=github:hyprwm/Hyprland&system=x86_64-linux&output=out"
   ]
 }

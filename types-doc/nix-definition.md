@@ -41,6 +41,7 @@ The structure of a PURL for this package type is:
 
 | Key  | Requirement | Native name | Default Value | Description |
 |------|-------------|-------------|---------------|-------------|
+| flakeref | Optional | flakeref |  | The Nix Flake reference string specifying the source coordinates and transport scheme from which the package is evaluated (e.g., github:owner/repo, git+https://server.com/repo.git, or path:/local/dir). |
 | commit | Optional | commit_hash |  | The Git commit hash (hexadecimal) identifying the exact revision of the origin repository from which the package is evaluated. If omitted, evaluation falls back to the specified version field; if no version is provided, it defaults to the latest version of the package. |
 | system | Optional | system |  | The target system architecture and operating system platform tuple for which the package is built (e.g., x86_64-linux, aarch64-darwin). This qualifier is required to resolve system-specific binaries. |
 | output | Optional | output |  | The specific multi-output derivation name of the package (e.g., out, dev, lib, bin, man). This qualifier is dependent on 'system' for exact artifact mapping. Defaults to 'out' if omitted. |
@@ -50,3 +51,5 @@ The structure of a PURL for this package type is:
 - `pkg:nix/nixpkgs/haskellPackages._3d-graphics-examples@0.0.0.2`
 - `pkg:nix/nixpkgs/imlib2@1.12.6?commit=49a4bd0573c376468dd7996ddb6f9fa31d8c4d97`
 - `pkg:nix/nixpkgs/imlib2@1.12.6?commit=49a4bd0573c376468dd7996ddb6f9fa31d8c4d97&system=x86_64-linux&output=dev`
+- `pkg:nix/nixpkgs/ripgrep@14.1.0?flakeref=github:NixOS/nixpkgs/nixos-unstable`
+- `pkg:nix/hyprland/hyprland?flakeref=github:hyprwm/Hyprland&system=x86_64-linux&output=out`
