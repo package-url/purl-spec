@@ -55,13 +55,14 @@ shall accept URLs where the scheme and colon ':' are followed by one or more
 slash '/' characters, such as 'pkg://', and shall ignore and remove all such '/' 
 characters." Note that other statements in Clause 5 that: "All leading and 
 trailing  slashes '/' are not significant and should be stripped in the 
-canonical form." are recommendations (should) not requirements (shall).
+canonical form." are recommendations (should), not requirements (shall).
 - At the PURL **type** level (Clause 6), some PURL **type** definitions 
-include normalization requirements in. If applicable these are documented in
+include normalization requirements. If applicable these are documented in
 two properties:
-- `case_sensitive`: "true if this PURL component is case sensitive. If false, 
-the canonical form shall be lowercased."
-- `normalization_requirements`: "List of rules to normalize this component for
+   - `case_sensitive`: "**true** if this PURL component is case sensitive. If 
+[**false**](https://github.com/aboutcode-org/aboutcode/issues/265), the 
+canonical form shall be lowercased."
+   - `normalization_requirements`: "List of rules to normalize this component for
 this PURL type. These are plain text, unstructured rules as some require 
 programming and cannot be enforced only with a schema. Tools are expected to 
 apply these rules programmatically." 
@@ -154,9 +155,9 @@ See also the Conformance section above.
 ### test_type
 There are three PURL **test types**:
 - 'build': A test case for the function of building a canonical PURL output 
-string from an input of decoded PURL components. See also [`/docs/how-build.md`](https://github.com/package-url/purl-spec/blob/main/docs/how-to-build.md).
+string from an input of decoded PURL components. See also [`/docs/how-to-build.md`](https://github.com/package-url/purl-spec/blob/main/docs/how-to-build.md).
 - 'parse': A test case for the function of parsing a PURL input string into 
-a set of decoded PURL components. See also [`/docs/how-parse.md`](https://github.com/package-url/purl-spec/blob/main/docs/how-to-parse.md).
+a set of decoded PURL components. See also [`/docs/how-to-parse.md`](https://github.com/package-url/purl-spec/blob/main/docs/how-to-parse.md).
 - 'roundtrip': A test case for the function of validating a PURL input
 string. The input is a PURL string (in canonical form or not) and the output
 is a PURL string in canonical form. A PURL tool may use a 'roundtrip' test
