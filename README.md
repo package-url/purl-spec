@@ -118,7 +118,7 @@ information in this repository as follows:
 
 - Markdown documentation, generated from each PURL type JSON
   definition at:
-  https://github.com/package-url/purl-spec/tree/main/types-doc
+  https://github.com/package-url/purl-spec/tree/main/docs/types/definitions
 
 - The JSON Index listing of all registered PURL types at:
   https://github.com/package-url/purl-spec/tree/main/purl-types-index.json
