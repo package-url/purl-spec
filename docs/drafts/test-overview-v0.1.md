@@ -7,7 +7,8 @@ defined in [ECMA-427](https://ecma-tc54.github.io/ECMA-427/) or in registered
 PURL **type** definitions
 - Help tools identify and fix common problems in PURL data
 
-The current PURL test schema is available at: [`purl-spec/schemas/purl-test.schema-0.1.json`](https://github.com/package-url/purl-spec/blob/main/schemas/purl-test.schema-0.1.json).
+The structure of test cases used in PURL test files is defined in a JSON 
+schema that is available at: https://packageurl.org/schemas/purl-test.schema-0.1.json.
 
 ## Conformance
 Since the primary goal for the PURL test suite is to help PURL tools achieve
@@ -25,10 +26,11 @@ which covers the structure of a PURL and:
    - Permitted and separator characters,
    - Character encoding and case folding, and
    - Rules for each PURL component.
-- [6 Package-URL Type Definition Schema](https://ecma-tc54.github.io/ECMA-427/#sec-purl-type-schema) which covers the definition of a PURL type but not
-the data for each PURL type because that data is evolving as new PURL types
-are registered (see Terminology below). Conformance with the PURL Standard 
-requires conformance with the currently registered PURL type definitions.
+- [6 Package-URL Type Definition Schema](https://ecma-tc54.github.io/ECMA-427/#sec-purl-type-schema) which covers the definition of a PURL **type** but not
+the data for each PURL **type** because that data is evolving as new PURL 
+**types** are registered (see Terminology below). Conformance with the PURL 
+Standard requires conformance with the currently registered PURL **type** 
+definitions.
 
 Other PURL documentation such as "How to build a PURL string from its 
 components" or "How to parse a PURL string into its components" is important 
@@ -53,22 +55,24 @@ canonical test output. The exceptions are:
 - At the core specification level (Clause 5), ECMA-427 says: "PURL parsers 
 shall accept URLs where the scheme and colon ':' are followed by one or more 
 slash '/' characters, such as 'pkg://', and shall ignore and remove all such '/' 
-characters." Note that other statements in Clause 5 that: "All leading and 
+characters." 
+
+   Note that other statements in Clause 5 that: "All leading and 
 trailing  slashes '/' are not significant and should be stripped in the 
-canonical form." are recommendations (should), not requirements (shall).
+canonical form." are recommendations ("should"), not requirements ("shall").
+
 - At the PURL **type** level (Clause 6), some PURL **type** definitions 
 include normalization requirements. If applicable these are documented in
 two properties:
-   - `case_sensitive`: "**true** if this PURL component is case sensitive. If 
-[**false**](https://github.com/aboutcode-org/aboutcode/issues/265), the 
-canonical form shall be lowercased."
-   - `normalization_requirements`: "List of rules to normalize this component for
-this PURL type. These are plain text, unstructured rules as some require 
+   - `case_sensitive`: "true if this PURL component is case sensitive. If 
+false, the canonical form shall be lowercased."
+   - `normalization_requirements`: "List of rules to normalize this component 
+for this PURL type. These are plain text, unstructured rules as some require 
 programming and cannot be enforced only with a schema. Tools are expected to 
 apply these rules programmatically." 
 
-   The PURL **type** definition for the **name** component of the 'pypi' PURL 
-type is an example of both normalization requirements.
+   The definition of the **name** component of the 'pypi' PURL **type** is an
+example of both normalization requirements.
 
 ## Terminology
 Some key terminology used in this document is:
@@ -92,16 +96,10 @@ canonical form. The test suite also includes "optional" test cases which are
 provided to help a PURL tool identify and possibly normalize or remediate 
 non-canonical PURL data.
 
-The PURL specification does not mandate how a PURL tool natively reports 
-the success or failure of a test. Implementation languages that throw 
-exceptions or return typed results should return typed errors, i.e.
-a syntactically invalid PURL and a PURL input that fails PURL **type**-specific 
-validation should result in different types or enum values.
-
 ## Test files
 
 Each PURL test file is a collection of test cases whose structure is defined
-by the [PURL test schema](https://github.com/package-url/purl-spec/blob/main/schemas/purl-test.schema-0.1.json). The PURL test schema is not currently
+by the PURL test schema. The PURL test schema is not currently
 included in the [ECMA-427 1st edition](https://ecma-tc54.github.io/ECMA-427/) 
 PURL standard because it is still under active development.
 The current PURL test schema is located at: https://packageurl.org/schemas/.
@@ -192,49 +190,12 @@ failure. It should be descriptive without duplicating the test case
 required.
 - If **expected failure** is false, then **expected failure reason** is null.
 
-## Open Issues
+The PURL specification does not mandate how a PURL tool natively reports 
+the success or failure of a test. Implementation languages that throw 
+exceptions or return typed results should return typed errors, i.e.
+a syntactically invalid PURL and a PURL input that fails PURL **type**-specific 
+validation should result in different types or enum values.
 
-### Test messages
-The terminology of the current v0.01 PURL test schema does not provide a
-logical way to provide a message in two important use cases:
-- When the PURL specification requires normalization of an **input**. This 
-applies only to the 'parse' and 'roundtrip' **test types**. It seems important
- to document that the input was not in canonical form even though the test 
- passed.
-- When an **input** contains an unregistered PURL **type**. This applies to
-all three **test types**. It seems important to document that a PURL **type** 
-is not registered because this means that the PURL **type** is effectively
-unknown across the tools and databases that implement PURL.
-
-A possible short-term solution could be to rename **expected failure reason**
-to **expected message** and update the specification documentation to explain
-when a message is expected beyond a failure. This would require a schema 
-change to rename the `expected_failure_reason` property to `expected_message`,
-but that should have a minimal impact on PURL tools that use the test suite. 
-
-### Create component-specific test files
-  There is a current proposal to:
-  - Create new component-specific test files 
-  with the naming convention: `<component-name>-test.json` under [`purl-spec/tests/spec/`](https://github.com/package-url/purl-spec/tree/main/tests/spec) and
-  - Move component-level test cases from [`specification-test.json`](https://github.com/package-url/purl-spec/blob/main/tests/spec/specification-test.json) to these
-   new files. 
-
-This would not require any change to the current PURL test schema.
-
-### Roundtrip vs validate test types
-The general meaning of a 'roundtrip' **test type** is to confirm that a PURL 
-tool can parse a canonical PURL into its components and then build a canonical
-PURL from those components - these functions are also known as deserialization
-and serialization. The need for 'roundtrip' test cases is not clear because by
-definition the input = the output and both are required to be in canonical 
-form.
-
-A better paradigm would be a 'validate' **test type** where the input PURL 
-string is not required to be in canonical form similar to the 'parse' **test 
-type** except that the output from a 'validate" test is a PURL string instead
-of a set of PURL components as the output from a 'parse' test. Changing the 
-name of the **test type** 'roundtrip' to 'validate' would be a useful change 
-and should not materially affect existing PURL tools.
 
 
 
