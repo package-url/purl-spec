@@ -184,10 +184,10 @@ according to the function defined by the **test type** ('build' 'parse' or
 'validate').
 
 ### expected_message
-**expected message** is either the reason that a test case results in a 
-failure or provides information about the result of the test case . It should 
+**expected message** either documents the reason that a test case results in a 
+failure or provides information about the result of the test case. It should 
 be descriptive without duplicating the test case **description**.
-- If **expected_failure** is true, then **expected message** is 
+- If **expected failure** is true, then **expected message** is 
 required.
 - If **expected failure** is false, then **expected message** is not required, 
 but is recommended in some cases. These cases include:
@@ -234,18 +234,18 @@ unknown across the tools and databases that implement PURL.
 ### Test types
 **Change**: Renamed **test type** 'roundtrip' to 'validate'.
 
-The general meaning of a "round-trip" test was to confirm that a PURL 
+The general meaning of a "roundtrip" test was to confirm that a PURL 
 tool can parse a canonical PURL into its components and then build a canonical
 PURL from those components - these functions are also known as deserialization
 and serialization. The former 'roundtrip' **test type** did not provide much 
 value because the output and are required to be the same - a PURL tool can 
-easily test this "round trip" behavior without a test case.
+easily test this "roundtrip" behavior without a test case.
 
 The 'validate' **test type** does not require the input PURL string to be in 
 canonical form. There is a high degree of similarity between the 'parse'
 and 'validate' **test types** in terms of the functions a PURL tool performs.
 The key difference is that the **expected output** from a 'parse' test case is
-a object composed of of decoded PURL components and the **expected output**
+an object composed of decoded PURL components and the **expected output**
 from a 'validate' test case is a PURL string.
 
 
