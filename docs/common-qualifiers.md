@@ -37,7 +37,7 @@ syntax or the SPDX specification for ["Package Download Location"](https://githu
 version. The primary use cases for this **qualifiers key** are to identify a 
 version range for dependency analysis or vulnerability reporting. Use of this 
 **key** is mutually exclusive with the **version** component. The **value** 
-must adhere to the [Version Range Specification](https://github.com/package-url/vers-spec/blob/main/VERSION-RANGE-SPEC.md).
+must adhere to the [Version Range Specification](https://packageurl.org/docs/vers/specification).
 
   For example:
 
