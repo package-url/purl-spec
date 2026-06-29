@@ -1,0 +1,52 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/vcpkg-definition.json",
+  "type": "vcpkg",
+  "type_name": "Vcpkg C/C++ packages",
+  "description": "Packages from the vcpkg C/C++ package manager.",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://github.com/microsoft/vcpkg/",
+    "note": "The absolute URL of the vcpkg registry where the package is available. If omitted, the default registry `https://github.com/microsoft/vcpkg` is assumed. For filesystem registries or [overlay ports](https://learn.microsoft.com/vcpkg/concepts/overlay-ports), the URL uses the `file` scheme."
+  },
+  "namespace_definition": {
+    "requirement": "prohibited"
+  },
+  "name_definition": {
+    "requirement": "required",
+    "native_name": "package-name",
+    "note": "The vcpkg package name."
+  },
+  "version_definition": {
+    "requirement": "optional",
+    "native_name": "package-version",
+    "note": "The vcpkg package version."
+  },
+  "qualifiers_definition": [
+    {
+      "key": "port_version",
+      "native_name": "port_version",
+      "requirement": "optional",
+      "description": "The vcpkg [port-version](https://learn.microsoft.com/vcpkg/reference/vcpkg-json#port-version). If omitted, the purl refers to port-version 0."
+    },
+    {
+      "key": "repository_revision",
+      "native_name": "repository_revision",
+      "requirement": "optional",
+      "description": "The full 40-character commit hash of the vcpkg registry. For git registries this corresponds to the registry `baseline` field in `vcpkg-configuration.json`. If omitted, the purl refers to the latest revision available."
+    },
+    {
+      "key": "triplet",
+      "native_name": "triplet",
+      "requirement": "optional",
+      "description": "The vcpkg [triplet](https://learn.microsoft.com/vcpkg/concepts/triplets) describing the target build configuration (architecture, operating system, and CRT/library linkage), for example `x64-windows` or `arm64-osx`. It describes the build target and does not affect package identity."
+    }
+  ],
+  "note": "A purl may carry extra qualifiers that describe the context in which the package is used, such as build configuration or platform. Parsers must tolerate these and may ignore any they do not expect. The `features` qualifier, a comma-separated list of enabled vcpkg feature names, records which optional features were enabled at build time; it is informational and not currently normative.",
+  "examples": [
+    "pkg:vcpkg/bzip2@1.0.8?port_version=6",
+    "pkg:vcpkg/ffmpeg@5.1.2?repository_url=https:%2F%2Fgithub.com%2Fazure-sdk%2Fvcpkg",
+    "pkg:vcpkg/llvm@15.0.7?repository_url=file:%2F%2F%2FC:%2Flocal-registry%2Fvcpkg",
+    "pkg:vcpkg/bzip2@1.0.8?port_version=6&repository_revision=84a143e4caf6b70db57f28d04c41df4a85c480fa&triplet=x64-linux"
+  ]
+}
