@@ -1,0 +1,46 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/brew-definition.json",
+  "type": "brew",
+  "type_name": "Homebrew",
+  "description": "Homebrew packages for macOS and Linux",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://formulae.brew.sh/",
+    "note": "The default repository is the Homebrew Formulae at https://formulae.brew.sh/. Homebrew also supports third-party taps (repositories) which can be specified using the namespace or repository_url qualifier."
+  },
+  "namespace_definition": {
+    "requirement": "optional",
+    "native_name": "tap",
+    "note": "The namespace is the Homebrew tap name, typically in the format 'owner/repo' (e.g., 'homebrew/core', 'some-org/some-tap'). When not specified, formulas are assumed to come from the default 'homebrew/core' tap."
+  },
+  "name_definition": {
+    "requirement": "required",
+    "native_name": "formula",
+    "case_sensitive": true,
+    "note": "The name is the Homebrew formula or cask name. Formula names containing '@' (used for versioned formulas like 'postgresql@12') must have the '@' character percent-encoded as '%40' in the PURL string."
+  },
+  "version_definition": {
+    "requirement": "optional",
+    "native_name": "version",
+    "note": "The version is the Homebrew package version. Versions are optional to support use cases where the latest or any available version is acceptable."
+  },
+  "qualifiers_definition": [
+    {
+      "key": "repository_url",
+      "description": "The git URL of the tap repository when using a non-default tap. For example, 'https://github.com/some-org/homebrew-some-tap.git'."
+    }
+  ],
+  "examples": [
+    "pkg:brew/sqlite@3.43.2",
+    "pkg:brew/go",
+    "pkg:brew/postgresql%4012@12.17",
+    "pkg:brew/homebrew/core/sqlite@3.43.2",
+    "pkg:brew/some-org/some-tap/some-app@1.2.3?repository_url=https://github.com/some-org/homebrew-some-tap.git"
+  ],
+  "reference_urls": [
+    "https://brew.sh/",
+    "https://formulae.brew.sh/",
+    "https://docs.brew.sh/Taps"
+  ]
+}
