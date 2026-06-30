@@ -1,0 +1,345 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "nix can be scoped. Roundtrip an input purl to canonical.",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:nix/nixpkgs/haskellPackages._3d-graphics-examples@0.0.0.2",
+      "expected_output": "pkg:nix/nixpkgs/haskellPackages._3d-graphics-examples@0.0.0.2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "nix can be scoped",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:nix/nixpkgs/haskellPackages._3d-graphics-examples@0.0.0.2",
+      "expected_output": {
+        "type": "nix",
+        "namespace": "nixpkgs",
+        "name": "haskellPackages._3d-graphics-examples",
+        "version": "0.0.2",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "nix can be scoped. Roundtrip a canonical input to canonical output.",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:nix/nixpkgs/haskellPackages._3d-graphics-examples@0.0.0.2",
+      "expected_output": "pkg:nix/nixpkgs/haskellPackages._3d-graphics-examples@0.0.0.2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "nix can be scoped",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "nix",
+        "namespace": "nixpkgs",
+        "name": "haskellPackages._3d-graphics-examples",
+        "version": "0.0.0.2",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:nix/nixpkgs/haskellPackages._3d-graphics-examples@0.0.0.2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: nix",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629",
+      "expected_output": {
+        "type": "nix",
+        "namespace": "nixpkgs",
+        "name": "imlib2",
+        "version": "1.12.6",
+        "qualifiers": {
+          "commit": "ea04e1fdd523987348c468e8cb53cc36c575d629"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: nix",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629",
+      "expected_output": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test for PURL type: nix",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "nix",
+        "namespace": "nixpkgs",
+        "name": "imlib2",
+        "version": "1.12.6",
+        "qualifiers": {
+          "commit": "ea04e1fdd523987348c468e8cb53cc36c575d629"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "nix can be scoped. Roundtrip an input purl to canonical.",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629",
+      "expected_output": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid nix purl without version",
+      "test_group": "advanced",
+      "test_type": "parse",
+      "input": "pkg:nix/nixpkgs/zthrottle",
+      "expected_output": {
+        "type": "nix",
+        "namespace": "nixpkgs",
+        "name": "zthrottle",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid nix purl without version",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:nix/nixpkgs/zthrottle",
+      "expected_output": {
+        "type": "nix",
+        "namespace": "nixpkgs",
+        "name": "zthrottle",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "nix can be scoped with system and output",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "nix",
+        "namespace": "nixpkgs",
+        "name": "imlib2",
+        "version": "0.0.0.2",
+        "qualifiers": {
+          "commit": "ea04e1fdd523987348c468e8cb53cc36c575d629",
+          "system": "x86_64-linux",
+          "output": "dev"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629&system=x86_64-linux&output=dev",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: nix, with system and output",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629&system=x86_64-linux&output=dev",
+      "expected_output": {
+        "type": "nix",
+        "namespace": "nixpkgs",
+        "name": "imlib2",
+        "version": "0.0.0.2",
+        "qualifiers": {
+          "commit": "ea04e1fdd523987348c468e8cb53cc36c575d629",
+          "system": "x86_64-linux",
+          "output": "dev"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: nix, with system and output",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629&system=x86_64-linux&output=dev",
+      "expected_output": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629&system=x86_64-linux&output=dev",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test for PURL type: nix, with system and output",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "nix",
+        "namespace": "nixpkgs",
+        "name": "imlib2",
+        "version": "1.12.6",
+        "qualifiers": {
+          "commit": "ea04e1fdd523987348c468e8cb53cc36c575d629"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "nix can be scoped. Roundtrip an input purl to canonical with qualifiers",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:nix/hyprland/hyprland?flakeref=github:hyprwm/Hyprland&system=x86_64-linux&output=out",
+      "expected_output": "pkg:nix/hyprland/hyprland?flakeref=github:hyprwm/Hyprland&system=x86_64-linux&output=out",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid nix purl with qualifiers",
+      "test_group": "advanced",
+      "test_type": "parse",
+      "input": "pkg:nix/hyprland/hyprland?flakeref=github:hyprwm/Hyprland&system=x86_64-linux&output=out",
+      "expected_output": {
+        "type": "nix",
+        "namespace": "hyprland",
+        "name": "hyprland",
+        "version": null,
+        "qualifiers": {
+          "flakeref": "github:hyprwm/Hyprland",
+          "system": "x86_64-linux",
+          "output": "out"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for PURL type: nix, with system, output and flakeref",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:nix/hyprland/hyprland?flakeref=github:hyprwm/Hyprland&system=x86_64-linux&output=out",
+      "expected_output": {
+        "type": "nix",
+        "namespace": "hyprland",
+        "name": "hyprland",
+        "version": null,
+        "qualifiers": {
+          "flakeref": "github:hyprwm/Hyprland",
+          "system": "x86_64-linux",
+          "output": "out"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: nix, with system, output and flakeref",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:nix/hyprland/hyprland?flakeref=github:hyprwm/Hyprland&system=x86_64-linux&output=out",
+      "expected_output": "pkg:nix/hyprland/hyprland?flakeref=github:hyprwm/Hyprland&system=x86_64-linux&output=out",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test for PURL type: nix, with system, output and flakeref",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "nix",
+        "namespace": "hyprland",
+        "name": "hyprland",
+        "version": null,
+        "qualifiers": {
+          "flakeref": "github:hyprwm/Hyprland",
+          "system": "x86_64-linux",
+          "output": "out"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:nix/hyprland/hyprland?flakeref=github:hyprwm/Hyprland&system=x86_64-linux&output=out",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "nix failed to parse: missing namespace",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:nix/haskellPackages._3d-graphics-examples@0.0.0.2",
+      "expected_output": {},
+      "expected_failure": true,
+      "expected_failure_reason": "Fails because namespace is missing"
+    },
+    {
+      "description": "nix failed to build: missing namespace",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "nix",
+        "namespace": "",
+        "name": "haskellPackages._3d-graphics-examples",
+        "version": "0.0.0.2",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "",
+      "expected_failure": true,
+      "expected_failure_reason": "Fails because namespace is missing"
+    },
+    {
+      "description": "nix can be scoped - namespace case insensitive",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:nix/niXPkgs/haskellPackages._3d-graphics-examples@0.0.0.2",
+      "expected_output": {
+        "type": "nix",
+        "namespace": "nixpkgs",
+        "name": "haskellPackages._3d-graphics-examples",
+        "version": "0.0.2",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test for PURL type: nix - namespace case insensitive",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "nix",
+        "namespace": "NIxpkgs",
+        "name": "imlib2",
+        "version": "1.12.6",
+        "qualifiers": {
+          "commit": "ea04e1fdd523987348c468e8cb53cc36c575d629"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:nix/nixpkgs/imlib2@1.12.6?commit=ea04e1fdd523987348c468e8cb53cc36c575d629",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}
