@@ -79,7 +79,7 @@ as defined in Python pip or SPDX download locations are not valid PURL types.
   They may be used as references in separate attributes outside of a PURL or
   in a PURL qualifier.
 
-  ## Permitted characters
+## Permitted characters
 
 A canonical PURL is composed of these permitted ASCII characters:
 

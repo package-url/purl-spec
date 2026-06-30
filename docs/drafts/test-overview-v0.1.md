@@ -1,4 +1,4 @@
-# PURL test overview
+# Package-URL test overview
 The Package-URL (PURL) specification provides a JSON Schema and test
 files to support language-neutral testing of PURL implementations. The 
 objectives for the PURL schema and test files are to:
@@ -54,10 +54,10 @@ Standard requires a PURL tool to normalize data elements in order to produce a
 canonical test output. The exceptions are:
 - At the core specification level (Clause 5), ECMA-427 says: "PURL parsers 
 shall accept URLs where the scheme and colon ':' are followed by one or more 
-slash '/' characters, such as 'pkg://', and shall ignore and remove all such 
-'/' characters." 
+slash '/' characters, such as 'pkg://', and shall ignore and remove all such '/' 
+characters." 
 
-  Note that other statements in Clause 5 that: "All leading and 
+   Note that other statements in Clause 5 that: "All leading and 
 trailing  slashes '/' are not significant and should be stripped in the 
 canonical form." are recommendations ("should"), not requirements ("shall").
 
@@ -195,3 +195,13 @@ the success or failure of a test. Implementation languages that throw
 exceptions or return typed results should return typed errors, i.e.
 a syntactically invalid PURL and a PURL input that fails PURL **type**-specific 
 validation should result in different types or enum values.
+
+
+
+
+
+
+
+
+
+
