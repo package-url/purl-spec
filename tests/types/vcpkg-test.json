@@ -1,0 +1,251 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "simple vcpkg purl",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vcpkg/bzip2@1.0.8",
+      "expected_output": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "bzip2",
+        "version": "1.0.8",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "vcpkg with port_version",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vcpkg/bzip2@1.0.8?port_version=6",
+      "expected_output": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "bzip2",
+        "version": "1.0.8",
+        "qualifiers": {
+          "port_version": "6"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "vcpkg non-default git registry",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vcpkg/ffmpeg@5.1.2?repository_url=https:%2F%2Fgithub.com%2Fazure-sdk%2Fvcpkg&port_version=3",
+      "expected_output": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "ffmpeg",
+        "version": "5.1.2",
+        "qualifiers": {
+          "repository_url": "https://github.com/azure-sdk/vcpkg",
+          "port_version": "3"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "vcpkg filesystem registry or overlay port",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vcpkg/llvm@15.0.7?repository_url=file:%2F%2F%2FC:%2Flocal-registry%2Fvcpkg&port_version=3",
+      "expected_output": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "llvm",
+        "version": "15.0.7",
+        "qualifiers": {
+          "repository_url": "file:///C:/local-registry/vcpkg",
+          "port_version": "3"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "vcpkg with additional qualifiers",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vcpkg/bzip2@1.0.8?port_version=6&repository_revision=84a143e4caf6b70db57f28d04c41df4a85c480fa&triplet=x64-linux",
+      "expected_output": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "bzip2",
+        "version": "1.0.8",
+        "qualifiers": {
+          "port_version": "6",
+          "repository_revision": "84a143e4caf6b70db57f28d04c41df4a85c480fa",
+          "triplet": "x64-linux"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "vcpkg namespace is prohibited; boost-asio is a single port name, not a namespace and name",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vcpkg/boost/asio@1.84.0",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a vcpkg purl with a namespace because vcpkg namespaces are prohibited"
+    },
+    {
+      "description": "vcpkg purl without a name",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vcpkg/@1.0.8",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a vcpkg purl without a name because the name is required"
+    },
+    {
+      "description": "vcpkg purl with only the type and no name",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vcpkg",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a vcpkg purl without a name because the name is required"
+    },
+    {
+      "description": "vcpkg build with a prohibited namespace",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "vcpkg",
+        "namespace": "boost",
+        "name": "asio",
+        "version": "1.84.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to build a vcpkg purl with a namespace because vcpkg namespaces are prohibited"
+    },
+    {
+      "description": "vcpkg build without a name",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": null,
+        "version": "1.0.8",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to build a vcpkg purl without a name because the name is required"
+    },
+    {
+      "description": "a trailing #6 is parsed as a subpath, not a port-version, which is why port_version is a qualifier",
+      "test_group": "advanced",
+      "test_type": "parse",
+      "input": "pkg:vcpkg/zlib@1.3.1#6",
+      "expected_output": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "zlib",
+        "version": "1.3.1",
+        "qualifiers": null,
+        "subpath": "6"
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "vcpkg purl with a features qualifier listing enabled features",
+      "test_group": "advanced",
+      "test_type": "parse",
+      "input": "pkg:vcpkg/curl@8.6.0?features=ssl%2Chttp2",
+      "expected_output": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "curl",
+        "version": "8.6.0",
+        "qualifiers": {
+          "features": "ssl,http2"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "vcpkg purl with a static-linkage triplet",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vcpkg/zlib@1.3.1?triplet=x64-windows-static",
+      "expected_output": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "zlib",
+        "version": "1.3.1",
+        "qualifiers": {
+          "triplet": "x64-windows-static"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "roundtrip a canonical vcpkg purl with a port_version",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:vcpkg/bzip2@1.0.8?port_version=6",
+      "expected_output": "pkg:vcpkg/bzip2@1.0.8?port_version=6",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "build a vcpkg purl with a port_version",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "bzip2",
+        "version": "1.0.8",
+        "qualifiers": {
+          "port_version": "6"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:vcpkg/bzip2@1.0.8?port_version=6",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "build a vcpkg purl without a port_version omits the qualifier",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "bzip2",
+        "version": "1.0.8",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:vcpkg/bzip2@1.0.8",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}
