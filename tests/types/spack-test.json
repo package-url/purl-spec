@@ -28,7 +28,7 @@
 	    "type": "spack",
 	    "namespace": null,
 	    "name": "gmake",
-	    "version": null,
+	    "version": "4.4.1",
 	    "qualifiers": {
 	      "sha": "os2kltnpbfyz7yxpdaoxtbzocsp223q3"
 	    },
