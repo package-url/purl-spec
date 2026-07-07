@@ -11,7 +11,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 The structure of a PURL for this package type is:
 
-    pkg:spack/<name>@<version>?<qualifiers>#<subpath>
+    pkg:spack/<namespace>/<name>@<version>?<qualifiers>#<subpath>
 
 ## Repository Information
 
@@ -21,8 +21,8 @@ The structure of a PURL for this package type is:
 
 ## Namespace definition
 
-- **Requirement:** Prohibited
-- **Note:** `spack packages do not use namespaces`
+- **Requirement:** Optional
+- **Note:** `The spack namespace as given by `spack find -N``
 
 ## Name definition
 

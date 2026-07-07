@@ -23,10 +23,10 @@
 	  "description": "Parse test for spack/gmake",
 	  "test_group": "base",
 	  "test_type": "parse",
-	  "input": "pkg:spack/gmake@4.4.1?sha=os2kltnpbfyz7yxpdaoxtbzocsp223q3",
+	  "input": "pkg:spack/builtin/gmake@4.4.1?sha=os2kltnpbfyz7yxpdaoxtbzocsp223q3",
 	  "expected_output": {
 	    "type": "spack",
-	    "namespace": null,
+	    "namespace": "builtin",
 	    "name": "gmake",
 	    "version": "4.4.1",
 	    "qualifiers": {
