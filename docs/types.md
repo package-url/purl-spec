@@ -19,7 +19,7 @@ of all currently registered purl types.
 
 - As Markdown documentation, generated from each PURL **type** JSON
   definition at:
-  https://github.com/package-url/purl-spec/tree/main/types-doc
+  https://github.com/package-url/purl-spec/tree/main/docs/types/definitions
 
 - In the JSON Index listing of all registered PURL types at:
   https://github.com/package-url/purl-spec/tree/main/purl-types-index.json
