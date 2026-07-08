@@ -238,7 +238,7 @@ The general meaning of a "roundtrip" test was to confirm that a PURL
 tool can parse a canonical PURL into its components and then build a canonical
 PURL from those components - these functions are also known as deserialization
 and serialization. The former 'roundtrip' **test type** did not provide much 
-value because the input and output and are required to be the same - a PURL tool
+value because the input and output are required to be the same - a PURL tool
 can easily test this "roundtrip" behavior without a test case.
 
 The 'validate' **test type** does not require the input PURL string to be in 
