@@ -1,32 +1,45 @@
 name: Check and generate PURL Type Docs and Index
 
+# --- Triggers ---------------------------------------------------------------
 on:
   push:
     paths:
-      - "types/*.json"
-      - "schemas/*.json"
-      - "etc/"
-      - ".github/workflows/generate-index-and-docs.yml"  # this file
+      - "types/**.json"      # any .json file in types/, at any depth
+      - "schemas/**.json"    # any .json file in schemas/, at any depth
     branches:
       - main
-  workflow_dispatch:
-# All permissions should be specified at the job level
-permissions: { }
+  workflow_dispatch:         # manual trigger — runnable against ANY branch/ref,
+                              # once this file exists on main at least once
+    inputs:
+      dry_run:
+        description: "Skip commit/push; upload generated output as an artifact instead"
+        type: boolean
+        default: true
+
+# Root permissions stay empty; each job grants only what it needs.
+permissions: {}
+
+# Prevents two runs from racing on the same git push if multiple qualifying
+# pushes land close together (e.g. two PRs merged back to back).
+concurrency:
+  group: generate-index-and-docs-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   generate-index-and-docs:
     runs-on: ubuntu-latest
+    timeout-minutes: 15       # guards against a runaway job pushing at 3am
     permissions:
-      contents: write
+      contents: write         # only this job gets write access, only for the push step
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
-          python-version: '3.x'
+          python-version: '3.10'  # matches datamodel-codegen --target-python-version in Makefile
 
       - name: Install dependencies
         run: make conf
@@ -37,10 +50,25 @@ jobs:
       - name: Generate index and docs
         run: make gendocs
 
+      # Only fires on a manual dispatch with dry_run=true. On real `push` events,
+      # `inputs.dry_run` is simply empty/false, so this step is skipped and the
+      # commit step below runs instead.
+      - name: Upload generated output for inspection (dry run only)
+        if: github.event_name == 'workflow_dispatch' && inputs.dry_run
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: generated-docs-preview
+          path: |
+            docs/types/definitions/
+            purl-types-index.json
+
+      # Skipped during a dry-run dispatch; runs on real pushes and on
+      # non-dry-run manual dispatches.
       - name: Commit and push changes
+        if: "!(github.event_name == 'workflow_dispatch' && inputs.dry_run)"
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add types/ types-doc/
+          git add docs/types/definitions/ purl-types-index.json
           git commit -s -m "Generate updated PURL type documentation" || echo "No changes to commit"
           git push
