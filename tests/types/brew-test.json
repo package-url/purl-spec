@@ -191,6 +191,31 @@
       "expected_failure_reason": null
     },
     {
+      "description": "Homebrew tap namespaces are not case sensitive",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:brew/Homebrew/Core/sqlite@3.43.2",
+      "expected_output": {
+        "type": "brew",
+        "namespace": "homebrew/core",
+        "name": "sqlite",
+        "version": "3.43.2",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Homebrew tap namespaces are not case sensitive. Roundtrip an input purl to canonical.",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:brew/Homebrew/Core/sqlite@3.43.2",
+      "expected_output": "pkg:brew/homebrew/core/sqlite@3.43.2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
       "description": "Homebrew formula with third-party tap and repository_url - parse",
       "test_group": "base",
       "test_type": "parse",

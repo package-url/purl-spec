@@ -23,7 +23,7 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Optional
 - **Native Label:** tap
-- **Note:** `The namespace is the Homebrew tap name, typically in the format 'owner/repo' (e.g., 'homebrew/core', 'some-org/some-tap'). When not specified, formulas are assumed to come from the default 'homebrew/core' tap.`
+- **Note:** `The namespace is the Homebrew tap name, typically in the format 'owner/repo' (e.g., 'homebrew/core', 'some-org/some-tap'). It is not case sensitive and must be lowercased. When not specified, formulas are assumed to come from the default 'homebrew/core' tap.`
 
 ## Name definition
 

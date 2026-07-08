@@ -12,7 +12,8 @@
   "namespace_definition": {
     "requirement": "optional",
     "native_name": "tap",
-    "note": "The namespace is the Homebrew tap name, typically in the format 'owner/repo' (e.g., 'homebrew/core', 'some-org/some-tap'). When not specified, formulas are assumed to come from the default 'homebrew/core' tap."
+    "case_sensitive": false,
+    "note": "The namespace is the Homebrew tap name, typically in the format 'owner/repo' (e.g., 'homebrew/core', 'some-org/some-tap'). It is not case sensitive and must be lowercased. When not specified, formulas are assumed to come from the default 'homebrew/core' tap."
   },
   "name_definition": {
     "requirement": "required",
