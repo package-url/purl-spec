@@ -1,0 +1,43 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/getit-definition.json",
+  "type": "getit",
+  "type_name": "GetIt",
+  "description": "Embarcadero GetIt Package Manager (Delphi & C++Builder)",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://getitnow.embarcadero.com/",
+    "note": "The repository itself is hosted on version specific REST servers, accessible via RAD Studio IDE or the CLI tool GetItCmd.exe."
+  },
+  "namespace_definition": {
+    "requirement": "prohibited",
+    "note": "GetIt packages do not use a namespace."
+  },
+  "name_definition": {
+    "case_sensitive": true,
+    "native_name": "Id",
+    "note": "The name corresponds to the unique identifier (Id) of the GetIt package."
+  },
+  "version_definition": {
+    "native_name": "version",
+    "note": "The version of the GetIt package as defined in the GetIt catalog."
+  },
+  "qualifiers_definition": [
+    {
+      "key": "platform",
+      "requirement": "optional",
+      "description": "Target platforms supported by the package (e.g., win32, win64, macos, linux, ios, android, none). Comma-separated if multiple."
+    },
+    {
+      "key": "category",
+      "requirement": "optional",
+      "description": "GetIt catalog category or categories (e.g., libraries, components, tools, ide-plugins, trial, promoted). Comma-separated if multiple."
+    }
+  ],
+  "examples": [
+    "pkg:getit/Abbrevia-12-64bit@2025.03",
+    "pkg:getit/Abbrevia-12-64bit@2025.03?platform=x86,x64&category=components",
+    "pkg:getit/GroqCloudAPIwrapper@1.0",
+    "pkg:getit/AWSSDKforDelphi-12-1.4.0@1.4.0?platform=x86,x64&category=libraries,promoted"
+  ]
+}
