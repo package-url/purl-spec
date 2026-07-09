@@ -28,7 +28,7 @@ The structure of a PURL for this package type is:
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** version
-- **Note:** `Technically the name is case-perserving, but case-insensitive, and NuGet packages archives are case-perserving, while some NuGet API calls demand to lowercase the package name.`
+- **Note:** `Technically the name is case-preserving, but case-insensitive, and NuGet packages archives are case-preserving, while some NuGet API calls demand to lowercase the package name.`
 
 ## Version definition
 
