@@ -49,7 +49,7 @@ The structure of a PURL for this package type is:
 - `pkg:brew/go`
 - `pkg:brew/postgresql%4012@12.17`
 - `pkg:brew/homebrew/core/sqlite@3.43.2`
-- `pkg:brew/some-org/some-tap/some-app@1.2.3?repository_url=https:%2F%2Fgithub.com%2Fsome-org%2Fhomebrew-some-tap.git`
+- `pkg:brew/some-org/some-tap/some-app@1.2.3?repository_url=https://github.com/some-org/homebrew-some-tap.git`
 
 ## Reference URLs
 
