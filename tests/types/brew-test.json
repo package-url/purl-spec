@@ -219,7 +219,7 @@
       "description": "Homebrew formula with third-party tap and repository_url - parse",
       "test_group": "base",
       "test_type": "parse",
-      "input": "pkg:brew/some-org/some-tap/some-app@1.2.3?repository_url=https://github.com/some-org/homebrew-some-tap.git",
+      "input": "pkg:brew/some-org/some-tap/some-app@1.2.3?repository_url=https:%2F%2Fgithub.com%2Fsome-org%2Fhomebrew-some-tap.git",
       "expected_output": {
         "type": "brew",
         "namespace": "some-org/some-tap",
@@ -237,7 +237,7 @@
       "description": "Homebrew formula with third-party tap and repository_url - roundtrip",
       "test_group": "base",
       "test_type": "roundtrip",
-      "input": "pkg:brew/some-org/some-tap/some-app@1.2.3?repository_url=https://github.com/some-org/homebrew-some-tap.git",
+      "input": "pkg:brew/some-org/some-tap/some-app@1.2.3?repository_url=https:%2F%2Fgithub.com%2Fsome-org%2Fhomebrew-some-tap.git",
       "expected_output": "pkg:brew/some-org/some-tap/some-app@1.2.3?repository_url=https:%2F%2Fgithub.com%2Fsome-org%2Fhomebrew-some-tap.git",
       "expected_failure": false,
       "expected_failure_reason": null
