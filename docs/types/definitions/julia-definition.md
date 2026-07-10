@@ -47,4 +47,4 @@ The structure of a PURL for this package type is:
 - `pkg:julia/Dates@1.9.0?uuid=ade2ca70-3891-5945-98fb-dc099432e06a`
 - `pkg:julia/Dates?uuid=ade2ca70-3891-5945-98fb-dc099432e06a`
 - `pkg:julia/RegisterQD@0.3.1?uuid=ac24ea0c-1830-11e9-18d4-81f172323054`
-- `pkg:julia/RegisterQD@0.3.1?uuid=ac24ea0c-1830-11e9-18d4-81f172323054&repository_url=https://github.com/HolyLab/HolyLabRegistry`
+- `pkg:julia/RegisterQD@0.3.1?uuid=ac24ea0c-1830-11e9-18d4-81f172323054&repository_url=https:%2F%2Fgithub.com%2FHolyLab%2FHolyLabRegistry`
