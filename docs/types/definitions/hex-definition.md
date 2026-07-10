@@ -40,4 +40,4 @@ The structure of a PURL for this package type is:
 - `pkg:hex/jason@1.1.2`
 - `pkg:hex/acme/foo@2.3.`
 - `pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js`
-- `pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com`
+- `pkg:hex/bar@1.2.3?repository_url=https:%2F%2Fmyrepo.example.com`
