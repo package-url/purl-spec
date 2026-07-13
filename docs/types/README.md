@@ -13,5 +13,3 @@ will often be similar to the content of a decision document.
    - Record of significant changes to a PURL **type**.
    - Guidance for how to construct or use a PURL **type** beyond the 
 information in the PURL **type** definition file (JSON) notes.
-
-This 
