@@ -65,6 +65,6 @@
     "pkg:cpan/URI-PackageURL?author=GDT",
     "pkg:cpan/libwww-perl@6.76?author=OALDERS",
     "pkg:cpan/DateTime@1.55?author=DROLSKY&repository_url=backpan.perl.org",
-    "pkg:cpan/Term-Gnuplot@0.90380906?distpath=authors/id/I/IL/ILYAZ/modules/Term-Gnuplot-0.90380906.zip"
+    "pkg:cpan/Term-Gnuplot@0.90380906?distpath=authors%2Fid%2FI%2FIL%2FILYAZ%2Fmodules%2FTerm-Gnuplot-0.90380906.zip"
   ]
 }
