@@ -19,7 +19,7 @@ issues or pull requests.}
 solution - preferably as a bulleted list or simple table.}
 
 ## Non-goals
-{Describe features or objectives that are outside the scope of this decision.]
+{Describe features or objectives that are outside the scope of this decision.}
 
 ## Alternatives Considered
 {Provide a succinct explanation of the primary alternatives that were 
