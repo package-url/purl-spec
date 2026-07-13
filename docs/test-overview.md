@@ -13,10 +13,11 @@ schema that is available at: https://packageurl.org/schemas/purl-test.schema-0.1
 ## Conformance
 Since the primary goal for the PURL test suite is to help PURL tools achieve
 and demonstrate conformance with the PURL specification, it is important to 
-state what we mean by conformance. Conformance is defined in [ECMA-427 Clause 2](https://ecma-tc54.github.io/ECMA-427/#sec-conformance). The summary is: "A conforming 
-implementation of Package-URL (PURL) shall fully implement and support all 
-elements defined within this Standard, including the syntax, components, and 
-semantic requirements for constructing and interpreting valid PURLs." 
+state what we mean by conformance. Conformance is defined in [ECMA-427 Clause 2](https://ecma-tc54.github.io/ECMA-427/#sec-conformance). 
+The summary is: "A conforming implementation of Package-URL (PURL) shall fully
+implement and support all elements defined within this Standard, including 
+the syntax, components, and semantic requirements for constructing and 
+interpreting valid PURLs." 
 
 The reference above to "this Standard" means the content of ECMA-427 which is
 the core PURL specification (but only part of the overall PURL specification).
@@ -26,7 +27,8 @@ which covers the structure of a PURL and:
    - Permitted and separator characters,
    - Character encoding and case folding, and
    - Rules for each PURL component.
-- [6 Package-URL Type Definition Schema](https://ecma-tc54.github.io/ECMA-427/#sec-purl-type-schema) which covers the definition of a PURL **type** but not
+- [6 Package-URL Type Definition Schema](https://ecma-tc54.github.io/ECMA-427/#sec-purl-type-schema) 
+which covers the definition of a PURL **type** but not
 the data for each PURL **type** because that data is evolving as new PURL 
 **types** are registered (see Terminology below). Conformance with the PURL 
 Standard requires conformance with the currently registered PURL **type** 
@@ -108,8 +110,8 @@ The PURL test files are currently organized in two primary subfolders:
 - [`purl-spec/tests/spec/`](https://github.com/package-url/purl-spec/tree/main/tests/spec) 
 This folder contains JSON test files that are for the core specification and 
 not for a specific PURL **type**. This folder currently contains one test 
-file: [`specification-test.json`](https://github.com/package-url/purl-spec/blob/main/tests/spec/specification-test.json). There may separate test files for each PURL 
-component in the future.
+file: [`specification-test.json`](https://github.com/package-url/purl-spec/blob/main/tests/spec/specification-test.json). 
+There may separate test files for each PURL component in the future.
 - [`purl-spec/tests/types/`](https://github.com/package-url/purl-spec/tree/main/tests/types):
 This folder contains one JSON test file for each registered PURL **type**. 
 These tests are focused on test cases that are specific to a PURL type, such 

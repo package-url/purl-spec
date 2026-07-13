@@ -46,4 +46,4 @@ The structure of a PURL for this package type is:
 
 - `pkg:luarocks/luasocket@3.1.0-1`
 - `pkg:luarocks/hisham/luafilesystem@1.8.0-1`
-- `pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/`
+- `pkg:luarocks/username/packagename@0.1.0-1?repository_url=https:%2F%2Fexample.com%2Fprivate_rocks_server%2F`
