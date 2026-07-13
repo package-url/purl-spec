@@ -29,8 +29,8 @@ These files map to ECMA-427 1st edition as follows:
 - Clause 5 Package-URL specification: `specification.md`
 - Clause 6 Package-URL Type Definition Schema: `type-definition-schema.md`
 
-The text in the `docs/standard/` files matches the official text with 
-the following exceptions:
+The text in the `docs/specification/standard` files matches the official text 
+with the following exceptions:
 - The text does not include the clause numbering from ECMA-427. This 
 numbering is automatically added by the Ecma tools for publishing an Ecma
 standard.
