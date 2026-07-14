@@ -45,7 +45,7 @@ The structure of a PURL for this package type is:
 ## Examples
 
 - `pkg:vscode-extension/ms-python/python@2023.25.10292213`
-- `pkg:vscode-extension/muhammad-sammy/csharp@2.15.30?repository_url=https://open-vsx.org`
+- `pkg:vscode-extension/muhammad-sammy/csharp@2.15.30?repository_url=https:%2F%2Fopen-vsx.org`
 - `pkg:vscode-extension/golang/go@0.39.1?platform=win32-x64`
 
 ## Reference URLs
