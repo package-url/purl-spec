@@ -93,7 +93,7 @@
             "recommended"
           ],
           "meta:enum": {
-            "required": "Test group for test case required for conformance with the PURL standard - ECMA-427.",
+            "required": "Test group for test cases required for conformance with the PURL standard - ECMA-427.",
             "recommended": "Test group for test cases recommended to identify common problems in PURL data and how to remediate or normalize them in order to pass 'required' tests."
           }
         },
@@ -181,8 +181,8 @@
           "then": {
             "properties": {
               "input": {
-                "title": "Expected output decoded PURL components",
-                "description": "Test output as an object of decoded PURL components, unless expected_failure=true.",
+                "title": "Expected input of decoded PURL components",
+                "description": "Test input as an object of decoded PURL components, unless expected_failure=true.",
                 "$ref": "#/definitions/purl_components"
               },
               "expected_output": {
@@ -274,8 +274,8 @@
           "then": {
             "properties": {
               "input": {
-                "title": "Expected output decoded PURL components",
-                "description": "Test output as an object of decoded PURL components, unless expected_failure=true.",
+                "title": "Expected input of  decoded PURL components",
+                "description": "Test input as an object of decoded PURL components, unless expected_failure=true.",
                 "$ref": "#/definitions/purl_components"
               }
             },
