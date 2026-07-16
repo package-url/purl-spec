@@ -16,7 +16,7 @@ The structure of a PURL for this package type is:
 ## Repository Information
 
 - **Use Repository:** Yes
-- **Default Repository URL:** https://https://chromewebstore.google.com/
+- **Default Repository URL:** https://chromewebstore.google.com/
 - **Note:** There is no documented API, only a sitemap and 'updatecheck' endpoints.
 
 ## Namespace definition
@@ -27,9 +27,9 @@ The structure of a PURL for this package type is:
 ## Name definition
 
 - **Requirement:** Required
-- **Permitted Characters:** `^[a-z]{32}$`
+- **Permitted Characters:** `^[a-p]{32}$`
 - **Native Label:** extension_id
-- **Note:** `The name is a 32 characters a-z and is case insensitive. This is not the same as the display name which is human readable and may vary with locale.`
+- **Note:** `The name is 32 characters in the range a-p (base16-encoded with letters instead of hex digits) and is case insensitive. This is not the same as the display name which is human readable and may vary with locale.`
 
 ## Version definition
 

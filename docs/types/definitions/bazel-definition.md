@@ -50,7 +50,7 @@ The structure of a PURL for this package type is:
 
 - `pkg:bazel/rules_java@7.8.0`
 - `pkg:bazel/curl@8.8.0.bcr.1`
-- `pkg:bazel/curl@8.8.0?repository_url=https://example.org/bazel-registry`
+- `pkg:bazel/curl@8.8.0?repository_url=https:%2F%2Fexample.org%2Fbazel-registry`
 - `pkg:bazel/rules_java@8.5.0#java/runfiles`
 - `pkg:bazel/rules_java@8.5.0#java/runfiles:runfiles`
 - `pkg:bazel/rules_go@0.48.0#go`

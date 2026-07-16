@@ -4,6 +4,7 @@
   "bazel",
   "bitbucket",
   "bitnami",
+  "brew",
   "cargo",
   "chrome-extension",
   "cocoapods",
