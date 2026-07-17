@@ -5,8 +5,8 @@
       "description": "pypi names have special rules and not case sensitive. Roundtrip an input purl to canonical.",
       "test_group": "advanced",
       "test_type": "roundtrip",
-      "input": "pkg:PYPI/Django_package@1.11.1.dev1",
-      "expected_output": "pkg:pypi/django-package@1.11.1.dev1",
+      "input": "pkg:pypi/My.PyPI_.--._Package@1.11.1.dev1",
+      "expected_output": "pkg:pypi/my-pypi-package@1.11.1.dev1",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -14,11 +14,11 @@
       "description": "pypi names have special rules and not case sensitive",
       "test_group": "base",
       "test_type": "parse",
-      "input": "pkg:PYPI/Django_package@1.11.1.dev1",
+      "input": "pkg:pypi/My.PyPI_.--._Package@1.11.1.dev1",
       "expected_output": {
         "type": "pypi",
         "namespace": null,
-        "name": "django-package",
+        "name": "my-pypi-package",
         "version": "1.11.1.dev1",
         "qualifiers": null,
         "subpath": null
@@ -30,8 +30,8 @@
       "description": "pypi names have special rules and not case sensitive. Roundtrip a canonical input to canonical output.",
       "test_group": "base",
       "test_type": "roundtrip",
-      "input": "pkg:pypi/django-package@1.11.1.dev1",
-      "expected_output": "pkg:pypi/django-package@1.11.1.dev1",
+      "input": "pkg:pypi/my-pypi-package@1.11.1.dev1",
+      "expected_output": "pkg:pypi/my-pypi-package@1.11.1.dev1",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -42,12 +42,12 @@
       "input": {
         "type": "pypi",
         "namespace": null,
-        "name": "django-package",
+        "name": "My.PyPI_.--._Package",
         "version": "1.11.1.dev1",
         "qualifiers": null,
         "subpath": null
       },
-      "expected_output": "pkg:pypi/django-package@1.11.1.dev1",
+      "expected_output": "pkg:pypi/my-pypi-package@1.11.1.dev1",
       "expected_failure": false,
       "expected_failure_reason": null
     },
