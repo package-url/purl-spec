@@ -15,6 +15,7 @@
   "cran",
   "deb",
   "docker",
+  "edge-extension",
   "gem",
   "generic",
   "github",
