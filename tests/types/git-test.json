@@ -14,7 +14,7 @@
       "description": "git namespace and name should be lowercased",
       "test_group": "base",
       "test_type": "parse",
-      "input": "pkg:git/codeberg.org/forgejo/forgejo/@a72d2c07cfca03b55371089de6aa230d8c951fa0",
+      "input": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0",
       "expected_output": {
         "type": "git",
         "namespace": "codeberg.org",
@@ -30,8 +30,8 @@
       "description": "git namespace and name should be lowercased. Roundtrip a canonical input to canonical output.",
       "test_group": "base",
       "test_type": "roundtrip",
-      "input": "pkg:git/codeberg.org/forgejo/forgejo/@a72d2c07cfca03b55371089de6aa230d8c951fa0",
-      "expected_output": "pkg:git/codeberg.org/forgejo/forgejo/@a72d2c07cfca03b55371089de6aa230d8c951fa0",
+      "input": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0",
+      "expected_output": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -47,7 +47,7 @@
         "qualifiers": null,
         "subpath": null
       },
-      "expected_output": "pkg:git/codeberg.org/forgejo/forgejo/@a72d2c07cfca03b55371089de6aa230d8c951fa0",
+      "expected_output": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -55,7 +55,7 @@
       "description": "Parse test for PURL type: git",
       "test_group": "base",
       "test_type": "parse",
-      "input": "pkg:git/codeberg.org/forgejo/forgejo/@a72d2c07cfca03b55371089de6aa230d8c951fa0",
+      "input": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0",
       "expected_output": {
         "type": "git",
         "namespace": "codeberg.org",
@@ -71,8 +71,8 @@
       "description": "Roundtrip test for PURL type: git",
       "test_group": "base",
       "test_type": "roundtrip",
-      "input": "pkg:git/codeberg.org/forgejo/forgejo/@a72d2c07cfca03b55371089de6aa230d8c951fa0",
-      "expected_output": "pkg:git/codeberg.org/forgejo/forgejo/@a72d2c07cfca03b55371089de6aa230d8c951fa0",
+      "input": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0",
+      "expected_output": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -88,7 +88,7 @@
         "qualifiers": null,
         "subpath": null
       },
-      "expected_output": "pkg:git/codeberg.org/forgejo/forgejo/@a72d2c07cfca03b55371089de6aa230d8c951fa0",
+      "expected_output": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -96,7 +96,7 @@
       "description": "Parse test for PURL type: git",
       "test_group": "base",
       "test_type": "parse",
-      "input": "pkg:git/codeberg.org/forgejo/forgejo/@a72d2c07cfca03b55371089de6aa230d8c951fa0#options/locale_readme.md",
+      "input": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0#options/locale_readme.md",
       "expected_output": {
         "type": "git",
         "namespace": "codeberg.org",
@@ -112,8 +112,8 @@
       "description": "Roundtrip test for PURL type: git",
       "test_group": "base",
       "test_type": "roundtrip",
-      "input": "pkg:git/codeberg.org/forgejo/forgejo/@a72d2c07cfca03b55371089de6aa230d8c951fa0#options/locale_readme.md",
-      "expected_output": "pkg:git/codeberg.org/forgejo/forgejo/@a72d2c07cfca03b55371089de6aa230d8c951fa0#options/locale_readme.md",
+      "input": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0#options/locale_readme.md",
+      "expected_output": "pkg:git/codeberg.org/forgejoforgejo/@a72d2c07cfca03b55371089de6aa230d8c951fa0#options/locale_readme.md",
       "expected_failure": false,
       "expected_failure_reason": null
     },
@@ -129,7 +129,7 @@
         "qualifiers": null,
         "subpath": "options/locale_readme.md"
       },
-      "expected_output": "pkg:git/codeberg.org/forgejo/forgejo/@a72d2c07cfca03b55371089de6aa230d8c951fa0#options/locale_readme.md",
+      "expected_output": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0#options/locale_readme.md",
       "expected_failure": false,
       "expected_failure_reason": null
     }
