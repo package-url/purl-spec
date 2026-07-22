@@ -40,7 +40,7 @@ The structure of a PURL for this package type is:
 
 ## Examples
 
-- `pkg:git/codeberg.org/forgejo/forgejo/@a72d2c07cfca03b55371089de6aa230d8c951fa0#options/locale_readme.md`
+- `pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0#options/locale_readme.md`
 - `pkg:git/cygwin.com/cgit/newlib-cygwin@6d049c54c3314da31d9ffac133a6a2f2dfecaac2`
 - `pkg:git/projects.blender.org/blender/blender.git`
 - `pkg:git/gitlab.gnome.org/GNOME/adwaita-fonts`
