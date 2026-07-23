@@ -50,9 +50,13 @@ a future 2nd edition of the ECMA-427 Standard.
 **NB:** Some files in the `docs` folder contain "front matter" that
 is used for publishing the content on the www.packageurl.org website. 
 The "front matter" layout is:
-| id | title | sidebar_label | hide_table_of_contents |
-| -- | ----- | ------------- | ---------------------- |
-|    |       |               |                        |
+
+|                        |       |
+| ---------------------- | ----- |
+| id                     |       |
+| title                  |       |
+| sidebar_label          |       |
+| hide_table_of_contents |       |
 			
 
 
