@@ -1,0 +1,35 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/spack-definition.json",
+  "type": "spack",
+  "type_name": "spack",
+  "description": "spack packages",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://github.com/spack/spack-packages",
+    "note": "The default repository for spack packages"
+  },
+  "namespace_definition": {
+    "requirement": "optional",
+    "note": "The spack namespace as given by `spack find -N`"
+  },
+  "name_definition": {
+    "requirement": "required",
+    "note": "The package's name"
+  },
+  "version_definition": {
+    "requirement": "optional",
+    "note": "The spack version using the standard spec syntax"
+  },
+  "qualifiers_definition": [
+    {
+      "key": "sha",
+      "requirement": "required",
+      "description": "The hash of the installation as given by 'spack find -l'"
+    }
+  ],
+  "examples": [
+    "pkg:spack/zlib?sha=u463uoum2lujbc2ug4fpbersp4jev2yl",
+	"pkg:spack/gmake@4.4.1?sha=os2kltnpbfyz7yxpdaoxtbzocsp223q3"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "Parse test for spack/zlib",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:spack/zlib?sha=u463uoum2lujbc2ug4fpbersp4jev2yl",
+      "expected_output": {
+        "type": "spack",
+        "namespace": null,
+        "name": "zlib",
+        "version": null,
+        "qualifiers": {
+          "sha": "u463uoum2lujbc2ug4fpbersp4jev2yl"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+	{
+	  "description": "Parse test for spack/gmake",
+	  "test_group": "base",
+	  "test_type": "parse",
+	  "input": "pkg:spack/builtin/gmake@4.4.1?sha=os2kltnpbfyz7yxpdaoxtbzocsp223q3",
+	  "expected_output": {
+	    "type": "spack",
+	    "namespace": "builtin",
+	    "name": "gmake",
+	    "version": "4.4.1",
+	    "qualifiers": {
+	      "sha": "os2kltnpbfyz7yxpdaoxtbzocsp223q3"
+	    },
+	    "subpath": null
+	  },
+	  "expected_failure": false,
+	  "expected_failure_reason": null
+	}
+  ]
+}
