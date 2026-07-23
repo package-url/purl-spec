@@ -162,8 +162,8 @@ The rules for each component are:
 ### Scheme
 - The **scheme** is a constant with the value "pkg".
 - The **scheme** shall be followed by an unencoded colon ':'.
-- PURL parsers shall accept URLs where the **scheme** and colon ':' are 
-followed by one or more slash '/' characters, such as 'pkg://', and shall
+- PURL parsers should accept URLs where the **scheme** and colon ':' are 
+followed by one or more slash '/' characters, such as 'pkg://', and should
 ignore and remove all such '/' characters.
 
 ### Type
