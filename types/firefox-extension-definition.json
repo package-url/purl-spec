@@ -1,0 +1,40 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/firefox-extension-definition.json",
+  "type": "firefox-extension",
+  "type_name": "Firefox Browser Extensions (Add-ons)",
+  "description": "Firefox Browser Extensions (add-ons), typically distributed through addons.mozilla.org (AMO). AMO exposes a documented public API where add-ons can be looked up by extension ID, and where previous versions of an add-on are listed and remain downloadable. See https://mozilla.github.io/addons-server/topics/api/addons.html",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://addons.mozilla.org",
+    "note": "An add-on can be queried at https://addons.mozilla.org/api/v5/addons/addon/<extension-id>/ and its versions at https://addons.mozilla.org/api/v5/addons/addon/<extension-id>/versions/. Extensions may also be signed by Mozilla and self-distributed outside of AMO, in which case there is no repository."
+  },
+  "namespace_definition": {
+    "requirement": "prohibited",
+    "note": "There is no namespace"
+  },
+  "name_definition": {
+    "native_name": "extension_id",
+    "requirement": "required",
+    "permitted_characters": "^([a-zA-Z0-9-._]*@[a-zA-Z0-9-._]+|\\{[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\\})$",
+    "case_sensitive": true,
+    "note": "The name is the extension ID set in the 'browser_specific_settings.gecko.id' key of manifest.json: either an email-like string of 80 characters or less (e.g. 'uBlock0@raymondhill.net') or a GUID enclosed in curly braces (e.g. '{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}'). This is the stable unique identifier of an add-on; it is not the same as the human-readable display name, nor the mutable AMO listing slug used in store page URLs. Because '@', '{' and '}' are not allowed as-is in a PURL name, they must be percent-encoded as %40, %7B and %7D in the PURL string. See https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings"
+  },
+  "version_definition": {
+    "native_name": "version",
+    "requirement": "optional",
+    "permitted_characters": "^\\d+(\\.\\d+){0,3}$",
+    "note": "The version is semver-like with 1 to 4 dot-separated numbers, as set in the 'version' key of manifest.json. addons.mozilla.org enforces this format for new submissions; a few older add-on versions predating this rule may not conform. When the version is omitted, the PURL references the latest version. See https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version"
+  },
+  "examples": [
+    "pkg:firefox-extension/uBlock0%40raymondhill.net@1.72.2",
+    "pkg:firefox-extension/%40testpilot-containers@8.3.8",
+    "pkg:firefox-extension/%7Bd10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d%7D@4.41.1",
+    "pkg:firefox-extension/uBlock0%40raymondhill.net"
+  ],
+  "reference_urls": [
+    "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings",
+    "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version",
+    "https://mozilla.github.io/addons-server/topics/api/addons.html"
+  ]
+}
