@@ -52,8 +52,8 @@ segment may sometimes look like a **host**, but its interpretation is specific
   - https://url.spec.whatwg.org/
 
 - A PURL is a valid URL because it is a locator even though it has no 
-Authority URL component: a default repository location may be defined for a 
-PURL type.
+  Authority URL component: a default repository location may be defined for a 
+  PURL type.
 
 - The PURL components are mapped to these URL components:
 
