@@ -52,8 +52,8 @@ segment may sometimes look like a **host**, but its interpretation is specific
   - https://url.spec.whatwg.org/
 
 - A PURL is a valid URL because it is a locator even though it has no 
-Authority URL component: each type has a default repository location when 
-defined.
+  Authority URL component: a default repository location may be defined for a 
+  PURL type.
 
 - The PURL components are mapped to these URL components:
 
@@ -72,8 +72,8 @@ defined.
   They may be used to reference URLs in separate attributes outside of a PURL
   or in a PURL qualifier.
 
-- Version control system (VCS) URLs such **git://**, **svn://**, **hg://** or 
-as defined in Python pip or SPDX download locations are not valid PURL types.
+- Version control system (VCS) URLs such as **git://**, **svn://**, **hg://** 
+  or as defined in Python pip or SPDX download locations are not valid PURL types.
   They are valid URL or URI schemes but they are not a valid PURL scheme.
   They are a closely related, compact and uniform way to reference VCS URLs.
   They may be used as references in separate attributes outside of a PURL or
