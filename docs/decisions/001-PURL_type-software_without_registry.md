@@ -158,8 +158,9 @@ system). Hardware identification (CPE part `h`) is out of scope. Established
 standards such as GS1 GMN and GTIN already serve that purpose.
 
 **NB**: This document replaces the core content of: https://github.com/package-url/purl-spec/issues/516.
-See the new Discussion item [Design for PURL type for software without a registry](https://github.com/package-url/purl-spec/discussions/841) for a recap of the commentary on issue 516 organized by topic. You can comment on each topic 
-there using the "threaded" comments feature of Discussions.
+See the new Discussion item [Design for PURL type for software without a registry](https://github.com/package-url/purl-spec/discussions/841) 
+for a recap of the commentary on issue 516 organized by topic. You can comment
+on each topic there using the "threaded" comments feature of Discussions.
 
 The original name for this proposed PURL **type** was 'sid' as an acronym for 
 "Software-ID". We changed the PURL **type** name to 'software-id' to make the 
