@@ -22,13 +22,13 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
-- **Note:** `The namespace must be lowercased.`
+- **Note:** `The namespace shall be lowercased.`
 
 ## Name definition
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
-- **Note:** `The name must be lowercased.`
+- **Note:** `The name shall be lowercased.`
 
 ## Version definition
 

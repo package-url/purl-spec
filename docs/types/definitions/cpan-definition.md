@@ -22,14 +22,14 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Optional
 - **Native Label:** CPAN author/publisher ID (CPANID)
-- **Note:** `When present, it represents the CPAN author/publisher ID (CPANID) and MUST be uppercase. It is appropriate to use 'namespace' for compatibility with existing CPAN purl producers/consumers or when a workflow explicitly requires author-scoped identifiers. For new identifiers, the 'author' qualifier is the preferred way to specify the author/publisher. When 'version' is omitted, author scoping via 'namespace' MAY be ambiguous because a distribution can change maintainers over time.`
+- **Note:** `When present, it represents the CPAN author/publisher ID (CPANID) and shall be uppercase. It is appropriate to use 'namespace' for compatibility with existing CPAN purl producers/consumers or when a workflow explicitly requires author-scoped identifiers. For new identifiers, the 'author' qualifier is the preferred way to specify the author/publisher. When 'version' is omitted, author scoping via 'namespace' MAY be ambiguous because a distribution can change maintainers over time.`
 
 ## Name definition
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** distribution name
-- **Note:** `The name is the distribution name and is case sensitive. A distribution name MUST NOT contain the string '::'`
+- **Note:** `The name is the distribution name and is case sensitive. A distribution name shall NOT contain the string '::'`
 
 ## Version definition
 
@@ -60,4 +60,4 @@ The structure of a PURL for this package type is:
 
 ## Note
 
-The PURL 'name' MUST be the CPAN distribution name (case sensitive) and MUST NOT contain the '::' separator (module name). The CPAN author/publisher ID (CPANID) is OPTIONAL: when needed, it SHOULD be provided using the 'author' qualifier. The PURL 'namespace' is OPTIONAL and, when present, represents the CPANID and MUST be uppercase; it MAY be used for compatibility with existing identifiers or tooling. When PURL 'version' is omitted, author scoping (via 'author' qualifier or 'namespace') MAY be ambiguous because a distribution can change maintainers over time.
+The PURL 'name' shall be the CPAN distribution name (case sensitive) and shall NOT contain the '::' separator (module name). The CPAN author/publisher ID (CPANID) is OPTIONAL: when needed, it SHOULD be provided using the 'author' qualifier. The PURL 'namespace' is OPTIONAL and, when present, represents the CPANID and shall be uppercase; it may be used for compatibility with existing identifiers or tooling. When PURL 'version' is omitted, author scoping (via 'author' qualifier or 'namespace') may be ambiguous because a distribution can change maintainers over time.
