@@ -28,7 +28,6 @@
       "expected_failure": false,
       "expected_failure_reason": null
     },
-
     {
       "description": "invalid chrome purl (name: invalid characters)",
       "test_group": "base",

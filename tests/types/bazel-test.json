@@ -21,7 +21,7 @@
         "name": "rules_java",
         "version": "7.8.0",
         "qualifiers": {
-          "repository_url":"https://bcr.bazel.build/"
+          "repository_url": "https://bcr.bazel.build/"
         },
         "subpath": null
       },

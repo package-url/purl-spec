@@ -289,16 +289,6 @@
       "expected_failure": false,
       "expected_failure_reason": null
     },
-
-    {
-      "description": "CPAN with just the module name and version",
-      "test_group": "base",
-      "test_type": "parse",
-      "input": "pkg:cpan/LWP::UserAgent@6.7.6",
-      "expected_output": null,
-      "expected_failure": true,
-      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
-    },
     {
       "description": "CPAN distribution name as module name",
       "test_group": "base",

@@ -94,6 +94,73 @@
       "expected_failure_reason": null
     },
     {
+      "description": "vcpkg with a vcs_url pinning the port git-tree in the default registry",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vcpkg/zlib@1.3.1?triplet=x64-linux&vcs_url=git%2Bhttps:%2F%2Fgithub.com%2Fmicrosoft%2Fvcpkg%40b5d3197b1a8a3f4c2d9e0f1a2b3c4d5e6f708192",
+      "expected_output": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "zlib",
+        "version": "1.3.1",
+        "qualifiers": {
+          "triplet": "x64-linux",
+          "vcs_url": "git+https://github.com/microsoft/vcpkg@b5d3197b1a8a3f4c2d9e0f1a2b3c4d5e6f708192"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "vcpkg from a non-default git registry with repository_url and a vcs_url git-tree",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:vcpkg/zlib@1.3.1?repository_url=https:%2F%2Fgithub.com%2Fazure-sdk%2Fvcpkg&triplet=x64-linux&vcs_url=git%2Bhttps:%2F%2Fgithub.com%2Fazure-sdk%2Fvcpkg%40b5d3197b1a8a3f4c2d9e0f1a2b3c4d5e6f708192",
+      "expected_output": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "zlib",
+        "version": "1.3.1",
+        "qualifiers": {
+          "repository_url": "https://github.com/azure-sdk/vcpkg",
+          "triplet": "x64-linux",
+          "vcs_url": "git+https://github.com/azure-sdk/vcpkg@b5d3197b1a8a3f4c2d9e0f1a2b3c4d5e6f708192"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "roundtrip a canonical vcpkg purl with triplet and vcs_url",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:vcpkg/zlib@1.3.1?triplet=x64-linux&vcs_url=git%2Bhttps:%2F%2Fgithub.com%2Fmicrosoft%2Fvcpkg%40b5d3197b1a8a3f4c2d9e0f1a2b3c4d5e6f708192",
+      "expected_output": "pkg:vcpkg/zlib@1.3.1?triplet=x64-linux&vcs_url=git%2Bhttps:%2F%2Fgithub.com%2Fmicrosoft%2Fvcpkg%40b5d3197b1a8a3f4c2d9e0f1a2b3c4d5e6f708192",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "build a vcpkg purl with triplet and vcs_url sorts qualifiers and encodes the vcs_url",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "vcpkg",
+        "namespace": null,
+        "name": "zlib",
+        "version": "1.3.1",
+        "qualifiers": {
+          "vcs_url": "git+https://github.com/microsoft/vcpkg@b5d3197b1a8a3f4c2d9e0f1a2b3c4d5e6f708192",
+          "triplet": "x64-linux"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:vcpkg/zlib@1.3.1?triplet=x64-linux&vcs_url=git%2Bhttps:%2F%2Fgithub.com%2Fmicrosoft%2Fvcpkg%40b5d3197b1a8a3f4c2d9e0f1a2b3c4d5e6f708192",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
       "description": "vcpkg namespace is prohibited; boost-asio is a single port name, not a namespace and name",
       "test_group": "base",
       "test_type": "parse",

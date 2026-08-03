@@ -20,9 +20,9 @@ The structure of a PURL for this package type is:
 
 ## Namespace definition
 
-- **Requirement:** Required
-- **Native Label:** CPAN ID of the author/publisher
-- **Note:** `It MUST be written uppercase and is required`
+- **Requirement:** Optional
+- **Native Label:** CPAN author/publisher ID (CPANID)
+- **Note:** `When present, it represents the CPAN author/publisher ID (CPANID) and MUST be uppercase. It is appropriate to use 'namespace' for compatibility with existing CPAN purl producers/consumers or when a workflow explicitly requires author-scoped identifiers. For new identifiers, the 'author' qualifier is the preferred way to specify the author/publisher. When 'version' is omitted, author scoping via 'namespace' MAY be ambiguous because a distribution can change maintainers over time.`
 
 ## Name definition
 
@@ -41,17 +41,23 @@ The structure of a PURL for this package type is:
 
 | Key  | Requirement | Native name | Default Value | Description |
 |------|-------------|-------------|---------------|-------------|
+| author | Optional |  |  | CPAN author/publisher ID (CPANID) |
+| distpath | Optional |  |  | Repository-relative path (not a URL) to the distribution archive or directory, typically under 'authors/id/...' |
 | repository_url | Optional |  |  | CPAN/MetaCPAN/BackPAN/DarkPAN repository base URL |
 | download_url | Optional |  |  | URL of package or distribution |
 | vcs_url | Optional |  |  | extra URL for a package version control system |
-| ext | Optional |  | tar.gz | file extension |
+| ext | Optional |  | tar.gz | distribution file extension |
 
 ## Examples
 
-- `pkg:cpan/GDT/URI-PackageURL`
-- `pkg:cpan/OALDERS/libwww-perl@6.76`
-- `pkg:cpan/DROLSKY/DateTime@1.55?repository_url=backpan.perl.org`
+- `pkg:cpan/perl@5.42`
+- `pkg:cpan/DBI@1.646`
+- `pkg:cpan/SBOM-CycloneDX`
+- `pkg:cpan/URI-PackageURL?author=GDT`
+- `pkg:cpan/libwww-perl@6.76?author=OALDERS`
+- `pkg:cpan/DateTime@1.55?author=DROLSKY&repository_url=backpan.perl.org`
+- `pkg:cpan/Term-Gnuplot@0.90380906?distpath=authors%2Fid%2FI%2FIL%2FILYAZ%2Fmodules%2FTerm-Gnuplot-0.90380906.zip`
 
 ## Note
 
-The previous CPAN PURL type specification allowed module names (e.g. URI::PackageURL) to be used as PURL 'name' while also omitting the PURL 'namespace'. The parser MUST emit an error when a module is specified as a PURL 'name' or detect '::' characters.
+The PURL 'name' MUST be the CPAN distribution name (case sensitive) and MUST NOT contain the '::' separator (module name). The CPAN author/publisher ID (CPANID) is OPTIONAL: when needed, it SHOULD be provided using the 'author' qualifier. The PURL 'namespace' is OPTIONAL and, when present, represents the CPANID and MUST be uppercase; it MAY be used for compatibility with existing identifiers or tooling. When PURL 'version' is omitted, author scoping (via 'author' qualifier or 'namespace') MAY be ambiguous because a distribution can change maintainers over time.
