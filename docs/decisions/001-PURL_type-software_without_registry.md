@@ -1,34 +1,33 @@
 ---
 status: proposed
-date: 2026-03-24
+date: 2026-07-28
 ---
 
-# Proposal: Add new PURL type **sid** (**S**oftware **ID**entification)
+# Proposal: Add new PURL type 'software-id'
 
 ## Background
 
-The current list of PURL types covers a wide range of package ecosystems. 
+The current list of PURL **types** covers a wide range of package ecosystems. 
 However, there remains a significant gap in the ability to identify 
-**non-ecosystem** software components, particularly **commercial**, 
-**proprietary**, and **standalone open source** software that is not 
+*non-ecosystem* software components, particularly *commercial*, 
+*proprietary*, and *standalone open source* software that is not 
 distributed through a package manager or authoritatively available on a 
-repository with a supported PURL type, such as GitHub.
+repository with a supported PURL **type**, such as GitHub.
 
 ## Proposal
 
-Introduce a new PURL type: **sid**, an acronym for **Software IDentification**, 
-pronounced /sɪd/.
+Introduce a new PURL **type**: 'software-id'.
 
-This PURL type is intended to cover:
-- **Standalone open source projects** (e.g., the Linux Kernel)
-- **Commercial and proprietary software** (e.g., Acme Database Server)
-- **Internally developed applications** that do not belong to a recognized 
+This PURL **type** is intended to cover:
+- *Standalone open source projects* (e.g., the Linux Kernel)
+- *Commercial and proprietary software* (e.g., Acme Database Server)
+- *Internally developed applications* that do not belong to a recognized 
 package ecosystem
-- **Binary-only or installable software** where no manifest-based or 
+- *Binary-only or installable software* where no manifest-based or 
 registry-driven packaging exists
 
 ```
-pkg:sid/<authority>/<component>@<version>?arch=<arch>&edition=<edition>&target=<target>&locale=<locale>
+pkg:software-id/<authority>/<component>@<version>?arch=<arch>&edition=<edition>&target=<target>&locale=<locale>
 ```
 
 ## Field Breakdown
@@ -46,10 +45,10 @@ pkg:sid/<authority>/<component>@<version>?arch=<arch>&edition=<edition>&target=<
 
 ## The Namespace
 
-The namespace for the **sid** PURL type requires an authority as the first 
-segment. Additional segments are optional and may represent any organizational 
-hierarchy such as the publisher name, business units, product lines, or 
-divisions.
+The namespace for the 'software-id' PURL **type** requires an authority as the 
+first segment. Additional segments are optional and may represent any 
+organizational hierarchy such as the publisher name, business units, product
+lines, or divisions.
 
 ---
 
@@ -90,15 +89,17 @@ making a separate publisher segment redundant in those cases.
 ### 3. Flexible Namespace Segments
 
 The namespace supports multiple slash separated segments beyond the domain and
- optional publisher. These additional segments allow organizations to 
- represent internal structure such as business units, product lines, or 
- divisions. The specification does not prescribe the meaning of these 
- segments. Their use and interpretation are determined by the publishing 
- entity. For example:
+optional publisher. These additional segments allow organizations to 
+represent internal structure such as business units, product lines, or 
+divisions. The specification does not prescribe the meaning of these 
+segments. Their use and interpretation are determined by the publishing 
+entity. For example:
 
 ```
-pkg:sid/acme.com/AcmeApplication@1.0.0
-pkg:sid/acme.com/Acme%20Robotics/robot-os@2.3.0 pkg:sid/acme.com/Acme%20Robotics/Industrial/motion-controller@4.1.0 pkg:sid/distributor.com/AcmeCorp/appsuite@1.0.0
+pkg:software-id/acme.com/AcmeApplication@1.0.0
+pkg:software-id/acme.com/Acme%20Robotics/robot-os@2.3.0 
+pkg:software-id/acme.com/Acme%20Robotics/Industrial/motion-controller@4.1.0 
+pkg:software-id/distributor.com/AcmeCorp/appsuite@1.0.0
 ```
 
 ---
@@ -106,12 +107,12 @@ pkg:sid/acme.com/Acme%20Robotics/robot-os@2.3.0 pkg:sid/acme.com/Acme%20Robotics
 ### 4. Disambiguation Through Domain
 
 For domain-qualified namespaces, organizations with identical or similar names
- are disambiguated by their domain. For example:
+are disambiguated by their domain. For example:
 
 ```
-pkg:sid/acme-industries.com/analytics-suite@5.2.1
-pkg:sid/acmerobotics.org/robot-os@2.3.0
-pkg:sid/foo/bar@4.2.1
+pkg:software-id/acme-industries.com/analytics-suite@5.2.1
+pkg:software-id/acmerobotics.org/robot-os@2.3.0
+pkg:software-id/foo/bar@4.2.1
 ```
 
 Both organizations may call themselves "Acme," but the domain provides clear 
@@ -124,7 +125,7 @@ registration process.
 
 ## Interoperable Successor to CPE
 
-One of the design goals of this PURL type is to enable interoperability 
+One of the design goals of this PURL **type** is to enable interoperability 
 with existing systems that utilize legacy identifiers such as CPE. While CPE 
 provides a structured method of identifying software, it suffers from 
 centralization, a rigid schema, and a heavy reliance on manual human curation.
@@ -133,12 +134,12 @@ environments where new software products, forks, and distributions emerge
 continuously. In contrast, the PURL format is inherently decentralized and 
 URI-friendly, enabling toolchains, vendors, and open source communities to 
 generate identifiers independently without requiring central registry 
-approval. Despite this shift, **sid** PURLs aim to retain semantic 
+approval. Despite this shift, 'software-id' PURLs aim to retain semantic 
 compatibility with CPE by using comparable fields and qualifiers, ensuring 
 they can be adopted by inventory, vulnerability, and compliance systems that 
 currently rely on CPE naming conventions.
 
-| CPE Field     | **sid** PURL Equivalent        | Notes                                                                 |
+| CPE Field     | 'software-id' PURL Equivalent        | Notes                                                                 |
 |---------------|-------------------------------|-----------------------------------------------------------------------|
 | `part`        | (implicit in PURL context)     | CPE uses `a` (application), `o` (OS), `h` (hardware); `scid` PURL assumes software |
 | `vendor`      | `authority    `                      | Domain of the publishing entity. For registry-based namespaces, the registered namespace serves as the authority. The optional publisher segment provides the human readable name.                   |
@@ -152,11 +153,18 @@ currently rely on CPE naming conventions.
 | `target_hw`   | `arch` (qualifier)            | CPU architecture (e.g., `x86_64`, `arm64`)                           |
 | `other`       | (not mapped)                  | Use additional PURL qualifiers           |
 
-**sid** PURLs align with CPE parts `a` (application) and `o` (operating 
+'software-id' PURLs align with CPE parts `a` (application) and `o` (operating 
 system). Hardware identification (CPE part `h`) is out of scope. Established 
 standards such as GS1 GMN and GTIN already serve that purpose.
 
 **NB**: This document replaces the core content of: https://github.com/package-url/purl-spec/issues/516.
-See the new Discussion item [Design for PURL type for software without a registry](https://github.com/package-url/purl-spec/discussions/841) for a recap of the commentary on issue 
-516 organized by topic. You can comment on each topic there using the "threaded"
-comments feature of Discussions.
+See the new Discussion item [Design for PURL type for software without a registry](https://github.com/package-url/purl-spec/discussions/841) 
+for a recap of the commentary on issue 516 organized by topic. You can comment
+on each topic there using the "threaded" comments feature of Discussions.
+
+The original name for this proposed PURL **type** was 'sid' as an acronym for 
+"Software-ID". We changed the PURL **type** name to 'software-id' to make the 
+PURL **type** name clear without a new acronym. In both cases there is some 
+potential for confusion with "SWID tags" which are already registered as the 
+'swid' PURL **type**, but using the full descriptive name should be less 
+confusing than 'sid' vs. 'swid' as PURL **type** names.
