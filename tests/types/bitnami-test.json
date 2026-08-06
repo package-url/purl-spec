@@ -1,9 +1,9 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.2.json",
   "tests": [
     {
       "description": "Parse test for PURL type: bitnami",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:bitnami/wordpress?distro=debian-12",
       "expected_output": {
@@ -17,20 +17,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for PURL type: bitnami",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:bitnami/wordpress?distro=debian-12",
       "expected_output": "pkg:bitnami/wordpress?distro=debian-12",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test  for PURL type: bitnami",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "bitnami",
@@ -44,11 +44,11 @@
       },
       "expected_output": "pkg:bitnami/wordpress?distro=debian-12",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Parse test for PURL type: bitnami",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:bitnami/wordpress@6.2.0?distro=debian-12",
       "expected_output": {
@@ -62,20 +62,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for PURL type: bitnami",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:bitnami/wordpress@6.2.0?distro=debian-12",
       "expected_output": "pkg:bitnami/wordpress@6.2.0?distro=debian-12",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test  for PURL type: bitnami",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "bitnami",
@@ -89,11 +89,11 @@
       },
       "expected_output": "pkg:bitnami/wordpress@6.2.0?distro=debian-12",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Parse test for PURL type: bitnami",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12",
       "expected_output": {
@@ -108,20 +108,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for PURL type: bitnami",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12",
       "expected_output": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test  for PURL type: bitnami",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "bitnami",
@@ -136,11 +136,11 @@
       },
       "expected_output": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=debian-12",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Parse test for PURL type: bitnami",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4",
       "expected_output": {
@@ -155,20 +155,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for PURL type: bitnami",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4",
       "expected_output": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test  for PURL type: bitnami",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "bitnami",
@@ -183,7 +183,7 @@
       },
       "expected_output": "pkg:bitnami/wordpress@6.2.0?arch=arm64&distro=photon-4",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     }
   ]
 }

@@ -1,18 +1,18 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.2.json",
   "tests": [
     {
       "description": "Ruby gems can use qualifiers. Roundtrip an input purl to canonical.",
-      "test_group": "advanced",
-      "test_type": "roundtrip",
+      "test_group": "recommended",
+      "test_type": "validate",
       "input": "pkg:gem/jruby-launcher@1.1.2?Platform=java",
       "expected_output": "pkg:gem/jruby-launcher@1.1.2?platform=java",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Ruby gems can use qualifiers",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:gem/jruby-launcher@1.1.2?Platform=java",
       "expected_output": {
@@ -26,20 +26,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Ruby gems can use qualifiers. Roundtrip a canonical input to canonical output.",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:gem/jruby-launcher@1.1.2?platform=java",
       "expected_output": "pkg:gem/jruby-launcher@1.1.2?platform=java",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Ruby gems can use qualifiers",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "gem",
@@ -53,11 +53,11 @@
       },
       "expected_output": "pkg:gem/jruby-launcher@1.1.2?platform=java",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Parse test for PURL type: gem",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:gem/ruby-advisory-db-check@0.12.4",
       "expected_output": {
@@ -69,20 +69,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for PURL type: gem",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:gem/ruby-advisory-db-check@0.12.4",
       "expected_output": "pkg:gem/ruby-advisory-db-check@0.12.4",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test  for PURL type: gem",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "gem",
@@ -94,11 +94,11 @@
       },
       "expected_output": "pkg:gem/ruby-advisory-db-check@0.12.4",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Parse test for PURL type: gem",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:gem/jruby-launcher@1.1.2?platform=java",
       "expected_output": {
@@ -112,20 +112,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for PURL type: gem",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:gem/jruby-launcher@1.1.2?platform=java",
       "expected_output": "pkg:gem/jruby-launcher@1.1.2?platform=java",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test  for PURL type: gem",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "gem",
@@ -139,7 +139,7 @@
       },
       "expected_output": "pkg:gem/jruby-launcher@1.1.2?platform=java",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     }
   ]
 }
