@@ -1,7 +1,7 @@
 ---
 id: test-overview
 title: PURL test overview
-sidebar_label: PURL test overview
+sidebar_label: Test overview
 hide_table_of_contents: false
 ---
 
