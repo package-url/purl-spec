@@ -1,9 +1,9 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.2.json",
   "tests": [
     {
       "description": "Simple Homebrew formula with version",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:brew/sqlite@3.43.2",
       "expected_output": {
@@ -15,20 +15,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Simple Homebrew formula with version - roundtrip",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:brew/sqlite@3.43.2",
       "expected_output": "pkg:brew/sqlite@3.43.2",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Simple Homebrew formula with version - build",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "brew",
@@ -40,11 +40,11 @@
       },
       "expected_output": "pkg:brew/sqlite@3.43.2",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Homebrew formula names are not case sensitive",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:brew/SQLite@3.43.2",
       "expected_output": {
@@ -56,20 +56,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Homebrew formula names are not case sensitive. Roundtrip an input purl to canonical.",
-      "test_group": "advanced",
-      "test_type": "roundtrip",
+      "test_group": "recommended",
+      "test_type": "validate",
       "input": "pkg:brew/SQLite@3.43.2",
       "expected_output": "pkg:brew/sqlite@3.43.2",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Homebrew formula without version (versionless purl)",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:brew/go",
       "expected_output": {
@@ -81,20 +81,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Homebrew formula without version - roundtrip",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:brew/go",
       "expected_output": "pkg:brew/go",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Homebrew formula without version - build",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "brew",
@@ -106,11 +106,11 @@
       },
       "expected_output": "pkg:brew/go",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Versioned formula with @ in name (postgresql@12) - @ must be percent-encoded",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:brew/postgresql%4012@12.17",
       "expected_output": {
@@ -122,20 +122,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Versioned formula with @ in name - roundtrip",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:brew/postgresql%4012@12.17",
       "expected_output": "pkg:brew/postgresql%4012@12.17",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Versioned formula with @ in name - build",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "brew",
@@ -147,11 +147,11 @@
       },
       "expected_output": "pkg:brew/postgresql%4012@12.17",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Homebrew formula with namespace (tap) - parse",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:brew/homebrew/core/sqlite@3.43.2",
       "expected_output": {
@@ -163,20 +163,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Homebrew formula with namespace (tap) - roundtrip",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:brew/homebrew/core/sqlite@3.43.2",
       "expected_output": "pkg:brew/homebrew/core/sqlite@3.43.2",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Homebrew formula with namespace (tap) - build",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "brew",
@@ -188,11 +188,11 @@
       },
       "expected_output": "pkg:brew/homebrew/core/sqlite@3.43.2",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Homebrew tap namespaces are not case sensitive",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:brew/Homebrew/Core/sqlite@3.43.2",
       "expected_output": {
@@ -204,20 +204,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Homebrew tap namespaces are not case sensitive. Roundtrip an input purl to canonical.",
-      "test_group": "advanced",
-      "test_type": "roundtrip",
+      "test_group": "recommended",
+      "test_type": "validate",
       "input": "pkg:brew/Homebrew/Core/sqlite@3.43.2",
       "expected_output": "pkg:brew/homebrew/core/sqlite@3.43.2",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Homebrew formula with third-party tap and repository_url - parse",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:brew/some-org/some-tap/some-app@1.2.3?repository_url=https:%2F%2Fgithub.com%2Fsome-org%2Fhomebrew-some-tap.git",
       "expected_output": {
@@ -231,20 +231,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Homebrew formula with third-party tap and repository_url - roundtrip",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:brew/some-org/some-tap/some-app@1.2.3?repository_url=https:%2F%2Fgithub.com%2Fsome-org%2Fhomebrew-some-tap.git",
       "expected_output": "pkg:brew/some-org/some-tap/some-app@1.2.3?repository_url=https:%2F%2Fgithub.com%2Fsome-org%2Fhomebrew-some-tap.git",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Homebrew formula with third-party tap and repository_url - build",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "brew",
@@ -258,20 +258,20 @@
       },
       "expected_output": "pkg:brew/some-org/some-tap/some-app@1.2.3?repository_url=https:%2F%2Fgithub.com%2Fsome-org%2Fhomebrew-some-tap.git",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Versioned formula with unencoded @ should parse (advanced)",
-      "test_group": "advanced",
-      "test_type": "roundtrip",
+      "test_group": "recommended",
+      "test_type": "validate",
       "input": "pkg:brew/node@20@20.10.0",
       "expected_output": "pkg:brew/node%4020@20.10.0",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Homebrew cask example",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:brew/homebrew/cask/firefox@120.0",
       "expected_output": {
@@ -283,16 +283,16 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Homebrew cask example - roundtrip",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:brew/homebrew/cask/firefox@120.0",
       "expected_output": "pkg:brew/homebrew/cask/firefox@120.0",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     }
   ]
 }
