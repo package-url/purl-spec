@@ -17,6 +17,7 @@
   "docker",
   "gem",
   "generic",
+  "git",
   "github",
   "golang",
   "hackage",
