@@ -36,7 +36,7 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Optional
 - **Native Label:** model revision Git commit hash
-- **Note:** `The version is the model revision Git commit hash. It is case insensitive and must be lowercased in the package URL.`
+- **Note:** `The version is the model revision Git commit hash. It is case insensitive and shall be lowercased in the package URL.`
 
 ## Examples
 

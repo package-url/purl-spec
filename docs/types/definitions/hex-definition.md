@@ -22,13 +22,13 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Optional
 - **Native Label:** organization for private packages
-- **Note:** `The namespace is optional; it may be used to specify the organization for private packages on hex.pm. It is not case sensitive and must be lowercased.`
+- **Note:** `The namespace is optional; it may be used to specify the organization for private packages on hex.pm. It is not case sensitive and shall be lowercased.`
 
 ## Name definition
 
 - **Requirement:** Required
 - **Native Label:** name
-- **Note:** `The name is not case sensitive and must be lowercased.`
+- **Note:** `The name is not case sensitive and shall be lowercased.`
 
 ## Version definition
 

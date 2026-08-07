@@ -34,7 +34,7 @@ The structure of a PURL for this package type is:
 - **Requirement:** Optional
 - **Case Sensitive:** Yes
 - **Native Label:** full package version, including module version and rockspec revision
-- **Note:** `The full LuaRocks package version, including module version and rockspec revision. It is case sensitive, and lowercase must be used to avoid compatibility issues with older LuaRocks versions. The full version number is required to uniquely identify a version.`
+- **Note:** `The full LuaRocks package version, including module version and rockspec revision. It is case sensitive, and lowercase shall be used to avoid compatibility issues with older LuaRocks versions. The full version number is required to uniquely identify a version.`
 
 ## Qualifiers Definition
 
