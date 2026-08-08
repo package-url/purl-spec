@@ -72,7 +72,7 @@
       "test_group": "required",
       "test_type": "validate",
       "input": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0#options/locale_readme.md",
-      "expected_output": "pkg:git/codeberg.org/forgejoforgejo/@a72d2c07cfca03b55371089de6aa230d8c951fa0#options/locale_readme.md",
+      "expected_output": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0#options/locale_readme.md",
       "expected_failure": false,
       "expected_message": null
     },
