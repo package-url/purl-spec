@@ -162,6 +162,15 @@
               "$ref": "#/definitions/prohibited_requirement"
             }
           ]
+        },
+         "registered_values": {
+          "title": "Registered values",
+          "description": "Optional set of registered namespace values for this package type. If the namespace value for a PURL is not one of these registered values, a tool should report a warning. The array of namespace values should be sorted lexicographically.",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
         }
       },
       "allOf": [
@@ -268,10 +277,16 @@
             "title": "Native name",
             "description": "The equivalent native name for this qualifier key.",
             "type": "string"
+          },
+          "registered_values": {
+          "title": "Registered qualifier key values",
+          "description": "Optional set of registered qualifier key values for this package type. If a qualifier key value for a PURL is not one of these registered values, a tool should report a warning. The array of qualifier key values should be sorted lexicographically.",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
           }
-        }
-      }
-    },
+         },
     "subpath_definition": {
       "title": "Subpath definition",
       "description": "The definition for the subpath for this PURL type. The PURL subpath component is optional for a specific PURL type definition.",
@@ -299,7 +314,7 @@
     },
     "examples": {
       "title": "PURL examples",
-      "description": "Example of valid, canonical PURLs for this package type.",
+      "description": "Example of canonical PURLs for this package type.",
       "type": "array",
       "uniqueItems": true,
       "minItems": 1,
