@@ -2,7 +2,7 @@
   "$schema": "https://packageurl.org/schemas/purl-test.schema-0.2.json",
   "tests": [
     {
-      "description": "git namespace and name should be lowercased. Roundtrip an input purl to canonical.",
+      "description": "git namespace and name should be lowercased. Validate an input purl.",
       "test_group": "recommended",
       "test_type": "validate",
       "input": "pkg:git/github/Package-url/purl-Spec@244fd47e07d1004f0aed9c",
@@ -27,7 +27,7 @@
       "expected_message": null
     },
     {
-      "description": "Roundtrip test for PURL type: git",
+      "description": "Validate test for PURL type: git",
       "test_group": "required",
       "test_type": "validate",
       "input": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0",
@@ -68,7 +68,7 @@
       "expected_message": null
     },
     {
-      "description": "Roundtrip test for PURL type: git",
+      "description": "Validate test for PURL type: git",
       "test_group": "required",
       "test_type": "validate",
       "input": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0#options/locale_readme.md",
