@@ -45,9 +45,9 @@ using a simple and expressive syntax and conventions based on familiar URLs.
 
 PURL is used as a standard identifier for software components in:
 - A CycloneDX or SPDX SBOM
-- Most software vulnerability databases such as [OSV](https://osv.dev/), 
+- Most software vulnerability databases such as [OSV](https://osv.dev/),
 [Sonatype OSS Index](https://ossindex.sonatype.org/), and [VulnerablCode](https://public2.vulnerablecode.io/)
-- Many package repositories, such as [Crates.io](https://crates.io/) and 
+- Many package repositories, such as [Crates.io](https://crates.io/) and
 [Packagist](https://packagist.org/)
 
 PURL was recently added to the standard [CVE Record Format v5.2.0](https://github.com/CVEProject/cve-schema/releases/tag/v5.2.0).
@@ -72,8 +72,8 @@ The definition for each component is:
 | qualifiers | Optional    | Qualifier data for a package such as OS, architecture, repository, etc. Qualifiers are type-specific. |
 | subpath    | Optional    | Subpath within a package, relative to the package root. |
 
-Components are designed such that they form a hierarchy from the most 
-significant component on the left to the least significant component on the 
+Components are designed such that they form a hierarchy from the most
+significant component on the left to the least significant component on the
 right.
 
 ### Some PURL examples
@@ -96,21 +96,21 @@ right.
 The PURL specification consists of a core syntax definition and specific
 PURL type definitions:
 
-The core PURL syntax is defined in the Package-URL Specification / [ECMA-427](https://ecma-tc54.github.io/ECMA-427/). See ECMA-427 *Clause 5 Package-URL specification* 
+The core PURL syntax is defined in the Package-URL Specification / [ECMA-427](https://ecma-tc54.github.io/ECMA-427/). See ECMA-427 *Clause 5 Package-URL specification*
 for syntax details.
 
 Each package manager, platform, type, or ecosystem has its own conventions
-and protocols to identify, locate, and provision software packages. The 
-package **type** is the component of a Package-URL that is used to capture 
-this information with a short string such as **maven**, **npm** and **pypi**. 
-See ECMA-427 *Clause 6 Package-URL Type Definition Schema* for PURL type 
+and protocols to identify, locate, and provision software packages. The
+package **type** is the component of a Package-URL that is used to capture
+this information with a short string such as **maven**, **npm** and **pypi**.
+See ECMA-427 *Clause 6 Package-URL Type Definition Schema* for PURL type
 definition details.
 
 ## Package-URL type definitions
 
 PURL type definitions are maintained in a set of JSON Schema files with a
-separate file for each PURL **type**. and a simple index of all currently 
-registered PURL **type**s. You can find comprehensive PURL **type** 
+separate file for each PURL **type**. and a simple index of all currently
+registered PURL **type**s. You can find comprehensive PURL **type**
 information in this repository as follows:
 
 - One JSON file for each PURL type definition at:
@@ -118,37 +118,37 @@ information in this repository as follows:
 
 - Markdown documentation, generated from each PURL type JSON
   definition at:
-  https://github.com/package-url/purl-spec/tree/main/types-doc
+  https://github.com/package-url/purl-spec/tree/main/docs/types/definitions
 
 - The JSON Index listing of all registered PURL types at:
   https://github.com/package-url/purl-spec/tree/main/purl-types-index.json
 
 ## Adopters
-PURL has been adopted by other specifications and is supported by many tools. 
+PURL has been adopted by other specifications and is supported by many tools.
 The details are available on the [Package-URL website](https://www.packageurl.org/).
-- See [Specifications](https://www.packageurl.org/docs/getting-started/specgrid) 
+- See [Specifications](https://www.packageurl.org/docs/getting-started/specgrid)
 for the list of these specifications.
-- See [Tools](https://www.packageurl.org/docs/getting-started/toolgrid) 
+- See [Tools](https://www.packageurl.org/docs/getting-started/toolgrid)
 for the list of these tools.
 
-If you want to add a tool or specification that supports PURL please create 
-an issue in the [Package-URL website repository](https://github.com/package-url/www.packageurl.org/issues). 
-There are separate issue templates for 'Add a Tool' and 'Add a Specification' 
+If you want to add a tool or specification that supports PURL please create
+an issue in the [Package-URL website repository](https://github.com/package-url/www.packageurl.org/issues).
+There are separate issue templates for 'Add a Tool' and 'Add a Specification'
 because the data fields are different.
 
 **NB** The "production" website for the Package-URL project is at: https://www.packageurl.org/.
-There is also a "staging website" for Package-URL at: https://package-url.github.io/www.packageurl.org/ 
-that may have more recent information than the production website between 
+There is also a "staging website" for Package-URL at: https://package-url.github.io/www.packageurl.org/
+that may have more recent information than the production website between
 releases.
 
 ## Support
 
-If you have a specific problem, suggestion or bug, please submit a 
+If you have a specific problem, suggestion or bug, please submit a
 [GitHub issue](https://github.com/package-url/purl-spec/issues).
 
-For quick questions or socializing, join the PURL community discussions 
+For quick questions or socializing, join the PURL community discussions
 at:
-- [AboutCode Slack](https://aboutcode-org.slack.com/archives/C08LBQMA7DE)
+- [AboutCode Slack](https://join.slack.com/t/aboutcode-org/shared_invite/zt-31uzazd7l-tBHcqKUKkX6jUEPRLswiNw)
 - [CycloneDX Slack](https://cyclonedx.slack.com/archives/C06KTE3BWEB)
 - [Gitter](https://matrix.to/#/#package-url_Lobby:gitter.im)
 
@@ -156,7 +156,7 @@ at:
 
 Copyright (c) the purl authors
 
-License for the **purl-spec** software: 
+License for the **purl-spec** software:
 
 - SPDX-License-Identifier: MIT
 
