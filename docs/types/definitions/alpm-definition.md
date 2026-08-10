@@ -22,7 +22,7 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Normalization rules:**
-  - It is not case sensitive and must be lowercased.
+  - It is not case sensitive and shall be lowercased.
 - **Native Label:** vendor
 - **Note:** `The namespace is the vendor such as arch, arch32, archarm, manjaro or msys.`
 
@@ -30,7 +30,7 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Native Label:** name
-- **Note:** `The name is the package name. It is not case sensitive and must be lowercased.`
+- **Note:** `The name is the package name. It is not case sensitive and shall be lowercased.`
 
 ## Version definition
 

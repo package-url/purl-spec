@@ -1,18 +1,18 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.2.json",
   "tests": [
     {
       "description": "CPAN distribution name are case sensitive. Roundtrip an input purl to canonical.",
-      "test_group": "advanced",
-      "test_type": "roundtrip",
+      "test_group": "recommended",
+      "test_type": "validate",
       "input": "pkg:cpan/DROLSKY/DateTime@1.55",
       "expected_output": "pkg:cpan/DROLSKY/DateTime@1.55",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "CPAN distribution name are case sensitive",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:cpan/DROLSKY/DateTime@1.55",
       "expected_output": {
@@ -24,20 +24,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "CPAN distribution name are case sensitive. Roundtrip a canonical input to canonical output.",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:cpan/DROLSKY/DateTime@1.55",
       "expected_output": "pkg:cpan/DROLSKY/DateTime@1.55",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "CPAN distribution name are case sensitive",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "cpan",
@@ -49,29 +49,29 @@
       },
       "expected_output": "pkg:cpan/DROLSKY/DateTime@1.55",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "CPAN with just the module name and version",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:cpan/LWP::UserAgent@6.7.6",
       "expected_output": null,
       "expected_failure": true,
-      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+      "expected_message": "Should fail to parse a PURL from invalid purl input"
     },
     {
       "description": "CPAN distribution name as module name",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:cpan/GDT/URI::PackageURL",
       "expected_output": null,
       "expected_failure": true,
-      "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
+      "expected_message": "Should fail to parse a PURL from invalid canonical purl input"
     },
     {
       "description": "CPAN distribution name like module name",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "cpan",
@@ -83,20 +83,20 @@
       },
       "expected_output": null,
       "expected_failure": true,
-      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+      "expected_message": "Should fail to build a PURL from invalid input components"
     },
     {
       "description": "Roundtrip test for <class 'type'> PURL",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:cpan/DROLSKY/DateTime@1.55",
       "expected_output": "pkg:cpan/DROLSKY/DateTime@1.55",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test for <class 'type'> PURL",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "cpan",
@@ -108,11 +108,11 @@
       },
       "expected_output": "pkg:cpan/DROLSKY/DateTime@1.55",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:cpan/GDT/URI-PackageURL",
       "expected_output": {
@@ -124,20 +124,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for <class 'type'> PURL",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:cpan/GDT/URI-PackageURL",
       "expected_output": "pkg:cpan/GDT/URI-PackageURL",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test for <class 'type'> PURL",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "cpan",
@@ -149,11 +149,11 @@
       },
       "expected_output": "pkg:cpan/GDT/URI-PackageURL",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:cpan/OALDERS/libwww-perl@6.76",
       "expected_output": {
@@ -165,20 +165,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for <class 'type'> PURL",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:cpan/OALDERS/libwww-perl@6.76",
       "expected_output": "pkg:cpan/OALDERS/libwww-perl@6.76",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test for <class 'type'> PURL",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "cpan",
@@ -190,20 +190,20 @@
       },
       "expected_output": "pkg:cpan/OALDERS/libwww-perl@6.76",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for <class 'type'> PURL",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:cpan/DROLSKY/DateTime@1.55?repository_url=backpan.perl.org",
       "expected_output": "pkg:cpan/DROLSKY/DateTime@1.55?repository_url=backpan.perl.org",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:cpan/DROLSKY/DateTime@1.55?repository_url=backpan.perl.org",
       "expected_output": {
@@ -217,11 +217,11 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test for <class 'type'> PURL",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "cpan",
@@ -235,20 +235,20 @@
       },
       "expected_output": "pkg:cpan/DROLSKY/DateTime@1.55?repository_url=backpan.perl.org",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "CPAN distribution name are case sensitive. Roundtrip an input purl to canonical.",
-      "test_group": "advanced",
-      "test_type": "roundtrip",
+      "test_group": "recommended",
+      "test_type": "validate",
       "input": "pkg:cpan/DateTime@1.55?author=DROLSKY",
       "expected_output": "pkg:cpan/DateTime@1.55?author=DROLSKY",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "CPAN distribution name are case sensitive",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:cpan/DateTime@1.55?author=DROLSKY",
       "expected_output": {
@@ -262,20 +262,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "CPAN distribution name are case sensitive. Roundtrip a canonical input to canonical output.",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:cpan/DateTime@1.55",
       "expected_output": "pkg:cpan/DateTime@1.55",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "CPAN distribution name are case sensitive",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "cpan",
@@ -287,20 +287,20 @@
       },
       "expected_output": "pkg:cpan/DateTime@1.55",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "CPAN distribution name as module name",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:cpan/URI::PackageURL",
       "expected_output": null,
       "expected_failure": true,
-      "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
+      "expected_message": "Should fail to parse a PURL from invalid canonical purl input"
     },
     {
       "description": "CPAN distribution name like module name",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "cpan",
@@ -312,20 +312,20 @@
       },
       "expected_output": null,
       "expected_failure": true,
-      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+      "expected_message": "Should fail to build a PURL from invalid input components"
     },
     {
       "description": "Roundtrip test for PURL type: cpan",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:cpan/DROLSKY/DateTime@1.55",
       "expected_output": "pkg:cpan/DROLSKY/DateTime@1.55",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test for PURL type: cpan",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "cpan",
@@ -337,11 +337,11 @@
       },
       "expected_output": "pkg:cpan/DROLSKY/DateTime@1.55",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Parse test for PURL type: cpan",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:cpan/URI-PackageURL",
       "expected_output": {
@@ -353,20 +353,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for PURL type: cpan",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:cpan/URI-PackageURL",
       "expected_output": "pkg:cpan/URI-PackageURL",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test for PURL type: cpan",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "cpan",
@@ -378,11 +378,11 @@
       },
       "expected_output": "pkg:cpan/URI-PackageURL",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Parse test for PURL type: cpan",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:cpan/libwww-perl@6.76?author=OALDERS",
       "expected_output": {
@@ -396,20 +396,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for PURL type: cpan",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:cpan/libwww-perl@6.76?author=OALDERS",
       "expected_output": "pkg:cpan/libwww-perl@6.76?author=OALDERS",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test for PURL type: cpan",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "cpan",
@@ -423,20 +423,20 @@
       },
       "expected_output": "pkg:cpan/libwww-perl@6.76?author=OALDERS",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for PURL type: cpan",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:cpan/DateTime@1.55?author=DROLSKY&repository_url=backpan.perl.org",
       "expected_output": "pkg:cpan/DateTime@1.55?author=DROLSKY&repository_url=backpan.perl.org",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Parse test for PURL type: cpan",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:cpan/DateTime@1.55?author=DROLSKY&repository_url=backpan.perl.org",
       "expected_output": {
@@ -451,11 +451,11 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test for PURL type: cpan",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "cpan",
@@ -470,7 +470,7 @@
       },
       "expected_output": "pkg:cpan/DateTime@1.55?author=DROLSKY&repository_url=backpan.perl.org",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     }
   ]
 }

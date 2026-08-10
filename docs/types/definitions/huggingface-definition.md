@@ -36,9 +36,9 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Optional
 - **Native Label:** model revision Git commit hash
-- **Note:** `The version is the model revision Git commit hash. It is case insensitive and must be lowercased in the package URL.`
+- **Note:** `The version is the model revision Git commit hash. It is case insensitive and shall be lowercased in the package URL.`
 
 ## Examples
 
-- `pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027`
+- `pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027`
 - `pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https:%2F%2Fhub-ci.huggingface.co`

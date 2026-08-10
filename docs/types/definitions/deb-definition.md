@@ -22,13 +22,13 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Native Label:** vendor
-- **Note:** `The namespace is the "vendor" name such as "debian" or "ubuntu". It is not case sensitive and must be lowercased.`
+- **Note:** `The namespace is the "vendor" name such as "debian" or "ubuntu". It is not case sensitive and shall be lowercased.`
 
 ## Name definition
 
 - **Requirement:** Required
 - **Native Label:** name
-- **Note:** `The name is not case sensitive and must be lowercased.`
+- **Note:** `The name is not case sensitive and shall be lowercased.`
 
 ## Version definition
 
