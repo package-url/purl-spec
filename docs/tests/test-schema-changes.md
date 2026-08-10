@@ -1,7 +1,7 @@
 ---
-id: test-schema-v0.2
+id: test-schema-changes
 title: PURL test schema v0.2 changes
-sidebar_label: Test schema v0.2 changes
+sidebar_label: Test schema changes
 hide_table_of_contents: true
 ---
 
