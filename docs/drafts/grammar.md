@@ -35,6 +35,9 @@ version           = percent-encoded-string
 
 qualifiers        = qualifier *( "&" qualifier )
 qualifier         = key "=" value
+:: REVIEW: spec explisitely tells that a missing valueshall be treated as if no value exists.
+;; This means, we need a canonical grammar where a value must be presnet,
+;; and a lax grammar where empty values may exist.
 
 ; shall start with an ASCII letter; shall not be percent-encoded
 key               = lowercase-ascii-letter
