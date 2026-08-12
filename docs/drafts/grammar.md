@@ -4,7 +4,7 @@ A PURL string adheres to the following grammar,
 using syntax as per [RFC5234: Augmented BNF for Syntax Specifications: ABNF](https://datatracker.ietf.org/doc/html/rfc5234).
 
 ```abnf
-;; ATTENTION: The following graft is AI generated and was note revisited by a human, yet.
+;; ATTENTION: The following draft is AI generated and was note entirely revisited by a human, yet.
 ;; Simple query ran on Fable5: 
 :: Read all files in https://github.com/package-url/purl-spec/tree/main/docs/specification/standard - do not read any other documents in the repo. Create me an ABNF for the thing described in this standard.
 
@@ -21,6 +21,8 @@ purl            = scheme ":" purl-path
                   [ "#" subpath ]
 
 purl-path       = type "/" [ namespace "/" ] name [ "@" version ]
+;; REVIEW: does the purl spec call this a `purl-path`???
+
 
 ; ---------------------------------------------------------------
 ; Scheme — constant "pkg".
@@ -28,6 +30,7 @@ purl-path       = type "/" [ namespace "/" ] name [ "@" version ]
 ; strip one or more "/" after "pkg:", e.g. "pkg://".
 ; ---------------------------------------------------------------
 scheme          = %s"pkg"
+;; REVIEW: this %s"" is readable, but is an ABNF extension - see RFC7405 - which needs to be called out
 
 ; ---------------------------------------------------------------
 ; Type — ASCII letters/digits, ".", "-", "+"? No: only letters,
@@ -37,6 +40,8 @@ scheme          = %s"pkg"
 type            = ALPHA *( ALPHA / DIGIT / "." / "-" )
                   ; canonical form: lowercase only:
                   ; type = lc-alpha *( lc-alpha / DIGIT / "." / "-" )
+;; REVIEW: per ABNF, comments must start at line start, or after a rule - not after some spaces.
+
 
 ; ---------------------------------------------------------------
 ; Namespace — optional; one or more non-empty percent-encoded
