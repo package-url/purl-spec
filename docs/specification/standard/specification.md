@@ -58,9 +58,9 @@ to a **type**.
   - https://en.wikipedia.org/wiki/Uniform_Resource_Identifier#Syntax
   - https://url.spec.whatwg.org/
 
-- A PURL is a valid URL because it is a locator even though it has no
-  Authority URL component: each type has a default repository location when
-  defined.
+- A PURL is a valid URL because it is a locator even though it has no 
+  Authority URL component: a default repository location may be defined for a 
+  PURL type.
 
 - The PURL components are mapped to these URL components:
 
