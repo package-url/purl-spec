@@ -1,5 +1,10 @@
 # Package-URL Grammar
 
+old document that needs revision.  
+see https://github.com/package-url/purl-spec/pull/578#issuecomment-4777668844
+
+----
+
 A PURL string adheres to the following grammar,
 using syntax as per [RFC5234: Augmented BNF for Syntax Specifications: ABNF](https://datatracker.ietf.org/doc/html/rfc5234).
 
