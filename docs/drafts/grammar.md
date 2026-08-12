@@ -51,6 +51,7 @@ percent-encoded-string    = 1*( alphanumeric-character
                               / ":"
                               / percent-encoded-character )
 percent-encoded-character = "%" hex-digit hex-digit
+:: REVIEW: must not include an encoded version of ":" or any alpha or such punctuations... 
 
 alphanumeric-character    = ascii-letter / ascii-number
 
