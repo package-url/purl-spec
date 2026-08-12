@@ -72,10 +72,12 @@ class PurlTest(BaseModel):
     description: str = Field(
         ..., description="A description for this test.", title="Test description"
     )
-    test_group: Literal["base", "advanced"] = Field(
-        ..., description="The group of this test like 'base' or 'advanced'.", title="Test group"
+    test_group: Literal["required", "recommended"] = Field(
+        ...,
+        description="The group of this test like 'required' or 'recommended'.",
+        title="Test group",
     )
-    test_type: Literal["build", "parse", "roundtrip"] = Field(
+    test_type: Literal["build", "parse", "validate"] = Field(
         ..., description="The type of this test like 'build' or 'parse'.", title="Test type"
     )
     expected_failure: Optional[bool] = Field(
@@ -83,8 +85,14 @@ class PurlTest(BaseModel):
         description="true if this test input is expected to fail to be processed.",
         title="Expected failure",
     )
-    expected_failure_reason: Optional[str] = Field(
+    expected_message: Optional[str] = Field(
         None,
-        description="The reason why this test is expected to fail if expected_failure is true.",
-        title="Expected failure reason",
+        description=(
+            "The reason why this test is expected to fail, if "
+            "expected_failure is true; and a means to provide a test case "
+            "message in other use cases (e.g., when the PURL specification "
+            "requires normalization of an **input** or an **input** contains "
+            "an unregistered PURL **type**)."
+        ),
+        title="Expected message",
     )
