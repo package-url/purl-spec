@@ -68,7 +68,6 @@ subpath-segment = [ ".." pchar-ns
                   / "." ( alphanumeric-characters / "-" / "_" / "~" / pct-encoded-ns )
                   / ( alphanumeric-characters / "-" / "_" / "~" / pct-encoded-ns )
                   ] *( pchar-ns )
-   
 
 ;; Section "Permitted characters"
 alphanumeric-characters = ALPHA / DIGIT
