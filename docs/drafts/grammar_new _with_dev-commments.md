@@ -20,10 +20,10 @@ purl = scheme ":"
 ;;                  do we need to allow the separators without a component?
 ;;                  - like `["@" [version] ]`
 ;;                  - like `["#" [subpath] ]` - see discussion on subpath
-purl-lenient = scheme ":" *"/" ; REMARK: PURL parsers shall accept URLs where the **scheme** and colon ':' are followed by one or more slash '/' characters, such as 'pkg://', and shall ignore and remove all such '/' characters.
+purl-lenient = scheme ":" *"/" ;; REMARK: PURL parsers shall accept URLs where the **scheme** and colon ':' are followed by one or more slash '/' characters, such as 'pkg://', and shall ignore and remove all such '/' characters.
                type-lenient
-               [ 1*"/" namespace *"/" ]  ; REMARK: All leading and trailing slashes '/' are not significant and should be stripped in the canonical form. They are not part of the **namespace**.
-               1*"/" name *"/" ; REMARK: All leading and trailing slashes '/' are not significant and should be stripped in the canonical form. They are not part of the **name**.
+               [ 1*"/" namespace *"/" ]  ;; REMARK: All leading and trailing slashes '/' are not significant and should be stripped in the canonical form. They are not part of the **namespace**.
+               1*"/" name *"/" ;; REMARK: All leading and trailing slashes '/' are not significant and should be stripped in the canonical form. They are not part of the **name**.
                [ "@" version ]
                [ "?" qualifiers ]
                [ "#" *"/" subpath *"/" ]
