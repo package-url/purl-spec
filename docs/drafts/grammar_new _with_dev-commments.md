@@ -42,8 +42,8 @@ type-lenient = ALPHA *( ALPHA / DIGIT / "." / "-" )
 namespace = namespace-segment *( "/" namespace-segment )
 namespace-lenient = namespace-segment *( "/" namespace-segment )
 ;; TODO: When percent-decoded, a segment:
-;;       - shall not contain any slash '/' characters
 ;;       - may contain any Unicode character other than '/' unless the package's **type** definition provides otherwise
+;; TO BE DISCUSSED - so the type definition make '/' an allowed encoded character here? - so basically we have no exclusions?
 namespace-segment = 1*( alphanumeric-characters / pct-encoded )
 
 ;; Sub-section "Name"
@@ -80,16 +80,14 @@ separator-characters = ":" / "/" / "@" / "?" / "=" / "&" / "#"
 
 ;; sction "Character encoding"
 
-;; TODO: The following characters shall not be percent-encoded:
-;;       - the Alphanumeric Characters (A-Z => %x41-5A / a-z => %x61-7A / 0-9 => %x30-39)
-;;       - the Punctuation Characters ("." => %x2E / "-" => %x2D / "_" => %x5F / "~" => %x7E)
-;;       - the Separator Characters when being used as PURL separators (ignorefor here)
-;;       - the colon ':', whether used as a Separator Character or otherwise (%3A)
-;;       - the percent sign '%' when used to represent a percent-encoded character (ignorefor here)
+
 pct-encoded = percent-character ( pct-ascii-nli
                                 / pct-utf8-2-nli / pct-utf8-3-nli / pct-utf8-4-nli
                                 )
-;; TODO - bytes  00-7F 
+;; TODO: The following characters shall not be percent-encoded:
+;;       - the Alphanumeric Characters (A-Z => %x41-5A / a-z => %x61-7A / 0-9 => %x30-39)
+;;       - the Punctuation Characters ("." => %x2E / "-" => %x2D / "_" => %x5F / "~" => %x7E)
+;;       - the colon ':', whether used as a Separator Character or otherwise (%3A)
 pct-encoded-ascii-nli = 00-0F
                       / 10-1F
                       / 20-2F  ;; TODO: exclude 2E and 2D 
