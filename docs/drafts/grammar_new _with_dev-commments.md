@@ -75,7 +75,7 @@ punctuation = "." / "-" / "_" / "~"
 separator = ":" / "/" / "@" / "?" / "=" / "&" / "#"
 percent = "%"
 
-unreserved = alphanumeric / punctuation
+unreserved = alphanumeric / punctuation / ":"
 reserved   = separator
 
 pchar    = unreserved / pct-encoded
