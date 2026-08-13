@@ -7,7 +7,7 @@ using syntax as per [RFC5234: Augmented BNF for Syntax Specifications: ABNF](htt
 ;; scheme:type/namespace/name@version?qualifiers#subpath
 
 ; Canonical PackageURL string
-purl = scheme ":" 
+PURL = scheme ":" 
        type 
        [ "/" namespace ]
        "/" name 
@@ -20,8 +20,8 @@ purl = scheme ":"
 ;;                  do we need to allow the separators without a component?
 ;;                  - like `["@" [version] ]`
 ;;                  - like `["#" [subpath] ]` - see discussion on subpath
-purl-lenient = scheme ":" *"/" ;; REMARK: PURL parsers shall accept URLs where the **scheme** and colon ':' are followed by one or more slash '/' characters, such as 'pkg://', and shall ignore and remove all such '/' characters.
-               type-lenient
+lenient-PURL = scheme ":" *"/" ;; REMARK: PURL parsers shall accept URLs where the **scheme** and colon ':' are followed by one or more slash '/' characters, such as 'pkg://', and shall ignore and remove all such '/' characters.
+               lenient-type
                [ 1*"/" namespace *"/" ]  ;; REMARK: All leading and trailing slashes '/' are not significant and should be stripped in the canonical form. They are not part of the **namespace**.
                1*"/" name *"/" ;; REMARK: All leading and trailing slashes '/' are not significant and should be stripped in the canonical form. They are not part of the **name**.
                [ "@" version ]
@@ -36,7 +36,7 @@ scheme = %x70.6B.67
 
 ;; Sub-section "Type"
 type = alpha-lowercase *( alpha-lowercase / DIGIT / "." / "-" )
-type-lenient = ALPHA *( ALPHA / DIGIT / "." / "-" )
+lenient-type = ALPHA *( ALPHA / DIGIT / "." / "-" )
 
 ;; Sub-section "Namespace"
 namespace = namespace-segment *( "/" namespace-segment )
@@ -77,10 +77,10 @@ separator-characters = ":" / "/" / "@" / "?" / "=" / "&" / "#"  ;; REMARK: not u
 percent-character = "%"
 
 unreserved = alphanumeric-characters / punctuation-characters
+reserved   = separator-characters  ;; REMARK: not used - canbe dropped
 
 pchar    = unreserved / pct-encoded
 pchar-ns = unreserved / pct-encoded-ns
-
 
 ;; sction "Character encoding"
 
