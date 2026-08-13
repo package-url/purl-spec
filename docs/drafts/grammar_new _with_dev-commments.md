@@ -35,8 +35,8 @@ purl-lenient = scheme ":" *"/" ; REMARK: PURL parsers shall accept URLs where th
 scheme = %x70.6B.67
 
 ;; Sub-section "Type"
-type = alpha-lowercase *(alpha-lowercase / DIGIT / "." / "-")
-type-lenient = ALPHA *(ALPHA / DIGIT / "." / "-")
+type = alpha-lowercase *( alpha-lowercase / DIGIT / "." / "-" )
+type-lenient = ALPHA *( ALPHA / DIGIT / "." / "-" )
 
 ;; Sub-section "Namespace"
 namespace = namespace-segment *( "/" namespace-segment )
@@ -53,22 +53,22 @@ name = 1*( alphanumeric-characters / pct-encoded )
 version = 1*( alphanumeric-characters / pct-encoded )
 
 ;; Sub-section "Qualifiers"
-qualifiers = qualifier *("&" qualifier)
+qualifiers = qualifier *( "&" qualifier )
 ;; TO BE DISCUSSED: dowe need a lenient form? docs say: a **key=value** pair with an empty
   **value** is the same as if no **key=value** pair exists for this **key**.
 qualifier = qualifiers-key "=" qualifiers-value
 ;; REMARK: includes percent-encoded "=" (%3D)
-qualifier-key = alpha-lowercase *(alpha-lowercase / DIGIT)
+qualifier-key = alpha-lowercase *( alpha-lowercase / DIGIT )
 ;; TODO: A **value** may contain any Unicode character and all characters shall be encoded as described in the _Character encoding_ clause.
-qualifier-value = 1*pct-encoded
+qualifier-value = 1*( pct-encoded )
 
 ;; Sub-section "Subpath"
 ;; TO BE DISCUSSED: subpath may be empty according to spec
 ;; > prefixed by a '#' separator when not empty [...]
 ;; > The **subpath** contains zero or more segments [...]
-subpath = [ subpath-segment *("/" subpath-segment) ]
+subpath = [ subpath-segment *( "/" subpath-segment ) ]
 ;; TODO may contain any Unicode character other than '/' unless the package's **type** definition provides otherwise.
-subpath-segment = 1*(ALPHA / DIGIT / pct-encoded)
+subpath-segment = 1*( ALPHA / DIGIT / pct-encoded )
 
 subpath-segment
 
@@ -86,24 +86,33 @@ separator-characters = ":" / "/" / "@" / "?" / "=" / "&" / "#"
 ;;       - the Separator Characters when being used as PURL separators (ignorefor here)
 ;;       - the colon ':', whether used as a Separator Character or otherwise (%3A)
 ;;       - the percent sign '%' when used to represent a percent-encoded character (ignorefor here)
-pct-encoded     = pct-ascii
-                / pct-utf8-2 / pct-utf8-3 / pct-utf8-4
-;; TODO
-pct-encoded-ascii = "%" ( ; bytes 00-7F 
-                          00-0F
-                        / 10-1F
-                        / 20-2F  ;; TODO: exclude 2E and 2D 
-                        / 30-3F  ;; TODO: exclude 3A
-                        / 40-4F  ;; TODO: expcept 41-4F
-                        / 50-5F  ;; TODO: expcept 50-5A and 5F 
-                        / 60-6F  ;; TODO: exceptt 61-6F
-                        / 70-7F  ;; TODO: exceptt 70-7A and 7E
-                      )
+pct-encoded = percent-character ( pct-ascii-nli
+                                / pct-utf8-2-nli / pct-utf8-3-nli / pct-utf8-4-nli
+                                )
+;; TODO - bytes  00-7F 
+pct-encoded-ascii-nli = 00-0F
+                      / 10-1F
+                      / 20-2F  ;; TODO: exclude 2E and 2D 
+                      / 30-3F  ;; TODO: exclude 3A
+                      / 40-4F  ;; TODO: expcept 41-4F
+                      / 50-5F  ;; TODO: expcept 50-5A and 5F 
+                      / 60-6F  ;; TODO: exceptt 61-6F
+                      / 70-7F  ;; TODO: exceptt 70-7A and 7E
 
 ; UTF8-2 / UTF8-3 / UTF8-4 ; - taken from https://datatracker.ietf.org/doc/html/rfc3629#section-4
-pct-utf8-2 = ;; TODO
-pct-utf8-3 = ;; TODO
-pct-utf8-4 = ;; TODO
+; NOTE -- The authoritative definition of UTF-8 is in [UNICODE].  This
+;         grammar is believed to describe the same thing Unicode describes, but
+;         does not claim to be authoritative.  Implementors are urged to rely
+;         on the authoritative source, rather than on this ABNF.
+pct-utf8-2-nli = ( "C" ("2" / "3" / "4" / "5" / "6" / "7" / "8" / "A" / "B" / "C" / "D" / "E" / "F" ) / "D" HEXDIG ) pct-utf8-trail ; %xC2-DF UTF8-tail
+pct-utf8-3-nli = "E0" percent-character ( "A" / "B" ) HEXDIG pct-utf8-trail ; %xE0 %xA0-BF UTF8-tail 
+               / "E" ( "1" / "2" / "3" / "4" / "5" / "6" / "7" / "8" / "9" / "A" / "B" / "C" ) 2( pct-utf8-trail ); %xE1-EC 2( UTF8-tail ) 
+               / "ED" percent-character ( "8" / "9" ) HEXDIG pct-utf8-trail ; %xED %x80-9F UTF8-tail 
+               / "E" ( "E" / "F" ) 2( pct-utf8-trail ) ; %xEE-EF 2( UTF8-tail )
+pct-utf8-4-nli = "F0" percent-character ( "9" / "A" / "B" ) HEXDIG 2( pct-utf8-trail ) ; %xF0 %x90-BF 2( UTF8-tail ) 
+               / "F" ( "1" / "2" / "3" ) 3( pct-utf8-trail )                           ; %xF1-F3 3( UTF8-tail ) 
+               / "F4" percent-character "8" HEXDIG 2( pct-utf8-trail )                 ; %xF4 %x80-8F 2( UTF8-tail )
+pct-utf8-trail = percent-character ("8" / "9" / "A" / "B" ) HEXDIG  ; %x80-BF
 
 ;; section "Case folding"
 alpha-lowercase = %61-7A ; a-z
