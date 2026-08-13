@@ -87,7 +87,7 @@ separator-characters = ":" / "/" / "@" / "?" / "=" / "&" / "#"
 ;;       - the colon ':', whether used as a Separator Character or otherwise (%3A)
 ;;       - the percent sign '%' when used to represent a percent-encoded character (ignorefor here)
 pct-encoded     = pct-ascii
-                / UTF8-2 / UTF8-3 / UTF8-4 - taken from https://datatracker.ietf.org/doc/html/rfc3629#section-4
+                / UTF8-2 / UTF8-3 / UTF8-4 ; - taken from https://datatracker.ietf.org/doc/html/rfc3629#section-4
 ;; TODO
 pct-encoded-ascii = "%" ( ; bytes 00-7F 
                           00-0F
