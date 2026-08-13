@@ -65,26 +65,26 @@ qualifier-value = 1*( pchar-ns )
 ;; > The **subpath** contains zero or more segments [...]
 subpath = [ subpath-segment *( "/" subpath-segment ) ]
 subpath-segment = [ ".." pchar-ns
-                  / "." ( alphanumeric-characters / "-" / "_" / "~" / pct-encoded-ns )
-                  / ( alphanumeric-characters / "-" / "_" / "~" / pct-encoded-ns )
+                  / "." ( alphanumeric / "-" / "_" / "~" / pct-encoded-ns )
+                  / ( alphanumeric / "-" / "_" / "~" / pct-encoded-ns )
                   ] *( pchar-ns )
 
 ;; Section "Permitted characters"
-alphanumeric-characters = ALPHA / DIGIT
-punctuation-characters = "." / "-" / "_" / "~"
-separator-characters = ":" / "/" / "@" / "?" / "=" / "&" / "#"  ;; REMARK: not used - can be dropped from gramar
-percent-character = "%"
+alphanumeric = ALPHA / DIGIT
+punctuation = "." / "-" / "_" / "~"
+separator = ":" / "/" / "@" / "?" / "=" / "&" / "#"  ;; REMARK: not used - can be dropped from gramar
+percent = "%"
 
-unreserved = alphanumeric-characters / punctuation-characters
-reserved   = separator-characters  ;; REMARK: not used - canbe dropped
+unreserved = alphanumeric / punctuation
+reserved   = separator  ;; REMARK: not used - canbe dropped
 
 pchar    = unreserved / pct-encoded
 pchar-ns = unreserved / pct-encoded-ns
 
 ;; sction "Character encoding"
 
-pct-encoded    = percent-character ( pct-encoded-nli-ascii-ns / "2F" / pct-encoded-nli-utf8-multi )
-pct-encoded-ns = percent-character ( pct-encoded-nli-ascii-ns    /     pct-encoded-nli-utf8-multi )
+pct-encoded    = percent ( pct-encoded-nli-ascii-ns / "2F" / pct-encoded-nli-utf8-multi )
+pct-encoded-ns = percent ( pct-encoded-nli-ascii-ns    /     pct-encoded-nli-utf8-multi )
 
 pct-encoded-nli-ascii-ns = ( "0" / "1" ) HEXDIG                        ; %x00-1F
                          / "2" ( DIGIT / "A" / "B" / "C" )             ; %x20-2F except %x2D ("-") %x2E (".") %x2F ("/")
@@ -102,14 +102,14 @@ pct-encoded-nli-utf8-multi = pct-encoded-nli-utf8-multi2
 ;         does not claim to be authoritative.  Implementors are urged to rely
 ;         on the authoritative source, rather than on this ABNF.
 pct-encoded-nli-utf8-multi2 = ( "C" ("2" / "3" / "4" / "5" / "6" / "7" / "8" / "9" / "A" / "B" / "C" / "D" / "E" / "F" ) / "D" HEXDIG ) pct-encoded-utf8-trail ; %xC2-DF UTF8-tail
-pct-encoded-nli-utf8-multi3 = "E0" percent-character ( "A" / "B" ) HEXDIG pct-encoded-utf8-trail ; %xE0 %xA0-BF UTF8-tail 
+pct-encoded-nli-utf8-multi3 = "E0" percent ( "A" / "B" ) HEXDIG pct-encoded-utf8-trail ; %xE0 %xA0-BF UTF8-tail 
                             / "E" ( "1" / "2" / "3" / "4" / "5" / "6" / "7" / "8" / "9" / "A" / "B" / "C" ) 2( pct-encoded-utf8-trail ); %xE1-EC 2( UTF8-tail ) 
-                            / "ED" percent-character ( "8" / "9" ) HEXDIG pct-encoded-utf8-trail ; %xED %x80-9F UTF8-tail 
+                            / "ED" percent ( "8" / "9" ) HEXDIG pct-encoded-utf8-trail ; %xED %x80-9F UTF8-tail 
                             / "E" ( "E" / "F" ) 2( pct-encoded-utf8-trail ) ; %xEE-EF 2( UTF8-tail )
-pct-encoded-nli-utf8-multi4 = "F0" percent-character ( "9" / "A" / "B" ) HEXDIG 2( pct-encoded-utf8-trail ) ; %xF0 %x90-BF 2( UTF8-tail ) 
+pct-encoded-nli-utf8-multi4 = "F0" percent ( "9" / "A" / "B" ) HEXDIG 2( pct-encoded-utf8-trail ) ; %xF0 %x90-BF 2( UTF8-tail ) 
                             / "F" ( "1" / "2" / "3" ) 3( pct-encoded-utf8-trail )                           ; %xF1-F3 3( UTF8-tail ) 
-                            / "F4" percent-character "8" HEXDIG 2( pct-encoded-utf8-trail )                 ; %xF4 %x80-8F 2( UTF8-tail )
-pct-encoded-utf8-trail = percent-character ("8" / "9" / "A" / "B" ) HEXDIG  ; %x80-BF
+                            / "F4" percent "8" HEXDIG 2( pct-encoded-utf8-trail )                 ; %xF4 %x80-8F 2( UTF8-tail )
+pct-encoded-utf8-trail = percent ("8" / "9" / "A" / "B" ) HEXDIG  ; %x80-BF
 
 ;; section "Case folding"
 alpha-lowercase = %61-7A ; a-z
