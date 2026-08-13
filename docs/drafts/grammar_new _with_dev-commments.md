@@ -101,13 +101,15 @@ pct-encoded-nli-utf8-multi = pct-encoded-nli-utf8-multi2
 ;         grammar is believed to describe the same thing Unicode describes, but
 ;         does not claim to be authoritative.  Implementors are urged to rely
 ;         on the authoritative source, rather than on this ABNF.
-pct-encoded-nli-utf8-multi2 = ( "C" ("2" / "3" / "4" / "5" / "6" / "7" / "8" / "9" / "A" / "B" / "C" / "D" / "E" / "F" ) / "D" HEXDIG ) pct-encoded-utf8-trail ; %xC2-DF UTF8-tail
+pct-encoded-nli-utf8-multi2 = ( "C" ("2" / "3" / "4" / "5" / "6" / "7" / "8" / "9" / "A" / "B" / "C" / "D" / "E" / "F" ) 
+                              / "D" HEXDIG ) pct-encoded-utf8-trail ; %xC2-DF UTF8-tail
 pct-encoded-nli-utf8-multi3 = "E0" percent ( "A" / "B" ) HEXDIG pct-encoded-utf8-trail ; %xE0 %xA0-BF UTF8-tail 
-                            / "E" ( "1" / "2" / "3" / "4" / "5" / "6" / "7" / "8" / "9" / "A" / "B" / "C" ) 2( pct-encoded-utf8-trail ); %xE1-EC 2( UTF8-tail ) 
+                            / "E" ( "1" / "2" / "3" / "4" / "5" / "6" / "7" / "8" / "9" / "A" / "B" / "C" ) 
+                              2( pct-encoded-utf8-trail )                              ; %xE1-EC 2( UTF8-tail ) 
                             / "ED" percent ( "8" / "9" ) HEXDIG pct-encoded-utf8-trail ; %xED %x80-9F UTF8-tail 
-                            / "E" ( "E" / "F" ) 2( pct-encoded-utf8-trail ) ; %xEE-EF 2( UTF8-tail )
-pct-encoded-nli-utf8-multi4 = "F0" percent ( "9" / "A" / "B" ) HEXDIG 2( pct-encoded-utf8-trail ) ; %xF0 %x90-BF 2( UTF8-tail ) 
-                            / "F" ( "1" / "2" / "3" ) 3( pct-encoded-utf8-trail )                           ; %xF1-F3 3( UTF8-tail ) 
+                            / "E" ( "E" / "F" ) 2( pct-encoded-utf8-trail )            ; %xEE-EF 2( UTF8-tail )
+pct-encoded-nli-utf8-multi4 = "F0" percent ( "9" / "A" / "B" ) HEXDIG 2( pct-encoded-utf8-trail ) ; %xF0 %x90-BF 2( UTF8-tail )
+                            / "F" ( "1" / "2" / "3" ) 3( pct-encoded-utf8-trail )                 ; %xF1-F3 3( UTF8-tail ) 
                             / "F4" percent "8" HEXDIG 2( pct-encoded-utf8-trail )                 ; %xF4 %x80-8F 2( UTF8-tail )
 pct-encoded-utf8-trail = percent ("8" / "9" / "A" / "B" ) HEXDIG  ; %x80-BF
 
