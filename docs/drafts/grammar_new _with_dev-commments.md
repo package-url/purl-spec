@@ -88,7 +88,7 @@ pct-encoded-ns = percent ( pct-encoded-nli-ascii-ns    /     pct-encoded-nli-utf
 
 pct-encoded-nli-ascii-ns = ( "0" / "1" ) HEXDIG                        ; %x00-1F
                          / "2" ( DIGIT / "A" / "B" / "C" )             ; %x20-2F except %x2D ("-") %x2E (".") %x2F ("/")
-                         / "3" ( DIGIT / "B" / "C" / "D" / "E" / "F" ) ; except %x3A (":")
+                         / "3" ( DIGIT / "B" / "C" / "D" / "E" / "F" ) ; %x30-3F except %x3A (":")
                          / "40"                                        ; %x40-4F except %x41-4F (A-O)
                          / "5" ( "B" / "C" / "D" / "E" )               ; %x50-5F except %x50-5A (P-Z) %x5F ("_")
                          / "60"                                        ; %x60-6F except %x61-6F (a-o)
