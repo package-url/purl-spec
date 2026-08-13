@@ -22,7 +22,7 @@ purl = scheme ":"
 ;;                  - like `["#" [subpath] ]` - see discussion on subpath
 purl-lenient = scheme ":" *"/" ; REMARK: PURL parsers shall accept URLs where the **scheme** and colon ':' are followed by one or more slash '/' characters, such as 'pkg://', and shall ignore and remove all such '/' characters.
                type-lenient
-               [ 1*"/" namespace-lenient *"/" ]  ; REMARK: All leading and trailing slashes '/' are not significant and should be stripped in the canonical form. They are not part of the **namespace**.
+               [ 1*"/" namespace *"/" ]  ; REMARK: All leading and trailing slashes '/' are not significant and should be stripped in the canonical form. They are not part of the **namespace**.
                1*"/" name *"/" ; REMARK: All leading and trailing slashes '/' are not significant and should be stripped in the canonical form. They are not part of the **name**.
                [ "@" version ]
                [ "?" qualifiers ]
@@ -40,34 +40,35 @@ type-lenient = ALPHA *( ALPHA / DIGIT / "." / "-" )
 
 ;; Sub-section "Namespace"
 namespace = namespace-segment *( "/" namespace-segment )
-namespace-lenient = namespace-segment *( "/" namespace-segment )
 ;; TO BE DISCUSSED:
 ;; - spec: When percent-decoded, a segment: [...] may contain any Unicode character other than '/' unless the package's **type** definition provides otherwise
-;; - so the type definition make '/' an allowed encoded character here? - so basically we have no exclusions?
-namespace-segment = 1*( percent-encoded-character )
+;; - so the type definition make '/' an allowed encoded character here? - so basically we have no exclusions???
+namespace-segment = 1*( purl-character-nes )
 
 ;; Sub-section "Name"
-name = 1*( percent-encoded-character / pct-encoded-slach )
+name = 1*( purl-character-wes )
 
 ;; Sub-section "Version"
-version = 1*( percent-encoded-character / pct-encoded-slach )
+version = 1*( purl-character-wes )
 
 ;; Sub-section "Qualifiers"
 qualifiers = qualifier *( "&" qualifier )
-;; TO BE DISCUSSED: dowe need a lenient form? docs say: a **key=value** pair with an empty
+;; TO BE DISCUSSED: do we need a lenient form? docs say: a **key=value** pair with an empty
   **value** is the same as if no **key=value** pair exists for this **key**.
 qualifier = qualifiers-key "=" qualifiers-value
-;; REMARK: includes percent-encoded "=" (%3D)
 qualifier-key = alpha-lowercase *( alpha-lowercase / DIGIT )
-qualifier-value = 1*( percent-encoded-character / pct-encoded-slach )
+qualifier-value = 1*( purl-character-wes )
 
 ;; Sub-section "Subpath"
 ;; TO BE DISCUSSED: subpath may be empty according to spec
 ;; > prefixed by a '#' separator when not empty [...]
 ;; > The **subpath** contains zero or more segments [...]
 subpath = [ subpath-segment *( "/" subpath-segment ) ]
-;; TODO: shall not be any of '..' or '.'
-subpath-segment = 1*( percent-encoded-character )
+subpath-segment = [ ".." purl-character-nes 
+                  / "." alphanumeric-characters / "-" / "_" / "~" / pct-encoded
+                  / alphanumeric-characters / "-" / "_" / "~" / pct-encoded
+                  ] *( purl-character-nes )
+   
 
 ;; Section "Permitted characters"
 alphanumeric-characters = ALPHA / DIGIT
@@ -75,7 +76,9 @@ punctuation-characters = "." / "-" / "_" / "~"
 separator-characters = ":" / "/" / "@" / "?" / "=" / "&" / "#"  ;; REMARK: not used - can be dropped from gramar
 percent-character = "%"
 
-percent-encoded-character = alphanumeric-characters / punctuation-characters / pct-encoded 
+purl-character-nes = alphanumeric-characters / punctuation-characters / pct-encoded
+purl-character-wes = purl-character-nes / pct-encoded-slach
+
 
 ;; sction "Character encoding"
 
