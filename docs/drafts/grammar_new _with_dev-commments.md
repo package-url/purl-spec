@@ -87,10 +87,6 @@ purl-character-wes = purl-character-nes / pct-encoded-slach
 pct-encoded = percent-character ( pct-encoded-nli-ascii / pct-utf8-nli-multi )
 pct-encoded-space = percent-character "20" ; " "  ;; REMARK: not used - can be dropped from gramar
 pct-encoded-slach = percent-character "2F" ; "/"
-;; TODO: The following characters shall not be percent-encoded:
-;;       - the Alphanumeric Characters (A-Z => %x41-5A / a-z => %x61-7A / 0-9 => %x30-39)
-;;       - the Punctuation Characters ("." => %x2E / "-" => %x2D / "_" => %x5F / "~" => %x7E)
-;;       - the colon ':', whether used as a Separator Character or otherwise (%3A)
 pct-encoded-nli-ascii = ( "0" / "1" ) HEXDIG                        ; %x00-1F
                       / "2" ( DIGIT / "A" / "B" / "C" )             ; %x20-2F except %x2D ("-") %x2E (".") %x2F ("/")
                       / "3" ( DIGIT / "B" / "C" / "D" / "E" / "F" ) ; except %x3A (":")
