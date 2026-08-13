@@ -26,7 +26,7 @@ The structure of a PURL for this package type is:
 ## Name definition
 
 - **Requirement:** Required
-- **Note:** `The name is the model name. Case sensitivity depends on the server implementation, such as for Azure ML, it is case sensitive and must be kept as-is in the package URL; and for Databricks, it is case insensitive and must be lowercased in the package URL.`
+- **Note:** `The name is the model name. Case sensitivity depends on the server implementation, such as for Azure ML, it is case sensitive and shall be kept as-is in the package URL; and for Databricks, it is case insensitive and shall be lowercased in the package URL.`
 
 ## Version definition
 

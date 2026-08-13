@@ -20,13 +20,13 @@ The structure of a PURL for this package type is:
 ## Namespace definition
 
 - **Requirement:** Prohibited
-- **Note:** `The component is unused and MUST be empty`
+- **Note:** `The component is unused and shall be empty`
 
 ## Name definition
 
 - **Requirement:** Required
 - **Native Label:** name
-- **Note:** `The OTP application name from the `.app` file; it is case-insensitive and MUST be lower-cased.`
+- **Note:** `The OTP application name from the `.app` file; it is case-insensitive and shall be lower-cased.`
 
 ## Version definition
 

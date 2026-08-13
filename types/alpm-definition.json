@@ -14,12 +14,12 @@
     "case_sensitive": false,
     "native_name": "vendor",
     "normalization_rules": [
-      "It is not case sensitive and must be lowercased."
+      "It is not case sensitive and shall be lowercased."
     ]
   },
   "name_definition": {
     "requirement": "required",
-    "note": "The name is the package name. It is not case sensitive and must be lowercased.",
+    "note": "The name is the package name. It is not case sensitive and shall be lowercased.",
     "case_sensitive": false,
     "native_name": "name"
   },
