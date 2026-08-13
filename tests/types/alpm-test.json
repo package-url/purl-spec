@@ -1,9 +1,9 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.2.json",
   "tests": [
     {
-      "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Parse test for PURL type: alpm",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:alpm/arch/pacman@6.0.1-1?arch=x86_64",
       "expected_output": {
@@ -17,20 +17,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "description": "Roundtrip test for PURL type: alpm",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:alpm/arch/pacman@6.0.1-1?arch=x86_64",
       "expected_output": "pkg:alpm/arch/pacman@6.0.1-1?arch=x86_64",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Build test  for PURL type: alpm",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "alpm",
@@ -44,11 +44,11 @@
       },
       "expected_output": "pkg:alpm/arch/pacman@6.0.1-1?arch=x86_64",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Parse test for PURL type: alpm",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:alpm/arch/python-pip@21.0-1?arch=any",
       "expected_output": {
@@ -62,20 +62,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "description": "Roundtrip test for PURL type: alpm",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:alpm/arch/python-pip@21.0-1?arch=any",
       "expected_output": "pkg:alpm/arch/python-pip@21.0-1?arch=any",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Build test  for PURL type: alpm",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "alpm",
@@ -89,11 +89,11 @@
       },
       "expected_output": "pkg:alpm/arch/python-pip@21.0-1?arch=any",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Parse test for PURL type: alpm",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:alpm/arch/containers-common@1:0.47.4-4?arch=x86_64",
       "expected_output": {
@@ -107,20 +107,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "description": "Roundtrip test for PURL type: alpm",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:alpm/arch/containers-common@1:0.47.4-4?arch=x86_64",
       "expected_output": "pkg:alpm/arch/containers-common@1:0.47.4-4?arch=x86_64",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Build test  for PURL type: alpm",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "alpm",
@@ -134,7 +134,7 @@
       },
       "expected_output": "pkg:alpm/arch/containers-common@1:0.47.4-4?arch=x86_64",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     }
   ]
 }

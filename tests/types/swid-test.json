@@ -1,9 +1,9 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.2.json",
   "tests": [
     {
-      "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Parse test for PURL type: swid",
+      "test_group": "recommended",
       "test_type": "parse",
       "input": "pkg:swid/Acme/example.com/Enterprise+Server@1.0.0?tag_id=75b8c285-fa7b-485b-b199-4745e3004d0d",
       "expected_output": {
@@ -17,20 +17,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "description": "Roundtrip test for PURL type: swid",
+      "test_group": "recommended",
+      "test_type": "validate",
       "input": "pkg:swid/Acme/example.com/Enterprise+Server@1.0.0?tag_id=75b8c285-fa7b-485b-b199-4745e3004d0d",
-      "expected_output": "pkg:swid/Acme/example.com/Enterprise+Server@1.0.0?tag_id=75b8c285-fa7b-485b-b199-4745e3004d0d",
+      "expected_output": "pkg:swid/Acme/example.com/Enterprise%2BServer@1.0.0?tag_id=75b8c285-fa7b-485b-b199-4745e3004d0d",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Build test  for PURL type: swid",
+      "test_group": "recommended",
       "test_type": "build",
       "input": {
         "type": "swid",
@@ -42,13 +42,13 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:swid/Acme/example.com/Enterprise+Server@1.0.0?tag_id=75b8c285-fa7b-485b-b199-4745e3004d0d",
+      "expected_output": "pkg:swid/Acme/example.com/Enterprise%2BServer@1.0.0?tag_id=75b8c285-fa7b-485b-b199-4745e3004d0d",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Parse test for PURL type: swid",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:swid/Fedora@29?tag_id=org.fedoraproject.Fedora-29",
       "expected_output": {
@@ -62,20 +62,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "description": "Roundtrip test for PURL type: swid",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:swid/Fedora@29?tag_id=org.fedoraproject.Fedora-29",
       "expected_output": "pkg:swid/Fedora@29?tag_id=org.fedoraproject.Fedora-29",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Build test  for PURL type: swid",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "swid",
@@ -89,11 +89,11 @@
       },
       "expected_output": "pkg:swid/Fedora@29?tag_id=org.fedoraproject.Fedora-29",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Parse test for PURL type: swid",
+      "test_group": "recommended",
       "test_type": "parse",
       "input": "pkg:swid/Adobe+Systems+Incorporated/Adobe+InDesign@CC?tag_id=CreativeCloud-CS6-Win-GM-MUL",
       "expected_output": {
@@ -107,20 +107,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "description": "Roundtrip test for PURL type: swid",
+      "test_group": "recommended",
+      "test_type": "validate",
       "input": "pkg:swid/Adobe+Systems+Incorporated/Adobe+InDesign@CC?tag_id=CreativeCloud-CS6-Win-GM-MUL",
-      "expected_output": "pkg:swid/Adobe+Systems+Incorporated/Adobe+InDesign@CC?tag_id=CreativeCloud-CS6-Win-GM-MUL",
+      "expected_output": "pkg:swid/Adobe%2BSystems%2BIncorporated/Adobe%2BInDesign@CC?tag_id=CreativeCloud-CS6-Win-GM-MUL",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Build test  for PURL type: swid",
+      "test_group": "recommended",
       "test_type": "build",
       "input": {
         "type": "swid",
@@ -132,9 +132,9 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:swid/Adobe+Systems+Incorporated/Adobe+InDesign@CC?tag_id=CreativeCloud-CS6-Win-GM-MUL",
+      "expected_output": "pkg:swid/Adobe%2BSystems%2BIncorporated/Adobe%2BInDesign@CC?tag_id=CreativeCloud-CS6-Win-GM-MUL",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     }
   ]
 }

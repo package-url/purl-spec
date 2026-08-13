@@ -1,6 +1,6 @@
 {
   "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
-  "$id": "https://packageurl.org/types/bitbucket-definition.json",
+  "$id": "https://packageurl.org/types/apk-definition.json",
   "type": "apk",
   "type_name": "APK-based packages",
   "description": "Alpine Linux APK-based packages",
@@ -10,16 +10,18 @@
   },
   "namespace_definition": {
     "requirement": "required",
-    "note": "The namespace is the vendor such as alpine or openwrt. It is not case sensitive and must be lowercased.",
+    "note": "The namespace is the vendor such as alpine or openwrt. It is not case sensitive and shall be lowercased.",
     "native_name": "vendor",
     "case_sensitive": false
   },
   "name_definition": {
-    "note": "The name is the package name. It is not case sensitive and must be lowercased.",
+    "requirement": "required",
+    "note": "The name is the package name. It is not case sensitive and shall be lowercased.",
     "native_name": "name",
     "case_sensitive": false
   },
   "version_definition": {
+    "requirement": "optional",
     "note": "The version is a package version as expected by apk.",
     "native_name": "version"
   },

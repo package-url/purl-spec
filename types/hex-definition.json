@@ -12,20 +12,22 @@
     "requirement": "optional",
     "case_sensitive": false,
     "native_name": "organization for private packages",
-    "note": "The namespace is optional; it may be used to specify the organization for private packages on hex.pm. It is not case sensitive and must be lowercased."
+    "note": "The namespace is optional; it may be used to specify the organization for private packages on hex.pm. It is not case sensitive and shall be lowercased."
   },
   "name_definition": {
+    "requirement": "required",
     "case_sensitive": false,
     "native_name": "name",
-    "note": "The name is not case sensitive and must be lowercased."
+    "note": "The name is not case sensitive and shall be lowercased."
   },
   "version_definition": {
+    "requirement": "optional",
     "native_name": "version"
   },
   "examples": [
     "pkg:hex/jason@1.1.2",
     "pkg:hex/acme/foo@2.3.",
     "pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js",
-    "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com"
+    "pkg:hex/bar@1.2.3?repository_url=https:%2F%2Fmyrepo.example.com"
   ]
 }

@@ -1,68 +1,68 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.2.json",
   "tests": [
     {
-      "description": "minimal Hugging Face model. Rountrip an input purl to canonical.",
-      "test_group": "advanced",
-      "test_type": "roundtrip",
-      "input": "pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
-      "expected_output": "pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "description": "minimal Hugging Face model. Roundtrip an input purl to canonical.",
+      "test_group": "recommended",
+      "test_type": "validate",
+      "input": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "expected_output": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "minimal Hugging Face model",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
-      "input": "pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "input": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
       "expected_output": {
         "type": "huggingface",
-        "namespace": null,
+        "namespace": "distilbert",
         "name": "distilbert-base-uncased",
         "version": "043235d6088ecd3dd5fb5ca3592b6913fd516027",
         "qualifiers": null,
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "minimal Hugging Face model. Rountrip a canonical input to canonical output.",
-      "test_group": "base",
-      "test_type": "roundtrip",
-      "input": "pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
-      "expected_output": "pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "description": "minimal Hugging Face model. Roundtrip a canonical input to canonical output.",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "expected_output": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "minimal Hugging Face model",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "huggingface",
-        "namespace": null,
+        "namespace": "distilbert",
         "name": "distilbert-base-uncased",
         "version": "043235d6088ecd3dd5fb5ca3592b6913fd516027",
         "qualifiers": null,
         "subpath": null
       },
-      "expected_output": "pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "expected_output": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Hugging Face model with staging endpoint. Rountrip an input purl to canonical.",
-      "test_group": "advanced",
-      "test_type": "roundtrip",
+      "description": "Hugging Face model with staging endpoint. Roundtrip an input purl to canonical.",
+      "test_group": "recommended",
+      "test_type": "validate",
       "input": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
-      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
+      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https:%2F%2Fhub-ci.huggingface.co",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Hugging Face model with staging endpoint",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
       "expected_output": {
@@ -76,20 +76,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Hugging Face model with staging endpoint. Rountrip a canonical input to canonical output.",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "description": "Hugging Face model with staging endpoint. Roundtrip a canonical input to canonical output.",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
-      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
+      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https:%2F%2Fhub-ci.huggingface.co",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Hugging Face model with staging endpoint",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "huggingface",
@@ -101,22 +101,22 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
+      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https:%2F%2Fhub-ci.huggingface.co",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Hugging Face model with various cases. Rountrip an input purl to canonical.",
-      "test_group": "advanced",
-      "test_type": "roundtrip",
+      "description": "Hugging Face model with various cases. Roundtrip an input purl to canonical.",
+      "test_group": "recommended",
+      "test_type": "validate",
       "input": "pkg:huggingface/EleutherAI/gpt-neo-1.3B@797174552AE47F449AB70B684CABCB6603E5E85E",
       "expected_output": "pkg:huggingface/EleutherAI/gpt-neo-1.3B@797174552ae47f449ab70b684cabcb6603e5e85e",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Hugging Face model with various cases",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:huggingface/EleutherAI/gpt-neo-1.3B@797174552AE47F449AB70B684CABCB6603E5E85E",
       "expected_output": {
@@ -128,20 +128,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Hugging Face model with various cases. Rountrip a canonical input to canonical output.",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "description": "Hugging Face model with various cases. Roundtrip a canonical input to canonical output.",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:huggingface/EleutherAI/gpt-neo-1.3B@797174552ae47f449ab70b684cabcb6603e5e85e",
       "expected_output": "pkg:huggingface/EleutherAI/gpt-neo-1.3B@797174552ae47f449ab70b684cabcb6603e5e85e",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Hugging Face model with various cases",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "huggingface",
@@ -153,52 +153,52 @@
       },
       "expected_output": "pkg:huggingface/EleutherAI/gpt-neo-1.3B@797174552ae47f449ab70b684cabcb6603e5e85e",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Parse test for PURL type: huggingface",
+      "test_group": "required",
       "test_type": "parse",
-      "input": "pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "input": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
       "expected_output": {
         "type": "huggingface",
-        "namespace": null,
+        "namespace": "distilbert",
         "name": "distilbert-base-uncased",
         "version": "043235d6088ecd3dd5fb5ca3592b6913fd516027",
         "qualifiers": null,
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
-      "test_group": "base",
-      "test_type": "roundtrip",
-      "input": "pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
-      "expected_output": "pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "description": "Roundtrip test for PURL type: huggingface",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "expected_output": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Build test  for PURL type: huggingface",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "huggingface",
-        "namespace": null,
+        "namespace": "distilbert",
         "name": "distilbert-base-uncased",
         "version": "043235d6088ecd3dd5fb5ca3592b6913fd516027",
         "qualifiers": null,
         "subpath": null
       },
-      "expected_output": "pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
+      "expected_output": "pkg:huggingface/distilbert/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd516027",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Parse test for PURL type: huggingface",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
       "expected_output": {
@@ -212,20 +212,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "description": "Roundtrip test for PURL type: huggingface",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
-      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
+      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https:%2F%2Fhub-ci.huggingface.co",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Build test  for PURL type: huggingface",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "huggingface",
@@ -237,9 +237,9 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co",
+      "expected_output": "pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https:%2F%2Fhub-ci.huggingface.co",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     }
   ]
 }

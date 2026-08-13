@@ -6,17 +6,19 @@
   "description": "For artifacts stored in registries that conform to the OCI Distribution Specification https://github.com/opencontainers/distribution-spec including container images built by Docker and others",
   "repository": {
     "use_repository": true,
-    "note": "There is no canonical package repository for OCI artifacts. Therefore oci purls must be registry agnostic by default. To specify the repository, provide a repository_url value."
+    "note": "There is no canonical package repository for OCI artifacts. Therefore oci purls shall be registry agnostic by default. To specify the repository, provide a repository_url value."
   },
   "namespace_definition": {
     "requirement": "prohibited",
     "note": "OCI purls do not contain a namespace, although, repository_url may contain a namespace as part of the physical location of the package."
   },
   "name_definition": {
+    "requirement": "required",
     "case_sensitive": false,
-    "note": "The name is not case sensitive and must be lowercased. The name is the last fragment of the repository name. For example if the repository name is library/debian then the name is debian."
+    "note": "The name is not case sensitive and shall be lowercased. The name is the last fragment of the repository name. For example if the repository name is library/debian then the name is debian."
   },
   "version_definition": {
+    "requirement": "optional",
     "case_sensitive": false,
     "note": "The version is the sha256:hex_encoded_lowercase_digest of the artifact and is required to uniquely identify the artifact."
   },
@@ -38,9 +40,9 @@
     "https://github.com/opencontainers/distribution-spec"
   ],
   "examples": [
-    "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=docker.io/library/debian&arch=amd64&tag=latest",
-    "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=ghcr.io/debian&tag=bullseye",
-    "pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest",
-    "pkg:oci/hello-wasm@sha256%3A244fd47e07d10?tag=v1"
+    "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=docker.io%2Flibrary%2Fdebian&arch=amd64&tag=latest",
+    "pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=ghcr.io%2Fdebian&tag=bullseye",
+    "pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io%2Fdistroless%2Fstatic&tag=latest",
+    "pkg:oci/hello-wasm@sha256:244fd47e07d10?tag=v1"
   ]
 }

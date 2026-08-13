@@ -11,10 +11,11 @@
   "namespace_definition": {
     "case_sensitive": false,
     "native_name": "vendor",
-    "note": "The namespace is the vendor of the package. It is not case sensitive and must be lowercased.",
+    "note": "The namespace is the vendor of the package. It is not case sensitive and shall be lowercased.",
     "requirement": "required"
   },
   "name_definition": {
+    "requirement": "required",
     "native_name": "name"
   },
   "examples": [

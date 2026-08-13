@@ -157,11 +157,11 @@ if __name__ == "__main__":
         ptype = data["type"]
         types.append(ptype)
         md = generate_documentation(data)
-        mddoc = Path("types-doc") / f"{ptype}-definition.md"
+        mddoc = Path("docs/types/definitions") / f"{ptype}-definition.md"
         mddoc.write_text(md, newline="\n")
         print(f"PURL Type Documentation generated for {mddoc}")
 
-    idxdoc =  Path("purl-types-index.json")
+    idxdoc = Path("purl-types-index.json")
     idx = json.dumps(sorted(types), indent=2) + "\n"
     idxdoc.write_text(idx, newline="\n")
     print(f"PURL Types Index generated at {idxdoc}")

@@ -1,9 +1,9 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.2.json",
   "tests": [
     {
-      "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Parse test for PURL type: hex",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:hex/jason@1.1.2",
       "expected_output": {
@@ -15,20 +15,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "description": "Roundtrip test for PURL type: hex",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:hex/jason@1.1.2",
       "expected_output": "pkg:hex/jason@1.1.2",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Build test  for PURL type: hex",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "hex",
@@ -40,11 +40,11 @@
       },
       "expected_output": "pkg:hex/jason@1.1.2",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Parse test for PURL type: hex",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:hex/acme/foo@2.3.",
       "expected_output": {
@@ -56,20 +56,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "description": "Roundtrip test for PURL type: hex",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:hex/acme/foo@2.3.",
       "expected_output": "pkg:hex/acme/foo@2.3.",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Build test  for PURL type: hex",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "hex",
@@ -81,11 +81,11 @@
       },
       "expected_output": "pkg:hex/acme/foo@2.3.",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Parse test for PURL type: hex",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js",
       "expected_output": {
@@ -97,20 +97,20 @@
         "subpath": "priv/static/phoenix_html.js"
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "description": "Roundtrip test for PURL type: hex",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js",
       "expected_output": "pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Build test  for PURL type: hex",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "hex",
@@ -122,11 +122,11 @@
       },
       "expected_output": "pkg:hex/phoenix_html@2.13.3#priv/static/phoenix_html.js",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Parse test for PURL type: hex",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com",
       "expected_output": {
@@ -140,20 +140,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "description": "Roundtrip test for PURL type: hex",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com",
-      "expected_output": "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com",
+      "expected_output": "pkg:hex/bar@1.2.3?repository_url=https:%2F%2Fmyrepo.example.com",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Build test  for PURL type: hex",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "hex",
@@ -165,9 +165,9 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:hex/bar@1.2.3?repository_url=https://myrepo.example.com",
+      "expected_output": "pkg:hex/bar@1.2.3?repository_url=https:%2F%2Fmyrepo.example.com",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     }
   ]
 }

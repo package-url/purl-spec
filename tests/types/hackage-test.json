@@ -1,18 +1,18 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.2.json",
   "tests": [
     {
-      "description": "valid hackage purl. Rountrip an input purl to canonical.",
-      "test_group": "advanced",
-      "test_type": "roundtrip",
+      "description": "valid hackage purl. Roundtrip an input purl to canonical.",
+      "test_group": "recommended",
+      "test_type": "validate",
       "input": "pkg:hackage/AC-HalfInteger@1.2.1",
       "expected_output": "pkg:hackage/AC-HalfInteger@1.2.1",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "valid hackage purl",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:hackage/AC-HalfInteger@1.2.1",
       "expected_output": {
@@ -24,20 +24,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "valid hackage purl. Rountrip a canonical input to canonical output.",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "description": "valid hackage purl. Roundtrip a canonical input to canonical output.",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:hackage/AC-HalfInteger@1.2.1",
       "expected_output": "pkg:hackage/AC-HalfInteger@1.2.1",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "valid hackage purl",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "hackage",
@@ -49,29 +49,29 @@
       },
       "expected_output": "pkg:hackage/AC-HalfInteger@1.2.1",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "name and version are always required",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:hackage",
       "expected_output": null,
       "expected_failure": true,
-      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+      "expected_message": "Should fail to parse a PURL from invalid purl input"
     },
     {
       "description": "name and version are always required",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:hackage",
       "expected_output": null,
       "expected_failure": true,
-      "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
+      "expected_message": "Should fail to parse a PURL from invalid canonical purl input"
     },
     {
       "description": "name and version are always required",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "hackage",
@@ -83,11 +83,11 @@
       },
       "expected_output": null,
       "expected_failure": true,
-      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+      "expected_message": "Should fail to build a PURL from invalid input components"
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Parse test for PURL type: hackage",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:hackage/a50@0.5",
       "expected_output": {
@@ -99,20 +99,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "description": "Roundtrip test for PURL type: hackage",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:hackage/a50@0.5",
       "expected_output": "pkg:hackage/a50@0.5",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Build test  for PURL type: hackage",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "hackage",
@@ -124,11 +124,11 @@
       },
       "expected_output": "pkg:hackage/a50@0.5",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Parse test for PURL type: hackage",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:hackage/AC-HalfInteger@1.2.1",
       "expected_output": {
@@ -140,20 +140,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "description": "Roundtrip test for PURL type: hackage",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:hackage/AC-HalfInteger@1.2.1",
       "expected_output": "pkg:hackage/AC-HalfInteger@1.2.1",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Build test  for PURL type: hackage",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "hackage",
@@ -165,11 +165,11 @@
       },
       "expected_output": "pkg:hackage/AC-HalfInteger@1.2.1",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Parse test for PURL type: hackage",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:hackage/3d-graphics-examples@0.0.0.2",
       "expected_output": {
@@ -181,20 +181,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "description": "Roundtrip test for PURL type: hackage",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:hackage/3d-graphics-examples@0.0.0.2",
       "expected_output": "pkg:hackage/3d-graphics-examples@0.0.0.2",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Build test  for PURL type: hackage",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "hackage",
@@ -206,7 +206,7 @@
       },
       "expected_output": "pkg:hackage/3d-graphics-examples@0.0.0.2",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     }
   ]
 }

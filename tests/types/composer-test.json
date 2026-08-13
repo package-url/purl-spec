@@ -1,18 +1,18 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.2.json",
   "tests": [
     {
       "description": "valid packagist purl",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:composer/guzzlehttp/promises@2.0.2",
       "expected_output": "pkg:composer/guzzlehttp/promises@2.0.2",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "valid packagist purl",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:composer/guzzlehttp/promises@2.0.2",
       "expected_output": {
@@ -24,20 +24,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "composer names are not case sensitive. Rountrip an input purl to canonical.",
-      "test_group": "advanced",
-      "test_type": "roundtrip",
+      "description": "composer names are not case sensitive. Roundtrip an input purl to canonical.",
+      "test_group": "recommended",
+      "test_type": "validate",
       "input": "pkg:composer/Laravel/Laravel@5.5.0",
       "expected_output": "pkg:composer/laravel/laravel@5.5.0",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "composer names are not case sensitive",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:composer/Laravel/Laravel@5.5.0",
       "expected_output": {
@@ -49,20 +49,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "composer names are not case sensitive. Rountrip a canonical input to canonical output.",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "description": "composer names are not case sensitive. Roundtrip a canonical input to canonical output.",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:composer/laravel/laravel@5.5.0",
       "expected_output": "pkg:composer/laravel/laravel@5.5.0",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "composer names are not case sensitive",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "composer",
@@ -74,11 +74,11 @@
       },
       "expected_output": "pkg:composer/laravel/laravel@5.5.0",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Parse test for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Parse test for PURL type: composer",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:composer/laravel/laravel@5.5.0",
       "expected_output": {
@@ -90,20 +90,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Rountrip test for <class 'type'> PURL",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "description": "Roundtrip test for PURL type: composer",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:composer/laravel/laravel@5.5.0",
       "expected_output": "pkg:composer/laravel/laravel@5.5.0",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
-      "description": "Build test  for <class 'type'> PURL",
-      "test_group": "base",
+      "description": "Build test  for PURL type: composer",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "composer",
@@ -115,7 +115,7 @@
       },
       "expected_output": "pkg:composer/laravel/laravel@5.5.0",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     }
   ]
 }
