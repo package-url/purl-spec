@@ -84,31 +84,33 @@ pchar-ns = unreserved / pct-encoded-ns
 
 ;; sction "Character encoding"
 
-pct-encoded    = percent-character ( pct-encoded-nli-ascii / "2F" / pct-utf8-nli-multi )
-pct-encoded-ns = percent-character ( pct-encoded-nli-ascii    /     pct-utf8-nli-multi )
+pct-encoded    = percent-character ( pct-encoded-nli-ascii-ns / "2F" / pct-encoded-nli-utf8-multi )
+pct-encoded-ns = percent-character ( pct-encoded-nli-ascii-ns    /     pct-encoded-nli-utf8-multi )
 
-pct-encoded-nli-ascii = ( "0" / "1" ) HEXDIG                        ; %x00-1F
-                      / "2" ( DIGIT / "A" / "B" / "C" )             ; %x20-2F except %x2D ("-") %x2E (".") %x2F ("/")
-                      / "3" ( DIGIT / "B" / "C" / "D" / "E" / "F" ) ; except %x3A (":")
-                      / "40"                                        ; %x40-4F except %x41-4F (A-O)
-                      / "5" ( "B" / "C" / "D" / "E" )               ; %x50-5F except %x50-5A (P-Z) %x5F ("_")
-                      / "60"                                        ; %x60-6F except %x61-6F (a-o)
-                      / "7" ( "B" / "C" / "D" / "F" )               ; %x70-7F except %x70-7A (p-z) %x7E ("~")
-pct-utf8-nli-multi = pct-utf8-nli-multi2 / pct-utf8-nli-multi3 / pct-utf8-nli-multi4
+pct-encoded-nli-ascii-ns = ( "0" / "1" ) HEXDIG                        ; %x00-1F
+                         / "2" ( DIGIT / "A" / "B" / "C" )             ; %x20-2F except %x2D ("-") %x2E (".") %x2F ("/")
+                         / "3" ( DIGIT / "B" / "C" / "D" / "E" / "F" ) ; except %x3A (":")
+                         / "40"                                        ; %x40-4F except %x41-4F (A-O)
+                         / "5" ( "B" / "C" / "D" / "E" )               ; %x50-5F except %x50-5A (P-Z) %x5F ("_")
+                         / "60"                                        ; %x60-6F except %x61-6F (a-o)
+                         / "7" ( "B" / "C" / "D" / "F" )               ; %x70-7F except %x70-7A (p-z) %x7E ("~")
+pct-encoded-nli-utf8-multi = pct-encoded-nli-utf8-multi2 
+                           / pct-encoded-nli-utf8-multi3
+                           / pct-encoded-nli-utf8-multi4
 ; UTF8-2 / UTF8-3 / UTF8-4 ; - taken from https://datatracker.ietf.org/doc/html/rfc3629#section-4
 ; NOTE -- The authoritative definition of UTF-8 is in [UNICODE].  This
 ;         grammar is believed to describe the same thing Unicode describes, but
 ;         does not claim to be authoritative.  Implementors are urged to rely
 ;         on the authoritative source, rather than on this ABNF.
-pct-utf8-nli-multi2 = ( "C" ("2" / "3" / "4" / "5" / "6" / "7" / "8" / "9" / "A" / "B" / "C" / "D" / "E" / "F" ) / "D" HEXDIG ) pct-utf8-trail ; %xC2-DF UTF8-tail
-pct-utf8-nli-multi3 = "E0" percent-character ( "A" / "B" ) HEXDIG pct-utf8-trail ; %xE0 %xA0-BF UTF8-tail 
-                    / "E" ( "1" / "2" / "3" / "4" / "5" / "6" / "7" / "8" / "9" / "A" / "B" / "C" ) 2( pct-utf8-trail ); %xE1-EC 2( UTF8-tail ) 
-                    / "ED" percent-character ( "8" / "9" ) HEXDIG pct-utf8-trail ; %xED %x80-9F UTF8-tail 
-                    / "E" ( "E" / "F" ) 2( pct-utf8-trail ) ; %xEE-EF 2( UTF8-tail )
-pct-utf8-nli-multi4 = "F0" percent-character ( "9" / "A" / "B" ) HEXDIG 2( pct-utf8-trail ) ; %xF0 %x90-BF 2( UTF8-tail ) 
-                    / "F" ( "1" / "2" / "3" ) 3( pct-utf8-trail )                           ; %xF1-F3 3( UTF8-tail ) 
-                    / "F4" percent-character "8" HEXDIG 2( pct-utf8-trail )                 ; %xF4 %x80-8F 2( UTF8-tail )
-pct-utf8-trail = percent-character ("8" / "9" / "A" / "B" ) HEXDIG  ; %x80-BF
+pct-encoded-nli-utf8-multi2 = ( "C" ("2" / "3" / "4" / "5" / "6" / "7" / "8" / "9" / "A" / "B" / "C" / "D" / "E" / "F" ) / "D" HEXDIG ) pct-encoded-utf8-trail ; %xC2-DF UTF8-tail
+pct-encoded-nli-utf8-multi3 = "E0" percent-character ( "A" / "B" ) HEXDIG pct-encoded-utf8-trail ; %xE0 %xA0-BF UTF8-tail 
+                            / "E" ( "1" / "2" / "3" / "4" / "5" / "6" / "7" / "8" / "9" / "A" / "B" / "C" ) 2( pct-encoded-utf8-trail ); %xE1-EC 2( UTF8-tail ) 
+                            / "ED" percent-character ( "8" / "9" ) HEXDIG pct-encoded-utf8-trail ; %xED %x80-9F UTF8-tail 
+                            / "E" ( "E" / "F" ) 2( pct-encoded-utf8-trail ) ; %xEE-EF 2( UTF8-tail )
+pct-encoded-nli-utf8-multi4 = "F0" percent-character ( "9" / "A" / "B" ) HEXDIG 2( pct-encoded-utf8-trail ) ; %xF0 %x90-BF 2( UTF8-tail ) 
+                            / "F" ( "1" / "2" / "3" ) 3( pct-encoded-utf8-trail )                           ; %xF1-F3 3( UTF8-tail ) 
+                            / "F4" percent-character "8" HEXDIG 2( pct-encoded-utf8-trail )                 ; %xF4 %x80-8F 2( UTF8-tail )
+pct-encoded-utf8-trail = percent-character ("8" / "9" / "A" / "B" ) HEXDIG  ; %x80-BF
 
 ;; section "Case folding"
 alpha-lowercase = %61-7A ; a-z
