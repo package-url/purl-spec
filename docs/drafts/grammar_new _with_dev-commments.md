@@ -114,7 +114,7 @@ pct-encoded-nli-utf8-multi4 = "F0" percent ( "9" / "A" / "B" ) HEXDIG 2( pct-enc
 pct-encoded-utf8-trail = percent ("8" / "9" / "A" / "B" ) HEXDIG  ; %x80-BF
 
 ; Simplified UTF-8 multibyte
-; The sequence of decoded octets MUST form a valid UTF-8 encoding per [RFC3629]
+; Note -- The sequence of decoded octets MUST form a valid UTF-8 encoding per [RFC3629]
 pct-encoded-nli-utf8-multi-simplifed = ( "8" / "9" / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG ; %x80-FF
 
 ;; section "Case folding"
