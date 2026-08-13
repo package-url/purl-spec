@@ -26,7 +26,7 @@ purl-lenient = scheme ":" *"/" ;; REMARK: PURL parsers shall accept URLs where t
                1*"/" name *"/" ;; REMARK: All leading and trailing slashes '/' are not significant and should be stripped in the canonical form. They are not part of the **name**.
                [ "@" version ]
                [ "?" qualifiers ]
-               [ "#" *"/" subpath *"/" ]
+               [ "#" *"/" subpath *"/" ]  ;; REMARK: Leading and trailing slashes '/' are not significant and should be stripped in the canonical form.
 
 ;; Section "Rules for each PURL component"
 
@@ -43,13 +43,13 @@ namespace = namespace-segment *( "/" namespace-segment )
 ;; TO BE DISCUSSED:
 ;; - spec: When percent-decoded, a segment: [...] may contain any Unicode character other than '/' unless the package's **type** definition provides otherwise
 ;; - so the type definition make '/' an allowed encoded character here? - so basically we have no exclusions???
-namespace-segment = 1*( purl-character-nes )
+namespace-segment = 1*( pchar-ns )
 
 ;; Sub-section "Name"
-name = 1*( purl-character-wes )
+name = 1*( pchar-ns )
 
 ;; Sub-section "Version"
-version = 1*( purl-character-wes )
+version = 1*( pchar )
 
 ;; Sub-section "Qualifiers"
 qualifiers = qualifier *( "&" qualifier )
@@ -57,17 +57,17 @@ qualifiers = qualifier *( "&" qualifier )
   **value** is the same as if no **key=value** pair exists for this **key**.
 qualifier = qualifiers-key "=" qualifiers-value
 qualifier-key = alpha-lowercase *( alpha-lowercase / DIGIT )
-qualifier-value = 1*( purl-character-wes )
+qualifier-value = 1*( pchar-ns )
 
 ;; Sub-section "Subpath"
 ;; TO BE DISCUSSED: subpath may be empty according to spec
 ;; > prefixed by a '#' separator when not empty [...]
 ;; > The **subpath** contains zero or more segments [...]
 subpath = [ subpath-segment *( "/" subpath-segment ) ]
-subpath-segment = [ ".." purl-character-nes 
-                  / "." alphanumeric-characters / "-" / "_" / "~" / pct-encoded
-                  / alphanumeric-characters / "-" / "_" / "~" / pct-encoded
-                  ] *( purl-character-nes )
+subpath-segment = [ ".." pchar-ns
+                  / "." ( alphanumeric-characters / "-" / "_" / "~" / pct-encoded-ns )
+                  / ( alphanumeric-characters / "-" / "_" / "~" / pct-encoded-ns )
+                  ] *( pchar-ns )
    
 
 ;; Section "Permitted characters"
@@ -76,17 +76,17 @@ punctuation-characters = "." / "-" / "_" / "~"
 separator-characters = ":" / "/" / "@" / "?" / "=" / "&" / "#"  ;; REMARK: not used - can be dropped from gramar
 percent-character = "%"
 
-; allowedpurl characters without percent-encoded slash "%2F"
-purl-character-nes = alphanumeric-characters / punctuation-characters / pct-encoded
-; allowedpurl characters with percent-encoded slash %2F ('/')
-purl-character-wes = purl-character-nes / pct-encoded-slach
+unreserved = alphanumeric-characters / punctuation-characters
+
+pchar    = unreserved / pct-encoded
+pchar-ns = unreserved / pct-encoded-ns
 
 
 ;; sction "Character encoding"
 
-pct-encoded = percent-character ( pct-encoded-nli-ascii / pct-utf8-nli-multi )
-pct-encoded-space = percent-character "20" ; " "  ;; REMARK: not used - can be dropped from gramar
-pct-encoded-slach = percent-character "2F" ; "/"
+pct-encoded    = percent-character ( pct-encoded-nli-ascii / "2F" / pct-utf8-nli-multi )
+pct-encoded-ns = percent-character ( pct-encoded-nli-ascii    /     pct-utf8-nli-multi )
+
 pct-encoded-nli-ascii = ( "0" / "1" ) HEXDIG                        ; %x00-1F
                       / "2" ( DIGIT / "A" / "B" / "C" )             ; %x20-2F except %x2D ("-") %x2E (".") %x2F ("/")
                       / "3" ( DIGIT / "B" / "C" / "D" / "E" / "F" ) ; except %x3A (":")
