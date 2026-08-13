@@ -41,16 +41,16 @@ type-lenient = ALPHA *( ALPHA / DIGIT / "." / "-" )
 ;; Sub-section "Namespace"
 namespace = namespace-segment *( "/" namespace-segment )
 namespace-lenient = namespace-segment *( "/" namespace-segment )
-;; TODO: When percent-decoded, a segment:
-;;       - may contain any Unicode character other than '/' unless the package's **type** definition provides otherwise
-;; TO BE DISCUSSED - so the type definition make '/' an allowed encoded character here? - so basically we have no exclusions?
-namespace-segment = 1*( alphanumeric-characters / pct-encoded )
+;; TO BE DISCUSSED:
+;; - spec: When percent-decoded, a segment: [...] may contain any Unicode character other than '/' unless the package's **type** definition provides otherwise
+;; - so the type definition make '/' an allowed encoded character here? - so basically we have no exclusions?
+namespace-segment = 1*( percent-encoded-character )
 
 ;; Sub-section "Name"
-name = 1*( alphanumeric-characters / pct-encoded )
+name = 1*( percent-encoded-character / pct-encoded-slach )
 
 ;; Sub-section "Version"
-version = 1*( alphanumeric-characters / pct-encoded )
+version = 1*( percent-encoded-character / pct-encoded-slach )
 
 ;; Sub-section "Qualifiers"
 qualifiers = qualifier *( "&" qualifier )
@@ -59,57 +59,54 @@ qualifiers = qualifier *( "&" qualifier )
 qualifier = qualifiers-key "=" qualifiers-value
 ;; REMARK: includes percent-encoded "=" (%3D)
 qualifier-key = alpha-lowercase *( alpha-lowercase / DIGIT )
-;; TODO: A **value** may contain any Unicode character and all characters shall be encoded as described in the _Character encoding_ clause.
-qualifier-value = 1*( pct-encoded )
+qualifier-value = 1*( percent-encoded-character / pct-encoded-slach )
 
 ;; Sub-section "Subpath"
 ;; TO BE DISCUSSED: subpath may be empty according to spec
 ;; > prefixed by a '#' separator when not empty [...]
 ;; > The **subpath** contains zero or more segments [...]
 subpath = [ subpath-segment *( "/" subpath-segment ) ]
-;; TODO may contain any Unicode character other than '/' unless the package's **type** definition provides otherwise.
-subpath-segment = 1*( ALPHA / DIGIT / pct-encoded )
-
-subpath-segment
+;; TODO: shall not be any of '..' or '.'
+subpath-segment = 1*( percent-encoded-character )
 
 ;; Section "Permitted characters"
 alphanumeric-characters = ALPHA / DIGIT
-percent-character = "%"
 punctuation-characters = "." / "-" / "_" / "~"
-separator-characters = ":" / "/" / "@" / "?" / "=" / "&" / "#"
+separator-characters = ":" / "/" / "@" / "?" / "=" / "&" / "#"  ;; REMARK: not used - can be dropped from gramar
+percent-character = "%"
+
+percent-encoded-character = alphanumeric-characters / punctuation-characters / pct-encoded 
 
 ;; sction "Character encoding"
 
-
-pct-encoded = percent-character ( pct-ascii-nli
-                                / pct-utf8-2-nli / pct-utf8-3-nli / pct-utf8-4-nli
-                                )
+pct-encoded = percent-character ( pct-encoded-nli-ascii / pct-utf8-nli-multi )
+pct-encoded-space = percent-character "20" ; " "  ;; REMARK: not used - can be dropped from gramar
+pct-encoded-slach = percent-character "2F" ; "/"
 ;; TODO: The following characters shall not be percent-encoded:
 ;;       - the Alphanumeric Characters (A-Z => %x41-5A / a-z => %x61-7A / 0-9 => %x30-39)
 ;;       - the Punctuation Characters ("." => %x2E / "-" => %x2D / "_" => %x5F / "~" => %x7E)
 ;;       - the colon ':', whether used as a Separator Character or otherwise (%3A)
-pct-encoded-ascii-nli = 00-0F
-                      / 10-1F
-                      / 20-2F  ;; TODO: exclude 2E and 2D 
-                      / 30-3F  ;; TODO: exclude 3A
-                      / 40-4F  ;; TODO: expcept 41-4F
-                      / 50-5F  ;; TODO: expcept 50-5A and 5F 
-                      / 60-6F  ;; TODO: exceptt 61-6F
-                      / 70-7F  ;; TODO: exceptt 70-7A and 7E
-
+pct-encoded-nli-ascii = ( "0" / "1" ) HEXDIG                        ; %x00-1F
+                      / "2" ( DIGIT / "A" / "B" / "C" )             ; %x20-2F except %x2D ("-") %x2E (".") %x2F ("/")
+                      / "3" ( DIGIT / "B" / "C" / "D" / "E" / "F" ) ; except %x3A (":")
+                      / "40"                                        ; %x40-4F except %x41-4F (A-O)
+                      / "5" ( "B" / "C" / "D" / "E" )               ; %x50-5F except %x50-5A (P-Z) %x5F ("_")
+                      / "60"                                        ; %x60-6F except %x61-6F (a-o)
+                      / "7" ( "B" / "C" / "D" / "F" )               ; %x70-7F except %x70-7A (p-z) %x7E ("~")
+pct-utf8-nli-multi = pct-utf8-nli-multi2 / pct-utf8-nli-multi3 / pct-utf8-nli-multi4
 ; UTF8-2 / UTF8-3 / UTF8-4 ; - taken from https://datatracker.ietf.org/doc/html/rfc3629#section-4
 ; NOTE -- The authoritative definition of UTF-8 is in [UNICODE].  This
 ;         grammar is believed to describe the same thing Unicode describes, but
 ;         does not claim to be authoritative.  Implementors are urged to rely
 ;         on the authoritative source, rather than on this ABNF.
-pct-utf8-2-nli = ( "C" ("2" / "3" / "4" / "5" / "6" / "7" / "8" / "A" / "B" / "C" / "D" / "E" / "F" ) / "D" HEXDIG ) pct-utf8-trail ; %xC2-DF UTF8-tail
-pct-utf8-3-nli = "E0" percent-character ( "A" / "B" ) HEXDIG pct-utf8-trail ; %xE0 %xA0-BF UTF8-tail 
-               / "E" ( "1" / "2" / "3" / "4" / "5" / "6" / "7" / "8" / "9" / "A" / "B" / "C" ) 2( pct-utf8-trail ); %xE1-EC 2( UTF8-tail ) 
-               / "ED" percent-character ( "8" / "9" ) HEXDIG pct-utf8-trail ; %xED %x80-9F UTF8-tail 
-               / "E" ( "E" / "F" ) 2( pct-utf8-trail ) ; %xEE-EF 2( UTF8-tail )
-pct-utf8-4-nli = "F0" percent-character ( "9" / "A" / "B" ) HEXDIG 2( pct-utf8-trail ) ; %xF0 %x90-BF 2( UTF8-tail ) 
-               / "F" ( "1" / "2" / "3" ) 3( pct-utf8-trail )                           ; %xF1-F3 3( UTF8-tail ) 
-               / "F4" percent-character "8" HEXDIG 2( pct-utf8-trail )                 ; %xF4 %x80-8F 2( UTF8-tail )
+pct-utf8-nli-multi2 = ( "C" ("2" / "3" / "4" / "5" / "6" / "7" / "8" / "9" / "A" / "B" / "C" / "D" / "E" / "F" ) / "D" HEXDIG ) pct-utf8-trail ; %xC2-DF UTF8-tail
+pct-utf8-nli-multi3 = "E0" percent-character ( "A" / "B" ) HEXDIG pct-utf8-trail ; %xE0 %xA0-BF UTF8-tail 
+                    / "E" ( "1" / "2" / "3" / "4" / "5" / "6" / "7" / "8" / "9" / "A" / "B" / "C" ) 2( pct-utf8-trail ); %xE1-EC 2( UTF8-tail ) 
+                    / "ED" percent-character ( "8" / "9" ) HEXDIG pct-utf8-trail ; %xED %x80-9F UTF8-tail 
+                    / "E" ( "E" / "F" ) 2( pct-utf8-trail ) ; %xEE-EF 2( UTF8-tail )
+pct-utf8-nli-multi4 = "F0" percent-character ( "9" / "A" / "B" ) HEXDIG 2( pct-utf8-trail ) ; %xF0 %x90-BF 2( UTF8-tail ) 
+                    / "F" ( "1" / "2" / "3" ) 3( pct-utf8-trail )                           ; %xF1-F3 3( UTF8-tail ) 
+                    / "F4" percent-character "8" HEXDIG 2( pct-utf8-trail )                 ; %xF4 %x80-8F 2( UTF8-tail )
 pct-utf8-trail = percent-character ("8" / "9" / "A" / "B" ) HEXDIG  ; %x80-BF
 
 ;; section "Case folding"
