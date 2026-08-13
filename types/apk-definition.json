@@ -10,13 +10,13 @@
   },
   "namespace_definition": {
     "requirement": "required",
-    "note": "The namespace is the vendor such as alpine or openwrt. It is not case sensitive and must be lowercased.",
+    "note": "The namespace is the vendor such as alpine or openwrt. It is not case sensitive and shall be lowercased.",
     "native_name": "vendor",
     "case_sensitive": false
   },
   "name_definition": {
     "requirement": "required",
-    "note": "The name is the package name. It is not case sensitive and must be lowercased.",
+    "note": "The name is the package name. It is not case sensitive and shall be lowercased.",
     "native_name": "name",
     "case_sensitive": false
   },

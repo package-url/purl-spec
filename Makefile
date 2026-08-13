@@ -51,7 +51,7 @@ checkjson:
 	@echo "-> Validate JSON data files against the schemas"
 	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-types-index.schema-1.0.json --verbose purl-types-index.json
 	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-type-definition.schema-1.0.json --verbose types/*-definition.json
-	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-test.schema-0.1.json --verbose tests/*/*-test.json
+	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-test.schema-0.2.json --verbose tests/*/*-test.json
 
 checkcode:
 	@echo "-> Run Ruff linter validation (pycodestyle, bandit, isort, and more)"
@@ -76,7 +76,7 @@ gencode:
 	    --input schemas/purl-type-definition.schema-1.0.json \
 	    --output etc/scripts/purl_type_definition.py
 	@${ACTIVATE} ${CODEGEN} \
-	    --input schemas/purl-test.schema-0.1.json \
+	    --input schemas/purl-test.schema-0.2.json \
 	    --output etc/scripts/purl_test.py
 	@echo "-> Run Black format for generated code"
 	@${ACTIVATE} black -l 100 --preview --enable-unstable-feature string_processing etc/scripts/*.py

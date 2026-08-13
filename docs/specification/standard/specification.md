@@ -31,7 +31,7 @@ Components are designed such that they form a hierarchy from the most
 significant on the left to the least significant components on the right.
 
 A PURL shall not contain a URL Authority, i.e. there is no support for
-**username**, **password**, **host** and **port** components. A **namespace*
+**username**, **password**, **host** and **port** components. A **namespace**
 segment may sometimes look like a **host**, but its interpretation is specific
 to a **type**.
 

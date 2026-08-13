@@ -10,12 +10,12 @@
   },
   "namespace_definition": {
     "requirement": "prohibited",
-    "note": "The component is unused and MUST be empty"
+    "note": "The component is unused and shall be empty"
   },
   "name_definition": {
     "case_sensitive": false,
     "native_name": "name",
-    "note": "The OTP application name from the `.app` file; it is case-insensitive and MUST be lower-cased.",
+    "note": "The OTP application name from the `.app` file; it is case-insensitive and shall be lower-cased.",
     "requirement": "required"
   },
   "version_definition": {
