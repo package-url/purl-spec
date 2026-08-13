@@ -83,8 +83,8 @@ pchar-ns = unreserved / pct-encoded-ns
 
 ;; sction "Character encoding"
 
-pct-encoded    = percent ( pct-encoded-nli-ascii-ns / "2F" / pct-encoded-nli-utf8-multi )
-pct-encoded-ns = percent ( pct-encoded-nli-ascii-ns    /     pct-encoded-nli-utf8-multi )
+pct-encoded    = percent ( pct-encoded-nli-ascii-ns / "2F" / pct-encoded-nli-utf8-multi ) ; ALT: pct-encoded-nli-utf8-multi-simplifed
+pct-encoded-ns = percent ( pct-encoded-nli-ascii-ns    /     pct-encoded-nli-utf8-multi ) ; ALT: pct-encoded-nli-utf8-multi-simplifed
 
 pct-encoded-nli-ascii-ns = ( "0" / "1" ) HEXDIG                        ; %x00-1F
                          / "2" ( DIGIT / "A" / "B" / "C" )             ; %x20-2F except %x2D ("-") %x2E (".") %x2F ("/")
@@ -112,6 +112,10 @@ pct-encoded-nli-utf8-multi4 = "F0" percent ( "9" / "A" / "B" ) HEXDIG 2( pct-enc
                             / "F" ( "1" / "2" / "3" ) 3( pct-encoded-utf8-trail )                 ; %xF1-F3 3( UTF8-tail ) 
                             / "F4" percent "8" HEXDIG 2( pct-encoded-utf8-trail )                 ; %xF4 %x80-8F 2( UTF8-tail )
 pct-encoded-utf8-trail = percent ("8" / "9" / "A" / "B" ) HEXDIG  ; %x80-BF
+
+; Simplified UTF-8 multibyte
+; The sequence of decoded octets MUST form a valid UTF-8 encoding per [RFC3629]
+pct-encoded-nli-utf8-multi-simplifed = ( "8" / "9" / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG ; %x80-FF
 
 ;; section "Case folding"
 alpha-lowercase = %61-7A ; a-z
