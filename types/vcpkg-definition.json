@@ -42,7 +42,7 @@
       "description": "The vcpkg [triplet](https://learn.microsoft.com/vcpkg/concepts/triplets) describing the target build configuration (architecture, operating system, and CRT/library linkage), for example `x64-windows` or `arm64-osx`. It describes the build target and does not affect package identity."
     }
   ],
-  "note": "A purl may carry extra qualifiers that describe the context in which the package is used, such as build configuration or platform. Parsers must tolerate these and may ignore any they do not expect. The `vcs_url` common qualifier carries the port's version-control URL in pip VCS form, for example `git+https://github.com/microsoft/vcpkg@<git-tree>`. Its git-tree pins the exact port recipe. The `features` qualifier, a comma-separated list of enabled vcpkg feature names, records which optional features were enabled at build time; it is informational and not currently normative.",
+  "note": "A purl may carry extra qualifiers that describe the context in which the package is used, such as build configuration or platform. Parsers shall tolerate these and may ignore any they do not expect. The `vcs_url` common qualifier carries the port's version-control URL in pip VCS form, for example `git+https://github.com/microsoft/vcpkg@<git-tree>`. Its git-tree pins the exact port recipe. The `features` qualifier, a comma-separated list of enabled vcpkg feature names, records which optional features were enabled at build time; it is informational and not currently normative.",
   "examples": [
     "pkg:vcpkg/bzip2@1.0.8?port_version=6",
     "pkg:vcpkg/zlib@1.3.1?triplet=x64-linux&vcs_url=git%2Bhttps:%2F%2Fgithub.com%2Fmicrosoft%2Fvcpkg%40b5d3197b1a8a3f4c2d9e0f1a2b3c4d5e6f708192",

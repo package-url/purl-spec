@@ -14,7 +14,7 @@
   },
   "name_definition": {
     "requirement": "required",
-    "note": "The name is the component name. It must be lowercased.",
+    "note": "The name is the component name. It shall be lowercased.",
     "case_sensitive": false,
     "native_name": "name"
   },
