@@ -76,7 +76,9 @@ punctuation-characters = "." / "-" / "_" / "~"
 separator-characters = ":" / "/" / "@" / "?" / "=" / "&" / "#"  ;; REMARK: not used - can be dropped from gramar
 percent-character = "%"
 
+; allowedpurl characters without percent-encoded slash "%2F"
 purl-character-nes = alphanumeric-characters / punctuation-characters / pct-encoded
+; allowedpurl characters with percent-encoded slash %2F ('/')
 purl-character-wes = purl-character-nes / pct-encoded-slach
 
 
