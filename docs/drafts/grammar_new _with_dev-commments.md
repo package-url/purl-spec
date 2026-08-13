@@ -87,7 +87,7 @@ separator-characters = ":" / "/" / "@" / "?" / "=" / "&" / "#"
 ;;       - the colon ':', whether used as a Separator Character or otherwise (%3A)
 ;;       - the percent sign '%' when used to represent a percent-encoded character (ignorefor here)
 pct-encoded     = pct-ascii
-                / UTF8-2 / UTF8-3 / UTF8-4 ; - taken from https://datatracker.ietf.org/doc/html/rfc3629#section-4
+                / pct-utf8-2 / pct-utf8-3 / pct-utf8-4
 ;; TODO
 pct-encoded-ascii = "%" ( ; bytes 00-7F 
                           00-0F
@@ -99,6 +99,11 @@ pct-encoded-ascii = "%" ( ; bytes 00-7F
                         / 60-6F  ;; TODO: exceptt 61-6F
                         / 70-7F  ;; TODO: exceptt 70-7A and 7E
                       )
+
+; UTF8-2 / UTF8-3 / UTF8-4 ; - taken from https://datatracker.ietf.org/doc/html/rfc3629#section-4
+pct-utf8-2 = ;; TODO
+pct-utf8-3 = ;; TODO
+pct-utf8-4 = ;; TODO
 
 ;; section "Case folding"
 alpha-lowercase = %61-7A ; a-z
