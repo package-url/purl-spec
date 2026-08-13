@@ -72,11 +72,11 @@ subpath-segment = [ ".." pchar-ns
 ;; Section "Permitted characters"
 alphanumeric = ALPHA / DIGIT
 punctuation = "." / "-" / "_" / "~"
-separator = ":" / "/" / "@" / "?" / "=" / "&" / "#"  ;; REMARK: not used - can be dropped from gramar
+separator = ":" / "/" / "@" / "?" / "=" / "&" / "#"
 percent = "%"
 
 unreserved = alphanumeric / punctuation
-reserved   = separator  ;; REMARK: not used - canbe dropped
+reserved   = separator
 
 pchar    = unreserved / pct-encoded
 pchar-ns = unreserved / pct-encoded-ns
