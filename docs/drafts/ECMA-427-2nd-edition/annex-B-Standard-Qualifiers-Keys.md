@@ -23,8 +23,8 @@ The following **keys** should be used according to the following definitions.
 |----------------|---------------------------------------------|
 | checksum       | One or more checksums stored as a comma-separated list. Each item in the **value** is in the form of 'lowercase_algorithm:hex_encoded_lowercase_value' such as sha1:ad9503c3e994a4f611a4892f2e67ac82df727086'      |
 | download_url   | A URL for a direct package download URL    |
-| file_name      | The file name of a package archive.Use the **subpath** component for the use case where you need to specify a PURL at the file level.  |
-| repository_url | A URL when a PURL **type** definition does not specify a 'default_repository_url' or when there are multiple commonly used repositories for a PURL **type**.                                                          |
+| file_name      | The file name of a package archive. Use the **subpath** component for the use case where you need to specify a PURL at the file level.  |
+| repository_url | A URL for when the `default_repository_url` property is empty in a PURL **type** definition or when there are multiple commonly used repositories for a PURL **type**.                                                          |
 | vcs_url        | A URL for a version control system (aka SCM or VCS) for the use case where you need to specify a PURL for a package at its SCM/VCS location. The syntax for 'vcs_url' should follow the Python pip syntax or the SPDX specification for ["Package Download Location"](https://github.com/spdx/spdx-spec/blob/cfa1b9d08903/chapters/3-package-information.md#3.7).                             |
 | vers           | Specification of a version range instead of a single version. The primary use cases for this **qualifiers key** are to identify a version range for dependency analysis or vulnerability reporting. Use of this **key** is mutually exclusive with the **version** component. The **value** must adhere to the [Version Range Specification](https://packageurl.org/docs/vers/specification). |
 
