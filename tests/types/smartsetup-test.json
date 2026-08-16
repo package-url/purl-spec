@@ -179,7 +179,7 @@
         },
         "subpath": null
       },
-      "expected_output": "pkg:smartsetup/tms.biz.aurelius@5.26?repository_url=https://packages.example.com/smartsetup",
+      "expected_output": "pkg:smartsetup/tms.biz.aurelius@5.26?repository_url=https:%2F%2Fpackages.example.com%2Fsmartsetup",
       "expected_failure": false,
       "expected_message": null
     },
@@ -188,7 +188,7 @@
       "test_group": "required",
       "test_type": "validate",
       "input": "pkg:smartsetup/tms.biz.aurelius@5.26?repository_url=https://packages.example.com/smartsetup",
-      "expected_output": "pkg:smartsetup/tms.biz.aurelius@5.26?repository_url=https://packages.example.com/smartsetup",
+      "expected_output": "pkg:smartsetup/tms.biz.aurelius@5.26?repository_url=https:%2F%2Fpackages.example.com%2Fsmartsetup",
       "expected_failure": false,
       "expected_message": null
     },
