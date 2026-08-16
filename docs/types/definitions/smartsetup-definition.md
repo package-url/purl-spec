@@ -33,6 +33,8 @@ The structure of a PURL for this package type is:
 ## Version definition
 
 - **Requirement:** Optional
+- **Normalization rules:**
+  - Use the version string exactly as published by the Smart Setup server for the product; do not pad or truncate version segments.
 - **Native Label:** version
 - **Note:** `The version is the native version identifier understood by Smart Setup for the product, such as a server-published product version. The native version identifier is preserved rather than imposing an additional versioning scheme.`
 

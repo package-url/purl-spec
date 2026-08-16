@@ -22,7 +22,10 @@
   "version_definition": {
     "requirement": "optional",
     "native_name": "version",
-    "note": "The version is the native version identifier understood by Smart Setup for the product, such as a server-published product version. The native version identifier is preserved rather than imposing an additional versioning scheme."
+    "note": "The version is the native version identifier understood by Smart Setup for the product, such as a server-published product version. The native version identifier is preserved rather than imposing an additional versioning scheme.",
+    "normalization_rules": [
+      "Use the version string exactly as published by the Smart Setup server for the product; do not pad or truncate version segments."
+    ]
   },
   "qualifiers_definition": [
     {
