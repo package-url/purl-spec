@@ -17,7 +17,7 @@ The structure of a PURL for this package type is:
 
 - **Use Repository:** Yes
 - **Default Repository URL:** https://github.com/tmssoftware/smartsetup-registry
-- **Note:** This is the public Smart Setup community registry.
+- **Note:** Smart Setup resolves products from configurable servers. The default repository is the public Smart Setup registry, which lists open-source, Git-hosted products. Commercial products, such as those published by TMS, are served from a vendor-operated Smart Setup server. Product ids are unique across servers; the repository_url qualifier identifies a specific non-default server or source repository.
 
 ## Namespace definition
 
