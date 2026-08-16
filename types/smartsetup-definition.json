@@ -6,8 +6,8 @@
   "description": "Projects and packages managed by TMS Smart Setup for the Delphi/RAD Studio ecosystem",
   "repository": {
     "use_repository": true,
-    "default_repository_url": "https://github.com/tmssoftware/smartsetup-registry",
-    "note": "Smart Setup resolves products from configurable servers. The default repository is the public Smart Setup registry, which lists open-source, Git-hosted products. Commercial products, such as those published by TMS, are served from a vendor-operated Smart Setup server. Product ids are unique across servers; the repository_url qualifier identifies a specific non-default server or source repository."
+    "default_repository_url": "https://www.smartsetup.org/",
+    "note": "Smart Setup resolves products from configurable servers. The default repository, https://www.smartsetup.org/, is the central Smart Setup registry that routes to the underlying sub-registries — the public open-source registry and vendor-operated servers, such as those published by TMS. Product ids are unique across servers; the repository_url qualifier identifies a specific non-default server or source repository."
   },
   "namespace_definition": {
     "requirement": "prohibited",
