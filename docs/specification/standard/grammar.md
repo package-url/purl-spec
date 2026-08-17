@@ -4,12 +4,10 @@ A *canonical* PURL string adheres to the following grammar,
 using syntax as per [RFC5234: Augmented BNF for Syntax Specifications: ABNF](https://datatracker.ietf.org/doc/html/rfc5234).
 
 ```abnf
-; scheme:type/namespace/name@version?qualifiers#subpath
 PURL = scheme ":" type [ "/" namespace ] "/" name
        [ "@" version ] [ "?" qualifiers ] [ "#" subpath ]
 
-; constant with the value "pkg"
-scheme = %x70.6B.67
+scheme = %x70.6B.67 ; constant with the value "pkg"
 
 type = alpha-lowercase *( alpha-lowercase / DIGIT / "." / "-" )
 
@@ -43,8 +41,8 @@ reserved   = "/" / "@" / "?" / "=" / "&" / "#"
 pchar    = pchar-ns / "%2F" 
 pchar-ns = unreserved / pct-enc-ns
 
-; Note -- The sequence of decoded octets MUST form 
-;         a valid UTF-8 encoding per [RFC3629]
+; Note -- The sequence of decoded octets MUST form
+;         a valid UTF-8 encoding per [RFC3629].
 pct-enc-ns = "%" ( ( "0" / "1" ) HEXDIG
                         ; %x00-1F
                  / "2" ( DIGIT / "A" / "B" / "C" )
