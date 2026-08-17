@@ -11,9 +11,9 @@ the source of truth and define the structure of each PURL type, including:
 
 On commit, a job automatically:
 
-- Checks that all JSON files are schema-valid
-- Formats all the JSON files
-- Generates the ``purl-types-index.json`` file containing a list of defined
+- Checks that the JSON files are schema-valid
+- Formats the JSON files
+- Generates the ``purl-types-index.json`` file which contains a list of 
   registered PURL types
 - Generates human-readable documentation for each type
 
@@ -26,5 +26,4 @@ To propose a new PURL type, create an **issue** and a corresponding
 - a new JSON test file file under `tests/types/`.
 
 Ensure that your proposal follows the **PURL Type Definition Schema** and
-includes all required fields. For this see the README-dev.md for details to
-run local checks.
+includes all required fields.

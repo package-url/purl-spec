@@ -29,7 +29,7 @@
     {
       "key": "repository_url",
       "requirement": "optional",
-      "description": "The GIT URL of the layer. In example: https:%2F%2Fgit.openembedded.org%2Fopenembedded-core or https:%2F%2Fgithub.com%2Fakuster%2Fmeta-odroid. The URL scheme is mandatory and must be one of https, http, ssh, or git."
+      "description": "The GIT URL of the layer. In example: https:%2F%2Fgit.openembedded.org%2Fopenembedded-core or https:%2F%2Fgithub.com%2Fakuster%2Fmeta-odroid. The URL scheme is mandatory and shall be one of https, http, ssh, or git."
     },
     {
       "key": "layer_version",

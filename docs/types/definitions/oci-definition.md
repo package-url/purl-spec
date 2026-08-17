@@ -16,7 +16,7 @@ The structure of a PURL for this package type is:
 ## Repository Information
 
 - **Use Repository:** Yes
-- **Note:** There is no canonical package repository for OCI artifacts. Therefore oci purls must be registry agnostic by default. To specify the repository, provide a repository_url value.
+- **Note:** There is no canonical package repository for OCI artifacts. Therefore oci purls shall be registry agnostic by default. To specify the repository, provide a repository_url value.
 
 ## Namespace definition
 
@@ -26,7 +26,7 @@ The structure of a PURL for this package type is:
 ## Name definition
 
 - **Requirement:** Required
-- **Note:** `The name is not case sensitive and must be lowercased. The name is the last fragment of the repository name. For example if the repository name is library/debian then the name is debian.`
+- **Note:** `The name is not case sensitive and shall be lowercased. The name is the last fragment of the repository name. For example if the repository name is library/debian then the name is debian.`
 
 ## Version definition
 
@@ -43,9 +43,9 @@ The structure of a PURL for this package type is:
 
 ## Examples
 
-- `pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=docker.io/library/debian&arch=amd64&tag=latest`
-- `pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=ghcr.io/debian&tag=bullseye`
-- `pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io/distroless/static&tag=latest`
+- `pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=docker.io%2Flibrary%2Fdebian&arch=amd64&tag=latest`
+- `pkg:oci/debian@sha256%3A244fd47e07d10?repository_url=ghcr.io%2Fdebian&tag=bullseye`
+- `pkg:oci/static@sha256%3A244fd47e07d10?repository_url=gcr.io%2Fdistroless%2Fstatic&tag=latest`
 - `pkg:oci/hello-wasm@sha256:244fd47e07d10?tag=v1`
 
 ## Reference URLs

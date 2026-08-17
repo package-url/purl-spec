@@ -1,18 +1,18 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.2.json",
   "tests": [
     {
       "description": "npm can be scoped. Roundtrip an input purl to canonical.",
-      "test_group": "advanced",
-      "test_type": "roundtrip",
+      "test_group": "recommended",
+      "test_type": "validate",
       "input": "pkg:npm/%40angular/animation@12.3.1",
       "expected_output": "pkg:npm/%40angular/animation@12.3.1",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "npm can be scoped",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:npm/%40angular/animation@12.3.1",
       "expected_output": {
@@ -24,20 +24,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "npm can be scoped. Roundtrip a canonical input to canonical output.",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:npm/%40angular/animation@12.3.1",
       "expected_output": "pkg:npm/%40angular/animation@12.3.1",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "npm can be scoped",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "npm",
@@ -49,11 +49,11 @@
       },
       "expected_output": "pkg:npm/%40angular/animation@12.3.1",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Parse test for PURL type: npm",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:npm/foobar@12.3.1",
       "expected_output": {
@@ -65,20 +65,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for PURL type: npm",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:npm/foobar@12.3.1",
       "expected_output": "pkg:npm/foobar@12.3.1",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test  for PURL type: npm",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "npm",
@@ -90,11 +90,11 @@
       },
       "expected_output": "pkg:npm/foobar@12.3.1",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Parse test for PURL type: npm",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:npm/%40angular/animation@12.3.1",
       "expected_output": {
@@ -106,20 +106,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for PURL type: npm",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:npm/%40angular/animation@12.3.1",
       "expected_output": "pkg:npm/%40angular/animation@12.3.1",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test  for PURL type: npm",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "npm",
@@ -131,11 +131,11 @@
       },
       "expected_output": "pkg:npm/%40angular/animation@12.3.1",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Parse test for PURL type: npm",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:npm/mypackage@12.4.5?vcs_url=git://host.com/path/to/repo.git%404345abcd34343",
       "expected_output": {
@@ -149,20 +149,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for PURL type: npm",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:npm/mypackage@12.4.5?vcs_url=git://host.com/path/to/repo.git%404345abcd34343",
       "expected_output": "pkg:npm/mypackage@12.4.5?vcs_url=git:%2F%2Fhost.com%2Fpath%2Fto%2Frepo.git%404345abcd34343",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test for PURL type: npm",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "npm",
@@ -176,20 +176,20 @@
       },
       "expected_output": "pkg:npm/mypackage@12.4.5?vcs_url=git:%2F%2Fhost.com%2Fpath%2Fto%2Frepo.git%404345abcd34343",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "valid npm purl without version and with subpath, scope unencoded",
-      "test_group": "advanced",
-      "test_type": "roundtrip",
+      "test_group": "recommended",
+      "test_type": "validate",
       "input": "pkg:npm/@babel/core#/googleapis/api/annotations/",
       "expected_output": "pkg:npm/%40babel/core#googleapis/api/annotations",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "valid npm purl without version and with subpath, scope unencoded",
-      "test_group": "advanced",
+      "test_group": "recommended",
       "test_type": "parse",
       "input": "pkg:npm/@babel/core#/googleapis/api/annotations/",
       "expected_output": {
@@ -201,11 +201,11 @@
         "subpath": "googleapis/api/annotations"
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "valid npm purl without version and with subpath, scope unencoded",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:npm/%40babel/core#/googleapis/api/annotations/",
       "expected_output": {
@@ -217,16 +217,16 @@
         "subpath": "googleapis/api/annotations"
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "valid npm purl without namespace and with subpath",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:npm/core@2.0.1#/googleapis/api/annotations/",
       "expected_output": "pkg:npm/core@2.0.1#googleapis/api/annotations",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     }
   ]
 }

@@ -34,7 +34,7 @@ The structure of a PURL for this package type is:
 - **Requirement:** Optional
 - **Case Sensitive:** Yes
 - **Native Label:** full package version, including module version and rockspec revision
-- **Note:** `The full LuaRocks package version, including module version and rockspec revision. It is case sensitive, and lowercase must be used to avoid compatibility issues with older LuaRocks versions. The full version number is required to uniquely identify a version.`
+- **Note:** `The full LuaRocks package version, including module version and rockspec revision. It is case sensitive, and lowercase shall be used to avoid compatibility issues with older LuaRocks versions. The full version number is required to uniquely identify a version.`
 
 ## Qualifiers Definition
 
@@ -46,4 +46,4 @@ The structure of a PURL for this package type is:
 
 - `pkg:luarocks/luasocket@3.1.0-1`
 - `pkg:luarocks/hisham/luafilesystem@1.8.0-1`
-- `pkg:luarocks/username/packagename@0.1.0-1?repository_url=https://example.com/private_rocks_server/`
+- `pkg:luarocks/username/packagename@0.1.0-1?repository_url=https:%2F%2Fexample.com%2Fprivate_rocks_server%2F`

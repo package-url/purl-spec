@@ -27,7 +27,7 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Native Label:** name
-- **Note:** `The name is the component name. It must be lowercased.`
+- **Note:** `The name is the component name. It shall be lowercased.`
 
 ## Version definition
 

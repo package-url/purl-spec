@@ -38,7 +38,7 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Optional
 - **Native Label:** label
-- **Note:** `The optional subpath MAY refer to a label of a particular package or target in the module (https://bazel.build/concepts/labels). The label MUST NOT include a repo name and the leading '//' MUST be omitted. When referring to targets, the label MUST include the name of the target, separated from the package by ':'. If there is no target name, subpath is assumed to refer to the whole package.`
+- **Note:** `The optional subpath MAY refer to a label of a particular package or target in the module (https://bazel.build/concepts/labels). The label shall not include a repo name and the leading '//' shall be omitted. When referring to targets, the label shall include the name of the target, separated from the package by ':'. If there is no target name, subpath is assumed to refer to the whole package.`
 
 ## Qualifiers Definition
 
@@ -50,7 +50,7 @@ The structure of a PURL for this package type is:
 
 - `pkg:bazel/rules_java@7.8.0`
 - `pkg:bazel/curl@8.8.0.bcr.1`
-- `pkg:bazel/curl@8.8.0?repository_url=https://example.org/bazel-registry`
+- `pkg:bazel/curl@8.8.0?repository_url=https:%2F%2Fexample.org%2Fbazel-registry`
 - `pkg:bazel/rules_java@8.5.0#java/runfiles`
 - `pkg:bazel/rules_java@8.5.0#java/runfiles:runfiles`
 - `pkg:bazel/rules_go@0.48.0#go`

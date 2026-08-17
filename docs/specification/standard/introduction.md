@@ -1,3 +1,10 @@
+---
+id: introduction
+title: Introduction
+sidebar_label: Introduction
+hide_table_of_contents: true
+---
+
 # Introduction
 
 Software ecosystems have evolved into highly interconnected networks of

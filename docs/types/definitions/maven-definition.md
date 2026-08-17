@@ -54,4 +54,4 @@ The structure of a PURL for this package type is:
 - `pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=zip&classifier=dist`
 - `pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x86&type=dll`
 - `pkg:maven/net.sf.jacob-projec/jacob@1.14.3?classifier=x64&type=dll`
-- `pkg:maven/groovy/groovy@1.0?repository_url=https://maven.google.com`
+- `pkg:maven/groovy/groovy@1.0?repository_url=https:%2F%2Fmaven.google.com`

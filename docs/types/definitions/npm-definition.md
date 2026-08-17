@@ -31,7 +31,7 @@ The structure of a PURL for this package type is:
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** name
-- **Note:** `The package.json spec changed in 2015 to require that a new package 'must not have uppercase letters in the name', but old packages with mixed case names were "grandfathered in".`
+- **Note:** `The package.json spec changed in 2015 to require that a new package 'shall not have uppercase letters in the name', but old packages with mixed case names were "grandfathered in".`
 
 ## Version definition
 
@@ -43,4 +43,4 @@ The structure of a PURL for this package type is:
 
 - `pkg:npm/foobar@12.3.1`
 - `pkg:npm/%40angular/animation@12.3.1`
-- `pkg:npm/mypackage@12.4.5?vcs_url=git://host.com/path/to/repo.git%404345abcd34343`
+- `pkg:npm/mypackage@12.4.5?vcs_url=git:%2F%2Fhost.com%2F%2Fpath%2Fto%2Frepo.git%404345abcd34343`

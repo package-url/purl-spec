@@ -31,7 +31,7 @@ The structure of a PURL for this package type is:
   - Replace underscore _ with dash -
   - Replace dot . with underscore _ when used in distribution (sdist, wheel) names
 - **Native Label:** name
-- **Note:** `PyPI treats - and _ as the same character and is not case sensitive. Therefore a PyPI package name must be lowercased and underscore _ replaced with a dash -. Note that PyPI itself is preserving the case of package names. When used in distribution and wheel names, the dot . is replaced with an underscore _`
+- **Note:** `PyPI treats - and _ as the same character and is not case sensitive. Therefore a PyPI package name shall be lowercased and underscore _ replaced with a dash -. Note that PyPI itself is preserving the case of package names. When used in distribution and wheel names, the dot . is replaced with an underscore _`
 
 ## Version definition
 

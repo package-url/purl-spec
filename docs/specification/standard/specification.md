@@ -1,4 +1,11 @@
-# Package-URL Specification
+---
+id: specification
+title: Core Specification
+sidebar_label: Core Specification
+hide_table_of_contents: false
+---
+
+# Core Specification
 
 PURL stands for **Package-URL**.
 
@@ -24,9 +31,9 @@ Components are designed such that they form a hierarchy from the most
 significant on the left to the least significant components on the right.
 
 A PURL shall not contain a URL Authority, i.e. there is no support for
-**username**, **password**, **host** and **port** components. A **namespace*
+**username**, **password**, **host** and **port** components. A **namespace**
 segment may sometimes look like a **host**, but its interpretation is specific
- to a **type**.
+to a **type**.
 
 **Example 1 (Informative): Debian**
 
@@ -52,32 +59,31 @@ segment may sometimes look like a **host**, but its interpretation is specific
   - https://url.spec.whatwg.org/
 
 - A PURL is a valid URL because it is a locator even though it has no 
-Authority URL component: each type has a default repository location when 
-defined.
+  Authority URL component: a default repository location may be defined for a 
+  PURL type.
 
 - The PURL components are mapped to these URL components:
 
   - PURL **scheme**: this is a URL **scheme** with a constant value: **pkg**
-  - PURL **type**, **namespace**, **name** and **version** components: these 
-  are collectively mapped to a URL **path**
+  - PURL **type**, **namespace**, **name** and **version** components: these
+    are collectively mapped to a URL **path**
   - PURL **qualifiers**: this maps to a URL **query**
   - PURL **subpath**: this is a URL **fragment**
   - In a PURL, there is no support for a URL Authority (e.g. no
     **username**, **password**, **host** and **port** components).
 
 - Special URL schemes as defined in https://url.spec.whatwg.org/ such as
-  **file://**, **https://**, **http://** and **ftp://** are not valid PURL 
-  types.
-  They are valid URL or URI schemes but they are not a valid PURL scheme.
-  They may be used to reference URLs in separate attributes outside of a PURL
-  or in a PURL qualifier.
+  **file://**, **https://**, **http://** and **ftp://** are not valid PURL
+  types. They are valid URL or URI schemes but they are not a valid PURL
+  scheme. They may be used to reference URLs in separate attributes outside of
+  a PURL or in a PURL qualifier.
 
-- Version control system (VCS) URLs such **git://**, **svn://**, **hg://** or 
-as defined in Python pip or SPDX download locations are not valid PURL types.
-  They are valid URL or URI schemes but they are not a valid PURL scheme.
-  They are a closely related, compact and uniform way to reference VCS URLs.
-  They may be used as references in separate attributes outside of a PURL or
-  in a PURL qualifier.
+- Version control system (VCS) URLs such **git://**, **svn://**, **hg://** or
+  as defined in Python pip or SPDX download locations are not valid PURL
+  types. They are valid URL or URI schemes but they are not a valid PURL
+  scheme. They are a closely related, compact and uniform way to reference VCS
+  URLs. They may be used as references in separate attributes outside of a
+  PURL or in a PURL qualifier.
 
 ## Permitted characters
 
@@ -136,12 +142,12 @@ This is how each of the Separator Characters is used:
 
 ## Case folding
 
-References to "lowercase" in this Standard refer to the 
+References to "lowercase" in this Standard refer to the
 **culture-invariant** full case mapping defined in
 [Section 3.13.2 of the Unicode Standard](https://www.unicode.org/versions/Unicode16.0.0/core-spec/chapter-3/#G34078).
 
 When applied to the ASCII character set, this operation converts uppercase
-Latin letters (**A to Z**) to their corresponding lowercase forms 
+Latin letters (**A to Z**) to their corresponding lowercase forms
 (**a to z**).
 All other ASCII characters remain unchanged.
 
@@ -162,81 +168,84 @@ The rules for each component are:
 ### Scheme
 - The **scheme** is a constant with the value "pkg".
 - The **scheme** shall be followed by an unencoded colon ':'.
-- PURL parsers shall accept URLs where the **scheme** and colon ':' are 
-followed by one or more slash '/' characters, such as 'pkg://', and shall
-ignore and remove all such '/' characters.
+- PURL parsers shall accept URLs where the **scheme** and colon ':' are
+  followed by one or more slash '/' characters, such as 'pkg://', and shall
+  ignore and remove all such '/' characters.
 
 ### Type
 - The package **type** shall be composed only of ASCII letters and numbers,
-period '.', and dash '-'.
+  period '.', and dash '-'.
 - The **type** shall start with an ASCII letter.
 - The **type** shall not be percent-encoded.
 - The **type** is case insensitive. The canonical form is lowercase.
 
 ### Namespace
-- The **namespace** is optional, unless required by the package's **type** 
-definition.
+- The **namespace** is optional, unless required by the package's **type**
+  definition.
 - If present, the **namespace** may contain one or more segments, separated by
- a single unencoded slash '/' character.
-- All leading and trailing slashes '/' are not significant and should be 
-stripped in the canonical form. They are not part of the **namespace**.
+   a single unencoded slash '/' character.
+- All leading and trailing slashes '/' are not significant and should be
+  stripped in the canonical form. They are not part of the **namespace**.
 - Each **namespace** segment shall be a percent-encoded string.
 - When percent-decoded, a segment:
     - shall not contain any slash '/' characters
     - shall not be empty
     - may contain any Unicode character other than '/' unless the package's
-**type** definition provides otherwise
+      **type** definition provides otherwise
 - A URL host or Authority shall not be used as a **namespace**. Use instead a
-**repository_url** qualifier. Note however, that for some types, the
-**namespace** may look like a host.
+  **repository_url** qualifier. Note however, that for some types, the
+  **namespace** may look like a host.
 
 ### Name
-- The **name** is prefixed by a single slash '/' separator when the 
-**namespace** is not empty.
-- All leading and trailing slashes '/' are not significant and should be 
-stripped in the canonical form. They are not part of the **name**.
+- The **name** is prefixed by a single slash '/' separator when the
+  **namespace** is not empty.
+- All leading and trailing slashes '/' are not significant and should be
+  stripped in the canonical form. They are not part of the **name**.
 - A **name** shall be a percent-encoded string.
-- When percent-decoded, a **name** may contain any Unicode character unless 
-the package's **type** definition provides otherwise.
+- When percent-decoded, a **name** may contain any Unicode character unless
+  the package's **type** definition provides otherwise.
 
 ### Version
 - The **version** is prefixed by a '@' separator when not empty.
 - This '@' is not part of the **version**.
 - A **version** shall be a percent-encoded string.
 - When percent-decoded, a **version** may contain any Unicode character
-unless the package's **type** definition provides otherwise.
+  unless the package's **type** definition provides otherwise.
 - A **version** is a plain and opaque string.
 
 ### Qualifiers
-- The **qualifiers** component shall be prefixed by an unencoded question mark 
-'?' separator when not empty. This '?' separator is not part of the 
+- The **qualifiers** component shall be prefixed by an unencoded question mark
+  '?' separator when not empty. This '?' separator is not part of the
 **qualifiers** component.
-- The **qualifiers** component is composed of one or more **key=value** pairs. Multiple **key=value** pairs shall be separated by an unencoded ampersand '&'. 
-This '&' separator is not part of an individual **qualifier**.
-- A **key** and **value** shall be separated by the unencoded equal sign '=' character. This '=' separator is not part of the **key** or **value**.
-- A **value** shall not be an empty string: a **key=value** pair with an empty **value** is the same as if no **key=value** pair exists for this **key**.
+- The **qualifiers** component is composed of one or more **key=value** pairs.
+  Multiple **key=value** pairs shall be separated by an unencoded ampersand
+  '&'. This '&' separator is not part of an individual **qualifier**.
+- A **key** and **value** shall be separated by the unencoded equal sign '='
+  character. This '=' separator is not part of the **key** or **value**.
+- A **value** shall not be an empty string: a **key=value** pair with an empty
+  **value** is the same as if no **key=value** pair exists for this **key**.
 - For each **key=value** pair:
-    - The **key** shall be composed only of lowercase ASCII letters and 
-    numbers, period '.', dash '-' and underscore '_'.
+    - The **key** shall be composed only of lowercase ASCII letters and
+      numbers, period '.', dash '-' and underscore '_'.
     - A **key** shall start with an ASCII letter.
     - A **key** shall not be percent-encoded.
-    - Each **key** shall be unique among all the keys of the **qualifiers**    component.
-    - A **value** may contain any Unicode character and all characters shall 
-    be encoded as described in the _Character encoding_ clause.
+    - Each **key** shall be unique among all the keys of the **qualifiers**
+      component.
+    - A **value** may contain any Unicode character and all characters shall
+      be encoded as described in the _Character encoding_ clause.
 
 ### Subpath
 - The **subpath** string is prefixed by a '#' separator when not empty.
 - The '#' is not part of the **subpath**.
-- The **subpath** contains zero or more segments, separated by slash '/'
-- Leading and trailing slashes '/' are not significant and should be stripped 
-in the canonical form.
+- If present, the **subpath** may contain one or more segments, each
+  separated by a single unencoded slash '/' character.
+- Leading and trailing slashes '/' are not significant and should be stripped
+  in the canonical form.
 - Each **subpath** segment shall be a percent-encoded string
 - When percent-decoded, a segment:
     - shall not contain any slash '/' characters
     - shall not be empty
     - shall not be any of '..' or '.'
-    - may contain any Unicode character other than '/' unless the package's       **type** definition provides otherwise.
+    - may contain any Unicode character other than '/' unless the package's
+      **type** definition provides otherwise.
 - The **subpath** shall be interpreted as relative to the root of the package.
-
-
-
