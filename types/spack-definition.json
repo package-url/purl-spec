@@ -10,7 +10,7 @@
     "note": "The default repository for spack packages"
   },
   "namespace_definition": {
-    "requirement": "optional",
+    "requirement": "required",
     "note": "The spack namespace as given by `spack find -N`"
   },
   "name_definition": {
