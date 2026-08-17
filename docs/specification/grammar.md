@@ -2,7 +2,7 @@
 
 ## Canonical PURL
 
-A *caninical* PURL string adheres to [the grammar in the standard](standard/grammar.md).
+A *canonical* PURL string adheres to [the grammar in the standard](standard/grammar.md).
 
 ## Lenient PURL
 
