@@ -4,7 +4,8 @@ A *canonical* PURL string adheres to the following grammar,
 using syntax as per [RFC5234: Augmented BNF for Syntax Specifications: ABNF](https://datatracker.ietf.org/doc/html/rfc5234).
 
 ```abnf
-PURL = scheme ":" type [ "/" namespace ] "/" name
+PURL = scheme ":" type
+       [ "/" namespace ] "/" name
        [ "@" version ] [ "?" qualifiers ] [ "#" subpath ]
 
 scheme = %x70.6B.67 ; constant with the value "pkg"
