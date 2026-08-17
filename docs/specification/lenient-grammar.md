@@ -6,10 +6,10 @@ using syntax as per [RFC5234: Augmented BNF for Syntax Specifications: ABNF](htt
 
 ```abnf
 lenient-PURL = scheme ":" *"/" lenient-type 
-       [ "/" lenient-namespace ] "/" lenient-name *"/"
-       [ "@" lenient-version ] 
-       [ "?" lenient-qualifiers ] 
-       [ "#" lenient-subpath ]
+               [ "/" lenient-namespace ] "/" lenient-name *"/"
+               [ "@" lenient-version ] 
+               [ "?" lenient-qualifiers ] 
+               [ "#" lenient-subpath ]
 
 lenient-type = ALPHA *( alphanumeric / "." / "-" )
 
