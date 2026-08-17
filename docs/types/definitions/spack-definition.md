@@ -21,7 +21,7 @@ The structure of a PURL for this package type is:
 
 ## Namespace definition
 
-- **Requirement:** Optional
+- **Requirement:** Required
 - **Note:** `The spack namespace as given by `spack find -N``
 
 ## Name definition
@@ -38,7 +38,7 @@ The structure of a PURL for this package type is:
 
 | Key  | Requirement | Native name | Default Value | Description |
 |------|-------------|-------------|---------------|-------------|
-| sha | Required |  |  | The hash of the installation as given by 'spack find -l' |
+| sha | Optional |  |  | The hash of the installation as given by 'spack find -l' |
 
 ## Examples
 
