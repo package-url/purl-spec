@@ -2,15 +2,15 @@
   "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
   "tests": [
     {
-      "description": "Parse test for spack/zlib",
+      "description": "Test with all schema elements",
       "test_group": "base",
       "test_type": "parse",
-      "input": "pkg:spack/zlib?sha=u463uoum2lujbc2ug4fpbersp4jev2yl",
+      "input": "pkg:spack/builtin/zlib@1.3.2?sha=u463uoum2lujbc2ug4fpbersp4jev2yl",
       "expected_output": {
         "type": "spack",
-        "namespace": null,
+        "namespace": "builtin",
         "name": "zlib",
-        "version": null,
+        "version": "1.3.2",
         "qualifiers": {
           "sha": "u463uoum2lujbc2ug4fpbersp4jev2yl"
         },
@@ -19,23 +19,59 @@
       "expected_failure": false,
       "expected_failure_reason": null
     },
-	{
-	  "description": "Parse test for spack/gmake",
-	  "test_group": "base",
-	  "test_type": "parse",
-	  "input": "pkg:spack/builtin/gmake@4.4.1?sha=os2kltnpbfyz7yxpdaoxtbzocsp223q3",
-	  "expected_output": {
-	    "type": "spack",
-	    "namespace": "builtin",
-	    "name": "gmake",
-	    "version": "4.4.1",
-	    "qualifiers": {
-	      "sha": "os2kltnpbfyz7yxpdaoxtbzocsp223q3"
-	    },
-	    "subpath": null
-	  },
-	  "expected_failure": false,
-	  "expected_failure_reason": null
-	}
+    {
+      "description": "Test with no hash",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:spack/builtin/zlib@1.3.2",
+      "expected_output": {
+        "type": "spack",
+        "namespace": "builtin",
+        "name": "zlib",
+        "version": "1.3.2",
+        "qualifiers": {
+          "sha": null
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Test with no hash or version",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:spack/builtin/zlib",
+      "expected_output": {
+        "type": "spack",
+        "namespace": "builtin",
+        "name": "zlib",
+        "version": null,
+        "qualifiers": {
+          "sha": null
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Test with no namespace",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:spack/zlib@1.3.2",
+      "expected_output": {
+        "type": "spack",
+        "namespace": "builtin",
+        "name": "zlib",
+        "version": "1.3.2",
+        "qualifiers": {
+          "sha": null
+        },
+        "subpath": null
+      },
+      "expected_failure": true,
+      "expected_failure_reason": null
+    }
   ]
 }
