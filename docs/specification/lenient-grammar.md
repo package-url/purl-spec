@@ -1,8 +1,13 @@
-# Lenient Grammar
+# Grammar
 
-A *canonical* PURL string adheres to the following grammar,
+## Canonical PURL
+
+See the grammar [in the standard](standard/grammar.md)
+
+## Lenient PURL
+
+A *lenient* PURL string adheres to the following grammar,
 using syntax as per [RFC5234: Augmented BNF for Syntax Specifications: ABNF](https://datatracker.ietf.org/doc/html/rfc5234).
-
 
 ```abnf
 lenient-PURL = scheme ":" *"/" lenient-type 
