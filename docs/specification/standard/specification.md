@@ -237,8 +237,8 @@ The rules for each component are:
 ### Subpath
 - The **subpath** string is prefixed by a '#' separator when not empty.
 - The '#' is not part of the **subpath**.
-- If present, the **subpath** may contain one or more segments, separated by
-  a single unencoded slash '/' character.
+- If present, the **subpath** may contain one or more segments, each
+  separated by a single unencoded slash '/' character.
 - Leading and trailing slashes '/' are not significant and should be stripped
   in the canonical form.
 - Each **subpath** segment shall be a percent-encoded string
