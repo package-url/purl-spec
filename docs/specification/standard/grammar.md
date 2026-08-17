@@ -46,7 +46,7 @@ pchar-ns = unreserved / pct-enc-ns
 pct-enc-ns = "%" ( ( "0" / "1" ) HEXDIG
                         ; %x00-1F
                  / "2" ( DIGIT / "A" / "B" / "C" )
-                        ; %x20-2F except %x2D ("-") %x2E (".") %x2F ("/")
+                        ; %x20-2F except %x2D ("-") %x2E (".") and %x2F ("/")
                  / "3" ( DIGIT / "B" / "C" / "D" / "E" / "F" )
                         ; %x30-3F except %x3A (":")
                  / "40"
