@@ -40,7 +40,7 @@ lenient-qualifier-value = *lenient-pchar
 ; examples:
 ; - "" - an empty string
 ; - "//foo//./bar/%2E%2E//" - not canonical but probably usable
-' - "foo%2Fbar" - parser error
+; - "foo%2Fbar" - parser error
 lenient-subpath = lenient-subpath-segment *( "/" lenient-subpath-segment )
 lenient-subpath-segment = *lenient-pchar
 
