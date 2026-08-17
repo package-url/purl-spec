@@ -23,14 +23,14 @@ lenient-type = ALPHA *( alphanumeric / "." / "-" )
 ; - "///" - many empty segments
 ; - "//foo//bar//"
 lenient-namespace = lenient-namespace-segment *( "/" lenient-namespace-segment )
-lenient-namespace-segment = *lenient-pchar
+lenient-namespace-segment = *( lenient-pchar / separator )
 
 lenient-name = 1*lenient-pchar
 
 ; exmaples:
 ; - ""  - an empty string
 ; - "0.8.15"
-lenient-version = *lenient-pchar
+lenient-version = *( lenient-pchar / separator )
 
 ; examples:
 ; - ""  - an empty string
@@ -40,14 +40,14 @@ lenient-version = *lenient-pchar
 lenient-qualifiers = lenient-qualifier *( "&" lenient-qualifier )
 lenient-qualifier = lenient-qualifier-key [ "=" lenient-qualifier-value ]
 lenient-qualifier-key = ALPA *( ALPHA / DIGIT )
-lenient-qualifier-value = *lenient-pchar
+lenient-qualifier-value = *(lenient-pchar / separator )
 
 ; examples:
 ; - "" - an empty string
 ; - "//foo//./bar/%2E%2E//" - not canonical but probably usable
 ; - "foo%2Fbar" - parser error
 lenient-subpath = lenient-subpath-segment *( "/" lenient-subpath-segment )
-lenient-subpath-segment = *lenient-pchar
+lenient-subpath-segment = *( lenient-pchar / separator )
 
 lenient-pchar = unreserved / pct-encoded
 
