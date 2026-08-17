@@ -16,7 +16,7 @@ lenient-type = ALPHA *( alphanumeric / "." / "-" )
 ; exmaples:
 ; - "" - an empty string
 ; - "///" - many empty segments
-; - "//foo/bar//"
+; - "//foo//bar//"
 lenient-namespace = lenient-namespace-segment *( "/" lenient-namespace-segment )
 lenient-namespace-segment = *lenient-pchar
 
@@ -31,6 +31,7 @@ lenient-version = *lenient-pchar
 ; - ""  - an empty string
 ; - "&&&" - many empty qualifiers
 ; - "FOO&bar=" - keys without values
+; - "foo=123&bar=baz"
 lenient-qualifiers = lenient-qualifier *( "&" lenient-qualifier )
 lenient-qualifier = lenient-qualifier-key [ "=" lenient-qualifier-value ]
 lenient-qualifier-key = ALPA *( ALPHA / DIGIT )
