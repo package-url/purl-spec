@@ -10,7 +10,7 @@ PURL = scheme ":" type
 
 scheme = %x70.6B.67 ; constant with the value "pkg"
 
-type = alpha-lowercase *( alpha-lowercase / DIGIT / "." / "-" )
+type = alpha-lc *( alpha-lc / DIGIT / "." / "-" )
 
 namespace = namespace-segment *( "/" namespace-segment )
 namespace-segment = 1*pchar-ns
@@ -21,7 +21,7 @@ version = 1*pchar
 
 qualifiers = qualifier *( "&" qualifier )
 qualifier = qualifier-key "=" qualifier-value
-qualifier-key = alpha-lowercase *( alpha-lowercase / DIGIT / "." / "-" / "_" )
+qualifier-key = alpha-lc *( alpha-lc / DIGIT / "." / "-" / "_" )
 qualifier-value = 1*pchar-ns
 
 subpath = subpath-segment *( "/" subpath-segment )
@@ -32,7 +32,7 @@ subpath-segment = ( ".." pchar-ns
 subpath-segment-sc = alphanumeric / "-" / "_" / "~" / pct-enc-ns
 
 alphanumeric = ALPHA / DIGIT
-alpha-lowercase = %61-7A ; a-z
+alpha-lc = %x61-7A ; a-z
 punctuation = "." / "-" / "_" / "~"
 separator = ":" / "/" / "@" / "?" / "=" / "&" / "#"
 
