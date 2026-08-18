@@ -15,18 +15,8 @@
       "test_group": "required",
       "test_type": "parse",
       "input": "pkg:gem/jruby-launcher@1.1.2?Platform=java",
-      "expected_output": {
-        "type": "gem",
-        "namespace": null,
-        "name": "jruby-launcher",
-        "version": "1.1.2",
-        "qualifiers": {
-          "platform": "java"
-        },
-        "subpath": null
-      },
-      "expected_failure": false,
-      "expected_message": null
+      "expected_failure": true,
+      "expected_message": "Should fail due to qualifier key not in lowercase"
     },
     {
       "description": "Ruby gems can use qualifiers. Roundtrip a canonical input to canonical output.",

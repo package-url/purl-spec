@@ -31,7 +31,7 @@ Components are designed such that they form a hierarchy from the most
 significant on the left to the least significant components on the right.
 
 A PURL shall not contain a URL Authority, i.e. there is no support for
-**username**, **password**, **host** and **port** components. A **namespace*
+**username**, **password**, **host** and **port** components. A **namespace**
 segment may sometimes look like a **host**, but its interpretation is specific
 to a **type**.
 
@@ -237,7 +237,8 @@ The rules for each component are:
 ### Subpath
 - The **subpath** string is prefixed by a '#' separator when not empty.
 - The '#' is not part of the **subpath**.
-- The **subpath** contains zero or more segments, separated by slash '/'
+- If present, the **subpath** may contain one or more segments, each
+  separated by a single unencoded slash '/' character.
 - Leading and trailing slashes '/' are not significant and should be stripped
   in the canonical form.
 - Each **subpath** segment shall be a percent-encoded string
