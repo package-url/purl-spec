@@ -51,7 +51,12 @@ lenient-qualifier-value = *utf8-octet
 lenient-subpath = lenient-subpath-segment *( "/" lenient-subpath-segment )
 lenient-subpath-segment = *utf8-octet
 
-; Note -- The sequence of octets MUST form
-;         a valid UTF-8 encoding per [RFC3629].
 utf8-octet = %x00-FF
 ```
+
+Conformance to this grammar is necessary but not sufficient: the following
+constraints of the specification are not expressible in ABNF and apply in
+addition.
+
+- The octets decoded from a sequence of `utf8-octet` shall form a
+  valid UTF-8 encoding per [RFC 3629](https://datatracker.ietf.org/doc/html/rfc3629).

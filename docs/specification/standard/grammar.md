@@ -39,11 +39,10 @@ separator = ":" / "/" / "@" / "?" / "=" / "&" / "#"
 unreserved = alphanumeric / punctuation / ":"
 reserved   = "/" / "@" / "?" / "=" / "&" / "#"
 
-pchar    = pchar-ns / "%2F"
+pchar    = unreserved / pct-enc
 pchar-ns = unreserved / pct-enc-ns
 
-; Note -- The sequence of decoded octets MUST form
-;         a valid UTF-8 encoding per [RFC3629].
+pct-enc    = pct-enc-ns / "%2F"
 pct-enc-ns = "%" ( ( "0" / "1" ) HEXDIG
                         ; %00-1F
                  / "2" ( DIGIT / "A" / "B" / "C" )
@@ -62,3 +61,12 @@ pct-enc-ns = "%" ( ( "0" / "1" ) HEXDIG
                         ; %80-FF
                  ) ; all allowed percent encoded characters except %2F ("/")
 ```
+
+Conformance to this grammar is necessary but not sufficient: the following
+constraints of the specification are not expressible in ABNF and apply in
+addition.
+
+- Each `qualifier-key` shall be unique within `qualifiers`.
+- The octets decoded from a sequence of `pct-enc`/`pct-enc-ns` shall form a
+  valid UTF-8 encoding per [RFC 3629](https://datatracker.ietf.org/doc/html/rfc3629).
+- Type-specific rules may further restrict any component.
