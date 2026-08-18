@@ -41,7 +41,7 @@ lenient-version = *unicode
 ; - "foo=123&bar=baz"
 lenient-qualifiers = lenient-qualifier *( "&" lenient-qualifier )
 lenient-qualifier = lenient-qualifier-key [ "=" lenient-qualifier-value ]
-lenient-qualifier-key = ALPHA *( ALPHA / DIGIT )
+lenient-qualifier-key = ALPHA *( ALPHA / DIGIT / "." / "-" / "_" )
 lenient-qualifier-value = *unicode
 
 ; examples:

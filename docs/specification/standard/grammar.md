@@ -21,7 +21,7 @@ version = 1*pchar
 
 qualifiers = qualifier *( "&" qualifier )
 qualifier = qualifier-key "=" qualifier-value
-qualifier-key = alpha-lowercase *( alpha-lowercase / DIGIT )
+qualifier-key = alpha-lowercase *( alpha-lowercase / DIGIT / "." / "-" / "_" )
 qualifier-value = 1*pchar-ns
 
 subpath = subpath-segment *( "/" subpath-segment )
