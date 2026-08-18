@@ -16,7 +16,8 @@ that a PURL parser should attempt to process, rather than a second
 conformance class. A string matching this grammar is not thereby a valid
 PURL.  
 Parsers should accept such input on a best-effort basis, normalize it according
-to the parsing and canonicalization rules of [the standard](standard/specification.md),
+to the parsing and canonicalization rules of [the standard](standard/specification.md)
+and the ["How to parse a PURL" specification](how-to-parse.md),
 and reject it only where no meaningful interpretation is possible.  
 Emitters shall never produce lenient PURL strings; output shall always be in
 canonical form.
@@ -77,4 +78,4 @@ addition.
   UTF-8 encoding per [RFC 3629](https://datatracker.ietf.org/doc/html/rfc3629).
 - When a string admits multiple parses under this grammar, component boundaries are
   determined by the parsing rules of [the standard](standard/specification.md)
-  and the ["How to parse" specification](how-to-parse.md).
+  and the ["How to parse a PURL" specification](how-to-parse.md).
