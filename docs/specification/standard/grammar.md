@@ -29,7 +29,7 @@ subpath-segment = ( ".." pchar-ns
                   / "."  subpath-segment-sc
                   /      subpath-segment-sc
                   ) *pchar-ns
-subpath-segment-sc = alphanumeric / ":" / "-" / "_" / "~" / pct-enc-ns
+subpath-segment-sc = alphanumeric / "-" / "_" / "~" / ":" / pct-enc-ns
 
 alphanumeric = ALPHA / DIGIT
 alpha-lc = %x61-7A ; a-z
