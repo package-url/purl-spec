@@ -23,7 +23,9 @@ Emitters shall never produce lenient PURL strings; output shall always be in
 canonical form.
 
 A *lenient* PURL string adheres to the following grammar,
-using syntax as per [RFC5234: Augmented BNF for Syntax Specifications: ABNF](https://datatracker.ietf.org/doc/html/rfc5234).
+using syntax as per [RFC5234: Augmented BNF for Syntax Specifications: ABNF](https://datatracker.ietf.org/doc/html/rfc5234).  
+This grammar operates on a sequence of Unicode characters;
+the transfer encoding of the input (typically UTF-8) is out of scope.
 
 ```abnf
 lenient-PURL = scheme ":" *"/" lenient-type
@@ -41,14 +43,14 @@ lenient-type = ALPHA *( ALPHA / DIGIT / "." / "-" )
 ; - "///" - many empty segments
 ; - "//foo//bar//"
 lenient-namespace = lenient-namespace-segment *( "/" lenient-namespace-segment )
-lenient-namespace-segment = *octet
+lenient-namespace-segment = *uchar
 
-lenient-name = 1*octet
+lenient-name = 1*uchar
 
 ; examples:
 ; - ""  - an empty string
 ; - "0.8.15"
-lenient-version = *octet
+lenient-version = *uchar
 
 ; examples:
 ; - ""  - an empty string
@@ -58,25 +60,33 @@ lenient-version = *octet
 lenient-qualifiers = lenient-qualifier *( "&" lenient-qualifier )
 lenient-qualifier = [ lenient-qualifier-key [ "=" lenient-qualifier-value ] ]
 lenient-qualifier-key = ALPHA *( ALPHA / DIGIT / "." / "-" / "_" )
-lenient-qualifier-value = *octet
+lenient-qualifier-value = *uchar
 
 ; examples:
 ; - "" - an empty string
 ; - "//foo//./bar/%2E%2E//" - not canonical but probably usable
 ; - "foo%2Fbar" - matches, but yields a parser error
 lenient-subpath = lenient-subpath-segment *( "/" lenient-subpath-segment )
-lenient-subpath-segment = *octet
+lenient-subpath-segment = *uchar
 
-; a Unicode character may span multiple octet (UTF-8, RFC 3629)
-octet = %x00-FF
+uchar = %x00-D7FF / %xE000-10FFFF
 ```
+
+The rule `uchar` matches any single Unicode character — that is, any
+[Unicode scalar value](https://www.unicode.org/glossary/#unicode_scalar_value):
+any code point in the ranges U+0000 to U+D7FF and U+E000 to U+10FFFF,
+excluding the surrogate code points.
 
 Conformance to this grammar is necessary but not sufficient: the following
 constraints of the specification are not expressible in ABNF and apply in
 addition.
 
-- After percent-decoding, the octets of each component shall form a valid
-  UTF-8 encoding per [RFC 3629](https://datatracker.ietf.org/doc/html/rfc3629).
+- Within each component, decoding is performed in two steps, in order:
+  first, percent-encoded triplets are percent-decoded to octets;
+  second, the octets resulting from percent-decoding are decoded as UTF-8 per
+  [RFC 3629](https://datatracker.ietf.org/doc/html/rfc3629).  
+  A component in which those octets do not form a valid UTF-8 encoding
+  has no valid interpretation.
 - When a string admits multiple parses under this grammar, component boundaries are
   determined by the parsing rules of [the standard](standard/specification.md)
   and the ["How to parse a PURL" specification](how-to-parse.md).
