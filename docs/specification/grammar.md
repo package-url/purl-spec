@@ -38,7 +38,7 @@ lenient-version = *unicode
 ; - ""  - an empty string
 ; - "&&&" - many empty qualifiers
 ; - "FOO&bar=" - keys without values
-; - "foo=123&bar=baz"
+; - "foo=123&bar=baz&repository_url=https:%2F%2Fexample.com%2Frepo"
 lenient-qualifiers = lenient-qualifier *( "&" lenient-qualifier )
 lenient-qualifier = lenient-qualifier-key [ "=" lenient-qualifier-value ]
 lenient-qualifier-key = ALPHA *( ALPHA / DIGIT / "." / "-" / "_" )
