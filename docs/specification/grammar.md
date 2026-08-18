@@ -41,14 +41,14 @@ lenient-type = ALPHA *( ALPHA / DIGIT / "." / "-" )
 ; - "///" - many empty segments
 ; - "//foo//bar//"
 lenient-namespace = lenient-namespace-segment *( "/" lenient-namespace-segment )
-lenient-namespace-segment = *uoctet
+lenient-namespace-segment = *octet
 
-lenient-name = 1*uoctet
+lenient-name = 1*octet
 
 ; examples:
 ; - ""  - an empty string
 ; - "0.8.15"
-lenient-version = *uoctet
+lenient-version = *octet
 
 ; examples:
 ; - ""  - an empty string
@@ -58,16 +58,17 @@ lenient-version = *uoctet
 lenient-qualifiers = lenient-qualifier *( "&" lenient-qualifier )
 lenient-qualifier = [ lenient-qualifier-key [ "=" lenient-qualifier-value ] ]
 lenient-qualifier-key = ALPHA *( ALPHA / DIGIT / "." / "-" / "_" )
-lenient-qualifier-value = *uoctet
+lenient-qualifier-value = *octet
 
 ; examples:
 ; - "" - an empty string
 ; - "//foo//./bar/%2E%2E//" - not canonical but probably usable
 ; - "foo%2Fbar" - matches, but yields a parser error
 lenient-subpath = lenient-subpath-segment *( "/" lenient-subpath-segment )
-lenient-subpath-segment = *uoctet
+lenient-subpath-segment = *octet
 
-uoctet = %x00-FF
+; a Unicode character may span multiple octet (UTF-8, RFC 3629)
+octet = %x00-FF
 ```
 
 Conformance to this grammar is necessary but not sufficient: the following
