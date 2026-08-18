@@ -8,7 +8,7 @@ PURL = scheme ":" type
        [ "/" namespace ] "/" name
        [ "@" version ] [ "?" qualifiers ] [ "#" subpath ]
 
-scheme = %70.6B.67 ; constant with the value "pkg"
+scheme = %x70.6B.67 ; constant with the value "pkg"
 
 type = alpha-lowercase *( alpha-lowercase / DIGIT / "." / "-" )
 

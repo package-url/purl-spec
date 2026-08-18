@@ -25,14 +25,14 @@ lenient-type = ALPHA *( ALPHA / DIGIT / "." / "-" )
 ; - "///" - many empty segments
 ; - "//foo//bar//"
 lenient-namespace = lenient-namespace-segment *( "/" lenient-namespace-segment )
-lenient-namespace-segment = *unicode
+lenient-namespace-segment = *utf8-octet
 
-lenient-name = 1*unicode
+lenient-name = 1*utf8-octet
 
 ; examples:
 ; - ""  - an empty string
 ; - "0.8.15"
-lenient-version = *unicode
+lenient-version = *utf8-octet
 
 ; examples:
 ; - ""  - an empty string
@@ -40,18 +40,18 @@ lenient-version = *unicode
 ; - "FOO&bar=" - keys without values
 ; - "foo=123&bar=baz&repository_url=https:%2F%2Fexample.com%2Frepo"
 lenient-qualifiers = lenient-qualifier *( "&" lenient-qualifier )
-lenient-qualifier = [ lenient-qualifier-key [ "=" lenient-qualifier-value ] 
+lenient-qualifier = [ lenient-qualifier-key [ "=" lenient-qualifier-value ] ]
 lenient-qualifier-key = ALPHA *( ALPHA / DIGIT / "." / "-" / "_" )
-lenient-qualifier-value = *unicode
+lenient-qualifier-value = *utf8-octet
 
 ; examples:
 ; - "" - an empty string
 ; - "//foo//./bar/%2E%2E//" - not canonical but probably usable
 ; - "foo%2Fbar" - parser error
 lenient-subpath = lenient-subpath-segment *( "/" lenient-subpath-segment )
-lenient-subpath-segment = *unicode
+lenient-subpath-segment = *utf8-octet
 
 ; Note -- The sequence of octets MUST form
 ;         a valid UTF-8 encoding per [RFC3629].
-unicode = %x00-FF
+utf8-octet = %x00-FF
 ```
