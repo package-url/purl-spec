@@ -58,7 +58,7 @@ pct-enc-ns = "%" ( ( "0" / "1" ) HEXDIG
                         ; %x60-6F except %x61-6F (a-o)
                  / "7" ( "B" / "C" / "D" / "F" )
                         ; %x70-7F except %x70-7A (p-z) %x7E ("~")
-                 / ( "8" / "9" / "A" / "B" / "C" / "D" / "E" / "F" ) HXDIG
+                 / ( "8" / "9" / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG
                         ; %x80-FF
-                 ) ; all allowed percent encoded characters, but slash ("/")
+                 ) ; all allowed percent encoded characters except %x2F ("/")
 ```

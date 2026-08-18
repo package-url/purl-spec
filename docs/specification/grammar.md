@@ -20,7 +20,7 @@ scheme = %x70.6B.67 ; constant with the value "pkg"
 
 lenient-type = ALPHA *( ALPHA / DIGIT / "." / "-" )
 
-; exmaples:
+; examples:
 ; - "" - an empty string
 ; - "///" - many empty segments
 ; - "//foo//bar//"
@@ -29,7 +29,7 @@ lenient-namespace-segment = *unicode
 
 lenient-name = 1*unicode
 
-; exmaples:
+; examples:
 ; - ""  - an empty string
 ; - "0.8.15"
 lenient-version = *unicode
@@ -41,7 +41,7 @@ lenient-version = *unicode
 ; - "foo=123&bar=baz"
 lenient-qualifiers = lenient-qualifier *( "&" lenient-qualifier )
 lenient-qualifier = lenient-qualifier-key [ "=" lenient-qualifier-value ]
-lenient-qualifier-key = ALPA *( ALPHA / DIGIT )
+lenient-qualifier-key = ALPHA *( ALPHA / DIGIT )
 lenient-qualifier-value = *unicode
 
 ; examples:
