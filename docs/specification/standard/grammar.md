@@ -15,7 +15,7 @@ type = alpha-lc *( alpha-lc / DIGIT / "." / "-" )
 namespace = namespace-segment *( "/" namespace-segment )
 namespace-segment = 1*pchar-ns
 
-name = 1*pchar-ns
+name = 1*pchar
 
 version = 1*pchar
 
