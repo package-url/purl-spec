@@ -22,7 +22,7 @@ version = 1*pchar
 qualifiers = qualifier *( "&" qualifier )
 qualifier = qualifier-key "=" qualifier-value
 qualifier-key = alpha-lc *( alpha-lc / DIGIT / "." / "-" / "_" )
-qualifier-value = 1*pchar-ns
+qualifier-value = 1*pchar
 
 subpath = subpath-segment *( "/" subpath-segment )
 subpath-segment = ( ".." pchar-ns
