@@ -39,7 +39,7 @@ separator = ":" / "/" / "@" / "?" / "=" / "&" / "#"
 unreserved = alphanumeric / punctuation / ":"
 reserved   = "/" / "@" / "?" / "=" / "&" / "#"
 
-pchar    = pchar-ns / "%2F" 
+pchar    = pchar-ns / "%2F"
 pchar-ns = unreserved / pct-enc-ns
 
 ; Note -- The sequence of decoded octets MUST form
