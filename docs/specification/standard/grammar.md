@@ -33,28 +33,28 @@ subpath-segment = subpath-segment-sc *pchar-ns     ; no leading "."
                        ; excludes the exact segments "." and ".."
 subpath-segment-sc = ( alphanumeric
                      / "-" / "_" / "~"
-                     / colon )     ; = `unreserved` without "."
+                     / colon ) ; = `unreserved` without "."
                    / pct-encoded-ns
                           ; safe characters
 
 ; --- character classes ---
 
+alpha-lc     = %x61-7A ; lowercase a-z
 alphanumeric = ALPHA / DIGIT
-alpha-lc = %x61-7A ; a-z
-punctuation = "." / "-" / "_" / "~"
-percent = "%"
-separator = ":" / "/" / "@" / "?" / "=" / "&" / "#"
-colon = ":"
+punctuation  = "." / "-" / "_" / "~"
+separator    = ":" / "/" / "@" / "?" / "=" / "&" / "#"
+colon        = ":"
+percent      = "%"
 
 unreserved = alphanumeric / punctuation / colon
 reserved   = "/" / "@" / "?" / "=" / "&" / "#"
 
-; `reserved` / `separator` are not referenced directly;
+; `reserved` and `separator` are not referenced directly;
 ; listed to document characters that require percent-encoding
 
 pchar    = unreserved / pct-encoded
 pchar-ns = unreserved / pct-encoded-ns
-                ; -ns suffix = variant that forbids an encoded slash "/" (%2F)
+                ; `-ns` suffix = variant forbidding encoded slash "/" (%2F)
 
 ; --- percent-encoding ---
 
