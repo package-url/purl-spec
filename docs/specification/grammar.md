@@ -23,7 +23,7 @@ Emitters shall never produce lenient PURL strings; output shall always be in
 canonical form.
 
 A *lenient* PURL string adheres to the following grammar,
-using syntax as per [RFC5234: Augmented BNF for Syntax Specifications: ABNF](https://datatracker.ietf.org/doc/html/rfc5234).  
+using syntax as per [RFC 5234: Augmented BNF for Syntax Specifications: ABNF](https://datatracker.ietf.org/doc/html/rfc5234).  
 This grammar operates on a sequence of octets that is a
 UTF-8 encoding per [RFC 3629](https://datatracker.ietf.org/doc/html/rfc3629);
 input in any other transfer encoding must be transcoded to UTF-8
