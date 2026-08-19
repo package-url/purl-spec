@@ -30,7 +30,7 @@ subpath-segment = subpath-segment-sc *pchar-ns
                 / ".." 1*pchar-ns
 subpath-segment-sc = ( alphanumeric 
                      / "-" / "_" / "~" 
-                     / ":" ) ; unreserved without "."
+                     / colon ) ; unreserved without "."
                    / pct-encoded-ns
 
 alphanumeric = ALPHA / DIGIT
@@ -38,8 +38,9 @@ alpha-lc = %x61-7A ; a-z
 punctuation = "." / "-" / "_" / "~"
 percent = "%"
 separator = ":" / "/" / "@" / "?" / "=" / "&" / "#"
+colon = ":"
 
-unreserved = alphanumeric / punctuation / ":"
+unreserved = alphanumeric / punctuation / colon
 reserved   = "/" / "@" / "?" / "=" / "&" / "#"
 
 pchar    = unreserved / pct-encoded
@@ -63,7 +64,8 @@ pct-encoded-ns = percent (
                          ; %70-7F except %70-7A (p-z) and %7E ("~")
                     / ( "8" / "9" / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG
                          ; %80-FF
-                    ) ; all allowed percent encoded characters except %2F ("/")
+                    ) ; all allowed percent encoded characters
+                      ; with no slash %2F ("/")
 ```
 
 Conformance to this grammar is necessary but not sufficient: the following
