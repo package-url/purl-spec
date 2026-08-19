@@ -46,17 +46,17 @@ pct-enc    = pct-enc-ns / "%2F"
 pct-enc-ns = "%" ( ( "0" / "1" ) HEXDIG
                         ; %00-1F
                  / "2" ( DIGIT / "A" / "B" / "C" )
-                        ; %20-2F except %2D ("-") %2E (".") and %2F ("/")
+                        ; %20-2F except %2D ("-") and %2E (".") and %2F ("/")
                  / "3" ( "B" / "C" / "D" / "E" / "F" )
-                        ; %30-3F except %30-39 (0-9) %3A (":")
-                 / "40"
+                        ; %30-3F except %30-39 (0-9) and %3A (":")
+                 / "4" "0"
                         ; %40-4F except %41-4F (A-O)
                  / "5" ( "B" / "C" / "D" / "E" )
-                        ; %50-5F except %50-5A (P-Z) %5F ("_")
-                 / "60"
+                        ; %50-5F except %50-5A (P-Z) and %5F ("_")
+                 / "6" "0"
                         ; %60-6F except %61-6F (a-o)
                  / "7" ( "B" / "C" / "D" / "F" )
-                        ; %70-7F except %70-7A (p-z) %7E ("~")
+                        ; %70-7F except %70-7A (p-z) and %7E ("~")
                  / ( "8" / "9" / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG
                         ; %80-FF
                  ) ; all allowed percent encoded characters except %2F ("/")
