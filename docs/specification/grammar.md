@@ -24,8 +24,10 @@ canonical form.
 
 A *lenient* PURL string adheres to the following grammar,
 using syntax as per [RFC5234: Augmented BNF for Syntax Specifications: ABNF](https://datatracker.ietf.org/doc/html/rfc5234).  
-This grammar operates on a sequence of Unicode characters;
-the transfer encoding of the input (typically UTF-8) is out of scope.
+This grammar operates on a sequence of octets that is a
+UTF-8 encoding per [RFC 3629](https://datatracker.ietf.org/doc/html/rfc3629);
+input in any other transfer encoding must be transcoded to UTF-8
+before being matched against this grammar.
 
 ```abnf
 lenient-PURL = scheme ":" *"/" lenient-type
@@ -76,13 +78,15 @@ lenient-qualifier-value = *uchar
 lenient-subpath = lenient-subpath-segment *( "/" lenient-subpath-segment )
 lenient-subpath-segment = *uchar
 
-uchar = %x00-D7FF / %xE000-10FFFF
+uchar = UTF8-char ; as defined in RFC 3629, section 4
 ```
 
-The rule `uchar` matches any single Unicode character — that is, any
-[Unicode scalar value](https://www.unicode.org/glossary/#unicode_scalar_value):
+The rule `uchar` matches the UTF-8 encoding of any single
+[Unicode scalar value](https://www.unicode.org/glossary/#unicode_scalar_value) —
 any code point in the ranges U+0000 to U+D7FF and U+E000 to U+10FFFF,
-excluding the surrogate code points.
+excluding the surrogate code points. The rule `UTF8-char` is defined by the
+ABNF in [RFC 3629, section 4](https://datatracker.ietf.org/doc/html/rfc3629#section-4),
+which excludes overlong encodings and encoded surrogates by construction.
 
 Conformance to this grammar is necessary but not sufficient: the following
 constraints of the specification are not expressible in ABNF and apply in
