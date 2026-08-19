@@ -93,8 +93,8 @@ constraints of the specification are not expressible in ABNF and apply in
 addition.
 
 - Within each component, decoding is performed in two steps, in order:
-  first, percent-encoded triplets are percent-decoded to octets;
-  second, the octets resulting from percent-decoding are decoded as UTF-8 per
+  first, percent-encoded triplets are percent-decoded to characters;
+  second, the percent-decoded component is decoded as UTF-8 per
   [RFC 3629](https://datatracker.ietf.org/doc/html/rfc3629).  
   While the grammar guarantees that the input itself is valid UTF-8,
   percent-encoded triplets may still yield arbitrary octets; a component in
