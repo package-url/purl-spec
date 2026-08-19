@@ -12,3 +12,9 @@ https://datatracker.ietf.org/doc/html/rfc3986
 
 The Unicode Standard
 https://www.unicode.org/versions/latest/
+
+RFC 3629, UTF-8, a transformation format of ISO 10646
+https://datatracker.ietf.org/doc/html/rfc3629
+
+RFC 5234, Augmented BNF for Syntax Specifications: ABNF
+https://datatracker.ietf.org/doc/html/rfc5234
