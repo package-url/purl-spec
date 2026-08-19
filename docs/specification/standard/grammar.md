@@ -57,7 +57,7 @@ pchar-ns = unreserved / pct-encoded-ns
 
 ; --- percent-encoding ---
 
-pct-encoded    = pct-encoded-ns / percent "2F"
+pct-encoded    = pct-encoded-ns / percent "2" "F"
 pct-encoded-ns = percent (
                       ( "0" / "1" ) HEXDIG
                          ; %00-1F
