@@ -36,6 +36,8 @@ lenient-PURL = scheme ":" *"/" lenient-type
                [ "?" lenient-qualifiers ]
                [ "#" lenient-subpath ]
 
+; --- structure ---
+
 scheme = %x70.6B.67 ; constant with the value "pkg" (lowercase only)
 
 ; examples:
@@ -77,6 +79,8 @@ lenient-qualifier-value = *uchar
 ; - see more examples in the PURL test suite
 lenient-subpath = lenient-subpath-segment *( "/" lenient-subpath-segment )
 lenient-subpath-segment = *uchar
+
+; --- character classes ---
 
 uchar = UTF8-char ; as defined in RFC 3629, section 4
 ```
