@@ -191,7 +191,7 @@ The rules for each component are:
     - shall not contain any slash '/' characters
     - shall not be empty
     - may contain any Unicode character other than '/' unless the package's
-      **type** definition restricts the allowed characters
+      **type** definition further restricts the allowed characters
 - A URL host or Authority shall not be used as a **namespace**. Use instead a
   **repository_url** qualifier. Note however, that for some types, the
   **namespace** may look like a host.
@@ -203,14 +203,15 @@ The rules for each component are:
   stripped in the canonical form. They are not part of the **name**.
 - A **name** shall be a percent-encoded string.
 - When percent-decoded, a **name** may contain any Unicode character unless
-  the package's **type** definition restricts the allowed characters.
+  the package's **type** definition further restricts the allowed characters.
 
 ### Version
 - The **version** is prefixed by a '@' separator when not empty.
 - This '@' is not part of the **version**.
 - A **version** shall be a percent-encoded string.
 - When percent-decoded, a **version** may contain any Unicode character
-  unless the package's **type** definition restricts the allowed characters.
+  unless the package's **type** definition further restricts the allowed
+  characters.
 - A **version** is a plain and opaque string.
 
 ### Qualifiers
@@ -247,5 +248,5 @@ The rules for each component are:
     - shall not be empty
     - shall not be any of '..' or '.'
     - may contain any Unicode character other than '/' unless the package's
-      **type** definition restricts the allowed characters.
+      **type** definition further restricts the allowed characters.
 - The **subpath** shall be interpreted as relative to the root of the package.
