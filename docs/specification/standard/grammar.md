@@ -25,10 +25,9 @@ qualifier-key = alpha-lc *( alpha-lc / DIGIT / "." / "-" / "_" )
 qualifier-value = 1*pchar
 
 subpath = subpath-segment *( "/" subpath-segment )
-subpath-segment = ( ".." pchar-ns
-                  / "."  subpath-segment-sc
-                  /      subpath-segment-sc
-                  ) *pchar-ns
+subpath-segment = subpath-segment-sc *pchar-ns
+                / "." subpath-segment-sc *pchar-ns
+                / ".." 1*pchar-ns
 subpath-segment-sc = alphanumeric / "-" / "_" / "~" / ":" / pct-enc-ns
 
 alphanumeric = ALPHA / DIGIT
