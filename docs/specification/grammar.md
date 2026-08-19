@@ -52,7 +52,8 @@ lenient-type = ALPHA *( ALPHA / DIGIT / "." / "-" )
 ; - "//@foo//bar/baz///" - not canonical, but usable
 ; - "%40foo/bar/baz"
 ; - see more examples in the PURL test suite
-lenient-namespace = lenient-namespace-segment *( "/" lenient-namespace-segment )
+lenient-namespace = lenient-namespace-segment
+                    *( "/" lenient-namespace-segment )
 lenient-namespace-segment = *uchar
 
 lenient-name = 1*uchar
