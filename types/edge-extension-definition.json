@@ -1,0 +1,40 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/edge-extension-definition.json",
+  "type": "edge-extension",
+  "type_name": "Microsoft Edge Browser Extensions (Add-ons)",
+  "description": "Microsoft Edge Browser Extensions (Add-ons), distributed through the Microsoft Edge Add-ons store. Edge extensions use the same CRX packaging and 32-character extension ID format as Chrome extensions. There is no officially documented store API; two known data sources are a product details endpoint at https://microsoftedge.microsoft.com/addons/getproductdetailsbycrxid/<extension-id> and an 'updatecheck' style endpoint at https://edge.microsoft.com/extensionwebstorebase/v1/crx which follows the same protocol as the Chrome Web Store, see https://github.com/chromium/chromium/blob/main/docs/updater/protocol_3_1.md",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://microsoftedge.microsoft.com/addons",
+    "note": "Store pages are at https://microsoftedge.microsoft.com/addons/detail/<slug>/<extension-id>. There is no officially documented API, and only the latest version of an extension is publicly available."
+  },
+  "namespace_definition": {
+    "requirement": "prohibited",
+    "note": "There is no namespace"
+  },
+  "name_definition": {
+    "native_name": "extension_id",
+    "requirement": "required",
+    "permitted_characters": "^[a-p]{32}$",
+    "case_sensitive": false,
+    "note": "The name is the extension ID: 32 characters in the range a-p (base16-encoded with letters instead of hex digits), the same format as Chrome extension IDs, and is case insensitive. This is not the same as the display name, which is human readable and may vary with locale. The extension ID is the last path segment of the store page URL."
+  },
+  "version_definition": {
+    "native_name": "version",
+    "requirement": "optional",
+    "permitted_characters": "^\\d+(\\.\\d+){0,3}$",
+    "note": "The edge extension version is semver-like but 1-4 segments, following the same manifest version format as Chrome extensions. When the version is omitted, the PURL references the latest version. See https://developer.chrome.com/docs/extensions/reference/manifest/version"
+  },
+  "examples": [
+    "pkg:edge-extension/odfafepnkmbhccpbejgmiehpchacaeak@1.72.2",
+    "pkg:edge-extension/cimighlppcgcoapaliogpjjdehbnofhn@2026.714.1952",
+    "pkg:edge-extension/nffknjpglkklphnibdiadeeeeailfnog@25.5.0",
+    "pkg:edge-extension/odfafepnkmbhccpbejgmiehpchacaeak"
+  ],
+  "reference_urls": [
+    "https://learn.microsoft.com/en-us/microsoft-edge/extensions/",
+    "https://developer.chrome.com/docs/extensions/reference/manifest/version",
+    "https://github.com/chromium/chromium/blob/main/docs/updater/protocol_3_1.md"
+  ]
+}
