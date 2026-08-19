@@ -8,7 +8,9 @@ PURL = scheme ":" type
        [ "/" namespace ] "/" name
        [ "@" version ] [ "?" qualifiers ] [ "#" subpath ]
 
-scheme = %x70.6B.67 ; constant with the value "pkg"
+; --- structure ---
+
+scheme = %x70.6B.67 ; constant with the value "pkg" (lowercase only)
 
 type = alpha-lc *( alpha-lc / DIGIT / "." / "-" )
 
@@ -25,13 +27,16 @@ qualifier-key = alpha-lc *( alpha-lc / DIGIT / "." / "-" / "_" )
 qualifier-value = 1*pchar
 
 subpath = subpath-segment *( "/" subpath-segment )
-subpath-segment = subpath-segment-sc *pchar-ns
-                / "." subpath-segment-sc *pchar-ns
-                / ".." 1*pchar-ns
-subpath-segment-sc = ( alphanumeric 
-                     / "-" / "_" / "~" 
-                     / colon ) ; unreserved without "."
+subpath-segment = subpath-segment-sc *pchar-ns     ; no leading "."
+                / "." subpath-segment-sc *pchar-ns ; prevent "."
+                / ".." 1*pchar-ns                  ; prevent ".."
+subpath-segment-sc = ( alphanumeric
+                     / "-" / "_" / "~"
+                     / colon ) ; = `unreserved` without "."
                    / pct-encoded-ns
+                        ; safe characters
+
+; --- character classes ---
 
 alphanumeric = ALPHA / DIGIT
 alpha-lc = %x61-7A ; a-z
@@ -43,8 +48,14 @@ colon = ":"
 unreserved = alphanumeric / punctuation / colon
 reserved   = "/" / "@" / "?" / "=" / "&" / "#"
 
+; `reserved` / `separator` are not referenced directly;
+; listed to document characters that require percent-encoding
+
 pchar    = unreserved / pct-encoded
 pchar-ns = unreserved / pct-encoded-ns
+                ; -ns suffix = variant that forbids an encoded "/" (%2F)
+
+; --- percent-encoding ---
 
 pct-encoded    = pct-encoded-ns / percent "%2F"
 pct-encoded-ns = percent (
@@ -64,8 +75,7 @@ pct-encoded-ns = percent (
                          ; %70-7F except %70-7A (p-z) and %7E ("~")
                     / ( "8" / "9" / "A" / "B" / "C" / "D" / "E" / "F" ) HEXDIG
                          ; %80-FF
-                    ) ; all allowed percent encoded characters
-                      ; with no slash %2F ("/")
+                    )
 ```
 
 Conformance to this grammar is necessary but not sufficient: the following

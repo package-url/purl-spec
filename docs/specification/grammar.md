@@ -36,7 +36,7 @@ lenient-PURL = scheme ":" *"/" lenient-type
                [ "?" lenient-qualifiers ]
                [ "#" lenient-subpath ]
 
-scheme = %x70.6B.67 ; constant with the value "pkg"
+scheme = %x70.6B.67 ; constant with the value "pkg" (lowercase only)
 
 ; examples:
 ; - "foobar2000-plugin"
