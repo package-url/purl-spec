@@ -28,7 +28,10 @@ subpath = subpath-segment *( "/" subpath-segment )
 subpath-segment = subpath-segment-sc *pchar-ns
                 / "." subpath-segment-sc *pchar-ns
                 / ".." 1*pchar-ns
-subpath-segment-sc = alphanumeric / "-" / "_" / "~" / ":" / pct-enc-ns
+subpath-segment-sc = ( alphanumeric 
+                     / "-" / "_" / "~" 
+                     / ":" ) ; unreserved without "."
+                   / pct-enc-ns
 
 alphanumeric = ALPHA / DIGIT
 alpha-lc = %x61-7A ; a-z
@@ -42,8 +45,8 @@ reserved   = "/" / "@" / "?" / "=" / "&" / "#"
 pchar    = unreserved / pct-enc
 pchar-ns = unreserved / pct-enc-ns
 
-pct-enc    = pct-enc-ns / percent "2F"
-pct-enc-ns = percent ( 
+pct-enc    = pct-enc-ns / percent "%2F"
+pct-enc-ns = percent (
                    ( "0" / "1" ) HEXDIG
                       ; %00-1F
                  / "2" ( DIGIT / "A" / "B" / "C" )
