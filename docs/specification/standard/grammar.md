@@ -54,7 +54,7 @@ reserved   = "/" / "@" / "?" / "=" / "&" / "#"
 
 pchar    = unreserved / pct-encoded
 pchar-ns = unreserved / pct-encoded-ns
-                ; `-ns` suffix = variant forbidding encoded slash "/" (%2F)
+; `-ns` suffix = variant that forbids the percent-encoded slash ("%2F")
 
 ; --- percent-encoding ---
 
