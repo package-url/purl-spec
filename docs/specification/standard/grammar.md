@@ -30,12 +30,12 @@ subpath = subpath-segment *( "/" subpath-segment )
 subpath-segment = subpath-segment-sc *pchar-ns     ; no leading "."
                 / "." subpath-segment-sc *pchar-ns ; forbid segment "."
                 / ".." 1*pchar-ns                  ; forbid segment ".."
-                     ; excludes the exact segments "." and ".."
+                       ; excludes the exact segments "." and ".."
 subpath-segment-sc = ( alphanumeric
                      / "-" / "_" / "~"
-                     / colon )       ; = `unreserved` without "."
+                     / colon )     ; = `unreserved` without "."
                    / pct-encoded-ns
-                        ; safe characters
+                          ; safe characters
 
 ; --- character classes ---
 
@@ -54,7 +54,7 @@ reserved   = "/" / "@" / "?" / "=" / "&" / "#"
 
 pchar    = unreserved / pct-encoded
 pchar-ns = unreserved / pct-encoded-ns
-                ; -ns suffix = variant that forbids an encoded "/" (%2F)
+                ; -ns suffix = variant that forbids an encoded slash "/" (%2F)
 
 ; --- percent-encoding ---
 
