@@ -36,12 +36,16 @@ lenient-PURL = scheme ":" *"/" lenient-type
 
 scheme = %x70.6B.67 ; constant with the value "pkg"
 
+; examples:
+; - "foobar2000-plugin"
+; - see more examples in the PURL test suite
 lenient-type = ALPHA *( ALPHA / DIGIT / "." / "-" )
 
 ; examples:
 ; - "" - an empty string
 ; - "///" - many empty segments
-; - "//foo//bar//"
+; - "//foo//bar/baz///"
+; - see more examples in the PURL test suite
 lenient-namespace = lenient-namespace-segment *( "/" lenient-namespace-segment )
 lenient-namespace-segment = *uchar
 
@@ -50,6 +54,7 @@ lenient-name = 1*uchar
 ; examples:
 ; - ""  - an empty string
 ; - "0.8.15"
+; - see more examples in the PURL test suite
 lenient-version = *uchar
 
 ; examples:
@@ -57,6 +62,7 @@ lenient-version = *uchar
 ; - "&&&" - many empty qualifiers
 ; - "FOO&bar=" - keys without values
 ; - "foo=123&bar=baz&repository_url=https:%2F%2Fexample.com%2Frepo"
+; - see more examples in the PURL test suite
 lenient-qualifiers = lenient-qualifier *( "&" lenient-qualifier )
 lenient-qualifier = [ lenient-qualifier-key [ "=" lenient-qualifier-value ] ]
 lenient-qualifier-key = ALPHA *( ALPHA / DIGIT / "." / "-" / "_" )
@@ -66,6 +72,7 @@ lenient-qualifier-value = *uchar
 ; - "" - an empty string
 ; - "//foo//./bar/%2E%2E//" - not canonical but probably usable
 ; - "foo%2Fbar" - matches, but yields a parser error
+; - see more examples in the PURL test suite
 lenient-subpath = lenient-subpath-segment *( "/" lenient-subpath-segment )
 lenient-subpath-segment = *uchar
 
@@ -85,8 +92,10 @@ addition.
   first, percent-encoded triplets are percent-decoded to octets;
   second, the octets resulting from percent-decoding are decoded as UTF-8 per
   [RFC 3629](https://datatracker.ietf.org/doc/html/rfc3629).  
-  A component in which those octets do not form a valid UTF-8 encoding
-  has no valid interpretation.
+  While the grammar guarantees that the input itself is valid UTF-8,
+  percent-encoded triplets may still yield arbitrary octets; a component in
+  which the octets resulting from percent-decoding do not form a valid UTF-8
+  encoding has no valid interpretation.
 - When a string admits multiple parses under this grammar, component boundaries are
   determined by the parsing rules of [the standard](standard/specification.md)
   and the ["How to parse a PURL" specification](how-to-parse.md).
