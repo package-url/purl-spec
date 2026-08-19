@@ -41,7 +41,7 @@ lenient-PURL = scheme ":" *"/" lenient-type
 scheme = %x70.6B.67 ; constant with the value "pkg" (lowercase only)
 
 ; examples:
-; - "FooBar2000-plugin" - not canonical but probably usable
+; - "FooBar2000-plugin" - not canonical, but probably usable
 ; - "foobar2000-plugin"
 ; - see more examples in the PURL test suite
 lenient-type = ALPHA *( ALPHA / DIGIT / "." / "-" )
@@ -49,8 +49,8 @@ lenient-type = ALPHA *( ALPHA / DIGIT / "." / "-" )
 ; examples:
 ; - "" - an empty string
 ; - "///" - many empty segments
-; - "//foo//bar/baz///" - not canonical but probably usable
-; - "foo/bar/baz"
+; - "//@foo//bar/baz///" - not canonical, but usable
+; - "%40foo/bar/baz"
 ; - see more examples in the PURL test suite
 lenient-namespace = lenient-namespace-segment *( "/" lenient-namespace-segment )
 lenient-namespace-segment = *uchar
@@ -59,7 +59,9 @@ lenient-name = 1*uchar
 
 ; examples:
 ; - ""  - an empty string
-; - "0.8.15"
+; - "1.0.0+21AF26D3" - not canonical, but usable
+; - "1.0.0%2B21AF26D3"
+; - "v0.8.15"
 ; - see more examples in the PURL test suite
 lenient-version = *uchar
 
@@ -68,6 +70,7 @@ lenient-version = *uchar
 ; - "&&&" - many empty qualifiers
 ; - "FOO&bar=" - keys without values
 ; - "foo=1&foo=2" - duplicate keys
+; - "repository_url=https://example.com/repo" - not canonical, but usable
 ; - "foo=123&bar=baz&repository_url=https:%2F%2Fexample.com%2Frepo"
 ; - see more examples in the PURL test suite
 lenient-qualifiers = lenient-qualifier *( "&" lenient-qualifier )
@@ -78,7 +81,7 @@ lenient-qualifier-value = *uchar
 ; examples:
 ; - "" - an empty string
 ; - "foo%2Fbar" - matches, but yields a parser error
-; - "//foo//./bar/%2E%2E//" - not canonical but probably usable
+; - "//foo//./bar/%2E%2E//" - not canonical, but usable
 ; - foo/bar
 ; - see more examples in the PURL test suite
 lenient-subpath = lenient-subpath-segment *( "/" lenient-subpath-segment )
