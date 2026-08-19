@@ -49,7 +49,7 @@ lenient-type = ALPHA *( ALPHA / DIGIT / "." / "-" )
 ; examples:
 ; - "" - an empty string
 ; - "///" - many empty segments
-; - "//@foo//bar/baz///" - not canonical, but usable
+; - "//foo//bar/baz///" - not canonical, but usable
 ; - "%40foo/bar/baz"
 ; - see more examples in the PURL test suite
 lenient-namespace = lenient-namespace-segment
