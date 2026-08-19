@@ -28,11 +28,12 @@ qualifier-value = 1*pchar
 
 subpath = subpath-segment *( "/" subpath-segment )
 subpath-segment = subpath-segment-sc *pchar-ns     ; no leading "."
-                / "." subpath-segment-sc *pchar-ns ; prevent "."
-                / ".." 1*pchar-ns                  ; prevent ".."
+                / "." subpath-segment-sc *pchar-ns ; forbid segment "."
+                / ".." 1*pchar-ns                  ; forbid segment ".."
+                     ; excludes the exact segments "." and ".."
 subpath-segment-sc = ( alphanumeric
                      / "-" / "_" / "~"
-                     / colon ) ; = `unreserved` without "."
+                     / colon )       ; = `unreserved` without "."
                    / pct-encoded-ns
                         ; safe characters
 
