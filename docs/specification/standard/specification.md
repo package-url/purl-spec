@@ -117,7 +117,7 @@ This is how each of the Separator Characters is used:
 - In the "Rules for each PURL component" clause, each component
   defines when and how to apply percent-encoding and decoding to its content.
 - When percent-encoding is required by a component definition, the component
-  string shall first be encoded as UTF-8.
+  string shall first be encoded as UTF-8 per [RFC 3629](https://datatracker.ietf.org/doc/html/rfc3629).
 - In the component string, each "data octet" shall be replaced by the
   percent-encoded "character triplet" applying the percent-encoding mechanism
   defined in [RFC 3986 section 2.1](https://datatracker.ietf.org/doc/html/rfc3986#section-2.1),
