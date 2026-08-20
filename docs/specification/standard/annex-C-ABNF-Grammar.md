@@ -86,4 +86,4 @@ addition.
 - Each `qualifier-key` shall be unique within `qualifiers`.
 - The octets decoded from a sequence of `pct-encoded`/`pct-encoded-ns` shall form a
   valid UTF-8 encoding per [RFC 3629](https://datatracker.ietf.org/doc/html/rfc3629).
-- Type-specific rules may further restrict any component.
+- **Type**-specific rules may further restrict any component.
