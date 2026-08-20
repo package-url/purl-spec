@@ -28,8 +28,11 @@ These files map to ECMA-427 1st edition as follows:
 - Clause 4 Overview: `overview.md`
 - Clause 5 Package-URL specification: `specification.md`
 - Clause 6 Package-URL Type Definition Schema: `type-definition-schema.md`
-- Annex A Annex A (normative) PURL Type Definition:
-  `annex-A=PURL-Type-Definition.md`
+- Annex A (normative) PURL Type Definition: `annex-A-PURL-Type-Definition.md`
+- New for ECMA-427 2nd Edtion
+  - Annex B (informative) PURL Standard Qualifiers Keys: `annex-B-Standard-Qualifiers-Keys.md`
+  - Annex C (informative) PURL ABNF Grammar: *tbd*
+  
 
 The text in the `docs/specification/standard` files matches the official text
 with the following exceptions:
