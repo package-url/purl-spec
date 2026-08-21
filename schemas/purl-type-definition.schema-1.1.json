@@ -84,7 +84,7 @@
       "title": "PURL type definition id",
       "description": "The unique identifier URI for this PURL type definition.",
       "type": "string",
-      "pattern": "^https:\\/\\/packageurl\\.org/types/[a-z0-9-]+-definition\\.json$"
+      "pattern": "^https:\\/\\/packageurl\\.org/purl-types/[a-z0-9-]+-definition\\.json$"
     },
     "type": {
       "title": "PURL type",
