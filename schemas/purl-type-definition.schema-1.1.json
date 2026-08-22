@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft-07/schema#",
   "$id": "https://packageurl.org/schemas/purl-type-definition.schema-1.1.json",
   "title": "Package-URL Type Definition",
   "description": "Schema to specify a Package-URL (PURL) type as a structured definition.",
@@ -162,8 +162,40 @@
               "$ref": "#/definitions/prohibited_requirement"
             }
           ]
+        },
+        "registered_values": {
+          "title": "Registered namespace values",
+          "description": "Optional set of registered namespace values for this PURL type. If the namespace value for a PURL is not one of these registered values, a tool should report a warning. The registered namespace values should be sorted lexicographically.",
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "value",
+              "usage"
+          ],
+          "properties": {
+            "value": {
+              "title": "Registered Value",
+              "description": "Standard value for this namespace for this PURL type.",
+              "type": "string"
+            },
+            "usage": {
+              "title": "Usage",
+              "description": "Explanation of how this namespace is used for this PURL type.",
+              "type": "string"
+            },
+            "reference_url": {
+              "title": "Reference URL",
+              "description": "Optional Reference URL for where this namespace value is defined for this PURL type.",
+              "type":"string"
+            }
+          }
         }
-      },
+      }
+    },
       "allOf": [
         {
           "$ref": "#/definitions/purl_component_definition"
@@ -268,6 +300,38 @@
             "title": "Native name",
             "description": "The equivalent native name for this qualifier key.",
             "type": "string"
+          },
+          "registered_keys": {
+            "title": "Registered qualifier key",
+            "description": "Optional set of registered qualifier keys for this PURL type. If the qualifier key for a PURL is not one of these registered values, a tool should report a warning. The registered qualifier keys should be sorted lexicographically.",
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "key",
+                "usage"
+              ],
+              "properties": {
+                "key": {
+                  "title": "Registered Key",
+                  "description": "Standard key for this qualifier for this PURL type.",
+                  "type": "string"
+                },
+                "usage": {
+                  "title": "Usage",
+                  "description": "Explanation of how this qualifier is used for this PURL type.",
+                  "type": "string"
+                },
+                "reference_url": {
+                  "title": "Reference URL",
+                  "description": "Optional Reference URL for where this qualifier is defined for this PURL type.",
+                  "type":"string"
+                }
+              }
+            }
           }
         }
       }
@@ -299,7 +363,7 @@
     },
     "examples": {
       "title": "PURL examples",
-      "description": "Example of valid, canonical PURLs for this package type.",
+      "description": "Example of canonical PURLs for this package type.",
       "type": "array",
       "uniqueItems": true,
       "minItems": 1,
