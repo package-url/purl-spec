@@ -183,7 +183,7 @@
               "type": "string"
             },
             "description": {
-              "title": "Usage",
+              "title": "Registered Namespace Description",
               "description": "Explanation of what this namespace value means for this PURL type.",
               "type": "string"
             },
