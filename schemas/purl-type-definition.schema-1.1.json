@@ -179,7 +179,7 @@
           "properties": {
             "value": {
               "title": "Registered Value",
-              "description": "Standard value for this namespace for this PURL type.",
+              "description": "Registered namespace value for this PURL type.",
               "type": "string"
             },
             "usage": {
