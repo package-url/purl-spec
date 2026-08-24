@@ -178,7 +178,7 @@
           ],
           "properties": {
             "value": {
-              "title": "Registered Value",
+              "title": "Registered Namespace Value",
               "description": "Registered namespace value for this PURL type.",
               "type": "string"
             },
