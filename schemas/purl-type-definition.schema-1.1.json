@@ -16,7 +16,7 @@
       "title": "Component recommended_requirement requirement",
       "description": "States that this PURL component is recommended for a PURL type.",
       "type": "string",
-      "const": "optional"
+      "const": "recommended"
     },
     "required_requirement": {
       "title": "Component required requirement",
