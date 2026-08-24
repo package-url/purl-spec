@@ -165,7 +165,7 @@
         },
         "registered_values": {
           "title": "Registered namespace values",
-          "description": "Optional set of registered namespace values for this PURL type. If the namespace value for a PURL is not one of these registered values, a tool should report a warning. The registered namespace values should be sorted lexicographically.",
+          "description": "Optional set of registered namespace values for this PURL type. If the namespace value for a PURL of this type is not one of these registered values, a tool should report a warning. The registered namespace values should be sorted lexicographically.",
           "type": "array",
           "uniqueItems": true,
           "minItems": 1,
