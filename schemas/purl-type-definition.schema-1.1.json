@@ -12,6 +12,12 @@
       "type": "string",
       "const": "optional"
     },
+    "recommended_requirement": {
+      "title": "Component recommended_requirement requirement",
+      "description": "States that this PURL component is recommended for a PURL type.",
+      "type": "string",
+      "const": "optional"
+    },
     "required_requirement": {
       "title": "Component required requirement",
       "description": "States that this PURL component is required for a PURL type.",
@@ -275,11 +281,14 @@
           },
           "requirement": {
             "title": "Qualifier key requirement",
-            "description": "States that a PURL qualifier key is optional or required for a PURL type.",
+            "description": "States that a PURL qualifier key is optional, recommended or required for a PURL type.",
             "type": "string",
             "oneOf": [
               {
                 "$ref": "#/definitions/optional_requirement"
+              },
+              {
+                "$ref": "#/definitions/recommended_requirement"
               },
               {
                 "$ref": "#/definitions/required_requirement"
@@ -288,7 +297,7 @@
           },
           "description": {
             "title": "Description",
-            "description": "The description of this qualifier.",
+            "description": "The description of this qualifier key.",
             "type": "string"
           },
           "default_value": {
