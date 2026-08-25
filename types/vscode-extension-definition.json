@@ -6,7 +6,7 @@
   "description": "VS Code Extension packages",
   "repository": {
     "use_repository": true,
-    "default_repository_url": "https://marketplace.visualstudio.com/vscode-extension"
+    "default_repository_url": "https://marketplace.visualstudio.com/vscode"
   },
   "namespace_definition": {
     "requirement": "required",
