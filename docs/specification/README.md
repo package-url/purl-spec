@@ -7,7 +7,7 @@ There are two levels of PURL specification documentation:
 - The `docs/specification/standard` folder has markdown files with text that
 match the content of [ECMA-427](https://ecma-international.org/publications-and-standards/standards/ecma-427/).
 - The other files in the `docs/specification` folder are also
-specification documentation, but they are not part of the ECMA-427 1st edition
+specification documentation, but they are not part of the ECMA-427 1st Edition
 Standard. These documents provide information to support implementation
 of the PURL Specification in other software or databases.
 
@@ -27,25 +27,20 @@ These files map to ECMA-427 1st edition as follows:
 - Clause 3 Normative references: `references.md`
 - Clause 4 Overview: `overview.md`
 - Clause 5 Package-URL specification: `specification.md`
-- Clause 6 Package-URL Type Definition Schema: `type-definition-schema.md`
-- Annex A (normative) PURL Type Definition: `annex-A-PURL-Type-Definition.md`
-- New for ECMA-427 2nd Edtion
-  - Annex B (informative) PURL Standard Qualifiers Keys: `annex-B-Standard-Qualifiers-Keys.md`
+- Clause 6 Package-URL Type Definition Schema: `Clause-6-Type-Definition-Schema.md`
+- Annex A (normative) PURL Type Definition: `Annex-A-PURL-Type-Definition.md`
+- New for ECMA-427 2nd Edition
+  - Annex B (informative) PURL Standard Qualifiers Keys: `Annex-B-Standard-Qualifiers-Keys.md`
   - Annex C (informative) PURL ABNF Grammar: *tbd*
   
-
 The text in the `docs/specification/standard` files matches the official text
 with the following exceptions:
-- The text does not include the clause numbering from ECMA-427. This
-  numbering is automatically added by the Ecma tools for publishing an Ecma
+- The text does not include the clause numbering from ECMA-427 except for Clause 6.
+  This numbering is automatically added by the Ecma tools for publishing an Ecma
   standard.
-- `type-definition-schema.md` only has the introductory text from ECMA-427
-  Clause 6 because Clause 6 presents the PURL Type Definition Schema in a
-  "human-friendly" format that is difficult to reproduce in markdown format.
-  The equivalent information is in this repository in JSON Schema
-  format: at `schemas/purl-type-definition.schema-1.0.json`
-- There are some minor formatting differences such as the examples in Clause 5
-  and the use of italics instead of intra-document links.
+- There are some minor formatting differences such as examples are left-justified,
+  not centered, to avoid using HTML tags for centering, and the use of italics
+  instead of intra-document links.
 
 The purpose of keeping a copy of the ECMA-427 text here is to make it easier
 to track any proposed changes to the PURL specification that will affect
