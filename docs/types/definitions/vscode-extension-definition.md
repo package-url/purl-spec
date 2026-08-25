@@ -16,7 +16,7 @@ The structure of a PURL for this package type is:
 ## Repository Information
 
 - **Use Repository:** Yes
-- **Default Repository URL:** https://marketplace.visualstudio.com/vscode-extension
+- **Default Repository URL:** https://marketplace.visualstudio.com/vscode
 
 ## Namespace definition
 
