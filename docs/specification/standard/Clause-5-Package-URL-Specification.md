@@ -1,11 +1,4 @@
----
-id: specification
-title: Core Specification
-sidebar_label: Core Specification
-hide_table_of_contents: false
----
-
-# Core Specification
+# 5 Package-URL specification
 
 PURL stands for **Package-URL**.
 
@@ -48,7 +41,7 @@ to a **type**.
     pkg:npm/foobar@12.3.1
 
 
-## A PURL is a URL
+## 5.1 A PURL is a URL
 
 - A PURL is a valid URL and URI that conforms to the URL definitions or
   specifications at:
@@ -58,8 +51,8 @@ to a **type**.
   - https://en.wikipedia.org/wiki/Uniform_Resource_Identifier#Syntax
   - https://url.spec.whatwg.org/
 
-- A PURL is a valid URL because it is a locator even though it has no 
-  Authority URL component: a default repository location may be defined for a 
+- A PURL is a valid URL because it is a locator even though it has no
+  Authority URL component: a default repository location may be defined for a
   PURL type.
 
 - The PURL components are mapped to these URL components:
@@ -85,7 +78,7 @@ to a **type**.
   URLs. They may be used as references in separate attributes outside of a
   PURL or in a PURL qualifier.
 
-## Permitted characters
+## 5.2 Permitted characters
 
 A canonical PURL is composed of these permitted ASCII characters:
 
@@ -97,7 +90,7 @@ A canonical PURL is composed of these permitted ASCII characters:
   question mark '?', equal sign '=', ampersand '&' and hash sign '#')
 
 
-## Separator characters
+## 5.3 Separator characters
 
 This is how each of the Separator Characters is used:
 
@@ -112,7 +105,7 @@ This is how each of the Separator Characters is used:
   **key=value** pair)
 - '#' (hash sign) is the separator before **subpath**
 
-## Character encoding
+## 5.4 Character encoding
 
 - In the "Rules for each PURL component" clause, each component
   defines when and how to apply percent-encoding and decoding to its content.
@@ -140,7 +133,7 @@ This is how each of the Separator Characters is used:
 - With the exception of the percent-encoding mechanism, the rules regarding
   percent-encoding are defined by this Standard alone.
 
-## Case folding
+## 5.5 Case folding
 
 References to "lowercase" in this Standard refer to the
 **culture-invariant** full case mapping defined in
@@ -151,7 +144,7 @@ Latin letters (**A to Z**) to their corresponding lowercase forms
 (**a to z**).
 All other ASCII characters remain unchanged.
 
-## Rules for each PURL component
+## 5.6 Rules for each PURL component
 
 A PURL string is an ASCII URL string composed of seven components.
 
@@ -165,21 +158,21 @@ The "lowercase" rules are defined in the Case folding clause.
 
 The rules for each component are:
 
-### Scheme
+### 5.6.1 Scheme
 - The **scheme** is a constant with the value "pkg".
 - The **scheme** shall be followed by an unencoded colon ':'.
-- PURL parsers should accept URLs where the **scheme** and colon ':' are 
+- PURL parsers should accept URLs where the **scheme** and colon ':' are
 followed by one or more slash '/' characters, such as 'pkg://', and should
 ignore and remove all such '/' characters.
 
-### Type
+### 5.6.2 Type
 - The package **type** shall be composed only of ASCII letters and numbers,
   period '.', and dash '-'.
 - The **type** shall start with an ASCII letter.
 - The **type** shall not be percent-encoded.
 - The **type** is case insensitive. The canonical form is lowercase.
 
-### Namespace
+### 5.6.3 Namespace
 - The **namespace** is optional, unless required by the package's **type**
   definition.
 - If present, the **namespace** may contain one or more segments, separated by
@@ -196,7 +189,7 @@ ignore and remove all such '/' characters.
   **repository_url** qualifier. Note however, that for some types, the
   **namespace** may look like a host.
 
-### Name
+### 5.6.4 Name
 - The **name** is prefixed by a single slash '/' separator when the
   **namespace** is not empty.
 - All leading and trailing slashes '/' are not significant and should be
@@ -205,7 +198,7 @@ ignore and remove all such '/' characters.
 - When percent-decoded, a **name** may contain any Unicode character unless
   the package's **type** definition further restricts the allowed characters.
 
-### Version
+### 5.6.5 Version
 - The **version** is prefixed by a '@' separator when not empty.
 - This '@' is not part of the **version**.
 - A **version** shall be a percent-encoded string.
@@ -214,7 +207,7 @@ ignore and remove all such '/' characters.
   characters.
 - A **version** is a plain and opaque string.
 
-### Qualifiers
+### 5.6.6 Qualifiers
 - The **qualifiers** component shall be prefixed by an unencoded question mark
   '?' separator when not empty. This '?' separator is not part of the
 **qualifiers** component.
@@ -235,7 +228,7 @@ ignore and remove all such '/' characters.
     - A **value** may contain any Unicode character and all characters shall
       be encoded as described in the _Character encoding_ clause.
 
-### Subpath
+### 5.6.7 Subpath
 - The **subpath** string is prefixed by a '#' separator when not empty.
 - The '#' is not part of the **subpath**.
 - If present, the **subpath** may contain one or more segments, each
