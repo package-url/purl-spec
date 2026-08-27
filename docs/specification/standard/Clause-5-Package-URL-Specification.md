@@ -243,3 +243,25 @@ ignore and remove all such '/' characters.
     - may contain any Unicode character other than '/' unless the package's
       **type** definition further restricts the allowed characters.
 - The **subpath** shall be interpreted as relative to the root of the package.
+
+## 5.7 PURL type definitions
+This Standard includes the Package-URL Type Definition Schema but it does not
+include the set of current "registered" PURL **type** (JSON format) definition files because there are ongoing additions and changes to these files. The set of current "registered" PURL **type** definition files are located at: https://www.packageurl.org/purl-types/. Registration refers to the Package-URL
+community process for adding a new PURL **type**.
+
+There are two rules related to the set of registered PURL **type** definitions
+for conforming PURL implementations to validate the PURL **type** component of
+a PURL:
+- If the PURL **type** is registered, then the PURL is invalid if it does not
+  conform to all of the rules from the corresponding PURL **type** definition.
+- If the PURL **type** is not registered, then the **type** component is valid
+  if it conforms to the rules stated in the _Type_ component rules in this
+  Clause of the Standard.
+
+
+
+
+
+
+
+
