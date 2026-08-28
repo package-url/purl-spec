@@ -75,12 +75,11 @@ to a **type**.
   PURL or in a PURL qualifier.
 
 - A PURL should be a locator based on three paths to specify or derive a URL:
-  - A default repository location may be defined as a **qualifier** for a
-    PURL**type**.
-  - A repository or download URL may be defined as a **qualifier** for a
+  - A default repository location should be defined for a PURL **type**.
+  - A repository URL or a download URL may be defined as a **qualifier** for a
     PURL **type**.
   - A package ecosystem may provide a mechanism to derive the locator based on
-    a set of PURL components
+    a set of PURL components.
 
 ## 5.2 Permitted characters
 
