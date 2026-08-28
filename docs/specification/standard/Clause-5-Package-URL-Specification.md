@@ -51,10 +51,6 @@ to a **type**.
   - https://en.wikipedia.org/wiki/Uniform_Resource_Identifier#Syntax
   - https://url.spec.whatwg.org/
 
-- A PURL is a valid URL because it is a locator even though it has no
-  Authority URL component: a default repository location may be defined for a
-  PURL type.
-
 - The PURL components are mapped to these URL components:
 
   - PURL **scheme**: this is a URL **scheme** with a constant value: **pkg**
@@ -71,23 +67,30 @@ to a **type**.
   scheme. They may be used to reference URLs in separate attributes outside of
   a PURL or in a PURL qualifier.
 
-- Version control system (VCS) URLs such **git://**, **svn://**, **hg://** or
+- Version control system (VCS) URLs such as **git://**, **svn://**, **hg://** or
   as defined in Python pip or SPDX download locations are not valid PURL
   types. They are valid URL or URI schemes but they are not a valid PURL
   scheme. They are a closely related, compact and uniform way to reference VCS
   URLs. They may be used as references in separate attributes outside of a
   PURL or in a PURL qualifier.
 
+- A PURL should be a locator based on three paths to specify or derive a URL:
+  - A default repository location should be defined for a PURL **type**.
+  - A repository URL or a download URL may be defined as a **qualifier** for a
+    PURL **type**.
+  - A package ecosystem may provide a mechanism to derive the locator based on
+    a set of PURL components.
+
 ## 5.2 Permitted characters
 
 A canonical PURL is composed of these permitted ASCII characters:
 
-- the Alphanumeric Characters: **A to Z**, **a to z**, **0 to 9**,
-- the Punctuation Characters: **.-_~** (period '.'
-  dash '-', underscore '_' and tilde '~')
+- the Alphanumeric Characters: **A to Z**, **a to z**, **0 to 9**
+- the Punctuation Characters: **.-_~** (period '.',
+  dash '-', underscore '_', and tilde '~')
 - the Percent Character: **%** (percent sign '%')
 - the Separator Characters **:/@?=&#** (colon ':', slash '/', at sign '@',
-  question mark '?', equal sign '=', ampersand '&' and hash sign '#')
+  question mark '?', equal sign '=', ampersand '&', and hash sign '#')
 
 
 ## 5.3 Separator characters
