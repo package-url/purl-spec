@@ -67,7 +67,7 @@ to a **type**.
   scheme. They may be used to reference URLs in separate attributes outside of
   a PURL or in a PURL qualifier.
 
-- Version control system (VCS) URLs such **git://**, **svn://**, **hg://** or
+- Version control system (VCS) URLs such as **git://**, **svn://**, **hg://** or
   as defined in Python pip or SPDX download locations are not valid PURL
   types. They are valid URL or URI schemes but they are not a valid PURL
   scheme. They are a closely related, compact and uniform way to reference VCS
