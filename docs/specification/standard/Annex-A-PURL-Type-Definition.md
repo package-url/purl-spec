@@ -48,9 +48,9 @@ The schema shown below is available in electronic form at: https://github.com/pa
           "type": "boolean",
           "default": true
         },
-        "normalization_rules": {
-          "title": "Normalization rules",
-          "description": "List of rules to normalize this component for this PURL type. These are plain text, unstructured rules as some require programming and cannot be enforced only with a schema. Tools are expected to apply these rules programmatically.",
+        "normalisation_rules": {
+          "title": "Normalisation rules",
+          "description": "List of rules to normalise this component for this PURL type. These are plain text, unstructured rules as some require programming and cannot be enforced only with a schema. Tools are expected to apply these rules programmatically.",
           "type": "array",
           "uniqueItems": true,
           "items": {
