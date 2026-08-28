@@ -2,12 +2,12 @@
 This Annex provides a copy of the current Package-URL Type Definition Schema.
 The format is JSON Schema version draft-07.
 
-The schema shown below is available in electronic form at: https://github.com/package-url/purl-spec/blob/main/schemas/purl-type-definition.schema.json
+The schema shown below is available in electronic form at: https://github.com/package-url/purl-spec/blob/main/schemas/purl-type-definition.schema-1.1.json
 
 ~~~
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/schemas/purl-type-definition.schema-1.1.json",
   "title": "Package-URL Type Definition",
   "description": "Schema to specify a Package-URL (PURL) type as a structured definition.",
   "type": "object",
