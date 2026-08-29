@@ -1,0 +1,35 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/p2-definition.json",
+  "type": "p2",
+  "type_name": "p2",
+  "description": "Installation and updates are managed in Eclipse using a provisioning platform called p2.",
+  "repository": {
+    "use_repository": true,
+    "note": "There is no default package repository; the repository url must be provided as 'repository_url' qualifier key."
+  },
+  "namespace_definition": {
+    "requirement": "prohibited",
+    "note": "There is no namespace"
+  },
+  "name_definition": {
+    "requirement": "required",
+    "case_sensitive": true,
+    "note": "The bundle symbolic-name. See the OSGi specification for a detailed description of the allowed characters: https://docs.osgi.org/specification/osgi.core/8.0.0/framework.introduction.html#framework.general.syntax"
+  },
+  "qualifiers_definition": [
+    {
+      "key": "repository_url",
+      "requirement": "required",
+      "description": "URL for the repository, the artifact is located at."
+    },
+    {
+      "key": "classifier",
+      "requirement": "optional",
+      "description": "The artifact type. e.g. 'osgi.bundle'."
+    }
+  ],
+  "examples": [
+    "pkg:p2/org.eclipse.swt@3.124.200.v20231113-1355?classifier=osgi.bundle&repository_url=https://download.eclipse.org/releases/2023-12"
+  ]
+}
