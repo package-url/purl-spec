@@ -113,12 +113,10 @@ This is how each of the Separator Characters is used:
 - In the "Rules for each PURL component" clause, each component
   defines when and how to apply percent-encoding and decoding to its content.
 - When percent-encoding is required by a component definition, the component
-  string shall first be encoded as UTF-8.
+  string shall first be encoded as UTF-8 per [RFC 3629](https://datatracker.ietf.org/doc/html/rfc3629).
 - In the component string, each "data octet" shall be replaced by the
   percent-encoded "character triplet" applying the percent-encoding mechanism
-  defined in [RFC 3986 section 2.1](https://datatracker.ietf.org/doc/html/rfc3986#section-2.1),
-  including the RFC definition of "data octet" and "character triplet",
-  and using these definitions for RFC's "allowed set" and "delimiters":
+  defined in [RFC 3986 section 2.1](https://datatracker.ietf.org/doc/html/rfc3986#section-2.1), including the RFC definition of "data octet" and "character triplet", and using these definitions for RFC's "allowed set" and "delimiters":
 
   - "allowed set" is composed of the Alphanumeric Characters and the
     Punctuation Characters
@@ -249,9 +247,9 @@ ignore and remove all such '/' characters.
 
 ## 5.7 PURL type definitions
 This Standard includes the Package-URL Type Definition Schema but it does not
-include the set of current "registered" PURL **type** (JSON format) definition 
-files because there are ongoing additions and changes to these files. The set 
-of current "registered" PURL **type** definition files are located at: https://www.packageurl.org/purl-types/. 
+include the set of current "registered" PURL **type** (JSON format) definition
+files because there are ongoing additions and changes to these files. The set
+of current "registered" PURL **type** definition files are located at: https://www.packageurl.org/purl-types/.
 Registration refers to the Package-URL community process for adding a new PURL **type**.
 
 There are two rules related to the set of registered PURL **type** definitions
