@@ -110,7 +110,7 @@ The package repository usage for this PURL type.
 
 **true** if this PURL type uses a public package repository.
 
-## 6.5.2 Default repository URL
+### 6.5.2 Default repository URL
 
 **Location:** /repository/default_repository_url
 
@@ -422,7 +422,7 @@ List of rules to normalise this component for this PURL type. These are plain te
 
 _All items shall be unique._
 
-### 6.8.6 Native name**
+### 6.8.6 Native name
 
 **Location:** /version_definition/native_name
 
