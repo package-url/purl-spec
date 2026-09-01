@@ -1,4 +1,4 @@
-# Annex B (informative) ABNF Grammar
+# Annex C (informative) ABNF Grammar
 This Annex documents the Augmented Backus Naur Form (ABNF) grammar for PURL strings.
 
 A valid PURL string adheres to the following grammar with the syntax defined
