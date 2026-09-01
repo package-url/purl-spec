@@ -79,6 +79,7 @@ pct-encoded-ns = percent (
                          ; %80-FF
                     )
 ```
+
 Conformance to this grammar for valid PURL strings is necessary but not sufficient because the following constraints of the specification are not expressible in ABNF. These constraints apply in addition to the grammar.
 
 - Each `key` shall be unique within `qualifiers`.
