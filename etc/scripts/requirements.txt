@@ -1,4 +1,4 @@
-datamodel-code-generator==0.31.2
+datamodel-code-generator==0.64.0
 jsonschema[formats]
 check-jsonschema
 ruff
