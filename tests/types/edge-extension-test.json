@@ -1,0 +1,68 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "valid edge purl (version: full)",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:edge-extension/cimighlppcgcoapaliogpjjdehbnofhn@2026.714.1952",
+      "expected_output": "pkg:edge-extension/cimighlppcgcoapaliogpjjdehbnofhn@2026.714.1952",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid edge purl (version: short)",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:edge-extension/nffknjpglkklphnibdiadeeeeailfnog@25.5.0",
+      "expected_output": "pkg:edge-extension/nffknjpglkklphnibdiadeeeeailfnog@25.5.0",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid edge purl (version: missing)",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:edge-extension/odfafepnkmbhccpbejgmiehpchacaeak",
+      "expected_output": "pkg:edge-extension/odfafepnkmbhccpbejgmiehpchacaeak",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "invalid edge purl (name: invalid characters)",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:edge-extension/44444epnkmbhccpbejgmiehpchacaeak",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "permitted_characters"
+    },
+    {
+      "description": "invalid edge purl (name: wrong length)",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:edge-extension/dogs",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "permitted_characters"
+    },
+    {
+      "description": "invalid edge purl (version: too many segments)",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:edge-extension/odfafepnkmbhccpbejgmiehpchacaeak@1.2.3.4.5",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "permitted_characters"
+    },
+    {
+      "description": "invalid edge purl (version: invalid characters)",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:edge-extension/odfafepnkmbhccpbejgmiehpchacaeak@1.2.3-beta",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "permitted_characters"
+    }
+  ]
+}
