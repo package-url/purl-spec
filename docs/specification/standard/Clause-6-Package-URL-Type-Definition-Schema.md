@@ -9,7 +9,7 @@ The PURL Type Definition Schema is formally specified by a Draft 07 JSON
 Schema. Each published version of this specification is accompanied by a
 versioned meta-schema at a stable URI:
 
-https://packageurl.org/schemas/purl-type-definition.schema-<major>.<minor>.json
+https://packageurl.org/purl-schemas/purl-type-definition.schema-<major>.<minor>.json
 
 **Location:** /
 **Type:** Object
