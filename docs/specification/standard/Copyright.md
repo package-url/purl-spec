@@ -65,11 +65,11 @@ All Software contained in this document ("Software") is protected by copyright
 and is being made available under the "BSD License", included below. This
 Software may be subject to third party rights (rights from parties other than
 Ecma International), including patent rights, and no licenses under such third
- party rights are granted under this license even if the third party concerned
-  is a member of Ecma International. SEE THE ECMA CODE OF CONDUCT IN PATENT
-  MATTERS AVAILABLE AT https://ecma-international.org/memento/codeofconduct.htm
-  FOR INFORMATION REGARDING THE LICENSING OF PATENT CLAIMS THAT ARE REQUIRED
-  TO IMPLEMENT ECMA INTERNATIONAL STANDARDS.
+party rights are granted under this license even if the third party concerned
+is a member of Ecma International. SEE THE ECMA CODE OF CONDUCT IN PATENT
+MATTERS AVAILABLE AT https://ecma-international.org/memento/codeofconduct.htm
+FOR INFORMATION REGARDING THE LICENSING OF PATENT CLAIMS THAT ARE REQUIRED
+TO IMPLEMENT ECMA INTERNATIONAL STANDARDS.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
