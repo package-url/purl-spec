@@ -13,6 +13,3 @@ specification and is converted using PrinceXML.
 We extend our gratitude to TC39 for their exceptional work in developing
 Ecmarkup, which has greatly facilitated TC54's successful adoption of this
 tool for the preparation and maintenance of our technical specifications.
-
-
-
