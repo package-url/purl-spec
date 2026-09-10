@@ -19,8 +19,8 @@ a PURL.
 ## B.2 ECMA-427 references
 The standards for the PURL **qualifiers** component and the **key=value**
 pairs are defined in two ECMA-427 clauses:
-- [Clause 5.6.6 Qualifiers](https://ecma-tc54.github.io/ECMA-427/#sec-purl-specification-rules-qualifiers)
-- [Clause 6.8  Qualifiers definition](https://ecma-tc54.github.io/ECMA-427/#sec--qualifiers-definition)
+- *Clause 5.6.6 Qualifiers*
+- *Clause 6.9.1 Qualifiers definition*
 
 ## B.3 Recommended qualifiers
 
