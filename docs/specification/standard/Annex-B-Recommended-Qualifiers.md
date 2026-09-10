@@ -79,7 +79,36 @@ A 'repository_url' **value** shall be percent-encoded.
 ### B.3.5 vcs_url qualifier
 This **qualifier** is intended for the use case where you where you need to
 specify a PURL at its Version Control System location. The syntax for 'vcs_url'
-should follow the Python pip syntax or the SPDX specification for ["Package Download Location"](https://github.com/spdx/spdx-spec/blob/cfa1b9d08903/chapters/3-package-information.md#3.
+is based on Python pip syntax at: https://pip.pypa.io/en/stable/topics/vcs-support/
+The syntax is:
+
+      <vcs_tool>+<transport>://<host_name>[/<path_to_repository>][@<revision_tag_or_branch>]#<sub_path>]
+
+This compact VCS location notation supports referencing locations in version
+control systems such as Git, Mercurial, Subversion and Bazaar, and specifies
+the type of VCS tool using url prefixes: 'git+', 'hg+', 'bzr+', svn+ and
+specific transport schemes such as SSH or HTTPS.
+
+Specifying sub-paths, branch names, a commit hash, a revision or a tag name is
+recommended, and supported using the '@' delimiter for commit **versions** and
+the '#' delimiter for **sub-paths**.
+
+Using user names and password in the **host_name** is not supported and should
+be reported by tools as an error. User access control to URLs or VCS
+repositories shall be handled outside of an SPDX document.
+
+In VCS location compact notations, the trailing slashes in **host_name**, and **path_to_repository** are not significant. Leading and trailing slashes in
+**sub_path** are not significant.
+
+- The supported schemes for Git are: 'git', 'git+git', 'git+https', 'git+http',
+  and 'git+ssh'. 'git' and 'git+git' are equivalent.
+- The supported schemes for Mercurial are: 'hg+http', 'hg+https',
+  'hg+static-http', and 'hg+ssh'.
+- The supported schemes for Subversion are: 'svn', 'svn+svn', 'svn+http',
+  'svn+https', and 'svn+ssh'. 'svn and 'svn+svn' are equivalent.
+- The supported schemes for Bazaar are: 'bzr+http', 'bzr+https', 'bzr+ssh',
+  'bzr+sftp', 'bzr+ftp', and 'bzr+lp'.
+
 A 'vcs_url' **value** shall be percent-encoded.
 
 ### B.3.6 vers qualifier
@@ -88,8 +117,7 @@ for dependency analysis or vulnerability reporting. Use of this **qualifier**
 is mutually exclusive with use of the **version** component. The **value** for
 a 'vers' **key** must adhere to the [Version Range Specification](https://packageurl.org/docs/vers/specification).
 
-## B.4 Examples
-
+Example:
 
       pkg:pypi/django?vers=vers:pypi%2F%3E%3D1.11.0%7C%21%3D1.11.1%7C%3C2.0.0
 
