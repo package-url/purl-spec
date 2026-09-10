@@ -39,24 +39,31 @@ Many **qualifiers** are applicable to multiple PURL **types**. These qualifier
 ### B.3.1 checksum qualifier
 Each item in the **value** for a 'checksum' **qualifer** is in the form of
 'lowercase_algorithm:hex_encoded_lowercase_value' such as 'sha1:ad9503c3e994a4f611a4892f2e67ac82df727086'
+Multiple 'checksum' values are separated by an encoded comma ('%2C').
 
 The following standard 'checksum' **keys** should be used where applicable.
 This is not an exclusive list.
 
-- BLAKE2b-256 `blake2b-256` (used by pypi)
-- BLAKE3 `blake3`
-- MD5 `md5` (used by pypi maven)
-- RIPEMD-160 `ripemd160`
-- SHAKE256 `shake256`
-- SHA1 `sha1` (used by maven npm)
-- SHA2-224 `sha224`
-- SHA2-256 `sha256` (used by cargo gem maven npm)
-- SHA2-384 `sha384` (used by npm)
-- SHA2-512 `sha512` (used by npm nuget)
-- SHA3-224 `sha3-224`
-- SHA3-256 `sha3-256`
-- SHA3-384 `sha3-384`
-- SHA3-512 `sha3-512`
+| algorithm   | key         | used by                |
+| ----------- | ----------- | ---------------------- |
+| BLAKE2b-256 | blake2b-256 | pypi                   |
+| BLAKE3      | blake3      |                        |
+| MD5         | md5         | maven, pypi            |
+| RIPEMD-160  | ripemd160   |                        |
+| SHAKE256    | shake256    |                        |
+| SHA1        | sha1        | maven, npm             |
+| SHA2-224    | sha224      |                        |
+| SHA2-256    | sha256      | cargo, gem, maven, npm |
+| SHA2-384    | sha384      | npm                    |
+| SHA2-512    | sha512      | npm ,nuget             |
+| SHA3-224    | sha3-224    |                        |
+| SHA3-256    | sha3-256    |                        |
+| SHA3-384    | sha3-384    |                        |
+| SHA3-512    | sha3-512    |                        |
+
+Example:
+
+      pkg:generic/openssl@1.1.10g?checksum=sha1:ad9503c3e994a4f%2Csha256:41bf9088b3a1e6c1ef1d
 
 ### B.3.2 download_url qualifier
 Most package managers provide a mechanism to derive a 'download-url' from the
@@ -64,10 +71,18 @@ PURL data. Use this **qualifier** for the use case where the download URL for
 a package cannot be derived from the PURL or otherwise provided by the package
 manager. A 'download_url' **value** shall be percent-encoded.
 
+Example:
+
+      pkg:generic/openssl@1.1.10g?download_url=https:%2F%2Fopenssl.org%2Fsource%2Fopenssl-1.1.0g.tar.gz
+
 ### B.3.3 file_name qualifier
 This **qualifier** is intended for the use case where you want to specify the
 name of a package archive or other file. Use the **subpath** component for the
 use case where you need to specify a PURL at the file level.
+
+Example:
+
+      pkg:pypi/django@1.11.1?file_name=Django-1.11.1-py2.py3-none-any.whl
 
 ### B.3.4 repository_url qualifier
 This **qualifier** is intended for the use cases where:
@@ -75,6 +90,14 @@ This **qualifier** is intended for the use cases where:
 - there are multiple commonly used repositories for a PURL **type**
 
 A 'repository_url' **value** shall be percent-encoded.
+
+Examples:
+
+      pkg:bazel/curl@8.8.0?repository_url=https:%2F%2Fexample.org%2Fbazel-registry
+
+      pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https:%2F%2Fhub-ci.huggingface.co
+
+      pkg:maven/groovy/groovy@1.0?repository_url=https:%2F%2Fmaven.google.com
 
 ### B.3.5 vcs_url qualifier
 This **qualifier** is intended for the use case where you where you need to
@@ -110,6 +133,12 @@ In VCS location compact notations, the trailing slashes in **host_name**, and **
   'bzr+sftp', 'bzr+ftp', and 'bzr+lp'.
 
 A 'vcs_url' **value** shall be percent-encoded.
+
+Examples:
+
+      pkg:generic/bitwarderl?vcs_url=git%2Bhttps:%2F%2Fgit.fsfe.org%2Fdxtr%2Fbitwarderl%40cc55108da32
+
+      pkg:npm/mypackage@12.4.5?vcs_url=git:%2F%2Fhost.com%2F%2Fpath%2Fto%2Frepo.git%404345abcd34343
 
 ### B.3.6 vers qualifier
 The primary use cases for this **qualifier** are to identify a version range
