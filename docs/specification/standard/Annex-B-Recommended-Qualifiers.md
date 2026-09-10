@@ -19,7 +19,7 @@ a PURL.
 ## B.2 ECMA-427 references
 The standards for the PURL **qualifiers** component and the **key=value**
 pairs are defined in two ECMA-427 clauses:
-- [Clause 5.6.6 Qualifiers](https://ecma-tc54.github.io/ECMA-427sec-purl-specification-rules-qualifiers)
+- [Clause 5.6.6 Qualifiers](https://ecma-tc54.github.io/ECMA-427/sec-purl-specification-rules-qualifiers)
 - [Clause 6.8  Qualifiers definition](https://ecma-tc54.github.io/ECMA-427/#sec--qualifiers-definition)
 
 ## B.3 Recommended qualifiers
@@ -29,16 +29,16 @@ Many **qualifiers** are applicable to multiple PURL **types**. These qualifier
 
 | key            | Definition                                  |
 |----------------|---------------------------------------------|
-| checksum       | One or more checksums stored as a comma-separated list.  |
+| checksum       | One or more checksums stored as a comma-separated list  |
 | download_url   | A URL for a direct package download URL    |
-| file_name      | The file name of a package archive.        |
+| file_name      | The file name of a package archive         |
 | repository_url | A URL for a package or software repository |
 | vcs_url        | A URL for a version control system (VCS) location |
-| vers           | A VERS notation that specifies a version range instead of a single version.  |
+| vers           | A VERS notation that specifies a version range instead of a single version  |
 
 ### B.3.1 checksum qualifier
 Each item in the **value** for a 'checksum' **qualifer** is in the form of
-lowercase_algorithm:hex_encoded_lowercase_value' such as sha1:ad9503c3e994a4f611a4892f2e67ac82df727086'
+'lowercase_algorithm:hex_encoded_lowercase_value' such as 'sha1:ad9503c3e994a4f611a4892f2e67ac82df727086'
 
 The following standard 'checksum' **keys** should be used where applicable.
 This is not an exclusive list.
