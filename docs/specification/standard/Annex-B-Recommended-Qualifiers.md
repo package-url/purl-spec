@@ -12,28 +12,34 @@ minimal set of **key=value** pairs that are necessary for accurate package
 identification or location. This restraint is necessary to ensure that PURLs
 stay compact and human readable.
 
+Tools that build PURLs should sort multiple **qualifiers** lexicographically
+by **key**, but this is not expected behaviour for a tool to parse or validate
+a PURL.
+
 ## B.2 ECMA-427 references
 The standards for the PURL **qualifiers** component and the **key=value**
 pairs are defined in two ECMA-427 clauses:
 - [Clause 5.6.6 Qualifiers](https://ecma-tc54.github.io/ECMA-427sec-purl-specification-rules-qualifiers)
 - [Clause 6.8  Qualifiers definition](https://ecma-tc54.github.io/ECMA-427/#sec--qualifiers-definition)
 
-
 ## B.3 Recommended qualifiers
 
 Many **qualifiers** are applicable to multiple PURL **types**. These qualifier
  **keys** should be used according to the following definitions.
 
-| qualifiers key | Definition                                |
+| key            | Definition                                  |
 |----------------|---------------------------------------------|
-| checksum       | One or more checksums stored as a comma-separated list. Each item in the **value** is in the form of 'lowercase_algorithm:hex_encoded_lowercase_value' such as sha1:ad9503c3e994a4f611a4892f2e67ac82df727086'      |
+| checksum       | One or more checksums stored as a comma-separated list.  |
 | download_url   | A URL for a direct package download URL    |
-| file_name      | The file name of a package archive. Use the **subpath** component for the use case where you need to specify a PURL at the file level.  |
-| repository_url | A URL for when the `default_repository_url` property is empty in a PURL **type** definition or when there are multiple commonly used repositories for a PURL. **type**.                                                          |
-| vcs_url        | A URL for a version control system (aka SCM or VCS) for the use case where you need to specify a PURL for a package at its SCM/VCS location. The syntax for 'vcs_url' should follow the Python pip syntax or the SPDX specification for ["Package Download Location"](https://github.com/spdx/spdx-spec/blob/cfa1b9d08903/chapters/3-package-information.md#3.7).                             |
-| vers           | Specification of a version range instead of a single version. The primary use cases for this **qualifiers key** are to identify a version range for dependency analysis or vulnerability reporting. Use of this **key** is mutually exclusive with the **version** component. The **value** must adhere to the [Version Range Specification](https://packageurl.org/docs/vers/specification). |
+| file_name      | The file name of a package archive.        |
+| repository_url | A URL for a package or software repository |
+| vcs_url        | A URL for a version control system (VCS) location |
+| vers           | A VERS notation that specifies a version range instead of a single version.  |
 
-### B.3.1 Checksum algorithm keys
+### B.3.1 checksum qualifier
+Each item in the **value** for a 'checksum' **qualifer** is in the form of
+lowercase_algorithm:hex_encoded_lowercase_value' such as sha1:ad9503c3e994a4f611a4892f2e67ac82df727086'
+
 The following standard 'checksum' **keys** should be used where applicable.
 This is not an exclusive list.
 
@@ -52,7 +58,35 @@ This is not an exclusive list.
 - SHA3-384 `sha3-384`
 - SHA3-512 `sha3-512`
 
+### B.3.2 download_url qualifier
+Most package managers provide a mechanism to derive a 'download-url' from the
+PURL data. Use this **qualifier** for the use case where the download URL for
+a package cannot be derived from the PURL or otherwise provided by the package
+manager. A 'download_url' **value** shall be percent-encoded.
 
+### B.3.3 file_name qualifier
+This **qualifier** is intended for the use case where you want to specify the
+name of a package archive or other file. Use the **subpath** component for the
+use case where you need to specify a PURL at the file level.
+
+### B.3.4 repository_url qualifier
+This **qualifier** is intended for the use cases where:
+- the 'default_repository_url' property is empty in a PURL **type** definition
+- there are multiple commonly used repositories for a PURL **type**
+
+A 'repository_url' **value** shall be percent-encoded.
+
+### B.3.5 vcs_url qualifier
+This **qualifier** is intended for the use case where you where you need to
+specify a PURL at its Version Control System location. The syntax for 'vcs_url'
+should follow the Python pip syntax or the SPDX specification for ["Package Download Location"](https://github.com/spdx/spdx-spec/blob/cfa1b9d08903/chapters/3-package-information.md#3.
+A 'vcs_url' **value** shall be percent-encoded.
+
+### B.3.6 vers qualifier
+The primary use cases for this **qualifier** are to identify a version range
+for dependency analysis or vulnerability reporting. Use of this **qualifier**
+is mutually exclusive with use of the **version** component. The **value** for
+a 'vers' **key** must adhere to the [Version Range Specification](https://packageurl.org/docs/vers/specification).
 
 ## B.4 Examples
 
