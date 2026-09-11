@@ -12,7 +12,7 @@ This specification is developed on GitHub with the help of the Package-URL
 community. There are a number of ways to contribute to the development of
 this specification:
 
-* GitHub Repository: [https://github.com/Ecma-TC54/ECMA-xxx-PURL](https://github.com/Ecma-TC54/ECMA-427)
+* GitHub Repository: [https://github.com/Ecma-TC54/ECMA-427](https://github.com/Ecma-TC54/ECMA-427)
 * Issues: [All Issues](https://github.com/Ecma-TC54/ECMA-427/issues),
   [File a New Issue](https://github.com/Ecma-TC54/ECMA-427/issues/new)
 * Pull Requests: [All Pull Requests](https://github.com/Ecma-TC54/ECMA-427/pulls),
