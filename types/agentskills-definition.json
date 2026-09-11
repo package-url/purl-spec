@@ -1,0 +1,61 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/agentskills-definition.json",
+  "type": "agentskills",
+  "type_name": "Agent Skills",
+  "description": "AI agent skills following the Agent Skills specification (SKILL.md format)",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://github.com",
+    "note": "The default repository is GitHub, where most agent skills are published. Other registries such as ClawHub (clawhub.ai) can be specified using the repository_url qualifier."
+  },
+  "namespace_definition": {
+    "requirement": "required",
+    "case_sensitive": false,
+    "native_name": "owner or publisher",
+    "note": "The namespace is the skill publisher or repository owner. For GitHub-hosted skills, this is the GitHub user or organization (e.g., 'anthropics', 'microsoft'). For ClawHub skills, this is the publisher name. When a skill is discovered in the cross-client path (.agents/skills/) and the publisher cannot be determined from provenance files, use the reserved namespace 'cross-client'. It is not case sensitive and must be lowercased."
+  },
+  "name_definition": {
+    "requirement": "required",
+    "case_sensitive": true,
+    "native_name": "skill name",
+    "note": "The name is the skill name as defined in the SKILL.md frontmatter 'name' field. Skill names may only contain lowercase letters, numbers, and hyphens per the Agent Skills specification. Must not start or end with a hyphen or contain consecutive hyphens."
+  },
+  "version_definition": {
+    "requirement": "optional",
+    "native_name": "version or commit",
+    "note": "The version is the skill version if available. May be a semantic version from a registry lock file (e.g., clawhub.lock), a git commit SHA, or a git tag. Versions are optional as many skills do not declare an explicit version in their SKILL.md frontmatter."
+  },
+  "qualifiers_definition": [
+    {
+      "key": "repository_url",
+      "description": "The URL of the skill registry or repository when not using the default GitHub repository. For example, 'https://clawhub.ai' for ClawHub-hosted skills."
+    },
+    {
+      "key": "install_path",
+      "description": "The filesystem path where the skill is installed, relative to the scan root. For example, '.agents/skills/weather' or '.claude/skills/lint-fix'."
+    },
+    {
+      "key": "scope",
+      "description": "The installation scope of the skill: 'project' for project-level skills or 'user' for user/global-level skills."
+    },
+    {
+      "key": "client",
+      "description": "The target agent client for client-specific skill paths. For example, 'claude-code', 'cursor', 'windsurf', 'openclaw', 'fast-agent'. Skills in cross-client paths (.agents/skills/) do not require this qualifier."
+    }
+  ],
+  "examples": [
+    "pkg:agentskills/anthropics/xlsx",
+    "pkg:agentskills/anthropics/theme-factory@d211d437",
+    "pkg:agentskills/openclaw-community/weather@1.2.0?repository_url=https://clawhub.ai",
+    "pkg:agentskills/microsoft/mcp-builder?scope=user",
+    "pkg:agentskills/vercel-labs/deploy-to-vercel?scope=project&client=claude-code",
+    "pkg:agentskills/internal/deploy?scope=project&install_path=.agents/skills/deploy",
+    "pkg:agentskills/cross-client/data-pipeline?scope=user"
+  ],
+  "reference_urls": [
+    "https://agentskills.io/specification",
+    "https://agentskills.io/client-implementation/adding-skills-support",
+    "https://github.com/agentskills/agentskills"
+  ]
+}
