@@ -66,8 +66,8 @@ Example:
       pkg:generic/openssl@1.1.10g?checksum=sha1:ad9503c3e994a4f%2Csha256:41bf9088b3a1e6c1ef1d
 
 ### B.3.2 download_url qualifier
-Most package managers provide a mechanism to derive a 'download-url' from the
-PURL data. Use this **qualifier** for the use case where the download URL for
+Most package managers provide a mechanism to derive a 'download-url' from
+PURL data. Use this **qualifier** for the use cases where the download URL for
 a package cannot be derived from the PURL or otherwise provided by the package
 manager. A 'download_url' **value** shall be percent-encoded.
 
@@ -76,12 +76,13 @@ Example:
       pkg:generic/openssl@1.1.10g?download_url=https:%2F%2Fopenssl.org%2Fsource%2Fopenssl-1.1.0g.tar.gz
 
 ### B.3.3 file_name qualifier
-This **qualifier** is intended for the use case where you want to specify the
+This **qualifier** is intended for the use case where you need to specify the
 name of a package archive or other file. Use the **subpath** component for the
 use case where you need to specify a PURL at the file level.
 
-Example:
+Examples:
 
+      pkg:pypi/django@1.11.1?file_name=Django-1.11.1.tar.gz
       pkg:pypi/django@1.11.1?file_name=Django-1.11.1-py2.py3-none-any.whl
 
 ### B.3.4 repository_url qualifier
@@ -109,22 +110,21 @@ The syntax is:
 
 This compact VCS location notation supports referencing locations in version
 control systems such as Git, Mercurial, Subversion and Bazaar, and specifies
-the type of VCS tool using url prefixes: 'git+', 'hg+', 'bzr+', svn+ and
+the type of VCS tool using url prefixes: 'git+', 'hg+', 'bzr+', 'svn+' and
 specific transport schemes such as SSH or HTTPS.
 
-Specifying sub-paths, branch names, a commit hash, a revision or a tag name is
-recommended, and supported using the '@' delimiter for commit **versions** and
-the '#' delimiter for **sub-paths**.
-
 Using user names and password in the **host_name** is not supported and should
-be reported by tools as an error. User access control to URLs or VCS
-repositories shall be handled outside of an SPDX document.
+be reported by tools as an error.
+
+Specifying sub-paths, branch names, a commit hash, a revision or a tag name is
+recommended, and supported, using the '@' delimiter for a commit **version**
+and the '#' delimiter for a **sub-path**.
 
 In VCS location compact notations, the trailing slashes in **host_name**, and **path_to_repository** are not significant. Leading and trailing slashes in
 **sub_path** are not significant.
 
-- The supported schemes for Git are: 'git', 'git+git', 'git+https', 'git+http',
-  and 'git+ssh'. 'git' and 'git+git' are equivalent.
+- The supported schemes for Git are: 'git', 'git+git', 'git+https',
+  'git+http', and 'git+ssh'. 'git' and 'git+git' are equivalent.
 - The supported schemes for Mercurial are: 'hg+http', 'hg+https',
   'hg+static-http', and 'hg+ssh'.
 - The supported schemes for Subversion are: 'svn', 'svn+svn', 'svn+http',
