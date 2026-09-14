@@ -147,6 +147,7 @@ Definition of the namespace component for this PURL type. The PURL namespace com
 | **Property**         | **Type** | **Requirement** | **Description**          |
 | -------------------- | -------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | requirement          | Array    | Required        | States that the PURL namespace component is optional, required or prohibited for a PURL type.                  |
+| registered_values    | Array    | Optional        | Optional set of registered namespace values for this PURL type. If the namespace value for a PURL of this type is not one of these registered values, a tool should report a warning. The registered namespace values should be sorted lexicographically. |
 | permitted_characters | String   | Optional        | A regular expression ([ECMA-262](https://ecma-international.org/publications-and-standards/standards/ecma-262/) dialect) defining the 'Permitted characters' for this component of this Package-URL type. If provided, this shall be a subset of the 'Permitted characters' defined in the PURL specification. |
 | case_sensitive       | Boolean  | Optional        | **true** if this PURL component is case sensitive. If **false**, the canonical form shall be lowercased.                              |
 | normalization_rules  | Array    | Optional        | List of rules to normalize this component for this PURL type. These are plain text, unstructured rules as some require programming and cannot be enforced only with a schema. Tools are expected to apply these rules programmatically.
@@ -193,7 +194,47 @@ States that this PURL component is required for a PURL type.
 
 States that this PURL component is prohibited for a PURL type.
 
-### 6.6.5 Permitted characters in this PURL component
+### 6.6.5 Registered namespace values
+
+**Location:** /namespace_definition/registered_values
+
+**Property:** registered_values (Optional)
+
+**Type:** Array
+
+ Optional set of registered namespace values for this PURL type. If the  namespace value for a PURL of this type is not one of these registered  values, a tool should report a warning. The registered namespace values should be sorted lexicographically
+
+#### 6.6.5.1 Registered namespace value
+
+**Location:** /namespace_definition/registered_values/value
+
+**Property:** value
+
+**Type:** String
+
+Registered namespace value for this PURL type.
+
+#### 6.6.5.2 Registered namespace description
+
+**Location:** /namespace_definition/registered_values/description
+
+**Property:** description
+
+**Type:** String
+
+Explanation of what this namespace value means for this PURL type.
+
+#### 6.6.5.3 Reference URL
+
+**Location:** /namespace_definition/registered_values/reference_url
+
+**Property:** reference_url
+
+**Type:** String
+
+Optional Reference URL for where this namespace value is defined for this PURL type.
+
+### 6.6.6 Permitted characters in this PURL component
 
 **Location:** /namespace_definition/permitted_characters
 
@@ -205,7 +246,7 @@ States that this PURL component is prohibited for a PURL type.
 
 A regular expression defining the 'Permitted characters' for this component of this Package-URL type. If provided, this shall be a subset of the 'Permitted characters' defined in the PURL specification.
 
-### 6.6.6 Case sensitive
+### 6.6.7 Case sensitive
 
 **Location:** /namespace_definition/case_sensitive
 
@@ -217,7 +258,7 @@ A regular expression defining the 'Permitted characters' for this component of t
 
 **true** if this PURL component is case sensitive. If **false**, the canonical form shall be lowercased.
 
-### 6.6.7 Normalization rules
+### 6.6.8 Normalization rules
 
 **Location:** /namespace_definition/normalization_rules
 **Property:** normalization_rules (Optional)
@@ -227,7 +268,7 @@ List of rules to normalize this component for this PURL type. These are plain te
 
 _All items shall be unique._
 
-### 6.6.8 Native name
+### 6.6.9 Native name
 
 **Location:** /namespace_definition/native_name
 
@@ -237,7 +278,7 @@ _All items shall be unique._
 
 The native name of this PURL component in the package ecosystem. For instance, the 'namespace' for the 'maven' type is 'groupId', and 'scope' for the 'npm' PURL type.
 
-### 6.6.9 Note
+### 6.6.10 Note
 
 **Location:** /namespace_definition/note
 
@@ -463,7 +504,7 @@ The definition of a qualifier specific to this PURL type.
 | **Property**  | **Type** | **Requirement** | **Description**                                                           |
 | ------------- | -------- | --------------- | ------------------------------------------------------------------------- |
 | key           | String   | Required        | The key for the qualifier.                                                |
-| requirement   | Array    | Optional        | States that a PURL qualifier key is optional or required for a PURL type. |
+| requirement   | Array    | Optional        | States that a PURL qualifier key is optional, recommended or required for a PURL type. |
 | description   | String   | Required        | The description of this qualifier.                                        |
 | default_value | String   | Optional        | The optional default value of this qualifier if not provided.             |
 | native_name   | String   | Optional        | The equivalent native name for this qualifier key.                        |
@@ -482,12 +523,13 @@ The key for the qualifier.
 
 **Type:** String
 
-States that a PURL qualifier key is optional or required for a PURL type.
+States that a PURL qualifier key is optional, recommended or required for a PURL type.
 
 _Shall be one of:_
 
 1. Component optional requirement
-2. Component required requirement
+2. Component recommended requirement
+3. Component required requirement
 
 #### 6.9.1.3 Component optional requirement
 
@@ -497,7 +539,15 @@ _Shall be one of:_
 
 States that this PURL component is optional for a PURL type.
 
-#### 6.9.1.4 Component required requirement
+#### 6.9.1.4 Component recommended requirement
+
+**Type:** String
+
+**Constant:** recommended
+
+States that this PURL component is recommended for a PURL type.
+
+#### 6.9.1.5 Component required requirement
 
 **Type:** String
 
@@ -505,7 +555,7 @@ States that this PURL component is optional for a PURL type.
 
 States that this PURL component is required for a PURL type.
 
-#### 6.8.1.5 Description
+#### 6.9.1.6 Description
 
 **Location:** /qualifiers_definition/\[\]/description
 
@@ -513,7 +563,7 @@ States that this PURL component is required for a PURL type.
 
 The description of this qualifier.
 
-#### 6.9.1.6 Default value
+#### 6.9.1.7 Default value
 
 **Location:** /qualifiers_definition/\[\]/default_value
 
@@ -521,7 +571,7 @@ The description of this qualifier.
 
 The optional default value of this qualifier if not provided.
 
-#### 6.9.1.7 Native name
+#### 6.9.1.8 Native name
 
 **Location:** /qualifiers_definition/\[\]/native_name
 
