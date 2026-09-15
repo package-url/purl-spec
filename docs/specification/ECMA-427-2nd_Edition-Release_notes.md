@@ -64,17 +64,22 @@ The changes are:
   "registered" PURL **type** definitions. The new text is:
 
     This Standard includes the Package-URL Type Definition Schema but it does
-    not include the set of current "registered" PURL **type** (JSON format) definition files because there are ongoing additions and changes to these files. The set of current "registered" PURL **type** definition files are located at: https://www.packageurl.org/purl-types/.
+    not include the set of current "registered" PURL **type** (JSON format)
+    definition files because there are ongoing additions and changes to these
+    files. The set of current "registered" PURL **type** definition files are
+    located at: https://www.packageurl.org/purl-types/.
     Registration refers to the Package-URL community process for adding a new PURL **type**.
 
     There are two rules related to the set of registered PURL **type**
-    definitions for conforming PURL implementations to validate the PURL
-    **type** component of a PURL:
+        definitions for conforming PURL implementations to validate the PURL
+        **type** component of a PURL:
     - If the PURL **type** is registered, then the PURL is invalid if it does
-      not conform to all of the rules from the corresponding PURL **type** definition.
+      not conform to all of the rules from the corresponding PURL **type**
+      definition.
     - If the PURL **type** is not registered, then the **type** component is
       valid if it conforms to the rules stated in the _Type_ component rules
-      in this Clause of the Standard. In this case an implementation should report a warning that the PURL **type** is not registered.
+      in this Clause of the Standard. In this case an implementation should
+      report a warning that the PURL **type** is not registered.
 
 - Made some editorial improvements.
 
@@ -88,9 +93,11 @@ The changes are:
   schema files:
 
     6.1 JSON Schema
-    The PURL Type Definition Schema is formally specified by a Draft 07 JSON Schema. Each published version of this specification is accompanied by a versioned meta-schema at a stable URI:
+    The PURL Type Definition Schema is formally specified by a Draft 07 JSON
+    schema. Each published version of this specification is accompanied by a
+    versioned meta-schema at a stable URI:
 
-    https://packageurl.org/purl-schemas/purl-type-definition.schema-..json
+         https://packageurl.org/purl-schemas/purl-type-definition.schema-\<major>.\<minor>.json
 
 - Applied the schema changes from `purl-type-definition.schema-1.1.json`:
 
