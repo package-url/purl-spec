@@ -23,22 +23,24 @@ The changes are:
 - Updated **Clause 5.1 A PURL is a URL** because not every PURL **type** has a
   default repository location.
 
-  Changed from:
+    Changed from:
 
-      - A PURL is a valid URL because it is a locator even though it has no
-        Authority URL component: each type has a default repository location
-        when defined.
-  To:
+    - A PURL is a valid URL because it is a locator even though it has no
+      Authority URL component: each type has a default repository location
+      when defined.
 
-      - A PURL is a valid URL because it is a locator even though it has no
-        Authority URL component: a default repository location may be defined
-        for a PURL type.
+    To:
+
+    - A PURL is a valid URL because it is a locator even though it has no
+      Authority URL component: a default repository location may be defined
+      for a PURL type.
 
 - Updated **Clause 5.1 A PURL is a URL** by adding the following text at the
   end of the clause to clarify how and where a PURL is a locator.
 
     - A PURL should be a locator based on three paths to specify or derive a
       URL:
+
       - A default repository location should be defined for a PURL **type**.
       - A repository URL or a download URL may be defined as a **qualifier**
         for a PURL **type**.
@@ -48,17 +50,17 @@ The changes are:
 - Updated **Clause 5.6.1 Scheme** for the last list item to change "shall"
   (i.e. required behaviour) to "should" (recommended behaviour).
 
-  Changed from:
+    Changed from:
 
-      - PURL parsers shall accept URLs where the **scheme** and colon ':' are
-        followed by one or more slash '/' characters, such as 'pkg://', and
-        shall ignore and remove all such '/' characters.
-  To:
+    - PURL parsers shall accept URLs where the **scheme** and colon ':' are
+      followed by one or more slash '/' characters, such as 'pkg://', and
+      shall ignore and remove all such '/' characters.
 
-      - PURL parsers should accept URLs where the **scheme** and colon ':' are
-        followed by one or more slash '/' characters, such as 'pkg://', and
-        should ignore and remove all such '/' characters.
+    To:
 
+    - PURL parsers should accept URLs where the **scheme** and colon ':' are
+      followed by one or more slash '/' characters, such as 'pkg://', and
+      should ignore and remove all such '/' characters.
 
 - Added **Clause 5.7 PURL type definitions** to document the meaning of
   "registered" PURL **type** definitions. The new text is:
@@ -68,14 +70,18 @@ The changes are:
     definition files because there are ongoing additions and changes to these
     files. The set of current "registered" PURL **type** definition files are
     located at: https://www.packageurl.org/purl-types/.
-    Registration refers to the Package-URL community process for adding a new PURL **type**.
+
+    Registration refers to the Package-URL community process for adding a new
+    PURL **type**.
 
     There are two rules related to the set of registered PURL **type**
-        definitions for conforming PURL implementations to validate the PURL
-        **type** component of a PURL:
+    definitions for conforming PURL implementations to validate the PURL
+    **type** component of a PURL:
+
     - If the PURL **type** is registered, then the PURL is invalid if it does
       not conform to all of the rules from the corresponding PURL **type**
       definition.
+
     - If the PURL **type** is not registered, then the **type** component is
       valid if it conforms to the rules stated in the _Type_ component rules
       in this Clause of the Standard. In this case an implementation should
@@ -88,16 +94,15 @@ ECMA-427 2nd Edition implements `purl-type-definition.schema-1.1.json` as an
 update to `purl-type-definition.schema-1.0.json` from the 1st Edition.
 
 The changes are:
+
 - Added a heading for the root object at the top of the schema and text to
-  document the JSON Schema version and location of PURL **type** definition
-  schema files:
+  document the JSON Schema version and the location of PURL **type**
+  definition schema files:
 
     6.1 JSON Schema
     The PURL Type Definition Schema is formally specified by a Draft 07 JSON
     schema. Each published version of this specification is accompanied by a
-    versioned meta-schema at a stable URI:
-
-         https://packageurl.org/purl-schemas/purl-type-definition.schema-\<major>.\<minor>.json
+    versioned meta-schema at a stable URI: `https://packageurl.org/purl-schemas/purl-type-definition.schema-\<major>.\<minor>.json`
 
 - Applied the schema changes from `purl-type-definition.schema-1.1.json`:
 
@@ -107,8 +112,10 @@ The changes are:
   - Added "registered_values" as a property for the **namespace** component to
     implement an option to register a set of specific **namespace** values for
     a PURL **type**. If **namespace** values are registered for a PURL
-    **type**, a tool should report a warning if the **namespace** value is not one of the registered values. The "registered_values" property is an
+    **type**, a tool should report a warning if the **namespace** value is not
+    one of the registered values. The "registered_values" property is an
     array with three items (strings):
+
      - "value": "Registered namespace value for this PURL type."
      - "description": "Explanation of what this namespace value means for this
        PURL type."
@@ -118,9 +125,11 @@ The changes are:
   - Added a schema-level "definition" for "recommended_requirement". The other
     requirement definitions are: "optional_requirement",
     "required_requirement", and "prohibited_requirement".
+
   - Added "recommended_requirement" as an option for the "requirement"
     (**qualifier key** requirement) property of the **qualifiers** component.
-    A PURL **qualifier key** is now optional, recommended or required. A tool should report a warning if a PURL **qualifier key** is recommended for a
+    A PURL **qualifier key** is now optional, recommended or required. A tool
+    should report a warning if a PURL **qualifier key** is recommended for a
     PURL **type** but not present in a subject PURL.
 
 ## Annex A (normative) PURL Type Definition
@@ -131,5 +140,5 @@ Annex B is a new informative Annex that documents the recommended definitions
 for common **qualifiers** that are used across many PURL **types**.
 
 ## Annex C (informative) ABNF Grammar
-Annex C is a new informative Annex that documents the Augmented Backus Naur
+Annex C is a new informative Annex that documents the Augmented Backus-Naur
 Form (ABNF) grammar for PURL strings.
