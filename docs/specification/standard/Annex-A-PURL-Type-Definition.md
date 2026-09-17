@@ -44,7 +44,7 @@ The schema shown below is available in electronic form at: https://github.com/pa
         },
         "case_sensitive": {
           "title": "Case sensitive",
-          "description": "true if this PURL component is case sensitive. If false, the canonical form shall be lowercased.",
+          "description": "true if this PURL component is case sensitive. If false, the form shall be lowercase.",
           "type": "boolean",
           "default": true
         },
@@ -306,7 +306,7 @@ The schema shown below is available in electronic form at: https://github.com/pa
     },
     "examples": {
       "title": "PURL examples",
-      "description": "Example of valid, canonical PURLs for this package type.",
+      "description": "Example of valid PURLs for this package type.",
       "type": "array",
       "uniqueItems": true,
       "minItems": 1,

@@ -29,7 +29,7 @@ Schema to specify a Package-URL (PURL) type as a structured definition.
 | version_definition    | Array    | Optional        | Definition of the version component for this PURL type. The PURL version component is optional for a specific PURL type definition.                                      |
 | qualifiers_definition | Array    | Optional        | Definition of the qualifiers specific to this PURL type. The PURL qualifiers component is optional for a specific PURL type, but a qualifiers key or keys may be required for a specific PURL type.                                         |
 | subpath_definition    | Array    | Optional        | The definition for the subpath for this PURL type. The PURL subpath component is optional for a specific PURL type definition.                                             |
-| examples              | Array    | Required        | Example of valid, canonical PURLs for this package type.                                     |
+| examples              | Array    | Required        | Example of valid PURLs for this package type.                                     |
 | note                  | String   | Optional        | Note about this PURL type.
 | reference_urls        | Array    | Optional        | Optional list of informational reference URLs about this PURL type.                                                                     |
 
@@ -149,7 +149,7 @@ Definition of the namespace component for this PURL type. The PURL namespace com
 | requirement          | Array    | Required        | States that the PURL namespace component is optional, required or prohibited for a PURL type.                  |
 | registered_values    | Array    | Optional        | Optional set of registered namespace values for this PURL type. If the namespace value for a PURL of this type is not one of these registered values, a tool should report a warning. The registered namespace values should be sorted lexicographically. |
 | permitted_characters | String   | Optional        | A regular expression ([ECMA-262](https://ecma-international.org/publications-and-standards/standards/ecma-262/) dialect) defining the 'Permitted characters' for this component of this Package-URL type. If provided, this shall be a subset of the 'Permitted characters' defined in the PURL specification. |
-| case_sensitive       | Boolean  | Optional        | **true** if this PURL component is case sensitive. If **false**, the canonical form shall be lowercased.                              |
+| case_sensitive       | Boolean  | Optional        | **true** if this PURL component is case sensitive. If **false**, the form shall be lowercase.                              |
 | normalization_rules  | Array    | Optional        | List of rules to normalize this component for this PURL type. These are plain text, unstructured rules as some require programming and cannot be enforced only with a schema. Tools are expected to apply these rules programmatically.
 | native_name          | String   | Optional        | The native name of this PURL component in the package ecosystem. For instance, the 'namespace' for the 'maven' type is 'groupId', and 'scope' for the 'npm' PURL type.                                                       |
 | note                 | String   | Optional        | Extra note text.                |
@@ -202,7 +202,7 @@ States that this PURL component is prohibited for a PURL type.
 
 **Type:** Array
 
- Optional set of registered namespace values for this PURL type. If the  namespace value for a PURL of this type is not one of these registered  values, a tool should report a warning. The registered namespace values should be sorted lexicographically
+ Optional set of registered namespace values for this PURL type. If the namespace value for a PURL of this type is not one of these registered values, a tool should report a warning. The registered namespace values should be sorted lexicographically
 
 #### 6.6.5.1 Registered namespace value
 
@@ -256,7 +256,7 @@ A regular expression defining the 'Permitted characters' for this component of t
 
 **Default Value:** **true**
 
-**true** if this PURL component is case sensitive. If **false**, the canonical form shall be lowercased.
+**true** if this PURL component is case sensitive. If **false**, the form shall be lowercase.
 
 ### 6.6.8 Normalization rules
 
@@ -304,7 +304,7 @@ Definition of the name component for this PURL type. The PURL name component is 
 | -------------------- | -------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | requirement          | Array    | Required        | States that the PURL name component is always required.       |
 | permitted_characters | String   | Optional        | A regular expression ([ECMA-262](https://ecma-international.org/publications-and-standards/standards/ecma-262/) dialect) defining the 'Permitted characters' for this component of this Package-URL type. If provided, this shall be a subset of the 'Permitted characters' defined in the PURL specification. |
-| case_sensitive       | Boolean  | Optional        | **true** if this PURL component is case sensitive. If **false**, the canonical form shall be lowercased.                                        |
+| case_sensitive       | Boolean  | Optional        | **true** if this PURL component is case sensitive. If **false**, the form shall be lowercase.                           |
 | normalization_rules  | Array    | Optional        | List of rules to normalize this component for this PURL type. These are plain text, unstructured rules as some require programming and cannot be enforced only with a schema. Tools are expected to apply these rules programmatically.                             |
 | native_name          | String   | Optional        | The native name of this PURL component in the package ecosystem. For instance, the 'namespace' for the 'maven' type is 'groupId', and 'scope' for the 'npm' PURL type.                                                    |
 | note                 | String   | Optional        | Extra note text.               |
@@ -351,7 +351,7 @@ A regular expression defining the 'Permitted characters' for this component of t
 
 **Default Value:** **true**
 
-**true** if this PURL component is case sensitive. If **false**, the canonical form shall be lowercased.
+**true** if this PURL component is case sensitive. If **false**, the form shall be lowercase.
 
 ### 6.7.5 Normalization rules
 
@@ -401,7 +401,7 @@ Definition of the version component for this PURL type. The PURL version compone
 | -------------------- | -------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | requirement          | Array    | Required        | States that the PURL version is optional.           |
 | permitted_characters | String   | Optional        | A regular expression ([ECMA-262](https://ecma-international.org/publications-and-standards/standards/ecma-262/) dialect) defining the 'Permitted characters' for this component of this Package-URL type. If provided, this shall be a subset of the 'Permitted characters' defined in the PURL specification. |
-| case_sensitive       | Boolean  | Optional        | **true** if this PURL component is case sensitive. If **false**, the canonical form shall be lowercased.        |
+| case_sensitive       | Boolean  | Optional        | **true** if this PURL component is case sensitive. If **false**, the form shall be lowercase.        |
 | normalization_rules  | Array    | Optional        | List of rules to normalize this component for this PURL type. These are plain text, unstructured rules as some require programming and cannot be enforced only with a schema. Tools are expected to apply these rules programmatically.                        |
 | native_name          | String   | Optional        | The native name of this PURL component in the package ecosystem. For instance, the 'namespace' for the 'maven' type is 'groupId', and 'scope' for the 'npm' PURL type.                  |
 | note                 | String   | Optional        | Extra note text.           |
@@ -449,7 +449,7 @@ A regular expression defining the 'Permitted characters' for this component of t
 **Default Value:** **true**
 
 
-**true** if this PURL component is case sensitive. If **false**, the canonical form shall be lowercased.
+**true** if this PURL component is case sensitive. If **false**, the form shall be lowercase.
 
 ### 6.8.5 Normalization rules
 
@@ -597,7 +597,7 @@ The definition for the subpath for this PURL type. The PURL subpath component is
 | -------------------- | -------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | requirement          | Array    | Required        | States that the PURL subpath is optional.         |
 | permitted_characters | String   | Optional        | A regular expression ([ECMA-262](https://ecma-international.org/publications-and-standards/standards/ecma-262/) dialect) defining the 'Permitted characters' for this component of this Package-URL type. If provided, this shall be a subset of the 'Permitted characters' defined in the PURL specification. |
-| case_sensitive       | Boolean  | Optional        | **true** if this PURL component is case sensitive. If **false**, the canonical form shall be lowercased.                                     |
+| case_sensitive       | Boolean  | Optional        | **true** if this PURL component is case sensitive. If **false**, the form shall be lowercase.                                     |
 | normalization_rules  | Array    | Optional        | List of rules to normalize this component for this PURL type. These are plain text, unstructured rules as some require programming and cannot be enforced only with a schema. Tools are expected to apply these rules programmatically.                           |
 | native_name          | String   | Optional        | The native name of this PURL component in the package ecosystem. For instance, the 'namespace' for the 'maven' type is 'groupId', and 'scope' for the 'npm' PURL type.                                |
 | note                 | String   | Optional        | Extra note text.             |
@@ -646,7 +646,7 @@ A regular expression defining the 'Permitted characters' for this component of t
 
 **Default Value:** **true**
 
-**true** if this PURL component is case sensitive. If **false**, the canonical form shall be lowercased.
+**true** if this PURL component is case sensitive. If **false**, the form shall be lowercase.
 
 ### 6.10.5 Normalization rules
 
@@ -690,7 +690,7 @@ Extra note text.
 
 **Pattern Constraint:** ^pkg:\[a-z\]\[a-z0-9-\\.\]+/.\*\$
 
-Example of valid, canonical PURLs for this package type. Each item of this array shall be a string.
+Example of valid PURLs for this package type. Each item of this array shall be a string.
 
 _All items shall be unique._
 

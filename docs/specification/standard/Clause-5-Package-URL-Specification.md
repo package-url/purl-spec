@@ -83,7 +83,7 @@ to a **type**.
 
 ## 5.2 Permitted characters
 
-A canonical PURL is composed of these permitted ASCII characters:
+A valid PURL is composed of these permitted ASCII characters:
 
 - the Alphanumeric Characters: **A to Z**, **a to z**, **0 to 9**
 - the Punctuation Characters: **.-_~** (period '.',
@@ -171,7 +171,7 @@ ignore and remove all such '/' characters.
   period '.', and dash '-'.
 - The **type** shall start with an ASCII letter.
 - The **type** shall not be percent-encoded.
-- The **type** is case insensitive. The canonical form is lowercase.
+- The **type** is case insensitive. The form is lowercase.
 
 ### 5.6.3 Namespace
 - The **namespace** is optional, unless required by the package's **type**
@@ -179,7 +179,7 @@ ignore and remove all such '/' characters.
 - If present, the **namespace** may contain one or more segments, separated by
    a single unencoded slash '/' character.
 - All leading and trailing slashes '/' are not significant and should be
-  stripped in the canonical form. They are not part of the **namespace**.
+  stripped. They are not part of the **namespace**.
 - Each **namespace** segment shall be a percent-encoded string.
 - When percent-decoded, a segment:
     - shall not contain any slash '/' characters
@@ -194,7 +194,7 @@ ignore and remove all such '/' characters.
 - The **name** is prefixed by a single slash '/' separator when the
   **namespace** is not empty.
 - All leading and trailing slashes '/' are not significant and should be
-  stripped in the canonical form. They are not part of the **name**.
+  stripped. They are not part of the **name**.
 - A **name** shall be a percent-encoded string.
 - When percent-decoded, a **name** may contain any Unicode character unless
   the package's **type** definition further restricts the allowed characters.
@@ -234,8 +234,7 @@ ignore and remove all such '/' characters.
 - The '#' is not part of the **subpath**.
 - If present, the **subpath** may contain one or more segments, each
   separated by a single unencoded slash '/' character.
-- Leading and trailing slashes '/' are not significant and should be stripped
-  in the canonical form.
+- Leading and trailing slashes '/' are not significant and should be stripped.
 - Each **subpath** segment shall be a percent-encoded string
 - When percent-decoded, a segment:
     - shall not contain any slash '/' characters
