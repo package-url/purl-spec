@@ -34,7 +34,7 @@ subpath-segment = subpath-segment-sc *pchar-ns     ; no leading "."
                        ; excludes the exact segments "." and ".."
 subpath-segment-sc = ( alphanumeric
                      / "-" / "_" / "~"
-                     / colon ) ; = `unreserved` without "."
+                     / colon ) ; = <unreserved> without "."
                    / pct-encoded-ns
                           ; safe characters
 
@@ -50,12 +50,12 @@ percent      = "%"
 unreserved = alphanumeric / punctuation / colon
 reserved   = "/" / "@" / "?" / "=" / "&" / "#"
 
-; `reserved` and `separator` are not referenced directly;
+; <reserved> and <separator> are not referenced directly;
 ; listed to document characters that require percent-encoding
 
 pchar    = unreserved / pct-encoded
 pchar-ns = unreserved / pct-encoded-ns
-; `-ns` suffix = variant that forbids the percent-encoded slash ("%2F")
+; <...-ns> suffixed = variant that forbids the percent-encoded slash ("%2F")
 
 ; --- percent-encoding ---
 
@@ -82,7 +82,7 @@ pct-encoded-ns = percent (
 
 Conformance to this grammar for valid PURL strings is necessary but not sufficient because the following constraints of the specification are not expressible in ABNF. These constraints apply in addition to the grammar.
 
-- Each `key` shall be unique within `qualifiers`.
-- The octets decoded from a sequence of `pct-encoded`/`pct-encoded-ns` shall
+- Each `<qualifier-key>` shall be unique within `<qualifiers>`.
+- The octets decoded from a sequence of `<pct-encoded>`/`<pct-encoded-ns>` shall
   form a valid UTF-8 encoding per [RFC 3629](https://datatracker.ietf.org/doc/html/rfc3629).
 - **Type**-specific rules may further restrict any component.
