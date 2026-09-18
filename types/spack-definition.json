@@ -23,13 +23,13 @@
   },
   "qualifiers_definition": [
     {
-      "key": "sha",
+      "key": "daghash",
       "requirement": "optional",
-      "description": "The hash of the installation as given by 'spack find -l'"
+      "description": "The spack hash of the installation as given by 'spack find -l'"
     }
   ],
   "examples": [
     "pkg:spack/builtin/zlib@1.3.2",
-    "pkg:spack/mynamespace/gmake@4.4.1?sha=os2kltnpbfyz7yxpdaoxtbzocsp223q3"
+    "pkg:spack/mynamespace/gmake@4.4.1?daghash=os2kltnpbfyz7yxpdaoxtbzocsp223q3"
   ]
 }
