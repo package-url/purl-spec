@@ -32,15 +32,15 @@ The structure of a PURL for this package type is:
 ## Version definition
 
 - **Requirement:** Optional
-- **Note:** `The spack version using the standard spec syntax`
+- **Note:** `The spack version using the standard version syntax (https://spack.readthedocs.io/en/latest/spec_syntax.html#version-specifier)`
 
 ## Qualifiers Definition
 
 | Key  | Requirement | Native name | Default Value | Description |
 |------|-------------|-------------|---------------|-------------|
-| sha | Optional |  |  | The hash of the installation as given by 'spack find -l' |
+| daghash | Optional |  |  | The spack hash of the installation as given by 'spack find -l' |
 
 ## Examples
 
-- `pkg:spack/zlib?sha=u463uoum2lujbc2ug4fpbersp4jev2yl`
-- `pkg:spack/gmake@4.4.1?sha=os2kltnpbfyz7yxpdaoxtbzocsp223q3`
+- `pkg:spack/builtin/zlib@1.3.2`
+- `pkg:spack/mynamespace/gmake@4.4.1?daghash=os2kltnpbfyz7yxpdaoxtbzocsp223q3`
