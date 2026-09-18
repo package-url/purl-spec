@@ -19,7 +19,7 @@
   },
   "version_definition": {
     "requirement": "optional",
-    "note": "The spack version using the standard spec syntax"
+    "note": "The spack version using the standard version syntax (https://spack.readthedocs.io/en/latest/spec_syntax.html#version-specifier)"
   },
   "qualifiers_definition": [
     {
