@@ -24,14 +24,14 @@ The structure of a PURL for this package type is:
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** groupId
-- **Note:** `The group id is the namespace.`
+- **Note:** The group id is the namespace.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** artifactId
-- **Note:** `The artifact id is the name.`
+- **Note:** The artifact id is the name.
 
 ## Version definition
 

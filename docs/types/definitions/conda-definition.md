@@ -21,19 +21,19 @@ The structure of a PURL for this package type is:
 ## Namespace definition
 
 - **Requirement:** Prohibited
-- **Note:** `there is no namspace`
+- **Note:** there is no namspace
 
 ## Name definition
 
 - **Requirement:** Required
 - **Native Label:** name
-- **Note:** `The name is the package name.`
+- **Note:** The name is the package name.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** version
-- **Note:** `The version is the package version.`
+- **Note:** The version is the package version.
 
 ## Qualifiers Definition
 

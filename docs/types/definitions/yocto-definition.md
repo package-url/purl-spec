@@ -22,20 +22,20 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Optional
 - **Native Label:** layer
-- **Note:** `The namespace is the name of the layer which provides the recipe. The layer name as specified in the BBFILE_COLLECTIONS variable in conf/layer.conf of the layer.`
+- **Note:** The namespace is the name of the layer which provides the recipe. The layer name as specified in the BBFILE_COLLECTIONS variable in conf/layer.conf of the layer.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** BPN
-- **Note:** `The name of the package with common prefixes and suffixes removed, also known as BPN (https://docs.yoctoproject.org/ref-manual/variables.html#term-BPN) in a yocto recipe.`
+- **Note:** The name of the package with common prefixes and suffixes removed, also known as BPN (https://docs.yoctoproject.org/ref-manual/variables.html#term-BPN) in a yocto recipe.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** PV
-- **Note:** `The version of the package also known as PV (https://docs.yoctoproject.org/ref-manual/variables.html#term-PV>) in a yocto recipe.`
+- **Note:** The version of the package also known as PV (https://docs.yoctoproject.org/ref-manual/variables.html#term-PV>) in a yocto recipe.
 
 ## Qualifiers Definition
 

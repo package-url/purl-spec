@@ -23,20 +23,20 @@ The structure of a PURL for this package type is:
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** The url path to the git host
-- **Note:** `The source host for the git repository. See: https://git-scm.com/docs/git-clone.html#_git_urls`
+- **Note:** The source host for the git repository. See: https://git-scm.com/docs/git-clone.html#_git_urls
 
 ## Name definition
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** repository name with owner
-- **Note:** `The path on the host to the git repository. See: https://git-scm.com/docs/git-clone.html#_git_urls`
+- **Note:** The path on the host to the git repository. See: https://git-scm.com/docs/git-clone.html#_git_urls
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** A git reference
-- **Note:** `The version is a git reference (https://git-scm.com/book/en/v2/Git-Internals-Git-References). Ideally a commit or tag.`
+- **Note:** The version is a git reference (https://git-scm.com/book/en/v2/Git-Internals-Git-References). Ideally a commit or tag.
 
 ## Examples
 

@@ -101,7 +101,7 @@ def generate_documentation(definition) -> str:
             lines.append(f"- **Native Label:** {native_name}")
 
         if note := component.get("note"):
-            lines.append(f"- **Note:** `{note}`")
+            lines.append(f"- **Note:** {note}")
 
         lines.append("")
 
@@ -158,10 +158,10 @@ if __name__ == "__main__":
         types.append(ptype)
         md = generate_documentation(data)
         mddoc = Path("docs/types/definitions") / f"{ptype}-definition.md"
-        mddoc.write_text(md, newline="\n")
+        mddoc.write_text(md)#, newline="\n")
         print(f"PURL Type Documentation generated for {mddoc}")
 
     idxdoc = Path("purl-types-index.json")
     idx = json.dumps(sorted(types), indent=2) + "\n"
-    idxdoc.write_text(idx, newline="\n")
+    idxdoc.write_text(idx)#, newline="\n")
     print(f"PURL Types Index generated at {idxdoc}")

@@ -22,19 +22,19 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Optional
 - **Native Label:** vendor
-- **Note:** `The vendor of the package.`
+- **Note:** The vendor of the package.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Native Label:** package-name
-- **Note:** `The Conan <package-name>.`
+- **Note:** The Conan <package-name>.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** package-version
-- **Note:** `The Conan <package-version>.`
+- **Note:** The Conan <package-version>.
 
 ## Qualifiers Definition
 

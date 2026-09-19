@@ -23,21 +23,21 @@ The structure of a PURL for this package type is:
 - **Requirement:** Optional
 - **Case Sensitive:** Yes
 - **Native Label:** softwareCreator
-- **Note:** `The namespace is the optional name and regid of the entity with a role of softwareCreator. If specified, name is required and is the first segment in the namespace. If regid is known, it shall be specified as the second segment in the namespace. A maximum of two segments are supported.`
+- **Note:** The namespace is the optional name and regid of the entity with a role of softwareCreator. If specified, name is required and is the first segment in the namespace. If regid is known, it shall be specified as the second segment in the namespace. A maximum of two segments are supported.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** SoftwareIdentity/name
-- **Note:** `The name is the name as defined in the SWID SoftwareIdentity element.`
+- **Note:** The name is the name as defined in the SWID SoftwareIdentity element.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Case Sensitive:** Yes
 - **Native Label:** SoftwareIdentity/version
-- **Note:** `The version is the version as defined in the SWID SoftwareIdentity element.`
+- **Note:** The version is the version as defined in the SWID SoftwareIdentity element.
 
 ## Qualifiers Definition
 

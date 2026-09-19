@@ -21,7 +21,7 @@ The structure of a PURL for this package type is:
 ## Namespace definition
 
 - **Requirement:** Prohibited
-- **Note:** `There is no namespace`
+- **Note:** There is no namespace
 
 ## Name definition
 
