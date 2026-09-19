@@ -28,9 +28,9 @@
     "normalization_rules": [
       "All compiler languages and interfaces shall be lowercased",
       "Spaces shall be converted into dashes",
-      "Any other symbols that would need to be percent encoded shall be spelt out"
+      "Any other symbols that would need to be percent encoded shall be spelt out and prefixed with a dash"
     ],
-    "note": "If namespace is 'compiler', the name MUST be a programming language identifier, lowercased. The %-encoded symbols shall be spelt out (e.g. C# shall be identified with `c-sharp`, C++ with `c-plus-plus`). The [TIOBE index programming language definition](https://www.tiobe.com/tiobe-index/programminglanguages_definition/) can serve as a list of accepted languages. For standardized language extensions or compiler plugins, consider using the syntax `<language-identifier>-ext-<extension-name>`. For 'interface', the name must refer to the lowercased standard identifier, not any of its implementations (e.g. `blas` instead of OpenBLAS)."
+    "note": "If namespace is 'compiler', the name shall be a normalized programming language identifier. Any of the top-level keys in the [Linguist index](https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml), or their aliases, whose `type` field is `programming`, are considered valid once normalized. For standardized language extensions or compiler plugins, consider using the syntax `<language-identifier>-ext-<extension-name>`. For 'interface', the name must refer to the normalized standard identifier, not any of its implementations (e.g. `blas` instead of OpenBLAS)."
   },
   "version_definition": {
     "requirement": "optional",
