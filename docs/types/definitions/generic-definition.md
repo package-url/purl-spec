@@ -21,12 +21,12 @@ The structure of a PURL for this package type is:
 ## Namespace definition
 
 - **Requirement:** Optional
-- **Note:** `there is no generic namespace definition`
+- **Note:** there is no generic namespace definition
 
 ## Name definition
 
 - **Requirement:** Required
-- **Note:** `as for other type, the name component is mandatory. In the worst case it can be a file or directory name.`
+- **Note:** as for other type, the name component is mandatory. In the worst case it can be a file or directory name.
 
 ## Qualifiers Definition
 

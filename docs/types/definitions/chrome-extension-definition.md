@@ -22,21 +22,21 @@ The structure of a PURL for this package type is:
 ## Namespace definition
 
 - **Requirement:** Prohibited
-- **Note:** `There is no namespace`
+- **Note:** There is no namespace
 
 ## Name definition
 
 - **Requirement:** Required
 - **Permitted Characters:** `^[a-p]{32}$`
 - **Native Label:** extension_id
-- **Note:** `The name is 32 characters in the range a-p (base16-encoded with letters instead of hex digits) and is case insensitive. This is not the same as the display name which is human readable and may vary with locale.`
+- **Note:** The name is 32 characters in the range a-p (base16-encoded with letters instead of hex digits) and is case insensitive. This is not the same as the display name which is human readable and may vary with locale.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Permitted Characters:** `^\d+(\.\d+){0,3}$`
 - **Native Label:** version
-- **Note:** `The chrome extension version is semver-like but 1-4 segments. See https://developer.chrome.com/docs/extensions/reference/manifest/version`
+- **Note:** The chrome extension version is semver-like but 1-4 segments. See https://developer.chrome.com/docs/extensions/reference/manifest/version
 
 ## Examples
 

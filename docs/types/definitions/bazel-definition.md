@@ -22,23 +22,23 @@ The structure of a PURL for this package type is:
 ## Namespace definition
 
 - **Requirement:** Prohibited
-- **Note:** `Bazel modules do not use namespaces`
+- **Note:** Bazel modules do not use namespaces
 
 ## Name definition
 
 - **Requirement:** Required
-- **Note:** `The name as defined in the MODULE.bazel file`
+- **Note:** The name as defined in the MODULE.bazel file
 
 ## Version definition
 
 - **Requirement:** Optional
-- **Note:** `The version as defined in the MODULE.bazel file. Uses a relaxed semantic versioning format described at https://bazel.build/external/module#version-format.`
+- **Note:** The version as defined in the MODULE.bazel file. Uses a relaxed semantic versioning format described at https://bazel.build/external/module#version-format.
 
 ## Subpath definition
 
 - **Requirement:** Optional
 - **Native Label:** label
-- **Note:** `The optional subpath MAY refer to a label of a particular package or target in the module (https://bazel.build/concepts/labels). The label shall not include a repo name and the leading '//' shall be omitted. When referring to targets, the label shall include the name of the target, separated from the package by ':'. If there is no target name, subpath is assumed to refer to the whole package.`
+- **Note:** The optional subpath MAY refer to a label of a particular package or target in the module (https://bazel.build/concepts/labels). The label shall not include a repo name and the leading '//' shall be omitted. When referring to targets, the label shall include the name of the target, separated from the package by ':'. If there is no target name, subpath is assumed to refer to the whole package.
 
 ## Qualifiers Definition
 

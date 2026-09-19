@@ -22,20 +22,20 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Optional
 - **Native Label:** CPAN author/publisher ID (CPANID)
-- **Note:** `When present, it represents the CPAN author/publisher ID (CPANID) and shall be uppercase. It is appropriate to use 'namespace' for compatibility with existing CPAN purl producers/consumers or when a workflow explicitly requires author-scoped identifiers. For new identifiers, the 'author' qualifier is the preferred way to specify the author/publisher. When 'version' is omitted, author scoping via 'namespace' may be ambiguous because a distribution can change maintainers over time.`
+- **Note:** When present, it represents the CPAN author/publisher ID (CPANID) and shall be uppercase. It is appropriate to use 'namespace' for compatibility with existing CPAN purl producers/consumers or when a workflow explicitly requires author-scoped identifiers. For new identifiers, the 'author' qualifier is the preferred way to specify the author/publisher. When 'version' is omitted, author scoping via 'namespace' may be ambiguous because a distribution can change maintainers over time.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** distribution name
-- **Note:** `The name is the distribution name and is case sensitive. A distribution name shall not contain the string '::'`
+- **Note:** The name is the distribution name and is case sensitive. A distribution name shall not contain the string '::'
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** version
-- **Note:** `The version is the distribution version`
+- **Note:** The version is the distribution version
 
 ## Qualifiers Definition
 

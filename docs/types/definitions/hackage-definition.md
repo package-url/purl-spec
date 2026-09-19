@@ -21,7 +21,7 @@ The structure of a PURL for this package type is:
 ## Namespace definition
 
 - **Requirement:** Prohibited
-- **Note:** `there is no namespace`
+- **Note:** there is no namespace
 
 ## Name definition
 
@@ -30,13 +30,13 @@ The structure of a PURL for this package type is:
 - **Normalization rules:**
   - Apply kebab-case
 - **Native Label:** name
-- **Note:** `The name is case sensitive and use kebab-case.`
+- **Note:** The name is case sensitive and use kebab-case.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** version
-- **Note:** `The version is package version.`
+- **Note:** The version is package version.
 
 ## Examples
 

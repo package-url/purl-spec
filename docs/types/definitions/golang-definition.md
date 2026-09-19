@@ -22,23 +22,23 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
-- **Note:** `The namespace shall be lowercased.`
+- **Note:** The namespace shall be lowercased.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
-- **Note:** `The name shall be lowercased.`
+- **Note:** The name shall be lowercased.
 
 ## Version definition
 
 - **Requirement:** Optional
-- **Note:** `The version is often empty when a commit is not specified and should be the commit in most cases when available.`
+- **Note:** The version is often empty when a commit is not specified and should be the commit in most cases when available.
 
 ## Subpath definition
 
 - **Requirement:** Optional
-- **Note:** `The subpath is used to point to a subpath inside a package.`
+- **Note:** The subpath is used to point to a subpath inside a package.
 
 ## Examples
 
