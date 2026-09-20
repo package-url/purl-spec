@@ -144,6 +144,12 @@ def generate_documentation(definition) -> str:
 if __name__ == "__main__":
     import sys
 
+    if sys.version_info < (3, 10):
+        sys.exit(
+            "ERROR: Python 3.10 or above is required. "
+            f"You are running {sys.version_info.major}.{sys.version_info.minor}"
+        )
+
     if len(sys.argv) == 2:
         selected_types = f"{sys.argv[1]}-definition.json"
     else:
@@ -158,10 +164,10 @@ if __name__ == "__main__":
         types.append(ptype)
         md = generate_documentation(data)
         mddoc = Path("docs/types/definitions") / f"{ptype}-definition.md"
-        mddoc.write_text(md)#, newline="\n")
+        mddoc.write_text(md, newline="\n")
         print(f"PURL Type Documentation generated for {mddoc}")
 
     idxdoc = Path("purl-types-index.json")
     idx = json.dumps(sorted(types), indent=2) + "\n"
-    idxdoc.write_text(idx)#, newline="\n")
+    idxdoc.write_text(idx, newline="\n")
     print(f"PURL Types Index generated at {idxdoc}")
