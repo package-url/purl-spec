@@ -21,20 +21,20 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Optional
 - **Native Label:** user manifest
-- **Note:** `The user manifest under which the package is registered. If not given, the root manifest is assumed. It is case insensitive, but lowercase is encouraged since namespaces are normalized to ASCII lowercase.`
+- **Note:** The user manifest under which the package is registered. If not given, the root manifest is assumed. It is case insensitive, but lowercase is encouraged since namespaces are normalized to ASCII lowercase.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Native Label:** name
-- **Note:** `The LuaRocks package name. It is case insensitive, but lowercase is encouraged since package names are normalized to ASCII lowercase.`
+- **Note:** The LuaRocks package name. It is case insensitive, but lowercase is encouraged since package names are normalized to ASCII lowercase.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Case Sensitive:** Yes
 - **Native Label:** full package version, including module version and rockspec revision
-- **Note:** `The full LuaRocks package version, including module version and rockspec revision. It is case sensitive, and lowercase shall be used to avoid compatibility issues with older LuaRocks versions. The full version number is required to uniquely identify a version.`
+- **Note:** The full LuaRocks package version, including module version and rockspec revision. It is case sensitive, and lowercase shall be used to avoid compatibility issues with older LuaRocks versions. The full version number is required to uniquely identify a version.
 
 ## Qualifiers Definition
 

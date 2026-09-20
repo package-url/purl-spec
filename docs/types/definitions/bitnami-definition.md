@@ -21,19 +21,19 @@ The structure of a PURL for this package type is:
 ## Namespace definition
 
 - **Requirement:** Prohibited
-- **Note:** `there is no namespace`
+- **Note:** there is no namespace
 
 ## Name definition
 
 - **Requirement:** Required
 - **Native Label:** name
-- **Note:** `The name is the component name. It shall be lowercased.`
+- **Note:** The name is the component name. It shall be lowercased.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** full package version, including version and revision
-- **Note:** `The version is the full Bitnami package version, including version and revision.`
+- **Note:** The version is the full Bitnami package version, including version and revision.
 
 ## Qualifiers Definition
 

@@ -24,13 +24,13 @@ The structure of a PURL for this package type is:
 - **Normalization rules:**
   - It is not case sensitive and shall be lowercased.
 - **Native Label:** vendor
-- **Note:** `The namespace is the vendor such as arch, arch32, archarm, manjaro or msys.`
+- **Note:** The namespace is the vendor such as arch, arch32, archarm, manjaro or msys.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Native Label:** name
-- **Note:** `The name is the package name. It is not case sensitive and shall be lowercased.`
+- **Note:** The name is the package name. It is not case sensitive and shall be lowercased.
 
 ## Version definition
 
@@ -39,7 +39,7 @@ The structure of a PURL for this package type is:
 - **Normalization rules:**
   - normalize version as specified in vercmp(8) at https://man.archlinux.org/man/vercmp.8#DESCRIPTION as part of alpm.
 - **Native Label:** version
-- **Note:** `The version is the version of the package as specified in vercmp(8) at (https://man.archlinux.org/man/vercmp.8#DESCRIPTION as part of alpm.`
+- **Note:** The version is the version of the package as specified in vercmp(8) at (https://man.archlinux.org/man/vercmp.8#DESCRIPTION as part of alpm.
 
 ## Qualifiers Definition
 
