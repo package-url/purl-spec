@@ -30,14 +30,14 @@ The changes are:
     Changed from:
 
     - A PURL is a valid URL because it is a locator even though it has no
-      Authority URL component: each type has a default repository location
+      Authority URL component: each `type` has a default repository location
       when defined.
 
     To:
 
     - A PURL is a valid URL because it is a locator even though it has no
       Authority URL component: a default repository location may be defined
-      for a PURL type.
+      for a PURL `type`.
 
 - Updated **Clause 5.1 A PURL is a URL** by adding the following text at the
   end of the clause to clarify how and where a PURL is a locator.
@@ -87,7 +87,7 @@ The changes are:
       definition.
 
     - If the PURL `type`is not registered, then the `type` component is
-      valid if it conforms to the rules stated in the **type** component rules
+      valid if it conforms to the rules stated in the `type` component rules
       in this Clause of the Standard. In this case an implementation should
       report a warning that the PURL `type` is not registered.
 
