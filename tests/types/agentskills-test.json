@@ -1,0 +1,261 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "Parse a simple agentskills PURL without version",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:agentskills/anthropics/xlsx",
+      "expected_output": {
+        "type": "agentskills",
+        "namespace": "anthropics",
+        "name": "xlsx",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip a simple agentskills PURL without version",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:agentskills/anthropics/xlsx",
+      "expected_output": "pkg:agentskills/anthropics/xlsx",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build a simple agentskills PURL without version",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "agentskills",
+        "namespace": "anthropics",
+        "name": "xlsx",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:agentskills/anthropics/xlsx",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse an agentskills PURL with a git commit version",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:agentskills/anthropics/theme-factory@d211d437",
+      "expected_output": {
+        "type": "agentskills",
+        "namespace": "anthropics",
+        "name": "theme-factory",
+        "version": "d211d437",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip an agentskills PURL with a git commit version",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:agentskills/anthropics/theme-factory@d211d437",
+      "expected_output": "pkg:agentskills/anthropics/theme-factory@d211d437",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build an agentskills PURL with a git commit version",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "agentskills",
+        "namespace": "anthropics",
+        "name": "theme-factory",
+        "version": "d211d437",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:agentskills/anthropics/theme-factory@d211d437",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse a ClawHub-hosted agentskills PURL with semantic version and repository_url",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:agentskills/openclaw-community/weather@1.2.0?repository_url=https://clawhub.ai",
+      "expected_output": {
+        "type": "agentskills",
+        "namespace": "openclaw-community",
+        "name": "weather",
+        "version": "1.2.0",
+        "qualifiers": {
+          "repository_url": "https://clawhub.ai"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip a ClawHub-hosted agentskills PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:agentskills/openclaw-community/weather@1.2.0?repository_url=https://clawhub.ai",
+      "expected_output": "pkg:agentskills/openclaw-community/weather@1.2.0?repository_url=https://clawhub.ai",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build a ClawHub-hosted agentskills PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "agentskills",
+        "namespace": "openclaw-community",
+        "name": "weather",
+        "version": "1.2.0",
+        "qualifiers": {
+          "repository_url": "https://clawhub.ai"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:agentskills/openclaw-community/weather@1.2.0?repository_url=https://clawhub.ai",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse an agentskills PURL with scope qualifier",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:agentskills/microsoft/mcp-builder?scope=user",
+      "expected_output": {
+        "type": "agentskills",
+        "namespace": "microsoft",
+        "name": "mcp-builder",
+        "version": null,
+        "qualifiers": {
+          "scope": "user"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip an agentskills PURL with scope qualifier",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:agentskills/microsoft/mcp-builder?scope=user",
+      "expected_output": "pkg:agentskills/microsoft/mcp-builder?scope=user",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build an agentskills PURL with scope qualifier",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "agentskills",
+        "namespace": "microsoft",
+        "name": "mcp-builder",
+        "version": null,
+        "qualifiers": {
+          "scope": "user"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:agentskills/microsoft/mcp-builder?scope=user",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse an agentskills PURL with scope and client qualifiers",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:agentskills/vercel-labs/deploy-to-vercel?client=claude-code&scope=project",
+      "expected_output": {
+        "type": "agentskills",
+        "namespace": "vercel-labs",
+        "name": "deploy-to-vercel",
+        "version": null,
+        "qualifiers": {
+          "client": "claude-code",
+          "scope": "project"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip an agentskills PURL with scope and client qualifiers",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:agentskills/vercel-labs/deploy-to-vercel?client=claude-code&scope=project",
+      "expected_output": "pkg:agentskills/vercel-labs/deploy-to-vercel?client=claude-code&scope=project",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build an agentskills PURL with scope and client qualifiers",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "agentskills",
+        "namespace": "vercel-labs",
+        "name": "deploy-to-vercel",
+        "version": null,
+        "qualifiers": {
+          "client": "claude-code",
+          "scope": "project"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:agentskills/vercel-labs/deploy-to-vercel?client=claude-code&scope=project",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "agentskills namespace should be lowercased",
+      "test_group": "advanced",
+      "test_type": "roundtrip",
+      "input": "pkg:agentskills/Anthropics/xlsx",
+      "expected_output": "pkg:agentskills/anthropics/xlsx",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse an agentskills PURL with install_path qualifier",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:agentskills/internal/deploy?install_path=.agents/skills/deploy&scope=project",
+      "expected_output": {
+        "type": "agentskills",
+        "namespace": "internal",
+        "name": "deploy",
+        "version": null,
+        "qualifiers": {
+          "install_path": ".agents/skills/deploy",
+          "scope": "project"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Roundtrip an agentskills PURL with install_path qualifier",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:agentskills/internal/deploy?install_path=.agents/skills/deploy&scope=project",
+      "expected_output": "pkg:agentskills/internal/deploy?install_path=.agents/skills/deploy&scope=project",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}
