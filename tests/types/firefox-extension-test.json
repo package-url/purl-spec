@@ -1,0 +1,77 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "valid firefox purl (name: email-like extension ID)",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:firefox-extension/uBlock0%40raymondhill.net@1.72.2",
+      "expected_output": "pkg:firefox-extension/uBlock0%40raymondhill.net@1.72.2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid firefox purl (name: email-like extension ID with empty local part)",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:firefox-extension/%40testpilot-containers@8.3.8",
+      "expected_output": "pkg:firefox-extension/%40testpilot-containers@8.3.8",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid firefox purl (name: GUID extension ID)",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:firefox-extension/%7Bd10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d%7D@4.41.1",
+      "expected_output": "pkg:firefox-extension/%7Bd10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d%7D@4.41.1",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "valid firefox purl (version: missing)",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:firefox-extension/uBlock0%40raymondhill.net",
+      "expected_output": "pkg:firefox-extension/uBlock0%40raymondhill.net",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "invalid firefox purl (name: AMO listing slug instead of extension ID)",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:firefox-extension/ublock-origin@1.72.2",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "permitted_characters"
+    },
+    {
+      "description": "invalid firefox purl (name: malformed GUID)",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:firefox-extension/%7Bd10d0bf8-f5b5%7D@4.41.1",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "permitted_characters"
+    },
+    {
+      "description": "invalid firefox purl (version: too many segments)",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:firefox-extension/uBlock0%40raymondhill.net@1.2.3.4.5",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "permitted_characters"
+    },
+    {
+      "description": "invalid firefox purl (version: invalid characters)",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:firefox-extension/uBlock0%40raymondhill.net@1.2.3-beta",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "permitted_characters"
+    }
+  ]
+}
