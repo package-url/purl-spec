@@ -1,0 +1,30 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/nipkg-definition.json",
+  "type": "nipkg",
+  "type_name": "NI Package",
+  "description": "NI Packages installed with NI Package Manager (NIPM)",
+  "repository": {
+    "use_repository": true,
+    "note": "NI publishes its package feeds at https://download.ni.com/, readable without authentication. Other publishers and users host their own feeds."
+  },
+  "namespace_definition": {
+    "requirement": "prohibited",
+    "note": "There is no namespace."
+  },
+  "name_definition": {
+    "requirement": "required",
+    "native_name": "name",
+    "case_sensitive": false,
+    "note": "The name is not case sensitive and shall be lowercased."
+  },
+  "version_definition": {
+    "requirement": "optional",
+    "native_name": "version",
+    "note": "The version is the package Version (e.g. 23.8.0.49349-0+f197), not the DisplayVersion."
+  },
+  "examples": [
+    "pkg:nipkg/ni-daqmx@23.8.0.49349-0%2Bf197",
+    "pkg:nipkg/ni-daqmx-25.0.1-dotnet-fx45-runtime@25.0.1.49157-0%2Bf5"
+  ]
+}
