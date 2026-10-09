@@ -43,15 +43,22 @@
       "description": "The Conan recipe revision (optional). If omitted, the purl refers to the latest recipe revision available for the given version."
     },
     {
+      "key": "package_id",
+      "native_name": "package_id",
+      "requirement": "optional",
+      "description": "The Conan package ID (optional). Conan computes the package ID from the settings, options and requirements of a binary package and uses it to identify the binary packages of a recipe revision. If omitted, the purl does not refer to a specific binary package."
+    },
+    {
       "key": "prev",
       "native_name": "package revision",
       "requirement": "optional",
-      "description": "The Conan package revision (optional). If omitted, the purl refers to the latest package revision available for the given version and recipe revision."
+      "description": "The Conan package revision (optional). If omitted, the purl refers to the latest package revision available for the given version, recipe revision and package ID."
     }
   ],
-  "note": "Additional qualifiers can be used to distinguish Conan packages with different settings or options, e.g. os=Linux, build_type=Debug or shared=True. If no additional qualifiers are used to distinguish Conan packages build with different settings or options, then the purl is ambiguous and it is up to the user to work out which package is being referred to (e.g. with context information).",
+  "note": "Use the package_id qualifier to refer to a specific Conan binary package. Additional qualifiers can be used to distinguish Conan packages with different settings or options, e.g. os=Linux, build_type=Debug or shared=True. These additional qualifiers may not be sufficient to identify a binary package, because the package ID also depends on the requirements of the package. If neither the package_id qualifier nor additional qualifiers are used to distinguish Conan packages build with different settings or options, then the purl is ambiguous and it is up to the user to work out which package is being referred to (e.g. with context information).",
   "examples": [
     "pkg:conan/openssl@3.0.3",
+    "pkg:conan/openssl@3.1.2?package_id=0348efdcd0e319fb58ea747bb94dbd88850d6dd1&rrev=8879e931d726a8aad7f372e28470faa1",
     "pkg:conan/openssl.org/openssl@3.0.3?channel=stable&user=bincrafters",
     "pkg:conan/openssl.org/openssl@3.0.3?arch=x86_64&build_type=Debug&compiler=Visual%20Studio&compiler.runtime=MDd&compiler.version=16&os=Windows&prev=b429db8a0e324114c25ec387bfd8281f330d7c5c&rrev=93a82349c31917d2d674d22065c7a9ef9f380c8e&shared=True"
   ]
