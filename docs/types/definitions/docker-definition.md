@@ -21,7 +21,7 @@ The structure of a PURL for this package type is:
 ## Namespace definition
 
 - **Requirement:** Optional
-- **Note:** `The namespace is the registry/user/organization if present.`
+- **Note:** The namespace is the registry/user/organization if present.
 
 ## Name definition
 
@@ -31,7 +31,7 @@ The structure of a PURL for this package type is:
 ## Version definition
 
 - **Requirement:** Optional
-- **Note:** `The version should be the image id sha256 or a tag. Since tags can be moved, a sha256 image id is preferred.`
+- **Note:** The version should be the image id sha256 or a tag. Since tags can be moved, a sha256 image id is preferred.
 
 ## Examples
 

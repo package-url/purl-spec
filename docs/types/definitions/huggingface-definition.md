@@ -23,20 +23,20 @@ The structure of a PURL for this package type is:
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** model repository username or organization
-- **Note:** `The namespace is the model repository username or organization, if present. It is case sensitive.`
+- **Note:** The namespace is the model repository username or organization, if present. It is case sensitive.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** model repository name
-- **Note:** `The name is the model repository name. It is case sensitive.`
+- **Note:** The name is the model repository name. It is case sensitive.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** model revision Git commit hash
-- **Note:** `The version is the model revision Git commit hash. It is case insensitive and shall be lowercased in the package URL.`
+- **Note:** The version is the model revision Git commit hash. It is case insensitive and shall be lowercased in the package URL.
 
 ## Examples
 

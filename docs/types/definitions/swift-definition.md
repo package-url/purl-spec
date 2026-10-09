@@ -22,7 +22,7 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
-- **Note:** `The namespace is source host and user/organization and is required.`
+- **Note:** The namespace is source host and user/organization and is required.
 
 ## Name definition
 

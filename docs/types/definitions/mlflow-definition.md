@@ -21,18 +21,18 @@ The structure of a PURL for this package type is:
 ## Namespace definition
 
 - **Requirement:** Prohibited
-- **Note:** `there is no namespace`
+- **Note:** there is no namespace
 
 ## Name definition
 
 - **Requirement:** Required
-- **Note:** `The name is the model name. Case sensitivity depends on the server implementation, such as for Azure ML, it is case sensitive and shall be kept as-is in the package URL; and for Databricks, it is case insensitive and shall be lowercased in the package URL.`
+- **Note:** The name is the model name. Case sensitivity depends on the server implementation, such as for Azure ML, it is case sensitive and shall be kept as-is in the package URL; and for Databricks, it is case insensitive and shall be lowercased in the package URL.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** version
-- **Note:** `The version is the model version.`
+- **Note:** The version is the model version.
 
 ## Qualifiers Definition
 

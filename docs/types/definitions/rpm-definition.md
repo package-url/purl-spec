@@ -22,20 +22,20 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Native Label:** vendor
-- **Note:** `The namespace is the vendor such as Fedora or OpenSUSE. It is not case sensitive and shall be lowercased.`
+- **Note:** The namespace is the vendor such as Fedora or OpenSUSE. It is not case sensitive and shall be lowercased.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** name
-- **Note:** `The name is the RPM name and is case sensitive.`
+- **Note:** The name is the RPM name and is case sensitive.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** version-release
-- **Note:** `The version is the combined version and release of an RPM.`
+- **Note:** The version is the combined version and release of an RPM.
 
 ## Qualifiers Definition
 

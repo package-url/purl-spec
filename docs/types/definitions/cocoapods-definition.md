@@ -21,25 +21,25 @@ The structure of a PURL for this package type is:
 ## Namespace definition
 
 - **Requirement:** Prohibited
-- **Note:** `there is no namespace`
+- **Note:** there is no namespace
 
 ## Name definition
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** pod name
-- **Note:** `The name is the pod name and is case sensitive, cannot contain whitespace, a plus (+) character, or begin with a period (.).`
+- **Note:** The name is the pod name and is case sensitive, cannot contain whitespace, a plus (+) character, or begin with a period (.).
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** package version
-- **Note:** `The version is the package version.`
+- **Note:** The version is the package version.
 
 ## Subpath definition
 
 - **Requirement:** Optional
-- **Note:** `The purl subpath is used to represent a pods subspec (if present).`
+- **Note:** The purl subpath is used to represent a pods subspec (if present).
 
 ## Examples
 

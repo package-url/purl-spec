@@ -22,19 +22,19 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Native Label:** user or organization
-- **Note:** `The namespace is the user or organization. It is not case sensitive and shall be lowercased.`
+- **Note:** The namespace is the user or organization. It is not case sensitive and shall be lowercased.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Native Label:** repository name
-- **Note:** `The name is the repository name. It is not case sensitive and shall be lowercased.`
+- **Note:** The name is the repository name. It is not case sensitive and shall be lowercased.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** commit or tag
-- **Note:** `The version is a commit or tag.`
+- **Note:** The version is a commit or tag.
 
 ## Examples
 

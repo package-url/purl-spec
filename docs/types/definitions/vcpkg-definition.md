@@ -27,13 +27,13 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Native Label:** package-name
-- **Note:** `The vcpkg package name.`
+- **Note:** The vcpkg package name.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** package-version
-- **Note:** `The vcpkg package version.`
+- **Note:** The vcpkg package version.
 
 ## Qualifiers Definition
 

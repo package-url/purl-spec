@@ -23,19 +23,19 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Optional
 - **Native Label:** tap
-- **Note:** `The namespace is the Homebrew tap name, typically in the format 'owner/repo' (e.g., 'homebrew/core', 'some-org/some-tap'). It is not case sensitive and shall be lowercased. When not specified, formulas are assumed to come from the default 'homebrew/core' tap.`
+- **Note:** The namespace is the Homebrew tap name, typically in the format 'owner/repo' (e.g., 'homebrew/core', 'some-org/some-tap'). It is not case sensitive and shall be lowercased. When not specified, formulas are assumed to come from the default 'homebrew/core' tap.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Native Label:** formula
-- **Note:** `The name is the Homebrew formula or cask name. It is not case sensitive and shall be lowercased. Formula names containing '@' (used for versioned formulas like 'postgresql@12') shall have the '@' character percent-encoded as '%40' in the PURL string.`
+- **Note:** The name is the Homebrew formula or cask name. It is not case sensitive and shall be lowercased. Formula names containing '@' (used for versioned formulas like 'postgresql@12') shall have the '@' character percent-encoded as '%40' in the PURL string.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** version
-- **Note:** `The version is the Homebrew package version. Versions are optional to support use cases where the latest or any available version is acceptable.`
+- **Note:** The version is the Homebrew package version. Versions are optional to support use cases where the latest or any available version is acceptable.
 
 ## Qualifiers Definition
 

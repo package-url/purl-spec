@@ -21,7 +21,7 @@ The structure of a PURL for this package type is:
 ## Namespace definition
 
 - **Requirement:** Prohibited
-- **Note:** `there is no namespace`
+- **Note:** there is no namespace
 
 ## Name definition
 
@@ -30,7 +30,7 @@ The structure of a PURL for this package type is:
 - **Normalization rules:**
   - Replace non-[a-z] letters, non-[0-9] digits with underscore _
 - **Native Label:** name
-- **Note:** `Pub normalizes all package names to be lowercase and using underscores. The only allowed characters are [a-z0-9_]. More information on pub naming and versioning is available in the pubspec documentation https://dart.dev/tools/pub/pubspec`
+- **Note:** Pub normalizes all package names to be lowercase and using underscores. The only allowed characters are [a-z0-9_]. More information on pub naming and versioning is available in the pubspec documentation https://dart.dev/tools/pub/pubspec
 
 ## Version definition
 
