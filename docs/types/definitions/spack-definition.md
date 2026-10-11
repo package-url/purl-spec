@@ -22,17 +22,17 @@ The structure of a PURL for this package type is:
 ## Namespace definition
 
 - **Requirement:** Required
-- **Note:** `The spack namespace as given by `spack find -N``
+- **Note:** The spack namespace as given by `spack find -N`
 
 ## Name definition
 
 - **Requirement:** Required
-- **Note:** `The package's name`
+- **Note:** The package's name
 
 ## Version definition
 
 - **Requirement:** Optional
-- **Note:** `The spack version using the standard version syntax (https://spack.readthedocs.io/en/latest/spec_syntax.html#version-specifier)`
+- **Note:** The spack version using the standard version syntax (https://spack.readthedocs.io/en/latest/spec_syntax.html#version-specifier)
 
 ## Qualifiers Definition
 
