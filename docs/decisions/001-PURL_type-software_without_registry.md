@@ -141,7 +141,7 @@ currently rely on CPE naming conventions.
 
 | CPE Field     | 'software-id' PURL Equivalent        | Notes                                                                 |
 |---------------|-------------------------------|-----------------------------------------------------------------------|
-| `part`        | (implicit in PURL context)     | CPE uses `a` (application), `o` (OS), `h` (hardware); `scid` PURL assumes software |
+| `part`        | (implicit in PURL context)     | CPE uses `a` (application), `o` (OS), `h` (hardware); `software-id` PURL assumes software |
 | `vendor`      | `authority    `                      | Domain of the publishing entity. For registry-based namespaces, the registered namespace serves as the authority. The optional publisher segment provides the human readable name.                   |
 | `product`     | `component`                     | Software project, product, or component name                                         |
 | `version`     | `version`                     | Version string                                                       |
