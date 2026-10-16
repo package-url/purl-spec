@@ -6,11 +6,11 @@ date: {YYYY-MM-DD when the decision was last updated}
 # {short title, representative of the problem and solution}
 
 
-## Context and Problem Statement
+## Context / Problem
 {Describe the context and problem. You may want to include links to 
 relevant issues or discussions.}
 
-## Solution Statement
+## Solution
 {Describe the solution. You may want to include links to relevant 
 issues or pull requests.}
 
