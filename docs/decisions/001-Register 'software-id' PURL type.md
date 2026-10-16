@@ -7,11 +7,19 @@ date: 2026-10-16
 
 ## Context / Problem
 
-The current list of registered PURL type` covers a wide range of package ecosystems. However, there remains a significant gap in the ability to
+The current set of registered PURL `types` covers a wide range of package ecosystems. However, there remains a significant gap in the ability to
 identify *non-ecosystem* software components, particularly *commercial*,
-*proprietary*, and *standalone open source* software that is not
+*proprietary*, or *standalone open source* software that is not
 distributed through a package manager or authoritatively available on a
-repository with a supported PURL `type`, such as GitHub.
+repository with a supported PURL `type`, such as 'generic' or 'git'.
+
+###
+
+CPE, ITAM, SAM - inventory/asset management systems
+
+
+
+
 
 ## Solution
 
@@ -114,16 +122,23 @@ identity or discovery information in a PURL using `key-value` pairs. Some
 
 
 ## Non-goals
-- Services
-- Hardware
+The following use cases are not suitable for tracking with 'software-id':
+- Services:
+- Hardware:
 
 
 
 
 
 ## Alternatives Considered
-- Separate PURL `types` for commercial/proprietary and open source software
-- Reverse DNS
+### Separate PURL `types` for commercial/proprietary and open source software
+
+
+### Use 'generic' PURL `type`
+
+
+
+
 
 
 
@@ -131,19 +146,37 @@ identity or discovery information in a PURL using `key-value` pairs. Some
 
 ## Decision Outcome
 
-This document replaces the core content of: https://github.com/package-url/purl-spec/issues/516. See also the Discussion [Design for PURL type for software without a registry](https://github.com/package-url/purl-spec/discussions/841)
-for a recap of the commentary on issue 516 organized by topic. You can comment
-on each topic there using the "threaded" comments feature of Discussions.
-
-The original name for this proposed PURL `type` was 'sid' as an acronym for
-"Software-ID". We changed the PURL `type` name to 'software-id' to make the
-PURL `type`name clear without a new acronym. In both cases there is some
-potential for confusion with "SWID tags" which are already registered as the
-'swid' PURL `type`, but using the full descriptive name should be less
-confusing than acronyms like 'sid' vs. 'swid' for this PURL `type`.
+### Domain
 
 
-## Other Information
+
+
+
+### `Type` name
+Two proposed PURL `type` names for this new PURL `type` were 'sid' as an
+acronym for "Software ID" and 'scid' for "Software Component IDentification".
+We agreed on the PURL `type` name 'software-id' to make the PURL `type`name
+clear without a new acronym. There is some potential for confusion with "SWID tags" which are already registered as the 'swid' PURL `type`, but using the
+full descriptive name should be less confusing than acronyms like 'sid' or
+'scid'.
+
+
+## More Information
+
+### Community Discussion References
+
+The community discussion of this proposed PURL `type` started in July, 2025
+and has been well-documented in the following issues in the `purl-spec`
+repository:
+- [Add new PURL type for non-packaged software](https://github.com/package-url/purl-spec/issues/516)
+- [FOSS vs proprietary considerations for new sid PURL type](https://github.com/package-url/purl-spec/issues/784)
+- [Define namespace for new "software-id" PURL type](https://github.com/package-url/purl-spec/issues/834)
+- [Consider alternative names for new scid PURL type](https://github.com/package-url/purl-spec/issues/835)
+- [Register new PURL type: sid for packages that do not have a registry](https://github.com/package-url/purl-spec/issues/837)
+
+There also an "omnibus" discussion that summarizes the commentary from the
+issues by topic and contains additional commentary: [Design for new PURL type: 'software-id'](https://github.com/package-url/purl-spec/discussions/841).
+
 
 ### Interoperable Successor to CPE
 
@@ -178,3 +211,12 @@ currently rely on CPE naming conventions.
 system). Hardware identification (CPE part `h`) is out of scope. Established
 standards such as GS1 GMN and GTIN already serve that purpose.
 
+### SWID
+While SWID historically been used in asset and inventory contexts to identify installed software, it is:
+
+- overly complex for general use,
+- tightly coupled to specific enterprise and government implementations, and
+- requires fields such as `tagId` that are not always meaningful or available
+  in modern DevOps and security pipelines.
+
+SWID used to have tagvault, which would have provided a global registry for commercial and non-packaged software, but the company behind it folded.
