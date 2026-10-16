@@ -6,7 +6,7 @@ hide_table_of_contents: true
 ---
 
 # PURL test schema v0.2 changes
-The PURL test schema was updated to: https://packageurl.org/schemas/purl-test.schema-0.2.json 
+The PURL test schema was updated to: https://packageurl.org/purl-schemas/purl-test.schema-0.2.json 
 on August 4, 2026. This update includes an automated update to all of the PURL 
 test suite files at: `purl-spec/tests/`. See a summary of the changes below.
 
