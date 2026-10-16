@@ -131,7 +131,7 @@ identity or discovery information in a PURL using `key-value` pairs. Some
 
 ## Decision Outcome
 
-This document replaces the core content of: https://github.com/package-url/purl-spec/issues/516. See also the Discussion [Design for PURL type for software without a registry](https://github.com/package-url/purl-spec/discussions/841)
+This document replaces the core content of: https://github.com/package-url/purl-spec/issues/516. See also the Discussion [Design for new PURL type: 'software-id'](https://github.com/package-url/purl-spec/discussions/841)
 for a recap of the commentary on issue 516 organized by topic. You can comment
 on each topic there using the "threaded" comments feature of Discussions.
 
