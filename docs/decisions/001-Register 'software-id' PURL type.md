@@ -3,35 +3,63 @@ status: proposed
 date: 2026-10-16
 ---
 
-# Proposal: Add new PURL type 'software-id'
+# Decision: Add new PURL type 'software-id'
 
 ## Context / Problem
 
-The current set of registered PURL `types` covers a wide range of package ecosystems. However, there remains a significant gap in the ability to
+The current set of registered PURL `types` covers a wide range of package
+ecosystems. However, there remains a significant gap in the ability to
 identify *non-ecosystem* software components, particularly *commercial*,
 *proprietary*, or *standalone open source* software that is not
 distributed through a package manager or authoritatively available on a
 repository with a supported PURL `type`, such as 'generic' or 'git'.
 
-###
+One reason for the gap is that many concepts in the PURL specification were
+originally based on:
+- Software package managers and repositories (mostly open source) that provide
+  a clear mechanism for identifying and locating software components.
+- Open source software where the code and other artifacts are available from a
+  public resource.
 
-CPE, ITAM, SAM - inventory/asset management systems
+The community discussions about the 'software-id' PURL `type` have converged
+from two "use cases":
+- Commercial or proprietary software including first-party (e.g., internal use
+  only) software.
+- Standalone open source projects that do not use public package management
+  systems or repositories (e.g., Maven, npm, PyPI, etc.).
 
+Some key similarities between the use cases are:
+- The software publisher uses first-party systems to identify and distribute
+  its software. First-party means internal system(s); these are public for
+  open source projects.
+- Many software publishers have complex organizational structures for a large
+  number of products (commercial) or projects (open source).
 
+Key differences between the use cases are:
+- A commercial software publisher may frequently change product names or
+  product line structure.
+- Open source projects are less likely to make frequent changes to project
+  names or project groups and major planned changes are normally discussed
+  publicly.
+- Access to software from a commercial software publisher usually requires
+  access to a private resource such as a customer portal.
 
-
+From a PURL `type` perspective the key common requirement for these use cases
+is that they both require a solution where a software publisher can define
+PURLs for its ecosystem that will be recognized by customers or consumers of
+software without using a third-party database, repository or package manager.
 
 ## Solution
 
-Introduce a new PURL type`: 'software-id'.
+Introduce a new PURL type` named 'software-id'.
 
-This PURL **type** is intended to cover:
+This PURL `type` is intended to cover:
 - *Standalone open source projects* (e.g., the Linux Kernel)
 - *Commercial and proprietary software* (e.g., Acme Database Server)
 - *Internally developed applications* that do not belong to a recognized
-package ecosystem
+  package ecosystem
 - *Binary-only or installable software* where no manifest-based or
-registry-driven packaging exists
+  registry-driven packaging exists
 
 
 ### PURL Components
@@ -57,19 +85,23 @@ units, product lines, or sub-projects.
 
 #### 1. "Authority" as the namespace anchor
 The first segment of the `namespace` defines the "authority" for identity
-and discovery of a software component or package for this PURL `type`. It takes one of two forms.
+and discovery of a software component or package for this PURL `type`. It
+takes one of two forms.
 
 - A domain-qualified `namespace` contains a dot in the first segment,
   indicating an internet domain name. The domain identifies the entity
-  asserting the software's metadata and enables decentralized verification through mechanisms such as `.well-known/` files or TEA Discovery. While
+  asserting the software's metadata and enables decentralized verification
+  through mechanisms such as `.well-known/` files or TEA Discovery. While
   domain names are leased rather than owned, and may change hands over time,
   they provide a resolvable, globally unique starting point that no other
-  field can offer. Domain-qualified namespaces are self-asserted and do not require registration in the PURL registry.
+  field can offer. Domain-qualified namespaces are self-asserted and do not
+  require registration in the PURL registry.
 
 - A registry-based `namespace` does not contain a dot in the first segment. It
   must be registered in the PURL registry, which serves as the authoritative
   identity for that `namespace`. A registry-based `namespace` that is
-  not registered is invalid. This form is intended for projects that do not control a domain or prefer centralized registration, such as long-standing
+  not registered is invalid. This form is intended for projects that do not
+  control a domain or prefer centralized registration, such as long-standing
   open source projects maintained by individuals or informal groups.
 
 #### 2. Disambiguation through domain
@@ -89,13 +121,20 @@ registration process.
 
 #### 3. Flexible namespace segments for domain-qualified namespaces
 The PURL `namespace` component supports multiple slash-separate segments (with
-no specific limit) so the "authority" for a 'software-id' PURL may want to include the publisher (authority) name as the first `namespace` segment after
+no specific limit) so the "authority" for a 'software-id' PURL may want to
+include the publisher (authority) name as the first `namespace` segment after
 the domain to document a human recognizable name for the "authority".
-Including a publisher name is recommended when disambiguation is needed, for example when a single domain distributes software on behalf of multiple organizations. However, many publishers operate under a single identity tied directly to their domain, making a separate publisher segment redundant in
+Including a publisher name is recommended when disambiguation is needed, for
+example when a single domain distributes software on behalf of multiple
+organizations. However, many publishers operate under a single identity tied
+directly to their domain, making a separate publisher segment redundant in
 those cases.
 
-Additional `namespace` segments allow an "authority" to represent internal organization elements such as business units, product lines, divisions, etc.
-The PURL `type` definition for `software_id' does not prescribe the meaning of these segments. Their use and interpretation are determined by the publishing "authority". For example:
+Additional `namespace` segments allow an "authority" to represent internal
+organization elements such as business units, product lines, divisions, etc.
+The PURL `type` definition for `software_id' does not prescribe the meaning of
+these segments. Their use and interpretation are determined by the publishing
+"authority". For example:
 
 ```
 pkg:software-id/acme.com/AcmeApplication@1.0.0
@@ -118,23 +157,44 @@ identity or discovery information in a PURL using `key-value` pairs. Some
 
 ## Decision Drivers
 
+- Start with one solution for proprietary & open source
+- Follow the "intrinsic" principle that a PURL can be generated in a
+  deterministic, reproducible manner without requiring access to a central
+  database or registry that defines valid PURLs.
+
 
 
 
 ## Non-goals
 The following use cases are not suitable for tracking with 'software-id':
-- Services:
-- Hardware:
-
-
-
-
+- Services: There is a separate discussion of adding a new 'PURL `type` for
+  services such as those provided via an API. One of the key differences
+  between software and services is that a service does not have artifact that
+  it is distinct from the delivery of the service. There may be some useful
+  similarities between 'software-id' and a new `service' PURL `type` such as
+  use of the `namespace` component for artifact identification.
+- Hardware: There are already several well-known identifiers for hardware
+  artifacts such as [GTIN](https://www.gs1.org/standards/id-keys/gtin). The
+  'software-id' or other PURL `types` may be used to identify software that is
+  "embedded" on a device, but not the device itself. See also the [CycloneDX
+  HBOM](https://cyclonedx.org/capabilities/hbom/) for examples of how to
+  identify hardware components.
 
 ## Alternatives Considered
+
+### Use 'generic' PURL `type`
+The 'generic' PURL type is the current primary way to create a PURL for
+software that is not distributed through a package manager or authoritatively
+available on a repository with a supported PURL. Using the 'generic' `type`
+requires using `qualifiers` to provide any details beyond the software `name`
+and `version`. `Qualifiers` are `key=value` pairs which do not scale well and
+do not support the important vulnerability or dependency management use cases
+for PURL. The 'generic' PURL `type` will remain available for edge cases.
+
 ### Separate PURL `types` for commercial/proprietary and open source software
 
 
-### Use 'generic' PURL `type`
+
 
 
 
@@ -146,9 +206,12 @@ The following use cases are not suitable for tracking with 'software-id':
 
 ## Decision Outcome
 
-### Domain
+This new PURL `type` has been other active discussion since early 2025.
+This decision is pending final approval by TC54/TG2.
 
 
+
+### Domain vs registry
 
 
 
@@ -156,8 +219,9 @@ The following use cases are not suitable for tracking with 'software-id':
 Two proposed PURL `type` names for this new PURL `type` were 'sid' as an
 acronym for "Software ID" and 'scid' for "Software Component IDentification".
 We agreed on the PURL `type` name 'software-id' to make the PURL `type`name
-clear without a new acronym. There is some potential for confusion with "SWID tags" which are already registered as the 'swid' PURL `type`, but using the
-full descriptive name should be less confusing than acronyms like 'sid' or
+clear without a new acronym. There is some potential for confusion with
+"SWID tags" which are already registered as the 'swid' PURL `type`, but using
+the full descriptive name should be less confusing than acronyms like 'sid' or
 'scid'.
 
 
@@ -212,11 +276,13 @@ system). Hardware identification (CPE part `h`) is out of scope. Established
 standards such as GS1 GMN and GTIN already serve that purpose.
 
 ### SWID
-While SWID historically been used in asset and inventory contexts to identify installed software, it is:
+While SWID historically been used in asset and inventory contexts to identify
+installed software, it is:
 
 - overly complex for general use,
 - tightly coupled to specific enterprise and government implementations, and
 - requires fields such as `tagId` that are not always meaningful or available
   in modern DevOps and security pipelines.
 
-SWID used to have tagvault, which would have provided a global registry for commercial and non-packaged software, but the company behind it folded.
+SWID used to have tagvault, which would have provided a global registry for
+commercial and non-packaged software, but the company behind it folded.
