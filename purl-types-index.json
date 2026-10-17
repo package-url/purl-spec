@@ -36,6 +36,7 @@
   "pypi",
   "qpkg",
   "rpm",
+  "spack",
   "swid",
   "swift",
   "vcpkg",
