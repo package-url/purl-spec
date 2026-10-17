@@ -222,6 +222,104 @@
       "expected_output": "pkg:pypi/django-allauth@12.23",
       "expected_failure": false,
       "expected_message": null
+    },
+    {
+      "description": "pypi names have special rules and not case sensitive",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:pypi/friendly.bard@1.0",
+      "expected_output": {
+        "type": "pypi",
+        "namespace": null,
+        "name": "friendly-bard",
+        "version": "1.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "pypi names have special rules and not case sensitive",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:pypi/friendly--bard@1.0",
+      "expected_output": {
+        "type": "pypi",
+        "namespace": null,
+        "name": "friendly-bard",
+        "version": "1.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "pypi names have special rules and not case sensitive",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:pypi/friendly__bard@1.0",
+      "expected_output": {
+        "type": "pypi",
+        "namespace": null,
+        "name": "friendly-bard",
+        "version": "1.0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "pypi names have special rules and not case sensitive",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:pypi/My.PyPI_.--._Package@1.11.1.dev1",
+      "expected_output": {
+        "type": "pypi",
+        "namespace": null,
+        "name": "my-pypi-package",
+        "version": "1.11.1.dev1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "pypi names have special rules and not case sensitive",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "pypi",
+        "namespace": null,
+        "name": "My.PyPI_.--._Package",
+        "version": "1.11.1.dev1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:pypi/my-pypi-package@1.11.1.dev1",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "pypi names have special rules and not case sensitive. Roundtrip an input purl to canonical.",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:pypi/My.PyPI_.--._Package@1.11.1.dev1",
+      "expected_output": "pkg:pypi/my-pypi-package@1.11.1.dev1",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "pypi names have special rules and not case sensitive. Roundtrip a canonical input to canonical output.",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:pypi/my-pypi-package@1.11.1.dev1",
+      "expected_output": "pkg:pypi/my-pypi-package@1.11.1.dev1",
+      "expected_failure": false,
+      "expected_message": null
     }
   ]
 }
