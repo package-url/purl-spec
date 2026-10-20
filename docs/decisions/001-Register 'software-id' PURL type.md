@@ -230,12 +230,20 @@ This decision is pending final approval by TC54/TG2.
 ### `Type` name
 Two proposed PURL `type` names for this new PURL `type` were 'sid' as an
 acronym for "Software ID" and 'scid' for "Software Component IDentification".
-We agreed on the PURL `type` name 'software-id' to make the PURL `type`name
-clear without a new acronym. There is some potential for confusion with
-"SWID tags" which are already registered as the 'swid' PURL `type`, but using
-the full descriptive name should be less confusing than acronyms like 'sid' or
-'scid'.
+The community agreed to use the PURL `type` name 'software-id' to make the
+PURL `type`name clear without a new acronym. There is some potential for
+confusion with "SWID tags" which are already registered as the 'swid' PURL
+`type`, but using the full descriptive name should be less confusing than
+acronyms like 'sid' or 'scid'.
 
+### Require using a TEA Server for verification
+Some community members proposed the the new Transparency Exchange API should
+be mandatory for verifying a domain in the 'software-id' `namespace and for
+retrieving software information from a TEA Server. TEA has been approved by
+Ecma TC54 for submission to the Ecma General Assembly in December 2026.
+The community agreed that requiring the use of TEA/Server was too restrictive
+although it should be recommended as an option. The alternative is using files
+located at `.well-known/` location.
 
 ## More Information
 
