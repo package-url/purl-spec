@@ -248,8 +248,10 @@ option.
 ### PURL discovery
 
 The PURL approach to discovering `software-id` types is using static files
-located at `.well-known/` location. (Technically these files can be dynamically
-generated as an option.)
+located at `.well-known/` location of the domain used as the first segment of
+that PURL.
+
+(Technically these files can be dynamically generated as an option.)
 
 
 
