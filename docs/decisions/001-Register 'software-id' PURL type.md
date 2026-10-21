@@ -8,13 +8,14 @@ date: 2026-10-20
 ## Context / Problem
 
 The registered PURL `types` cover a wide range of package ecosystems, but it is
-difficult to use PURL to identify *non- ecosystem*-based software packages,
-particularly C/C++ packages and other standalone open source software that may
-not live in an incorporated package registry; and commercial or other software
-that is not distributed through a package manager or available with supported
-PURL `type`. For these until now, the last resort has been the `generic` PURL
-type, fraught with the problems of arbitrary PURL components values making it
-hard to create identical PURLs for the same package independently.
+difficult to use PURL to identify some software packages that do not have
+organized package repositories, particularly C/C++ packages and other standalone
+open source software that may not live in an incorporated package registry; and
+commercial or other software that is not distributed through a package manager
+or available with supported PURL `type`. For these until now, the last resort
+has been the `generic` PURL type, fraught with the problems of arbitrary PURL
+components values making it hard to create identical PURLs for the same package
+independently.
 
 One reason for the difficulty is that PURL was originally targetted to open
 source ecosystems with (often centralized) package repositories that organize
@@ -74,13 +75,13 @@ This PURL `type` covers:
 | subpath    | Optional    | Subpath as defined in spec.         |
 
 
-### Namespace
+### Namespace PURL components
 
 The key aspect of the `software-id` PURL `type` is that:
 
  - The `namespace` component is required
  - The first segment of the `namespace` component is required and must be
-   and internet domain aka. the **authority**. 
+   and internet domain aka. the **authority**.
 
 This domain/authority is responsible for the definition of futher namespace
 segments, the name and version conventions and uniqueness in that domain, the
@@ -92,29 +93,27 @@ and versions. The other namespace segments are optional, domain-defined, and may
 represent any element of an organizational hierarchy such as a project, sub-
 project, publisher name, business units, or product lines.
 
-The `packageurl.org` is the special domain to register PURLs that do not a have
-domain, and also serves as an aggregator for `software-id` PURLs.
-
-For instance, the `packageurl.org` domain requires extra namespace segments as
-in the "foo" example below:
-
-    `pkg:software-id/packageurl.org/foo/bar@123`
+The `packageurl.org` domain is the special domain to register PURLs that do not
+a have domain, and also serves as an aggregator for `software-id` PURLs.
 
 
-#### Domain name anchoring and PURL resolution
+### Name, Version, Qualifiers and Subpath PURL components
 
-Since the `namespace` `software-id` first segment is a domain name, it becomes
-possible to discover software package PURLs at that domain:
+The other PURL components are not special for this PURL type.
 
-- With a `.well-known/` [URI](https://en.wikipedia.org/wiki/Well-known_URI)
-  at `purl.json` contaning the extra data about this domain hosted PURL
-  namespaces, names or versions.
+Some `qualifier` keys that will likely be useful for a 'software-id' PURL include:
 
-- With the shared `packageurl.org` domain serving a `.well-known/purl.json` with
-  pre-registered PURL namespaces, names or versions. `packageurl.org` serves as
-  a shared registry as a convenience, and as an aggregator for other domains to
-  make discovery easier. This registry is intended for projects or organizations
-  that do not control a domain or prefer centralized registration.
+- 'arch': CPU architecture the software was built for (e.g., 'x86_64', 'arm64').
+- 'edition': The specific edition of a commercial product (e.g., 'community' or 'enterprise').
+- 'locale': Language of the software as an ISO 639-1 code (e.g., 'en') or a full BCP 47 language tag (e.g., 'en-GB').
+- 'target': Target software environment (e.g., 'windows', 'java', 'android').
+
+This use of `qualifiers` is common across PURL `types` but highlighted here
+because some `software-id` PURLs may to use multiple `qualifiers` like with
+commercial software.
+
+
+### Domain-based namespacing, definition and PURL catalog
 
 #### Disambiguation through domain
 
@@ -128,21 +127,26 @@ pkg:software-id/acmerobotics.org/foo/analytics-suite@5.2.1
 ```
 
 Each domain acts as a PURL registry that enforces uniqueness. The shared
-`packageurl.org` centralized registry enforces uniqueness at the registration
-process, where each registration is a unique set of files and directory.
+`packageurl.org` domain offers an optional centralized registry, and enforces
+uniqueness at the registration process, where each registration is a unique set
+of files and directory.
 
 #### Flexible namespacing
 
-The PURL `namespace` component supports multiple extra slash-separate segments (with
-no specific limit) so that the **authority** for a 'software-id' PURL domain
-can document as deep naming hierarchies as needed. This can be user to represent a project or team, 
-or a business unit, multiple product lines, divisions, etc.
+The PURL `namespace` component supports multiple extra slash-separated segments
+(with no specific limit) so that the **authority** for a 'software-id' PURL
+domain can document as deep naming hierarchies as needed. This can be used to
+represent a project or team, or a business unit, multiple product lines,
+divisions, etc.
 
 The PURL `type` definition for `software_id` does not prescribe the meaning of
-these segments. These are determined (and optionally documented) at the domain
-level instead, by the publisher. For example:
+these segments. These are determined (and optionally documented as explained
+below) at the domain level by the publisher. 
+
+Some examples of `software-id` PURLs:
 
 ```
+pkg:software-id/packageurl.org/baz/foo/bar@123
 pkg:software-id/kernel.org/linux@6.18.57
 pkg:software-id/apache.org/logging/log4j-core@2.21.0
 pkg:software-id/acme.com/AcmeApplication@1.0.0
@@ -150,24 +154,57 @@ pkg:software-id/acme.com/AcmeRobotics/robot-os@2.3.0
 pkg:software-id/acme.com/AcmeRobotics/Industrial/motion-controller@4.1.0
 ```
 
-### Name, Version, Qualifiers and Subpath
+#### Domain-specific PURL component definitions, discovery, share registry
 
-The other PURL components are not special for this PURL type.
+Each domain should document the `software_id` PURLs specifics it defines. This
+is done with a JSON file that will have the overall same shape as the `type`
+definition JSON file, but focused on the extra namespace segments and other PURL
+components extra documentation.
 
-Some `qualifier` keys that will likely be useful for a 'software-id' PURL include:
+This applies also to the `packageurl.org` domain that is just one of the many
+domains, and does not have special privileges.
 
-- 'arch': CPU architecture the software was built for (e.g., 'x86_64', 'arm64').
-- 'edition': The specific edition of a commercial product (e.g., 'community' or 'enterprise').
-- 'locale': Language of the software asan ISO 639-1 code (e.g., 'en') or a full BCP 47 language tag (e.g., 'en-GB').
-- 'target': Target software environment (e.g., 'windows', 'java', 'android').
+For instance, that `packageurl.org` domain will require extra namespace segments
+as in the "foo" example below:
 
-This use of `qualifiers` is common across PURL `types` but highlighted here
-because some `software-id` PURLs may to use multiple `qualifiers` like with
-commercial software.
+    `pkg:software-id/packageurl.org/foo/bar@123`
+
+And with the `namespace` first segment being a domain name, it becomes possible
+to discover software package PURLs at that domain address:
+
+- With a `.well-known/` [URI](https://en.wikipedia.org/wiki/Well-known_URI)
+  containing the extra data about this domain-hosted PURLs, or
+
+- With the shared `packageurl.org` domain serving a `.well-known` URI of
+  registered PURL namespaces, providing a shared, centralized registry for open
+  source projects or organizations that want to advertize their PURLs without
+  having to host their own `.well-known/` files, either because they do not
+  control a domain or prefer centralized registration.
+  
+The `packageurl.org` domain will not only host that shared registry of PURLs
+prefixed with `pkg:software-id/packageurl.org/`, but also behave as an
+aggregator for other domains to make discovery easier, mirroring snapshots of
+their `./well-knwown` PURL definitions.
+
+The `packageurl.org` domain will also support a simple process to register
+`software-id` PURL domains/authorities storing these as plain JSON files
+in a public git repository, hosted at https://github.com/package-url/ 
+
+#### Domain-specific PURL catalog
+
+While the immediate goal of this new PURL `type` is the delegation of namespaces
+and PURL names to domain-based authorities, another future goal is for each
+domain to publish optionally a catalog of the PURLs it defines, advertizing not
+only namespaces, but also the list of names and versions of released packages,
+together with essential extra that could cover URLs, description or legal
+metadata, i.e., filling the role of a mini package metadata manifest for the
+packages that do not have one. The `.well-known/` URI will be designed to
+support this future extensibility.
 
 ## Decision Drivers
 
-Some of the additional decision drivers beyond the [Context / Problem](#context--problem) section were:
+Some of the additional decision drivers beyond the
+[Context / Problem](#context--problem) section were:
 
 - A PURL should be obvious, by observing the software.  We do not have a
   manifest or convention yet to make `software-id` self-documenting and obvious,
@@ -217,6 +254,52 @@ in the `namespace` after the domain. The community conclusions were that:
   the `software-id` type) to define its own `namespace` segments and
   `qualifiers` was more practical.
 
+### SWID
+
+While SWID historically been used in asset and inventory contexts to identify
+installed software, it is:
+
+- overly complex for general use,
+- tightly coupled to specific enterprise and government implementations, and
+- requires fields such as `tagId` that are not always meaningful or available
+  in modern DevOps and security pipelines.
+
+SWID used to have tagvault, which would have provided a global registry for
+commercial and non-packaged software, but the company behind it folded.
+
+
+### CPE
+
+Interoperable Successor to CPE: One of the design goals of this PURL `type` will
+be to enable interoperability with existing systems that utilize legacy
+identifiers such as CPE. While CPE provides a rich and structured method of
+identifying software, it suffers from centralization, a rigid schema, and
+reliance on manual human curation to assign aribitrary names. These
+characteristics make it difficult to scale in modern, dynamic environments where
+new software projects, forks, and distributions emerge continuously.
+
+In contrast, the PURL format is inherently decentralized and URI-friendly,
+enabling toolchains, vendors, and open source communities to generate
+identifiers independently without requiring central registry approval. Despite
+this shift, 'software-id' PURLs aim to retain high level semantic compatibility
+with CPE by using similar fields and qualifiers, ensuring they can be adopted
+more easily by the ecosystem that currently rely on CPE names.
+
+| CPE Field    | 'software-id' PURL Component | Notes                                         |
+|--------------|------------------------------|-----------------------------------------------|
+| `part`       | PURL assumes software        | CPE has 'a'/application, 'o'/OS, 'h'/hardware |
+| `vendor`     | namespace                    | Always domain-qualified                       |
+| `product`    | name                         | Software project, product, or component name  |
+| `version`    | version                      | Version string                                |
+| `update`     | (not directly mapped)        | Could be embedded in `version` or ignored     |
+| `edition`    | qualifier-key: 'edition'     | Directly mapped                               |
+| `language`   | qualifier-key: 'locale'      | Supports ISO 639-1 and BCP 47                 |
+| `sw_edition` | qualifier-key: 'edition'     | May be combined under `edition`               |
+| `target_sw`  | qualifier-key: 'target'      | Target environment (e.g., 'java', 'windows')  |
+| `target_hw`  | qualifier-key: 'arch'        | CPU architecture (e.g., 'x86_64', 'arm64')    |
+
+'software-id' PURLs maps tpCPE parts `a` (application) and `o` (operating
+system). Hardware identification (CPE part `h`) is out of scope.
 
 ## Decision Outcome
 
@@ -244,15 +327,6 @@ community agreed that requiring the use of TEA/Server was too demanding as it
 implies to deploy extra infrastructure, although it could be recommended as an
 option. 
 
-### PURL discovery
-
-The PURL approach to discovering `software-id` types is using static files
-located at `.well-known/` location of the domain used as the first segment of
-that PURL.
-
-(Technically these files can be dynamically generated as an option.)
-
-
 
 ## More Information
 
@@ -273,48 +347,3 @@ the issues by topic and contains additional commentary:
 [Design for new PURL type: 'software-id'](https://github.com/package-url/purl-spec/discussions/841)
 
 
-### Interoperable Successor to CPE
-
-One of the design goals of this PURL `type` will be to enable interoperability
-with existing systems that utilize legacy identifiers such as CPE. While CPE
-provides a rich and structured method of identifying software, it suffers from
-centralization, a rigid schema, and reliance on manual human curation to assign
-aribitrary names. These characteristics make it difficult to scale in modern,
-dynamic environments where new software projects, forks, and distributions
-emerge continuously. 
-
-In contrast, the PURL format is inherently decentralized and URI-friendly,
-enabling toolchains, vendors, and open source communities to generate
-identifiers independently without requiring central registry approval. Despite
-this shift, 'software-id' PURLs aim to retain high level semantic compatibility
-with CPE by using similar fields and qualifiers, ensuring they can be adopted
-more easily by the ecosystem that currently rely on CPE names.
-
-| CPE Field    | 'software-id' PURL Component | Notes                                         |
-|--------------|------------------------------|-----------------------------------------------|
-| `part`       | PURL assumes software        | CPE has 'a'/application, 'o'/OS, 'h'/hardware |
-| `vendor`     | namespace                    | Always domain-qualified                       |
-| `product`    | name                         | Software project, product, or component name  |
-| `version`    | version                      | Version string                                |
-| `update`     | (not directly mapped)        | Could be embedded in `version` or ignored     |
-| `edition`    | qualifier-key: 'edition'     | Directly mapped                               |
-| `language`   | qualifier-key: 'locale'      | Supports ISO 639-1 and BCP 47                 |
-| `sw_edition` | qualifier-key: 'edition'     | May be combined under `edition`               |
-| `target_sw`  | qualifier-key: 'target'      | Target environment (e.g., 'java', 'windows')  |
-| `target_hw`  | qualifier-key: 'arch'        | CPU architecture (e.g., 'x86_64', 'arm64')    |
-
-'software-id' PURLs maps tpCPE parts `a` (application) and `o` (operating
-system). Hardware identification (CPE part `h`) is out of scope.
-
-### SWID
-
-While SWID historically been used in asset and inventory contexts to identify
-installed software, it is:
-
-- overly complex for general use,
-- tightly coupled to specific enterprise and government implementations, and
-- requires fields such as `tagId` that are not always meaningful or available
-  in modern DevOps and security pipelines.
-
-SWID used to have tagvault, which would have provided a global registry for
-commercial and non-packaged software, but the company behind it folded.
