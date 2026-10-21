@@ -1,4 +1,3 @@
-from pygments.lexers.configs import ApacheConfLexer
 ---
 status: proposed
 date: 2026-10-20
