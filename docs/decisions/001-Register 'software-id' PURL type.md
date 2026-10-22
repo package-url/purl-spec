@@ -85,10 +85,10 @@ This PURL `type` covers:
 
 The special characteristics of the 'software-id PURL `type` are that:
 
- - The `namespace` component is required.
- - The first segment of the `namespace` component is required to be an
-   internet domain which defines the **authority** for naming its own
-   software.
+- The `namespace` component is required.
+- The first segment of the `namespace` component is required to be an
+  internet domain which defines the **authority** for naming its own
+  software.
 
 This domain/authority is responsible for the definition of additional
 `namespace` segments, name and version conventions, and the uniqueness of
@@ -123,11 +123,7 @@ pkg:software-id/acmerobotics.org/foo/analytics-suite@5.2.1
 
 Each domain acts as a PURL registry that enforces uniqueness. The shared
 `packageurl.org` registry enforces uniqueness during the registration
-process, where each registration is a unique set of files and directory.
-
-<!-- What does "unique set of files and directory" mean? This seems pretty specific and ambiguous at the same time. Guessing that this is a reference to a file named
-`.well-known/purl.json` ?
--->
+process, where each registration are files published at a `.well-known` URI.
 
 #### Flexible namespacing
 
@@ -157,33 +153,27 @@ The requirement that the first  `namespace` segment for a 'software-id' PURL
 is a domain name makes it possible to discover and resolve software package
 PURLs at a domain address with:
 
-- A `.well-known/` [URI](https://en.wikipedia.org/wiki/Well-known_URI)
-  at `purl.json` containing the additional data about a domain-hosted PURL
-  registry such as the structure of `namespaces`, `names`, or `versions`.
+- A `.well-known/purl` [URI](https://en.wikipedia.org/wiki/Well-known_URI),
+  served at that domain and containing the definitions and references about the
+  PURLs defined at that domain, and a PURL catalog. This well-known URI will be
+  registered with [IANA](https://www.iana.org/assignments/well-known-uris).
 
-<!-- Are we mandating a specific file named `.well/known/purl.json`? The phrasing of "at `purl.json`"  implies this but is not explicit. Should this say instead: "A file named `.well-known/purl.json`.....?
-Are we planning to register `./well-known/purl.json with IANA?
--->
-
-- The shared `packageurl.org` domain serving a `.well-known/` URI of
+- The shared `packageurl.org` domain serving a `.well-known/purl` URI of
   registered PURL `namespaces` and providing a centralized registry for
   open source projects or other organizations that want to standardize their
-  PURLs without having to host their own `.well-known/` files, either because
+  PURLs without having to host their own `.well-known/purl` URI, either because
   they do not control a domain or they prefer centralized registration.
 
 The `packageurl.org` domain will host the shared registry of PURLs prefixed
 with `pkg:software-id/packageurl.org/` and also serve as an aggregator for
 other domains to make discovery easier with mirrored snapshots of their
-`./well-known` PURL definitions.
+`./well-known/purl` PURL definitions and catalogs.
 
 The `packageurl.org` domain will support a simple process to register
-`software-id` PURL authoritiesa. The data will be stored as plain JSON
-files in a public git repository at https://github.com/package-url/purl-registry/.
-
-<!-- I am expecting that the registration process will be hosted on git (GH for now)
-but that the data will be served directly from packageurl.org (like we do now
-for the canonical schema and PURL/VERS type definition files).
--->
+`software-id` PURL namespaces. The data of this PURL registry will be stored as
+JSON data files in a public git repository, and that data will be served
+directly from `packageurl.org/.well-known/purl`.
+That git repository is at https://github.com/package-url/purl-registry/
 
 ### PURL `qualifiers' component
 
