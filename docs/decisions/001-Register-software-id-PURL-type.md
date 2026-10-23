@@ -212,7 +212,7 @@ section were:
 
 - A preference for one solution to cover both commercial products and open
   source projects if possible. The reasons for this preference are simplicity
-  and the difficulty in some cases of distinguishing between commercial nd
+  and the difficulty in some cases of distinguishing between commercial and
   open source software.
 
 ## Non-goals
@@ -221,13 +221,13 @@ These use cases are not suitable for 'software-id':
 
 - Services: Not in scope. There is a separate discussion for a new 'service'
   PURL `type` for online APIs. The domain-based `namespace` structure from the
-  'software-id' PURL `type` may, however, be useful for a `service` PURL
+  'software-id' PURL `type` may, however, be useful for a 'service' PURL
   `type`.
 
-- Hardware: Not in scope. The 'software-id' and PURL in general may be used to
-  identify software embedded in devices, but it is not intended to describe a
-  hardware device or its components. There are already several well-known
-  identifiers for hardware artifacts such as [GTIN](https://www.gs1.org/standards/id-keys/gtin)
+- Hardware: Not in scope. The 'software-id' PURL and PURL in general may be
+  used to identify software embedded in devices, but it is not intended to
+  describe a hardware device or its components. There are already several
+  well-known identifiers for hardware artifacts such as [GTIN](https://www.gs1.org/standards/id-keys/gtin).
 
 ## Alternatives Considered
 
@@ -272,7 +272,7 @@ This decision is pending final approval by TC54/TG2.
 
 ### Community Discussion References
 
-The community discussion of this proposed PURL `type` started in July, 2025
+The community discussion of this proposed PURL `type` started in July 2025
 and has been well-documented in the following issues in the `purl-spec`
 repository:
 
