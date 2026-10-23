@@ -1,5 +1,5 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
   "$id": "https://packageurl.org/types/golang-definition.json",
   "type": "golang",
   "type_name": "Go package",
@@ -10,13 +10,13 @@
   },
   "namespace_definition": {
     "requirement": "required",
-    "case_sensitive": false,
-    "note": "The namespace must be lowercased."
+    "case_sensitive": true,
+    "note": "The namespace shall be lowercased."
   },
   "name_definition": {
     "requirement": "required",
-    "case_sensitive": false,
-    "note": "The name must be lowercased."
+    "case_sensitive": true,
+    "note": "The name shall be lowercased."
   },
   "subpath_definition": {
     "requirement": "optional",

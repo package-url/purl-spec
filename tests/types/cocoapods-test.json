@@ -1,9 +1,9 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.2.json",
   "tests": [
     {
       "description": "Parse test for PURL type: cocoapods",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:cocoapods/AFNetworking@4.0.1",
       "expected_output": {
@@ -15,20 +15,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for PURL type: cocoapods",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:cocoapods/AFNetworking@4.0.1",
       "expected_output": "pkg:cocoapods/AFNetworking@4.0.1",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test  for PURL type: cocoapods",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "cocoapods",
@@ -40,11 +40,11 @@
       },
       "expected_output": "pkg:cocoapods/AFNetworking@4.0.1",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Parse test for PURL type: cocoapods",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:cocoapods/MapsIndoors@3.24.0",
       "expected_output": {
@@ -56,20 +56,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for PURL type: cocoapods",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:cocoapods/MapsIndoors@3.24.0",
       "expected_output": "pkg:cocoapods/MapsIndoors@3.24.0",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test  for PURL type: cocoapods",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "cocoapods",
@@ -81,11 +81,11 @@
       },
       "expected_output": "pkg:cocoapods/MapsIndoors@3.24.0",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Parse test for PURL type: cocoapods",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:cocoapods/ShareKit@2.0#Twitter",
       "expected_output": {
@@ -97,20 +97,20 @@
         "subpath": "Twitter"
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for PURL type: cocoapods",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:cocoapods/ShareKit@2.0#Twitter",
       "expected_output": "pkg:cocoapods/ShareKit@2.0#Twitter",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test  for PURL type: cocoapods",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "cocoapods",
@@ -122,11 +122,11 @@
       },
       "expected_output": "pkg:cocoapods/ShareKit@2.0#Twitter",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Parse test for PURL type: cocoapods",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:cocoapods/GoogleUtilities@7.5.2#NSData+zlib",
       "expected_output": {
@@ -138,20 +138,20 @@
         "subpath": "NSData+zlib"
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for PURL type: cocoapods",
-      "test_group": "advanced",
-      "test_type": "roundtrip",
+      "test_group": "recommended",
+      "test_type": "validate",
       "input": "pkg:cocoapods/GoogleUtilities@7.5.2#NSData+zlib",
       "expected_output": "pkg:cocoapods/GoogleUtilities@7.5.2#NSData%2Bzlib",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test  for PURL type: cocoapods",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "cocoapods",
@@ -163,7 +163,7 @@
       },
       "expected_output": "pkg:cocoapods/GoogleUtilities@7.5.2#NSData%2Bzlib",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     }
   ]
 }

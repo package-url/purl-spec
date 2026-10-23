@@ -1,0 +1,96 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.2.json",
+  "tests": [
+    {
+      "description": "git namespace and name should be lowercased. Validate an input purl.",
+      "test_group": "recommended",
+      "test_type": "validate",
+      "input": "pkg:git/github/Package-url/purl-Spec@244fd47e07d1004f0aed9c",
+      "expected_output": "pkg:git/github/package-url/purl-spec@244fd47e07d1004f0aed9c",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Parse test for PURL type: git",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0",
+      "expected_output": {
+        "type": "git",
+        "namespace": "codeberg.org",
+        "name": "forgejo/forgejo",
+        "version": "a72d2c07cfca03b55371089de6aa230d8c951fa0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Validate test for PURL type: git",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0",
+      "expected_output": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Build test  for PURL type: git",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "git",
+        "namespace": "codeberg.org",
+        "name": "forgejo/forgejo",
+        "version": "a72d2c07cfca03b55371089de6aa230d8c951fa0",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Parse test for PURL type: git",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0#options/locale_readme.md",
+      "expected_output": {
+        "type": "git",
+        "namespace": "codeberg.org",
+        "name": "forgejo/forgejo",
+        "version": "a72d2c07cfca03b55371089de6aa230d8c951fa0",
+        "qualifiers": null,
+        "subpath": "options/locale_readme.md"
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Validate test for PURL type: git",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0#options/locale_readme.md",
+      "expected_output": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0#options/locale_readme.md",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Build test  for PURL type: git",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "git",
+        "namespace": "codeberg.org",
+        "name": "forgejo/forgejo",
+        "version": "a72d2c07cfca03b55371089de6aa230d8c951fa0",
+        "qualifiers": null,
+        "subpath": "options/locale_readme.md"
+      },
+      "expected_output": "pkg:git/codeberg.org/forgejo/forgejo@a72d2c07cfca03b55371089de6aa230d8c951fa0#options/locale_readme.md",
+      "expected_failure": false,
+      "expected_message": null
+    }
+  ]
+}

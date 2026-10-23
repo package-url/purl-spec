@@ -1,18 +1,18 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.2.json",
   "tests": [
     {
       "description": "valid go purl without version and with subpath. Roundtrip an input purl to canonical.",
-      "test_group": "advanced",
-      "test_type": "roundtrip",
+      "test_group": "recommended",
+      "test_type": "validate",
       "input": "pkg:GOLANG/google.golang.org/genproto#/googleapis/api/annotations/",
       "expected_output": "pkg:golang/google.golang.org/genproto#googleapis/api/annotations",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "valid go purl without version and with subpath",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:GOLANG/google.golang.org/genproto#/googleapis/api/annotations/",
       "expected_output": {
@@ -24,20 +24,20 @@
         "subpath": "googleapis/api/annotations"
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "valid go purl without version and with subpath. Roundtrip a canonical input to canonical output.",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:golang/google.golang.org/genproto#googleapis/api/annotations",
       "expected_output": "pkg:golang/google.golang.org/genproto#googleapis/api/annotations",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "valid go purl without version and with subpath",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "golang",
@@ -49,20 +49,20 @@
       },
       "expected_output": "pkg:golang/google.golang.org/genproto#googleapis/api/annotations",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "valid go purl with version and subpath. Roundtrip an input purl to canonical.",
-      "test_group": "advanced",
-      "test_type": "roundtrip",
+      "test_group": "recommended",
+      "test_type": "validate",
       "input": "pkg:GOLANG/google.golang.org/genproto@abcdedf#/googleapis/api/annotations/",
       "expected_output": "pkg:golang/google.golang.org/genproto@abcdedf#googleapis/api/annotations",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "valid go purl with version and subpath",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:GOLANG/google.golang.org/genproto@abcdedf#/googleapis/api/annotations/",
       "expected_output": {
@@ -74,20 +74,20 @@
         "subpath": "googleapis/api/annotations"
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "valid go purl with version and subpath. Roundtrip a canonical input to canonical output.",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:golang/google.golang.org/genproto@abcdedf#googleapis/api/annotations",
       "expected_output": "pkg:golang/google.golang.org/genproto@abcdedf#googleapis/api/annotations",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "valid go purl with version and subpath",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "golang",
@@ -99,11 +99,11 @@
       },
       "expected_output": "pkg:golang/google.golang.org/genproto@abcdedf#googleapis/api/annotations",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Parse test for PURL type: golang",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c",
       "expected_output": {
@@ -115,20 +115,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for PURL type: golang",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c",
       "expected_output": "pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test  for PURL type: golang",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "golang",
@@ -140,11 +140,11 @@
       },
       "expected_output": "pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Parse test for PURL type: golang",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:golang/google.golang.org/genproto#googleapis/api/annotations",
       "expected_output": {
@@ -156,20 +156,20 @@
         "subpath": "googleapis/api/annotations"
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for PURL type: golang",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:golang/google.golang.org/genproto#googleapis/api/annotations",
       "expected_output": "pkg:golang/google.golang.org/genproto#googleapis/api/annotations",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test  for PURL type: golang",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "golang",
@@ -181,11 +181,11 @@
       },
       "expected_output": "pkg:golang/google.golang.org/genproto#googleapis/api/annotations",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Parse test for PURL type: golang",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c#api",
       "expected_output": {
@@ -197,20 +197,20 @@
         "subpath": "api"
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for PURL type: golang",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c#api",
       "expected_output": "pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c#api",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test  for PURL type: golang",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "golang",
@@ -222,7 +222,7 @@
       },
       "expected_output": "pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c#api",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     }
   ]
 }

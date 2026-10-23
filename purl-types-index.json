@@ -5,6 +5,7 @@
   "bitbucket",
   "bitnami",
   "bsd",
+  "brew",
   "cargo",
   "chrome-extension",
   "cocoapods",
@@ -17,6 +18,7 @@
   "docker",
   "gem",
   "generic",
+  "git",
   "github",
   "golang",
   "hackage",
@@ -37,6 +39,7 @@
   "rpm",
   "swid",
   "swift",
+  "vcpkg",
   "vscode-extension",
   "yocto"
 ]

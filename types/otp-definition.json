@@ -1,5 +1,5 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
   "$id": "https://packageurl.org/types/otp-definition.json",
   "type": "otp",
   "type_name": "BEAM/OTP Application",
@@ -10,12 +10,12 @@
   },
   "namespace_definition": {
     "requirement": "prohibited",
-    "note": "The component is unused and MUST be empty"
+    "note": "The component is unused and shall be empty"
   },
   "name_definition": {
     "case_sensitive": false,
     "native_name": "name",
-    "note": "The OTP application name from the `.app` file; it is case-insensitive and MUST be lower-cased.",
+    "note": "The OTP application name from the `.app` file; it is case-insensitive and shall be lower-cased.",
     "requirement": "required"
   },
   "version_definition": {

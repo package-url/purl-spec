@@ -1,5 +1,5 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
   "$id": "https://packageurl.org/types/rpm-definition.json",
   "type": "rpm",
   "type_name": "RPM",
@@ -11,7 +11,7 @@
   "namespace_definition": {
     "case_sensitive": false,
     "native_name": "vendor",
-    "note": "The namespace is the vendor such as Fedora or OpenSUSE. It is not case sensitive and must be lowercased.",
+    "note": "The namespace is the vendor such as Fedora or OpenSUSE. It is not case sensitive and shall be lowercased.",
     "requirement": "required"
   },
   "name_definition": {
@@ -38,6 +38,6 @@
   ],
   "examples": [
     "pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25",
-    "pkg:rpm/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25"
+    "pkg:rpm/fedora/centerim@4.22.10-1.el6?arch=i686&epoch=1&distro=fedora-25"
   ]
 }

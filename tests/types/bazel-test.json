@@ -1,18 +1,18 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.2.json",
   "tests": [
     {
       "description": "bazel module with default registry",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:bazel/rules_java@7.8.0?repository_url=https://bcr.bazel.build/",
       "expected_output": "pkg:bazel/rules_java@7.8.0?repository_url=https:%2F%2Fbcr.bazel.build%2F",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "bazel module with default registry",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:bazel/rules_java@7.8.0?repository_url=https://bcr.bazel.build/",
       "expected_output": {
@@ -21,16 +21,16 @@
         "name": "rules_java",
         "version": "7.8.0",
         "qualifiers": {
-          "repository_url":"https://bcr.bazel.build/"
+          "repository_url": "https://bcr.bazel.build/"
         },
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "bazel module with default registry",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "bazel",
@@ -42,20 +42,20 @@
       },
       "expected_output": "pkg:bazel/rules_java@7.8.0",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "bazel module with custom registry",
-      "test_group": "advanced",
-      "test_type": "roundtrip",
+      "test_group": "recommended",
+      "test_type": "validate",
       "input": "pkg:bazel/rules_java@7.8.0?repository_url=https://example.org/bazel-registry/",
       "expected_output": "pkg:bazel/rules_java@7.8.0?repository_url=https:%2F%2Fexample.org%2Fbazel-registry%2F",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "bazel module with custom registry",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:bazel/rules_java@7.8.0?repository_url=https://example.org/bazel-registry/",
       "expected_output": {
@@ -69,11 +69,11 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "bazel module with custom registry",
-      "test_group": "advanced",
+      "test_group": "recommended",
       "test_type": "build",
       "input": {
         "type": "bazel",
@@ -87,20 +87,20 @@
       },
       "expected_output": "pkg:bazel/rules_java@7.8.0?repository_url=https:%2F%2Fexample.org%2Fbazel-registry",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "bazel module with relaxed semver version",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:bazel/curl@8.8.0.bcr.1",
       "expected_output": "pkg:bazel/curl@8.8.0.bcr.1",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "bazel module with relaxed semver version",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:bazel/curl@8.8.0.bcr.1",
       "expected_output": {
@@ -112,11 +112,11 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "bazel module with relaxed semver version",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "bazel",
@@ -128,20 +128,20 @@
       },
       "expected_output": "pkg:bazel/curl@8.8.0.bcr.1",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "bazel module names are actually all lowercased, but this is not enforced by the PURL type spec for reasons",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:bazel/Curl@8.8.0.bcr.1",
       "expected_output": "pkg:bazel/Curl@8.8.0.bcr.1",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "bazel module names are actually all lowercased, but this is not enforced by the PURL type spec for reasons",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:bazel/Curl@8.8.0.bcr.1",
       "expected_output": {
@@ -153,11 +153,11 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "bazel module names are actually all lowercased, but this is not enforced by the PURL type spec for reasons",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "bazel",
@@ -169,20 +169,20 @@
       },
       "expected_output": "pkg:bazel/Curl@8.8.0.bcr.1",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "bazel module with multi-segment package",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:bazel/rules_java@8.5.0#java/runfiles",
       "expected_output": "pkg:bazel/rules_java@8.5.0#java/runfiles",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "bazel module with multi-segment package",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:bazel/rules_java@8.5.0#java/runfiles",
       "expected_output": {
@@ -194,11 +194,11 @@
         "subpath": "java/runfiles"
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "bazel module with multi-segment package",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "bazel",
@@ -210,20 +210,20 @@
       },
       "expected_output": "pkg:bazel/rules_java@8.5.0#java/runfiles",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "bazel module with target reference",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:bazel/rules_java@8.5.0#java/runfiles:runfiles",
       "expected_output": "pkg:bazel/rules_java@8.5.0#java/runfiles:runfiles",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "bazel module with target reference",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:bazel/rules_java@8.5.0#java/runfiles:runfiles",
       "expected_output": {
@@ -235,11 +235,11 @@
         "subpath": "java/runfiles:runfiles"
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "bazel module with target reference",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "bazel",
@@ -251,20 +251,20 @@
       },
       "expected_output": "pkg:bazel/rules_java@8.5.0#java/runfiles:runfiles",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "bazel module with single-segment package",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:bazel/rules_go@0.48.0#go",
       "expected_output": "pkg:bazel/rules_go@0.48.0#go",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "bazel module with single-segment package",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:bazel/rules_go@0.48.0#go",
       "expected_output": {
@@ -276,11 +276,11 @@
         "subpath": "go"
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "bazel module with single-segment package",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "bazel",
@@ -292,7 +292,7 @@
       },
       "expected_output": "pkg:bazel/rules_go@0.48.0#go",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     }
   ]
 }

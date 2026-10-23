@@ -101,7 +101,7 @@ def generate_documentation(definition) -> str:
             lines.append(f"- **Native Label:** {native_name}")
 
         if note := component.get("note"):
-            lines.append(f"- **Note:** `{note}`")
+            lines.append(f"- **Note:** {note}")
 
         lines.append("")
 
@@ -144,6 +144,12 @@ def generate_documentation(definition) -> str:
 if __name__ == "__main__":
     import sys
 
+    if sys.version_info < (3, 10):
+        sys.exit(
+            "ERROR: Python 3.10 or above is required. "
+            f"You are running {sys.version_info.major}.{sys.version_info.minor}"
+        )
+
     if len(sys.argv) == 2:
         selected_types = f"{sys.argv[1]}-definition.json"
     else:
@@ -157,7 +163,7 @@ if __name__ == "__main__":
         ptype = data["type"]
         types.append(ptype)
         md = generate_documentation(data)
-        mddoc = Path("types-doc") / f"{ptype}-definition.md"
+        mddoc = Path("docs/types/definitions") / f"{ptype}-definition.md"
         mddoc.write_text(md, newline="\n")
         print(f"PURL Type Documentation generated for {mddoc}")
 

@@ -20,10 +20,10 @@
 #
 # Visit https://github.com/package-url/purl-spec and https://packageurl.org for support
 
-
 from __future__ import annotations
+
 from pydantic import AnyUrl, BaseModel, ConfigDict, Field, RootModel
-from typing import Literal, Optional, Union
+from typing import Literal
 
 
 class Example(RootModel[str]):
@@ -92,7 +92,7 @@ class PackageUrlTypeDefinition(BaseModel):
         ),
         title="Name definition",
     )
-    version_definition: Optional[VersionDefinition] = Field(
+    version_definition: VersionDefinition | None = Field(
         None,
         description=(
             "Definition of the version component for this PURL type. The PURL version component is"
@@ -100,7 +100,7 @@ class PackageUrlTypeDefinition(BaseModel):
         ),
         title="Version definition",
     )
-    qualifiers_definition: Optional[list[QualifiersDefinitionItem]] = Field(
+    qualifiers_definition: list[QualifiersDefinitionItem] | None = Field(
         None,
         description=(
             "Definition of the qualifiers specific to this PURL type. The PURL qualifiers component"
@@ -109,7 +109,7 @@ class PackageUrlTypeDefinition(BaseModel):
         ),
         title="Qualifiers definition",
     )
-    subpath_definition: Optional[SubpathDefinition] = Field(
+    subpath_definition: SubpathDefinition | None = Field(
         None,
         description=(
             "The definition for the subpath for this PURL type. The PURL subpath component is"
@@ -123,8 +123,8 @@ class PackageUrlTypeDefinition(BaseModel):
         min_length=1,
         title="PURL examples",
     )
-    note: Optional[str] = Field(None, description="Note about this PURL type.", title="Note")
-    reference_urls: Optional[list[AnyUrl]] = Field(
+    note: str | None = Field(None, description="Note about this PURL type.", title="Note")
+    reference_urls: list[AnyUrl] | None = Field(
         None,
         description="Optional list of informational reference URLs about this PURL type.",
         title="Reference URLs",
@@ -140,7 +140,7 @@ class ProhibitedRequirement(RootModel[Literal["prohibited"]]):
 
 
 class PurlComponentDefinition(BaseModel):
-    permitted_characters: Optional[str] = Field(
+    permitted_characters: str | None = Field(
         None,
         description=(
             "A regular expression (ECMA-262 dialect) defining the 'Permitted characters' for this"
@@ -149,7 +149,7 @@ class PurlComponentDefinition(BaseModel):
         ),
         title="Permitted characters in this PURL component",
     )
-    case_sensitive: Optional[bool] = Field(
+    case_sensitive: bool | None = Field(
         True,
         description=(
             "true if this PURL component is case sensitive. If false, the canonical form shall be"
@@ -157,7 +157,7 @@ class PurlComponentDefinition(BaseModel):
         ),
         title="Case sensitive",
     )
-    normalization_rules: Optional[list[str]] = Field(
+    normalization_rules: list[str] | None = Field(
         None,
         description=(
             "List of rules to normalize this component for this PURL type. These are plain text,"
@@ -166,7 +166,7 @@ class PurlComponentDefinition(BaseModel):
         ),
         title="Normalization rules",
     )
-    native_name: Optional[str] = Field(
+    native_name: str | None = Field(
         None,
         description=(
             "The native name of this PURL component in the package ecosystem. For instance, the"
@@ -174,7 +174,26 @@ class PurlComponentDefinition(BaseModel):
         ),
         title="Native name",
     )
-    note: Optional[str] = Field(None, description="Extra note text.", title="Note")
+    note: str | None = Field(None, description="Extra note text.", title="Note")
+
+
+class NameDefinition(PurlComponentDefinition):
+    requirement: RequiredRequirement = Field(
+        ...,
+        description="States that the PURL name component is always required.",
+        title="Name component requirement",
+    )
+
+
+class NamespaceDefinition(PurlComponentDefinition):
+    requirement: OptionalRequirement | RequiredRequirement | ProhibitedRequirement = Field(
+        ...,
+        description=(
+            "States that the PURL namespace component is optional, required or prohibited for a"
+            " PURL type."
+        ),
+        title="Namespace requirement",
+    )
 
 
 class QualifiersDefinitionItem(BaseModel):
@@ -182,7 +201,7 @@ class QualifiersDefinitionItem(BaseModel):
         extra="forbid",
     )
     key: str = Field(..., description="The key for the qualifier.", title="Qualifier key")
-    requirement: Optional[Union[OptionalRequirement, RequiredRequirement]] = Field(
+    requirement: OptionalRequirement | RequiredRequirement | None = Field(
         None,
         description="States that a PURL qualifier key is optional or required for a PURL type.",
         title="Qualifier key requirement",
@@ -190,12 +209,12 @@ class QualifiersDefinitionItem(BaseModel):
     description: str = Field(
         ..., description="The description of this qualifier.", title="Description"
     )
-    default_value: Optional[str] = Field(
+    default_value: str | None = Field(
         None,
         description="The optional default value of this qualifier if not provided.",
         title="Default value",
     )
-    native_name: Optional[str] = Field(
+    native_name: str | None = Field(
         None, description="The equivalent native name for this qualifier key.", title="Native name"
     )
 
@@ -209,12 +228,12 @@ class Repository(BaseModel):
         description="true if this PURL type uses a public package repository.",
         title="Use repository",
     )
-    default_repository_url: Optional[AnyUrl] = Field(
+    default_repository_url: AnyUrl | None = Field(
         None,
         description="The default public repository URL for this PURL type",
         title="Default repository URL",
     )
-    note: Optional[str] = Field(None, description="Extra note text.", title="Note")
+    note: str | None = Field(None, description="Extra note text.", title="Note")
 
 
 class RequiredRequirement(RootModel[Literal["required"]]):
@@ -234,23 +253,4 @@ class SubpathDefinition(PurlComponentDefinition):
 class VersionDefinition(PurlComponentDefinition):
     requirement: OptionalRequirement = Field(
         ..., description="States that the PURL version is optional.", title="Version requirement"
-    )
-
-
-class NameDefinition(PurlComponentDefinition):
-    requirement: RequiredRequirement = Field(
-        ...,
-        description="States that the PURL name component is always required.",
-        title="Name component requirement",
-    )
-
-
-class NamespaceDefinition(PurlComponentDefinition):
-    requirement: Union[OptionalRequirement, RequiredRequirement, ProhibitedRequirement] = Field(
-        ...,
-        description=(
-            "States that the PURL namespace component is optional, required or prohibited for a"
-            " PURL type."
-        ),
-        title="Namespace requirement",
     )

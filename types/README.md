@@ -27,7 +27,7 @@ directory.
 
 ## PURL Type Tests
 Each JSON file in the `tests/types` directory is named `<purl-type>-test.json` and is required to follow the PURL Test schema located at:
-[`schemas/purl-test.schema-0.1.json`](https://github.com/package-url/purl-spec/blob/main/schemas/purl-test.schema-0.1.json).
+[`schemas/purl-test.schema-0.2.json`](https://github.com/package-url/purl-spec/blob/main/schemas/purl-test.schema-0.2.json).
 The goals for the PURL Test Schema are:
 - Consistency across PURL type tests.
 - Machine-readability for automation such that tools can all use the same set of tests.
@@ -35,7 +35,7 @@ The goals for the PURL Test Schema are:
   advanced processing including flexible parsing of invalid input PURLs.
 
 NB: The PURL Test schema is not currently included in the [ECMA-427](https://ecma-tc54.github.io/ECMA-427/) standard for Package-URL (PURL).
-It is version 0.1 and is currently pending some significant improvements. See the [**Upgrade PURL test suite** project](https://github.com/orgs/package-url/projects/10)
+It is version 0.2 and is currently pending some significant improvements. See the [**Upgrade PURL test suite** project](https://github.com/orgs/package-url/projects/10)
 for a list of issues and PRs.
 
 ## Contributions

@@ -1,18 +1,18 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.2.json",
   "tests": [
     {
       "description": "valid swift purl. Roundtrip an input purl to canonical.",
-      "test_group": "advanced",
-      "test_type": "roundtrip",
+      "test_group": "recommended",
+      "test_type": "validate",
       "input": "pkg:swift/github.com/Alamofire/Alamofire@5.4.3",
       "expected_output": "pkg:swift/github.com/Alamofire/Alamofire@5.4.3",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "valid swift purl",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:swift/github.com/Alamofire/Alamofire@5.4.3",
       "expected_output": {
@@ -24,20 +24,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "valid swift purl. Roundtrip a canonical input to canonical output.",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:swift/github.com/Alamofire/Alamofire@5.4.3",
       "expected_output": "pkg:swift/github.com/Alamofire/Alamofire@5.4.3",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "valid swift purl",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "swift",
@@ -49,29 +49,29 @@
       },
       "expected_output": "pkg:swift/github.com/Alamofire/Alamofire@5.4.3",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "invalid swift purl without namespace",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:swift/Alamofire@5.4.3",
       "expected_output": null,
       "expected_failure": true,
-      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+      "expected_message": "Should fail to parse a PURL from invalid purl input"
     },
     {
       "description": "invalid swift purl without namespace",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:swift/Alamofire@5.4.3",
       "expected_output": null,
       "expected_failure": true,
-      "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
+      "expected_message": "Should fail to parse a PURL from invalid canonical purl input"
     },
     {
       "description": "invalid swift purl without namespace",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "swift",
@@ -83,29 +83,29 @@
       },
       "expected_output": null,
       "expected_failure": true,
-      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+      "expected_message": "Should fail to build a PURL from invalid input components"
     },
     {
       "description": "invalid swift purl without name",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:swift/github.com/Alamofire/@5.4.3",
       "expected_output": null,
       "expected_failure": true,
-      "expected_failure_reason": "Should fail to parse a PURL from invalid purl input"
+      "expected_message": "Should fail to parse a PURL from invalid purl input"
     },
     {
       "description": "invalid swift purl without name",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:swift/github.com/Alamofire/@5.4.3",
       "expected_output": null,
       "expected_failure": true,
-      "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
+      "expected_message": "Should fail to parse a PURL from invalid canonical purl input"
     },
     {
       "description": "invalid swift purl without name",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "swift",
@@ -117,11 +117,11 @@
       },
       "expected_output": null,
       "expected_failure": true,
-      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+      "expected_message": "Should fail to build a PURL from invalid input components"
     },
     {
       "description": "Parse test for PURL type: swift",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:swift/github.com/Alamofire/Alamofire@5.4.3",
       "expected_output": {
@@ -133,20 +133,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for PURL type: swift",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:swift/github.com/Alamofire/Alamofire@5.4.3",
       "expected_output": "pkg:swift/github.com/Alamofire/Alamofire@5.4.3",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test  for PURL type: swift",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "swift",
@@ -158,11 +158,11 @@
       },
       "expected_output": "pkg:swift/github.com/Alamofire/Alamofire@5.4.3",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Parse test for PURL type: swift",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "pkg:swift/github.com/RxSwiftCommunity/RxFlow@2.12.4",
       "expected_output": {
@@ -174,20 +174,20 @@
         "subpath": null
       },
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Roundtrip test for PURL type: swift",
-      "test_group": "base",
-      "test_type": "roundtrip",
+      "test_group": "required",
+      "test_type": "validate",
       "input": "pkg:swift/github.com/RxSwiftCommunity/RxFlow@2.12.4",
       "expected_output": "pkg:swift/github.com/RxSwiftCommunity/RxFlow@2.12.4",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     },
     {
       "description": "Build test  for PURL type: swift",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "build",
       "input": {
         "type": "swift",
@@ -199,7 +199,7 @@
       },
       "expected_output": "pkg:swift/github.com/RxSwiftCommunity/RxFlow@2.12.4",
       "expected_failure": false,
-      "expected_failure_reason": null
+      "expected_message": null
     }
   ]
 }
