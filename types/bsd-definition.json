@@ -1,0 +1,44 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/bsd-definition.json",
+  "type": "bsd",
+  "type_name": "BSD",
+  "description": "BSD Operating System variant packages, primarily focused on FreeBSD with extensibility for other BSD variants such as OpenBSD, DragonFly BSD. Note: since NetBSD's package manager is designed for cross-platform use, it should use its own dedicated PURL type.",
+  "repository": {
+    "use_repository": true,
+    "note": "The default repository is http://pkg.freebsd.org for FreeBSD. Other BSD variants may use different repositories as appropriate."
+  },
+  "namespace_definition": {
+    "native_name": "vendor",
+    "is_case_sensitve": false,
+    "note": "The namespace is the BSD variant name such as \"freebsd\", \"openbsd\", or \"dragonflybsd\". It is not case sensitive and must be lowercased.",
+    "requirement": "required"
+  },
+  "name_definition": {
+    "note": "The name is the package name and is case sensitive.",
+    "case_sensitive": true,
+    "native_name": "name"
+  },
+  "version_definition": {
+    "native_name": "version",
+    "note": "The version is the version of the package."
+  },
+  "qualifiers_definition": [
+    {
+      "key": "arch",
+      "description": "The target architecture for the package."
+    },
+    {
+      "key": "distro",
+      "description": "The BSD release version or distribution variant."
+    },
+    {
+      "key": "epoch",
+      "description": "The package epoch number used for version comparison when normal version ordering is insufficient."
+    }
+  ],
+  "examples": [
+    "pkg:bsd/freebsd/emacs@30.1_2?distro=14.3&epoch=3",
+    "pkg:bsd/freebsd/python311@3.11.13?distro=14.3"
+  ]
+}
