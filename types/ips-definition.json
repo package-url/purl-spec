@@ -1,0 +1,45 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/ips-definition.json",
+  "type": "ips",
+  "type_name": "IPS",
+  "description": "Image Packaging System (IPS) packages used in illumos and Solaris distributions.",
+  "repository": {
+    "use_repository": true,
+    "note": "There is no default package repository. The publisher in the namespace or a repository_url qualifier should be used to identify the source of the package."
+  },
+  "namespace_definition": {
+    "native_name": "publisher",
+    "requirement": "optional",
+    "case_sensitive": false,
+    "note": "The namespace is the IPS publisher name.",
+    "normalization_rules": [
+      "It is not case sensitive and must be lowercased."
+    ]
+  },
+  "name_definition": {
+    "native_name": "package name",
+    "requirement": "required",
+    "case_sensitive": false,
+    "note": "The name is the IPS package name. If the package name contains slashes, they must be percent-encoded as %2f.",
+    "normalization_rules": [
+      "It is not case sensitive and must be lowercased."
+    ]
+  },
+  "version_definition": {
+    "native_name": "version",
+    "requirement": "optional",
+    "note": "The version is the IPS package version FMRI component."
+  },
+  "qualifiers_definition": [
+    {
+      "key": "arch",
+      "description": "The CPU architecture of the package."
+    }
+  ],
+  "examples": [
+    "pkg:ips/openindiana.org/system%2flibrary@0.5.11,5.11-2023.0.0.20163:20230504T155427Z",
+    "pkg:ips/omnios/runtime%2fperl-532@5.32.1,5.11-151038.0:20210503T104523Z",
+    "pkg:ips/library%2fpython%2fnumpy@1.21.2,5.11-151038.0:20210503T104523Z"
+  ]
+}
