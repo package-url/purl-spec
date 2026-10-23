@@ -122,8 +122,9 @@ pkg:software-id/acmerobotics.org/foo/analytics-suite@5.2.1
 ```
 
 Each domain acts as a PURL registry that enforces uniqueness. The shared
-`packageurl.org` registry enforces uniqueness during the registration
-process, where each registration are files published at a `.well-known` URI.
+`packageurl.org` registry enforces uniqueness within its domain during 
+the registration process, where each registration is documented by 
+files published at a `.well-known` URI.
 
 #### Flexible namespacing
 
@@ -154,8 +155,8 @@ is a domain name makes it possible to discover and resolve software package
 PURLs at a domain address with:
 
 - A `.well-known/purl` [URI](https://en.wikipedia.org/wiki/Well-known_URI),
-  served at that domain and containing the definitions and references about the
-  PURLs defined at that domain, and a PURL catalog. This well-known URI will be
+  served at that domain and containing the definitions and references for the
+  PURLs defined at that domainYe and a PURL catalog. This well-known URI will be
   registered with [IANA](https://www.iana.org/assignments/well-known-uris).
 
 - The shared `packageurl.org` domain serving a `.well-known/purl` URI of
@@ -169,11 +170,11 @@ with `pkg:software-id/packageurl.org/` and also serve as an aggregator for
 other domains to make discovery easier with mirrored snapshots of their
 `./well-known/purl` PURL definitions and catalogs.
 
-The `packageurl.org` domain will support a simple process to register
-`software-id` PURL namespaces. The data of this PURL registry will be stored as
+The `packageurl.org` domain will support a simple process to register a
+'software-id' PURL `namespace`. The data in this PURL registry will be stored as
 JSON data files in a public git repository, and that data will be served
 directly from `packageurl.org/.well-known/purl`.
-That git repository is at https://github.com/package-url/purl-registry/
+The git repository is at https://github.com/package-url/purl-registry/
 
 ### PURL `qualifiers' component
 
