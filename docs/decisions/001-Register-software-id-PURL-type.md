@@ -91,7 +91,7 @@ component, but nothing special for the other PURL components.
 
 ### PURL `namespace` component
 
-The special requirements of the 'software-id PURL `type` are that:
+The special requirements of the 'software-id' PURL `type` are that:
 
 - The `namespace` component is required.
 - The first segment of the `namespace` component is required to be an
@@ -164,14 +164,14 @@ PURLs at a domain address with:
 
 - A `.well-known/purl` [URI](https://en.wikipedia.org/wiki/Well-known_URI),
   served at that domain and containing the definitions and references for the
-  PURLs defined at that domainYe and a PURL catalog. This well-known URI will be
-  registered with [IANA](https://www.iana.org/assignments/well-known-uris).
+  PURLs defined at that domain and a PURL catalog. This well-known URI will
+  be registered with [IANA](https://www.iana.org/assignments/well-known-uris).
 
 - The shared `packageurl.org` domain serving a `.well-known/purl` URI of
   registered PURL `namespaces` and providing a centralized registry for
   open source projects or other organizations that want to standardize their
-  PURLs without having to host their own `.well-known/purl` URI, either because
-  they do not control a domain or they prefer centralized registration.
+  PURLs without having to host their own `.well-known/purl` URI, either
+  because they do not control a domain or they prefer centralized registration.
 
 The `packageurl.org` domain will host the shared registry of PURLs prefixed
 with `pkg:software-id/packageurl.org/` and also serve as an aggregator for
@@ -179,12 +179,12 @@ other domains to make discovery easier with mirrored snapshots of their
 `./well-known/purl` PURL definitions and catalogs.
 
 The `packageurl.org` domain will support a simple process to register a
-'software-id' PURL `namespace`. The data in this PURL registry will be stored as
-JSON data files in a public git repository, and that data will be served
+'software-id' PURL `namespace`. The data in this PURL registry will be stored
+as JSON data files in a public git repository, and that data will be served
 directly from `packageurl.org/.well-known/purl`.
 The git repository is at https://github.com/package-url/purl-registry/
 
-### PURL `qualifiers' component
+### PURL `qualifiers` component
 
 Some `qualifier-keys` that will likely be useful for a 'software-id' PURL
 include:
@@ -236,7 +236,7 @@ These use cases are not suitable for 'software-id':
 The 'generic' PURL `type` is the current way to create a PURL for software
 without a registered PURL. Using the 'generic' `type` requires `qualifiers`
 for a download URL and it is too easy to create different PURLs for the same
-generic package. The 'generic' PURL `type` will remain as an option for use
+'generic' package. The 'generic' PURL `type` will remain as an option for use
 cases not covered by 'software-id' or other registered PURL `types`.
 
 ### Separate PURL `types` for commercial and open source software
@@ -299,8 +299,8 @@ be less confusing than acronyms like 'sid' or 'scid'.
 ### PURL discovery
 
 The PURL approach to discovering 'software-id' `types` is to use static files
-located at `.well-known/` location of the domain used as the first segment of
-that PURL. (Technically these files could be dynamically generated.)
+located at the `.well-known/` location of the domain used as the first segment
+of that PURL. (Technically these files could be dynamically generated.)
 
 ## More Information
 
