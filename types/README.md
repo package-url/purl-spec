@@ -49,6 +49,6 @@ Community contributions for PURL `type` definitions and tests are welcome.
   information for the new `type`. Please use the [Register new PURL type issue template.](https://github.com/package-url/purl-spec/blob/main/.github/ISSUE_TEMPLATE/Register%20new%20PURL%20type.md)
 - Changing an existing PURL `type` requires an issue to explain the change
   unless the change is a minor editorial correction. Please use the [Change
-  registerd PURL type template.](https://github.com/package-url/purl-spec/blob/main/.github/ISSUE_TEMPLATE/Change%20registered%20PURL%20type.md)
+  register PURL type template.](https://github.com/package-url/purl-spec/blob/main/.github/ISSUE_TEMPLATE/Change%20registered%20PURL%20type.md)
 - Registering a new PURL `type` or changing an existing PURL `type` also
   requires a pull request.
