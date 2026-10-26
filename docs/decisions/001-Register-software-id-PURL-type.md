@@ -13,7 +13,7 @@ software packages, particularly C/C++ packages and other standalone open
 source software that does not reside in an incorporated package registry and
 commercial or other software that is not distributed through a package manager
 or available with a currently registered PURL `type`. Until now the primary
-option for this type of software has been the `generic` PURL type which is
+option for this type of software has been the 'generic' PURL `type` which is
 highly problematic because arbitrary PURL component values make it
 hard to create identical or even similar PURLs for the same package
 independently.
@@ -31,10 +31,7 @@ from two use cases:
   Linux Kernel, some packages of the Apache Software Foundation, and a
   significant set of essential software that powers the modern internet.
 
-- Commercial or proprietary software including internal use only software.
-
-*Note: for the remainder of this document we use the simpler term "commercial"
-to reference "commercial" or other "proprietary" software.*
+- Commercial software including internal use only software.
 
 For these two use cases, there is eventually a much larger number of package
 naming authorities than with structured package ecosystems that we track as
@@ -55,6 +52,15 @@ Both use cases demand a decentralized, federated solution for software
 publishers to define their own PURLs consistently for use in their software
 supply chains without external dependencies on a centralized naming authority.
 
+### Terminology
+We use the following terminology in this document
+- "commercial" means commercial or other proprietary software.
+- "authority" means an organization (or person) that owns an internet domain
+  and uses the domain to define the first `namespace` segment for a
+  'software-id' PURL.
+- "publisher" means an organization, community or person who publishes or
+  distributes software.
+
 ## Solution
 
 The solution is to register a new PURL `type` named 'software-id' that uses
@@ -66,7 +72,7 @@ This PURL `type` covers:
 
 - *Standalone open source projects* (e.g., the Linux Kernel)
 - *Open source foundations* (e.g., the Apache Software Foundation)
-- *Commercial and proprietary software* (e.g., Acme Database Server)
+- *Commercial software* (e.g., Acme Database Server)
 - *Internally developed applications* not in a registered package type
 
 ### PURL Components for the 'software-id' `type`
@@ -80,14 +86,16 @@ This PURL `type` covers:
 | qualifiers | Optional    | Key-value pairs as defined in spec. |
 | subpath    | Optional    | Subpath as defined in spec.         |
 
+The 'software-id' PURL `type` has special requirements for the `namespace`
+component, but nothing special for the other PURL components.
 
 ### PURL `namespace` component
 
-The special characteristics of the 'software-id PURL `type` are that:
+The special requirements of the 'software-id' PURL `type` are that:
 
 - The `namespace` component is required.
 - The first segment of the `namespace` component is required to be an
-  internet domain which defines the **authority** for naming its own
+  internet domain which defines the authority for naming its own
   software.
 
 This domain/authority is responsible for the definition of additional
@@ -102,7 +110,7 @@ publisher name, business unit, or product line.
 
 The `packageurl.org` domain is a special domain to register PURLs for an
 organization, community or person that does not have or does not want to
-use their own domain **authority** for PURLs. It can also serve as an
+use their own domain authority for PURLs. It can also serve as an
 aggregator for 'software-id' PURLs.
 
 The definitions for the other PURL components are not special at the level of
@@ -122,18 +130,18 @@ pkg:software-id/acmerobotics.org/foo/analytics-suite@5.2.1
 ```
 
 Each domain acts as a PURL registry that enforces uniqueness. The shared
-`packageurl.org` registry enforces uniqueness within its domain during 
-the registration process, where each registration is documented by 
+`packageurl.org` registry enforces uniqueness within its domain during
+the registration process, where each registration is documented by
 files published at a `.well-known` URI.
 
 #### Flexible namespacing
 
 The PURL `namespace` component supports multiple slash-separated segments
-(with no specific limit) so that the **authority** for a 'software-id' PURL
+(with no specific limit) so that the authority for a 'software-id' PURL
 domain can document deep software naming hierarchies as needed. A `namespace`
 segment can be used to represent a project or team, a business unit or a
 product line, or any other organization element. The structure or hierarchy of
-these `namespace` segments is defined by the **authority** for this software.
+these `namespace` segments is defined by the authority for this software.
 
 The PURL `type` definition for 'software_id' does not prescribe the meaning of
 the `namespace` segments. These are determined (and optionally documented) at
@@ -156,14 +164,14 @@ PURLs at a domain address with:
 
 - A `.well-known/purl` [URI](https://en.wikipedia.org/wiki/Well-known_URI),
   served at that domain and containing the definitions and references for the
-  PURLs defined at that domainYe and a PURL catalog. This well-known URI will be
-  registered with [IANA](https://www.iana.org/assignments/well-known-uris).
+  PURLs defined at that domain and a PURL catalog. This well-known URI will
+  be registered with [IANA](https://www.iana.org/assignments/well-known-uris).
 
 - The shared `packageurl.org` domain serving a `.well-known/purl` URI of
   registered PURL `namespaces` and providing a centralized registry for
   open source projects or other organizations that want to standardize their
-  PURLs without having to host their own `.well-known/purl` URI, either because
-  they do not control a domain or they prefer centralized registration.
+  PURLs without having to host their own `.well-known/purl` URI, either
+  because they do not control a domain or they prefer centralized registration.
 
 The `packageurl.org` domain will host the shared registry of PURLs prefixed
 with `pkg:software-id/packageurl.org/` and also serve as an aggregator for
@@ -171,12 +179,12 @@ other domains to make discovery easier with mirrored snapshots of their
 `./well-known/purl` PURL definitions and catalogs.
 
 The `packageurl.org` domain will support a simple process to register a
-'software-id' PURL `namespace`. The data in this PURL registry will be stored as
-JSON data files in a public git repository, and that data will be served
+'software-id' PURL `namespace`. The data in this PURL registry will be stored
+as JSON data files in a public git repository, and that data will be served
 directly from `packageurl.org/.well-known/purl`.
 The git repository is at https://github.com/package-url/purl-registry/
 
-### PURL `qualifiers' component
+### PURL `qualifiers` component
 
 Some `qualifier-keys` that will likely be useful for a 'software-id' PURL
 include:
@@ -198,14 +206,14 @@ Some of the decision drivers beyond the [Context / Problem](#context--problem)
 section were:
 
 - A PURL should be obvious from observing the software. We do not have a
-  manifest or convention yet to make `software-id` self-documenting and
-  obvious, but the `software-id` PURL type reduces the search for a
+  manifest or convention yet to make 'software-id' self-documenting and
+  obvious, but the 'software-id' PURL `type` reduces the search for a
   valid PURL to the domain name or to the shared registry or both.
 
 - A preference for one solution to cover both commercial products and open
   source projects if possible. The reasons for this preference are simplicity
-  and the difficulty in some cases of distinguishing between commercial or
-  proprietary and open source software.
+  and the difficulty in some cases of distinguishing between commercial and
+  open source software.
 
 ## Non-goals
 
@@ -213,13 +221,13 @@ These use cases are not suitable for 'software-id':
 
 - Services: Not in scope. There is a separate discussion for a new 'service'
   PURL `type` for online APIs. The domain-based `namespace` structure from the
-  'software-id' PURL `type` may, however, be useful for a `service` PURL
+  'software-id' PURL `type` may, however, be useful for a 'service' PURL
   `type`.
 
-- Hardware: Not in scope. The 'software-id' and PURL in general may be used to
-  identify software embedded in devices, but it is not intended to describe a
-  hardware device or its components. There are already several well-known
-  identifiers for hardware artifacts such as [GTIN](https://www.gs1.org/standards/id-keys/gtin)
+- Hardware: Not in scope. The 'software-id' PURL and PURL in general may be
+  used to identify software embedded in devices, but it is not intended to
+  describe a hardware device or its components. There are already several
+  well-known identifiers for hardware artifacts such as [GTIN](https://www.gs1.org/standards/id-keys/gtin).
 
 ## Alternatives Considered
 
@@ -228,7 +236,7 @@ These use cases are not suitable for 'software-id':
 The 'generic' PURL `type` is the current way to create a PURL for software
 without a registered PURL. Using the 'generic' `type` requires `qualifiers`
 for a download URL and it is too easy to create different PURLs for the same
-generic package. The 'generic' PURL `type` will remain as an option for use
+'generic' package. The 'generic' PURL `type` will remain as an option for use
 cases not covered by 'software-id' or other registered PURL `types`.
 
 ### Separate PURL `types` for commercial and open source software
@@ -244,7 +252,7 @@ The community conclusions were that:
 - Defining standard rules for `namespace` or `qualifiers` for all commercial
   publishers is unrealistic, and
 
-- Offering flexibility for each publisher (e.g., the **authority** or domain
+- Offering flexibility for each publisher (e.g., the authority or domain
   in the 'software-id' `type`) to define its own `namespace` segments and
   `qualifiers` was more practical.
 
@@ -264,7 +272,7 @@ This decision is pending final approval by TC54/TG2.
 
 ### Community Discussion References
 
-The community discussion of this proposed PURL `type` started in July, 2025
+The community discussion of this proposed PURL `type` started in July 2025
 and has been well-documented in the following issues in the `purl-spec`
 repository:
 
@@ -274,8 +282,8 @@ repository:
 - [Consider alternative names for new scid PURL type](https://github.com/package-url/purl-spec/issues/835)
 - [Register new PURL type: sid for packages that do not have a registry](https://github.com/package-url/purl-spec/issues/837)
 
-There also an "omnibus" discussion thread that summarizes the commentary from
-the issues by topic and contains additional commentary:
+There is also an "omnibus" discussion thread that summarizes the commentary
+from the issues by topic and contains additional commentary:
 [Design for new PURL type: 'software-id'](https://github.com/package-url/purl-spec/discussions/841)
 
 ### 'software-id' `type` name
@@ -291,8 +299,8 @@ be less confusing than acronyms like 'sid' or 'scid'.
 ### PURL discovery
 
 The PURL approach to discovering 'software-id' `types` is to use static files
-located at `.well-known/` location of the domain used as the first segment of
-that PURL. (Technically these files could be dynamically generated.)
+located at the `.well-known/` location of the domain used as the first segment
+of that PURL. (Technically these files could be dynamically generated.)
 
 ## More Information
 
@@ -326,7 +334,7 @@ can be adopted more easily by the ecosystem that currently rely on CPE names.
 | `target_sw`  | qualifier-key: 'target'      | Target environment (e.g., 'java', 'windows')  |
 | `target_hw`  | qualifier-key: 'arch'        | CPU architecture (e.g., 'x86_64', 'arm64')    |
 
-'software-id' PURLs maps tpCPE parts `a` (application) and `o` (operating
+'software-id' PURLs maps to CPE parts `a` (application) and `o` (operating
 system). Hardware identification (CPE part `h`) is out of scope.
 
 ### SWID
