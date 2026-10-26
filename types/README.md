@@ -25,7 +25,7 @@ the current standard PURL Type Definition Schema. The goals are:
 There are two other places in this repository with important PURL type data:
 - [**purl-types-index.json**](https://github.com/package-url/purl-spec/blob/main/purl-types-index.json): a simple index of registered PURL types.
 - PURL type-specific tests. These test files are in the [`tests/types`](https://github.com/package-url/purl-spec/tree/main/tests/types)
-directory.
+  directory.
 
 ## PURL Type Tests
 Each JSON file in the `tests/types` directory is named `<purl-type>-test.json` and is required to follow the PURL Test schema located at:
