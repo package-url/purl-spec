@@ -1,6 +1,6 @@
 {
   "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
-  "$id": "https://packageurl.org/types/vscode-extension-definition.json",
+  "$id": "https://packageurl.org/purl-types/vscode-extension-definition.json",
   "type": "vscode-extension",
   "type_name": "VS Code Extension packages",
   "description": "VS Code Extension packages",

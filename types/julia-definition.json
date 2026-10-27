@@ -1,6 +1,6 @@
 {
   "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
-  "$id": "https://packageurl.org/types/julia-definition.json",
+  "$id": "https://packageurl.org/purl-types/julia-definition.json",
   "type": "julia",
   "type_name": "Julia Package",
   "description": "Julia packages",
