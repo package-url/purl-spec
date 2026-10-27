@@ -1,0 +1,52 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "Rountrip test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:bsd/freebsd/emacs@30.1_2?distro=14.3&epoch=3",
+      "expected_output": "pkg:bsd/freebsd/emacs@30.1_2?distro=14.3&epoch=3",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "bsd",
+        "namespace": "freebsd",
+        "name": "emacs",
+        "version": "30.1_2",
+        "qualifiers": {
+          "distro": "14.3",
+          "epoch": 3
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:bsd/freebsd/emacs@30.1_2?distro=14.3&epoch=3",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:bsd/freebsd/emacs@30.1_2?distro=14.3&epoch=3",
+      "expected_output": {
+        "type": "bsd",
+        "namespace": "freebsd",
+        "name": "emacs",
+        "version": "30.1_2",
+        "qualifiers": {
+          "distro": "14.3",
+          "epoch": 3
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}
