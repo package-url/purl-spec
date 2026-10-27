@@ -11,7 +11,7 @@
   "namespace_definition": {
     "native_name": "vendor",
     "is_case_sensitve": false,
-    "note": "The namespace is the BSD variant name such as \"freebsd\", \"openbsd\", or \"dragonflybsd\". It is not case sensitive and must be lowercased.",
+    "note": "The namespace is the BSD variant name such as \"freebsd\", \"openbsd\", or \"dragonflybsd\". It is not case sensitive. The valid form is lowercase.",
     "requirement": "required"
   },
   "name_definition": {
