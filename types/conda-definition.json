@@ -1,6 +1,6 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
-  "$id": "https://packageurl.org/types/conda-definition.json",
+  "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
+  "$id": "https://packageurl.org/purl-types/conda-definition.json",
   "type": "conda",
   "type_name": "Conda",
   "description": "conda is for Conda packages",

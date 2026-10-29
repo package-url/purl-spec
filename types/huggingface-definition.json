@@ -1,6 +1,6 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
-  "$id": "https://packageurl.org/types/huggingfaces-definition.json",
+  "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
+  "$id": "https://packageurl.org/purl-types/huggingfaces-definition.json",
   "type": "huggingface",
   "type_name": "HuggingFace models",
   "description": "Hugging Face ML models",

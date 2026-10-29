@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Vcpkg C/C++ packages
 - **Description:** Packages from the vcpkg C/C++ package manager.
-- **Schema ID:** `https://packageurl.org/types/vcpkg-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/vcpkg-definition.json`
 
 ## PURL Syntax
 
@@ -42,6 +42,7 @@ The structure of a PURL for this package type is:
 | port_version | Optional | port_version |  | The vcpkg [port-version](https://learn.microsoft.com/vcpkg/reference/vcpkg-json#port-version). If omitted, the purl refers to port-version 0. |
 | repository_revision | Optional | repository_revision |  | The full 40-character commit hash of the vcpkg registry baseline. For git registries this is the `baseline` field in `vcpkg-configuration.json`. A baseline fixes the state of the whole registry rather than a single port, and the same port version can be reached from many baselines, so the exact port recipe is pinned by the `vcs_url` git-tree instead. If omitted, the purl refers to the latest revision available. |
 | triplet | Optional | triplet |  | The vcpkg [triplet](https://learn.microsoft.com/vcpkg/concepts/triplets) describing the target build configuration (architecture, operating system, and CRT/library linkage), for example `x64-windows` or `arm64-osx`. It describes the build target and does not affect package identity. |
+| vcs_url | Optional |  |  | The `vcs_url` common qualifier carries the port's version-control URL in pip VCS form, for example `git+https://github.com/microsoft/vcpkg@<git-tree>`. Its git-tree pins the exact port recipe. |
 
 ## Examples
 

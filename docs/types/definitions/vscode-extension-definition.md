@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** VS Code Extension packages
 - **Description:** VS Code Extension packages
-- **Schema ID:** `https://packageurl.org/types/vscode-extension-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/vscode-extension-definition.json`
 
 ## PURL Syntax
 
