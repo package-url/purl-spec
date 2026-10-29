@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Julia Package
 - **Description:** Julia packages
-- **Schema ID:** `https://packageurl.org/types/julia-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/julia-definition.json`
 
 ## PURL Syntax
 

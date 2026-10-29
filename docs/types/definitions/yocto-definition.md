@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Yocto Project
 - **Description:** Yocto Project recipes
-- **Schema ID:** `https://packageurl.org/types/yocto-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/yocto-definition.json`
 
 ## PURL Syntax
 

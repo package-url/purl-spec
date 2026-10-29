@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Haskell package
 - **Description:** Haskell packages
-- **Schema ID:** `https://packageurl.org/types/hackage-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/hackage-definition.json`
 
 ## PURL Syntax
 

@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Go package
 - **Description:** Go packages
-- **Schema ID:** `https://packageurl.org/types/golang-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/golang-definition.json`
 
 ## PURL Syntax
 
