@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** GitHub
 - **Description:** GitHub-based packages
-- **Schema ID:** `https://packageurl.org/types/github-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/github-definition.json`
 
 ## PURL Syntax
 
@@ -22,19 +22,19 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Native Label:** user or organization
-- **Note:** `The namespace is the user or organization. It is not case sensitive and shall be lowercased.`
+- **Note:** The namespace is the user or organization. It is not case sensitive and shall be lowercased.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Native Label:** repository name
-- **Note:** `The name is the repository name. It is not case sensitive and shall be lowercased.`
+- **Note:** The name is the repository name. It is not case sensitive and shall be lowercased.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** commit or tag
-- **Note:** `The version is a commit or tag.`
+- **Note:** The version is a commit or tag.
 
 ## Examples
 

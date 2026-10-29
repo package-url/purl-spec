@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** QNX package
 - **Description:** QNX packages
-- **Schema ID:** `https://packageurl.org/types/qpkg-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/qpkg-definition.json`
 
 ## PURL Syntax
 
@@ -22,7 +22,7 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Native Label:** vendor
-- **Note:** `The namespace is the vendor of the package. It is not case sensitive and shall be lowercased.`
+- **Note:** The namespace is the vendor of the package. It is not case sensitive and shall be lowercased.
 
 ## Name definition
 

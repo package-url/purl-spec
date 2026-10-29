@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** HuggingFace models
 - **Description:** Hugging Face packages, including models, datasets, and spaces
-- **Schema ID:** `https://packageurl.org/types/huggingfaces-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/huggingfaces-definition.json`
 
 ## PURL Syntax
 
@@ -23,21 +23,21 @@ The structure of a PURL for this package type is:
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** repository username or organization
-- **Note:** `The namespace is the repository username or organization, if present. It is case sensitive.`
+- **Note:** The namespace is the repository username or organization, if present. It is case sensitive.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** repository name
-- **Note:** `The name is the repository name. It is case sensitive.`
+- **Note:** The name is the repository name. It is case sensitive.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Case Sensitive:** Yes
 - **Native Label:** revision Git commit hash or tag
-- **Note:** `The version is a revision Git commit hash or tag. Tags are case sensitive and must be preserved as-is. Commit hashes are hexadecimal and shall be lowercased in the package URL.`
+- **Note:** The version is a revision Git commit hash or tag. Tags are case sensitive and must be preserved as-is. Commit hashes are hexadecimal and shall be lowercased in the package URL.
 
 ## Qualifiers Definition
 

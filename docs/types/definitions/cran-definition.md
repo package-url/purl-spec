@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** CRAN
 - **Description:** CRAN R packages
-- **Schema ID:** `https://packageurl.org/types/cran-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/cran-definition.json`
 
 ## PURL Syntax
 
@@ -21,20 +21,20 @@ The structure of a PURL for this package type is:
 ## Namespace definition
 
 - **Requirement:** Prohibited
-- **Note:** `there is no namespace`
+- **Note:** there is no namespace
 
 ## Name definition
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** name
-- **Note:** `The name is the package name and is case sensitive, but there cannot be two packages on CRAN with the same name ignoring case.`
+- **Note:** The name is the package name and is case sensitive, but there cannot be two packages on CRAN with the same name ignoring case.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** version
-- **Note:** `The version is the package version.`
+- **Note:** The version is the package version.
 
 ## Examples
 

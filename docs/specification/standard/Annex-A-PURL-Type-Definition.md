@@ -2,12 +2,12 @@
 This Annex provides a copy of the current Package-URL Type Definition Schema.
 The format is JSON Schema version draft-07.
 
-The schema shown below is available in electronic form at: https://github.com/package-url/purl-spec/blob/main/schemas/purl-type-definition.schema.json
+The schema shown below is available in electronic form at: https://github.com/package-url/purl-spec/blob/main/schemas/purl-type-definition.schema-1.1.json
 
 ~~~
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/schemas/purl-type-definition.schema-1.1.json",
   "title": "Package-URL Type Definition",
   "description": "Schema to specify a Package-URL (PURL) type as a structured definition.",
   "type": "object",
@@ -44,7 +44,7 @@ The schema shown below is available in electronic form at: https://github.com/pa
         },
         "case_sensitive": {
           "title": "Case sensitive",
-          "description": "true if this PURL component is case sensitive. If false, the canonical form shall be lowercased.",
+          "description": "true if this PURL component is case sensitive. If false, the form shall be lowercase.",
           "type": "boolean",
           "default": true
         },
@@ -306,7 +306,7 @@ The schema shown below is available in electronic form at: https://github.com/pa
     },
     "examples": {
       "title": "PURL examples",
-      "description": "Example of valid, canonical PURLs for this package type.",
+      "description": "Example of valid PURLs for this package type.",
       "type": "array",
       "uniqueItems": true,
       "minItems": 1,

@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** OCI image
 - **Description:** For artifacts stored in registries that conform to the OCI Distribution Specification https://github.com/opencontainers/distribution-spec including container images built by Docker and others
-- **Schema ID:** `https://packageurl.org/types/oci-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/oci-definition.json`
 
 ## PURL Syntax
 
@@ -21,17 +21,17 @@ The structure of a PURL for this package type is:
 ## Namespace definition
 
 - **Requirement:** Prohibited
-- **Note:** `OCI purls do not contain a namespace, although, repository_url may contain a namespace as part of the physical location of the package.`
+- **Note:** OCI purls do not contain a namespace, although, repository_url may contain a namespace as part of the physical location of the package.
 
 ## Name definition
 
 - **Requirement:** Required
-- **Note:** `The name is not case sensitive and shall be lowercased. The name is the last fragment of the repository name. For example if the repository name is library/debian then the name is debian.`
+- **Note:** The name is not case sensitive and shall be lowercased. The name is the last fragment of the repository name. For example if the repository name is library/debian then the name is debian.
 
 ## Version definition
 
 - **Requirement:** Optional
-- **Note:** `The version is the sha256:hex_encoded_lowercase_digest of the artifact and is required to uniquely identify the artifact.`
+- **Note:** The version is the sha256:hex_encoded_lowercase_digest of the artifact and is required to uniquely identify the artifact.
 
 ## Qualifiers Definition
 

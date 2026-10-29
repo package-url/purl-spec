@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Conan C/C++ packages
 - **Description:** Conan C/C++ packages. The purl is designed to closely resemble the Conan-native <package-name>/<package-version>@<user>/<channel> syntax for package references as specified in https://docs.conan.io/en/1.46/cheatsheet.html#package-terminology
-- **Schema ID:** `https://packageurl.org/types/conan-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/conan-definition.json`
 
 ## PURL Syntax
 
@@ -22,19 +22,19 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Optional
 - **Native Label:** vendor
-- **Note:** `The vendor of the package.`
+- **Note:** The vendor of the package.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Native Label:** package-name
-- **Note:** `The Conan <package-name>.`
+- **Note:** The Conan <package-name>.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** package-version
-- **Note:** `The Conan <package-version>.`
+- **Note:** The Conan <package-version>.
 
 ## Qualifiers Definition
 

@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Cargo
 - **Description:** Cargo packages for Rust
-- **Schema ID:** `https://packageurl.org/types/cargo-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/cargo-definition.json`
 
 ## PURL Syntax
 
@@ -21,20 +21,20 @@ The structure of a PURL for this package type is:
 ## Namespace definition
 
 - **Requirement:** Prohibited
-- **Note:** `there is no namespace`
+- **Note:** there is no namespace
 
 ## Name definition
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** name
-- **Note:** `The name is the repository name.`
+- **Note:** The name is the repository name.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** version
-- **Note:** `The version is the package version.`
+- **Note:** The version is the package version.
 
 ## Examples
 

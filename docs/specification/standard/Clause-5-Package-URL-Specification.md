@@ -1,11 +1,4 @@
----
-id: specification
-title: Core Specification
-sidebar_label: Core Specification
-hide_table_of_contents: false
----
-
-# Core Specification
+# 5 Package-URL specification
 
 PURL stands for **Package-URL**.
 
@@ -48,7 +41,7 @@ to a **type**.
     pkg:npm/foobar@12.3.1
 
 
-## A PURL is a URL
+## 5.1 A PURL is a URL
 
 - A PURL is a valid URL and URI that conforms to the URL definitions or
   specifications at:
@@ -57,10 +50,6 @@ to a **type**.
   - https://en.wikipedia.org/wiki/URL#Syntax
   - https://en.wikipedia.org/wiki/Uniform_Resource_Identifier#Syntax
   - https://url.spec.whatwg.org/
-
-- A PURL is a valid URL because it is a locator even though it has no 
-  Authority URL component: a default repository location may be defined for a 
-  PURL type.
 
 - The PURL components are mapped to these URL components:
 
@@ -78,26 +67,33 @@ to a **type**.
   scheme. They may be used to reference URLs in separate attributes outside of
   a PURL or in a PURL qualifier.
 
-- Version control system (VCS) URLs such **git://**, **svn://**, **hg://** or
+- Version control system (VCS) URLs such as **git://**, **svn://**, **hg://** or
   as defined in Python pip or SPDX download locations are not valid PURL
   types. They are valid URL or URI schemes but they are not a valid PURL
   scheme. They are a closely related, compact and uniform way to reference VCS
   URLs. They may be used as references in separate attributes outside of a
   PURL or in a PURL qualifier.
 
-## Permitted characters
+- A PURL should be a locator based on three paths to specify or derive a URL:
+  - A default repository location should be defined for a PURL **type**.
+  - A repository URL or a download URL may be defined as a **qualifier** for a
+    PURL **type**.
+  - A package ecosystem may provide a mechanism to derive the locator based on
+    a set of PURL components.
 
-A canonical PURL is composed of these permitted ASCII characters:
+## 5.2 Permitted characters
 
-- the Alphanumeric Characters: **A to Z**, **a to z**, **0 to 9**,
-- the Punctuation Characters: **.-_~** (period '.'
-  dash '-', underscore '_' and tilde '~')
+A valid PURL is composed of these permitted ASCII characters:
+
+- the Alphanumeric Characters: **A to Z**, **a to z**, **0 to 9**
+- the Punctuation Characters: **.-_~** (period '.',
+  dash '-', underscore '_', and tilde '~')
 - the Percent Character: **%** (percent sign '%')
 - the Separator Characters **:/@?=&#** (colon ':', slash '/', at sign '@',
-  question mark '?', equal sign '=', ampersand '&' and hash sign '#')
+  question mark '?', equal sign '=', ampersand '&', and hash sign '#')
 
 
-## Separator characters
+## 5.3 Separator characters
 
 This is how each of the Separator Characters is used:
 
@@ -112,17 +108,15 @@ This is how each of the Separator Characters is used:
   **key=value** pair)
 - '#' (hash sign) is the separator before **subpath**
 
-## Character encoding
+## 5.4 Character encoding
 
 - In the "Rules for each PURL component" clause, each component
   defines when and how to apply percent-encoding and decoding to its content.
 - When percent-encoding is required by a component definition, the component
-  string shall first be encoded as UTF-8.
+  string shall first be encoded as UTF-8 per [RFC 3629](https://datatracker.ietf.org/doc/html/rfc3629).
 - In the component string, each "data octet" shall be replaced by the
   percent-encoded "character triplet" applying the percent-encoding mechanism
-  defined in [RFC 3986 section 2.1](https://datatracker.ietf.org/doc/html/rfc3986#section-2.1),
-  including the RFC definition of "data octet" and "character triplet",
-  and using these definitions for RFC's "allowed set" and "delimiters":
+  defined in [RFC 3986 section 2.1](https://datatracker.ietf.org/doc/html/rfc3986#section-2.1), including the RFC definition of "data octet" and "character triplet", and using these definitions for RFC's "allowed set" and "delimiters":
 
   - "allowed set" is composed of the Alphanumeric Characters and the
     Punctuation Characters
@@ -140,7 +134,7 @@ This is how each of the Separator Characters is used:
 - With the exception of the percent-encoding mechanism, the rules regarding
   percent-encoding are defined by this Standard alone.
 
-## Case folding
+## 5.5 Case folding
 
 References to "lowercase" in this Standard refer to the
 **culture-invariant** full case mapping defined in
@@ -151,7 +145,7 @@ Latin letters (**A to Z**) to their corresponding lowercase forms
 (**a to z**).
 All other ASCII characters remain unchanged.
 
-## Rules for each PURL component
+## 5.6 Rules for each PURL component
 
 A PURL string is an ASCII URL string composed of seven components.
 
@@ -165,27 +159,27 @@ The "lowercase" rules are defined in the Case folding clause.
 
 The rules for each component are:
 
-### Scheme
+### 5.6.1 Scheme
 - The **scheme** is a constant with the value "pkg".
 - The **scheme** shall be followed by an unencoded colon ':'.
-- PURL parsers should accept URLs where the **scheme** and colon ':' are 
+- PURL parsers should accept URLs where the **scheme** and colon ':' are
 followed by one or more slash '/' characters, such as 'pkg://', and should
 ignore and remove all such '/' characters.
 
-### Type
+### 5.6.2 Type
 - The package **type** shall be composed only of ASCII letters and numbers,
   period '.', and dash '-'.
 - The **type** shall start with an ASCII letter.
 - The **type** shall not be percent-encoded.
-- The **type** is case insensitive. The canonical form is lowercase.
+- The **type** is case insensitive. The form is lowercase.
 
-### Namespace
+### 5.6.3 Namespace
 - The **namespace** is optional, unless required by the package's **type**
   definition.
 - If present, the **namespace** may contain one or more segments, separated by
    a single unencoded slash '/' character.
 - All leading and trailing slashes '/' are not significant and should be
-  stripped in the canonical form. They are not part of the **namespace**.
+  stripped. They are not part of the **namespace**.
 - Each **namespace** segment shall be a percent-encoded string.
 - When percent-decoded, a segment:
     - shall not contain any slash '/' characters
@@ -196,16 +190,16 @@ ignore and remove all such '/' characters.
   **repository_url** qualifier. Note however, that for some types, the
   **namespace** may look like a host.
 
-### Name
+### 5.6.4 Name
 - The **name** is prefixed by a single slash '/' separator when the
   **namespace** is not empty.
 - All leading and trailing slashes '/' are not significant and should be
-  stripped in the canonical form. They are not part of the **name**.
+  stripped. They are not part of the **name**.
 - A **name** shall be a percent-encoded string.
 - When percent-decoded, a **name** may contain any Unicode character unless
   the package's **type** definition further restricts the allowed characters.
 
-### Version
+### 5.6.5 Version
 - The **version** is prefixed by a '@' separator when not empty.
 - This '@' is not part of the **version**.
 - A **version** shall be a percent-encoded string.
@@ -214,7 +208,7 @@ ignore and remove all such '/' characters.
   characters.
 - A **version** is a plain and opaque string.
 
-### Qualifiers
+### 5.6.6 Qualifiers
 - The **qualifiers** component shall be prefixed by an unencoded question mark
   '?' separator when not empty. This '?' separator is not part of the
 **qualifiers** component.
@@ -235,13 +229,12 @@ ignore and remove all such '/' characters.
     - A **value** may contain any Unicode character and all characters shall
       be encoded as described in the _Character encoding_ clause.
 
-### Subpath
+### 5.6.7 Subpath
 - The **subpath** string is prefixed by a '#' separator when not empty.
 - The '#' is not part of the **subpath**.
 - If present, the **subpath** may contain one or more segments, each
   separated by a single unencoded slash '/' character.
-- Leading and trailing slashes '/' are not significant and should be stripped
-  in the canonical form.
+- Leading and trailing slashes '/' are not significant and should be stripped.
 - Each **subpath** segment shall be a percent-encoded string
 - When percent-decoded, a segment:
     - shall not contain any slash '/' characters
@@ -250,3 +243,28 @@ ignore and remove all such '/' characters.
     - may contain any Unicode character other than '/' unless the package's
       **type** definition further restricts the allowed characters.
 - The **subpath** shall be interpreted as relative to the root of the package.
+
+## 5.7 PURL type definitions
+This Standard includes the Package-URL Type Definition Schema but it does not
+include the set of current "registered" PURL **type** (JSON format) definition
+files because there are ongoing additions and changes to these files. The set
+of current "registered" PURL **type** definition files are located at: https://www.packageurl.org/purl-types/.
+Registration refers to the Package-URL community process for adding a new PURL **type**.
+
+There are two rules related to the set of registered PURL **type** definitions
+for conforming PURL implementations to validate the PURL **type** component of
+a PURL:
+- If the PURL **type** is registered, then the PURL is invalid if it does not
+  conform to all of the rules from the corresponding PURL **type** definition.
+- If the PURL **type** is not registered, then the **type** component is valid
+  if it conforms to the rules stated in the _Type_ component rules in this
+  Clause of the Standard. In this case an implementation should report a
+  warning that the PURL **type** is not registered.
+
+
+
+
+
+
+
+

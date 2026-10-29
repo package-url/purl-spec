@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** NuGet
 - **Description:** NuGet .NET packages
-- **Schema ID:** `https://packageurl.org/types/nuget-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/nuget-definition.json`
 
 ## PURL Syntax
 
@@ -21,20 +21,20 @@ The structure of a PURL for this package type is:
 ## Namespace definition
 
 - **Requirement:** Prohibited
-- **Note:** `there is no namespace`
+- **Note:** there is no namespace
 
 ## Name definition
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** version
-- **Note:** `Technically the name is case-preserving, but case-insensitive, and NuGet packages archives are case-preserving, while some NuGet API calls demand to lowercase the package name.`
+- **Note:** Technically the name is case-preserving, but case-insensitive, and NuGet packages archives are case-preserving, while some NuGet API calls demand to lowercase the package name.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** version
-- **Note:** `The NuGet version is semver-like but may contain more than three segments`
+- **Note:** The NuGet version is semver-like but may contain more than three segments
 
 ## Examples
 
