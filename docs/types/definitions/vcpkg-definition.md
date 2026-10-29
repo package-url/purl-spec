@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Vcpkg C/C++ packages
 - **Description:** Packages from the vcpkg C/C++ package manager.
-- **Schema ID:** `https://packageurl.org/types/vcpkg-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/vcpkg-definition.json`
 
 ## PURL Syntax
 

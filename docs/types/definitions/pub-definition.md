@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Pub
 - **Description:** Dart and Flutter pub packages
-- **Schema ID:** `https://packageurl.org/types/pub-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/pub-definition.json`
 
 ## PURL Syntax
 
