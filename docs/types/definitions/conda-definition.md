@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Conda
 - **Description:** conda is for Conda packages
-- **Schema ID:** `https://packageurl.org/types/conda-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/conda-definition.json`
 
 ## PURL Syntax
 

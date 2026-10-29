@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Cargo
 - **Description:** Cargo packages for Rust
-- **Schema ID:** `https://packageurl.org/types/cargo-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/cargo-definition.json`
 
 ## PURL Syntax
 

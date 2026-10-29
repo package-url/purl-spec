@@ -1,6 +1,6 @@
 {
   "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
-  "$id": "https://packageurl.org/types/hex-definition.json",
+  "$id": "https://packageurl.org/purl-types/hex-definition.json",
   "type": "hex",
   "type_name": "Hex",
   "description": "Hex packages",

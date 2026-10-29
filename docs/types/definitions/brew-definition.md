@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Homebrew
 - **Description:** Homebrew packages for macOS and Linux
-- **Schema ID:** `https://packageurl.org/types/brew-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/brew-definition.json`
 
 ## PURL Syntax
 

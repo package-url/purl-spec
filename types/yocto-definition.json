@@ -1,6 +1,6 @@
 {
   "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
-  "$id": "https://packageurl.org/types/yocto-definition.json",
+  "$id": "https://packageurl.org/purl-types/yocto-definition.json",
   "type": "yocto",
   "type_name": "Yocto Project",
   "description": "Yocto Project recipes",

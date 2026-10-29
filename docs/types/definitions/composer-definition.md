@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Composer
 - **Description:** Composer PHP packages
-- **Schema ID:** `https://packageurl.org/types/composer-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/composer-definition.json`
 
 ## PURL Syntax
 

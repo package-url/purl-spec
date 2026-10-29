@@ -1,6 +1,6 @@
 {
   "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
-  "$id": "https://packageurl.org/types/composer-definition.json",
+  "$id": "https://packageurl.org/purl-types/composer-definition.json",
   "type": "composer",
   "type_name": "Composer",
   "description": "Composer PHP packages",

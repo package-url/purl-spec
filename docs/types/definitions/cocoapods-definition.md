@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** CocoaPods
 - **Description:** CocoaPods pods
-- **Schema ID:** `https://packageurl.org/types/cocoapods-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/cocoapods-definition.json`
 
 ## PURL Syntax
 

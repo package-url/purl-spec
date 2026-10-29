@@ -1,6 +1,6 @@
 {
   "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
-  "$id": "https://packageurl.org/types/bazel-definition.json",
+  "$id": "https://packageurl.org/purl-types/bazel-definition.json",
   "type": "bazel",
   "type_name": "Bazel modules",
   "description": "Bazel modules as specified at https://bazel.build/external/module",

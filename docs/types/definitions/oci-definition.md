@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** OCI image
 - **Description:** For artifacts stored in registries that conform to the OCI Distribution Specification https://github.com/opencontainers/distribution-spec including container images built by Docker and others
-- **Schema ID:** `https://packageurl.org/types/oci-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/oci-definition.json`
 
 ## PURL Syntax
 

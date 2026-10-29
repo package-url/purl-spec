@@ -1,6 +1,6 @@
 {
   "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
-  "$id": "https://packageurl.org/types/generic-definition.json",
+  "$id": "https://packageurl.org/purl-types/generic-definition.json",
   "type": "generic",
   "type_name": "Generic Package",
   "description": "The generic type is for plain, generic packages that do not fit anywhere else such as for \"upstream-from-distro\" packages. In particular this is handy for a plain version control repository such as a bare git repo in combination with a vcs_url.",
