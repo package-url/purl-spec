@@ -1,6 +1,6 @@
 {
   "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
-  "$id": "https://packageurl.org/types/vcpkg-definition.json",
+  "$id": "https://packageurl.org/purl-types/vcpkg-definition.json",
   "type": "vcpkg",
   "type_name": "Vcpkg C/C++ packages",
   "description": "Packages from the vcpkg C/C++ package manager.",

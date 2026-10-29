@@ -43,7 +43,7 @@
         },
         "case_sensitive": {
           "title": "Case sensitive",
-          "description": "true if this PURL component is case sensitive. If false, the form shall be lowercased.",
+          "description": "true if this PURL component is case sensitive. If false, the valid form is lowercase.",
           "type": "boolean",
           "default": true
         },

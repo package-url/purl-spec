@@ -1,6 +1,6 @@
 {
   "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
-  "$id": "https://packageurl.org/types/swift-definition.json",
+  "$id": "https://packageurl.org/purl-types/swift-definition.json",
   "type": "swift",
   "type_name": "Swift packages",
   "description": "Swift packages",
