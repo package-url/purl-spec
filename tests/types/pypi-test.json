@@ -311,15 +311,6 @@
       "expected_output": "pkg:pypi/my-pypi-package@1.11.1.dev1",
       "expected_failure": false,
       "expected_message": "Applied normalization_rules to convert input string to valid form."
-    },
-    {
-      "description": "pypi names have normalization rules.",
-      "test_group": "required",
-      "test_type": "validate",
-      "input": "pkg:pypi/my-pypi-package@1.11.1.dev1",
-      "expected_output": "pkg:pypi/my-pypi-package@1.11.1.dev1",
-      "expected_failure": false,
-      "expected_message": "Applied normalization_rules to convert input string to valid form."
     }
   ]
 }
