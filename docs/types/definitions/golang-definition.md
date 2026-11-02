@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Go package
 - **Description:** Go packages
-- **Schema ID:** `https://packageurl.org/types/golang-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/golang-definition.json`
 
 ## PURL Syntax
 
@@ -22,13 +22,13 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
-- **Note:** `The namespace must be lowercased.`
+- **Note:** The namespace shall be lowercased.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
-- **Note:** `The name must be lowercased.`
+- **Note:** The name shall be lowercased.
 
 ## Version definition
 

@@ -6,23 +6,23 @@ date: {YYYY-MM-DD when the decision was last updated}
 # {short title, representative of the problem and solution}
 
 
-## Context and Problem Statement
-{Describe the context and problem. You may want to include links to 
+## Context / Problem
+{Describe the context and problem. You may want to include links to
 relevant issues or discussions.}
 
-## Solution Statement
-{Describe the solution. You may want to include links to relevant 
+## Solution
+{Describe the solution. You may want to include links to relevant
 issues or pull requests.}
 
 ## Decision Drivers
-{Provide a succinct explanation of the primary drivers for the proposed 
+{Provide a succinct explanation of the primary drivers for the proposed
 solution - preferably as a bulleted list or simple table.}
 
 ## Non-goals
 {Describe features or objectives that are outside the scope of this decision.}
 
 ## Alternatives Considered
-{Provide a succinct explanation of the primary alternatives that were 
+{Provide a succinct explanation of the primary alternatives that were
 considered - preferably as a bulleted list or simple table.}
 
 ## Decision Outcome

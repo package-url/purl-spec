@@ -20,8 +20,8 @@
 #
 # Visit https://github.com/package-url/purl-spec and https://packageurl.org for support
 
-
 from __future__ import annotations
+
 from pydantic import Field, RootModel
 
 

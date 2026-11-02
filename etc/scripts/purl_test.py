@@ -20,23 +20,23 @@
 #
 # Visit https://github.com/package-url/purl-spec and https://packageurl.org for support
 
-
 from __future__ import annotations
-from typing import Any, Literal, Optional
+
 from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, Literal
 
 
 class PackageUrlTestDefinition(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
-    field_schema: Optional[Any] = Field(
+    field_schema: Any | None = Field(
         None,
         alias="$schema",
         description="Contains the URL of the JSON schema for Package-URL tests.",
         title="JSON schema",
     )
-    tests: Optional[list[PurlTest]] = Field(
+    tests: list[PurlTest] | None = Field(
         None,
         description="A list of Package-URL build and parse tests.",
         min_length=1,
@@ -48,22 +48,22 @@ class PurlComponents(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
-    type: Optional[str] = Field(None, description="Package-URL type component.", title="PURL type")
-    namespace: Optional[str] = Field(
+    type: str | None = Field(None, description="Package-URL type component.", title="PURL type")
+    namespace: str | None = Field(
         None, description="Package-URL namespace decoded component.", title="PURL namespace"
     )
-    name: Optional[str] = Field(
+    name: str | None = Field(
         None, description="Package-URL name decoded component.", title="PURL name"
     )
-    version: Optional[str] = Field(
+    version: str | None = Field(
         None, description="Package-URL version decoded component.", title="PURL version"
     )
-    qualifiers: Optional[dict[str, Any]] = Field(
+    qualifiers: dict[str, Any] | None = Field(
         None,
         description="Package-URL qualifiers decoded component as an object.",
         title="PURL qualifiers",
     )
-    subpath: Optional[str] = Field(
+    subpath: str | None = Field(
         None, description="Package-URL subpath decoded component.", title="PURL subpath"
     )
 
@@ -72,19 +72,20 @@ class PurlTest(BaseModel):
     description: str = Field(
         ..., description="A description for this test.", title="Test description"
     )
-    test_group: Literal["base", "advanced"] = Field(
-        ..., description="The group of this test like 'base' or 'advanced'.", title="Test group"
+    test_group: Literal["required", "recommended"] = Field(
+        ..., description="The conformance group of this test case.", title="Test group"
     )
-    test_type: Literal["build", "parse", "roundtrip"] = Field(
-        ..., description="The type of this test like 'build' or 'parse'.", title="Test type"
+    test_type: Literal["build", "parse", "validate"] = Field(
+        ..., description="The functional type of this test case.", title="Test type"
     )
-    expected_failure: Optional[bool] = Field(
+    expected_failure: bool | None = Field(
         False,
         description="true if this test input is expected to fail to be processed.",
         title="Expected failure",
     )
-    expected_failure_reason: Optional[str] = Field(
+    expected_message: str | None = Field(
         None,
-        description="The reason why this test is expected to fail if expected_failure is true.",
-        title="Expected failure reason",
+        description="The reason why a test failed or another message about the test result.",
+        title="Expected test message",
     )
+    input: Any

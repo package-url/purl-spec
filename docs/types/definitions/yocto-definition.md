@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Yocto Project
 - **Description:** Yocto Project recipes
-- **Schema ID:** `https://packageurl.org/types/yocto-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/yocto-definition.json`
 
 ## PURL Syntax
 
@@ -22,26 +22,26 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Optional
 - **Native Label:** layer
-- **Note:** `The namespace is the name of the layer which provides the recipe. The layer name as specified in the BBFILE_COLLECTIONS variable in conf/layer.conf of the layer.`
+- **Note:** The namespace is the name of the layer which provides the recipe. The layer name as specified in the BBFILE_COLLECTIONS variable in conf/layer.conf of the layer.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** BPN
-- **Note:** `The name of the package with common prefixes and suffixes removed, also known as BPN (https://docs.yoctoproject.org/ref-manual/variables.html#term-BPN) in a yocto recipe.`
+- **Note:** The name of the package with common prefixes and suffixes removed, also known as BPN (https://docs.yoctoproject.org/ref-manual/variables.html#term-BPN) in a yocto recipe.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** PV
-- **Note:** `The version of the package also known as PV (https://docs.yoctoproject.org/ref-manual/variables.html#term-PV>) in a yocto recipe.`
+- **Note:** The version of the package also known as PV (https://docs.yoctoproject.org/ref-manual/variables.html#term-PV>) in a yocto recipe.
 
 ## Qualifiers Definition
 
 | Key  | Requirement | Native name | Default Value | Description |
 |------|-------------|-------------|---------------|-------------|
-| repository_url | Optional |  |  | The GIT URL of the layer. In example: https:%2F%2Fgit.openembedded.org%2Fopenembedded-core or https:%2F%2Fgithub.com%2Fakuster%2Fmeta-odroid. The URL scheme is mandatory and must be one of https, http, ssh, or git. |
+| repository_url | Optional |  |  | The GIT URL of the layer. In example: https:%2F%2Fgit.openembedded.org%2Fopenembedded-core or https:%2F%2Fgithub.com%2Fakuster%2Fmeta-odroid. The URL scheme is mandatory and shall be one of https, http, ssh, or git. |
 | layer_version | Optional |  |  | layer_version is the version of the yocto layer which is a SHA1 commit, tag or branch of the yocto layer GIT repository. It should support also short commits (https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection#_short_sha_1). |
 
 ## Examples

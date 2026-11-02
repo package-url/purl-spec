@@ -1,4 +1,4 @@
-# Scope
+# 1 Scope
 This Standard defines the Package-URL (PURL) syntax for identifying software 
 packages independently from their ecosystem or distribution channel. PURL is 
 used to identify software packages across software supply chains supporting 

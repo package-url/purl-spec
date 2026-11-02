@@ -1,6 +1,6 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
-  "$id": "https://packageurl.org/types/rpm-definition.json",
+  "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
+  "$id": "https://packageurl.org/purl-types/rpm-definition.json",
   "type": "rpm",
   "type_name": "RPM",
   "description": "RPM packages",
@@ -11,7 +11,7 @@
   "namespace_definition": {
     "case_sensitive": false,
     "native_name": "vendor",
-    "note": "The namespace is the vendor such as Fedora or OpenSUSE. It is not case sensitive and must be lowercased.",
+    "note": "The namespace is the vendor such as Fedora or OpenSUSE. It is not case sensitive and shall be lowercased.",
     "requirement": "required"
   },
   "name_definition": {

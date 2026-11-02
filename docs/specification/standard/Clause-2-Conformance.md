@@ -1,4 +1,4 @@
-# Conformance
+# 2 Conformance
 
 A conforming implementation of Package-URL (PURL) shall fully implement and
 support all elements defined within this Standard, including the syntax,
