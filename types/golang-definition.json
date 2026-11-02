@@ -2,8 +2,8 @@
   "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
   "$id": "https://packageurl.org/purl-types/golang-definition.json",
   "type": "golang",
-  "type_name": "Go package",
-  "description": "Go packages",
+  "type_name": "Go modules",
+  "description": "Go modules as specified at https://go.dev/ref/mod",
   "repository": {
     "use_repository": true,
     "note": "There is no default package repository, this is implied in the namespace using the go get command conventions. In practice the Go module proxy acts as a public default repository."
@@ -22,10 +22,10 @@
     "requirement": "optional",
     "note": "The subpath is used to point to a package inside a module."
   },
-  "note": "The current definition predates Go modules and has several practical problems, and in particular it is impossible to determine what is a module and what is a package short of having full access to the source code or making an API call to the Go module proxy.",
+  "note": "The current definition focuses on Go modules and ignores past package manager implementations, but has several practical problems. In particular it is impossible to determine from the namespace and name what is a module vs a package, short of having full access to the source code or making an API call to the Go module proxy.",
   "version_definition": {
     "requirement": "optional",
-    "note": "The version may start with a lowercased \"v\" followed by: a semantic version, or a Go \"pseudo-version\", which consists of a semantic version followed by a timestamp and revision identifier (see https://go.dev/ref/mod#pseudo-versions)."
+    "note": "The version starts with a lowercased \"v\" followed by: a semantic version or a Go \"pseudo-version\", which consists of a semantic version followed by a timestamp and revision identifier (see https://go.dev/ref/mod#pseudo-versions)."
   },
   "examples": [
     "pkg:golang/github.com/gorilla/context@v1.1.1",
