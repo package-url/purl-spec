@@ -22,13 +22,13 @@ To build a PURL string from its components:
 - Append the `type` string to the PURL as an unencoded lowercase ASCII
   string,
 
-  - Append '/' to the PURL,
+- Append '/' to the PURL,
 
 - If the `namespace` is not empty:
 
   - Strip the `namespace` from leading and trailing '/',
   - Split on '/' as segments,
-  - Apply type-specific normalization to each segment if needed,
+  - Apply `type`-specific normalization to each segment if needed,
   - UTF-8-encode each segment if needed in your programming language,
   - Percent-encode each segment,
   - Join the segments with '/',
@@ -41,7 +41,7 @@ To build a PURL string from its components:
 
 - If the `namespace`is empty:
 
-  - Apply type-specific normalization to the `name` if needed.
+  - Apply `type`-specific normalization to the `name` if needed.
   - UTF-8-encode the `name` if needed in your programming language.
   - Append the percent-encoded `name` to the PURL.
 
@@ -57,15 +57,15 @@ To build a PURL string from its components:
   - Append '?' to the PURL.
   - Build a list from all key/value pair:
 
-    - Discard any pair where the value` is empty.
-    - UTF-8-encode each value` if needed in your programming language.
+    - Discard any pair where the `value` is empty.
+    - UTF-8-encode each `value` if needed in your programming language.
     - If the `key` is 'checksum' and this is a list of checksums join this
       list with a ',' to create this `qualifier` `value`.
     - Create a string by joining the lowercased `key`, the equal '=' sign
-      and the percent-encoded value` to create a qualifier.
+      and the percent-encoded value` to create a `qualifier`.
 
-  - Sort this list of qualifier strings lexicographically.
-  - Join this list of qualifier strings with a '&' ampersand
+  - Sort this list of `qualifier` strings lexicographically.
+  - Join this list of `qualifier` strings with a '&' ampersand
   - Append this string to the PURL.
 
 - If the `subpath` is not empty and not composed only of empty, '.' and '..'

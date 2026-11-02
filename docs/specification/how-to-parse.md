@@ -80,6 +80,6 @@ To parse a PURL string in its components:
   - Discard any empty segment from that split.
   - Percent-decode each segment.
   - UTF-8-decode each segment if needed in your programming language.
-  - Apply type-specific normalization to each segment if needed.
+  - Apply `type`-specific normalization to each segment if needed.
   - Join segments back with a '/'.
   - This is the `namespace`.
