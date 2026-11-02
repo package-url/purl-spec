@@ -22,13 +22,13 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
-- **Note:** The namespace shall be lowercased.
+- **Note:** The namespace is the Go module path as declared in go.mod, without its last path segment, with its casing preserved. For example, pkg:golang/github.com/Microsoft/go-winio@v0.6.2 has the namespace github.com/Microsoft and the name go-winio.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
-- **Note:** The name shall be lowercased.
+- **Note:** The name is the last path segment of the Go module path as declared in go.mod, with its casing preserved.
 
 ## Version definition
 
@@ -45,6 +45,7 @@ The structure of a PURL for this package type is:
 - `pkg:golang/github.com/gorilla/context@v1.1.1`
 - `pkg:golang/google.golang.org/genproto#googleapis/api/annotations`
 - `pkg:golang/golang.org/x/text@v0.0.0-20170915032832-14c0d48ead0c#collate`
+- `pkg:golang/github.com/Microsoft/go-winio@v0.6.2`
 
 ## Note
 
