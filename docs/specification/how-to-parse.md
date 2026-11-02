@@ -40,7 +40,7 @@ To parse a PURL string in its components:
     - The `key` is the lowercase left side.
     - The `value` is the percent-decoded right side.
     - UTF-8-decode the `value`if needed in your programming language.
-    - Discard any `key`-`value` pairs where the `value` is empty.
+    - Discard any `key`/`value` pairs where the `value` is empty.
     - If the `key` is 'checksum', split the `value` on ',' to create
       a list of checksums.
 
