@@ -33,12 +33,12 @@ The structure of a PURL for this package type is:
 ## Version definition
 
 - **Requirement:** Optional
-- **Note:** `The version may start with a lowercased "v" followed by: a semantic version, or a Go "pseudo-version", which consists of a semantic version followed by a timestamp and revision identifier (see https://go.dev/ref/mod#pseudo-versions).`
+- **Note:** The version may start with a lowercased "v" followed by: a semantic version, or a Go "pseudo-version", which consists of a semantic version followed by a timestamp and revision identifier (see https://go.dev/ref/mod#pseudo-versions).
 
 ## Subpath definition
 
 - **Requirement:** Optional
-- **Note:** `The subpath is used to point to a package inside a module.`
+- **Note:** The subpath is used to point to a package inside a module.
 
 ## Examples
 
