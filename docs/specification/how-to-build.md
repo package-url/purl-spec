@@ -12,7 +12,7 @@ hide_table_of_contents: true
 Building a PURL ASCII string works from left to right, from `type` to
 `subpath`.
 
-Note: some extra type-specific normalizations are required.
+Note: some extra `type`-specific normalizations are required.
 
 To build a PURL string from its components:
 
@@ -35,7 +35,7 @@ To build a PURL string from its components:
   - Append this to the PURL,
   - Append '/' to the PURL,
   - Strip the `name` from leading and trailing '/',
-  - Apply type-specific normalization to the `name`  if needed,
+  - Apply `type`-specific normalization to the `name`  if needed,
   - UTF-8-encode the `name` if needed in your programming language,
   - Append the percent-encoded `name`  to the PURL,
 
@@ -49,13 +49,13 @@ To build a PURL string from its components:
 
   - Append '@' to the PURL.
   - UTF-8-encode the `version` if needed in your programming language.
-  - Append the percent-encoded version to the PURL.
+  - Append the percent-encoded `version` to the PURL.
 
-- If the `qualifiers` are not empty and not composed only of key/value pairs
+- If the `qualifiers` are not empty and not composed only of `key`/`value` pairs
   where the `value` is empty:
 
   - Append '?' to the PURL.
-  - Build a list from all key/value pair:
+  - Build a list from all `key`/`value` pairs:
 
     - Discard any pair where the `value` is empty.
     - UTF-8-encode each `value` if needed in your programming language.
