@@ -43,7 +43,7 @@
         },
         "case_sensitive": {
           "title": "Case sensitive",
-          "description": "true if this PURL component is case sensitive. If false, the form shall be lowercased.",
+          "description": "true if this PURL component is case sensitive. If false, the valid form is lowercase.",
           "type": "boolean",
           "default": true
         },
@@ -83,7 +83,7 @@
     "$schema": {
       "title": "JSON schema",
       "description": "Contains the URL of the JSON schema for Package-URL type definition.",
-      "const": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+      "const": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
       "format": "uri"
     },
     "$id": {

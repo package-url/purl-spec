@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Composer
 - **Description:** Composer PHP packages
-- **Schema ID:** `https://packageurl.org/types/composer-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/composer-definition.json`
 
 ## PURL Syntax
 
@@ -22,13 +22,13 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Native Label:** vendor
-- **Note:** `The namespace is the vendor. The namespace is not case sensitive and shall be lowercased.`
+- **Note:** The namespace is the vendor. The namespace is not case sensitive and shall be lowercased.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Native Label:** name
-- **Note:** `The name is not case sensitive and shall be lowercased. Private, local packages may have no name. In this case you cannot create a purl for these.`
+- **Note:** The name is not case sensitive and shall be lowercased. Private, local packages may have no name. In this case you cannot create a purl for these.
 
 ## Version definition
 

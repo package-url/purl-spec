@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Maven
 - **Description:** PURL type for Maven JARs and related artifacts.
-- **Schema ID:** `https://packageurl.org/types/maven-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/maven-definition.json`
 
 ## PURL Syntax
 
@@ -24,14 +24,14 @@ The structure of a PURL for this package type is:
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** groupId
-- **Note:** `The group id is the namespace.`
+- **Note:** The group id is the namespace.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** artifactId
-- **Note:** `The artifact id is the name.`
+- **Note:** The artifact id is the name.
 
 ## Version definition
 

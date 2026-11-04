@@ -50,7 +50,7 @@ checkjson:
 	@${ACTIVATE} check-jsonschema --check-metaschema --verbose schemas/*.json
 	@echo "-> Validate JSON data files against the schemas"
 	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-types-index.schema-1.0.json --verbose purl-types-index.json
-	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-type-definition.schema-1.0.json --verbose types/*-definition.json
+	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-type-definition.schema-1.1.json --verbose types/*-definition.json
 	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-test.schema-0.2.json --verbose tests/*/*-test.json
 
 checkcode:
@@ -73,7 +73,7 @@ gencode:
 	    --input schemas/purl-types-index.schema-1.0.json \
 	    --output etc/scripts/purl_types_index.py
 	@${ACTIVATE} ${CODEGEN} \
-	    --input schemas/purl-type-definition.schema-1.0.json \
+	    --input schemas/purl-type-definition.schema-1.1.json \
 	    --output etc/scripts/purl_type_definition.py
 	@${ACTIVATE} ${CODEGEN} \
 	    --input schemas/purl-test.schema-0.2.json \

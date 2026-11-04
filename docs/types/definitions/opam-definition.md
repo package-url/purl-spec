@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Opam package
 - **Description:** Opam packages
-- **Schema ID:** `https://packageurl.org/types/opam-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/opam-definition.json`
 
 ## PURL Syntax
 
@@ -21,20 +21,20 @@ The structure of a PURL for this package type is:
 ## Namespace definition
 
 - **Requirement:** Prohibited
-- **Note:** `there is no namespace`
+- **Note:** there is no namespace
 
 ## Name definition
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** name
-- **Note:** `The name is case sensitive.`
+- **Note:** The name is case sensitive.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** version
-- **Note:** `The version is package version.`
+- **Note:** The version is package version.
 
 ## Examples
 

@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** VS Code Extension packages
 - **Description:** VS Code Extension packages
-- **Schema ID:** `https://packageurl.org/types/vscode-extension-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/vscode-extension-definition.json`
 
 ## PURL Syntax
 
@@ -22,19 +22,19 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Native Label:** publisher
-- **Note:** `The namespace is the publisher or vendor of the extension (e.g., 'redhat', 'microsoft'). This corresponds to the 'Publisher' property of the 'Identity' element in the package's .vsixmanifest file.`
+- **Note:** The namespace is the publisher or vendor of the extension (e.g., 'redhat', 'microsoft'). This corresponds to the 'Publisher' property of the 'Identity' element in the package's .vsixmanifest file.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Native Label:** name
-- **Note:** `The extension name. This corresponds to the 'Id' property of the 'Identity' element in the package's .vsixmanifest file.`
+- **Note:** The extension name. This corresponds to the 'Id' property of the 'Identity' element in the package's .vsixmanifest file.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** version
-- **Note:** `The extension version. This corresponds to the 'Version' property of the 'Identity' element in the package's .vsixmanifest file.`
+- **Note:** The extension version. This corresponds to the 'Version' property of the 'Identity' element in the package's .vsixmanifest file.
 
 ## Qualifiers Definition
 

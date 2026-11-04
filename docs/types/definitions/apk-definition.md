@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** APK-based packages
 - **Description:** Alpine Linux APK-based packages
-- **Schema ID:** `https://packageurl.org/types/apk-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/apk-definition.json`
 
 ## PURL Syntax
 
@@ -22,19 +22,19 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Native Label:** vendor
-- **Note:** `The namespace is the vendor such as alpine or openwrt. It is not case sensitive and shall be lowercased.`
+- **Note:** The namespace is the vendor such as alpine or openwrt. It is not case sensitive and shall be lowercased.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Native Label:** name
-- **Note:** `The name is the package name. It is not case sensitive and shall be lowercased.`
+- **Note:** The name is the package name. It is not case sensitive and shall be lowercased.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** version
-- **Note:** `The version is a package version as expected by apk.`
+- **Note:** The version is a package version as expected by apk.
 
 ## Qualifiers Definition
 

@@ -1,6 +1,6 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
-  "$id": "https://packageurl.org/types/otp-definition.json",
+  "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
+  "$id": "https://packageurl.org/purl-types/otp-definition.json",
   "type": "otp",
   "type_name": "BEAM/OTP Application",
   "description": "BEAM/OTP applications written in Elixir, Erlang, Gleam and other BEAM languages",
