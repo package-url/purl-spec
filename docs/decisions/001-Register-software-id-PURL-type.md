@@ -176,7 +176,7 @@ PURLs at a domain address with:
 The `packageurl.org` domain will host the shared registry of PURLs prefixed
 with `pkg:software-id/packageurl.org/` and also serve as an aggregator for
 other domains to make discovery easier with mirrored snapshots of their
-`./well-known/purl` PURL definitions and catalogs.
+`.well-known/purl` PURL definitions and catalogs.
 
 The `packageurl.org` domain will support a simple process to register a
 'software-id' PURL `namespace`. The data in this PURL registry will be stored
