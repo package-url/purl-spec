@@ -1,0 +1,32 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/vipm-definition.json",
+  "type": "vipm",
+  "type_name": "VI Package",
+  "description": "VIPM packages for LabVIEW",
+  "repository": {
+    "use_repository": true,
+    "note": "VIPM is configured by default with two public repositories, VIPM Community and the NI LabVIEW Tools Network, which can be read without authentication. Users can add other repositories."
+  },
+  "namespace_definition": {
+    "requirement": "prohibited",
+    "note": "There is no namespace."
+  },
+  "name_definition": {
+    "requirement": "required",
+    "native_name": "name",
+    "case_sensitive": false,
+    "note": "The name is the VIPM package name (e.g. oglib_file). It is not case sensitive and shall be lowercased."
+  },
+  "version_definition": {
+    "requirement": "optional",
+    "native_name": "version",
+    "note": "The version is the package version, including the release suffix when there is one (e.g. 6.0.2.28, 5.0.9-1)."
+  },
+  "examples": [
+    "pkg:vipm/oglib_file@6.0.2.28",
+    "pkg:vipm/oglib_lvzip@5.0.9-1",
+    "pkg:vipm/mgi_lib_matrix_%26_vector@1.1.0.1",
+    "pkg:vipm/ni_gds_2016@1.1.83.83"
+  ]
+}
