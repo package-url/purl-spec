@@ -1,0 +1,62 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:gitee/ThingsGateway/ThingsGateway@ec5ff0a07f8838f",
+      "expected_output": {
+        "type": "gitee",
+        "namespace": "ThingsGateway",
+        "name": "ThingsGateway",
+        "version": "ec5ff0a07f8838f",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Build test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "gitee",
+        "namespace": "ThingsGateway",
+        "name": "ThingsGateway",
+        "version": "ec5ff0a07f8838f",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:gitee/ThingsGateway/ThingsGateway@ec5ff0a07f8838f",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "Parse test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "ThingsGateway@ec5ff0a07f8838f",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to parse a PURL from invalid canonical purl input"
+    },
+    {
+      "description": "Build test for <class 'type'> PURL",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": null,
+        "namespace": null,
+        "name": "ThingsGateway",
+        "version": "ec5ff0a07f8838f",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+    }
+  ]
+}
