@@ -1,6 +1,6 @@
 {
   "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
-  "$id": "https://packageurl.org/types/maven-definition.json",
+  "$id": "https://packageurl.org/purl-types/maven-definition.json",
   "type": "maven",
   "type_name": "Maven",
   "description": "PURL type for Maven JARs and related artifacts.",

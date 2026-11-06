@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Debian package
 - **Description:** Debian packages, Debian derivatives, and Ubuntu packages
-- **Schema ID:** `https://packageurl.org/types/deb-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/deb-definition.json`
 
 ## PURL Syntax
 

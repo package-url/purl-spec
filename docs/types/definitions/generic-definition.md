@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Generic Package
 - **Description:** The generic type is for plain, generic packages that do not fit anywhere else such as for "upstream-from-distro" packages. In particular this is handy for a plain version control repository such as a bare git repo in combination with a vcs_url.
-- **Schema ID:** `https://packageurl.org/types/generic-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/generic-definition.json`
 
 ## PURL Syntax
 

@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** BEAM/OTP Application
 - **Description:** BEAM/OTP applications written in Elixir, Erlang, Gleam and other BEAM languages
-- **Schema ID:** `https://packageurl.org/types/otp-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/otp-definition.json`
 
 ## PURL Syntax
 

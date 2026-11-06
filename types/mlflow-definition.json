@@ -1,6 +1,6 @@
 {
   "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
-  "$id": "https://packageurl.org/types/mlflow-definition.json",
+  "$id": "https://packageurl.org/purl-types/mlflow-definition.json",
   "type": "mlflow",
   "type_name": "MLflow",
   "description": "MLflow ML models (Azure ML, Databricks, etc.)",

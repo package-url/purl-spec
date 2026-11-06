@@ -1,6 +1,6 @@
 {
   "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
-  "$id": "https://packageurl.org/types/cran-definition.json",
+  "$id": "https://packageurl.org/purl-types/cran-definition.json",
   "type": "cran",
   "type_name": "CRAN",
   "description": "CRAN R packages",

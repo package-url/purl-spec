@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** MLflow
 - **Description:** MLflow ML models (Azure ML, Databricks, etc.)
-- **Schema ID:** `https://packageurl.org/types/mlflow-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/mlflow-definition.json`
 
 ## PURL Syntax
 

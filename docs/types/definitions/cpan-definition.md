@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** CPAN
 - **Description:** Perl package distributions published on CPAN
-- **Schema ID:** `https://packageurl.org/types/cpan-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/cpan-definition.json`
 
 ## PURL Syntax
 

@@ -1,6 +1,6 @@
 {
   "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
-  "$id": "https://packageurl.org/types/npm-definition.json",
+  "$id": "https://packageurl.org/purl-types/npm-definition.json",
   "type": "npm",
   "type_name": "Node NPM packages",
   "description": "PURL type for npm packages.",

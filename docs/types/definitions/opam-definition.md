@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Opam package
 - **Description:** Opam packages
-- **Schema ID:** `https://packageurl.org/types/opam-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/opam-definition.json`
 
 ## PURL Syntax
 

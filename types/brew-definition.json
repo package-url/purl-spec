@@ -1,6 +1,6 @@
 {
   "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
-  "$id": "https://packageurl.org/types/brew-definition.json",
+  "$id": "https://packageurl.org/purl-types/brew-definition.json",
   "type": "brew",
   "type_name": "Homebrew",
   "description": "Homebrew packages for macOS and Linux",

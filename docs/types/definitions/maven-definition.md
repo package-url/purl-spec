@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Maven
 - **Description:** PURL type for Maven JARs and related artifacts.
-- **Schema ID:** `https://packageurl.org/types/maven-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/maven-definition.json`
 
 ## PURL Syntax
 

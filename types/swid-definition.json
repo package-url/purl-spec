@@ -1,6 +1,6 @@
 {
   "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
-  "$id": "https://packageurl.org/types/swid-definition.json",
+  "$id": "https://packageurl.org/purl-types/swid-definition.json",
   "type": "swid",
   "type_name": "Software Identification (SWID) Tag",
   "description": "PURL type for ISO-IEC 19770-2 Software Identification (SWID) tags.",

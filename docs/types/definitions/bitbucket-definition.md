@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Bitbucket
 - **Description:** Bitbucket-based packages
-- **Schema ID:** `https://packageurl.org/types/bitbucket-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/bitbucket-definition.json`
 
 ## PURL Syntax
 

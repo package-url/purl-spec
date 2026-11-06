@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Software Identification (SWID) Tag
 - **Description:** PURL type for ISO-IEC 19770-2 Software Identification (SWID) tags.
-- **Schema ID:** `https://packageurl.org/types/swid-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/swid-definition.json`
 
 ## PURL Syntax
 

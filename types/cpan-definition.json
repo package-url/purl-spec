@@ -1,6 +1,6 @@
 {
   "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
-  "$id": "https://packageurl.org/types/cpan-definition.json",
+  "$id": "https://packageurl.org/purl-types/cpan-definition.json",
   "type": "cpan",
   "type_name": "CPAN",
   "description": "Perl package distributions published on CPAN",

@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Git
 - **Description:** Git-based source packages
-- **Schema ID:** `https://packageurl.org/types/git-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/git-definition.json`
 
 ## PURL Syntax
 

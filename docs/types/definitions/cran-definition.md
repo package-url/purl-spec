@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** CRAN
 - **Description:** CRAN R packages
-- **Schema ID:** `https://packageurl.org/types/cran-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/cran-definition.json`
 
 ## PURL Syntax
 

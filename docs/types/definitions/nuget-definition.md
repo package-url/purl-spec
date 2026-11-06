@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** NuGet
 - **Description:** NuGet .NET packages
-- **Schema ID:** `https://packageurl.org/types/nuget-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/nuget-definition.json`
 
 ## PURL Syntax
 

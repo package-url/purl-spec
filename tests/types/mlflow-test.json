@@ -1,5 +1,5 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.2.json",
+  "$schema": "https://packageurl.org/purl-schemas/purl-test.schema-0.2.json",
   "tests": [
     {
       "description": "MLflow model tracked in Azure Databricks (case insensitive). Roundtrip an input purl to canonical.",
