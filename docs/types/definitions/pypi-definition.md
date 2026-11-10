@@ -28,10 +28,10 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Normalization rules:**
-  - Replace underscore _ with dash -
-  - Replace dot . with underscore _ when used in distribution (sdist, wheel) names
+  - The name shall be lowercased.
+  - Replace runs of consecutive dash -, underscore _, or dot . characters with a single dash -
 - **Native Label:** name
-- **Note:** PyPI treats - and _ as the same character and is not case sensitive. Therefore a PyPI package name shall be lowercased and underscore _ replaced with a dash -. Note that PyPI itself is preserving the case of package names. When used in distribution and wheel names, the dot . is replaced with an underscore _
+- **Note:** See the name normalization section of the Python Packaging User Guide: https://packaging.python.org/en/latest/specifications/name-normalization/ or the original PEP 503 definition (https://peps.python.org/pep-0503/#normalized-names)
 
 ## Version definition
 
