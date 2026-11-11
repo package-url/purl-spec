@@ -3,44 +3,70 @@
   "$id": "https://packageurl.org/purl-types/conda-definition.json",
   "type": "conda",
   "type_name": "Conda",
-  "description": "conda is for Conda packages",
+  "description": "Conda packages",
   "repository": {
     "use_repository": true,
-    "default_repository_url": "https://repo.anaconda.com"
+    "default_repository_url": "https://conda.anaconda.org"
   },
   "namespace_definition": {
-    "note": "there is no namspace",
-    "requirement": "prohibited"
+    "requirement": "optional",
+    "note": "When combined with the repository_url qualifier, specifies the channel base URL of the package"
   },
   "name_definition": {
     "requirement": "required",
     "native_name": "name",
-    "note": "The name is the package name."
+    "note": "Package name as defined in CEP 26"
   },
   "version_definition": {
     "requirement": "optional",
     "native_name": "version",
-    "note": "The version is the package version."
+    "note": "Package version, as defined in CEPs 26 and 33"
   },
   "qualifiers_definition": [
     {
       "key": "build",
-      "description": "the build string."
+      "description": "Package build string, as defined in CEP 26"
     },
     {
-      "key": "channel",
-      "description": "the package stored location."
+      "key": "build_number",
+      "description": "Package build number, as defined in CEP 26"
     },
     {
       "key": "subdir",
-      "description": "the associated platform."
+      "description": "Package subdir or platform, as defined in CEP 26"
     },
     {
       "key": "type",
-      "description": "package type."
+      "description": "Package format, as defined in CEP 26; must be one of 'tar.bz2', 'v1', 'conda', or 'v2'"
+    },
+    {
+      "key": "repository_url",
+      "description": "When combined with the namespace component, defines the channel base URL of the package"
+    },
+    {
+      "key": "vers",
+      "description": "Version Range Specifier (VERS), whose version-scheme is conda"
+    },
+    {
+      "key": "checksum",
+      "description": "Checksum(s) of the identified package, in '<algorithm>:<value>' format; SHA-256 is the recommended algorithm"
+    },
+    {
+      "key": "download_url",
+      "description": "Absolute URL where the identified package can be directly downloaded"
     }
+  ],
+  "reference_urls": [
+    "https://conda.org/learn/ceps/cep-0049/",
+    "https://conda.org/learn/ceps/cep-0026/",
+    "https://conda.org/learn/ceps/cep-0033/"
   ],
   "examples": [
     "pkg:conda/absl-py@0.4.1?build=py36h06a4308_0&channel=main&subdir=linux-64&type=tar.bz2"
+    "pkg:conda/main/python",
+    "pkg:conda/conda-forge/python@3.13.12",
+    "pkg:conda/conda-forge/python@3.13.12?build=hc97d973_100_cp313&subdir=linux-64",
+    "pkg:conda/numpy@2.5.0?subdir=win-64&repository_url=https%3A%2F%2Frepo.anaconda.cloud%2Frepo%2Fmain",
+    "pkg:conda/conda-forge/numpy@2.5.2?repository_url=https%3A%2F%2Fprefix.dev"
   ]
 }
