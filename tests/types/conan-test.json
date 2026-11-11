@@ -253,6 +253,62 @@
       "expected_output": "pkg:conan/openssl.org/openssl@3.0.3?arch=x86_64&build_type=Debug&compiler=Visual%20Studio&compiler.runtime=MDd&compiler.version=16&os=Windows&prev=b429db8a0e324114c25ec387bfd8281f330d7c5c&rrev=93a82349c31917d2d674d22065c7a9ef9f380c8e&shared=True",
       "expected_failure": false,
       "expected_message": null
+    },
+    {
+      "description": "Parse test for PURL type: conan",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:conan/openssl@3.1.2?package_id=0348efdcd0e319fb58ea747bb94dbd88850d6dd1&rrev=8879e931d726a8aad7f372e28470faa1",
+      "expected_output": {
+        "type": "conan",
+        "namespace": null,
+        "name": "openssl",
+        "version": "3.1.2",
+        "qualifiers": {
+          "package_id": "0348efdcd0e319fb58ea747bb94dbd88850d6dd1",
+          "rrev": "8879e931d726a8aad7f372e28470faa1"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: conan",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:conan/openssl@3.1.2?package_id=0348efdcd0e319fb58ea747bb94dbd88850d6dd1&rrev=8879e931d726a8aad7f372e28470faa1",
+      "expected_output": "pkg:conan/openssl@3.1.2?package_id=0348efdcd0e319fb58ea747bb94dbd88850d6dd1&rrev=8879e931d726a8aad7f372e28470faa1",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Build test  for PURL type: conan",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "conan",
+        "namespace": null,
+        "name": "openssl",
+        "version": "3.1.2",
+        "qualifiers": {
+          "package_id": "0348efdcd0e319fb58ea747bb94dbd88850d6dd1",
+          "rrev": "8879e931d726a8aad7f372e28470faa1"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:conan/openssl@3.1.2?package_id=0348efdcd0e319fb58ea747bb94dbd88850d6dd1&rrev=8879e931d726a8aad7f372e28470faa1",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: conan",
+      "test_group": "recommended",
+      "test_type": "validate",
+      "input": "pkg:conan/openssl@3.1.2?rrev=8879e931d726a8aad7f372e28470faa1&package_id=0348efdcd0e319fb58ea747bb94dbd88850d6dd1",
+      "expected_output": "pkg:conan/openssl@3.1.2?package_id=0348efdcd0e319fb58ea747bb94dbd88850d6dd1&rrev=8879e931d726a8aad7f372e28470faa1",
+      "expected_failure": false,
+      "expected_message": null
     }
   ]
 }
