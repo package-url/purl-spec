@@ -1,0 +1,59 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/virtual-definition.json",
+  "type": "virtual",
+  "type_name": "Virtual package",
+  "description": "Virtual packages represent abstract requirements that can be satisfied by one or more concrete packages",
+  "repository": {
+    "use_repository": false,
+    "note": "Virtual packages have no source repository by definition"
+  },
+  "namespace_definition": {
+    "requirement": "required",
+    "registered_values": [
+      {
+        "value": "compiler",
+        "description": "A virtual package that describes a toolchain to compile programs written in a given programming language"
+      },
+      {
+        "value": "interface",
+        "description": "A virtual package that describes an implementation of an well-defined library interface"
+      }
+    ]
+  },
+  "name_definition": {
+    "requirement": "required",
+    "native_name": "name",
+    "case_sensitive": false,
+    "normalization_rules": [
+      "All compiler languages and interfaces shall be lowercased",
+      "Spaces shall be converted into dashes",
+      "Any other symbols that would need to be percent encoded shall be spelt out and prefixed with a dash"
+    ],
+    "note": "If namespace is 'compiler', the name shall be a normalized programming language identifier. Any of the top-level keys in the [Linguist index](https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml), or their aliases, whose 'type' field is 'programming', are considered valid once normalized. For standardized language extensions or compiler plugins, consider using the syntax '<language-identifier>-ext-<extension-name>'. For 'interface', the name must refer to the normalized standard identifier, not any of its implementations (e.g. 'blas' instead of OpenBLAS)."
+  },
+  "version_definition": {
+    "requirement": "optional",
+    "case_sensitive": false,
+    "native_name": "version",
+    "normalization_rules": [
+      "If the versioning scheme uses years, the full four-digit number should be used (e.g. a compiler for C99 shall be expressed as 'pkg:virtual/compiler/c@1999') to allow meaningful comparisons without language-specific knowledge."
+    ]
+  },
+  "qualifiers_definition": [],
+  "examples": [
+    "pkg:virtual/compiler/c",
+    "pkg:virtual/compiler/c@1999",
+    "pkg:virtual/compiler/c-sharp",
+    "pkg:virtual/compiler/c-plus-plus",
+    "pkg:virtual/compiler/c-plus-plus@2014",
+    "pkg:virtual/compiler/fortran",
+    "pkg:virtual/compiler/rust",
+    "pkg:virtual/compiler/zig",
+    "pkg:virtual/interface/blas",
+    "pkg:virtual/interface/lapack",
+    "pkg:virtual/interface/mpi",
+    "pkg:virtual/interface/openmp",
+    "pkg:virtual/interface/openmp@4.5"
+  ]
+}
