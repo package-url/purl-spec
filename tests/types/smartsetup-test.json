@@ -1,0 +1,239 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.2.json",
+  "tests": [
+    {
+      "description": "Parse test for PURL type: smartsetup",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:smartsetup/tms.biz.aurelius@5.26",
+      "expected_output": {
+        "type": "smartsetup",
+        "namespace": null,
+        "name": "tms.biz.aurelius",
+        "version": "5.26",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: smartsetup",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:smartsetup/tms.biz.aurelius@5.26",
+      "expected_output": "pkg:smartsetup/tms.biz.aurelius@5.26",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Build test for PURL type: smartsetup",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "smartsetup",
+        "namespace": null,
+        "name": "tms.biz.aurelius",
+        "version": "5.26",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:smartsetup/tms.biz.aurelius@5.26",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Parse test for PURL type: smartsetup",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:smartsetup/tms.webcore@2.9.9.3",
+      "expected_output": {
+        "type": "smartsetup",
+        "namespace": null,
+        "name": "tms.webcore",
+        "version": "2.9.9.3",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: smartsetup",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:smartsetup/tms.webcore@2.9.9.3",
+      "expected_output": "pkg:smartsetup/tms.webcore@2.9.9.3",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Build test for PURL type: smartsetup",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "smartsetup",
+        "namespace": null,
+        "name": "tms.webcore",
+        "version": "2.9.9.3",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:smartsetup/tms.webcore@2.9.9.3",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Parse test for PURL type: smartsetup with no version",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:smartsetup/sglienke.spring4d",
+      "expected_output": {
+        "type": "smartsetup",
+        "namespace": null,
+        "name": "sglienke.spring4d",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: smartsetup with no version",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:smartsetup/sglienke.spring4d",
+      "expected_output": "pkg:smartsetup/sglienke.spring4d",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Build test for PURL type: smartsetup with no version",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "smartsetup",
+        "namespace": null,
+        "name": "sglienke.spring4d",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:smartsetup/sglienke.spring4d",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Parse test for PURL type: smartsetup with no version",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:smartsetup/tms.biz.bcl",
+      "expected_output": {
+        "type": "smartsetup",
+        "namespace": null,
+        "name": "tms.biz.bcl",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: smartsetup with no version",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:smartsetup/tms.biz.bcl",
+      "expected_output": "pkg:smartsetup/tms.biz.bcl",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Build test for PURL type: smartsetup with no version",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "smartsetup",
+        "namespace": null,
+        "name": "tms.biz.bcl",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:smartsetup/tms.biz.bcl",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Build test for PURL type: smartsetup with a non-default source repository_url qualifier",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "smartsetup",
+        "namespace": null,
+        "name": "tms.biz.aurelius",
+        "version": "5.26",
+        "qualifiers": {
+          "repository_url": "https://packages.example.com/smartsetup"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:smartsetup/tms.biz.aurelius@5.26?repository_url=https:%2F%2Fpackages.example.com%2Fsmartsetup",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: smartsetup with a non-default source repository_url qualifier",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:smartsetup/tms.biz.aurelius@5.26?repository_url=https://packages.example.com/smartsetup",
+      "expected_output": "pkg:smartsetup/tms.biz.aurelius@5.26?repository_url=https:%2F%2Fpackages.example.com%2Fsmartsetup",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Recommended normalization: an uppercased Smart Setup product id is lowercased in the canonical PURL",
+      "test_group": "recommended",
+      "test_type": "validate",
+      "input": "pkg:smartsetup/TMS.Biz.Aurelius@5.26",
+      "expected_output": "pkg:smartsetup/tms.biz.aurelius@5.26",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Invalid smartsetup PURL: a namespace is prohibited, the full dotted product id is the name",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:smartsetup/sglienke/spring4d@1.2",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_message": "The smartsetup namespace is prohibited."
+    },
+    {
+      "description": "Invalid smartsetup PURL: the name (product id) is required",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:smartsetup/@5.26",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_message": "The smartsetup name is required."
+    },
+    {
+      "description": "Invalid smartsetup build: the name (product id) is required",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "smartsetup",
+        "namespace": null,
+        "name": null,
+        "version": "5.26",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_message": "The smartsetup name is required."
+    }
+  ]
+}
