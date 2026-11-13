@@ -27,6 +27,7 @@
   "luarocks",
   "maven",
   "mlflow",
+  "nipkg",
   "npm",
   "nuget",
   "oci",
@@ -39,6 +40,7 @@
   "swid",
   "swift",
   "vcpkg",
+  "vipm",
   "vscode-extension",
   "yocto"
 ]
