@@ -1,6 +1,6 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
-  "$id": "https://packageurl.org/types/nipkg-definition.json",
+  "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
+  "$id": "https://packageurl.org/purl-types/nipkg-definition.json",
   "type": "nipkg",
   "type_name": "NI Package",
   "description": "NI Packages installed with NI Package Manager (NIPM)",
@@ -16,7 +16,7 @@
     "requirement": "required",
     "native_name": "name",
     "case_sensitive": false,
-    "note": "The name is not case sensitive and shall be lowercased."
+    "note": "The name is not case sensitive and shall be lowercase."
   },
   "version_definition": {
     "requirement": "optional",

@@ -1,6 +1,6 @@
 {
-  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
-  "$id": "https://packageurl.org/types/vipm-definition.json",
+  "$schema": "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
+  "$id": "https://packageurl.org/purl-types/vipm-definition.json",
   "type": "vipm",
   "type_name": "VI Package",
   "description": "VIPM packages for LabVIEW",
@@ -16,7 +16,7 @@
     "requirement": "required",
     "native_name": "name",
     "case_sensitive": false,
-    "note": "The name is the VIPM package name (e.g. oglib_file). It is not case sensitive and shall be lowercased."
+    "note": "The name is the VIPM package name (e.g. oglib_file). It is not case sensitive and shall be lowercase."
   },
   "version_definition": {
     "requirement": "optional",

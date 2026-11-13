@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** NI Package
 - **Description:** NI Packages installed with NI Package Manager (NIPM)
-- **Schema ID:** `https://packageurl.org/types/nipkg-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/nipkg-definition.json`
 
 ## PURL Syntax
 
@@ -27,7 +27,7 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Native Label:** name
-- **Note:** The name is not case sensitive and shall be lowercased.
+- **Note:** The name is not case sensitive and shall be lowercase.
 
 ## Version definition
 

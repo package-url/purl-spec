@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** VI Package
 - **Description:** VIPM packages for LabVIEW
-- **Schema ID:** `https://packageurl.org/types/vipm-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/vipm-definition.json`
 
 ## PURL Syntax
 
@@ -27,7 +27,7 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Native Label:** name
-- **Note:** The name is the VIPM package name (e.g. oglib_file). It is not case sensitive and shall be lowercased.
+- **Note:** The name is the VIPM package name (e.g. oglib_file). It is not case sensitive and shall be lowercase.
 
 ## Version definition
 
