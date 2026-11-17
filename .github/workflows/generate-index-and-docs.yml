@@ -43,6 +43,9 @@ jobs:
       - name: Generate index and docs
         run: make gendocs
 
+      - name: Format JSON files
+        run: make formatjson
+
       - name: Commit to a new branch and open a PR
         env:
           GH_TOKEN: ${{ github.token }}
