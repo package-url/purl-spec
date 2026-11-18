@@ -42,19 +42,19 @@ class PackageUrlTypeDefinition(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
-    field_schema: Literal["https://packageurl.org/schemas/purl-type-definition.schema-1.0.json"] = (
-        Field(
-            "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
-            alias="$schema",
-            description="Contains the URL of the JSON schema for Package-URL type definition.",
-            title="JSON schema",
-        )
+    field_schema: Literal[
+        "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json"
+    ] = Field(
+        "https://packageurl.org/purl-schemas/purl-type-definition.schema-1.1.json",
+        alias="$schema",
+        description="Contains the URL of the JSON schema for Package-URL type definition.",
+        title="JSON schema",
     )
     field_id: str = Field(
         ...,
         alias="$id",
         description="The unique identifier URI for this PURL type definition.",
-        pattern="^https:\\/\\/packageurl\\.org/types/[a-z0-9-]+-definition\\.json$",
+        pattern="^https:\\/\\/packageurl\\.org/purl-types/[a-z0-9-]+-definition\\.json$",
         title="PURL type definition id",
     )
     type: str = Field(
@@ -119,7 +119,7 @@ class PackageUrlTypeDefinition(BaseModel):
     )
     examples: list[Example] = Field(
         ...,
-        description="Example of valid, canonical PURLs for this package type.",
+        description="Example of valid PURLs for this package type.",
         min_length=1,
         title="PURL examples",
     )
@@ -152,8 +152,7 @@ class PurlComponentDefinition(BaseModel):
     case_sensitive: bool | None = Field(
         True,
         description=(
-            "true if this PURL component is case sensitive. If false, the canonical form shall be"
-            " lowercased."
+            "true if this PURL component is case sensitive. If false, the valid form is lowercase."
         ),
         title="Case sensitive",
     )
@@ -194,6 +193,16 @@ class NamespaceDefinition(PurlComponentDefinition):
         ),
         title="Namespace requirement",
     )
+    registered_values: list[RegisteredValue] | None = Field(
+        None,
+        description=(
+            "Optional set of registered namespace values for this PURL type. If the namespace value"
+            " for a PURL of this type is not one of these registered values, a tool should report a"
+            " warning. The registered namespace values should be sorted lexicographically."
+        ),
+        min_length=1,
+        title="Registered namespace values",
+    )
 
 
 class QualifiersDefinitionItem(BaseModel):
@@ -201,13 +210,15 @@ class QualifiersDefinitionItem(BaseModel):
         extra="forbid",
     )
     key: str = Field(..., description="The key for the qualifier.", title="Qualifier key")
-    requirement: OptionalRequirement | RequiredRequirement | None = Field(
+    requirement: OptionalRequirement | RecommendedRequirement | RequiredRequirement | None = Field(
         None,
-        description="States that a PURL qualifier key is optional or required for a PURL type.",
+        description=(
+            "States that a PURL qualifier key is optional, recommended or required for a PURL type."
+        ),
         title="Qualifier key requirement",
     )
     description: str = Field(
-        ..., description="The description of this qualifier.", title="Description"
+        ..., description="The description of this qualifier key.", title="Description"
     )
     default_value: str | None = Field(
         None,
@@ -216,6 +227,37 @@ class QualifiersDefinitionItem(BaseModel):
     )
     native_name: str | None = Field(
         None, description="The equivalent native name for this qualifier key.", title="Native name"
+    )
+
+
+class RecommendedRequirement(RootModel[Literal["recommended"]]):
+    root: Literal["recommended"] = Field(
+        ...,
+        description="States that this PURL component is recommended for a PURL type.",
+        title="Component recommended requirement",
+    )
+
+
+class RegisteredValue(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    value: str = Field(
+        ...,
+        description="Registered namespace value for this PURL type.",
+        title="Registered Namespace Value",
+    )
+    description: str = Field(
+        ...,
+        description="Explanation of what this namespace value means for this PURL type.",
+        title="Registered Namespace Description",
+    )
+    reference_url: str | None = Field(
+        None,
+        description=(
+            "Optional Reference URL for where this namespace value is defined for this PURL type."
+        ),
+        title="Reference URL",
     )
 
 

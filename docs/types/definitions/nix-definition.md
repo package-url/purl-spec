@@ -5,7 +5,7 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 - **Type Name:** Nix
 - **Description:** Nix Packages
-- **Schema ID:** `https://packageurl.org/types/nix-definition.json`
+- **Schema ID:** `https://packageurl.org/purl-types/nix-definition.json`
 
 ## PURL Syntax
 
@@ -22,20 +22,20 @@ The structure of a PURL for this package type is:
 
 - **Requirement:** Required
 - **Native Label:** origin
-- **Note:** `The namespace is the source origin of the package ecosystem, such as nixpkgs, nixos-hardware, or a custom flake name.`
+- **Note:** The namespace is the source origin of the package ecosystem, such as nixpkgs, nixos-hardware, or a custom flake name.
 
 ## Name definition
 
 - **Requirement:** Required
 - **Case Sensitive:** Yes
 - **Native Label:** attribute path
-- **Note:** `The exact, case-sensitive attribute path of the package within the target package set.`
+- **Note:** The exact, case-sensitive attribute path of the package within the target package set.
 
 ## Version definition
 
 - **Requirement:** Optional
 - **Native Label:** version
-- **Note:** `The upstream version of the nix package.`
+- **Note:** The upstream version of the nix package.
 
 ## Qualifiers Definition
 
