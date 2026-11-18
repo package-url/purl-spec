@@ -297,13 +297,13 @@
       "test_type": "build",
       "input": {
         "type": "nix",
-        "namespace": "",
+        "namespace": null,
         "name": "haskellPackages._3d-graphics-examples",
         "version": "0.0.0.2",
         "qualifiers": null,
         "subpath": null
       },
-      "expected_output": "",
+      "expected_output": null,
       "expected_failure": true,
       "expected_message": "Fails because namespace is missing"
     },
