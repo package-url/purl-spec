@@ -17,8 +17,8 @@ hard to follow at all.
 
 Our solution for making and recording major decisions needs to remain in the 
 domain of our project repository to keep our project communications in one 
-place. We are adapting a template and process from the [ADR project](https://github.com/adr/madr) for the **purl-spec** project. Our current approach is much simpler 
-than ADR.
+place. We are adapting a template and process from the [ADR project](https://github.com/adr/madr) 
+for the **purl-spec** project. Our current approach is much simpler than ADR.
 
 The key components of our current solution are:
 - Decision documents are stored in the `docs/decisions` folder. They are not 
@@ -35,7 +35,8 @@ proposal and (2) summary level information on its disposition.
 normal process for review and approval by the project maintainers.
 - Comments other than those essential inside a pull request should be captured
  in a GH discussion or issue and referenced by links in the decision document.
-- We plan to publish 'concluded' status documents to the [website](https://www.packageurl.org) along with guidance to review 'proposed' or other decision documents in GitHub. 
+- We plan to publish 'concluded' status documents to the [website](https://www.packageurl.org) 
+along with guidance to review 'proposed' or other decision documents in GitHub. 
 
 
 <!-- We have elected to use the ADR materials under the CC0-1. license -->

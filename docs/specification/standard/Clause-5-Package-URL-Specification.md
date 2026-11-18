@@ -1,0 +1,270 @@
+# 5 Package-URL specification
+
+PURL stands for **Package-URL**.
+
+A PURL is a URL composed of seven components:
+
+    scheme:type/namespace/name@version?qualifiers#subpath
+
+Components are separated by a specific character for unambiguous parsing.
+
+Table 1 —  Components of a PURL
+
+| Component  | Requirement | Description|
+| ---------- | ----------- |:------------------------------------------------------ |
+| scheme     | Required    | The URL scheme with the constant value of "pkg". One of the primary reasons for this single scheme is to facilitate the future official registration of the "pkg" scheme for Package-URLs. |
+| type       | Required    | The package "type" or package "protocol" such as maven, npm, nuget, gem, pypi, etc. |
+| namespace  | Optional    | A name prefix such as a Maven groupid, a Docker image owner, a GitHub user or organization. Namespace is type-specific. |
+| name       | Required    | The name of the package. |
+| version    | Optional    | The version of the package.  |
+| qualifiers | Optional    | Qualifier data for a package such as OS, architecture, repository, etc. Qualifiers are type-specific. |
+| subpath    | Optional    | Subpath within a package, relative to the package root. |
+
+Components are designed such that they form a hierarchy from the most
+significant on the left to the least significant components on the right.
+
+A PURL shall not contain a URL Authority, i.e. there is no support for
+**username**, **password**, **host** and **port** components. A **namespace**
+segment may sometimes look like a **host**, but its interpretation is specific
+to a **type**.
+
+**Example 1 (Informative): Debian**
+
+    pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie
+
+**Example 2 (Informative): Maven**
+
+    pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources
+
+**Example 3 (Informative): Node Package Manager (NPM)**
+
+    pkg:npm/foobar@12.3.1
+
+
+## 5.1 A PURL is a URL
+
+- A PURL is a valid URL and URI that conforms to the URL definitions or
+  specifications at:
+
+  - https://tools.ietf.org/html/rfc3986
+  - https://en.wikipedia.org/wiki/URL#Syntax
+  - https://en.wikipedia.org/wiki/Uniform_Resource_Identifier#Syntax
+  - https://url.spec.whatwg.org/
+
+- The PURL components are mapped to these URL components:
+
+  - PURL **scheme**: this is a URL **scheme** with a constant value: **pkg**
+  - PURL **type**, **namespace**, **name** and **version** components: these
+    are collectively mapped to a URL **path**
+  - PURL **qualifiers**: this maps to a URL **query**
+  - PURL **subpath**: this is a URL **fragment**
+  - In a PURL, there is no support for a URL Authority (e.g. no
+    **username**, **password**, **host** and **port** components).
+
+- Special URL schemes as defined in https://url.spec.whatwg.org/ such as
+  **file://**, **https://**, **http://** and **ftp://** are not valid PURL
+  types. They are valid URL or URI schemes but they are not a valid PURL
+  scheme. They may be used to reference URLs in separate attributes outside of
+  a PURL or in a PURL qualifier.
+
+- Version control system (VCS) URLs such as **git://**, **svn://**, **hg://** or
+  as defined in Python pip or SPDX download locations are not valid PURL
+  types. They are valid URL or URI schemes but they are not a valid PURL
+  scheme. They are a closely related, compact and uniform way to reference VCS
+  URLs. They may be used as references in separate attributes outside of a
+  PURL or in a PURL qualifier.
+
+- A PURL should be a locator based on three paths to specify or derive a URL:
+  - A default repository location should be defined for a PURL **type**.
+  - A repository URL or a download URL may be defined as a **qualifier** for a
+    PURL **type**.
+  - A package ecosystem may provide a mechanism to derive the locator based on
+    a set of PURL components.
+
+## 5.2 Permitted characters
+
+A valid PURL is composed of these permitted ASCII characters:
+
+- the Alphanumeric Characters: **A to Z**, **a to z**, **0 to 9**
+- the Punctuation Characters: **.-_~** (period '.',
+  dash '-', underscore '_', and tilde '~')
+- the Percent Character: **%** (percent sign '%')
+- the Separator Characters **:/@?=&#** (colon ':', slash '/', at sign '@',
+  question mark '?', equal sign '=', ampersand '&', and hash sign '#')
+
+
+## 5.3 Separator characters
+
+This is how each of the Separator Characters is used:
+
+- ':' (colon) is the separator between **scheme** and **type**
+- '/' (slash) is the separator between **type**, **namespace** and **name**
+- '/' (slash) is the separator between **subpath** segments
+- '@' (at sign) is the separator between **name** and **version**
+- '?' (question mark) is the separator before **qualifiers**
+- '=' (equals) is the separator between a **key** and a **value** of a
+  **qualifier**
+- '&' (ampersand) is the separator between **qualifiers** (each being a
+  **key=value** pair)
+- '#' (hash sign) is the separator before **subpath**
+
+## 5.4 Character encoding
+
+- In the "Rules for each PURL component" clause, each component
+  defines when and how to apply percent-encoding and decoding to its content.
+- When percent-encoding is required by a component definition, the component
+  string shall first be encoded as UTF-8 per [RFC 3629](https://datatracker.ietf.org/doc/html/rfc3629).
+- In the component string, each "data octet" shall be replaced by the
+  percent-encoded "character triplet" applying the percent-encoding mechanism
+  defined in [RFC 3986 section 2.1](https://datatracker.ietf.org/doc/html/rfc3986#section-2.1), including the RFC definition of "data octet" and "character triplet", and using these definitions for RFC's "allowed set" and "delimiters":
+
+  - "allowed set" is composed of the Alphanumeric Characters and the
+    Punctuation Characters
+  - "delimiters" is composed of the Separator Characters
+
+- The following characters shall not be percent-encoded:
+
+  - the Alphanumeric Characters
+  - the Punctuation Characters
+  - the Separator Characters when being used as PURL separators
+  - the colon ':', whether used as a Separator Character or otherwise
+  - the percent sign '%' when used to represent a percent-encoded character
+
+- Where the space ' ' is permitted, it shall be percent-encoded as '%20'.
+- With the exception of the percent-encoding mechanism, the rules regarding
+  percent-encoding are defined by this Standard alone.
+
+## 5.5 Case folding
+
+References to "lowercase" in this Standard refer to the
+**culture-invariant** full case mapping defined in
+[Section 3.13.2 of the Unicode Standard](https://www.unicode.org/versions/Unicode16.0.0/core-spec/chapter-3/#G34078).
+
+When applied to the ASCII character set, this operation converts uppercase
+Latin letters (**A to Z**) to their corresponding lowercase forms
+(**a to z**).
+All other ASCII characters remain unchanged.
+
+## 5.6 Rules for each PURL component
+
+A PURL string is an ASCII URL string composed of seven components.
+
+Except as expressly stated otherwise in this Clause, each component:
+
+- may be composed of any of the characters defined in the _Permitted
+  characters_ clause
+- shall be encoded as defined in the _Character encoding_ clause
+
+The "lowercase" rules are defined in the Case folding clause.
+
+The rules for each component are:
+
+### 5.6.1 Scheme
+- The **scheme** is a constant with the value "pkg".
+- The **scheme** shall be followed by an unencoded colon ':'.
+- PURL parsers should accept URLs where the **scheme** and colon ':' are
+followed by one or more slash '/' characters, such as 'pkg://', and should
+ignore and remove all such '/' characters.
+
+### 5.6.2 Type
+- The package **type** shall be composed only of ASCII letters and numbers,
+  period '.', and dash '-'.
+- The **type** shall start with an ASCII letter.
+- The **type** shall not be percent-encoded.
+- The **type** is case insensitive. The form is lowercase.
+
+### 5.6.3 Namespace
+- The **namespace** is optional, unless required by the package's **type**
+  definition.
+- If present, the **namespace** may contain one or more segments, separated by
+   a single unencoded slash '/' character.
+- All leading and trailing slashes '/' are not significant and should be
+  stripped. They are not part of the **namespace**.
+- Each **namespace** segment shall be a percent-encoded string.
+- When percent-decoded, a segment:
+    - shall not contain any slash '/' characters
+    - shall not be empty
+    - may contain any Unicode character other than '/' unless the package's
+      **type** definition further restricts the allowed characters
+- A URL host or Authority shall not be used as a **namespace**. Use instead a
+  **repository_url** qualifier. Note however, that for some types, the
+  **namespace** may look like a host.
+
+### 5.6.4 Name
+- The **name** is prefixed by a single slash '/' separator when the
+  **namespace** is not empty.
+- All leading and trailing slashes '/' are not significant and should be
+  stripped. They are not part of the **name**.
+- A **name** shall be a percent-encoded string.
+- When percent-decoded, a **name** may contain any Unicode character unless
+  the package's **type** definition further restricts the allowed characters.
+
+### 5.6.5 Version
+- The **version** is prefixed by a '@' separator when not empty.
+- This '@' is not part of the **version**.
+- A **version** shall be a percent-encoded string.
+- When percent-decoded, a **version** may contain any Unicode character
+  unless the package's **type** definition further restricts the allowed
+  characters.
+- A **version** is a plain and opaque string.
+
+### 5.6.6 Qualifiers
+- The **qualifiers** component shall be prefixed by an unencoded question mark
+  '?' separator when not empty. This '?' separator is not part of the
+**qualifiers** component.
+- The **qualifiers** component is composed of one or more **key=value** pairs.
+  Multiple **key=value** pairs shall be separated by an unencoded ampersand
+  '&'. This '&' separator is not part of an individual **qualifier**.
+- A **key** and **value** shall be separated by the unencoded equal sign '='
+  character. This '=' separator is not part of the **key** or **value**.
+- A **value** shall not be an empty string: a **key=value** pair with an empty
+  **value** is the same as if no **key=value** pair exists for this **key**.
+- For each **key=value** pair:
+    - The **key** shall be composed only of lowercase ASCII letters and
+      numbers, period '.', dash '-' and underscore '_'.
+    - A **key** shall start with an ASCII letter.
+    - A **key** shall not be percent-encoded.
+    - Each **key** shall be unique among all the keys of the **qualifiers**
+      component.
+    - A **value** may contain any Unicode character and all characters shall
+      be encoded as described in the _Character encoding_ clause.
+
+### 5.6.7 Subpath
+- The **subpath** string is prefixed by a '#' separator when not empty.
+- The '#' is not part of the **subpath**.
+- If present, the **subpath** may contain one or more segments, each
+  separated by a single unencoded slash '/' character.
+- Leading and trailing slashes '/' are not significant and should be stripped.
+- Each **subpath** segment shall be a percent-encoded string
+- When percent-decoded, a segment:
+    - shall not contain any slash '/' characters
+    - shall not be empty
+    - shall not be any of '..' or '.'
+    - may contain any Unicode character other than '/' unless the package's
+      **type** definition further restricts the allowed characters.
+- The **subpath** shall be interpreted as relative to the root of the package.
+
+## 5.7 PURL type definitions
+This Standard includes the Package-URL Type Definition Schema but it does not
+include the set of current "registered" PURL **type** (JSON format) definition
+files because there are ongoing additions and changes to these files. The set
+of current "registered" PURL **type** definition files are located at: https://www.packageurl.org/purl-types/.
+Registration refers to the Package-URL community process for adding a new PURL **type**.
+
+There are two rules related to the set of registered PURL **type** definitions
+for conforming PURL implementations to validate the PURL **type** component of
+a PURL:
+- If the PURL **type** is registered, then the PURL is invalid if it does not
+  conform to all of the rules from the corresponding PURL **type** definition.
+- If the PURL **type** is not registered, then the **type** component is valid
+  if it conforms to the rules stated in the _Type_ component rules in this
+  Clause of the Standard. In this case an implementation should report a
+  warning that the PURL **type** is not registered.
+
+
+
+
+
+
+
+
