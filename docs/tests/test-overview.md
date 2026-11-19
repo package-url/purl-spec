@@ -28,7 +28,7 @@ support all elements defined within this Standard, including the syntax,
 components, and semantic requirements for constructing and interpreting valid
 PURLs."
 
-The reference above to "this Standard" means the content of ECMA-427 which is
+The reference above to "this Standard" means the content of ECMA-427, which is
 the core PURL specification, but only part of the overall PURL specification.
 The primary content of the PURL Standard is documented in two clauses of
 ECMA-427:
@@ -37,14 +37,15 @@ which covers the structure of a PURL and:
    - Permitted and separator characters,
    - Character encoding and case folding, and
    - Rules for each PURL component.
-- [6 Package-URL Type Definition Schema](https://ecma-tc54.github.io/ECMA-427/sec-purl-type-schema)
-  which covers the definition of a PURL `type` but not the data for each
+- [6 Package-URL Type Definition Schema](https://ecma-tc54.github.io/ECMA-427/sec-purl-type-schema),
+  which covers the definition of a PURL `type`, but not the data for each
   PURL `type` because that data is evolving as new PURL `types` are
   registered (see Terminology below). Conformance with the PURL Standard
   requires conformance with the currently registered PURL `type` definitions.
 
 Other PURL documentation such as "How to build a PURL" or "How to parse a
-PURL" is part of the specification, but but not part of the PURL Standard for conformance purposes.
+PURL" is part of the specification, but not part of the PURL Standard for
+conformance purposes.
 
 ### Terminology
 Some common words have a very specific meaning for ECMA-427 conformance:
@@ -58,14 +59,14 @@ Some common words have a very specific meaning for ECMA-427 conformance:
 ### Valid form
 The PURL Standard requires that:
 - A PURL string is in valid form or
-- Each PURL component in a set (object) in valid form.
+- Each PURL component is in a set (object) in valid form.
 
 In the testing context, there are no exceptions to valid form for the
-output of a PURL tool, but there are some exceptions for the input where the
-Standard requires a PURL tool to normalize data elements in order to produce a
-valid test output. The exceptions are:
+output of a PURL tool, but there are some exceptions for the `input` where the
+Standard recommends that a PURL tool should normalize data elements in order
+to produce a valid test `expected_output`. The exceptions are:
 - At the core specification level (Clause 5), ECMA-427 says: "PURL parsers
-  shall accept URLs where the scheme and colon ':' are followed by one or more
+  shall accept URLs where the `scheme` and colon ':' are followed by one or more
   slash '/' characters, such as 'pkg://', and shall ignore and remove all such
   '/' characters."
 
@@ -77,7 +78,7 @@ valid test output. The exceptions are:
   include normalization requirements. If applicable these are documented in
   two properties:
    - `case_sensitive`: "true if this PURL component is case sensitive. If
-     false, the valid form shall be lowercase."
+     false, the valid form is lowercase."
    - `normalization_requirements`: "List of rules to normalize this component
       for this PURL type. These are plain text, unstructured rules as some
       require programming and cannot be enforced only with a schema. Tools are

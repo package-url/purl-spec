@@ -27,11 +27,11 @@ Conformance Clause (2) of ECMA-427.
 The terminology of the v0.1 PURL test schema did not provide a
 way to provide a test case message in two important use cases:
 - When the PURL specification requires normalization of an `input`. This
-  applies only to the 'parse' and 'validate' `test types`. It is important
+  applies only to the 'parse' and 'validate' `test_types`. It is important
   to document that the input was not in valid form even when a test case
   passes.
 - When an `input` contains an unregistered PURL `type`. This applies to
-  all three `test types`. It is important to document that a PURL `type`
+  all three `test_types`. It is important to document that a PURL `type`
   is not registered because this means that the PURL `type` is effectively
   unknown across the tools and databases that implement PURL.
 
@@ -47,9 +47,9 @@ can easily test this round trip behavior without a test case.
 
 The 'validate' `test_type` does not require the `input` PURL string to be in
 valid form. There is a high degree of similarity between the 'parse'
-and 'validate' `test types` in terms of the functions a PURL tool performs.
-The key difference is that the `expected output` from a 'parse' test case is
-an object composed of decoded PURL components and the `expected output`
+and 'validate' `test_types` in terms of the functions a PURL tool performs.
+The key difference is that the `expected_output` from a 'parse' test case is
+an object composed of decoded PURL components and the `expected_output`
 from a 'validate' test case is a PURL string.
 
 
