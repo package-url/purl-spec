@@ -118,7 +118,7 @@ consumers. Some commercial publishers may restrict access to package metadata
 or downloads to customers.
 
 A PURL registry comprises:
-- A `/.well-known/purl` URI endpoint at the domain used for the first
+- A `/.well-known/purl.json` URI endpoint at the domain used for the first
   `namespace` segment of the 'software-id' PURLs maintained by the publisher
   at that domain.
 - A definition of any 'software-id' subtypes for PURLs maintained at that
@@ -253,7 +253,7 @@ Package-URL community.
 ### Out of scope
 - Provide an open-source container for self-hosting a lightweight self-service
   web app with a database.
-- Aggregate mirrored snapshots of `./well-known/purl` PURL data from public
+- Aggregate mirrored snapshots of `./well-known/purl.json` data from public
   PURL Registries.
 
 ### ASF example
