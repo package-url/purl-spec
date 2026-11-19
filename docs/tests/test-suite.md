@@ -38,7 +38,7 @@ The PURL test files are currently organized in two primary subfolders:
   This folder contains JSON test files that are for the core specification and
   are not for a specific PURL `type`. This folder currently contains one test
   file: [`specification-test.json`](https://github.com/package-url/purl-spec/blob/main/tests/spec/specification-test.json).
-  There may separate test files for each PURL component in the future.
+  There may be separate test files for each PURL component in the future.
 - [`purl-spec/tests/types/`](https://github.com/package-url/purl-spec/tree/main/tests/types):
   This folder contains one JSON test file for each registered PURL `type`.
   These tests should be focused on test cases that are specific to a PURL

@@ -13,8 +13,8 @@ Each test case is in JSON format with following basic structure:
 | **Property**     | **Format** | **Description**                     |
 | ---------------- | ---------- | --------------------------------------------------------------------- |
 | description      | string     |     |
-| test_group       | string     | required' or 'recommended'          |
-| test_type        | string     | build', 'parse', or 'validate'      |
+| test_group       | string     | 'required' or 'recommended'          |
+| test_type        | string     | 'build', 'parse', or 'validate'      |
 | expected_failure | boolean    |                                     |
 | expected_message | string     |                                     |
 | input            | string     | A PURL string or an object of PURL components; not required to be in valid form. |
@@ -41,7 +41,7 @@ There are two PURL `test groups`:
 - 'required': A test case to demonstrate conformance with ECMA-427 which means
   conformance with:
    - The Package-URL specification as documented in [ECMA-427 Clause 5](https://ecma-tc54.github.io/ECMA-427/#sec-purl-specification), and
-   - The current set of Registered PURL `type` definitions.
+   - The current set of registered PURL `type` definitions.
 - 'recommended': A test case that is recommended to identify common problems
   in PURL data and how to remediate or normalize them in order to pass the
   'required' tests. The use of 'recommended' test cases is always optional.
@@ -64,7 +64,8 @@ There are three PURL `test types`:
 - `input` may be a PURL string or an object containing PURL components.
 - `input` does not need to be in valid form, but a test case with
   non-valid input shall fail if the `test_group` is 'required' unless
-  there is a normalization exception in ECMA-427.
+  there is a "shall" normalization rule in ECMA-427 or in an applicable
+  `type` definition.
 
 ### expected_output
 `expected output` is either a valid PURL string or an object containing
@@ -74,21 +75,23 @@ a set of decoded PURL components.
 
 ### expected_failure
 `expected_failure` is true if the test `input` is expected to fail
-according to the function defined by the `test_type` ('build' 'parse' or
+according to the function defined by the `test_type` ('build', 'parse' or
 'validate').
 
 ### expected_message
 `expected-message` documents either the reason that a test case results in a
 failure or provides information about the result of the test case. It should
 be descriptive without duplicating the test case `description`.
-- If `expected_failure` is true, then `expected-message` is
+- If `expected_failure` is true, then `expected_message` is
   required.
-- If `expected_failure` is false, then `expected-message` is not required,
+- If `expected_failure` is false, then `expected_message` is not required,
   but is recommended in some cases. These cases include:
   - When the PURL specification requires normalization of an `input` for
     a 'parse' or 'validate' `test-type`. It is important in these cases to
-    report that the `input` was not in valid form even though the test
+    report that the `input` was not in valid form even though the test case
     did not fail.
+  - When a "should" normalization from ECMA-427 or an applicable `type`
+    definition is applied in a test case.
   - When an `input`contains an unregistered PURL `type`. It is important
     to document that a PURL `type` is not registered because this means that
     the PURL `type` is effectively unknown across the tools and databases

@@ -10,7 +10,7 @@ The PURL test schema was updated to: https://packageurl.org/purl-schemas/purl-te
 all of the PURL test suite files at: `purl-spec/tests/`. See a summary of the
 changes below.
 
-The original PURL test suite files for the [PURL test schema v0.1](https://packageurl.org/schemas/purl-test.schema-0.1.json) 
+The original PURL test suite files for the [PURL test schema v0.1](https://packageurl.org/schemas/purl-test.schema-0.1.json)
 remain available under [purl-spec v1.0.1](https://github.com/package-url/purl-spec/releases/tag/v1.0.1).
 
 ### Test groups
@@ -19,7 +19,7 @@ remain available under [purl-spec v1.0.1](https://github.com/package-url/purl-sp
 - 'advanced' to 'recommended'
 
 This change removes the ambiguity of the `test_group` names from the v0.1
-PURL test schema by using names that map to the terminology from the 
+PURL test schema by using names that map to the terminology from the
 Conformance Clause (2) of ECMA-427.
 
 ### Test messages
@@ -28,27 +28,27 @@ Conformance Clause (2) of ECMA-427.
 The terminology of the v0.1 PURL test schema did not provide a
 way to provide a test case message in two important use cases:
 - When the PURL specification requires normalization of an `input`. This
-  applies only to the 'parse' and 'validate' `test types`. It is important
+  applies only to the 'parse' and 'validate' `test_types`. It is important
   to document that the input was not in valid form even when a test case
   passes.
 - When an `input` contains an unregistered PURL `type`. This applies to
-  all three `test types`. It is important to document that a PURL `type`
+  all three `test_types`. It is important to document that a PURL `type`
   is not registered because this means that the PURL `type` is effectively
   unknown across the tools and databases that implement PURL.
 
 ### Test types
 **Change**: Renamed `test_type` 'roundtrip' to 'validate'.
 
-The general meaning of a "roundtrip" test was to confirm that a PURL 
+The general meaning of a "roundtrip" test was to confirm that a PURL
 tool can parse a valid PURL into its components and then build a valid
 PURL from those components - these functions are also known as deserialization
-and serialization. The former 'roundtrip' `test_type` did not provide much 
+and serialization. The former 'roundtrip' `test_type` did not provide much
 value because the input and output are required to be the same. A PURL tool
 can easily test this "roundtrip" behavior without a test case.
 
-The 'validate' `test_type` does not require the input PURL string to be in 
+The 'validate' `test_type` does not require the input PURL string to be in
 valid form. There is a high degree of similarity between the 'parse'
-and 'validate' `test types` in terms of the functions a PURL tool performs.
+and 'validate' `test_types` in terms of the functions a PURL tool performs.
 The key difference is that the `expected_output` from a 'parse' test case is
 an object composed of decoded PURL components and the `expected_output`
 from a 'validate' test case is a PURL string.
