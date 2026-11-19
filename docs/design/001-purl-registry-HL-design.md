@@ -253,7 +253,7 @@ Package-URL community.
 ### Out of scope
 - Provide an open-source container for self-hosting a lightweight self-service
   web app with a database.
-- Aggregate mirrored snapshots of `./well-known/purl` PURL data from public
+- Aggregate mirrored snapshots of `./well-known/purl.json` data from public
   PURL Registries.
 
 ### ASF example
