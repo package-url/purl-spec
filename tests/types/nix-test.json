@@ -287,7 +287,7 @@
       "test_group": "required",
       "test_type": "parse",
       "input": "pkg:nix/haskellPackages._3d-graphics-examples@0.0.0.2",
-      "expected_output": {},
+      "expected_output": null,
       "expected_failure": true,
       "expected_message": "Fails because namespace is missing"
     },
