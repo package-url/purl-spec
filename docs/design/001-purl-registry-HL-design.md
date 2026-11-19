@@ -118,7 +118,7 @@ consumers. Some commercial publishers may restrict access to package metadata
 or downloads to customers.
 
 A PURL registry comprises:
-- A `/.well-known/purl` URI endpoint at the domain used for the first
+- A `/.well-known/purl.json` URI endpoint at the domain used for the first
   `namespace` segment of the 'software-id' PURLs maintained by the publisher
   at that domain.
 - A definition of any 'software-id' subtypes for PURLs maintained at that
