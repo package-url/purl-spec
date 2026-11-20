@@ -1,0 +1,96 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "ips package with publisher and hierarchical name",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:ips/openindiana.org/system%2flibrary@0.5.11,5.11-2023.0.0.20163:20230504T155427Z",
+      "expected_output": {
+        "type": "ips",
+        "namespace": "openindiana.org",
+        "name": "system/library",
+        "version": "0.5.11,5.11-2023.0.0.20163:20230504T155427Z",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "ips package roundtrip",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:ips/openindiana.org/system%2flibrary@0.5.11,5.11-2023.0.0.20163:20230504T155427Z",
+      "expected_output": "pkg:ips/openindiana.org/system%2flibrary@0.5.11,5.11-2023.0.0.20163:20230504T155427Z",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "ips package build",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "ips",
+        "namespace": "openindiana.org",
+        "name": "system/library",
+        "version": "0.5.11,5.11-2023.0.0.20163:20230504T155427Z",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:ips/openindiana.org/system%2flibrary@0.5.11,5.11-2023.0.0.20163:20230504T155427Z",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "ips package with architecture qualifier",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:ips/omnios/runtime%2fperl-532@5.32.1,5.11-151038.0:20210503T104523Z?arch=i386",
+      "expected_output": {
+        "type": "ips",
+        "namespace": "omnios",
+        "name": "runtime/perl-532",
+        "version": "5.32.1,5.11-151038.0:20210503T104523Z",
+        "qualifiers": {
+          "arch": "i386"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "ips package without publisher",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:ips/developer%2fgcc-10@10.3.0,5.11-151038.0:20210503T104523Z",
+      "expected_output": {
+        "type": "ips",
+        "namespace": null,
+        "name": "developer/gcc-10",
+        "version": "10.3.0,5.11-151038.0:20210503T104523Z",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "ips package without namespace",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:ips/bash@4.4",
+      "expected_output": {
+        "type": "ips",
+        "namespace": null,
+        "name": "bash",
+        "version": "4.4",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}
