@@ -1,0 +1,194 @@
+{
+  "$schema": "https://packageurl.org/purl-schemas/purl-test.schema-0.2.json",
+  "tests": [
+    {
+      "description": "Parse test for PURL type: vipm",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:vipm/oglib_file@6.0.2.28",
+      "expected_output": {
+        "type": "vipm",
+        "namespace": null,
+        "name": "oglib_file",
+        "version": "6.0.2.28",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: vipm",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:vipm/oglib_file@6.0.2.28",
+      "expected_output": "pkg:vipm/oglib_file@6.0.2.28",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Build test for PURL type: vipm",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "vipm",
+        "namespace": null,
+        "name": "oglib_file",
+        "version": "6.0.2.28",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:vipm/oglib_file@6.0.2.28",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Parse test for PURL type: vipm with a release suffix in the version",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:vipm/oglib_lvzip@5.0.9-1",
+      "expected_output": {
+        "type": "vipm",
+        "namespace": null,
+        "name": "oglib_lvzip",
+        "version": "5.0.9-1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: vipm with a release suffix in the version",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:vipm/oglib_lvzip@5.0.9-1",
+      "expected_output": "pkg:vipm/oglib_lvzip@5.0.9-1",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Build test for PURL type: vipm with a release suffix in the version",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "vipm",
+        "namespace": null,
+        "name": "oglib_lvzip",
+        "version": "5.0.9-1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:vipm/oglib_lvzip@5.0.9-1",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Parse test for PURL type: vipm with a percent-encoded character in the name",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:vipm/mgi_lib_matrix_%26_vector@1.1.0.1",
+      "expected_output": {
+        "type": "vipm",
+        "namespace": null,
+        "name": "mgi_lib_matrix_&_vector",
+        "version": "1.1.0.1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: vipm with a percent-encoded character in the name",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:vipm/mgi_lib_matrix_%26_vector@1.1.0.1",
+      "expected_output": "pkg:vipm/mgi_lib_matrix_%26_vector@1.1.0.1",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Build test for PURL type: vipm with a percent-encoded character in the name",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "vipm",
+        "namespace": null,
+        "name": "mgi_lib_matrix_&_vector",
+        "version": "1.1.0.1",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:vipm/mgi_lib_matrix_%26_vector@1.1.0.1",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Parse test for PURL type: vipm lowercases an uppercase name",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:vipm/NI_GDS_2016@1.1.83.83",
+      "expected_output": {
+        "type": "vipm",
+        "namespace": null,
+        "name": "ni_gds_2016",
+        "version": "1.1.83.83",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: vipm lowercases an uppercase name",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:vipm/NI_GDS_2016@1.1.83.83",
+      "expected_output": "pkg:vipm/ni_gds_2016@1.1.83.83",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Build test for PURL type: vipm lowercases an uppercase name",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "vipm",
+        "namespace": null,
+        "name": "NI_GDS_2016",
+        "version": "1.1.83.83",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:vipm/ni_gds_2016@1.1.83.83",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Parse test for PURL type: vipm with a prohibited namespace",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:vipm/oglib/oglib_file@6.0.2.28",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_message": "Should fail to parse a vipm PURL with a namespace because vipm namespaces are prohibited"
+    },
+    {
+      "description": "Build test for PURL type: vipm with a prohibited namespace",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "vipm",
+        "namespace": "oglib",
+        "name": "oglib_file",
+        "version": "6.0.2.28",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_message": "Should fail to build a vipm PURL with a namespace because vipm namespaces are prohibited"
+    }
+  ]
+}

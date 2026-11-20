@@ -1,0 +1,153 @@
+{
+  "$schema": "https://packageurl.org/purl-schemas/purl-test.schema-0.2.json",
+  "tests": [
+    {
+      "description": "Parse test for PURL type: nipkg",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:nipkg/ni-daqmx@23.8.0.49349-0%2Bf197",
+      "expected_output": {
+        "type": "nipkg",
+        "namespace": null,
+        "name": "ni-daqmx",
+        "version": "23.8.0.49349-0+f197",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: nipkg",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:nipkg/ni-daqmx@23.8.0.49349-0%2Bf197",
+      "expected_output": "pkg:nipkg/ni-daqmx@23.8.0.49349-0%2Bf197",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Build test for PURL type: nipkg",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "nipkg",
+        "namespace": null,
+        "name": "ni-daqmx",
+        "version": "23.8.0.49349-0+f197",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:nipkg/ni-daqmx@23.8.0.49349-0%2Bf197",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Parse test for PURL type: nipkg with dots in the name",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:nipkg/ni-daqmx-25.0.1-dotnet-fx45-runtime@25.0.1.49157-0%2Bf5",
+      "expected_output": {
+        "type": "nipkg",
+        "namespace": null,
+        "name": "ni-daqmx-25.0.1-dotnet-fx45-runtime",
+        "version": "25.0.1.49157-0+f5",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: nipkg with dots in the name",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:nipkg/ni-daqmx-25.0.1-dotnet-fx45-runtime@25.0.1.49157-0%2Bf5",
+      "expected_output": "pkg:nipkg/ni-daqmx-25.0.1-dotnet-fx45-runtime@25.0.1.49157-0%2Bf5",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Build test for PURL type: nipkg with dots in the name",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "nipkg",
+        "namespace": null,
+        "name": "ni-daqmx-25.0.1-dotnet-fx45-runtime",
+        "version": "25.0.1.49157-0+f5",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:nipkg/ni-daqmx-25.0.1-dotnet-fx45-runtime@25.0.1.49157-0%2Bf5",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Parse test for PURL type: nipkg lowercases an uppercase name",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:nipkg/NI-DAQmx@23.8.0.49349-0%2Bf197",
+      "expected_output": {
+        "type": "nipkg",
+        "namespace": null,
+        "name": "ni-daqmx",
+        "version": "23.8.0.49349-0+f197",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Roundtrip test for PURL type: nipkg lowercases an uppercase name",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:nipkg/NI-DAQmx@23.8.0.49349-0%2Bf197",
+      "expected_output": "pkg:nipkg/ni-daqmx@23.8.0.49349-0%2Bf197",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Build test for PURL type: nipkg lowercases an uppercase name",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "nipkg",
+        "namespace": null,
+        "name": "NI-DAQmx",
+        "version": "23.8.0.49349-0+f197",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:nipkg/ni-daqmx@23.8.0.49349-0%2Bf197",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Parse test for PURL type: nipkg with a prohibited namespace",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:nipkg/ni/ni-daqmx@23.8.0.49349-0%2Bf197",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_message": "Should fail to parse a nipkg PURL with a namespace because nipkg namespaces are prohibited"
+    },
+    {
+      "description": "Build test for PURL type: nipkg with a prohibited namespace",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "nipkg",
+        "namespace": "ni",
+        "name": "ni-daqmx",
+        "version": "23.8.0.49349-0+f197",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_message": "Should fail to build a nipkg PURL with a namespace because nipkg namespaces are prohibited"
+    }
+  ]
+}
