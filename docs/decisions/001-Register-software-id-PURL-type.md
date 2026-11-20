@@ -132,7 +132,7 @@ pkg:software-id/acmerobotics.org/foo/analytics-suite@5.2.1
 Each domain acts as a PURL registry that enforces uniqueness. The shared
 `packageurl.org` registry enforces uniqueness within its domain during
 the registration process, where each registration is documented by
-files published at a `.well-known` URI.
+files published at a `/.well-known/purl` URI.
 
 #### Flexible namespacing
 
@@ -162,21 +162,21 @@ The requirement that the first  `namespace` segment for a 'software-id' PURL
 is a domain name makes it possible to discover and resolve software package
 PURLs at a domain address with:
 
-- A `.well-known/purl` [URI](https://en.wikipedia.org/wiki/Well-known_URI),
+- A `/.well-known/purl` [URI](https://en.wikipedia.org/wiki/Well-known_URI),
   served at that domain and containing the definitions and references for the
   PURLs defined at that domain and a PURL catalog. This well-known URI will
   be registered with [IANA](https://www.iana.org/assignments/well-known-uris).
 
-- The shared `packageurl.org` domain serving a `.well-known/purl` URI of
+- The shared `packageurl.org` domain serving a `/.well-known/purl` URI of
   registered PURL `namespaces` and providing a centralized registry for
   open source projects or other organizations that want to standardize their
-  PURLs without having to host their own `.well-known/purl` URI, either
+  PURLs without having to host their own `/.well-known/purl` URI, either
   because they do not control a domain or they prefer centralized registration.
 
 The `packageurl.org` domain will host the shared registry of PURLs prefixed
 with `pkg:software-id/packageurl.org/` and also serve as an aggregator for
 other domains to make discovery easier with mirrored snapshots of their
-`./well-known/purl` PURL definitions and catalogs.
+`/.well-known/purl` PURL definitions and catalogs.
 
 The `packageurl.org` domain will support a simple process to register a
 'software-id' PURL `namespace`. The data in this PURL registry will be stored
@@ -299,7 +299,7 @@ be less confusing than acronyms like 'sid' or 'scid'.
 ### PURL discovery
 
 The PURL approach to discovering 'software-id' `types` is to use static files
-located at the `.well-known/` location of the domain used as the first segment
+located at the `/.well-known/purl` location of the domain used as the first segment
 of that PURL. (Technically these files could be dynamically generated.)
 
 ## More Information
