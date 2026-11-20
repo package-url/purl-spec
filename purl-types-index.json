@@ -27,6 +27,7 @@
   "luarocks",
   "maven",
   "mlflow",
+  "nix",
   "npm",
   "nuget",
   "oci",
