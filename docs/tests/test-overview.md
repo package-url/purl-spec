@@ -5,7 +5,7 @@ sidebar_label: Test overview
 hide_table_of_contents: false
 ---
 
-# Package-URL test overview
+# PURL test overview
 The Package-URL (PURL) specification provides test files to support
 language-neutral testing of PURL implementations. The objectives for the PURL
 test files are to:
@@ -15,8 +15,7 @@ test files are to:
 - Help tools identify and fix common problems in PURL data.
 
 The structure of test cases used in PURL test files is defined in a JSON
-schema that is available at: https://packageurl.org/purl-schemas/purl-test.schema-0.2.json.
-This schema is not currently included in ECMA-427 for PURL.
+schema that is available at: https://packageurl.org/purl-schemas/purl-test.schema-0.2.json. This schema is not currently included in ECMA-427 for PURL.
 
 ## ECMA-427
 Since the primary goal for the PURL test suite is to help PURL tools achieve

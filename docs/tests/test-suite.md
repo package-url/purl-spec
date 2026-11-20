@@ -33,17 +33,17 @@ still under active development.
 
 The current PURL test schema is located at: https://packageurl.org/purl-schemas/purl-test.schema-0.2.json.
 
-The PURL test files are currently organized in two primary subfolders:
+The PURL test files are currently organized in two primary folders:
 - [`purl-spec/tests/spec/`](https://github.com/package-url/purl-spec/tree/main/tests/spec):
   This folder contains JSON test files that are for the core specification and
   are not for a specific PURL `type`. This folder currently contains one test
   file: [`specification-test.json`](https://github.com/package-url/purl-spec/blob/main/tests/spec/specification-test.json).
+
   There may be separate test files for each PURL component in the future.
 - [`purl-spec/tests/types/`](https://github.com/package-url/purl-spec/tree/main/tests/types):
-  This folder contains one JSON test file for each registered PURL `type`.
-  These tests should be focused on test cases that are specific to a PURL
-  `type`, such as tests for the `namespace` or `qualifiers` components. PURL
-  `type` test cases should not duplicate specification-level test cases.
+  This folder contains one JSON test file for each registered PURL `type` with
+  the test file named `<purl-type>-test.json`. These tests should be focused on test cases that are specific to a PURL `type`, such as tests for the `namespace`
+  or `qualifiers` components. PURL `type` test cases should not duplicate specification-level test cases.
 
 The PURL specification does not mandate how a PURL tool natively reports
 the success or failure of a test. Implementation languages that throw

@@ -7,14 +7,24 @@ hide_table_of_contents: false
 
 # PURL test cases
 
+## PURL test schema
+
+The PURL test schema is specified with [JSON Schema Draft-07](https://json-schema.org/draft-07/draft-handrews-json-schema-01.html).
+
+The current PURL test schema version is v0.2. You can use the following links
+to view the JSON Schema file directly or view an Interactive HTML version created with [JSON Schema for Humans](https://github.com/coveooss/json-schema-for-humans).
+
+- <a href="https://packageurl.org/purl-schemas/purl-test.schema-0.2.json" target="_blank">JSON Schema</a> `↗`
+- <a href="/interactive_schemas/purl-test.schema-0.2.html" target="_blank">Interactive HTML</a> `↗`
+
 ## Test case structure
 Each test case is in JSON format with following basic structure:
 
 | **Property**     | **Format** | **Description**                     |
 | ---------------- | ---------- | --------------------------------------------------------------------- |
 | description      | string     |     |
-| test_group       | string     | 'required' or 'recommended'          |
-| test_type        | string     | 'build', 'parse', or 'validate'      |
+| test_group       | string     | 'required' or 'recommended'         |
+| test_type        | string     | 'build', 'parse', or 'validate'     |
 | expected_failure | boolean    |                                     |
 | expected_message | string     |                                     |
 | input            | string     | A PURL string or an object of PURL components; not required to be in valid form. |
@@ -22,36 +32,55 @@ Each test case is in JSON format with following basic structure:
 
 See below for more details about each test case property.
 
-### Testing Principles
+## PURL test principles
 
+### Test case granularity
 Each test case is granular such that an expected failure condition covers only
 one error. This means that a test case should only cover an error for a single
 PURL component or a single parsing error related to separator characters. This
 is necessary to keep test cases simple. It is not intended to constrain error
 message handling implemented by a PURL tool.
 
+### Test failure or success
+Test cases should be balanced between examples of successes and failures. A
+general rule is that one quarter to one third of the PURL test cases should
+result in an `expected_failure` condition. This is important to provide a
+realistic set of test cases.
+
+### PURL 'type' test cases
+Test cases for a PURL `type` should be focused on:
+- Testing PURL component definitions that are specific to the PURL `type`,
+  especially those that are related to the `namespace`, `name`, and
+  `qualifiers` components.
+- Illustrating common data patterns for the PURL `type` such as typical
+  `name` or `version` patterns.
+
 ## Test case properties
+This section provides a human-friendly explanation of each test case property
+of the PURL test schema and guidance for how to define useful test cases at
+the property level.
 
 ### description
 The test case `description` should succinctly describe the test case scope
 and purpose.
 
 ### test_group
-There are two PURL `test groups`:
+There are two PURL `test_groups`:
 - 'required': A test case to demonstrate conformance with ECMA-427 which means
   conformance with:
    - The Package-URL specification as documented in [ECMA-427 Clause 5](https://ecma-tc54.github.io/ECMA-427/#sec-purl-specification), and
    - The current set of registered PURL `type` definitions.
-- 'recommended': A test case that is recommended to identify common problems
-  in PURL data and how to remediate or normalize them in order to pass the
-  'required' tests. The use of 'recommended' test cases is always optional.
+- 'recommended': A test case that is recommended to identify common errors
+  in PURL data and how to report or normalize these errors in order to
+  update the data to pass the 'required' tests. The use of 'recommended' test
+  cases is optional for a PURL tool.
 
 The terminology of 'required' vs 'recommended' matches the use of "shall" vs
 "should" from Clause 2 of ECMA-427. A "shall" statement in ECMA-427 means
 'required'; a "should" statement means 'recommended'.
 
 ### test_type
-There are three PURL `test types`:
+There are three PURL `test_types`:
 - 'build': A test case for the function of building a valid PURL output
   string from an input of decoded PURL components. See also [How to build a PURL](https://www.packageurl.org/docs/purl/how-to-build).
 - 'parse': A test case for the function of parsing a PURL input string into
@@ -97,7 +126,7 @@ be descriptive without duplicating the test case `description`.
     the PURL `type` is effectively unknown across the tools and databases
     that implement PURL.
 
-##
+## PURL test requirements
 
 
 
