@@ -1,9 +1,19 @@
 ---
 status: proposed
-date: 2026-10-21
+date: 2026-11-20
 ---
 
-# Decision: Add new PURL type 'software-id'
+# Add new PURL type 'software-id'
+
+## Terminology
+
+We use the following specific terminology in this document:
+- "authority" means an organization (or person) that owns an internet domain
+  and uses the domain to define the first `namespace` segment for a
+  'software-id' PURL.
+- "commercial" means commercial or other proprietary software.
+- "publisher" means an organization, community or person who publishes or
+  distributes software.
 
 ## Context / Problem
 
@@ -30,7 +40,6 @@ from two use cases:
   Maven, npm, GitHub, or PyPI. This includes for example the packages of the
   Linux Kernel, some packages of the Apache Software Foundation, and a
   significant set of essential software that powers the modern internet.
-
 - Commercial software including internal use only software.
 
 For these two use cases, there is eventually a much larger number of package
@@ -51,15 +60,6 @@ products or open source projects.
 Both use cases demand a decentralized, federated solution for software
 publishers to define their own PURLs consistently for use in their software
 supply chains without external dependencies on a centralized naming authority.
-
-### Terminology
-We use the following terminology in this document
-- "commercial" means commercial or other proprietary software.
-- "authority" means an organization (or person) that owns an internet domain
-  and uses the domain to define the first `namespace` segment for a
-  'software-id' PURL.
-- "publisher" means an organization, community or person who publishes or
-  distributes software.
 
 ## Solution
 
@@ -134,7 +134,7 @@ Each domain acts as a PURL registry that enforces uniqueness. The shared
 the registration process, where each registration is documented by
 files published at a `/.well-known/purl` URI.
 
-#### Flexible namespacing
+#### Flexible namespaces
 
 The PURL `namespace` component supports multiple slash-separated segments
 (with no specific limit) so that the authority for a 'software-id' PURL
@@ -200,7 +200,7 @@ include:
 This use of `qualifiers` is common across PURL `types` but highlighted here
 because many 'software-id' PURLs may use multiple `qualifiers`.
 
-## Decision Drivers
+## Decision drivers
 
 Some of the decision drivers beyond the [Context / Problem](#context--problem)
 section were:
@@ -215,7 +215,7 @@ section were:
   and the difficulty in some cases of distinguishing between commercial and
   open source software.
 
-## Non-goals
+## Out of scope
 
 These use cases are not suitable for 'software-id':
 
@@ -229,7 +229,7 @@ These use cases are not suitable for 'software-id':
   describe a hardware device or its components. There are already several
   well-known identifiers for hardware artifacts such as [GTIN](https://www.gs1.org/standards/id-keys/gtin).
 
-## Alternatives Considered
+## Alternatives considered
 
 ### Use 'generic' PURL `type`
 
@@ -265,12 +265,18 @@ TEA has been approved by Ecma TC54 for submission to the Ecma General Assembly
 in December 2026. The community agreed that the use of a TEA Server should be
 an option, not a requirement.
 
-## Decision Outcome
+## Decision outcome
 
 This new PURL `type` has been under active discussion since early 2025.
 This decision is pending final approval by TC54/TG2.
 
-### Community Discussion References
+## Open questions
+
+
+
+## More information
+
+### Community discussion references
 
 The community discussion of this proposed PURL `type` started in July 2025
 and has been well-documented in the following issues in the `purl-spec`
@@ -299,10 +305,9 @@ be less confusing than acronyms like 'sid' or 'scid'.
 ### PURL discovery
 
 The PURL approach to discovering 'software-id' `types` is to use static files
-located at the `/.well-known/purl` location of the domain used as the first segment
-of that PURL. (Technically these files could be dynamically generated.)
-
-## More Information
+located at the `/.well-known/purl.json` URI of the domain used as the
+first segment of that PURL. (Technically these files could be dynamically
+generated.)
 
 ### Interoperable Successor to CPE
 
