@@ -107,9 +107,9 @@
             "validate"
           ],
           "meta:enum": {
-            "build": "A test to build a canonical PURL output string from an input of decoded PURL components.",
+            "build": "A test to build a valid PURL output string from an input of decoded PURL components.",
             "parse": "A test to parse a PURL input string into a set of decoded components.",
-            "validate": "A test to validate whether a PURL input string is in canonical form."
+            "validate": "A test to validate whether a PURL input string is in valid form."
           }
         },
         "expected_failure": {
@@ -148,7 +148,7 @@
             "properties": {
               "input": {
                 "title": "Input test PURL",
-                "description": "A PURL string to use as a test input (canonical or not).",
+                "description": "A PURL string to use as a test input (valid or not).",
                 "type": "string"
               },
               "expected_output": {
@@ -186,8 +186,8 @@
                 "$ref": "#/definitions/purl_components"
               },
               "expected_output": {
-                "title": "Expected canonical PURL",
-                "description": "Test output in the format of a canonical PURL string.",
+                "title": "Expected valid PURL",
+                "description": "Test output in the format of a valid PURL string.",
                 "type": "string"
               }
             },
@@ -202,22 +202,26 @@
             "properties": {
               "test_type": {
                 "const": "validate"
+              },
+              "expected_failure": {
+                "const": false
               }
             },
             "required": [
-              "test_type"
+              "test_type",
+              "expected_failure"
             ]
           },
           "then": {
             "properties": {
               "input": {
                 "title": "Input test PURL",
-                "description": "A PURL string to use as a test input (canonical or not).",
+                "description": "A PURL string to use as a test input (valid or not).",
                 "type": "string"
               },
               "expected_output": {
-                "title": "Expected canonical PURL",
-                "description": "Test output in the format of a canonical PURL string.",
+                "title": "Expected valid PURL",
+                "description": "Test output in the format of a valid PURL string.",
                 "type": "string"
               }
             },
@@ -246,7 +250,7 @@
             "properties": {
               "input": {
                 "title": "Input test PURL",
-                "description": "A PURL string to use as a test input (canonical or not).",
+                "description": "A PURL string to use as a test input (valid or not).",
                 "type": "string"
               }
             },
@@ -277,6 +281,35 @@
                 "title": "Expected input of  decoded PURL components",
                 "description": "Test input as an object of decoded PURL components, unless expected_failure=true.",
                 "$ref": "#/definitions/purl_components"
+              }
+            },
+            "required": [
+              "input",
+              "expected_message"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "validate"
+              },
+              "expected_failure": {
+                "const": true
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input test PURL",
+                "description": "A PURL string to use as a test input (valid or not).",
+                "type": "string"
               }
             },
             "required": [
