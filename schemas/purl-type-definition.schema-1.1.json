@@ -181,27 +181,27 @@
             "required": [
               "value",
               "description"
-          ],
-          "properties": {
-            "value": {
-              "title": "Registered Namespace Value",
-              "description": "Registered namespace value for this PURL type.",
-              "type": "string"
-            },
-            "description": {
-              "title": "Registered Namespace Description",
-              "description": "Explanation of what this namespace value means for this PURL type.",
-              "type": "string"
-            },
-            "reference_url": {
-              "title": "Reference URL",
-              "description": "Optional Reference URL for where this namespace value is defined for this PURL type.",
-              "type":"string"
+            ],
+            "properties": {
+              "value": {
+                "title": "Registered Namespace Value",
+                "description": "Registered namespace value for this PURL type.",
+                "type": "string"
+              },
+              "description": {
+                "title": "Registered Namespace Description",
+                "description": "Explanation of what this namespace value means for this PURL type.",
+                "type": "string"
+              },
+              "reference_url": {
+                "title": "Reference URL",
+                "description": "Optional Reference URL for where this namespace value is defined for this PURL type.",
+                "type": "string"
+              }
             }
           }
         }
-      }
-    },
+      },
       "allOf": [
         {
           "$ref": "#/definitions/purl_component_definition"
