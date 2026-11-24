@@ -15,7 +15,7 @@
   "name_definition": {
     "requirement": "required",
     "native_name": "name",
-    "note": "Package name as defined in CEP 26"
+    "note": "Package name, as defined in CEP 26"
   },
   "version_definition": {
     "requirement": "optional",
