@@ -130,40 +130,7 @@
       },
       "allOf": [
         {
-          "if": {
-            "properties": {
-              "test_type": {
-                "const": "parse"
-              },
-              "expected_failure": {
-                "const": false
-              }
-            },
-            "required": [
-              "test_type",
-              "expected_failure"
-            ]
-          },
-          "then": {
-            "properties": {
-              "input": {
-                "title": "Input test PURL",
-                "description": "A PURL string to use as a test input (valid or not).",
-                "type": "string"
-              },
-              "expected_output": {
-                "title": "Expected output decoded PURL components",
-                "description": "Test output as an object of decoded PURL components, unless expected_failure is true.",
-                "$ref": "#/definitions/purl_components"
-              }
-            },
-            "required": [
-              "input",
-              "expected_output"
-            ]
-          }
-        },
-        {
+          "title": "req-build-success",
           "if": {
             "properties": {
               "test_type": {
@@ -198,6 +165,42 @@
           }
         },
         {
+          "title": "req-parse-success",
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "parse"
+              },
+              "expected_failure": {
+                "const": false
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input test PURL",
+                "description": "A PURL string to use as a test input (valid or not).",
+                "type": "string"
+              },
+              "expected_output": {
+                "title": "Expected output decoded PURL components",
+                "description": "Test output as an object of decoded PURL components, unless expected_failure is true.",
+                "$ref": "#/definitions/purl_components"
+              }
+            },
+            "required": [
+              "input",
+              "expected_output"
+            ]
+          }
+        },
+        {
+          "title": "req-validate-success",
           "if": {
             "properties": {
               "test_type": {
@@ -232,35 +235,7 @@
           }
         },
         {
-          "if": {
-            "properties": {
-              "test_type": {
-                "const": "parse"
-              },
-              "expected_failure": {
-                "const": true
-              }
-            },
-            "required": [
-              "test_type",
-              "expected_failure"
-            ]
-          },
-          "then": {
-            "properties": {
-              "input": {
-                "title": "Input test PURL",
-                "description": "A PURL string to use as a test input (valid or not).",
-                "type": "string"
-              }
-            },
-            "required": [
-              "input",
-              "expected_message"
-            ]
-          }
-        },
-        {
+          "title": "req-build-failure",
           "if": {
             "properties": {
               "test_type": {
@@ -290,6 +265,232 @@
           }
         },
         {
+          "title": "req-parse-failure",
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "parse"
+              },
+              "expected_failure": {
+                "const": true
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input test PURL",
+                "description": "A PURL string to use as a test input (valid or not).",
+                "type": "string"
+              }
+            },
+            "required": [
+              "input",
+              "expected_message"
+            ]
+          }
+        },
+        {
+          "title": "req-validate-failure",
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "validate"
+              },
+              "expected_failure": {
+                "const": true
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input test PURL",
+                "description": "A PURL string to use as a test input (valid or not).",
+                "type": "string"
+              }
+            },
+            "required": [
+              "input",
+              "expected_message"
+            ]
+          }
+        },
+        {
+          "title": "rec-build-success",
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "build"
+              },
+              "expected_failure": {
+                "const": false
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Expected input of decoded PURL components",
+                "description": "Test input as an object of decoded PURL components, unless expected_failure=true.",
+                "$ref": "#/definitions/purl_components"
+              },
+              "expected_output": {
+                "title": "Expected valid PURL",
+                "description": "Test output in the format of a valid PURL string.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "input",
+              "expected_output"
+            ]
+          }
+        },
+        {
+          "title": "rec-parse-success",
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "parse"
+              },
+              "expected_failure": {
+                "const": false
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input test PURL",
+                "description": "A PURL string to use as a test input (valid or not).",
+                "type": "string"
+              },
+              "expected_output": {
+                "title": "Expected output decoded PURL components",
+                "description": "Test output as an object of decoded PURL components, unless expected_failure is true.",
+                "$ref": "#/definitions/purl_components"
+              }
+            },
+            "required": [
+              "input",
+              "expected_output"
+            ]
+          }
+        },
+        {
+          "title": "rec-validate-success",
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "validate"
+              },
+              "expected_failure": {
+                "const": false
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input test PURL",
+                "description": "A PURL string to use as a test input (valid or not).",
+                "type": "string"
+              },
+              "expected_output": {
+                "title": "Expected valid PURL",
+                "description": "Test output in the format of a valid PURL string.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "input",
+              "expected_output"
+            ]
+          }
+        },
+        {
+          "title": "rec-build-failure",
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "build"
+              },
+              "expected_failure": {
+                "const": true
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Expected input of  decoded PURL components",
+                "description": "Test input as an object of decoded PURL components, unless expected_failure=true.",
+                "$ref": "#/definitions/purl_components"
+              }
+            },
+            "required": [
+              "input",
+              "expected_message"
+            ]
+          }
+        },
+        {
+          "title": "rec-parse-failure",
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "parse"
+              },
+              "expected_failure": {
+                "const": true
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input test PURL",
+                "description": "A PURL string to use as a test input (valid or not).",
+                "type": "string"
+              }
+            },
+            "required": [
+              "input",
+              "expected_message"
+            ]
+          }
+        },
+        {
+          "title": "rec-validate-failure",
           "if": {
             "properties": {
               "test_type": {
