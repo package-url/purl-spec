@@ -130,7 +130,7 @@
       },
       "allOf": [
         {
-          "title": "req-build-success",
+          "title": "required-build-success",
           "if": {
             "properties": {
               "test_type": {
@@ -165,7 +165,7 @@
           }
         },
         {
-          "title": "req-parse-success",
+          "title": "required-parse-success",
           "if": {
             "properties": {
               "test_type": {
@@ -200,7 +200,7 @@
           }
         },
         {
-          "title": "req-validate-success",
+          "title": "required-validate-success",
           "if": {
             "properties": {
               "test_type": {
@@ -235,7 +235,7 @@
           }
         },
         {
-          "title": "req-build-failure",
+          "title": "required-build-failure",
           "if": {
             "properties": {
               "test_type": {
@@ -265,7 +265,7 @@
           }
         },
         {
-          "title": "req-parse-failure",
+          "title": "required-parse-failure",
           "if": {
             "properties": {
               "test_type": {
@@ -295,7 +295,7 @@
           }
         },
         {
-          "title": "req-validate-failure",
+          "title": "required-validate-failure",
           "if": {
             "properties": {
               "test_type": {
@@ -325,7 +325,7 @@
           }
         },
         {
-          "title": "rec-build-success",
+          "title": "recommended-build-success",
           "if": {
             "properties": {
               "test_type": {
@@ -360,7 +360,7 @@
           }
         },
         {
-          "title": "rec-parse-success",
+          "title": "recommended-parse-success",
           "if": {
             "properties": {
               "test_type": {
@@ -395,7 +395,7 @@
           }
         },
         {
-          "title": "rec-validate-success",
+          "title": "recommended-validate-success",
           "if": {
             "properties": {
               "test_type": {
@@ -430,7 +430,7 @@
           }
         },
         {
-          "title": "rec-build-failure",
+          "title": "recommended-build-failure",
           "if": {
             "properties": {
               "test_type": {
@@ -460,7 +460,7 @@
           }
         },
         {
-          "title": "rec-parse-failure",
+          "title": "recommended-parse-failure",
           "if": {
             "properties": {
               "test_type": {
@@ -490,7 +490,7 @@
           }
         },
         {
-          "title": "rec-validate-failure",
+          "title": "recommended-validate-failure",
           "if": {
             "properties": {
               "test_type": {
