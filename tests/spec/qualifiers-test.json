@@ -1,0 +1,83 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "order qualifiers by name",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "generic",
+        "namespace": null,
+        "name": "example",
+        "version": null,
+        "qualifiers": {
+          "b": "1",
+          "c": "2",
+          "a": "3"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:generic/example?a=3&b=1&c=2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "order qualifiers by name",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:generic/example?b=1&c=2&a=3",
+      "expected_output": "pkg:generic/example?a=3&b=1&c=2",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "encode qualifiers",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "generic",
+        "namespace": null,
+        "name": "example",
+        "version": null,
+        "qualifiers": {
+          "calc": "2+1=3",
+          "preencoded_url": "https://example.com/site?val%5B1%5D=my%20key&d=%23#docs",
+          "unencoded_url": "https://example.com/site?val[1]=my key#docs"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:generic/example?calc=2%2B1%3D3&preencoded_url=https:%2F%2Fexample.com%2Fsite%3Fval%255B1%255D%3Dmy%2520key%26d%3D%2523%23docs&unencoded_url=https:%2F%2Fexample.com%2Fsite%3Fval%5B1%5D%3Dmy%20key%23docs",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "decode qualifiers",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:generic/example?calc=2%2B1%3D3&preencoded_url=https:%2F%2Fexample.com%2Fsite%3Fval%255B1%255D%3Dmy%2520key%26d%3D%2523%23docs&unencoded_url=https:%2F%2Fexample.com%2Fsite%3Fval%5B1%5D%3Dmy%20key%23docs",
+      "expected_output": {
+        "type": "generic",
+        "namespace": null,
+        "name": "example",
+        "version": null,
+        "qualifiers": {
+          "calc": "2+1=3",
+          "preencoded_url": "https://example.com/site?val%5B1%5D=my%20key&d=%23#docs",
+          "unencoded_url": "https://example.com/site?val[1]=my key#docs"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "keep qualifiers unchanged when fixing encoding",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:generic/example?calc=2%2B1%3D3&preencoded_url=https:%2F%2Fexample.com%2Fsite%3Fval%255B1%255D%3Dmy%2520key%26d%3D%2523%23docs&unencoded_url=https:%2F%2Fexample.com%2Fsite%3Fval%5B1%5D%3Dmy%20key%23docs",
+      "expected_output": "pkg:generic/example?calc=2%2B1%3D3&preencoded_url=https:%2F%2Fexample.com%2Fsite%3Fval%255B1%255D%3Dmy%2520key%26d%3D%2523%23docs&unencoded_url=https:%2F%2Fexample.com%2Fsite%3Fval%5B1%5D%3Dmy%20key%23docs",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    }
+  ]
+}
