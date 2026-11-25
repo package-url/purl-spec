@@ -1,0 +1,48 @@
+{
+  "$schema": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+  "$id": "https://packageurl.org/types/smartsetup-definition.json",
+  "type": "smartsetup",
+  "type_name": "TMS Smart Setup",
+  "description": "Projects and packages managed by TMS Smart Setup for the Delphi/RAD Studio ecosystem",
+  "repository": {
+    "use_repository": true,
+    "default_repository_url": "https://www.smartsetup.org/",
+    "note": "Smart Setup resolves products from configurable servers. The default repository, https://www.smartsetup.org/, is the central Smart Setup registry that routes to the underlying sub-registries — the public open-source registry and vendor-operated servers, such as those published by TMS. Product ids are unique across servers; the repository_url qualifier identifies a specific non-default server or source repository."
+  },
+  "namespace_definition": {
+    "requirement": "prohibited",
+    "note": "There is no namespace. The vendor or owner identifier is part of the native dotted Smart Setup product id."
+  },
+  "name_definition": {
+    "requirement": "required",
+    "native_name": "product id",
+    "case_sensitive": false,
+    "note": "The name is the full native Smart Setup product id, a dotted identifier such as 'tms.biz.aurelius' or 'sglienke.spring4d'. It must be lowercased."
+  },
+  "version_definition": {
+    "requirement": "optional",
+    "native_name": "version",
+    "note": "The version is the native version identifier understood by Smart Setup for the product, such as a server-published product version. The native version identifier is preserved rather than imposing an additional versioning scheme.",
+    "normalization_rules": [
+      "Use the version string exactly as published by the Smart Setup server for the product; do not pad or truncate version segments."
+    ]
+  },
+  "qualifiers_definition": [
+    {
+      "key": "repository_url",
+      "requirement": "optional",
+      "description": "A non-default Smart Setup package server or source repository from which the product is obtained, when it is not the default community registry."
+    }
+  ],
+  "examples": [
+    "pkg:smartsetup/tms.biz.aurelius@5.26",
+    "pkg:smartsetup/tms.webcore@2.9.9.3",
+    "pkg:smartsetup/sglienke.spring4d",
+    "pkg:smartsetup/tms.biz.bcl"
+  ],
+  "reference_urls": [
+    "https://doc.tmssoftware.com/smartsetup/",
+    "https://github.com/tmssoftware/smartsetup",
+    "https://github.com/tmssoftware/smartsetup-registry"
+  ]
+}
