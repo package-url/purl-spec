@@ -156,6 +156,218 @@
       "expected_message": null
     },
     {
+      "description": "Hugging Face model with tag version. Roundtrip an input purl to canonical.",
+      "test_group": "recommended",
+      "test_type": "validate",
+      "input": "pkg:huggingface/LumiOpen/Poro-34B@100B",
+      "expected_output": "pkg:huggingface/LumiOpen/Poro-34B@100B",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Hugging Face model with tag version",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:huggingface/LumiOpen/Poro-34B@100B",
+      "expected_output": {
+        "type": "huggingface",
+        "namespace": "LumiOpen",
+        "name": "Poro-34B",
+        "version": "100B",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Hugging Face model with tag version. Roundtrip a canonical input to canonical output.",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:huggingface/LumiOpen/Poro-34B@100B",
+      "expected_output": "pkg:huggingface/LumiOpen/Poro-34B@100B",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Hugging Face model with tag version",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "huggingface",
+        "namespace": "LumiOpen",
+        "name": "Poro-34B",
+        "version": "100B",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:huggingface/LumiOpen/Poro-34B@100B",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Hugging Face model with explicit type qualifier. Roundtrip an input purl to canonical.",
+      "test_group": "recommended",
+      "test_type": "validate",
+      "input": "pkg:huggingface/LumiOpen/Poro-34B@14d8824c28d782fcd1cd9579ac06644f60e62450?type=model",
+      "expected_output": "pkg:huggingface/LumiOpen/Poro-34B@14d8824c28d782fcd1cd9579ac06644f60e62450?type=model",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Hugging Face model with explicit type qualifier",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:huggingface/LumiOpen/Poro-34B@14d8824c28d782fcd1cd9579ac06644f60e62450?type=model",
+      "expected_output": {
+        "type": "huggingface",
+        "namespace": "LumiOpen",
+        "name": "Poro-34B",
+        "version": "14d8824c28d782fcd1cd9579ac06644f60e62450",
+        "qualifiers": {
+          "type": "model"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Hugging Face model with explicit type qualifier. Roundtrip a canonical input to canonical output.",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:huggingface/LumiOpen/Poro-34B@14d8824c28d782fcd1cd9579ac06644f60e62450?type=model",
+      "expected_output": "pkg:huggingface/LumiOpen/Poro-34B@14d8824c28d782fcd1cd9579ac06644f60e62450?type=model",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Hugging Face model with explicit type qualifier",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "huggingface",
+        "namespace": "LumiOpen",
+        "name": "Poro-34B",
+        "version": "14d8824c28d782fcd1cd9579ac06644f60e62450",
+        "qualifiers": {
+          "type": "model"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:huggingface/LumiOpen/Poro-34B@14d8824c28d782fcd1cd9579ac06644f60e62450?type=model",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Hugging Face dataset with type qualifier. Roundtrip an input purl to canonical.",
+      "test_group": "recommended",
+      "test_type": "validate",
+      "input": "pkg:huggingface/bigcode/the-stack@v1.1?type=dataset",
+      "expected_output": "pkg:huggingface/bigcode/the-stack@v1.1?type=dataset",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Hugging Face dataset with type qualifier",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:huggingface/bigcode/the-stack@v1.1?type=dataset",
+      "expected_output": {
+        "type": "huggingface",
+        "namespace": "bigcode",
+        "name": "the-stack",
+        "version": "v1.1",
+        "qualifiers": {
+          "type": "dataset"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Hugging Face dataset with type qualifier. Roundtrip a canonical input to canonical output.",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:huggingface/bigcode/the-stack@v1.1?type=dataset",
+      "expected_output": "pkg:huggingface/bigcode/the-stack@v1.1?type=dataset",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Hugging Face dataset with type qualifier",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "huggingface",
+        "namespace": "bigcode",
+        "name": "the-stack",
+        "version": "v1.1",
+        "qualifiers": {
+          "type": "dataset"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:huggingface/bigcode/the-stack@v1.1?type=dataset",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Hugging Face space without version. Roundtrip an input purl to canonical.",
+      "test_group": "recommended",
+      "test_type": "validate",
+      "input": "pkg:huggingface/black-forest-labs/FLUX.1-Kontext-Dev?type=space",
+      "expected_output": "pkg:huggingface/black-forest-labs/FLUX.1-Kontext-Dev?type=space",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Hugging Face space without version",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:huggingface/black-forest-labs/FLUX.1-Kontext-Dev?type=space",
+      "expected_output": {
+        "type": "huggingface",
+        "namespace": "black-forest-labs",
+        "name": "FLUX.1-Kontext-Dev",
+        "version": null,
+        "qualifiers": {
+          "type": "space"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Hugging Face space without version. Roundtrip a canonical input to canonical output.",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:huggingface/black-forest-labs/FLUX.1-Kontext-Dev?type=space",
+      "expected_output": "pkg:huggingface/black-forest-labs/FLUX.1-Kontext-Dev?type=space",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Hugging Face space without version",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "huggingface",
+        "namespace": "black-forest-labs",
+        "name": "FLUX.1-Kontext-Dev",
+        "version": null,
+        "qualifiers": {
+          "type": "space"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:huggingface/black-forest-labs/FLUX.1-Kontext-Dev?type=space",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
       "description": "Parse test for PURL type: huggingface",
       "test_group": "required",
       "test_type": "parse",
