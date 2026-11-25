@@ -256,6 +256,11 @@
                 "title": "Expected input of  decoded PURL components",
                 "description": "Test input as an object of decoded PURL components, unless expected_failure=true.",
                 "$ref": "#/definitions/purl_components"
+              },
+              "expected_message": {
+                "title": "Expected test message",
+                "description": "The reason why a test failed or another message about the test result.",
+                "type": "string"
               }
             },
             "required": [
@@ -286,6 +291,11 @@
                 "title": "Input test PURL",
                 "description": "A PURL string to use as a test input (valid or not).",
                 "type": "string"
+              },
+              "expected_message": {
+                "title": "Expected test message",
+                "description": "The reason why a test failed or another message about the test result.",
+                "type": "string"
               }
             },
             "required": [
@@ -315,6 +325,11 @@
               "input": {
                 "title": "Input test PURL",
                 "description": "A PURL string to use as a test input (valid or not).",
+                "type": "string"
+              },
+              "expected_message": {
+                "title": "Expected test message",
+                "description": "The reason why a test failed or another message about the test result.",
                 "type": "string"
               }
             },
@@ -451,6 +466,11 @@
                 "title": "Expected input of  decoded PURL components",
                 "description": "Test input as an object of decoded PURL components, unless expected_failure=true.",
                 "$ref": "#/definitions/purl_components"
+              },
+              "expected_message": {
+                "title": "Expected test message",
+                "description": "The reason why a test failed or another message about the test result.",
+                "type": "string"
               }
             },
             "required": [
@@ -481,6 +501,11 @@
                 "title": "Input test PURL",
                 "description": "A PURL string to use as a test input (valid or not).",
                 "type": "string"
+              },
+              "expected_message": {
+                "title": "Expected test message",
+                "description": "The reason why a test failed or another message about the test result.",
+                "type": "string"
               }
             },
             "required": [
@@ -510,6 +535,11 @@
               "input": {
                 "title": "Input test PURL",
                 "description": "A PURL string to use as a test input (valid or not).",
+                "type": "string"
+              },
+              "expected_message": {
+                "title": "Expected test message",
+                "description": "The reason why a test failed or another message about the test result.",
                 "type": "string"
               }
             },
