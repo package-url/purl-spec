@@ -30,8 +30,8 @@ class PackageUrlTestDefinition(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
-    field_schema: Any | None = Field(
-        None,
+    field_schema: Literal["https://packageurl.org/purl-schemas/purl-test.schema-0.2.json"] = Field(
+        "https://packageurl.org/purl-schemas/purl-test.schema-0.2.json",
         alias="$schema",
         description="Contains the URL of the JSON schema for Package-URL tests.",
         title="JSON schema",

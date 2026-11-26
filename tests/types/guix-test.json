@@ -1,0 +1,242 @@
+{
+  "$schema": "https://packageurl.org/purl-schemas/purl-test.schema-0.2.json",
+  "tests": [
+    {
+      "description": "Parse a versioned package from the official Guix channel.",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:guix/guix/drawing@1.0.2",
+      "expected_output": {
+        "type": "guix",
+        "namespace": "guix",
+        "name": "drawing",
+        "version": "1.0.2",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Validate a canonical versioned PURL from the official Guix channel.",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:guix/guix/drawing@1.0.2",
+      "expected_output": "pkg:guix/guix/drawing@1.0.2",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Build a versioned PURL from the official Guix channel.",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "guix",
+        "namespace": "guix",
+        "name": "drawing",
+        "version": "1.0.2",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:guix/guix/drawing@1.0.2",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Parse a PURL selecting the doc output of glib.",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:guix/guix/glib?output=doc",
+      "expected_output": {
+        "type": "guix",
+        "namespace": "guix",
+        "name": "glib",
+        "version": null,
+        "qualifiers": {
+          "output": "doc"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Validate a canonical PURL selecting the doc output of glib.",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:guix/guix/glib?output=doc",
+      "expected_output": "pkg:guix/guix/glib?output=doc",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Build a PURL selecting the doc output of glib.",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "guix",
+        "namespace": "guix",
+        "name": "glib",
+        "version": null,
+        "qualifiers": {
+          "output": "doc"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:guix/guix/glib?output=doc",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Parse a PURL selecting the bin output of glib.",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:guix/guix/glib?output=bin",
+      "expected_output": {
+        "type": "guix",
+        "namespace": "guix",
+        "name": "glib",
+        "version": null,
+        "qualifiers": {
+          "output": "bin"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Parse a versioned package from the Nonguix channel with its repository URL.",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:guix/nonguix/linux-firmware@20261019?repository_url=https:%2F%2Fgitlab.com%2Fnonguix%2Fnonguix",
+      "expected_output": {
+        "type": "guix",
+        "namespace": "nonguix",
+        "name": "linux-firmware",
+        "version": "20261019",
+        "qualifiers": {
+          "repository_url": "https://gitlab.com/nonguix/nonguix"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Validate a canonical Nonguix PURL with its repository URL.",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:guix/nonguix/linux-firmware@20261019?repository_url=https:%2F%2Fgitlab.com%2Fnonguix%2Fnonguix",
+      "expected_output": "pkg:guix/nonguix/linux-firmware@20261019?repository_url=https:%2F%2Fgitlab.com%2Fnonguix%2Fnonguix",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Build a Nonguix PURL with its version and repository URL.",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "guix",
+        "namespace": "nonguix",
+        "name": "linux-firmware",
+        "version": "20261019",
+        "qualifiers": {
+          "repository_url": "https://gitlab.com/nonguix/nonguix"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:guix/nonguix/linux-firmware@20261019?repository_url=https:%2F%2Fgitlab.com%2Fnonguix%2Fnonguix",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Parse an official-channel package PURL without a version or qualifiers.",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:guix/guix/hello",
+      "expected_output": {
+        "type": "guix",
+        "namespace": "guix",
+        "name": "hello",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Parse a PURL containing both output and repository_url qualifiers.",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "pkg:guix/nonguix/example-package@1.0?output=bin&repository_url=https:%2F%2Fgitlab.com%2Fnonguix%2Fnonguix",
+      "expected_output": {
+        "type": "guix",
+        "namespace": "nonguix",
+        "name": "example-package",
+        "version": "1.0",
+        "qualifiers": {
+          "output": "bin",
+          "repository_url": "https://gitlab.com/nonguix/nonguix"
+        },
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Build a PURL containing both output and repository_url qualifiers.",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "guix",
+        "namespace": "nonguix",
+        "name": "example-package",
+        "version": "1.0",
+        "qualifiers": {
+          "output": "bin",
+          "repository_url": "https://gitlab.com/nonguix/nonguix"
+        },
+        "subpath": null
+      },
+      "expected_output": "pkg:guix/nonguix/example-package@1.0?output=bin&repository_url=https:%2F%2Fgitlab.com%2Fnonguix%2Fnonguix",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Normalize an unencoded repository URL qualifier to canonical PURL encoding.",
+      "test_group": "recommended",
+      "test_type": "validate",
+      "input": "pkg:guix/nonguix/example-package@1.0?repository_url=https://gitlab.com/nonguix/nonguix",
+      "expected_output": "pkg:guix/nonguix/example-package@1.0?repository_url=https:%2F%2Fgitlab.com%2Fnonguix%2Fnonguix",
+      "expected_failure": false,
+      "expected_message": null
+    },
+    {
+      "description": "Reject a Guix PURL without the required channel namespace.",
+      "test_group": "required",
+      "test_type": "validate",
+      "input": "pkg:guix/drawing@1.0.2",
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_message": "The Guix PURL type requires a channel namespace."
+    },
+    {
+      "description": "Reject building a Guix PURL without the required channel namespace.",
+      "test_group": "required",
+      "test_type": "build",
+      "input": {
+        "type": "guix",
+        "namespace": null,
+        "name": "drawing",
+        "version": "1.0.2",
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": null,
+      "expected_failure": true,
+      "expected_message": "The Guix PURL type requires a channel namespace."
+    }
+  ]
+}
